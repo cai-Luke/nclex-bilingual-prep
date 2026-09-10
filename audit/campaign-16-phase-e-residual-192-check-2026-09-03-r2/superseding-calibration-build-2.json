@@ -1,0 +1,57 @@
+{
+  "supersedingBuildVersion": "2.0",
+  "packetId": "r2-cal-a-superseding-2",
+  "supersedesPacketId": "r2-cal-a-superseding-1",
+  "reason": "control void; calibration live rows re-packeted with fresh controls",
+  "seed": "campaign16-phase-e-residual192-r1-v1",
+  "workOrderSha256": "a957e1c95a72458d11154f780228723704ee64f5355fb9b017df1495e57a5da5",
+  "liveRows": 9,
+  "liveQueueIndices": [
+    23,
+    4,
+    17,
+    28,
+    5,
+    29,
+    8,
+    22,
+    27
+  ],
+  "controls": [
+    {
+      "queueIndex": 414,
+      "role": "POSITIVE_SINGLE_UNSAFE",
+      "parentCaseId": "opus2_case_postop_opioid_respiratory_depression_01"
+    },
+    {
+      "queueIndex": 32,
+      "role": "POSITIVE_SINGLE_UNSAFE",
+      "parentCaseId": "opus22_case_postpartum_intrusive_thoughts_01"
+    },
+    {
+      "queueIndex": 273,
+      "role": "POSITIVE_SINGLE_UNSAFE",
+      "parentCaseId": "gpt_case_hipaa_disclosure_breach_01"
+    },
+    {
+      "queueIndex": 225,
+      "role": "NEGATIVE_NO_LEAK",
+      "parentCaseId": "gpt_opus21_case_colostomy_lep_discharge_01"
+    }
+  ],
+  "noPriorControlExposure": true,
+  "noControlLiveParentCollision": true,
+  "packet": {
+    "path": "packets/r2-cal-a-superseding-2.json",
+    "sha256": "3309f5e4bcb9180cd514d7c75607e120561fee2dc339816b32c5a70850de2fd5",
+    "bytes": 614742
+  },
+  "deterministicRebuild": {
+    "byteIdentical": true,
+    "temporarySurfaceRemoved": true
+  },
+  "mapExtension": {
+    "rowMapSha256": "668f61b31cb05f899242aae55eada2c6565fd18d2d0f7ebdae0a6b244516f46d",
+    "requiresPrior-returnDeterministicRevalidation": true
+  }
+}

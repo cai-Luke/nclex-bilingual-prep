@@ -1,0 +1,49 @@
+{
+  "validationReceiptVersion": "1.0",
+  "packetId": "cal-a-superseding-1",
+  "attempt": 2,
+  "packet": {
+    "path": "packets/cal-a-superseding-1.json",
+    "sha256": "dab888f8c02f786a9f000c62b3de6faf2d85ed79f5c16b9a1a4ab2902ede4ed6",
+    "bytes": 535608
+  },
+  "output": {
+    "path": "outputs/cal-a-superseding-1-attempt-2.jsonl",
+    "sha256": "5380d920b806303466fc33c104b32690d4e41839be7f4aca2f6be60a062c28bd",
+    "bytes": 31159,
+    "rows": 13
+  },
+  "processReceipt": {
+    "path": "raw/cal-a-superseding-1-attempt-2.process.json",
+    "sha256": "e1664d180602dc8af0be7b126891f57944fe2fa4fbce632756a7f5010b908414"
+  },
+  "validation": {
+    "ok": false,
+    "packetId": "cal-a-superseding-1",
+    "expectedRows": 13,
+    "receivedRows": 13,
+    "gates": {
+      "G1": "PASS",
+      "G2": "PASS",
+      "G3": "PASS",
+      "G4": "FAIL",
+      "G5": "PASS",
+      "G6": "PASS",
+      "G7": "PASS",
+      "G8": "PASS",
+      "G9": "PASS",
+      "G10": "PASS",
+      "G11": "PASS",
+      "G12": "PASS",
+      "G13": "PASS",
+      "G14": "PASS"
+    },
+    "errors": [
+      "G4: row 2 stage enumeration must equal authored order",
+      "G4: row 8 stage enumeration must equal authored order"
+    ]
+  },
+  "lock": null,
+  "controlScoringPerformed": false,
+  "calibrationAdmission": "NONE"
+}

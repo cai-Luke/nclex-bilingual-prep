@@ -1,0 +1,17 @@
+[
+  {
+    "suite": "exam-layout",
+    "exitCode": 0,
+    "output": "exam layout tests passed\n"
+  },
+  {
+    "suite": "schema-bank",
+    "exitCode": 0,
+    "output": "bank schema tests passed\n"
+  },
+  {
+    "suite": "audit-stage-refs",
+    "exitCode": 1,
+    "output": "ertionError [ERR_ASSERTION]: default mode must never be fatal, even with a leak present\n\n1 !== 0\n\n    at <anonymous> (/Users/holemini/Desktop/Project Shrimp/scripts/tests/audit-stage-refs.ts:270:12)\n    at async <anonymous> (/Users/holemini/Desktop/Project Shrimp/scripts/tests/audit-stage-refs.ts:239:1) {\n  generatedMessage: false,\n  code: 'ERR_ASSERTION',\n  actual: 1,\n  expected: 0,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v25.9.0\n"
+  }
+]

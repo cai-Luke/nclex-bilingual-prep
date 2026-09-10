@@ -1,0 +1,71 @@
+{
+  "artifact": "independent architecture review (P2) — Campaign 16 Phase E typed baseline representation",
+  "seat": "architect / independent reviewer",
+  "producerArtifact": "audit/campaign-16-phase-e-baseline-representation-architecture-2026-09-08-r1/",
+  "repoHeadAtReview": "3286024bcab90c1a114811a7202d956c3e586bf4",
+  "headMatchesProducerOpeningSnapshot": true,
+  "generatedAtUtc": "2026-09-09T00:45:29Z",
+  "node": "v25.9.0",
+
+  "stageRefsCliRerun": {
+    "purpose": "Resolve whether the producer's incomplete audit-stage-refs run was environmental or behavioral.",
+    "command": "TMPDIR=/tmp/ npx tsx scripts/tests/audit-stage-refs.ts",
+    "cwd": "/Users/holemini/Desktop/Project Shrimp",
+    "exitCode": 0,
+    "stdout": [
+      "audit-stage-refs in-memory fixture tests passed",
+      "audit-stage-refs --file/--strict pathway tests passed"
+    ],
+    "sourceMutated": false,
+    "note": "Unmodified live suite. Only the TMPDIR environment variable differed from the producer run."
+  },
+
+  "sunPathDiagnosis": {
+    "failingPipePathBytes": 138,
+    "rerunPipePathBytes": 23,
+    "darwinSunPathLimitBytes": 104,
+    "conclusion": "AF_UNIX sun_path overflow caused by TMPDIR pointing inside the long producer audit directory; tsx could not create its IPC socket before any audit logic executed.",
+    "corroboration": [
+      "All in-process runAuditStageRefs assertions preceding the failure passed (conformant PASS, strict FAIL, default WARN).",
+      "The preceding CLI assertion is assert.notEqual(status, 0) and therefore passes vacuously under a launcher failure; the failing assertion at scripts/tests/audit-stage-refs.ts:270 is the first positive CLI status assertion.",
+      "Identical audit logic returns correct results in-process."
+    ],
+    "ruling": "Environmental, not behavioral. Full-suite pass for eventual implementation acceptance is NOT waived."
+  },
+
+  "mechanicalStructuralObservations": {
+    "scope": "banks/*.json, read-only. Structural counts only. NOT a semantic survey, NOT a prevalence estimate, NOT a repair input.",
+    "caseParentsTotal": 145,
+    "distinctAnchorValuesInUse": 37,
+    "nonResolvingAnchorValues": 0,
+    "declaredStageIdsExactlyEqualToBaseline": 0,
+    "declaredStageIdsContainingBaselineSubstring": [
+      "gpt_casepilot_2026_07_19_c_stage_baseline_0900"
+    ],
+    "caseParentsWithEmptyTopLevelExhibits": 5,
+    "ofThoseDeclaringStages": 5,
+    "ofThoseAlsoLackingSummary": 0
+  },
+
+  "preservation": {
+    "productionMutation": false,
+    "schemaMutation": false,
+    "bankMutation": false,
+    "governanceMutation": false,
+    "censusRegenerated": false,
+    "r3Modified": false,
+    "repairAnchorsAssigned": false,
+    "patchMappingsCreated": false,
+    "producerArtifactDirectoryModified": false,
+    "newPaths": [
+      "audit/campaign-16-phase-e-baseline-representation-architecture-review-2026-09-08-r1/verification-receipt.json"
+    ]
+  },
+
+  "verificationLimitations": [
+    "No build, no npm run typecheck, no full aggregate audit, no census computation or census:check, no raw promotion, no patch execution.",
+    "Only the stage-reference suite was re-run; exam-layout and schema-bank suites were accepted from the producer's exit-0 receipts, not independently re-executed.",
+    "No proposed implementation exists, so no proposed behavior was executed. All forward-looking rulings are contract judgments, not test results.",
+    "Bank observations above are structural JSON reads; no semantic adjudication of any row was performed."
+  ]
+}

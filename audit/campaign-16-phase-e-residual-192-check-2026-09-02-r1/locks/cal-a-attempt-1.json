@@ -1,0 +1,116 @@
+{
+  "lockVersion": "1.0",
+  "packetId": "cal-a",
+  "attempt": 1,
+  "lockedAtUtc": "2026-09-03T11:59:43.664Z",
+  "packet": {
+    "path": "packets/cal-a.json",
+    "sha256": "c573b07a31ff2bc6c848536ce7c2de9b88b35b767441d2184a210596c1d5b41c",
+    "bytes": 536837
+  },
+  "output": {
+    "path": "outputs/cal-a-attempt-1.jsonl",
+    "sha256": "24a6312927b7bc62bc9be83e021600a977cde71aa0b686200c33edd730afb24e",
+    "bytes": 29294,
+    "rows": 13
+  },
+  "rawCliResponse": {
+    "path": "raw/cal-a-attempt-1.cli.json",
+    "sha256": "289cbc20132d4d9f8b8b04594b010165e42f0f8759dfaa2d75ddd84bc539a871"
+  },
+  "processReceipt": {
+    "path": "raw/cal-a-attempt-1.process.json",
+    "sha256": "5e58193a19f1a2e07ff90751e0a77bcbd066af63f56d18066bdb4e1d539451d3"
+  },
+  "mechanicalValidation": {
+    "ok": true,
+    "packetId": "cal-a",
+    "expectedRows": 13,
+    "receivedRows": 13,
+    "gates": {
+      "G1": "PASS",
+      "G2": "PASS",
+      "G3": "PASS",
+      "G4": "PASS",
+      "G5": "PASS",
+      "G6": "PASS",
+      "G7": "PASS",
+      "G8": "PASS",
+      "G9": "PASS",
+      "G10": "PASS",
+      "G11": "PASS",
+      "G12": "PASS",
+      "G13": "PASS",
+      "G14": "PASS"
+    },
+    "errors": []
+  },
+  "controlScoring": {
+    "controls": [
+      {
+        "rowToken": "row_ed13bf7c4cf992cdcff895df",
+        "sourceStage2QueueIndex": 245,
+        "expectedPrimaryVerdict": "NO_LEAK_COMPLETE_RECORD",
+        "returnedPrimaryVerdict": "NO_LEAK_NONANSWERING_DATA",
+        "primaryPass": true,
+        "expectedSingleUnsafeStageId": null,
+        "returnedLocusStageId": null,
+        "locusPass": true,
+        "expectedBilingualRelation": "PARALLEL",
+        "returnedBilingualRelation": "PARALLEL",
+        "bilingualPass": true,
+        "noLeakSubclassAdvisory": true
+      },
+      {
+        "rowToken": "row_731ae0c403270a15e53d161d",
+        "sourceStage2QueueIndex": 243,
+        "expectedPrimaryVerdict": "LEAK",
+        "returnedPrimaryVerdict": "LEAK",
+        "primaryPass": true,
+        "expectedSingleUnsafeStageId": "stage_3",
+        "returnedLocusStageId": "stage_3",
+        "locusPass": true,
+        "expectedBilingualRelation": "PARALLEL",
+        "returnedBilingualRelation": "PARALLEL",
+        "bilingualPass": true,
+        "noLeakSubclassAdvisory": false
+      },
+      {
+        "rowToken": "row_0dd91563f088cfe66488d2cd",
+        "sourceStage2QueueIndex": 240,
+        "expectedPrimaryVerdict": "LEAK",
+        "returnedPrimaryVerdict": "NO_LEAK_NONANSWERING_DATA",
+        "primaryPass": false,
+        "expectedSingleUnsafeStageId": "stage_2",
+        "returnedLocusStageId": null,
+        "locusPass": false,
+        "expectedBilingualRelation": "PARALLEL",
+        "returnedBilingualRelation": "PARALLEL",
+        "bilingualPass": true,
+        "noLeakSubclassAdvisory": false
+      },
+      {
+        "rowToken": "row_ce004e486460eae9a41ecff0",
+        "sourceStage2QueueIndex": 242,
+        "expectedPrimaryVerdict": "LEAK",
+        "returnedPrimaryVerdict": "NO_LEAK_NONANSWERING_DATA",
+        "primaryPass": false,
+        "expectedSingleUnsafeStageId": "stage_3",
+        "returnedLocusStageId": null,
+        "locusPass": false,
+        "expectedBilingualRelation": "PARALLEL",
+        "returnedBilingualRelation": "PARALLEL",
+        "bilingualPass": true,
+        "noLeakSubclassAdvisory": false
+      }
+    ],
+    "primaryPassCount": 2,
+    "locusPassCount": 2,
+    "bilingualPassCount": 4,
+    "noLeakSubclassAdvisories": 1,
+    "bilingualDiscriminatingPower": "NONE_ALL_FROZEN_CONTROLS_PARALLEL",
+    "packetVoid": true
+  },
+  "calibrationLiveDisposition": "VOID_DISCARDED_NOT_ADMITTED",
+  "mainAdjudicationAdmission": false
+}

@@ -1,0 +1,113 @@
+{
+  "packetIndexVersion": "1.0",
+  "seed": "campaign16-phase-e-residual192-r1-v1",
+  "maxSerializedUtf8Bytes": 700000,
+  "packets": [
+    {
+      "packetId": "cal-a",
+      "path": "packets/cal-a.json",
+      "nominalLiveTarget": 8,
+      "liveRows": 9,
+      "liveParentCases": 5,
+      "controls": 4,
+      "totalTargets": 13,
+      "stageCount": 18,
+      "serializedUtf8Bytes": 536837,
+      "compactSerializedUtf8Bytes": 536836,
+      "stoppedByByteCeilingBeforeNominal": false,
+      "sha256": "c573b07a31ff2bc6c848536ce7c2de9b88b35b767441d2184a210596c1d5b41c",
+      "liveQueueIndices": [
+        4,
+        5,
+        8,
+        17,
+        22,
+        23,
+        27,
+        28,
+        29
+      ]
+    },
+    {
+      "packetId": "cal-b",
+      "path": "packets/cal-b.json",
+      "nominalLiveTarget": 16,
+      "liveRows": 11,
+      "liveParentCases": 5,
+      "controls": 4,
+      "totalTargets": 15,
+      "stageCount": 18,
+      "serializedUtf8Bytes": 617316,
+      "compactSerializedUtf8Bytes": 617315,
+      "stoppedByByteCeilingBeforeNominal": true,
+      "sha256": "2e5847c8b31b1eae9f16c06d3df4816c59860c5949b39cde083127bef5f5c275",
+      "liveQueueIndices": [
+        34,
+        38,
+        40,
+        44,
+        45,
+        46,
+        51,
+        52,
+        53,
+        56,
+        58
+      ]
+    },
+    {
+      "packetId": "cal-a-superseding-1",
+      "path": "packets/cal-a-superseding-1.json",
+      "supersedesPacketId": "cal-a",
+      "supersedingReason": "CONTROL_VOID",
+      "nominalLiveTarget": 8,
+      "liveRows": 9,
+      "liveParentCases": 5,
+      "controls": 4,
+      "totalTargets": 13,
+      "stageCount": 18,
+      "serializedUtf8Bytes": 535608,
+      "compactSerializedUtf8Bytes": 535607,
+      "stoppedByByteCeilingBeforeNominal": false,
+      "sha256": "dab888f8c02f786a9f000c62b3de6faf2d85ed79f5c16b9a1a4ab2902ede4ed6",
+      "liveQueueIndices": [
+        4,
+        5,
+        8,
+        17,
+        22,
+        23,
+        27,
+        28,
+        29
+      ]
+    },
+    {
+      "packetId": "cal-a-superseding-2",
+      "path": "packets/cal-a-superseding-2.json",
+      "supersedesPacketId": "cal-a-superseding-1",
+      "supersedingReason": "MECHANICAL_FAILURE_AFTER_BOUNDED_RETRY",
+      "nominalLiveTarget": 8,
+      "liveRows": 9,
+      "liveParentCases": 5,
+      "controls": 4,
+      "totalTargets": 13,
+      "stageCount": 21,
+      "serializedUtf8Bytes": 508566,
+      "compactSerializedUtf8Bytes": 508565,
+      "stoppedByByteCeilingBeforeNominal": false,
+      "sha256": "aed74c5896c0235c56ddb8afd1c1e83dfe44f3699297eb3e712298634d8621cf",
+      "liveQueueIndices": [
+        4,
+        5,
+        8,
+        17,
+        22,
+        23,
+        27,
+        28,
+        29
+      ]
+    }
+  ]
+}

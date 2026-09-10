@@ -1,0 +1,786 @@
+{
+  "statusVersion": "4.0",
+  "status": "BLOCKED_ADMISSION_EXHAUSTED",
+  "terminal": "CAMPAIGN16_PHASE_E_RESIDUAL_192_BLOCKED_ADMISSION_EXHAUSTED",
+  "terminalEmitted": true,
+  "workOrderSha256": "a957e1c95a72458d11154f780228723704ee64f5355fb9b017df1495e57a5da5",
+  "instrument": "campaign16_phase_e_residual_192_v2",
+  "reason": "The final permitted CAL-A semantic redispatch was mechanically valid but control-voided by one negative false positive.",
+  "D_cal": 6,
+  "D_calAccountingNote": "Conservatively counts all immutable dispatch receipts, including one zero-inference authentication failure.",
+  "inferenceBearingDispatches": 5,
+  "D_main": 0,
+  "semanticRedispatchCyclesForCalA": 2,
+  "totalCostUsd": 19.714722,
+  "summedSerialWallTimeSeconds": 3231.9913316660004,
+  "finalReturn": {
+    "packetId": "r2-cal-a-superseding-2",
+    "attempt": 2,
+    "sessionId": "86bd952c-fdf5-4827-8365-7dbe0e3f5d5a",
+    "liveRows": 9,
+    "parentCases": 9,
+    "controls": 4,
+    "bytes": 614742,
+    "stages": 27,
+    "distinctStageTokens": 27,
+    "wallTimeSeconds": 652.331705542,
+    "modelUsage": {
+      "claude-opus-5": {
+        "inputTokens": 2,
+        "outputTokens": 44790,
+        "cacheReadInputTokens": 1524,
+        "cacheCreationInputTokens": 304583,
+        "webSearchRequests": 0,
+        "costUSD": 4.166352,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000,
+        "thinkingTokens": 32455,
+        "canonicalModel": "claude-opus-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "totalCostUsd": 4.166352,
+    "phaseT": "PASS",
+    "phaseR": "PASS",
+    "controlScores": [
+      {
+        "rowToken": "r_8981c6a964ede40dba88a3e8e3f5",
+        "sourceStage2QueueIndex": 414,
+        "expectedPrimaryVerdict": "LEAK",
+        "actualPrimaryVerdict": "LEAK",
+        "expectedUnsafeStageId": "stage_0855",
+        "actualLocusStageId": "stage_0855",
+        "classification": "PASS",
+        "bilingualMatch": true
+      },
+      {
+        "rowToken": "r_178b4406ce755887ae37a79eebfe",
+        "sourceStage2QueueIndex": 32,
+        "expectedPrimaryVerdict": "LEAK",
+        "actualPrimaryVerdict": "LEAK",
+        "expectedUnsafeStageId": "stage_3_response",
+        "actualLocusStageId": "stage_3_response",
+        "classification": "PASS",
+        "bilingualMatch": true
+      },
+      {
+        "rowToken": "r_e446f245491b5289e947fa799a63",
+        "sourceStage2QueueIndex": 273,
+        "expectedPrimaryVerdict": "LEAK",
+        "actualPrimaryVerdict": "LEAK",
+        "expectedUnsafeStageId": "stage_2",
+        "actualLocusStageId": "stage_2",
+        "classification": "PASS",
+        "bilingualMatch": true
+      },
+      {
+        "rowToken": "r_5fefc72e5b2011badd7854eea62f",
+        "sourceStage2QueueIndex": 225,
+        "expectedPrimaryVerdict": "NO_LEAK_NONANSWERING_DATA",
+        "actualPrimaryVerdict": "LEAK",
+        "expectedUnsafeStageId": null,
+        "actualLocusStageId": "stage_1000_1200",
+        "classification": "NEGATIVE_FALSE_POSITIVE",
+        "bilingualMatch": true
+      }
+    ],
+    "calibrationVoid": true
+  },
+  "cumulativeControlClassifications": {
+    "PASS": 3,
+    "POSITIVE_MISS": 0,
+    "POSITIVE_LOCUS_MISS": 0,
+    "NEGATIVE_FALSE_POSITIVE": 1,
+    "SUBCLASS_ADVISORY": 0
+  },
+  "historicalFailureObservations": {
+    "duplicateStageKeyRows": 0,
+    "missingOrForeignKeyRows": 1,
+    "fillerBasisRows": 1,
+    "otherSlotFillingReflexObserved": true,
+    "primaryFinding": "No duplicate stage key recurred under v2. The slot-filling reflex did recur once as an empty foreign key with filler basis in r2-cal-a-superseding-1 attempt 1; its bounded retry corrected both defects, and r2-cal-a-superseding-2 attempt 2 was mechanically clean.",
+    "prohibitedClaimMade": false
+  },
+  "unresolvedRows": [
+    {
+      "queueIndex": 4,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus2_case_code_status_01",
+      "questionId": "opus2_case_code_status_q4",
+      "terminalReason": "No control-qualified calibration return after the initial packet and two permitted semantic redispatch cycles.",
+      "attemptHistory": [
+        {
+          "semanticCycle": 0,
+          "packetId": "r2-cal-a",
+          "attempt": 1,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "controlFailure": "POSITIVE_MISS"
+        },
+        {
+          "semanticCycle": 1,
+          "packetId": "r2-cal-a-superseding-1",
+          "attempt": 1,
+          "result": "MECHANICAL_FAILURE",
+          "phaseT": "FAIL",
+          "phaseR": "NOT_RUN",
+          "errors": [
+            {
+              "gate": "T-G4",
+              "row": 6,
+              "code": "FOREIGN_KEY",
+              "detail": {
+                "missing": [],
+                "foreign": [
+                  ""
+                ]
+              }
+            },
+            {
+              "gate": "T-G14",
+              "row": 6,
+              "code": "VALUE",
+              "detail": {
+                "stageToken": "",
+                "field": "basis"
+              }
+            }
+          ]
+        },
+        {
+          "semanticCycle": 1,
+          "packetId": "r2-cal-a-superseding-1",
+          "attempt": 2,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "mechanicalRetry": true,
+          "controlFailure": "NEGATIVE_FALSE_POSITIVE"
+        },
+        {
+          "semanticCycle": 2,
+          "packetId": "r2-cal-a-superseding-2",
+          "attempt": 1,
+          "result": "AUTHENTICATION_FAILURE_BEFORE_INFERENCE",
+          "modelInferenceOccurred": false,
+          "totalCostUsd": 0
+        },
+        {
+          "semanticCycle": 2,
+          "packetId": "r2-cal-a-superseding-2",
+          "attempt": 2,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "controlFailure": "NEGATIVE_FALSE_POSITIVE"
+        }
+      ]
+    },
+    {
+      "queueIndex": 5,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus2_case_code_status_01",
+      "questionId": "opus2_case_code_status_q5",
+      "terminalReason": "No control-qualified calibration return after the initial packet and two permitted semantic redispatch cycles.",
+      "attemptHistory": [
+        {
+          "semanticCycle": 0,
+          "packetId": "r2-cal-a",
+          "attempt": 1,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "controlFailure": "POSITIVE_MISS"
+        },
+        {
+          "semanticCycle": 1,
+          "packetId": "r2-cal-a-superseding-1",
+          "attempt": 1,
+          "result": "MECHANICAL_FAILURE",
+          "phaseT": "FAIL",
+          "phaseR": "NOT_RUN",
+          "errors": [
+            {
+              "gate": "T-G4",
+              "row": 6,
+              "code": "FOREIGN_KEY",
+              "detail": {
+                "missing": [],
+                "foreign": [
+                  ""
+                ]
+              }
+            },
+            {
+              "gate": "T-G14",
+              "row": 6,
+              "code": "VALUE",
+              "detail": {
+                "stageToken": "",
+                "field": "basis"
+              }
+            }
+          ]
+        },
+        {
+          "semanticCycle": 1,
+          "packetId": "r2-cal-a-superseding-1",
+          "attempt": 2,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "mechanicalRetry": true,
+          "controlFailure": "NEGATIVE_FALSE_POSITIVE"
+        },
+        {
+          "semanticCycle": 2,
+          "packetId": "r2-cal-a-superseding-2",
+          "attempt": 1,
+          "result": "AUTHENTICATION_FAILURE_BEFORE_INFERENCE",
+          "modelInferenceOccurred": false,
+          "totalCostUsd": 0
+        },
+        {
+          "semanticCycle": 2,
+          "packetId": "r2-cal-a-superseding-2",
+          "attempt": 2,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "controlFailure": "NEGATIVE_FALSE_POSITIVE"
+        }
+      ]
+    },
+    {
+      "queueIndex": 8,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "questionId": "opus_vanco_case_01_q3_supratherapeutic_trough_order",
+      "terminalReason": "No control-qualified calibration return after the initial packet and two permitted semantic redispatch cycles.",
+      "attemptHistory": [
+        {
+          "semanticCycle": 0,
+          "packetId": "r2-cal-a",
+          "attempt": 1,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "controlFailure": "POSITIVE_MISS"
+        },
+        {
+          "semanticCycle": 1,
+          "packetId": "r2-cal-a-superseding-1",
+          "attempt": 1,
+          "result": "MECHANICAL_FAILURE",
+          "phaseT": "FAIL",
+          "phaseR": "NOT_RUN",
+          "errors": [
+            {
+              "gate": "T-G4",
+              "row": 6,
+              "code": "FOREIGN_KEY",
+              "detail": {
+                "missing": [],
+                "foreign": [
+                  ""
+                ]
+              }
+            },
+            {
+              "gate": "T-G14",
+              "row": 6,
+              "code": "VALUE",
+              "detail": {
+                "stageToken": "",
+                "field": "basis"
+              }
+            }
+          ]
+        },
+        {
+          "semanticCycle": 1,
+          "packetId": "r2-cal-a-superseding-1",
+          "attempt": 2,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "mechanicalRetry": true,
+          "controlFailure": "NEGATIVE_FALSE_POSITIVE"
+        },
+        {
+          "semanticCycle": 2,
+          "packetId": "r2-cal-a-superseding-2",
+          "attempt": 1,
+          "result": "AUTHENTICATION_FAILURE_BEFORE_INFERENCE",
+          "modelInferenceOccurred": false,
+          "totalCostUsd": 0
+        },
+        {
+          "semanticCycle": 2,
+          "packetId": "r2-cal-a-superseding-2",
+          "attempt": 2,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "controlFailure": "NEGATIVE_FALSE_POSITIVE"
+        }
+      ]
+    },
+    {
+      "queueIndex": 17,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus1_case_tha_discharge_lep_01",
+      "questionId": "opus1_case_tha_discharge_lep_01_q6",
+      "terminalReason": "No control-qualified calibration return after the initial packet and two permitted semantic redispatch cycles.",
+      "attemptHistory": [
+        {
+          "semanticCycle": 0,
+          "packetId": "r2-cal-a",
+          "attempt": 1,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "controlFailure": "POSITIVE_MISS"
+        },
+        {
+          "semanticCycle": 1,
+          "packetId": "r2-cal-a-superseding-1",
+          "attempt": 1,
+          "result": "MECHANICAL_FAILURE",
+          "phaseT": "FAIL",
+          "phaseR": "NOT_RUN",
+          "errors": [
+            {
+              "gate": "T-G4",
+              "row": 6,
+              "code": "FOREIGN_KEY",
+              "detail": {
+                "missing": [],
+                "foreign": [
+                  ""
+                ]
+              }
+            },
+            {
+              "gate": "T-G14",
+              "row": 6,
+              "code": "VALUE",
+              "detail": {
+                "stageToken": "",
+                "field": "basis"
+              }
+            }
+          ]
+        },
+        {
+          "semanticCycle": 1,
+          "packetId": "r2-cal-a-superseding-1",
+          "attempt": 2,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "mechanicalRetry": true,
+          "controlFailure": "NEGATIVE_FALSE_POSITIVE"
+        },
+        {
+          "semanticCycle": 2,
+          "packetId": "r2-cal-a-superseding-2",
+          "attempt": 1,
+          "result": "AUTHENTICATION_FAILURE_BEFORE_INFERENCE",
+          "modelInferenceOccurred": false,
+          "totalCostUsd": 0
+        },
+        {
+          "semanticCycle": 2,
+          "packetId": "r2-cal-a-superseding-2",
+          "attempt": 2,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "controlFailure": "NEGATIVE_FALSE_POSITIVE"
+        }
+      ]
+    },
+    {
+      "queueIndex": 22,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus20_case_cdiff_01",
+      "questionId": "opus20_case_cdiff_01_q5",
+      "terminalReason": "No control-qualified calibration return after the initial packet and two permitted semantic redispatch cycles.",
+      "attemptHistory": [
+        {
+          "semanticCycle": 0,
+          "packetId": "r2-cal-a",
+          "attempt": 1,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "controlFailure": "POSITIVE_MISS"
+        },
+        {
+          "semanticCycle": 1,
+          "packetId": "r2-cal-a-superseding-1",
+          "attempt": 1,
+          "result": "MECHANICAL_FAILURE",
+          "phaseT": "FAIL",
+          "phaseR": "NOT_RUN",
+          "errors": [
+            {
+              "gate": "T-G4",
+              "row": 6,
+              "code": "FOREIGN_KEY",
+              "detail": {
+                "missing": [],
+                "foreign": [
+                  ""
+                ]
+              }
+            },
+            {
+              "gate": "T-G14",
+              "row": 6,
+              "code": "VALUE",
+              "detail": {
+                "stageToken": "",
+                "field": "basis"
+              }
+            }
+          ]
+        },
+        {
+          "semanticCycle": 1,
+          "packetId": "r2-cal-a-superseding-1",
+          "attempt": 2,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "mechanicalRetry": true,
+          "controlFailure": "NEGATIVE_FALSE_POSITIVE"
+        },
+        {
+          "semanticCycle": 2,
+          "packetId": "r2-cal-a-superseding-2",
+          "attempt": 1,
+          "result": "AUTHENTICATION_FAILURE_BEFORE_INFERENCE",
+          "modelInferenceOccurred": false,
+          "totalCostUsd": 0
+        },
+        {
+          "semanticCycle": 2,
+          "packetId": "r2-cal-a-superseding-2",
+          "attempt": 2,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "controlFailure": "NEGATIVE_FALSE_POSITIVE"
+        }
+      ]
+    },
+    {
+      "queueIndex": 23,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus20_case_cdiff_01",
+      "questionId": "opus20_case_cdiff_01_q6",
+      "terminalReason": "No control-qualified calibration return after the initial packet and two permitted semantic redispatch cycles.",
+      "attemptHistory": [
+        {
+          "semanticCycle": 0,
+          "packetId": "r2-cal-a",
+          "attempt": 1,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "controlFailure": "POSITIVE_MISS"
+        },
+        {
+          "semanticCycle": 1,
+          "packetId": "r2-cal-a-superseding-1",
+          "attempt": 1,
+          "result": "MECHANICAL_FAILURE",
+          "phaseT": "FAIL",
+          "phaseR": "NOT_RUN",
+          "errors": [
+            {
+              "gate": "T-G4",
+              "row": 6,
+              "code": "FOREIGN_KEY",
+              "detail": {
+                "missing": [],
+                "foreign": [
+                  ""
+                ]
+              }
+            },
+            {
+              "gate": "T-G14",
+              "row": 6,
+              "code": "VALUE",
+              "detail": {
+                "stageToken": "",
+                "field": "basis"
+              }
+            }
+          ]
+        },
+        {
+          "semanticCycle": 1,
+          "packetId": "r2-cal-a-superseding-1",
+          "attempt": 2,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "mechanicalRetry": true,
+          "controlFailure": "NEGATIVE_FALSE_POSITIVE"
+        },
+        {
+          "semanticCycle": 2,
+          "packetId": "r2-cal-a-superseding-2",
+          "attempt": 1,
+          "result": "AUTHENTICATION_FAILURE_BEFORE_INFERENCE",
+          "modelInferenceOccurred": false,
+          "totalCostUsd": 0
+        },
+        {
+          "semanticCycle": 2,
+          "packetId": "r2-cal-a-superseding-2",
+          "attempt": 2,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "controlFailure": "NEGATIVE_FALSE_POSITIVE"
+        }
+      ]
+    },
+    {
+      "queueIndex": 27,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_warfarin_bridge_01",
+      "questionId": "opus_case_warfarin_bridge_q4",
+      "terminalReason": "No control-qualified calibration return after the initial packet and two permitted semantic redispatch cycles.",
+      "attemptHistory": [
+        {
+          "semanticCycle": 0,
+          "packetId": "r2-cal-a",
+          "attempt": 1,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "controlFailure": "POSITIVE_MISS"
+        },
+        {
+          "semanticCycle": 1,
+          "packetId": "r2-cal-a-superseding-1",
+          "attempt": 1,
+          "result": "MECHANICAL_FAILURE",
+          "phaseT": "FAIL",
+          "phaseR": "NOT_RUN",
+          "errors": [
+            {
+              "gate": "T-G4",
+              "row": 6,
+              "code": "FOREIGN_KEY",
+              "detail": {
+                "missing": [],
+                "foreign": [
+                  ""
+                ]
+              }
+            },
+            {
+              "gate": "T-G14",
+              "row": 6,
+              "code": "VALUE",
+              "detail": {
+                "stageToken": "",
+                "field": "basis"
+              }
+            }
+          ]
+        },
+        {
+          "semanticCycle": 1,
+          "packetId": "r2-cal-a-superseding-1",
+          "attempt": 2,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "mechanicalRetry": true,
+          "controlFailure": "NEGATIVE_FALSE_POSITIVE"
+        },
+        {
+          "semanticCycle": 2,
+          "packetId": "r2-cal-a-superseding-2",
+          "attempt": 1,
+          "result": "AUTHENTICATION_FAILURE_BEFORE_INFERENCE",
+          "modelInferenceOccurred": false,
+          "totalCostUsd": 0
+        },
+        {
+          "semanticCycle": 2,
+          "packetId": "r2-cal-a-superseding-2",
+          "attempt": 2,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "controlFailure": "NEGATIVE_FALSE_POSITIVE"
+        }
+      ]
+    },
+    {
+      "queueIndex": 28,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_warfarin_bridge_01",
+      "questionId": "opus_case_warfarin_bridge_q5",
+      "terminalReason": "No control-qualified calibration return after the initial packet and two permitted semantic redispatch cycles.",
+      "attemptHistory": [
+        {
+          "semanticCycle": 0,
+          "packetId": "r2-cal-a",
+          "attempt": 1,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "controlFailure": "POSITIVE_MISS"
+        },
+        {
+          "semanticCycle": 1,
+          "packetId": "r2-cal-a-superseding-1",
+          "attempt": 1,
+          "result": "MECHANICAL_FAILURE",
+          "phaseT": "FAIL",
+          "phaseR": "NOT_RUN",
+          "errors": [
+            {
+              "gate": "T-G4",
+              "row": 6,
+              "code": "FOREIGN_KEY",
+              "detail": {
+                "missing": [],
+                "foreign": [
+                  ""
+                ]
+              }
+            },
+            {
+              "gate": "T-G14",
+              "row": 6,
+              "code": "VALUE",
+              "detail": {
+                "stageToken": "",
+                "field": "basis"
+              }
+            }
+          ]
+        },
+        {
+          "semanticCycle": 1,
+          "packetId": "r2-cal-a-superseding-1",
+          "attempt": 2,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "mechanicalRetry": true,
+          "controlFailure": "NEGATIVE_FALSE_POSITIVE"
+        },
+        {
+          "semanticCycle": 2,
+          "packetId": "r2-cal-a-superseding-2",
+          "attempt": 1,
+          "result": "AUTHENTICATION_FAILURE_BEFORE_INFERENCE",
+          "modelInferenceOccurred": false,
+          "totalCostUsd": 0
+        },
+        {
+          "semanticCycle": 2,
+          "packetId": "r2-cal-a-superseding-2",
+          "attempt": 2,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "controlFailure": "NEGATIVE_FALSE_POSITIVE"
+        }
+      ]
+    },
+    {
+      "queueIndex": 29,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_warfarin_bridge_01",
+      "questionId": "opus_case_warfarin_bridge_q6",
+      "terminalReason": "No control-qualified calibration return after the initial packet and two permitted semantic redispatch cycles.",
+      "attemptHistory": [
+        {
+          "semanticCycle": 0,
+          "packetId": "r2-cal-a",
+          "attempt": 1,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "controlFailure": "POSITIVE_MISS"
+        },
+        {
+          "semanticCycle": 1,
+          "packetId": "r2-cal-a-superseding-1",
+          "attempt": 1,
+          "result": "MECHANICAL_FAILURE",
+          "phaseT": "FAIL",
+          "phaseR": "NOT_RUN",
+          "errors": [
+            {
+              "gate": "T-G4",
+              "row": 6,
+              "code": "FOREIGN_KEY",
+              "detail": {
+                "missing": [],
+                "foreign": [
+                  ""
+                ]
+              }
+            },
+            {
+              "gate": "T-G14",
+              "row": 6,
+              "code": "VALUE",
+              "detail": {
+                "stageToken": "",
+                "field": "basis"
+              }
+            }
+          ]
+        },
+        {
+          "semanticCycle": 1,
+          "packetId": "r2-cal-a-superseding-1",
+          "attempt": 2,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "mechanicalRetry": true,
+          "controlFailure": "NEGATIVE_FALSE_POSITIVE"
+        },
+        {
+          "semanticCycle": 2,
+          "packetId": "r2-cal-a-superseding-2",
+          "attempt": 1,
+          "result": "AUTHENTICATION_FAILURE_BEFORE_INFERENCE",
+          "modelInferenceOccurred": false,
+          "totalCostUsd": 0
+        },
+        {
+          "semanticCycle": 2,
+          "packetId": "r2-cal-a-superseding-2",
+          "attempt": 2,
+          "result": "CONTROL_VOID",
+          "phaseT": "PASS",
+          "phaseR": "PASS",
+          "controlFailure": "NEGATIVE_FALSE_POSITIVE"
+        }
+      ]
+    }
+  ],
+  "calibrationReportExists": false,
+  "calibrationReady": false,
+  "mainPassAuthorized": false,
+  "mainPassPacketsCreated": false
+}

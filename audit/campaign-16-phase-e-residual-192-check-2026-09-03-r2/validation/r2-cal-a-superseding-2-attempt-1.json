@@ -1,0 +1,32 @@
+{
+  "validationVersion": "2.0",
+  "packetId": "r2-cal-a-superseding-2",
+  "attempt": 1,
+  "phaseT": {
+    "result": "FAIL",
+    "parseClass": "MALFORMED_JSON",
+    "duplicateKeyRows": 0,
+    "gates": {
+      "T-G1": "FAIL"
+    },
+    "errors": [
+      {
+        "gate": "T-G1",
+        "row": 1,
+        "code": "MALFORMED_JSON",
+        "detail": {
+          "key": null,
+          "offset": 0
+        }
+      }
+    ],
+    "observations": null
+  },
+  "phaseR": {
+    "result": "NOT_RUN",
+    "assertions": {}
+  },
+  "controlScores": [],
+  "calibrationVoid": null,
+  "harvestStatus": "MECHANICAL_FAILURE"
+}

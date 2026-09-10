@@ -1,0 +1,57 @@
+{
+  "phaseT": "PASS",
+  "gates": {
+    "T-G1": "PASS",
+    "T-G2": "PASS",
+    "T-G4": "PASS",
+    "T-G5": "PASS",
+    "T-G6": "PASS",
+    "T-G7": "PASS",
+    "T-G8": "PASS",
+    "T-G9": "PASS",
+    "T-G10": "PASS",
+    "T-G11": "PASS",
+    "T-G12": "PASS",
+    "T-G13": "PASS",
+    "T-G14": "PASS",
+    "T-G15": "PASS",
+    "T-G3": "RETIRED"
+  },
+  "phaseR": "PASS",
+  "assertions": {
+    "R-A1": "PASS",
+    "R-A2": "PASS",
+    "R-A3": "PASS",
+    "R-A4": "PASS"
+  },
+  "controls": [
+    {
+      "queueIndex": 318,
+      "verdict": "LEAK",
+      "locus": "stage_3",
+      "pass": true
+    },
+    {
+      "queueIndex": 320,
+      "verdict": "LEAK",
+      "locus": "stage_3",
+      "pass": true
+    },
+    {
+      "queueIndex": 319,
+      "verdict": "LEAK",
+      "locus": "stage_3",
+      "pass": true
+    },
+    {
+      "queueIndex": 322,
+      "verdict": "NO_LEAK_NONANSWERING_DATA",
+      "locus": null,
+      "pass": true
+    }
+  ],
+  "reconstructionByteIdentical": true,
+  "sourceValidatorSha256": "9455fa43f31ed05f2350f63c070ba939799b9fe2f70c6f38f7809d4f2b8075aa",
+  "sourceParserSha256": "cb549b50062fc3b8df72253e9061fc0319a78daabedda52d6321b0fc420bb35a",
+  "scope": "Pure historical recheck; not R3 tool certification or semantic adjudication"
+}

@@ -1,0 +1,55 @@
+{
+  "supersedingBuildVersion": "1.0",
+  "packetId": "cal-a-superseding-1",
+  "supersedesPacketId": "cal-a",
+  "reason": "sealed control primary/locus mismatch",
+  "seed": "campaign16-phase-e-residual192-r1-v1",
+  "workOrderSha256": "5e7c4a5595a75d5bbcdc2a9811dba80495bbf2f3514c90f8237511c0aea061f4",
+  "liveRows": 9,
+  "liveQueueIndices": [
+    4,
+    5,
+    8,
+    17,
+    22,
+    23,
+    27,
+    28,
+    29
+  ],
+  "controls": [
+    {
+      "queueIndex": 320,
+      "role": "POSITIVE_SINGLE_UNSAFE",
+      "parentCaseId": "gpt_case_caregiver_role_strain_dementia_01"
+    },
+    {
+      "queueIndex": 321,
+      "role": "POSITIVE_SINGLE_UNSAFE",
+      "parentCaseId": "gpt_case_caregiver_role_strain_dementia_01"
+    },
+    {
+      "queueIndex": 319,
+      "role": "POSITIVE_SINGLE_UNSAFE",
+      "parentCaseId": "gpt_case_caregiver_role_strain_dementia_01"
+    },
+    {
+      "queueIndex": 322,
+      "role": "NEGATIVE_NO_LEAK",
+      "parentCaseId": "gpt_case_caregiver_role_strain_dementia_01"
+    }
+  ],
+  "controlParentCaseCount": 1,
+  "controlParent": "gpt_case_caregiver_role_strain_dementia_01",
+  "noPriorControlExposure": true,
+  "noControlLiveParentCollision": true,
+  "packet": {
+    "path": "packets/cal-a-superseding-1.json",
+    "sha256": "dab888f8c02f786a9f000c62b3de6faf2d85ed79f5c16b9a1a4ab2902ede4ed6",
+    "bytes": 535608
+  },
+  "deterministicRebuild": {
+    "byteIdentical": true,
+    "temporarySurfaceRemoved": true
+  }
+}

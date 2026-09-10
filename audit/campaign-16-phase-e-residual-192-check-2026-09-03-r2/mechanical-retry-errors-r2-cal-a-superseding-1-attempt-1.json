@@ -1,0 +1,23 @@
+{
+  "errorReceiptVersion": "2.0",
+  "packetId": "r2-cal-a-superseding-1",
+  "attempt": 1,
+  "permittedTokenLevelErrorsOnly": true,
+  "errors": [
+    {
+      "code": "FOREIGN_KEY",
+      "row": 6,
+      "field": "stageEvaluations",
+      "token": ""
+    },
+    {
+      "code": "VALUE",
+      "row": 6,
+      "field": "stageEvaluations[empty-token].basis",
+      "permitted": "item-specific basis; placeholder or filler text is prohibited"
+    }
+  ],
+  "semanticContentQuoted": false,
+  "controlInformationIncluded": false,
+  "canonicalIdentityIncluded": false
+}

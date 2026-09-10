@@ -1,0 +1,425 @@
+{
+  "calibrationReportVersion": "1.0",
+  "generatedAtUtc": "2026-09-03T12:35:11.939Z",
+  "status": "BLOCKED",
+  "terminal": "CAMPAIGN16_PHASE_E_RESIDUAL_192_BLOCKED_OUTPUT_FAILURE_AFTER_BOUNDED_RETRY",
+  "terminalBasis": "CAL-A control-voided, then both immutable superseding packets failed mechanical stage-enumeration validation after each packet's single bounded fresh-context retry; the initial attempt plus two semantic re-dispatch cycles are exhausted. No semantic row was repaired or supplied by the executor.",
+  "workOrderSha256": "5e7c4a5595a75d5bbcdc2a9811dba80495bbf2f3514c90f8237511c0aea061f4",
+  "residual": {
+    "rows": 192,
+    "parentCases": 84,
+    "queueIndex370Absent": true,
+    "queueIndex395Absent": true
+  },
+  "runtime": {
+    "cli": "/Users/holemini/.local/bin/claude",
+    "cliVersion": "2.1.251 (Claude Code)",
+    "requestedModelAlias": "opus",
+    "semanticModel": "claude-opus-5",
+    "semanticModelContextWindow": 1000000,
+    "semanticModelMaxOutputTokens": 64000,
+    "auxiliaryModelObservedOnFourLaterProcesses": "claude-haiku-4-5-20251001",
+    "auxiliaryModelContextWindow": 200000,
+    "isolation": "fresh Claude Code process; safe mode; tools empty; all tools disallowed; strict MCP; slash commands disabled; Chrome disabled; no session persistence; empty runtime-sandbox cwd; frozen template as replacement system prompt; exact one packet on stdin, plus schema/identity-only errors only on bounded mechanical retries"
+  },
+  "calibrationPackets": {
+    "calAInitial": {
+      "packetId": "cal-a",
+      "nominalLiveTarget": 8,
+      "liveRows": 9,
+      "liveParentCases": 5,
+      "controls": 4,
+      "totalTargets": 13,
+      "stageCount": 18,
+      "serializedUtf8Bytes": 536837,
+      "sha256": "c573b07a31ff2bc6c848536ce7c2de9b88b35b767441d2184a210596c1d5b41c",
+      "wallTimeSeconds": 443.492828625,
+      "validator": {
+        "G1": "PASS",
+        "G2": "PASS",
+        "G3": "PASS",
+        "G4": "PASS",
+        "G5": "PASS",
+        "G6": "PASS",
+        "G7": "PASS",
+        "G8": "PASS",
+        "G9": "PASS",
+        "G10": "PASS",
+        "G11": "PASS",
+        "G12": "PASS",
+        "G13": "PASS",
+        "G14": "PASS"
+      },
+      "controlScoring": {
+        "controls": [
+          {
+            "rowToken": "row_ed13bf7c4cf992cdcff895df",
+            "sourceStage2QueueIndex": 245,
+            "expectedPrimaryVerdict": "NO_LEAK_COMPLETE_RECORD",
+            "returnedPrimaryVerdict": "NO_LEAK_NONANSWERING_DATA",
+            "primaryPass": true,
+            "expectedSingleUnsafeStageId": null,
+            "returnedLocusStageId": null,
+            "locusPass": true,
+            "expectedBilingualRelation": "PARALLEL",
+            "returnedBilingualRelation": "PARALLEL",
+            "bilingualPass": true,
+            "noLeakSubclassAdvisory": true
+          },
+          {
+            "rowToken": "row_731ae0c403270a15e53d161d",
+            "sourceStage2QueueIndex": 243,
+            "expectedPrimaryVerdict": "LEAK",
+            "returnedPrimaryVerdict": "LEAK",
+            "primaryPass": true,
+            "expectedSingleUnsafeStageId": "stage_3",
+            "returnedLocusStageId": "stage_3",
+            "locusPass": true,
+            "expectedBilingualRelation": "PARALLEL",
+            "returnedBilingualRelation": "PARALLEL",
+            "bilingualPass": true,
+            "noLeakSubclassAdvisory": false
+          },
+          {
+            "rowToken": "row_0dd91563f088cfe66488d2cd",
+            "sourceStage2QueueIndex": 240,
+            "expectedPrimaryVerdict": "LEAK",
+            "returnedPrimaryVerdict": "NO_LEAK_NONANSWERING_DATA",
+            "primaryPass": false,
+            "expectedSingleUnsafeStageId": "stage_2",
+            "returnedLocusStageId": null,
+            "locusPass": false,
+            "expectedBilingualRelation": "PARALLEL",
+            "returnedBilingualRelation": "PARALLEL",
+            "bilingualPass": true,
+            "noLeakSubclassAdvisory": false
+          },
+          {
+            "rowToken": "row_ce004e486460eae9a41ecff0",
+            "sourceStage2QueueIndex": 242,
+            "expectedPrimaryVerdict": "LEAK",
+            "returnedPrimaryVerdict": "NO_LEAK_NONANSWERING_DATA",
+            "primaryPass": false,
+            "expectedSingleUnsafeStageId": "stage_3",
+            "returnedLocusStageId": null,
+            "locusPass": false,
+            "expectedBilingualRelation": "PARALLEL",
+            "returnedBilingualRelation": "PARALLEL",
+            "bilingualPass": true,
+            "noLeakSubclassAdvisory": false
+          }
+        ],
+        "primaryPassCount": 2,
+        "locusPassCount": 2,
+        "bilingualPassCount": 4,
+        "noLeakSubclassAdvisories": 1,
+        "bilingualDiscriminatingPower": "NONE_ALL_FROZEN_CONTROLS_PARALLEL",
+        "packetVoid": true
+      },
+      "outcome": "VOID_DISCARDED"
+    },
+    "calB": {
+      "packetId": "cal-b",
+      "nominalLiveTarget": 16,
+      "liveRows": 11,
+      "liveParentCases": 5,
+      "controls": 4,
+      "totalTargets": 15,
+      "stageCount": 18,
+      "serializedUtf8Bytes": 617316,
+      "sha256": "2e5847c8b31b1eae9f16c06d3df4816c59860c5949b39cde083127bef5f5c275",
+      "wallTimeSeconds": 528.996054875,
+      "validator": {
+        "G1": "PASS",
+        "G2": "PASS",
+        "G3": "PASS",
+        "G4": "PASS",
+        "G5": "PASS",
+        "G6": "PASS",
+        "G7": "PASS",
+        "G8": "PASS",
+        "G9": "PASS",
+        "G10": "PASS",
+        "G11": "PASS",
+        "G12": "PASS",
+        "G13": "PASS",
+        "G14": "PASS"
+      },
+      "controlScoring": {
+        "controls": [
+          {
+            "rowToken": "row_7845525f622c900575e23ae8",
+            "sourceStage2QueueIndex": 328,
+            "expectedPrimaryVerdict": "LEAK",
+            "returnedPrimaryVerdict": "LEAK",
+            "primaryPass": true,
+            "expectedSingleUnsafeStageId": "stage_3",
+            "returnedLocusStageId": "stage_3",
+            "locusPass": true,
+            "expectedBilingualRelation": "PARALLEL",
+            "returnedBilingualRelation": "PARALLEL",
+            "bilingualPass": true,
+            "noLeakSubclassAdvisory": false
+          },
+          {
+            "rowToken": "row_4ca84de5c7efa6aad8ced3ac",
+            "sourceStage2QueueIndex": 327,
+            "expectedPrimaryVerdict": "NO_LEAK_COMPLETE_RECORD",
+            "returnedPrimaryVerdict": "NO_LEAK_COMPLETE_RECORD",
+            "primaryPass": true,
+            "expectedSingleUnsafeStageId": null,
+            "returnedLocusStageId": null,
+            "locusPass": true,
+            "expectedBilingualRelation": "PARALLEL",
+            "returnedBilingualRelation": "PARALLEL",
+            "bilingualPass": true,
+            "noLeakSubclassAdvisory": false
+          },
+          {
+            "rowToken": "row_259fb91d0f4df7171df9f4ef",
+            "sourceStage2QueueIndex": 326,
+            "expectedPrimaryVerdict": "LEAK",
+            "returnedPrimaryVerdict": "LEAK",
+            "primaryPass": true,
+            "expectedSingleUnsafeStageId": "stage_3",
+            "returnedLocusStageId": "stage_3",
+            "locusPass": true,
+            "expectedBilingualRelation": "PARALLEL",
+            "returnedBilingualRelation": "PARALLEL",
+            "bilingualPass": true,
+            "noLeakSubclassAdvisory": false
+          },
+          {
+            "rowToken": "row_fbc889befeed410717f3e421",
+            "sourceStage2QueueIndex": 324,
+            "expectedPrimaryVerdict": "LEAK",
+            "returnedPrimaryVerdict": "LEAK",
+            "primaryPass": true,
+            "expectedSingleUnsafeStageId": "stage_3",
+            "returnedLocusStageId": "stage_3",
+            "locusPass": true,
+            "expectedBilingualRelation": "PARALLEL",
+            "returnedBilingualRelation": "PARALLEL",
+            "bilingualPass": true,
+            "noLeakSubclassAdvisory": false
+          }
+        ],
+        "primaryPassCount": 4,
+        "locusPassCount": 4,
+        "bilingualPassCount": 4,
+        "noLeakSubclassAdvisories": 0,
+        "bilingualDiscriminatingPower": "NONE_ALL_FROZEN_CONTROLS_PARALLEL",
+        "packetVoid": false
+      },
+      "outcome": "VALID_ESCROW_ONLY"
+    },
+    "calASuperseding1": {
+      "packetId": "cal-a-superseding-1",
+      "nominalLiveTarget": 8,
+      "liveRows": 9,
+      "liveParentCases": 5,
+      "controls": 4,
+      "totalTargets": 13,
+      "stageCount": 18,
+      "serializedUtf8Bytes": 535608,
+      "sha256": "dab888f8c02f786a9f000c62b3de6faf2d85ed79f5c16b9a1a4ab2902ede4ed6",
+      "attempts": [
+        {
+          "attempt": 1,
+          "wallTimeSeconds": 390.788038959,
+          "validator": {
+            "G1": "PASS",
+            "G2": "PASS",
+            "G3": "PASS",
+            "G4": "FAIL",
+            "G5": "FAIL",
+            "G6": "PASS",
+            "G7": "PASS",
+            "G8": "PASS",
+            "G9": "PASS",
+            "G10": "PASS",
+            "G11": "PASS",
+            "G12": "PASS",
+            "G13": "PASS",
+            "G14": "PASS"
+          },
+          "errors": [
+            "G4: row 2 stage enumeration must equal authored order",
+            "G5: row 2 requiredStageIds binding"
+          ]
+        },
+        {
+          "attempt": 2,
+          "wallTimeSeconds": 375.781828584,
+          "validator": {
+            "G1": "PASS",
+            "G2": "PASS",
+            "G3": "PASS",
+            "G4": "FAIL",
+            "G5": "PASS",
+            "G6": "PASS",
+            "G7": "PASS",
+            "G8": "PASS",
+            "G9": "PASS",
+            "G10": "PASS",
+            "G11": "PASS",
+            "G12": "PASS",
+            "G13": "PASS",
+            "G14": "PASS"
+          },
+          "errors": [
+            "G4: row 2 stage enumeration must equal authored order",
+            "G4: row 8 stage enumeration must equal authored order"
+          ]
+        }
+      ],
+      "outcome": "MECHANICAL_FAILURE_AFTER_BOUNDED_RETRY"
+    },
+    "calASuperseding2": {
+      "packetId": "cal-a-superseding-2",
+      "nominalLiveTarget": 8,
+      "liveRows": 9,
+      "liveParentCases": 5,
+      "controls": 4,
+      "totalTargets": 13,
+      "stageCount": 21,
+      "serializedUtf8Bytes": 508566,
+      "sha256": "aed74c5896c0235c56ddb8afd1c1e83dfe44f3699297eb3e712298634d8621cf",
+      "attempts": [
+        {
+          "attempt": 1,
+          "wallTimeSeconds": 464.512302667,
+          "validator": {
+            "G1": "PASS",
+            "G2": "PASS",
+            "G3": "PASS",
+            "G4": "FAIL",
+            "G5": "PASS",
+            "G6": "PASS",
+            "G7": "PASS",
+            "G8": "PASS",
+            "G9": "PASS",
+            "G10": "PASS",
+            "G11": "PASS",
+            "G12": "PASS",
+            "G13": "PASS",
+            "G14": "PASS"
+          },
+          "errors": [
+            "G4: row 2 stage enumeration must equal authored order",
+            "G4: row 3 stage enumeration must equal authored order"
+          ]
+        },
+        {
+          "attempt": 2,
+          "wallTimeSeconds": 438.457109542,
+          "validator": {
+            "G1": "PASS",
+            "G2": "PASS",
+            "G3": "PASS",
+            "G4": "FAIL",
+            "G5": "FAIL",
+            "G6": "PASS",
+            "G7": "PASS",
+            "G8": "PASS",
+            "G9": "FAIL",
+            "G10": "PASS",
+            "G11": "PASS",
+            "G12": "PASS",
+            "G13": "PASS",
+            "G14": "PASS"
+          },
+          "errors": [
+            "G4: row 1 stage enumeration must equal authored order",
+            "G5: row 1 requiredStageIds binding",
+            "G9: row 1 stage_pod3 requires evidence"
+          ]
+        }
+      ],
+      "outcome": "MECHANICAL_FAILURE_AFTER_BOUNDED_RETRY"
+    }
+  },
+  "successfulCalibrationObservation": {
+    "packetId": "cal-b",
+    "liveRows": 11,
+    "controls": 4,
+    "parentCases": 5,
+    "stageCount": 18,
+    "serializedUtf8Bytes": 617316,
+    "inputTokens": 2,
+    "cacheCreationInputTokens": 298738,
+    "cacheReadInputTokens": 0,
+    "outputTokens": 47621,
+    "wallTimeSeconds": 528.996054875,
+    "controlFidelity": "4/4 primary, 3/3 positive loci, 4/4 PARALLEL vocabulary tripwire"
+  },
+  "twoPointInterpolation": null,
+  "packetSizeRecommendation": null,
+  "ownerPacketSizeGateReached": false,
+  "calibrationLiveRowsAdmittedToMain": 0,
+  "escrowRows": 20,
+  "usage": {
+    "dispatchAttempts": 6,
+    "aggregateWallTimeSeconds": 2642.028163252,
+    "aggregateCostUsd": 22.757624,
+    "byModel": {
+      "claude-opus-5": {
+        "inputTokens": 12,
+        "outputTokens": 241179,
+        "cacheCreationInputTokens": 1594583,
+        "cacheReadInputTokens": 6900,
+        "costUsd": 21.978814999999997,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000,
+        "provider": "firstParty"
+      },
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 778449,
+        "outputTokens": 72,
+        "cacheCreationInputTokens": 0,
+        "cacheReadInputTokens": 0,
+        "costUsd": 0.778809,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "provider": "firstParty"
+      }
+    },
+    "exactTopLevelTotalTokensAvailable": false
+  },
+  "validator": {
+    "selfTest": {
+      "status": "PASS",
+      "validFixtures": 1,
+      "negativeFixtures": 18,
+      "gatesCovered": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9",
+        "G10",
+        "G11",
+        "G12",
+        "G13",
+        "G14"
+      ],
+      "decimalAndAbbreviationSentenceProtection": true
+    },
+    "successfulReturnsPassingG1ToG14": 2,
+    "failedReturns": 4
+  },
+  "preservation": {
+    "path": "preservation-verification.json",
+    "pass": true
+  },
+  "mainDispatch": {
+    "authorized": false,
+    "begun": false,
+    "rowsAdmitted": 0
+  },
+  "nextAction": "STOP. A superseding owner commission or explicit owner direction is required; do not self-ratify packet size or dispatch main rows."
+}

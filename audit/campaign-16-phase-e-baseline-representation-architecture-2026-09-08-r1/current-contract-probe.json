@@ -1,0 +1,282 @@
+{
+  "note": "Observed unchanged live code; malformed direct findings bypass CLI validation for diagnosis, not an accepted gate result.",
+  "results": [
+    {
+      "name": "absent",
+      "refs": {},
+      "validation": "PASS",
+      "directStrictFindings": [
+        "revealsAllStages"
+      ],
+      "visible": [
+        "s1",
+        "s2"
+      ],
+      "exportFloor": "1.6",
+      "imported": 1
+    },
+    {
+      "name": "empty",
+      "refs": {
+        "answerableAfterStageId": ""
+      },
+      "validation": [
+        "questions[0]: caseStudy.questions[0].answerableAfterStageId must be non-empty when present"
+      ],
+      "directStrictFindings": [
+        "unresolved",
+        "revealsAllStages"
+      ],
+      "visible": [
+        "s1",
+        "s2"
+      ],
+      "exportFloor": "1.6",
+      "imported": 0
+    },
+    {
+      "name": "whitespace",
+      "refs": {
+        "answerableAfterStageId": " "
+      },
+      "validation": [
+        "questions[0]: caseStudy.questions[0].answerableAfterStageId must be non-empty when present"
+      ],
+      "directStrictFindings": [
+        "unresolved",
+        "revealsAllStages"
+      ],
+      "visible": [
+        "s1",
+        "s2"
+      ],
+      "exportFloor": "1.6",
+      "imported": 0
+    },
+    {
+      "name": "null",
+      "refs": {
+        "answerableAfterStageId": null
+      },
+      "validation": [
+        "questions[0]: caseStudy.questions[0].answerableAfterStageId must be non-empty when present"
+      ],
+      "directStrictFindings": [
+        "unresolved",
+        "revealsAllStages"
+      ],
+      "visible": [
+        "s1",
+        "s2"
+      ],
+      "exportFloor": "1.6",
+      "imported": 0
+    },
+    {
+      "name": "number",
+      "refs": {
+        "answerableAfterStageId": 0
+      },
+      "validation": [
+        "questions[0]: caseStudy.questions[0].answerableAfterStageId must be non-empty when present"
+      ],
+      "directStrictFindings": [
+        "unresolved",
+        "revealsAllStages"
+      ],
+      "visible": [
+        "s1",
+        "s2"
+      ],
+      "exportFloor": "1.6",
+      "imported": 0
+    },
+    {
+      "name": "object",
+      "refs": {
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      "validation": [
+        "questions[0]: caseStudy.questions[0].answerableAfterStageId must be non-empty when present"
+      ],
+      "directStrictFindings": [
+        "unresolved",
+        "revealsAllStages"
+      ],
+      "visible": [
+        "s1",
+        "s2"
+      ],
+      "exportFloor": "1.6",
+      "imported": 0
+    },
+    {
+      "name": "ordinary",
+      "refs": {
+        "answerableAfterStageId": "s1"
+      },
+      "validation": "PASS",
+      "directStrictFindings": [],
+      "visible": [
+        "s1"
+      ],
+      "exportFloor": "1.6",
+      "imported": 1
+    },
+    {
+      "name": "proposed-token-currently-unknown",
+      "refs": {
+        "answerableAfterStageId": "@@case-baseline"
+      },
+      "validation": "PASS",
+      "directStrictFindings": [
+        "unresolved",
+        "revealsAllStages"
+      ],
+      "visible": [
+        "s1",
+        "s2"
+      ],
+      "exportFloor": "1.6",
+      "imported": 1
+    },
+    {
+      "name": "unknown",
+      "refs": {
+        "answerableAfterStageId": "typo"
+      },
+      "validation": "PASS",
+      "directStrictFindings": [
+        "unresolved",
+        "revealsAllStages"
+      ],
+      "visible": [
+        "s1",
+        "s2"
+      ],
+      "exportFloor": "1.6",
+      "imported": 1
+    },
+    {
+      "name": "stale",
+      "refs": {
+        "answerableAfterStageId": "deleted_s3"
+      },
+      "validation": "PASS",
+      "directStrictFindings": [
+        "unresolved",
+        "revealsAllStages"
+      ],
+      "visible": [
+        "s1",
+        "s2"
+      ],
+      "exportFloor": "1.6",
+      "imported": 1
+    },
+    {
+      "name": "legacy",
+      "refs": {
+        "stageId": "s1"
+      },
+      "validation": "PASS",
+      "directStrictFindings": [
+        "missingRequiredAnchor"
+      ],
+      "visible": [
+        "s1"
+      ],
+      "exportFloor": "1.6",
+      "imported": 1
+    },
+    {
+      "name": "unknown-primary-valid-legacy",
+      "refs": {
+        "answerableAfterStageId": "typo",
+        "stageId": "s1"
+      },
+      "validation": "PASS",
+      "directStrictFindings": [
+        "unresolved"
+      ],
+      "visible": [
+        "s1"
+      ],
+      "exportFloor": "1.6",
+      "imported": 1
+    },
+    {
+      "name": "invalid-primary-valid-legacy",
+      "refs": {
+        "answerableAfterStageId": null,
+        "stageId": "s1"
+      },
+      "validation": [
+        "questions[0]: caseStudy.questions[0].answerableAfterStageId must be non-empty when present"
+      ],
+      "directStrictFindings": [
+        "unresolved"
+      ],
+      "visible": [
+        "s1"
+      ],
+      "exportFloor": "1.6",
+      "imported": 0
+    },
+    {
+      "name": "literal-baseline-currently-unknown",
+      "refs": {
+        "answerableAfterStageId": "baseline"
+      },
+      "validation": "PASS",
+      "directStrictFindings": [
+        "unresolved",
+        "revealsAllStages"
+      ],
+      "visible": [
+        "s1",
+        "s2"
+      ],
+      "exportFloor": "1.6",
+      "imported": 1
+    },
+    {
+      "name": "token-in-legacy",
+      "refs": {
+        "stageId": "@@case-baseline"
+      },
+      "validation": "PASS",
+      "directStrictFindings": [
+        "unresolved",
+        "revealsAllStages"
+      ],
+      "visible": [
+        "s1",
+        "s2"
+      ],
+      "exportFloor": "1.6",
+      "imported": 1
+    },
+    {
+      "name": "token-real-stage-collision",
+      "refs": {
+        "answerableAfterStageId": "@@case-baseline"
+      },
+      "validation": "PASS",
+      "directStrictFindings": [],
+      "visible": [
+        "@@case-baseline"
+      ],
+      "exportFloor": "1.6",
+      "imported": 1
+    }
+  ],
+  "syntheticValidation": {
+    "ok": false,
+    "reasons": [
+      "questions[0]: caseStudy.stages[0].exhibits must include at least one exhibit"
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "supersedingBuildVersion": "2.0",
+  "packetId": "r2-cal-a-superseding-1",
+  "supersedesPacketId": "r2-cal-a",
+  "reason": "control void; calibration live rows re-packeted with fresh controls",
+  "seed": "campaign16-phase-e-residual192-r1-v1",
+  "workOrderSha256": "a957e1c95a72458d11154f780228723704ee64f5355fb9b017df1495e57a5da5",
+  "liveRows": 9,
+  "liveQueueIndices": [
+    17,
+    28,
+    27,
+    4,
+    22,
+    8,
+    23,
+    29,
+    5
+  ],
+  "controls": [
+    {
+      "queueIndex": 324,
+      "role": "POSITIVE_SINGLE_UNSAFE",
+      "parentCaseId": "gpt_case_infection_control_clustered_care_01"
+    },
+    {
+      "queueIndex": 328,
+      "role": "POSITIVE_SINGLE_UNSAFE",
+      "parentCaseId": "gpt_case_infection_control_clustered_care_01"
+    },
+    {
+      "queueIndex": 326,
+      "role": "POSITIVE_SINGLE_UNSAFE",
+      "parentCaseId": "gpt_case_infection_control_clustered_care_01"
+    },
+    {
+      "queueIndex": 327,
+      "role": "NEGATIVE_NO_LEAK",
+      "parentCaseId": "gpt_case_infection_control_clustered_care_01"
+    }
+  ],
+  "noPriorControlExposure": true,
+  "noControlLiveParentCollision": true,
+  "packet": {
+    "path": "packets/r2-cal-a-superseding-1.json",
+    "sha256": "dca33f6236fcec7c52bd78ee2c1de80dbb428bac287593514dd3ed999a9c8606",
+    "bytes": 466979
+  },
+  "deterministicRebuild": {
+    "byteIdentical": true,
+    "temporarySurfaceRemoved": true
+  },
+  "mapExtension": {
+    "rowMapSha256": "08c4b38cc9364bac42faf1b8dc85774f811a9b85af6742491c122827bae02467",
+    "requiresPrior-returnDeterministicRevalidation": true
+  }
+}

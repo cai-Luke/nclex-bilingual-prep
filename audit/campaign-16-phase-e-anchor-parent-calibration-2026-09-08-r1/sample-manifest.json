@@ -1,0 +1,497 @@
+{
+  "artifact": "Campaign 16 Phase E — Parent-Level Calibration Sample Manifest",
+  "date": "2026-09-08",
+  "sampleSizeParents": 8,
+  "sampleSizeAffectedParts": 40,
+  "samplingDesign": {
+    "strataRequirements": {
+      "allFourAffectedBanks": true,
+      "ordinaryThreeStageSixPart": true,
+      "atLeastOneThreeStageFivePart": true,
+      "atLeastOneTwoStage": true,
+      "atLeastOneFourStage": true,
+      "atLeastOnePartiallyAffectedWithSiblings": true,
+      "atLeastOneGateBreachParent": true
+    },
+    "bankAllocation": {
+      "banks/claude-canonical.json": 2,
+      "banks/gemini-canonical.json": 1,
+      "banks/gpt-canonical.json": 3,
+      "banks/hard-cases-canonical.json": 2
+    },
+    "mechanics": "Deterministic selection by stratum requirement and lowest first Stage-0 queueIndex within stratum. No hand-picking."
+  },
+  "parents": [
+    {
+      "sampleIndex": 1,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus2_case_code_status_01",
+      "caseTitle": {
+        "en": "Read the case study and answer the questions that follow.",
+        "zh": "阅读案例研究并回答以下问题。"
+      },
+      "strata": [
+        "claude-canonical",
+        "3-stage/5-part"
+      ],
+      "selectionRule": "Lowest firstQueueIndex in claude-canonical with 3 stages and 5 parts",
+      "declaredStageCount": 3,
+      "declaredStageIds": [
+        "stage_1",
+        "stage_2",
+        "stage_3"
+      ],
+      "totalPartsCount": 5,
+      "affectedPartsCount": 5,
+      "isPartiallyAffected": false,
+      "firstQueueIndex": 1,
+      "affectedParts": [
+        {
+          "queueIndex": 1,
+          "partId": "opus2_case_code_status_q1",
+          "partOrdinal": 1,
+          "itemType": "multiple_choice"
+        },
+        {
+          "queueIndex": 2,
+          "partId": "opus2_case_code_status_q2",
+          "partOrdinal": 2,
+          "itemType": "multiple_choice"
+        },
+        {
+          "queueIndex": 3,
+          "partId": "opus2_case_code_status_q3",
+          "partOrdinal": 3,
+          "itemType": "multiple_choice"
+        },
+        {
+          "queueIndex": 4,
+          "partId": "opus2_case_code_status_q4",
+          "partOrdinal": 4,
+          "itemType": "multiple_choice"
+        },
+        {
+          "queueIndex": 5,
+          "partId": "opus2_case_code_status_q5",
+          "partOrdinal": 5,
+          "itemType": "select_all"
+        }
+      ],
+      "siblingParts": []
+    },
+    {
+      "sampleIndex": 2,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "caseTitle": {
+        "en": "Review the client record for a client receiving vancomycin for MRSA bacteremia and answer the case-study items.",
+        "zh": "查看一名因 MRSA 菌血症接受万古霉素治疗的患者记录，并回答案例题。"
+      },
+      "strata": [
+        "claude-canonical",
+        "ordinary-3-stage/6-part"
+      ],
+      "selectionRule": "Lowest firstQueueIndex in claude-canonical with ordinary 3 stages and 6 parts",
+      "declaredStageCount": 3,
+      "declaredStageIds": [
+        "stage_1_infusion_reaction",
+        "stage_2_trough_monitoring",
+        "stage_3_aki_tinnitus"
+      ],
+      "totalPartsCount": 6,
+      "affectedPartsCount": 6,
+      "isPartiallyAffected": false,
+      "firstQueueIndex": 6,
+      "affectedParts": [
+        {
+          "queueIndex": 6,
+          "partId": "opus_vanco_case_01_q1_infusion_reaction",
+          "partOrdinal": 1,
+          "itemType": "multiple_choice"
+        },
+        {
+          "queueIndex": 7,
+          "partId": "opus_vanco_case_01_q2_documentation_cloze",
+          "partOrdinal": 2,
+          "itemType": "dropdown_cloze"
+        },
+        {
+          "queueIndex": 8,
+          "partId": "opus_vanco_case_01_q3_supratherapeutic_trough_order",
+          "partOrdinal": 3,
+          "itemType": "ordered_response"
+        },
+        {
+          "queueIndex": 9,
+          "partId": "opus_vanco_case_01_q4_ototoxicity_screening",
+          "partOrdinal": 4,
+          "itemType": "select_all"
+        },
+        {
+          "queueIndex": 10,
+          "partId": "opus_vanco_case_01_q5_aki_cue_matrix",
+          "partOrdinal": 5,
+          "itemType": "matrix"
+        },
+        {
+          "queueIndex": 11,
+          "partId": "opus_vanco_case_01_q6_lisinopril_aki",
+          "partOrdinal": 6,
+          "itemType": "multiple_choice"
+        }
+      ],
+      "siblingParts": []
+    },
+    {
+      "sampleIndex": 3,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "opus_agvd_case_agvhd_01",
+      "caseTitle": {
+        "en": "Read the case study and answer the questions that follow.",
+        "zh": "阅读案例研究并回答以下问题。"
+      },
+      "strata": [
+        "gemini-canonical",
+        "ordinary-3-stage/6-part"
+      ],
+      "selectionRule": "Lowest firstQueueIndex in gemini-canonical overall",
+      "declaredStageCount": 3,
+      "declaredStageIds": [
+        "stage_1",
+        "stage_2",
+        "stage_3"
+      ],
+      "totalPartsCount": 6,
+      "affectedPartsCount": 6,
+      "isPartiallyAffected": false,
+      "firstQueueIndex": 59,
+      "affectedParts": [
+        {
+          "queueIndex": 59,
+          "partId": "opus_agvd_case_agvhd_01_q1",
+          "partOrdinal": 1,
+          "itemType": "multiple_choice"
+        },
+        {
+          "queueIndex": 60,
+          "partId": "opus_agvd_case_agvhd_01_q2",
+          "partOrdinal": 2,
+          "itemType": "multiple_choice"
+        },
+        {
+          "queueIndex": 61,
+          "partId": "opus_agvd_case_agvhd_01_q3",
+          "partOrdinal": 3,
+          "itemType": "multiple_choice"
+        },
+        {
+          "queueIndex": 62,
+          "partId": "opus_agvd_case_agvhd_01_q4",
+          "partOrdinal": 4,
+          "itemType": "multiple_choice"
+        },
+        {
+          "queueIndex": 63,
+          "partId": "opus_agvd_case_agvhd_01_q5",
+          "partOrdinal": 5,
+          "itemType": "multiple_choice"
+        },
+        {
+          "queueIndex": 64,
+          "partId": "opus_agvd_case_agvhd_01_q6",
+          "partOrdinal": 6,
+          "itemType": "matrix"
+        }
+      ],
+      "siblingParts": []
+    },
+    {
+      "sampleIndex": 4,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_adhf_01",
+      "caseTitle": {
+        "en": "Review the case-study exhibits and answer the embedded questions.",
+        "zh": "查看病例研究资料并回答其中的问题。"
+      },
+      "strata": [
+        "gpt-canonical",
+        "partially-affected",
+        "2-stage/4-part"
+      ],
+      "selectionRule": "Lowest firstQueueIndex in gpt-canonical among partially affected parents with sibling anchors",
+      "declaredStageCount": 2,
+      "declaredStageIds": [
+        "adhf_stage2",
+        "adhf_stage3"
+      ],
+      "totalPartsCount": 4,
+      "affectedPartsCount": 1,
+      "isPartiallyAffected": true,
+      "firstQueueIndex": 153,
+      "affectedParts": [
+        {
+          "queueIndex": 153,
+          "partId": "gpt_case_gap_2026_06_11_adhf_matrix_01",
+          "partOrdinal": 1,
+          "itemType": "matrix"
+        }
+      ],
+      "siblingParts": [
+        {
+          "partId": "gpt_case_gap_2026_06_11_adhf_cloze_02",
+          "stageId": "adhf_stage2"
+        },
+        {
+          "partId": "gpt_case_gap_2026_06_11_adhf_or_03",
+          "stageId": "adhf_stage2"
+        },
+        {
+          "partId": "gpt_case_gap_2026_06_11_adhf_fib_04",
+          "stageId": "adhf_stage3"
+        }
+      ]
+    },
+    {
+      "sampleIndex": 5,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus5_cdi_immunocompromised_01",
+      "caseTitle": {
+        "en": "An older adult develops acute watery diarrhea, fever, leukocytosis, dehydration, and abdominal distension after broad-spectrum antibiotic therapy. Use the exhibits to answer the unfolding questions.",
+        "zh": "一名老年患者在接受广谱抗生素治疗后出现急性水样腹泻、发热、白细胞增多、脱水和腹胀。请根据病例资料回答展开式问题。"
+      },
+      "strata": [
+        "gpt-canonical",
+        "ordinary-3-stage/6-part"
+      ],
+      "selectionRule": "Lowest firstQueueIndex in gpt-canonical among ordinary 3-stage / 6-part parents",
+      "declaredStageCount": 3,
+      "declaredStageIds": [
+        "stage1",
+        "stage2",
+        "stage3"
+      ],
+      "totalPartsCount": 6,
+      "affectedPartsCount": 6,
+      "isPartiallyAffected": false,
+      "firstQueueIndex": 159,
+      "affectedParts": [
+        {
+          "queueIndex": 159,
+          "partId": "gpt_case_opus5_cdi_immunocompromised_01_q1",
+          "partOrdinal": 1,
+          "itemType": "multiple_choice"
+        },
+        {
+          "queueIndex": 160,
+          "partId": "gpt_case_opus5_cdi_immunocompromised_01_q2",
+          "partOrdinal": 2,
+          "itemType": "select_all"
+        },
+        {
+          "queueIndex": 161,
+          "partId": "gpt_case_opus5_cdi_immunocompromised_01_q3",
+          "partOrdinal": 3,
+          "itemType": "dropdown_cloze"
+        },
+        {
+          "queueIndex": 162,
+          "partId": "gpt_case_opus5_cdi_immunocompromised_01_q4",
+          "partOrdinal": 4,
+          "itemType": "matrix"
+        },
+        {
+          "queueIndex": 163,
+          "partId": "gpt_case_opus5_cdi_immunocompromised_01_q5",
+          "partOrdinal": 5,
+          "itemType": "ordered_response"
+        },
+        {
+          "queueIndex": 164,
+          "partId": "gpt_case_opus5_cdi_immunocompromised_01_q6",
+          "partOrdinal": 6,
+          "itemType": "multiple_choice"
+        }
+      ],
+      "siblingParts": []
+    },
+    {
+      "sampleIndex": 6,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_warfarin_mvr_2026_06_11_01",
+      "caseTitle": {
+        "en": "Review the client record and answer the case-study items.",
+        "zh": "请查看患者病历，并回答病例题。"
+      },
+      "strata": [
+        "gpt-canonical",
+        "4-stage/6-part"
+      ],
+      "selectionRule": "Lowest firstQueueIndex in gpt-canonical with 4 stages",
+      "declaredStageCount": 4,
+      "declaredStageIds": [
+        "stage_1_1400",
+        "stage_2_2200",
+        "stage_3_0645",
+        "stage_3_1200"
+      ],
+      "totalPartsCount": 6,
+      "affectedPartsCount": 6,
+      "isPartiallyAffected": false,
+      "firstQueueIndex": 165,
+      "affectedParts": [
+        {
+          "queueIndex": 165,
+          "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q1",
+          "partOrdinal": 1,
+          "itemType": "multiple_choice"
+        },
+        {
+          "queueIndex": 166,
+          "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q2",
+          "partOrdinal": 2,
+          "itemType": "select_all"
+        },
+        {
+          "queueIndex": 167,
+          "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q3",
+          "partOrdinal": 3,
+          "itemType": "dropdown_cloze"
+        },
+        {
+          "queueIndex": 168,
+          "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q4",
+          "partOrdinal": 4,
+          "itemType": "matrix"
+        },
+        {
+          "queueIndex": 169,
+          "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q5",
+          "partOrdinal": 5,
+          "itemType": "select_all"
+        },
+        {
+          "queueIndex": 170,
+          "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q6",
+          "partOrdinal": 6,
+          "itemType": "multiple_choice"
+        }
+      ],
+      "siblingParts": []
+    },
+    {
+      "sampleIndex": 7,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_thyroid_storm_main",
+      "caseTitle": {
+        "en": "Review the client record and answer the case-study items.",
+        "zh": "查阅患者病历并回答案例分析问题。"
+      },
+      "strata": [
+        "hard-cases-canonical",
+        "breach-row-370",
+        "2-stage/4-part"
+      ],
+      "selectionRule": "Contains Stage-2 gate-breach row 370 (and lowest firstQueueIndex in hard-cases containing a breach row)",
+      "declaredStageCount": 2,
+      "declaredStageIds": [
+        "stage_0830",
+        "stage_1200"
+      ],
+      "totalPartsCount": 4,
+      "affectedPartsCount": 4,
+      "isPartiallyAffected": false,
+      "firstQueueIndex": 369,
+      "affectedParts": [
+        {
+          "queueIndex": 369,
+          "partId": "cs_thyroid_storm_q1",
+          "partOrdinal": 1,
+          "itemType": "matrix"
+        },
+        {
+          "queueIndex": 370,
+          "partId": "cs_thyroid_storm_q2",
+          "partOrdinal": 2,
+          "itemType": "ordered_response"
+        },
+        {
+          "queueIndex": 371,
+          "partId": "cs_thyroid_storm_q3",
+          "partOrdinal": 3,
+          "itemType": "select_all"
+        },
+        {
+          "queueIndex": 372,
+          "partId": "cs_thyroid_storm_q4",
+          "partOrdinal": 4,
+          "itemType": "multiple_choice"
+        }
+      ],
+      "siblingParts": []
+    },
+    {
+      "sampleIndex": 8,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_tpn_case_mucositis_01",
+      "caseTitle": {
+        "en": "Review the client record and answer the case-study items.",
+        "zh": "请查阅患者病历，并回答接下来的案例分析问题。"
+      },
+      "strata": [
+        "hard-cases-canonical",
+        "breach-row-395",
+        "ordinary-3-stage/6-part"
+      ],
+      "selectionRule": "Contains Stage-2 gate-breach row 395 (and ordinary 3-stage / 6-part in hard-cases)",
+      "declaredStageCount": 3,
+      "declaredStageIds": [
+        "stage_1",
+        "stage_2",
+        "stage_3"
+      ],
+      "totalPartsCount": 6,
+      "affectedPartsCount": 6,
+      "isPartiallyAffected": false,
+      "firstQueueIndex": 393,
+      "affectedParts": [
+        {
+          "queueIndex": 393,
+          "partId": "opus_tpn_case_mucositis_01_q1",
+          "partOrdinal": 1,
+          "itemType": "multiple_choice"
+        },
+        {
+          "queueIndex": 394,
+          "partId": "opus_tpn_case_mucositis_01_q2",
+          "partOrdinal": 2,
+          "itemType": "multiple_choice"
+        },
+        {
+          "queueIndex": 395,
+          "partId": "opus_tpn_case_mucositis_01_q3",
+          "partOrdinal": 3,
+          "itemType": "ordered_response"
+        },
+        {
+          "queueIndex": 396,
+          "partId": "opus_tpn_case_mucositis_01_q4",
+          "partOrdinal": 4,
+          "itemType": "multiple_choice"
+        },
+        {
+          "queueIndex": 397,
+          "partId": "opus_tpn_case_mucositis_01_q5",
+          "partOrdinal": 5,
+          "itemType": "matrix"
+        },
+        {
+          "queueIndex": 398,
+          "partId": "opus_tpn_case_mucositis_01_q6",
+          "partOrdinal": 6,
+          "itemType": "multiple_choice"
+        }
+      ],
+      "siblingParts": []
+    }
+  ]
+}

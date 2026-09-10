@@ -1,0 +1,85 @@
+{
+  "validationVersion": "2.0",
+  "packetId": "r2-cal-a",
+  "attempt": 1,
+  "phaseT": {
+    "result": "PASS",
+    "parseClass": null,
+    "duplicateKeyRows": 0,
+    "gates": {
+      "T-G1": "PASS",
+      "T-G2": "PASS",
+      "T-G4": "PASS",
+      "T-G5": "PASS",
+      "T-G6": "PASS",
+      "T-G7": "PASS",
+      "T-G8": "PASS",
+      "T-G9": "PASS",
+      "T-G10": "PASS",
+      "T-G11": "PASS",
+      "T-G12": "PASS",
+      "T-G13": "PASS",
+      "T-G14": "PASS",
+      "T-G15": "PASS",
+      "T-G3": "RETIRED"
+    },
+    "errors": [],
+    "observations": {
+      "missingOrForeignKeyRows": 0,
+      "fillerBasisRows": 0
+    }
+  },
+  "phaseR": {
+    "result": "PASS",
+    "assertions": {
+      "R-A1": "PASS",
+      "R-A2": "PASS",
+      "R-A3": "PASS",
+      "R-A4": "PASS"
+    }
+  },
+  "controlScores": [
+    {
+      "rowToken": "r_82ef9c771a5f0cd859fac646ac77",
+      "sourceStage2QueueIndex": 240,
+      "expectedPrimaryVerdict": "LEAK",
+      "actualPrimaryVerdict": "NO_LEAK_NONANSWERING_DATA",
+      "expectedUnsafeStageId": "stage_2",
+      "actualLocusStageId": null,
+      "classification": "POSITIVE_MISS",
+      "bilingualMatch": true
+    },
+    {
+      "rowToken": "r_9808dff2c06c332d0182251f6a7a",
+      "sourceStage2QueueIndex": 244,
+      "expectedPrimaryVerdict": "LEAK",
+      "actualPrimaryVerdict": "LEAK",
+      "expectedUnsafeStageId": "stage_3",
+      "actualLocusStageId": "stage_3",
+      "classification": "PASS",
+      "bilingualMatch": true
+    },
+    {
+      "rowToken": "r_de4f055a8a270ecbebb1803b2e99",
+      "sourceStage2QueueIndex": 243,
+      "expectedPrimaryVerdict": "LEAK",
+      "actualPrimaryVerdict": "LEAK",
+      "expectedUnsafeStageId": "stage_3",
+      "actualLocusStageId": "stage_3",
+      "classification": "PASS",
+      "bilingualMatch": true
+    },
+    {
+      "rowToken": "r_b0289d620fb2b1f978e377b5db06",
+      "sourceStage2QueueIndex": 245,
+      "expectedPrimaryVerdict": "NO_LEAK_COMPLETE_RECORD",
+      "actualPrimaryVerdict": "NO_LEAK_NONANSWERING_DATA",
+      "expectedUnsafeStageId": null,
+      "actualLocusStageId": null,
+      "classification": "SUBCLASS_ADVISORY",
+      "bilingualMatch": true
+    }
+  ],
+  "calibrationVoid": true,
+  "harvestStatus": "HARVESTED"
+}

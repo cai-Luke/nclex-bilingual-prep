@@ -1,0 +1,126 @@
+{
+  "populationVersion": "1.0",
+  "bankSnapshotSha256": "540b5463f94ded8b88708f49f7e80b76ae0d560edf65d0dd75521c8962e2af0d",
+  "targetCount": 451,
+  "parentCaseCount": 93,
+  "bankCount": 13,
+  "unresolvedCount": 0,
+  "strictMissingRequiredAnchorCount": 75,
+  "countsByBank": {
+    "banks/burn-canonical.json": 0,
+    "banks/capnography-canonical.json": 0,
+    "banks/claude-canonical.json": 58,
+    "banks/device-canonical.json": 0,
+    "banks/gemini-canonical.json": 46,
+    "banks/gpt-canonical.json": 243,
+    "banks/hard-cases-canonical.json": 104,
+    "banks/io-canonical.json": 0,
+    "banks/lab-canonical.json": 0,
+    "banks/mar-canonical.json": 0,
+    "banks/medlabel-canonical.json": 0,
+    "banks/visual-canonical.json": 0,
+    "banks/vitals-canonical.json": 0
+  },
+  "countsByItemType": {
+    "dropdown_cloze": 51,
+    "fill_in_blank": 9,
+    "highlight": 14,
+    "matrix": 97,
+    "multiple_choice": 146,
+    "ordered_response": 35,
+    "select_all": 99
+  },
+  "reconciliation": {
+    "phaseAOrientation": {
+      "targetCount": 451,
+      "parentCaseCount": 93,
+      "targetCountDelta": 0,
+      "parentCaseCountDelta": 0
+    },
+    "julyIdentityOnly": {
+      "historicalCount": 451,
+      "additions": [],
+      "removals": []
+    },
+    "bankDriftAgainstPhaseA": [
+      {
+        "bankPath": "banks/burn-canonical.json",
+        "phaseASha256": "5244b8d37daa49adbd1fbed7991f4ede52ded8ce710e26821841ef5e2ce3719f",
+        "liveSha256": "5244b8d37daa49adbd1fbed7991f4ede52ded8ce710e26821841ef5e2ce3719f",
+        "changed": false
+      },
+      {
+        "bankPath": "banks/capnography-canonical.json",
+        "phaseASha256": "36d72a89405fe4400f27b3b8969cdbe1c51f3217151f8b2592b7f877d636f20c",
+        "liveSha256": "36d72a89405fe4400f27b3b8969cdbe1c51f3217151f8b2592b7f877d636f20c",
+        "changed": false
+      },
+      {
+        "bankPath": "banks/claude-canonical.json",
+        "phaseASha256": "25f53ded1ac21da4ca9d211040c3f6110ebee38d72ba41d0fc64fe358ba73b71",
+        "liveSha256": "25f53ded1ac21da4ca9d211040c3f6110ebee38d72ba41d0fc64fe358ba73b71",
+        "changed": false
+      },
+      {
+        "bankPath": "banks/device-canonical.json",
+        "phaseASha256": "83d5a6ac7219524f4c528265291cbee2ed5b2f17c13fbeb3649342bae2e4aac5",
+        "liveSha256": "83d5a6ac7219524f4c528265291cbee2ed5b2f17c13fbeb3649342bae2e4aac5",
+        "changed": false
+      },
+      {
+        "bankPath": "banks/gemini-canonical.json",
+        "phaseASha256": "3dc416a4652f5f5712219dde7de87b92f0697fac953750b8abb8fc0dbb976bb6",
+        "liveSha256": "3dc416a4652f5f5712219dde7de87b92f0697fac953750b8abb8fc0dbb976bb6",
+        "changed": false
+      },
+      {
+        "bankPath": "banks/gpt-canonical.json",
+        "phaseASha256": "be83c943bbe6e50297de94d25b596069767b8fee876426ec798dc66ca8d5a76d",
+        "liveSha256": "d7d228afc282bd15bc730be4ca5b3d2c7c14c017bbc14f3d12a7cbccbfef0f20",
+        "changed": true
+      },
+      {
+        "bankPath": "banks/hard-cases-canonical.json",
+        "phaseASha256": "8068c6917e53257a31c7299454c213f61bea62e61d7cf185cb1a09386f4e4862",
+        "liveSha256": "5d47b79a1e63fe5f852eab7b4ab9b8db6ca7e9ec924037d5e81de8a8bb3ee3d1",
+        "changed": true
+      },
+      {
+        "bankPath": "banks/io-canonical.json",
+        "phaseASha256": "2ce6488e65049ba00cd9dccf889a042e0a624f224387382d564d282e147b2645",
+        "liveSha256": "2ce6488e65049ba00cd9dccf889a042e0a624f224387382d564d282e147b2645",
+        "changed": false
+      },
+      {
+        "bankPath": "banks/lab-canonical.json",
+        "phaseASha256": "1038cb68f6b91f6a2c981562d97ad9e16179db9b1332c75725fd538595c44b05",
+        "liveSha256": "1038cb68f6b91f6a2c981562d97ad9e16179db9b1332c75725fd538595c44b05",
+        "changed": false
+      },
+      {
+        "bankPath": "banks/mar-canonical.json",
+        "phaseASha256": "f12c03a28ff5b52411843f84bc942b4ca5667e989194357ed2d60a394f17641e",
+        "liveSha256": "f12c03a28ff5b52411843f84bc942b4ca5667e989194357ed2d60a394f17641e",
+        "changed": false
+      },
+      {
+        "bankPath": "banks/medlabel-canonical.json",
+        "phaseASha256": "cc3bd0053516fc7ea4b23e814e46f186e6d2dbf40888fa713a862c07ea2b3993",
+        "liveSha256": "cc3bd0053516fc7ea4b23e814e46f186e6d2dbf40888fa713a862c07ea2b3993",
+        "changed": false
+      },
+      {
+        "bankPath": "banks/visual-canonical.json",
+        "phaseASha256": "e42e2a3fa6aa349a61279e6988e250e65c2b752a6f36d33806a2671e0af0f9e4",
+        "liveSha256": "e42e2a3fa6aa349a61279e6988e250e65c2b752a6f36d33806a2671e0af0f9e4",
+        "changed": false
+      },
+      {
+        "bankPath": "banks/vitals-canonical.json",
+        "phaseASha256": "5154e25492bced8e4a49d763f04e25e154389c31e085bf37669651e13d411b9d",
+        "liveSha256": "5154e25492bced8e4a49d763f04e25e154389c31e085bf37669651e13d411b9d",
+        "changed": false
+      }
+    ]
+  }
+}

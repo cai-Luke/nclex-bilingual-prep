@@ -1,0 +1,50 @@
+{
+  "validationReceiptVersion": "1.0",
+  "packetId": "cal-b",
+  "attempt": 1,
+  "packet": {
+    "path": "packets/cal-b.json",
+    "sha256": "2e5847c8b31b1eae9f16c06d3df4816c59860c5949b39cde083127bef5f5c275",
+    "bytes": 617316
+  },
+  "output": {
+    "path": "outputs/cal-b-attempt-1.jsonl",
+    "sha256": "9e6463b8ee63156f9405561bfe8ee13530b739f86281aaa0920bcb9016730540",
+    "bytes": 39544,
+    "rows": 15
+  },
+  "processReceipt": {
+    "path": "raw/cal-b-attempt-1.process.json",
+    "sha256": "c6d6035efb2ef7c922dea84ad5994bad26adb9e922dc68f9bbc685cf18bfdba0"
+  },
+  "validation": {
+    "ok": true,
+    "packetId": "cal-b",
+    "expectedRows": 15,
+    "receivedRows": 15,
+    "gates": {
+      "G1": "PASS",
+      "G2": "PASS",
+      "G3": "PASS",
+      "G4": "PASS",
+      "G5": "PASS",
+      "G6": "PASS",
+      "G7": "PASS",
+      "G8": "PASS",
+      "G9": "PASS",
+      "G10": "PASS",
+      "G11": "PASS",
+      "G12": "PASS",
+      "G13": "PASS",
+      "G14": "PASS"
+    },
+    "errors": []
+  },
+  "lock": {
+    "path": "locks/cal-b-attempt-1.json",
+    "sha256": "3361e4a2213bef973e152bee97669ae6587f6bc9d42b753a6f1ffbff2cc7e2bb",
+    "packetVoid": false
+  },
+  "controlScoringPerformed": true,
+  "calibrationAdmission": "ESCROW_ONLY"
+}

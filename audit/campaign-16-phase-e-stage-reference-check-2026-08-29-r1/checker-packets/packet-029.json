@@ -1,0 +1,2410 @@
+{
+  "checkerPacketVersion": "1.0",
+  "packetId": "packet-029",
+  "stage": "PHASE_E_STAGE_2_INDEPENDENT_CHECKER",
+  "bankSnapshotSha256": "540b5463f94ded8b88708f49f7e80b76ae0d560edf65d0dd75521c8962e2af0d",
+  "sourcePacket": {
+    "path": "audit/campaign-16-phase-e-stage-reference-census-2026-08-29-r1/packets/packet-029.json",
+    "sha256": "b4c7b716f2406068c065eb5243fa330399b013668136a41bdf8ebefc488266da"
+  },
+  "targetCount": 3,
+  "blinding": {
+    "containsProducerOutput": false,
+    "excludedFields": [
+      "bilingualRelation",
+      "classBalance",
+      "comparison",
+      "counts",
+      "firstByte",
+      "firstByteMod10",
+      "noLeakSafetyGateRow",
+      "producerReason",
+      "producerVerdict",
+      "producerVerdictClass",
+      "reason",
+      "requiredStageIds",
+      "sampleKey",
+      "sampleSha256",
+      "selected",
+      "selectionReasons",
+      "unsafeStageIds",
+      "verdict"
+    ],
+    "note": "This packet is derived only from the frozen Stage-0 source packet and the frozen population identities. It carries no producer verdict, reason, required/unsafe stages, bilingual relation, counts, class balance, comparison data, historical Gemini or calibration verdict material, or repair proposal."
+  },
+  "instructions": "Independently adjudicate every target in cases[].targets. Emit exactly one JSONL row per target, in ascending queueIndex order, using the closed row shape in the semantic contract below. Copy queueIndex, packetId, bankPath, parentCaseId and partId verbatim from each target. Cite only evidenceIds present in this packet evidenceCatalog and belonging to the same parentCaseId.",
+  "semanticContract": "## 6. Semantic adjudication contract\n\n### 6.1 Review question, in order\n\nFor each target, the semantic worker answers:\n\n1. What exact decision or response is this part testing, using the stored key/rationale only to identify the intended inference rather than to re-grade it?\n2. Which currently visible stage facts are actually needed to answer that part?\n3. Does any **otherwise unnecessary** exposed stage fact materially reduce the reasoning required by directly revealing or strongly cueing the keyed decision?\n4. Does the case/part instead intentionally operate on a complete record, making full-stage visibility appropriate?\n5. If the intended stage boundary cannot be recovered safely from the authored case, is `REVIEW` more accurate than forced certainty?\n6. Is the leakage relation parallel in English and Simplified Chinese, or materially different?\n\n### 6.2 Verdict vocabulary\n\nExactly one primary verdict per row:\n\n- `LEAK`\n  - one or more exposed stages materially help answer the active part by naming or strongly cueing a condition, action, priority, calculation/trend, response, outcome, or distractor-eliminating fact that the part otherwise requires the learner to infer;\n- `NO_LEAK_COMPLETE_RECORD`\n  - the authored case/part evidence supports that the complete staged record is intentionally available for this part;\n- `NO_LEAK_NONANSWERING_DATA`\n  - later-looking or extra stage information is exposed but does not materially help answer this part;\n- `REVIEW`\n  - the intended progression/dependency cannot be recovered safely from the packet.\n\nDo not invent additional primary verdicts.\n\nA later timestamp is not automatically a leak. Additional data is not automatically useful data. Strong cueing counts even when the answer does not appear verbatim. `NO_LEAK_COMPLETE_RECORD` requires positive evidence of complete-record intent and is not a default for difficult legacy cases.\n\n### 6.3 Bilingual relation vocabulary\n\nExactly one:\n\n- `PARALLEL`\n- `EN_ONLY_LEAK`\n- `ZH_ONLY_LEAK`\n- `MATERIAL_DIVERGENCE`\n- `UNRESOLVED`\n\nPunctuation, sentence count, or ordinary translation compression alone is not material divergence.\n\n### 6.4 Required candidate row\n\nEach producer/checker semantic row uses the closed shape:\n\n```json\n{\n  \"queueIndex\": 1,\n  \"packetId\": \"packet-001\",\n  \"bankPath\": \"banks/example-canonical.json\",\n  \"parentCaseId\": \"case_id\",\n  \"partId\": \"part_id\",\n  \"verdict\": \"LEAK\",\n  \"testedDecision\": \"Identify the priority response to worsening respiratory status.\",\n  \"requiredStageIds\": [\"baseline\"],\n  \"unsafeStageIds\": [\"post_intervention\"],\n  \"partEvidenceIds\": [\"...\"],\n  \"stageEvidenceIds\": [\"...\"],\n  \"bilingualRelation\": \"PARALLEL\",\n  \"reason\": \"Item-specific explanation.\"\n}\n```\n\nRules:\n\n- `testedDecision`: one item-specific sentence, maximum 30 words;\n- `requiredStageIds`: stages actually needed, or `[]` when global/baseline context suffices;\n- `unsafeStageIds`: nonempty only for `LEAK`;\n- `partEvidenceIds`: 1–4 packet-owned IDs from part stem/response/key/rationale;\n- `stageEvidenceIds`: 1–6 packet-owned stage IDs showing the relevant exposed evidence; for a no-leak row cite the most plausible exposed cue and explain why it does not answer the part;\n- `reason`: 1–3 item-specific sentences;\n- no confidence score;\n- no replacement prose;\n- no exact anchor recommendation;\n- no aggregate totals inside per-packet semantic output.\n\n",
+  "cases": [
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "bankSha256": "d7d228afc282bd15bc730be4ca5b3d2c7c14c017bbc14f3d12a7cbccbfef0f20",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "casePath": "questions[241]",
+      "stem": {
+        "en": "Review the client record and answer the case-study items.",
+        "zh": "查看患者记录并回答病例题。"
+      },
+      "title": {
+        "en": "Unfolding case: COPD discharge with home oxygen",
+        "zh": "展开病例：COPD 患者带居家氧疗出院"
+      },
+      "summary": {
+        "en": "A client with COPD is being prepared for discharge with new home oxygen after hospitalization for an exacerbation.",
+        "zh": "一名 COPD 患者因急性加重住院后，准备带新的居家氧疗出院。"
+      },
+      "globalExhibits": [
+        {
+          "id": "baseline",
+          "title": {
+            "en": "Baseline discharge referral",
+            "zh": "基础出院转介记录"
+          },
+          "content": {
+            "en": "Age 69. COPD. New order: oxygen 2 L/min by nasal cannula with activity and sleep. Lives with spouse in a small apartment. Uses a cane. SpO2 92% on 2 L/min after walking 30 feet.",
+            "zh": "69 岁。COPD。新医嘱：活动和睡眠时鼻导管吸氧 2 L/分。与配偶住在小公寓。使用手杖。步行 30 英尺后吸氧 2 L/分时 SpO2 为 92%。"
+          },
+          "structuredMeasurements": {
+            "panels": [
+              {
+                "kind": "vitals",
+                "columns": [
+                  {
+                    "id": "current",
+                    "label": {
+                      "en": "Current",
+                      "zh": "当前"
+                    }
+                  }
+                ],
+                "rows": [
+                  {
+                    "key": "spo2",
+                    "label": {
+                      "en": "SpO2",
+                      "zh": "脉搏血氧饱和度"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "92",
+                        "unit": "%"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "evidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.content.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.content.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.structuredMeasurements.panels.0.columns.0.label.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.structuredMeasurements.panels.0.columns.0.label.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.structuredMeasurements.panels.0.rows.0.key",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.structuredMeasurements.panels.0.rows.0.label.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.structuredMeasurements.panels.0.rows.0.label.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.structuredMeasurements.panels.0.rows.0.values.0.unit",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.structuredMeasurements.panels.0.rows.0.values.0.value",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.title.zh"
+          ]
+        }
+      ],
+      "stages": [
+        {
+          "id": "stage_1_home",
+          "title": {
+            "en": "Stage 1: Home safety interview",
+            "zh": "第 1 阶段：居家安全访谈"
+          },
+          "exhibits": [
+            {
+              "id": "home_safety",
+              "title": {
+                "en": "Home safety notes",
+                "zh": "居家安全记录"
+              },
+              "content": {
+                "en": "Spouse smokes on the apartment balcony while the sliding door is open. Client reports using petroleum jelly for dry nares. Oxygen tubing would cross the bedroom doorway unless furniture is moved. Client says, 'I set the machine to exactly 2 liters like the prescription says.'",
+                "zh": "配偶在阳台吸烟，滑动门开着。患者称会用凡士林缓解鼻腔干燥。如果不移动家具，氧气管会横跨卧室门口。患者说：“我会按处方把机器设为 2 升。”"
+              }
+            }
+          ],
+          "evidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.content.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.content.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.title.zh"
+          ]
+        },
+        {
+          "id": "stage_2_teaching",
+          "title": {
+            "en": "Stage 2: Teaching session",
+            "zh": "第 2 阶段：宣教记录"
+          },
+          "exhibits": [
+            {
+              "id": "teaching",
+              "title": {
+                "en": "Client and spouse responses",
+                "zh": "患者与配偶反馈"
+              },
+              "content": {
+                "en": "Client states, 'If I feel short of breath, I can turn it up until I feel better.' Spouse asks whether a water-based nasal lubricant is acceptable. Both agree to move a bedside table so tubing does not cross the doorway.",
+                "zh": "患者说：“如果我觉得气短，可以把氧气调高，直到舒服为止。”配偶询问是否可以使用水性鼻腔润滑剂。两人同意移动床边桌，使管路不横跨门口。"
+              }
+            }
+          ],
+          "evidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.content.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.content.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.title.zh"
+          ]
+        },
+        {
+          "id": "stage_3_equipment",
+          "title": {
+            "en": "Stage 3: Equipment readiness",
+            "zh": "第 3 阶段：设备准备情况"
+          },
+          "exhibits": [
+            {
+              "id": "equipment",
+              "title": {
+                "en": "Durable medical equipment note",
+                "zh": "耐用医疗设备记录"
+              },
+              "content": {
+                "en": "Concentrator delivery confirmed for 1600. Portable cylinder: 600 L usable oxygen. Prescribed activity flow: 2 L/min. Backup battery fully charged. Client and spouse complete a return demonstration of tubing placement and oxygen-in-use signage.",
+                "zh": "制氧机确认 1600 送达。便携氧气瓶：可用氧气 600 L。活动时处方流量：2 L/分。备用电池已充满电。患者和配偶完成管路摆放及正在使用氧气标识的回示演示。"
+              }
+            }
+          ],
+          "evidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.content.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.content.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.title.zh"
+          ]
+        }
+      ],
+      "siblingPartOutlines": [
+        {
+          "ordinal": 1,
+          "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+          "itemType": "matrix",
+          "stem": {
+            "en": "Using the initial home oxygen referral note, classify each finding as a safety concern or an expected finding for discharge teaching.",
+            "zh": "根据初始居家氧疗转介记录，将每项发现归类为安全隐患或出院宣教中的预期发现。"
+          },
+          "answerableAfterStageId": null,
+          "stageId": null,
+          "evidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.stem.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.stem.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.anchors"
+          ]
+        },
+        {
+          "ordinal": 2,
+          "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+          "itemType": "dropdown_cloze",
+          "stem": {
+            "en": "The nurse reviews the Stage 1 teaching session and identifies the discharge issue that must be corrected before the client leaves.",
+            "zh": "护士查看第 1 阶段的宣教记录，并判断患者离院前必须纠正的出院问题。"
+          },
+          "answerableAfterStageId": null,
+          "stageId": null,
+          "evidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.stem.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.stem.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.anchors"
+          ]
+        },
+        {
+          "ordinal": 3,
+          "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+          "itemType": "ordered_response",
+          "stem": {
+            "en": "The client is scheduled for discharge with new home oxygen after Stage 2. Place the nurse's actions in the best order.",
+            "zh": "第 2 阶段后，患者计划带新的居家氧疗出院。请按最佳顺序排列护士的行动。"
+          },
+          "answerableAfterStageId": null,
+          "stageId": null,
+          "evidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.stem.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.stem.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.anchors"
+          ]
+        },
+        {
+          "ordinal": 4,
+          "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+          "itemType": "multiple_choice",
+          "stem": {
+            "en": "During Stage 3 teach-back, which client statement shows correct understanding of home oxygen safety?",
+            "zh": "在第 3 阶段回示中，哪项患者陈述表明其正确理解了居家氧疗安全？"
+          },
+          "answerableAfterStageId": null,
+          "stageId": null,
+          "evidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.stem.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.stem.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.anchors"
+          ]
+        },
+        {
+          "ordinal": 5,
+          "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5",
+          "itemType": "fill_in_blank",
+          "stem": {
+            "en": "Stage 3 equipment teaching states: The portable cylinder contains 600 L of usable oxygen. The prescribed flow is 2 L/min for activity. How many minutes of oxygen are available for activity? Round to the nearest whole minute.",
+            "zh": "第 3 阶段设备宣教写明：便携氧气瓶可用氧气量为 600 L。活动时处方流量为 2 L/分。该氧气瓶可供活动使用多少分钟？四舍五入到最接近的整数。"
+          },
+          "answerableAfterStageId": null,
+          "stageId": null,
+          "evidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.stem.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.stem.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.anchors"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.stem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.stem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.title.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.title.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.summary.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.summary.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.content.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.content.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.structuredMeasurements.panels.0.columns.0.label.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.structuredMeasurements.panels.0.columns.0.label.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.structuredMeasurements.panels.0.rows.0.key",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.structuredMeasurements.panels.0.rows.0.label.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.structuredMeasurements.panels.0.rows.0.label.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.structuredMeasurements.panels.0.rows.0.values.0.unit",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.structuredMeasurements.panels.0.rows.0.values.0.value",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.title.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.title.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.content.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.content.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.title.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.title.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.title.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.title.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.content.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.content.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.title.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.title.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.title.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.title.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.content.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.content.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.title.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.title.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.title.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.title.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.stem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.stem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.anchors",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.stem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.stem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.anchors",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.stem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.stem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.anchors",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.stem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.stem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.anchors",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.stem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.stem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.anchors",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.stem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.stem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.columns.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.columns.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.columns.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.columns.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.2.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.2.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.3.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.3.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.4.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.4.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.selectionMode",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.key",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.2.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.2.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.3.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.3.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.4.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.4.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.correct.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.correct.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.strategy.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.strategy.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.stem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.stem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.clozeStem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.clozeStem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.0.options.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.0.options.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.0.options.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.0.options.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.0.options.2.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.0.options.2.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.1.options.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.1.options.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.1.options.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.1.options.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.1.options.2.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.1.options.2.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.key",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.rationale.byChoice.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.rationale.byChoice.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.rationale.byChoice.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.rationale.byChoice.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.rationale.correct.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.rationale.correct.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.strategy.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.strategy.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.stem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.stem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.2.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.2.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.3.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.3.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.key",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.2.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.2.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.3.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.3.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.correct.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.correct.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.strategy.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.strategy.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.stem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.stem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.response.options.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.response.options.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.response.options.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.response.options.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.response.options.2.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.response.options.2.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.response.options.3.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.response.options.3.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.key",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.rationale.byChoice.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.rationale.byChoice.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.rationale.byChoice.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.rationale.byChoice.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.rationale.byChoice.2.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.rationale.byChoice.2.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.rationale.byChoice.3.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.rationale.byChoice.3.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.rationale.correct.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.rationale.correct.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.strategy.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.strategy.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.stem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.stem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.response.blanks.0.prompt.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.response.blanks.0.prompt.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.key",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.rationale.byChoice.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.rationale.byChoice.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.rationale.correct.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.rationale.correct.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.strategy.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.strategy.zh"
+      ],
+      "targets": [
+        {
+          "queueIndex": 171,
+          "packetId": "packet-029",
+          "bankPath": "banks/gpt-canonical.json",
+          "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+          "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+          "partOrdinal": 1,
+          "itemType": "matrix",
+          "stem": {
+            "en": "Using the initial home oxygen referral note, classify each finding as a safety concern or an expected finding for discharge teaching.",
+            "zh": "根据初始居家氧疗转介记录，将每项发现归类为安全隐患或出院宣教中的预期发现。"
+          },
+          "response": {
+            "matrix": {
+              "rows": [
+                {
+                  "id": "r1",
+                  "en": "Spouse smokes on the apartment balcony while the sliding door is open",
+                  "zh": "配偶在阳台吸烟，且滑动门开着"
+                },
+                {
+                  "id": "r2",
+                  "en": "Client applies petroleum jelly to dry nares before placing the cannula",
+                  "zh": "患者放置鼻导管前在干燥鼻腔涂凡士林"
+                },
+                {
+                  "id": "r3",
+                  "en": "Client sets the concentrator to 2 L/min as prescribed",
+                  "zh": "患者按处方将制氧机设为 2 L/分"
+                },
+                {
+                  "id": "r4",
+                  "en": "Oxygen tubing runs across the bedroom doorway",
+                  "zh": "氧气管路横跨卧室门口"
+                },
+                {
+                  "id": "r5",
+                  "en": "Portable concentrator battery is fully charged before leaving home",
+                  "zh": "外出前便携制氧机电池已充满电"
+                }
+              ],
+              "columns": [
+                {
+                  "id": "c1",
+                  "en": "Safety concern",
+                  "zh": "安全隐患"
+                },
+                {
+                  "id": "c2",
+                  "en": "Expected finding",
+                  "zh": "预期发现"
+                }
+              ],
+              "selectionMode": "single_per_row"
+            },
+            "correct": [
+              {
+                "rowId": "r1",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r2",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r3",
+                "columnIds": [
+                  "c2"
+                ]
+              },
+              {
+                "rowId": "r4",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r5",
+                "columnIds": [
+                  "c2"
+                ]
+              }
+            ]
+          },
+          "rationale": {
+            "correct": {
+              "en": "Smoking exposure, petroleum products near the cannula, and extension tubing across a walkway increase fire or fall risk. Correct oxygen flow use and a charged concentrator backup are expected safety behaviors.",
+              "zh": "吸烟暴露、鼻导管附近使用含油产品以及延长管横跨走道会增加火灾或跌倒风险。按处方氧流量使用和备有充电的制氧机备用电源属于预期的安全行为。"
+            },
+            "byChoice": [
+              {
+                "refId": "r1",
+                "en": "Active smoking around oxygen is a fire and burn hazard.",
+                "zh": "在氧气附近吸烟会造成火灾和烧伤危险。"
+              },
+              {
+                "refId": "r2",
+                "en": "Petroleum ointment can support combustion near oxygen equipment; water-based products are safer.",
+                "zh": "含凡士林的软膏在氧气设备附近可能助燃；应使用水性产品。"
+              },
+              {
+                "refId": "r3",
+                "en": "Keeping the oxygen at the prescribed flow rate is expected.",
+                "zh": "按处方流量使用氧气是预期做法。"
+              },
+              {
+                "refId": "r4",
+                "en": "Loose tubing across a walking path creates a fall hazard.",
+                "zh": "管路横在行走通道上会造成跌倒风险。"
+              },
+              {
+                "refId": "r5",
+                "en": "A charged backup power plan supports safe equipment use during outages.",
+                "zh": "有充电备用电源计划有助于停电时安全使用设备。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "Separate oxygen-fire hazards from ordinary equipment teaching; oxygen supports combustion even when it is not flammable itself.",
+            "zh": "将氧气相关火灾隐患与普通设备宣教分开判断；氧气本身不易燃，但会助燃。"
+          },
+          "anchorState": {
+            "answerableAfterStageId": {
+              "status": "absent"
+            },
+            "stageId": {
+              "status": "absent"
+            }
+          },
+          "declaredStageIds": [
+            "stage_1_home",
+            "stage_2_teaching",
+            "stage_3_equipment"
+          ],
+          "rendererVisibleStageIds": [
+            "stage_1_home",
+            "stage_2_teaching",
+            "stage_3_equipment"
+          ],
+          "partEvidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.stem.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.stem.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.columns.0.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.columns.0.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.columns.1.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.columns.1.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.0.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.0.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.1.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.1.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.2.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.2.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.3.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.3.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.4.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.4.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.selectionMode",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.key",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.0.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.0.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.1.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.1.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.2.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.2.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.3.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.3.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.4.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.4.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.correct.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.correct.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.strategy.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.strategy.zh"
+          ],
+          "stageEvidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.content.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.content.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.content.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.content.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.content.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.content.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.title.zh"
+          ],
+          "contextEvidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.stem.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.stem.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.summary.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.summary.zh"
+          ]
+        },
+        {
+          "queueIndex": 172,
+          "packetId": "packet-029",
+          "bankPath": "banks/gpt-canonical.json",
+          "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+          "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+          "partOrdinal": 2,
+          "itemType": "dropdown_cloze",
+          "stem": {
+            "en": "The nurse reviews the Stage 1 teaching session and identifies the discharge issue that must be corrected before the client leaves.",
+            "zh": "护士查看第 1 阶段的宣教记录，并判断患者离院前必须纠正的出院问题。"
+          },
+          "response": {
+            "clozeStem": {
+              "en": "The priority discharge barrier is {{1}}; the nurse should teach the client to {{2}}.",
+              "zh": "优先处理的出院障碍是 {{1}}；护士应教导患者 {{2}}。"
+            },
+            "dropdowns": [
+              {
+                "id": "1",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "self-adjusting oxygen flow for shortness of breath",
+                    "zh": "因气短而自行调节氧流量"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "using pursed-lip breathing during activity",
+                    "zh": "活动时使用缩唇呼吸"
+                  },
+                  {
+                    "id": "o3",
+                    "en": "keeping the concentrator plugged into a grounded outlet",
+                    "zh": "将制氧机插入接地插座"
+                  }
+                ],
+                "correct": "o1"
+              },
+              {
+                "id": "2",
+                "options": [
+                  {
+                    "id": "o2",
+                    "en": "increase oxygen until the pulse oximeter reads 100%",
+                    "zh": "增加氧流量直到血氧仪显示 100%"
+                  },
+                  {
+                    "id": "o3",
+                    "en": "turn off oxygen during all household ambulation",
+                    "zh": "在家中走动时都关闭氧气"
+                  },
+                  {
+                    "id": "o1",
+                    "en": "use the prescribed flow and seek help if symptoms worsen",
+                    "zh": "按处方流量使用，症状加重时求助"
+                  }
+                ],
+                "correct": "o1"
+              }
+            ]
+          },
+          "rationale": {
+            "correct": {
+              "en": "The client's statement about turning the oxygen higher during dyspnea shows unsafe self-adjustment. The nurse should reinforce using the prescribed flow rate and calling the provider or emergency services for worsening symptoms.",
+              "zh": "患者表示气促时自行调高氧流量，说明存在不安全的自行调节。护士应强化按处方流量使用，并在症状加重时联系医护人员或急救服务。"
+            },
+            "byChoice": [
+              {
+                "refId": "1",
+                "en": "The most immediate teaching gap is unsafe self-adjustment of oxygen flow.",
+                "zh": "最需要纠正的宣教缺口是患者不安全地自行调节氧流量。"
+              },
+              {
+                "refId": "2",
+                "en": "Using the prescribed flow rate and seeking help for worsening dyspnea is safer than changing the liter flow independently.",
+                "zh": "按处方流量使用氧气，并在气促加重时求助，比自行改变流量更安全。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "When a home teaching statement includes independent dose or device changes, look for the response that restores the prescribed plan and escalation pathway.",
+            "zh": "如果居家宣教反馈中出现自行改变剂量或设备设置，应选择能恢复处方计划并明确升级求助路径的回答。"
+          },
+          "anchorState": {
+            "answerableAfterStageId": {
+              "status": "absent"
+            },
+            "stageId": {
+              "status": "absent"
+            }
+          },
+          "declaredStageIds": [
+            "stage_1_home",
+            "stage_2_teaching",
+            "stage_3_equipment"
+          ],
+          "rendererVisibleStageIds": [
+            "stage_1_home",
+            "stage_2_teaching",
+            "stage_3_equipment"
+          ],
+          "partEvidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.stem.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.stem.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.clozeStem.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.clozeStem.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.0.options.0.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.0.options.0.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.0.options.1.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.0.options.1.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.0.options.2.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.0.options.2.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.1.options.0.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.1.options.0.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.1.options.1.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.1.options.1.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.1.options.2.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.1.options.2.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.key",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.rationale.byChoice.0.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.rationale.byChoice.0.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.rationale.byChoice.1.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.rationale.byChoice.1.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.rationale.correct.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.rationale.correct.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.strategy.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.strategy.zh"
+          ],
+          "stageEvidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.content.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.content.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.content.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.content.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.content.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.content.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.title.zh"
+          ],
+          "contextEvidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.stem.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.stem.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.summary.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.summary.zh"
+          ]
+        },
+        {
+          "queueIndex": 173,
+          "packetId": "packet-029",
+          "bankPath": "banks/gpt-canonical.json",
+          "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+          "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+          "partOrdinal": 3,
+          "itemType": "ordered_response",
+          "stem": {
+            "en": "The client is scheduled for discharge with new home oxygen after Stage 2. Place the nurse's actions in the best order.",
+            "zh": "第 2 阶段后，患者计划带新的居家氧疗出院。请按最佳顺序排列护士的行动。"
+          },
+          "response": {
+            "options": [
+              {
+                "id": "D",
+                "en": "Document discharge readiness and communicate any remaining barriers to the team",
+                "zh": "记录出院准备情况，并向团队沟通仍存在的障碍"
+              },
+              {
+                "id": "B",
+                "en": "Confirm home equipment delivery, tubing supply, and backup power plan",
+                "zh": "确认家用设备送达、管路供应和备用电源计划"
+              },
+              {
+                "id": "C",
+                "en": "Ask the client and spouse to demonstrate fire-safety and tubing-management steps",
+                "zh": "请患者和配偶演示防火和管路管理步骤"
+              },
+              {
+                "id": "A",
+                "en": "Verify the oxygen prescription, target use instructions, and equipment ordered",
+                "zh": "核对氧疗处方、目标使用说明和已订设备"
+              }
+            ],
+            "correct": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          "rationale": {
+            "correct": {
+              "en": "The nurse first verifies the prescription and equipment plan, then confirms delivery and backup arrangements, assesses caregiver teach-back, and finally documents readiness and unresolved barriers.",
+              "zh": "护士应先核对处方和设备计划，然后确认送达与备用安排，再评估照护者回示，最后记录出院准备情况和未解决障碍。"
+            },
+            "byChoice": [
+              {
+                "refId": "A",
+                "en": "Verifying the ordered oxygen settings and equipment prevents teaching from being based on an incorrect plan.",
+                "zh": "先核对氧疗设置和设备，可避免基于错误计划进行宣教。"
+              },
+              {
+                "refId": "D",
+                "en": "Documentation follows assessment and coordination; unresolved barriers should be communicated in the record and handoff.",
+                "zh": "记录应在评估和协调之后完成；未解决障碍需写入病历并交接。"
+              },
+              {
+                "refId": "C",
+                "en": "Teach-back verifies whether the client and caregiver can perform the safety behaviors at home.",
+                "zh": "回示可验证患者和照护者是否能在家执行安全措施。"
+              },
+              {
+                "refId": "B",
+                "en": "Equipment delivery and backup power must be confirmed before discharge logistics are considered complete.",
+                "zh": "出院流程完成前，必须确认设备送达和备用电源安排。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "For discharge sequencing, verify the order, arrange the resources, assess learning, then document and hand off unresolved risks.",
+            "zh": "处理出院顺序时，先核对医嘱，再安排资源，再评估学习效果，最后记录并交接未解决风险。"
+          },
+          "anchorState": {
+            "answerableAfterStageId": {
+              "status": "absent"
+            },
+            "stageId": {
+              "status": "absent"
+            }
+          },
+          "declaredStageIds": [
+            "stage_1_home",
+            "stage_2_teaching",
+            "stage_3_equipment"
+          ],
+          "rendererVisibleStageIds": [
+            "stage_1_home",
+            "stage_2_teaching",
+            "stage_3_equipment"
+          ],
+          "partEvidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.stem.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.stem.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.0.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.0.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.1.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.1.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.2.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.2.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.3.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.3.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.key",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.0.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.0.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.1.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.1.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.2.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.2.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.3.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.3.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.correct.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.correct.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.strategy.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.strategy.zh"
+          ],
+          "stageEvidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.content.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.content.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.content.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.content.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.content.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.content.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.title.zh"
+          ],
+          "contextEvidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.stem.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.stem.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.summary.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.summary.zh"
+          ]
+        }
+      ],
+      "selectedTargetCount": 3,
+      "totalTargetsInParentCase": 5
+    }
+  ],
+  "evidenceCatalog": [
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.stem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "CASE_CONTEXT",
+      "jsonPath": "questions[241].stem.en",
+      "text": "Review the client record and answer the case-study items.",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.stem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "CASE_CONTEXT",
+      "jsonPath": "questions[241].stem.zh",
+      "text": "查看患者记录并回答病例题。",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.title.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "CASE_CONTEXT",
+      "jsonPath": "questions[241].caseStudy.title.en",
+      "text": "Unfolding case: COPD discharge with home oxygen",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.title.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "CASE_CONTEXT",
+      "jsonPath": "questions[241].caseStudy.title.zh",
+      "text": "展开病例：COPD 患者带居家氧疗出院",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.summary.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "CASE_CONTEXT",
+      "jsonPath": "questions[241].caseStudy.summary.en",
+      "text": "A client with COPD is being prepared for discharge with new home oxygen after hospitalization for an exacerbation.",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.context.summary.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "CASE_CONTEXT",
+      "jsonPath": "questions[241].caseStudy.summary.zh",
+      "text": "一名 COPD 患者因急性加重住院后，准备带新的居家氧疗出院。",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.content.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[241].caseStudy.exhibits[0].content.en",
+      "text": "Age 69. COPD. New order: oxygen 2 L/min by nasal cannula with activity and sleep. Lives with spouse in a small apartment. Uses a cane. SpO2 92% on 2 L/min after walking 30 feet.",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.content.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[241].caseStudy.exhibits[0].content.zh",
+      "text": "69 岁。COPD。新医嘱：活动和睡眠时鼻导管吸氧 2 L/分。与配偶住在小公寓。使用手杖。步行 30 英尺后吸氧 2 L/分时 SpO2 为 92%。",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.structuredMeasurements.panels.0.columns.0.label.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[241].caseStudy.exhibits[0].structuredMeasurements.panels[0].columns[0].label.en",
+      "text": "Current",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.structuredMeasurements.panels.0.columns.0.label.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[241].caseStudy.exhibits[0].structuredMeasurements.panels[0].columns[0].label.zh",
+      "text": "当前",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.structuredMeasurements.panels.0.rows.0.key",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[241].caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[0].key",
+      "text": "spo2"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.structuredMeasurements.panels.0.rows.0.label.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[241].caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[0].label.en",
+      "text": "SpO2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.structuredMeasurements.panels.0.rows.0.label.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[241].caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[0].label.zh",
+      "text": "脉搏血氧饱和度",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.structuredMeasurements.panels.0.rows.0.values.0.unit",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[241].caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[0].values[0].unit",
+      "text": "%"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.structuredMeasurements.panels.0.rows.0.values.0.value",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[241].caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[0].values[0].value",
+      "text": "92"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.title.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[241].caseStudy.exhibits[0].title.en",
+      "text": "Baseline discharge referral",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.global.baseline.title.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[241].caseStudy.exhibits[0].title.zh",
+      "text": "基础出院转介记录",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.content.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "STAGE",
+      "jsonPath": "questions[241].caseStudy.stages[0].exhibits[0].content.en",
+      "text": "Spouse smokes on the apartment balcony while the sliding door is open. Client reports using petroleum jelly for dry nares. Oxygen tubing would cross the bedroom doorway unless furniture is moved. Client says, 'I set the machine to exactly 2 liters like the prescription says.'",
+      "stageId": "stage_1_home",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.content.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "STAGE",
+      "jsonPath": "questions[241].caseStudy.stages[0].exhibits[0].content.zh",
+      "text": "配偶在阳台吸烟，滑动门开着。患者称会用凡士林缓解鼻腔干燥。如果不移动家具，氧气管会横跨卧室门口。患者说：“我会按处方把机器设为 2 升。”",
+      "stageId": "stage_1_home",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.title.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "STAGE",
+      "jsonPath": "questions[241].caseStudy.stages[0].exhibits[0].title.en",
+      "text": "Home safety notes",
+      "stageId": "stage_1_home",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.exhibits.0.title.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "STAGE",
+      "jsonPath": "questions[241].caseStudy.stages[0].exhibits[0].title.zh",
+      "text": "居家安全记录",
+      "stageId": "stage_1_home",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.title.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "STAGE",
+      "jsonPath": "questions[241].caseStudy.stages[0].title.en",
+      "text": "Stage 1: Home safety interview",
+      "stageId": "stage_1_home",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_1_home.title.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "STAGE",
+      "jsonPath": "questions[241].caseStudy.stages[0].title.zh",
+      "text": "第 1 阶段：居家安全访谈",
+      "stageId": "stage_1_home",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.content.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "STAGE",
+      "jsonPath": "questions[241].caseStudy.stages[1].exhibits[0].content.en",
+      "text": "Client states, 'If I feel short of breath, I can turn it up until I feel better.' Spouse asks whether a water-based nasal lubricant is acceptable. Both agree to move a bedside table so tubing does not cross the doorway.",
+      "stageId": "stage_2_teaching",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.content.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "STAGE",
+      "jsonPath": "questions[241].caseStudy.stages[1].exhibits[0].content.zh",
+      "text": "患者说：“如果我觉得气短，可以把氧气调高，直到舒服为止。”配偶询问是否可以使用水性鼻腔润滑剂。两人同意移动床边桌，使管路不横跨门口。",
+      "stageId": "stage_2_teaching",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.title.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "STAGE",
+      "jsonPath": "questions[241].caseStudy.stages[1].exhibits[0].title.en",
+      "text": "Client and spouse responses",
+      "stageId": "stage_2_teaching",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.exhibits.0.title.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "STAGE",
+      "jsonPath": "questions[241].caseStudy.stages[1].exhibits[0].title.zh",
+      "text": "患者与配偶反馈",
+      "stageId": "stage_2_teaching",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.title.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "STAGE",
+      "jsonPath": "questions[241].caseStudy.stages[1].title.en",
+      "text": "Stage 2: Teaching session",
+      "stageId": "stage_2_teaching",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_2_teaching.title.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "STAGE",
+      "jsonPath": "questions[241].caseStudy.stages[1].title.zh",
+      "text": "第 2 阶段：宣教记录",
+      "stageId": "stage_2_teaching",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.content.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "STAGE",
+      "jsonPath": "questions[241].caseStudy.stages[2].exhibits[0].content.en",
+      "text": "Concentrator delivery confirmed for 1600. Portable cylinder: 600 L usable oxygen. Prescribed activity flow: 2 L/min. Backup battery fully charged. Client and spouse complete a return demonstration of tubing placement and oxygen-in-use signage.",
+      "stageId": "stage_3_equipment",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.content.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "STAGE",
+      "jsonPath": "questions[241].caseStudy.stages[2].exhibits[0].content.zh",
+      "text": "制氧机确认 1600 送达。便携氧气瓶：可用氧气 600 L。活动时处方流量：2 L/分。备用电池已充满电。患者和配偶完成管路摆放及正在使用氧气标识的回示演示。",
+      "stageId": "stage_3_equipment",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.title.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "STAGE",
+      "jsonPath": "questions[241].caseStudy.stages[2].exhibits[0].title.en",
+      "text": "Durable medical equipment note",
+      "stageId": "stage_3_equipment",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.exhibits.0.title.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "STAGE",
+      "jsonPath": "questions[241].caseStudy.stages[2].exhibits[0].title.zh",
+      "text": "耐用医疗设备记录",
+      "stageId": "stage_3_equipment",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.title.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "STAGE",
+      "jsonPath": "questions[241].caseStudy.stages[2].title.en",
+      "text": "Stage 3: Equipment readiness",
+      "stageId": "stage_3_equipment",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.stage.stage_3_equipment.title.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "STAGE",
+      "jsonPath": "questions[241].caseStudy.stages[2].title.zh",
+      "text": "第 3 阶段：设备准备情况",
+      "stageId": "stage_3_equipment",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.stem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[241].caseStudy.questions[0].stem.en",
+      "text": "Using the initial home oxygen referral note, classify each finding as a safety concern or an expected finding for discharge teaching.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.stem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[241].caseStudy.questions[0].stem.zh",
+      "text": "根据初始居家氧疗转介记录，将每项发现归类为安全隐患或出院宣教中的预期发现。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.anchors",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[241].caseStudy.questions[0]",
+      "text": "{\"answerableAfterStageId\":null,\"stageId\":null}",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.stem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[241].caseStudy.questions[1].stem.en",
+      "text": "The nurse reviews the Stage 1 teaching session and identifies the discharge issue that must be corrected before the client leaves.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.stem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[241].caseStudy.questions[1].stem.zh",
+      "text": "护士查看第 1 阶段的宣教记录，并判断患者离院前必须纠正的出院问题。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.anchors",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[241].caseStudy.questions[1]",
+      "text": "{\"answerableAfterStageId\":null,\"stageId\":null}",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.stem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[241].caseStudy.questions[2].stem.en",
+      "text": "The client is scheduled for discharge with new home oxygen after Stage 2. Place the nurse's actions in the best order.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.stem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[241].caseStudy.questions[2].stem.zh",
+      "text": "第 2 阶段后，患者计划带新的居家氧疗出院。请按最佳顺序排列护士的行动。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.anchors",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[241].caseStudy.questions[2]",
+      "text": "{\"answerableAfterStageId\":null,\"stageId\":null}",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.stem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[241].caseStudy.questions[3].stem.en",
+      "text": "During Stage 3 teach-back, which client statement shows correct understanding of home oxygen safety?",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.stem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[241].caseStudy.questions[3].stem.zh",
+      "text": "在第 3 阶段回示中，哪项患者陈述表明其正确理解了居家氧疗安全？",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.anchors",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[241].caseStudy.questions[3]",
+      "text": "{\"answerableAfterStageId\":null,\"stageId\":null}",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.stem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[241].caseStudy.questions[4].stem.en",
+      "text": "Stage 3 equipment teaching states: The portable cylinder contains 600 L of usable oxygen. The prescribed flow is 2 L/min for activity. How many minutes of oxygen are available for activity? Round to the nearest whole minute.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.stem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[241].caseStudy.questions[4].stem.zh",
+      "text": "第 3 阶段设备宣教写明：便携氧气瓶可用氧气量为 600 L。活动时处方流量为 2 L/分。该氧气瓶可供活动使用多少分钟？四舍五入到最接近的整数。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.anchors",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[241].caseStudy.questions[4]",
+      "text": "{\"answerableAfterStageId\":null,\"stageId\":null}",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.stem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[241].caseStudy.questions[0].stem.en",
+      "text": "Using the initial home oxygen referral note, classify each finding as a safety concern or an expected finding for discharge teaching.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.stem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[241].caseStudy.questions[0].stem.zh",
+      "text": "根据初始居家氧疗转介记录，将每项发现归类为安全隐患或出院宣教中的预期发现。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.columns.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[0].matrix.columns[0].en",
+      "text": "Safety concern",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.columns.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[0].matrix.columns[0].zh",
+      "text": "安全隐患",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.columns.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[0].matrix.columns[1].en",
+      "text": "Expected finding",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.columns.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[0].matrix.columns[1].zh",
+      "text": "预期发现",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[0].matrix.rows[0].en",
+      "text": "Spouse smokes on the apartment balcony while the sliding door is open",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[0].matrix.rows[0].zh",
+      "text": "配偶在阳台吸烟，且滑动门开着",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[0].matrix.rows[1].en",
+      "text": "Client applies petroleum jelly to dry nares before placing the cannula",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[0].matrix.rows[1].zh",
+      "text": "患者放置鼻导管前在干燥鼻腔涂凡士林",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.2.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[0].matrix.rows[2].en",
+      "text": "Client sets the concentrator to 2 L/min as prescribed",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.2.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[0].matrix.rows[2].zh",
+      "text": "患者按处方将制氧机设为 2 L/分",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.3.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[0].matrix.rows[3].en",
+      "text": "Oxygen tubing runs across the bedroom doorway",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.3.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[0].matrix.rows[3].zh",
+      "text": "氧气管路横跨卧室门口",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.4.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[0].matrix.rows[4].en",
+      "text": "Portable concentrator battery is fully charged before leaving home",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.rows.4.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[0].matrix.rows[4].zh",
+      "text": "外出前便携制氧机电池已充满电",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.response.matrix.selectionMode",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[0].matrix.selectionMode",
+      "text": "single_per_row",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.key",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_KEY",
+      "jsonPath": "questions[241].caseStudy.questions[0]",
+      "text": "{\"correct\":[{\"rowId\":\"r1\",\"columnIds\":[\"c1\"]},{\"rowId\":\"r2\",\"columnIds\":[\"c1\"]},{\"rowId\":\"r3\",\"columnIds\":[\"c2\"]},{\"rowId\":\"r4\",\"columnIds\":[\"c1\"]},{\"rowId\":\"r5\",\"columnIds\":[\"c2\"]}]}",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[0].rationale.byChoice[0].en",
+      "text": "Active smoking around oxygen is a fire and burn hazard.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[0].rationale.byChoice[0].zh",
+      "text": "在氧气附近吸烟会造成火灾和烧伤危险。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[0].rationale.byChoice[1].en",
+      "text": "Petroleum ointment can support combustion near oxygen equipment; water-based products are safer.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[0].rationale.byChoice[1].zh",
+      "text": "含凡士林的软膏在氧气设备附近可能助燃；应使用水性产品。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.2.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[0].rationale.byChoice[2].en",
+      "text": "Keeping the oxygen at the prescribed flow rate is expected.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.2.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[0].rationale.byChoice[2].zh",
+      "text": "按处方流量使用氧气是预期做法。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.3.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[0].rationale.byChoice[3].en",
+      "text": "Loose tubing across a walking path creates a fall hazard.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.3.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[0].rationale.byChoice[3].zh",
+      "text": "管路横在行走通道上会造成跌倒风险。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.4.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[0].rationale.byChoice[4].en",
+      "text": "A charged backup power plan supports safe equipment use during outages.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.byChoice.4.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[0].rationale.byChoice[4].zh",
+      "text": "有充电备用电源计划有助于停电时安全使用设备。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.correct.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[0].rationale.correct.en",
+      "text": "Smoking exposure, petroleum products near the cannula, and extension tubing across a walkway increase fire or fall risk. Correct oxygen flow use and a charged concentrator backup are expected safety behaviors.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.rationale.correct.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[0].rationale.correct.zh",
+      "text": "吸烟暴露、鼻导管附近使用含油产品以及延长管横跨走道会增加火灾或跌倒风险。按处方氧流量使用和备有充电的制氧机备用电源属于预期的安全行为。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.strategy.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[0].testTakingStrategy.en",
+      "text": "Separate oxygen-fire hazards from ordinary equipment teaching; oxygen supports combustion even when it is not flammable itself.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1.strategy.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[0].testTakingStrategy.zh",
+      "text": "将氧气相关火灾隐患与普通设备宣教分开判断；氧气本身不易燃，但会助燃。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.stem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[241].caseStudy.questions[1].stem.en",
+      "text": "The nurse reviews the Stage 1 teaching session and identifies the discharge issue that must be corrected before the client leaves.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.stem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[241].caseStudy.questions[1].stem.zh",
+      "text": "护士查看第 1 阶段的宣教记录，并判断患者离院前必须纠正的出院问题。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.clozeStem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[1].clozeStem.en",
+      "text": "The priority discharge barrier is {{1}}; the nurse should teach the client to {{2}}.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.clozeStem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[1].clozeStem.zh",
+      "text": "优先处理的出院障碍是 {{1}}；护士应教导患者 {{2}}。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.0.options.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[1].dropdowns[0].options[0].en",
+      "text": "self-adjusting oxygen flow for shortness of breath",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.0.options.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[1].dropdowns[0].options[0].zh",
+      "text": "因气短而自行调节氧流量",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.0.options.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[1].dropdowns[0].options[1].en",
+      "text": "using pursed-lip breathing during activity",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.0.options.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[1].dropdowns[0].options[1].zh",
+      "text": "活动时使用缩唇呼吸",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.0.options.2.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[1].dropdowns[0].options[2].en",
+      "text": "keeping the concentrator plugged into a grounded outlet",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.0.options.2.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[1].dropdowns[0].options[2].zh",
+      "text": "将制氧机插入接地插座",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.1.options.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[1].dropdowns[1].options[0].en",
+      "text": "increase oxygen until the pulse oximeter reads 100%",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.1.options.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[1].dropdowns[1].options[0].zh",
+      "text": "增加氧流量直到血氧仪显示 100%",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.1.options.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[1].dropdowns[1].options[1].en",
+      "text": "turn off oxygen during all household ambulation",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.1.options.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[1].dropdowns[1].options[1].zh",
+      "text": "在家中走动时都关闭氧气",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.1.options.2.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[1].dropdowns[1].options[2].en",
+      "text": "use the prescribed flow and seek help if symptoms worsen",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.response.dropdowns.1.options.2.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[1].dropdowns[1].options[2].zh",
+      "text": "按处方流量使用，症状加重时求助",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.key",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_KEY",
+      "jsonPath": "questions[241].caseStudy.questions[1]",
+      "text": "{\"dropdowns\":[{\"id\":\"1\",\"correct\":\"o1\"},{\"id\":\"2\",\"correct\":\"o1\"}]}",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.rationale.byChoice.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[1].rationale.byChoice[0].en",
+      "text": "The most immediate teaching gap is unsafe self-adjustment of oxygen flow.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.rationale.byChoice.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[1].rationale.byChoice[0].zh",
+      "text": "最需要纠正的宣教缺口是患者不安全地自行调节氧流量。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.rationale.byChoice.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[1].rationale.byChoice[1].en",
+      "text": "Using the prescribed flow rate and seeking help for worsening dyspnea is safer than changing the liter flow independently.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.rationale.byChoice.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[1].rationale.byChoice[1].zh",
+      "text": "按处方流量使用氧气，并在气促加重时求助，比自行改变流量更安全。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.rationale.correct.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[1].rationale.correct.en",
+      "text": "The client's statement about turning the oxygen higher during dyspnea shows unsafe self-adjustment. The nurse should reinforce using the prescribed flow rate and calling the provider or emergency services for worsening symptoms.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.rationale.correct.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[1].rationale.correct.zh",
+      "text": "患者表示气促时自行调高氧流量，说明存在不安全的自行调节。护士应强化按处方流量使用，并在症状加重时联系医护人员或急救服务。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.strategy.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[1].testTakingStrategy.en",
+      "text": "When a home teaching statement includes independent dose or device changes, look for the response that restores the prescribed plan and escalation pathway.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2.strategy.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[1].testTakingStrategy.zh",
+      "text": "如果居家宣教反馈中出现自行改变剂量或设备设置，应选择能恢复处方计划并明确升级求助路径的回答。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.stem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[241].caseStudy.questions[2].stem.en",
+      "text": "The client is scheduled for discharge with new home oxygen after Stage 2. Place the nurse's actions in the best order.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.stem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[241].caseStudy.questions[2].stem.zh",
+      "text": "第 2 阶段后，患者计划带新的居家氧疗出院。请按最佳顺序排列护士的行动。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[2].options[0].en",
+      "text": "Document discharge readiness and communicate any remaining barriers to the team",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[2].options[0].zh",
+      "text": "记录出院准备情况，并向团队沟通仍存在的障碍",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[2].options[1].en",
+      "text": "Confirm home equipment delivery, tubing supply, and backup power plan",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[2].options[1].zh",
+      "text": "确认家用设备送达、管路供应和备用电源计划",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.2.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[2].options[2].en",
+      "text": "Ask the client and spouse to demonstrate fire-safety and tubing-management steps",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.2.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[2].options[2].zh",
+      "text": "请患者和配偶演示防火和管路管理步骤",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.3.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[2].options[3].en",
+      "text": "Verify the oxygen prescription, target use instructions, and equipment ordered",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.response.options.3.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[2].options[3].zh",
+      "text": "核对氧疗处方、目标使用说明和已订设备",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.key",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_KEY",
+      "jsonPath": "questions[241].caseStudy.questions[2]",
+      "text": "{\"correct\":[\"A\",\"B\",\"C\",\"D\"]}",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[2].rationale.byChoice[0].en",
+      "text": "Verifying the ordered oxygen settings and equipment prevents teaching from being based on an incorrect plan.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[2].rationale.byChoice[0].zh",
+      "text": "先核对氧疗设置和设备，可避免基于错误计划进行宣教。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[2].rationale.byChoice[1].en",
+      "text": "Documentation follows assessment and coordination; unresolved barriers should be communicated in the record and handoff.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[2].rationale.byChoice[1].zh",
+      "text": "记录应在评估和协调之后完成；未解决障碍需写入病历并交接。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.2.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[2].rationale.byChoice[2].en",
+      "text": "Teach-back verifies whether the client and caregiver can perform the safety behaviors at home.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.2.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[2].rationale.byChoice[2].zh",
+      "text": "回示可验证患者和照护者是否能在家执行安全措施。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.3.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[2].rationale.byChoice[3].en",
+      "text": "Equipment delivery and backup power must be confirmed before discharge logistics are considered complete.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.byChoice.3.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[2].rationale.byChoice[3].zh",
+      "text": "出院流程完成前，必须确认设备送达和备用电源安排。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.correct.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[2].rationale.correct.en",
+      "text": "The nurse first verifies the prescription and equipment plan, then confirms delivery and backup arrangements, assesses caregiver teach-back, and finally documents readiness and unresolved barriers.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.rationale.correct.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[2].rationale.correct.zh",
+      "text": "护士应先核对处方和设备计划，然后确认送达与备用安排，再评估照护者回示，最后记录出院准备情况和未解决障碍。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.strategy.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[2].testTakingStrategy.en",
+      "text": "For discharge sequencing, verify the order, arrange the resources, assess learning, then document and hand off unresolved risks.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3.strategy.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[2].testTakingStrategy.zh",
+      "text": "处理出院顺序时，先核对医嘱，再安排资源，再评估学习效果，最后记录并交接未解决风险。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.stem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[241].caseStudy.questions[3].stem.en",
+      "text": "During Stage 3 teach-back, which client statement shows correct understanding of home oxygen safety?",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.stem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[241].caseStudy.questions[3].stem.zh",
+      "text": "在第 3 阶段回示中，哪项患者陈述表明其正确理解了居家氧疗安全？",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.response.options.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[3].options[0].en",
+      "text": "I will keep oxygen away from flames and post an oxygen-in-use notice.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.response.options.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[3].options[0].zh",
+      "text": "我会让氧气远离明火，并张贴正在使用氧气的提示。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.response.options.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[3].options[1].en",
+      "text": "I can sit near someone smoking if my cannula is under my shirt.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.response.options.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[3].options[1].zh",
+      "text": "如果鼻导管放在衣服下，我可以坐在吸烟的人旁边。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.response.options.2.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[3].options[2].en",
+      "text": "I should use petroleum jelly daily so my nose does not dry out.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.response.options.2.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[3].options[2].zh",
+      "text": "我应该每天用凡士林，避免鼻子干燥。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.response.options.3.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[3].options[3].en",
+      "text": "I will place extra tubing under throw rugs so no one sees it.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.response.options.3.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[3].options[3].zh",
+      "text": "我会把多余管路放在小地毯下面，这样别人看不到。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.key",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_KEY",
+      "jsonPath": "questions[241].caseStudy.questions[3]",
+      "text": "{\"correct\":[\"B\"]}",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.rationale.byChoice.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[3].rationale.byChoice[0].en",
+      "text": "A notice helps responders and visitors recognize the oxygen fire hazard.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.rationale.byChoice.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[3].rationale.byChoice[0].zh",
+      "text": "提示标识有助于急救人员和访客识别氧气相关火灾风险。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.rationale.byChoice.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[3].rationale.byChoice[1].en",
+      "text": "Tubing should be arranged to prevent tripping, not hidden under rugs.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.rationale.byChoice.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[3].rationale.byChoice[1].zh",
+      "text": "管路应妥善摆放以防绊倒，不应藏在地毯下。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.rationale.byChoice.2.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[3].rationale.byChoice[2].en",
+      "text": "Petroleum products should be avoided near the cannula because they may support burning.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.rationale.byChoice.2.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[3].rationale.byChoice[2].zh",
+      "text": "鼻导管附近应避免含油产品，因为可能助燃。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.rationale.byChoice.3.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[3].rationale.byChoice[3].en",
+      "text": "Oxygen should not be used near smoking or open flames.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.rationale.byChoice.3.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[3].rationale.byChoice[3].zh",
+      "text": "氧气不应靠近吸烟或明火。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.rationale.correct.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[3].rationale.correct.en",
+      "text": "Posting oxygen-in-use notices and keeping oxygen away from smoking and flames are appropriate fire-safety steps.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.rationale.correct.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[3].rationale.correct.zh",
+      "text": "张贴正在使用氧气的提示，并让氧气远离吸烟和明火，是恰当的防火措施。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.strategy.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[3].testTakingStrategy.en",
+      "text": "Choose the statement that reduces both fire and fall risk without changing the prescribed therapy.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4.strategy.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[3].testTakingStrategy.zh",
+      "text": "选择既降低火灾和跌倒风险，又不改变处方治疗的陈述。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.stem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[241].caseStudy.questions[4].stem.en",
+      "text": "Stage 3 equipment teaching states: The portable cylinder contains 600 L of usable oxygen. The prescribed flow is 2 L/min for activity. How many minutes of oxygen are available for activity? Round to the nearest whole minute.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.stem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[241].caseStudy.questions[4].stem.zh",
+      "text": "第 3 阶段设备宣教写明：便携氧气瓶可用氧气量为 600 L。活动时处方流量为 2 L/分。该氧气瓶可供活动使用多少分钟？四舍五入到最接近的整数。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.response.blanks.0.prompt.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[4].blanks[0].prompt.en",
+      "text": "minutes",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.response.blanks.0.prompt.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[241].caseStudy.questions[4].blanks[0].prompt.zh",
+      "text": "分钟",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.key",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_KEY",
+      "jsonPath": "questions[241].caseStudy.questions[4]",
+      "text": "{\"blanks\":[{\"id\":\"b1\",\"acceptable\":[\"300\",\"300 minutes\"],\"numeric\":{\"value\":300,\"tolerance\":0,\"unit\":\"minutes\"}}]}",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.rationale.byChoice.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[4].rationale.byChoice[0].en",
+      "text": "The blank asks for minutes: divide liters available by liters per minute.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.rationale.byChoice.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[4].rationale.byChoice[0].zh",
+      "text": "该空要求填写分钟数：用可用升数除以每分钟升数。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.rationale.correct.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[4].rationale.correct.en",
+      "text": "Available time equals available volume divided by flow rate: 600 L ÷ 2 L/min = 300 minutes.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.rationale.correct.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[4].rationale.correct.zh",
+      "text": "可用时间等于可用容量除以流量：600 L ÷ 2 L/分 = 300 分钟。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.strategy.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[4].testTakingStrategy.en",
+      "text": "Track the units. Liters divided by liters per minute leaves minutes.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01.part.gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5.strategy.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[241].caseStudy.questions[4].testTakingStrategy.zh",
+      "text": "注意单位。升除以升/分钟，剩下的单位就是分钟。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5",
+      "language": "zh"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "artifact": "Campaign 16 Phase E — Anchor Parent Calibration Summary",
+  "date": "2026-09-08",
+  "commissionType": "READ_ONLY_CALIBRATION",
+  "producerSeat": "Gemini 3.8 Flash (High)",
+  "independentCheckerSeat": "PENDING_EXTERNAL_SEAT",
+  "frozenInventoryReconciliation": {
+    "totalAnchorOmissions": 451,
+    "totalParents": 93,
+    "singleStageRows": 96,
+    "singleStageParents": 25,
+    "multiStageRows": 355,
+    "multiStageParents": 68,
+    "affectedBanksCount": 4
+  },
+  "sample": {
+    "sampleSizeParents": 8,
+    "sampleSizeAffectedParts": 40,
+    "sampleSizeSiblingParts": 3,
+    "totalQuestionsReviewed": 43,
+    "manifestPath": "audit/campaign-16-phase-e-anchor-parent-calibration-2026-09-08-r1/sample-manifest.json",
+    "sampleAllocationByBank": {
+      "banks/claude-canonical.json": 2,
+      "banks/gemini-canonical.json": 1,
+      "banks/gpt-canonical.json": 3,
+      "banks/hard-cases-canonical.json": 2
+    },
+    "parentIds": [
+      "opus2_case_code_status_01",
+      "opus_vanco_case_01",
+      "opus_agvd_case_agvhd_01",
+      "gpt_case_gap_2026_06_11_case_adhf_01",
+      "gpt_case_opus5_cdi_immunocompromised_01",
+      "gpt_case_warfarin_mvr_2026_06_11_01",
+      "cs_thyroid_storm_main",
+      "opus_tpn_case_mucositis_01"
+    ]
+  },
+  "metrics": {
+    "parentRecoverability": {
+      "fullyRecoverable": 4,
+      "partiallyRecoverable": 0,
+      "structurallyUnrepresentableBaselineGap": 4,
+      "semanticallyAmbiguous": 0,
+      "totalParents": 8,
+      "percentFullyRecoverable": 50,
+      "percentStructurallyUnrepresentable": 50
+    },
+    "partRecoverability": {
+      "exactAnchorRecovered": 35,
+      "baselineBeforeFirstStage": 5,
+      "noValidDeclaredStage": 5,
+      "ambiguous": 0,
+      "otherBlocked": 0,
+      "totalAffectedParts": 40,
+      "percentAnchorRecovered": 87.5,
+      "percentBaselineBeforeFirstStage": 12.5
+    },
+    "gateBreachRowNeutralization": {
+      "row370": {
+        "parentCaseId": "cs_thyroid_storm_main",
+        "partId": "cs_thyroid_storm_q2",
+        "disposition": "ANCHOR_RECOVERED",
+        "anchor": "stage_0830",
+        "finding": "Hides stage_1200, successfully neutralizing the leakage of the medication administration sequence."
+      },
+      "row395": {
+        "parentCaseId": "opus_tpn_case_mucositis_01",
+        "partId": "opus_tpn_case_mucositis_01_q3",
+        "disposition": "ANCHOR_RECOVERED",
+        "anchor": "stage_2",
+        "finding": "Hides stage_3, successfully neutralizing the leakage of the CRBSI confirmation and line removal sequence."
+      }
+    },
+    "producerCheckerAgreement": {
+      "status": "PENDING_EXTERNAL_CHECKER_SEAT",
+      "reason": "AGENTS.md delegation rules and DECISIONS.md P2/P5 forbid producer from supplying its own independent checker."
+    }
+  },
+  "decisionThresholdAssessment": {
+    "triggeredDecisionToken": "CAMPAIGN16_ANCHOR_CALIBRATION_BASELINE_CONTRACT_GAP",
+    "rationale": "4 of the 8 sampled parents (threshold is >= 2) contain parts where the correct clinical and semantic state is baseline-before-first-stage / no valid declared stage. Existing stage IDs cannot represent this state without causing answer leaks or chronological distortion. Scaling the existing R3 repair mechanism is strongly blocked."
+  },
+  "singleStageFinding": {
+    "evidenceSupportsBaselineConcern": true,
+    "inspectionSummary": "Live evidence in gemini-canonical (e.g. gemini_gap_case_hypertension_lifestyle_02, gemini_gap_case_palliative_care_03) confirms that single-stage cases frequently use global exhibits for baseline admission data while their sole declared stage represents a future follow-up (3 months later, 4 hours later). Forcing answerableAfterStageId to that single declared stage is semantically misleading and conceptually identical to the baseline contract gap in multi-stage cases."
+  },
+  "r3ContractStatus": {
+    "status": "CONTRADICTED_BY_EVIDENCE",
+    "unsupportedPremises": [
+      "Premise that Tier 1 (single-stage) is semantically sound and deterministic without judgement: Contradicted by single-stage follow-up semantics.",
+      "Premise that all anchor omissions can be resolved by selecting a member of caseStudy.stages[].id: Contradicted by 4 of 8 sampled parents lacking any declared stage for baseline.",
+      "Premise that no schema amendment is necessary: Contradicted by the absence of any data representation for zero stages visible / baseline answerability."
+    ]
+  }
+}

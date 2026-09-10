@@ -1,0 +1,75 @@
+{
+  "version": "1.0",
+  "appendOnlyMapExtension": true,
+  "currentRowMapSha256": "668f61b31cb05f899242aae55eada2c6565fd18d2d0f7ebdae0a6b244516f46d",
+  "priorArtifactsPreservedUnder": "map-extension-history-superseding-2/",
+  "results": [
+    {
+      "packetId": "r2-cal-a",
+      "attempt": 1,
+      "phaseT": "PASS",
+      "phaseR": "PASS",
+      "rowMapSha256": "668f61b31cb05f899242aae55eada2c6565fd18d2d0f7ebdae0a6b244516f46d",
+      "canonicalSemanticRowsUnchanged": true
+    },
+    {
+      "packetId": "r2-cal-a-superseding-1",
+      "attempt": 1,
+      "phaseT": "FAIL",
+      "errors": [
+        {
+          "gate": "T-G4",
+          "row": 6,
+          "code": "FOREIGN_KEY",
+          "detail": {
+            "missing": [],
+            "foreign": [
+              ""
+            ]
+          }
+        },
+        {
+          "gate": "T-G14",
+          "row": 6,
+          "code": "VALUE",
+          "detail": {
+            "stageToken": "",
+            "field": "basis"
+          }
+        }
+      ]
+    },
+    {
+      "packetId": "r2-cal-a-superseding-1",
+      "attempt": 2,
+      "phaseT": "PASS",
+      "phaseR": "PASS",
+      "rowMapSha256": "668f61b31cb05f899242aae55eada2c6565fd18d2d0f7ebdae0a6b244516f46d",
+      "canonicalSemanticRowsUnchanged": true
+    },
+    {
+      "packetId": "r2-cal-a-superseding-2",
+      "attempt": 1,
+      "phaseT": "FAIL",
+      "errors": [
+        {
+          "gate": "T-G1",
+          "row": 1,
+          "code": "MALFORMED_JSON",
+          "detail": {
+            "key": null,
+            "offset": 0
+          }
+        }
+      ]
+    },
+    {
+      "packetId": "r2-cal-b",
+      "attempt": 1,
+      "phaseT": "PASS",
+      "phaseR": "PASS",
+      "rowMapSha256": "668f61b31cb05f899242aae55eada2c6565fd18d2d0f7ebdae0a6b244516f46d",
+      "canonicalSemanticRowsUnchanged": true
+    }
+  ]
+}

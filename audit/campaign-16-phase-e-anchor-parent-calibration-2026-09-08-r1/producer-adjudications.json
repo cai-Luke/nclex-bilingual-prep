@@ -1,0 +1,804 @@
+[
+  {
+    "sampleIndex": 1,
+    "bankPath": "banks/claude-canonical.json",
+    "parentCaseId": "opus2_case_code_status_01",
+    "declaredStages": [
+      "stage_1",
+      "stage_2",
+      "stage_3"
+    ],
+    "parentVector": [
+      "BASELINE_BEFORE_FIRST_STAGE",
+      "stage_1",
+      "stage_2",
+      "stage_3",
+      "stage_3"
+    ],
+    "parentRecoverability": "STRUCTURALLY_UNREPRESENTABLE_BASELINE_GAP",
+    "parentCoherenceCheck": {
+      "isMonotonic": false,
+      "flagged": true,
+      "explanation": "Part 1 is clinically and semantically answerable at 0700 baseline admission from global exhibit and stem. Declared stage_1 narrates provider paging and nursing actions taken in response to refusal, directly leaking Option A of Part 1. Parts 2-5 follow a coherent temporal progression (stage_1, stage_2, stage_3, stage_3)."
+    },
+    "parts": [
+      {
+        "partId": "opus2_case_code_status_q1",
+        "queueIndex": 1,
+        "partOrdinal": 1,
+        "itemType": "multiple_choice",
+        "testedDecision": "Priority nursing action upon capacitated patient verbally refusing intubation/CPR when chart reflects Full Code",
+        "infoAvailableAtBaseline": "Global exhibit exhibit_baseline (0700): patient alert x4 with full decision-making capacity, stable on 3L nasal cannula, chest wall pain. Stem introduces verbatim refusal.",
+        "laterStageInfo": "stage_1 exhibit (0700-0900) narrates that nurse documented capacity, verbatim statements, and paged Dr. Reeves.",
+        "earliestPointAnswerable": "Baseline (0700 admission, upon verbal refusal)",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "BASELINE_BEFORE_FIRST_STAGE",
+        "proposedAnchor": null,
+        "confidence": "HIGH",
+        "rationale": "Part 1 tests the nurse immediate response to verbal refusal at admission. stage_1 narrative explicitly documents the nurse actions (documenting capacity, verbatim statements, escalating to provider), directly leaking option A. No declared stage exists for baseline prior to stage_1."
+      },
+      {
+        "partId": "opus2_case_code_status_q2",
+        "queueIndex": 2,
+        "partOrdinal": 2,
+        "itemType": "multiple_choice",
+        "testedDecision": "Nursing action at 0800 after covering provider Dr. Reeves indicates he will delay evaluation until 1100",
+        "infoAvailableAtBaseline": "Patient stable on 3L O2; no communication with Dr. Reeves yet.",
+        "laterStageInfo": "stage_1 exhibit describes Dr. Reeves response at 0800 that he will see patient around 1100. stage_2 describes acute deterioration at 0930-1030.",
+        "earliestPointAnswerable": "stage_1 (at 0800 post-provider page response)",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_1",
+        "confidence": "HIGH",
+        "rationale": "Question specifically tests the 0800 dilemma when patient is stable and provider is delayed. Information is provided in stage_1. Later stages (stage_2) show acute respiratory deterioration which changes urgency."
+      },
+      {
+        "partId": "opus2_case_code_status_q3",
+        "queueIndex": 3,
+        "partOrdinal": 3,
+        "itemType": "multiple_choice",
+        "testedDecision": "Action at 1030 when patient deteriorates with hypoxemia and fatigue while code status remains Full Code",
+        "infoAvailableAtBaseline": "Patient stable at 0700; no deterioration.",
+        "laterStageInfo": "stage_2 exhibit details 0930 CXR (pleural effusion), SpO2 drop to 89%, patient begging not to be intubated at 1030. stage_3 exhibit reveals RRT activation at 1100 and DNAR/DNI entry.",
+        "earliestPointAnswerable": "stage_2 (at 1030 post-deterioration)",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_2",
+        "confidence": "HIGH",
+        "rationale": "Question assesses managing acute deterioration at 1030. stage_2 provides clinical data. Revealing stage_3 leaks that RRT was called and provider entered DNAR/DNI."
+      },
+      {
+        "partId": "opus2_case_code_status_q4",
+        "queueIndex": 4,
+        "partOrdinal": 4,
+        "itemType": "multiple_choice",
+        "testedDecision": "Essential components of handoff to Rapid Response Team upon arrival at 1100",
+        "infoAvailableAtBaseline": "Patient stable; no RRT activation.",
+        "laterStageInfo": "stage_3 exhibit narrates RRT arrival at 1100 and communication with critical care fellow.",
+        "earliestPointAnswerable": "stage_3 (at 1100 RRT arrival)",
+        "laterStageExposesAnswer": false,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_3",
+        "confidence": "HIGH",
+        "rationale": "RRT activation and handoff occur at 1100, which opens stage_3."
+      },
+      {
+        "partId": "opus2_case_code_status_q5",
+        "queueIndex": 5,
+        "partOrdinal": 5,
+        "itemType": "select_all",
+        "testedDecision": "Evaluation actions at 1130 following formal entry of DNAR/DNI order",
+        "infoAvailableAtBaseline": "Order not entered.",
+        "laterStageInfo": "stage_3 exhibit details DNAR/DNI entry and advance directive completion by 1130.",
+        "earliestPointAnswerable": "stage_3 (at 1130 post-order entry)",
+        "laterStageExposesAnswer": false,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_3",
+        "confidence": "HIGH",
+        "rationale": "Tests evaluation of the completed advocacy process at 1130, occurring in stage_3."
+      }
+    ]
+  },
+  {
+    "sampleIndex": 2,
+    "bankPath": "banks/claude-canonical.json",
+    "parentCaseId": "opus_vanco_case_01",
+    "declaredStages": [
+      "stage_1_infusion_reaction",
+      "stage_2_trough_monitoring",
+      "stage_3_aki_tinnitus"
+    ],
+    "parentVector": [
+      "stage_1_infusion_reaction",
+      "stage_1_infusion_reaction",
+      "stage_2_trough_monitoring",
+      "stage_2_trough_monitoring",
+      "stage_3_aki_tinnitus",
+      "stage_3_aki_tinnitus"
+    ],
+    "parentRecoverability": "FULLY_RECOVERABLE",
+    "parentCoherenceCheck": {
+      "isMonotonic": true,
+      "flagged": false,
+      "explanation": "Classic 2-2-2 progression across 3 clinical stages. All parts cleanly map to declared stages with matching clinical chronology."
+    },
+    "parts": [
+      {
+        "partId": "opus_vanco_case_01_q1_infusion_reaction",
+        "queueIndex": 6,
+        "partOrdinal": 1,
+        "itemType": "multiple_choice",
+        "testedDecision": "First nursing action when vancomycin flushing syndrome develops 15 minutes into loading infusion",
+        "infoAvailableAtBaseline": "Baseline assessment at 1200; infusion has not started.",
+        "laterStageInfo": "stage_1_infusion_reaction describes flushing, pruritus, wheals at 1445. stage_2 and stage_3 describe subsequent days.",
+        "earliestPointAnswerable": "stage_1_infusion_reaction",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_1_infusion_reaction",
+        "confidence": "HIGH",
+        "rationale": "Infusion reaction occurs at 1445 in stage_1. Requires stopping infusion immediately."
+      },
+      {
+        "partId": "opus_vanco_case_01_q2_documentation_cloze",
+        "queueIndex": 7,
+        "partOrdinal": 2,
+        "itemType": "dropdown_cloze",
+        "testedDecision": "Nursing documentation and handoff following resolution of rate-related infusion reaction",
+        "infoAvailableAtBaseline": "Infusion has not started.",
+        "laterStageInfo": "stage_1_infusion_reaction outcome exhibit documents resolution after antihistamine and restart at slower rate.",
+        "earliestPointAnswerable": "stage_1_infusion_reaction",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_1_infusion_reaction",
+        "confidence": "HIGH",
+        "rationale": "Documents response to the infusion reaction occurring at Stage 1."
+      },
+      {
+        "partId": "opus_vanco_case_01_q3_supratherapeutic_trough_order",
+        "queueIndex": 8,
+        "partOrdinal": 3,
+        "itemType": "ordered_response",
+        "testedDecision": "Order of nursing actions when trough returns supratherapeutic at 22.4 mcg/mL on Day 3",
+        "infoAvailableAtBaseline": "Day 1 baseline only.",
+        "laterStageInfo": "stage_2_trough_monitoring provides Day 3 trough result. stage_3 describes AKI on Day 4.",
+        "earliestPointAnswerable": "stage_2_trough_monitoring",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_2_trough_monitoring",
+        "confidence": "HIGH",
+        "rationale": "Tests response to Day 3 trough result presented in stage_2."
+      },
+      {
+        "partId": "opus_vanco_case_01_q4_ototoxicity_screening",
+        "queueIndex": 9,
+        "partOrdinal": 4,
+        "itemType": "select_all",
+        "testedDecision": "Ototoxicity screening interventions for client with baseline hearing aids on Day 3",
+        "infoAvailableAtBaseline": "Baseline hearing aid use noted.",
+        "laterStageInfo": "stage_2_trough_monitoring pharmacist notes recommend increased ototoxicity monitoring. stage_3 reveals onset of tinnitus on Day 4.",
+        "earliestPointAnswerable": "stage_2_trough_monitoring",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_2_trough_monitoring",
+        "confidence": "HIGH",
+        "rationale": "Prompted by pharmacist recommendation in stage_2. Revealing stage_3 confirms tinnitus."
+      },
+      {
+        "partId": "opus_vanco_case_01_q5_aki_cue_matrix",
+        "queueIndex": 10,
+        "partOrdinal": 5,
+        "itemType": "matrix",
+        "testedDecision": "Interpreting Day 4 toxicity cues (Cr 2.4, oliguria, tinnitus) relative to morning vancomycin dose",
+        "infoAvailableAtBaseline": "Cr 1.8 baseline.",
+        "laterStageInfo": "stage_3_aki_tinnitus presents Day 4 labs and tinnitus onset.",
+        "earliestPointAnswerable": "stage_3_aki_tinnitus",
+        "laterStageExposesAnswer": false,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_3_aki_tinnitus",
+        "confidence": "HIGH",
+        "rationale": "Requires Day 4 clinical data presented in stage_3."
+      },
+      {
+        "partId": "opus_vanco_case_01_q6_lisinopril_aki",
+        "queueIndex": 11,
+        "partOrdinal": 6,
+        "itemType": "multiple_choice",
+        "testedDecision": "Managing active lisinopril order in setting of acute kidney injury and hyperkalemia (K 5.1)",
+        "infoAvailableAtBaseline": "Cr 1.8, K 4.6 baseline.",
+        "laterStageInfo": "stage_3_aki_tinnitus exhibits show Cr 2.4, K 5.1, and provider order holding lisinopril.",
+        "earliestPointAnswerable": "stage_3_aki_tinnitus",
+        "laterStageExposesAnswer": false,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_3_aki_tinnitus",
+        "confidence": "HIGH",
+        "rationale": "Tests recognition that lisinopril must be held when AKI and hyperkalemia occur at Stage 3."
+      }
+    ]
+  },
+  {
+    "sampleIndex": 3,
+    "bankPath": "banks/gemini-canonical.json",
+    "parentCaseId": "opus_agvd_case_agvhd_01",
+    "declaredStages": [
+      "stage_1",
+      "stage_2",
+      "stage_3"
+    ],
+    "parentVector": [
+      "stage_1",
+      "stage_1",
+      "stage_2",
+      "stage_2",
+      "stage_2",
+      "stage_3"
+    ],
+    "parentRecoverability": "FULLY_RECOVERABLE",
+    "parentCoherenceCheck": {
+      "isMonotonic": true,
+      "flagged": false,
+      "explanation": "Monotonic vector ([stage_1, stage_1, stage_2, stage_2, stage_2, stage_3]). Question stems explicitly cite the stage corresponding to each decision."
+    },
+    "parts": [
+      {
+        "partId": "opus_agvd_case_agvhd_01_q1",
+        "queueIndex": 59,
+        "partOrdinal": 1,
+        "itemType": "multiple_choice",
+        "testedDecision": "Recognizing acute graft-versus-host disease (aGVHD) after negative infectious workup at 12 hours",
+        "infoAvailableAtBaseline": "Readmission with watery diarrhea and palm/sole rash; infectious workup pending.",
+        "laterStageInfo": "stage_1 exhibit shows stool studies and viral PCRs negative, team diagnoses aGVHD.",
+        "earliestPointAnswerable": "stage_1",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_1",
+        "confidence": "HIGH",
+        "rationale": "Stem explicitly references Stage 1 negative infectious results."
+      },
+      {
+        "partId": "opus_agvd_case_agvhd_01_q2",
+        "queueIndex": 60,
+        "partOrdinal": 2,
+        "itemType": "multiple_choice",
+        "testedDecision": "Priority electrolyte replacement (K 3.1, Mg 1.4) before high-dose corticosteroids at Stage 1",
+        "infoAvailableAtBaseline": "Baseline K 3.4.",
+        "laterStageInfo": "stage_1 provides repeat labs and planned corticosteroid therapy.",
+        "earliestPointAnswerable": "stage_1",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_1",
+        "confidence": "HIGH",
+        "rationale": "Stem explicitly sets timing before corticosteroid administration in Stage 1."
+      },
+      {
+        "partId": "opus_agvd_case_agvhd_01_q3",
+        "queueIndex": 61,
+        "partOrdinal": 3,
+        "itemType": "multiple_choice",
+        "testedDecision": "Prioritizing hypovolemic shock / hemodynamic instability at Stage 2 (48 hours)",
+        "infoAvailableAtBaseline": "Hemodynamics stable at admission.",
+        "laterStageInfo": "stage_2 describes worsening vital signs (HR 118, BP 92/56, oliguria 180 mL/8h).",
+        "earliestPointAnswerable": "stage_2",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_2",
+        "confidence": "HIGH",
+        "rationale": "Requires hemodynamic deterioration data presented in stage_2."
+      },
+      {
+        "partId": "opus_agvd_case_agvhd_01_q4",
+        "queueIndex": 62,
+        "partOrdinal": 4,
+        "itemType": "multiple_choice",
+        "testedDecision": "Action for elevated tacrolimus level (18.4 ng/mL) and rising creatinine (1.6 mg/dL) at Stage 2",
+        "infoAvailableAtBaseline": "Cr 1.0 baseline.",
+        "laterStageInfo": "stage_2 provides repeat tacrolimus trough and renal function.",
+        "earliestPointAnswerable": "stage_2",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_2",
+        "confidence": "HIGH",
+        "rationale": "Assesses tacrolimus nephrotoxicity cues presented in stage_2."
+      },
+      {
+        "partId": "opus_agvd_case_agvhd_01_q5",
+        "queueIndex": 63,
+        "partOrdinal": 5,
+        "itemType": "multiple_choice",
+        "testedDecision": "Sequencing concurrent interventions at Stage 2 (IV fluid bolus first)",
+        "infoAvailableAtBaseline": "No concurrent orders active.",
+        "laterStageInfo": "stage_2 gives new orders for volume resuscitation, telemetry, med adjustments.",
+        "earliestPointAnswerable": "stage_2",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_2",
+        "confidence": "HIGH",
+        "rationale": "Prioritizes immediate interventions for Stage 2 hemodynamic crisis."
+      },
+      {
+        "partId": "opus_agvd_case_agvhd_01_q6",
+        "queueIndex": 64,
+        "partOrdinal": 6,
+        "itemType": "matrix",
+        "testedDecision": "Evaluating therapeutic response vs. vigilance findings at Stage 3 (96 hours) post-ruxolitinib",
+        "infoAvailableAtBaseline": "Initial data only.",
+        "laterStageInfo": "stage_3 provides clinical response data after 48h of ruxolitinib.",
+        "earliestPointAnswerable": "stage_3",
+        "laterStageExposesAnswer": false,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_3",
+        "confidence": "HIGH",
+        "rationale": "Matrix evaluates clinical outcomes occurring at Stage 3."
+      }
+    ]
+  },
+  {
+    "sampleIndex": 4,
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_gap_2026_06_11_case_adhf_01",
+    "declaredStages": [
+      "adhf_stage2",
+      "adhf_stage3"
+    ],
+    "parentVector": [
+      "BASELINE_BEFORE_FIRST_STAGE",
+      "adhf_stage2",
+      "adhf_stage2",
+      "adhf_stage3"
+    ],
+    "parentRecoverability": "STRUCTURALLY_UNREPRESENTABLE_BASELINE_GAP",
+    "parentCoherenceCheck": {
+      "isMonotonic": false,
+      "flagged": true,
+      "explanation": "Part 1 tests initial triage cues from global exhibits before any stage progression. Declared stages begin at adhf_stage2 (30 minutes later acute pulmonary edema). Parts 2-4 carry pre-existing stageId anchors (adhf_stage2, adhf_stage2, adhf_stage3). No valid declared stage exists for Part 1."
+    },
+    "parts": [
+      {
+        "partId": "gpt_case_gap_2026_06_11_adhf_matrix_01",
+        "queueIndex": 153,
+        "partOrdinal": 1,
+        "itemType": "matrix",
+        "testedDecision": "Classifying initial triage cues as acute decompensated heart failure vs. less related",
+        "infoAvailableAtBaseline": "Global exhibits adhf_triage (vital signs, lung crackles, ankle edema, missed furosemide) and adhf_labs (CXR pulmonary congestion, BNP 1240, Na 132, K 3.7, troponin normal, weight 84 kg vs 80.8 kg).",
+        "laterStageInfo": "adhf_stage2 (Thirty minutes later) shows acute deterioration (SpO2 84%, pink frothy sputum, drowning sensation).",
+        "earliestPointAnswerable": "Baseline (at ED triage arrival, before adhf_stage2)",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "BASELINE_BEFORE_FIRST_STAGE",
+        "proposedAnchor": null,
+        "confidence": "HIGH",
+        "rationale": "Part 1 matrix rows exclusively evaluate the admission triage assessment and initial labs. adhf_stage2 represents acute pulmonary edema 30 minutes later; anchoring to adhf_stage2 exposes future deterioration prematurely. No declared stage exists in caseStudy.stages[] for baseline triage."
+      }
+    ]
+  },
+  {
+    "sampleIndex": 5,
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_opus5_cdi_immunocompromised_01",
+    "declaredStages": [
+      "stage1",
+      "stage2",
+      "stage3"
+    ],
+    "parentVector": [
+      "stage1",
+      "stage1",
+      "stage1",
+      "stage2",
+      "stage1",
+      "stage3"
+    ],
+    "parentRecoverability": "FULLY_RECOVERABLE",
+    "parentCoherenceCheck": {
+      "isMonotonic": false,
+      "flagged": true,
+      "explanation": "Part 5 is an ordered-response item testing the initial Stage 1 action sequence, but was authored in position 5 following a Stage 2 matrix item. Semantically, Part 5 is answerable immediately after stage1. Both stage1 and stage2 vectors are coherent; earliest answerability is stage1."
+    },
+    "parts": [
+      {
+        "partId": "gpt_case_opus5_cdi_immunocompromised_01_q1",
+        "queueIndex": 159,
+        "partOrdinal": 1,
+        "itemType": "multiple_choice",
+        "testedDecision": "Recognizing that PRN loperamide should be held in suspected CDI",
+        "infoAvailableAtBaseline": "No global exhibits. stage1 exhibits provide presentation on Day 14.",
+        "laterStageInfo": "stage2 provides Day 15 lab confirmation.",
+        "earliestPointAnswerable": "stage1",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage1",
+        "confidence": "HIGH",
+        "rationale": "Tests initial medication safety action upon identifying CDI risk in stage1."
+      },
+      {
+        "partId": "gpt_case_opus5_cdi_immunocompromised_01_q2",
+        "queueIndex": 160,
+        "partOrdinal": 2,
+        "itemType": "select_all",
+        "testedDecision": "First hour nursing actions for suspected CDI (contact precautions, soap/water handwashing)",
+        "infoAvailableAtBaseline": "No global exhibits.",
+        "laterStageInfo": "stage2 outlines confirmed isolation plan.",
+        "earliestPointAnswerable": "stage1",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage1",
+        "confidence": "HIGH",
+        "rationale": "Tests immediate infection-control actions during first hour in stage1."
+      },
+      {
+        "partId": "gpt_case_opus5_cdi_immunocompromised_01_q3",
+        "queueIndex": 161,
+        "partOrdinal": 3,
+        "itemType": "dropdown_cloze",
+        "testedDecision": "Explaining rationale for oral rather than intravenous vancomycin in luminal CDI",
+        "infoAvailableAtBaseline": "No global exhibits.",
+        "laterStageInfo": "stage1 provider orders include oral vancomycin.",
+        "earliestPointAnswerable": "stage1",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage1",
+        "confidence": "HIGH",
+        "rationale": "Oral vancomycin is ordered in stage1; teaching can occur once order is placed."
+      },
+      {
+        "partId": "gpt_case_opus5_cdi_immunocompromised_01_q4",
+        "queueIndex": 162,
+        "partOrdinal": 4,
+        "itemType": "matrix",
+        "testedDecision": "Classifying Day 15 (Stage 2) monitoring findings as expected improvement vs. escalation",
+        "infoAvailableAtBaseline": "No global exhibits.",
+        "laterStageInfo": "stage2 exhibit details Day 15 status.",
+        "earliestPointAnswerable": "stage2",
+        "laterStageExposesAnswer": false,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage2",
+        "confidence": "HIGH",
+        "rationale": "Stem explicitly references Stage 2 monitoring findings."
+      },
+      {
+        "partId": "gpt_case_opus5_cdi_immunocompromised_01_q5",
+        "queueIndex": 163,
+        "partOrdinal": 5,
+        "itemType": "ordered_response",
+        "testedDecision": "Ordering initial nursing actions in response to Stage 1 findings",
+        "infoAvailableAtBaseline": "No global exhibits.",
+        "laterStageInfo": "Content is strictly Stage 1 cues (fever, diarrhea, antibiotics, holding loperamide, contact precautions, SBAR).",
+        "earliestPointAnswerable": "stage1",
+        "laterStageExposesAnswer": false,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage1",
+        "confidence": "HIGH",
+        "rationale": "Stem explicitly specifies ordering actions for initial response to Stage 1 findings. Earliest answerability is stage1, though placed in ordinal position 5."
+      },
+      {
+        "partId": "gpt_case_opus5_cdi_immunocompromised_01_q6",
+        "queueIndex": 164,
+        "partOrdinal": 6,
+        "itemType": "multiple_choice",
+        "testedDecision": "Discharge teaching on clinical resolution vs. unnecessary retesting on Days 17-18",
+        "infoAvailableAtBaseline": "No global exhibits.",
+        "laterStageInfo": "stage3 provides discharge planning data.",
+        "earliestPointAnswerable": "stage3",
+        "laterStageExposesAnswer": false,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage3",
+        "confidence": "HIGH",
+        "rationale": "Assesses discharge teaching after clinical resolution in stage3."
+      }
+    ]
+  },
+  {
+    "sampleIndex": 6,
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_warfarin_mvr_2026_06_11_01",
+    "declaredStages": [
+      "stage_1_1400",
+      "stage_2_2200",
+      "stage_3_0645",
+      "stage_3_1200"
+    ],
+    "parentVector": [
+      "BASELINE_BEFORE_FIRST_STAGE",
+      "BASELINE_BEFORE_FIRST_STAGE",
+      "stage_1_1400",
+      "stage_3_0645",
+      "stage_3_1200",
+      "stage_3_1200"
+    ],
+    "parentRecoverability": "STRUCTURALLY_UNREPRESENTABLE_BASELINE_GAP",
+    "parentCoherenceCheck": {
+      "isMonotonic": false,
+      "flagged": true,
+      "explanation": "Parts 1 and 2 test 1030 admission decisions from global exhibits (admission_record and initial_assessment_labs). First declared stage stage_1_1400 narrates provider orders holding warfarin and nursing actions addressing naproxen, directly leaking the answers to Parts 1 and 2. Parts 3-6 follow a coherent progression across stage_1_1400, stage_3_0645, and stage_3_1200."
+    },
+    "parts": [
+      {
+        "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q1",
+        "queueIndex": 165,
+        "partOrdinal": 1,
+        "itemType": "multiple_choice",
+        "testedDecision": "Action at 1030 admission regarding scheduled warfarin 7.5 mg when INR is 5.2 with active bleeding",
+        "infoAvailableAtBaseline": "Global exhibits admission_record (home meds) and initial_assessment_labs (INR 5.2, gingival oozing, ecchymoses).",
+        "laterStageInfo": "stage_1_1400 exhibit narrates: ED provider orders warfarin held pending INR results. Cardiology hospitalist orders: continue holding warfarin; vitamin K 2.5 mg PO.",
+        "earliestPointAnswerable": "Baseline (1030 admission, before stage_1_1400 orders)",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "BASELINE_BEFORE_FIRST_STAGE",
+        "proposedAnchor": null,
+        "confidence": "HIGH",
+        "rationale": "Question tests the nurse immediate action at 1030 admission. stage_1_1400 exhibit reveals that the provider ordered warfarin held and gave vitamin K, leaking option B. No baseline stage exists in caseStudy.stages[]."
+      },
+      {
+        "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q2",
+        "queueIndex": 166,
+        "partOrdinal": 2,
+        "itemType": "select_all",
+        "testedDecision": "Nursing response during admission medication reconciliation upon discovering unapproved naproxen use",
+        "infoAvailableAtBaseline": "Medication reconciliation during 1030 admission.",
+        "laterStageInfo": "stage_1_1400 exhibit explicitly lists: Nursing actions: ... medication reconciliation, and provider notification of naproxen exposure.",
+        "earliestPointAnswerable": "Baseline (1030 admission med reconciliation)",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "BASELINE_BEFORE_FIRST_STAGE",
+        "proposedAnchor": null,
+        "confidence": "HIGH",
+        "rationale": "Medication reconciliation occurs at intake. stage_1_1400 explicitly narrates provider notification of naproxen exposure, giving away key options."
+      },
+      {
+        "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q3",
+        "queueIndex": 167,
+        "partOrdinal": 3,
+        "itemType": "dropdown_cloze",
+        "testedDecision": "Client teaching regarding oral vitamin K 2.5 mg ordered during Stage 1",
+        "infoAvailableAtBaseline": "Vitamin K not yet ordered.",
+        "laterStageInfo": "stage_1_1400 exhibit provides provider order for oral vitamin K 2.5 mg.",
+        "earliestPointAnswerable": "stage_1_1400",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_1_1400",
+        "confidence": "HIGH",
+        "rationale": "Stem explicitly references vitamin K ordered during Stage 1."
+      },
+      {
+        "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q4",
+        "queueIndex": 168,
+        "partOrdinal": 4,
+        "itemType": "matrix",
+        "testedDecision": "Classifying nursing actions at 0645 for acute major bleeding (gross hematuria, INR 6.8, lightheadedness)",
+        "infoAvailableAtBaseline": "Minor bleeding only at baseline.",
+        "laterStageInfo": "stage_3_0645 presents gross hematuria and stat labs.",
+        "earliestPointAnswerable": "stage_3_0645",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_3_0645",
+        "confidence": "HIGH",
+        "rationale": "Assesses deterioration occurring at 0645 in stage_3_0645."
+      },
+      {
+        "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q5",
+        "queueIndex": 169,
+        "partOrdinal": 5,
+        "itemType": "select_all",
+        "testedDecision": "Nursing actions for administering IV vitamin K and 4-factor PCC for major hemorrhage",
+        "infoAvailableAtBaseline": "PCC and IV vitamin K not ordered.",
+        "laterStageInfo": "stage_3_1200 orders exhibit gives PCC and IV vitamin K orders.",
+        "earliestPointAnswerable": "stage_3_1200",
+        "laterStageExposesAnswer": false,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_3_1200",
+        "confidence": "HIGH",
+        "rationale": "Orders for urgent reversal are given in stage_3_1200."
+      },
+      {
+        "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q6",
+        "queueIndex": 170,
+        "partOrdinal": 6,
+        "itemType": "multiple_choice",
+        "testedDecision": "Handoff statement at 1200 evaluating transition status post-reversal",
+        "infoAvailableAtBaseline": "Intake data only.",
+        "laterStageInfo": "stage_3_1200 provides 1200 evaluation data (INR 3.8, Hb 9.8, negative head CT).",
+        "earliestPointAnswerable": "stage_3_1200",
+        "laterStageExposesAnswer": false,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_3_1200",
+        "confidence": "HIGH",
+        "rationale": "Evaluates post-reversal stabilization at 1200 in stage_3_1200."
+      }
+    ]
+  },
+  {
+    "sampleIndex": 7,
+    "bankPath": "banks/hard-cases-canonical.json",
+    "parentCaseId": "cs_thyroid_storm_main",
+    "declaredStages": [
+      "stage_0830",
+      "stage_1200"
+    ],
+    "parentVector": [
+      "BASELINE_BEFORE_FIRST_STAGE",
+      "stage_0830",
+      "stage_0830",
+      "stage_1200"
+    ],
+    "parentRecoverability": "STRUCTURALLY_UNREPRESENTABLE_BASELINE_GAP",
+    "parentCoherenceCheck": {
+      "isMonotonic": false,
+      "flagged": true,
+      "explanation": "Part 1 tests differentiating 0800 triage presentation from global exhibit ex_triage_0800. First declared stage stage_0830 provides diagnostic confirmation and orders. Part 2 (row 370 gate breach) is cleanly anchored to stage_0830, hiding stage_1200 and neutralizing the answer leak."
+    },
+    "parts": [
+      {
+        "partId": "cs_thyroid_storm_q1",
+        "queueIndex": 369,
+        "partOrdinal": 1,
+        "itemType": "matrix",
+        "testedDecision": "Differentiating 0800 triage cues as uncomplicated hyperthyroidism vs. thyroid storm",
+        "infoAvailableAtBaseline": "Global exhibit ex_triage_0800 contains all cues (T 104.2, HR 152 irregular, bounding pulses, diaphoresis, delirium).",
+        "laterStageInfo": "stage_0830 gives TSH, Free T4, Afib with RVR, and thyroid storm orders (PTU, Lugol, hydrocortisone).",
+        "earliestPointAnswerable": "Baseline (0800 triage, before stage_0830)",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "BASELINE_BEFORE_FIRST_STAGE",
+        "proposedAnchor": null,
+        "confidence": "HIGH",
+        "rationale": "Part 1 analyzes the 0800 triage presentation. stage_0830 orders definitively reveal thyroid storm diagnosis. No baseline stage exists in caseStudy.stages[]."
+      },
+      {
+        "partId": "cs_thyroid_storm_q2",
+        "queueIndex": 370,
+        "partOrdinal": 2,
+        "itemType": "ordered_response",
+        "testedDecision": "Sequencing administration of 0830 prescribed medications (beta blocker -> PTU -> Lugols -> hydrocortisone)",
+        "infoAvailableAtBaseline": "Orders not yet present.",
+        "laterStageInfo": "stage_0830 provides the 0830 orders. CRITICAL LEAK: stage_1200 exhibit lists: The client has received IV fluids, propranolol, PTU, Lugol iodine, and hydrocortisone as prescribed.",
+        "earliestPointAnswerable": "stage_0830",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_0830",
+        "confidence": "HIGH",
+        "rationale": "GATE-BREACH ROW 370. Stem explicitly says Based on the 0830 orders. Anchoring to stage_0830 hides stage_1200, which verbatim reveals the correct administration order."
+      },
+      {
+        "partId": "cs_thyroid_storm_q3",
+        "queueIndex": 371,
+        "partOrdinal": 3,
+        "itemType": "select_all",
+        "testedDecision": "Supportive interventions to manage hyperpyrexia and safety between 0800 and 1200",
+        "infoAvailableAtBaseline": "Hyperpyrexia and agitation noted at 0800.",
+        "laterStageInfo": "Can be planned once orders and diagnosis established at 0830.",
+        "earliestPointAnswerable": "stage_0830",
+        "laterStageExposesAnswer": false,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_0830",
+        "confidence": "HIGH",
+        "rationale": "Care plan established at 0830 alongside acute pharmacological management."
+      },
+      {
+        "partId": "cs_thyroid_storm_q4",
+        "queueIndex": 372,
+        "partOrdinal": 4,
+        "itemType": "multiple_choice",
+        "testedDecision": "Recognizing PTU-induced agranulocytosis (WBC 2.8) on 1200 laboratory panel",
+        "infoAvailableAtBaseline": "1200 labs not available.",
+        "laterStageInfo": "stage_1200 provides 1200 laboratory evaluation data.",
+        "earliestPointAnswerable": "stage_1200",
+        "laterStageExposesAnswer": false,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_1200",
+        "confidence": "HIGH",
+        "rationale": "Tests evaluation of 1200 laboratory results presented in stage_1200."
+      }
+    ]
+  },
+  {
+    "sampleIndex": 8,
+    "bankPath": "banks/hard-cases-canonical.json",
+    "parentCaseId": "opus_tpn_case_mucositis_01",
+    "declaredStages": [
+      "stage_1",
+      "stage_2",
+      "stage_3"
+    ],
+    "parentVector": [
+      "stage_1",
+      "stage_1",
+      "stage_2",
+      "stage_2",
+      "stage_3",
+      "stage_3"
+    ],
+    "parentRecoverability": "FULLY_RECOVERABLE",
+    "parentCoherenceCheck": {
+      "isMonotonic": true,
+      "flagged": false,
+      "explanation": "Monotonic 2-2-2 vector across 3 stages. Part 3 (row 395 gate breach) is cleanly anchored to stage_2, hiding stage_3 and neutralizing the answer leak."
+    },
+    "parts": [
+      {
+        "partId": "opus_tpn_case_mucositis_01_q1",
+        "queueIndex": 393,
+        "partOrdinal": 1,
+        "itemType": "multiple_choice",
+        "testedDecision": "Identifying emerging CRBSI/septic shock at Stage 1 post-fluid bolus",
+        "infoAvailableAtBaseline": "Baseline fever and PICC erythema; response to bolus pending.",
+        "laterStageInfo": "stage_1 describes persistent hypotension and rising lactate post-bolus.",
+        "earliestPointAnswerable": "stage_1",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_1",
+        "confidence": "HIGH",
+        "rationale": "Stem explicitly evaluates response to fluid bolus in Stage 1."
+      },
+      {
+        "partId": "opus_tpn_case_mucositis_01_q2",
+        "queueIndex": 394,
+        "partOrdinal": 2,
+        "itemType": "multiple_choice",
+        "testedDecision": "Managing refractory hyperglycemia (BG 324) on TPN at Stage 1 (TPN rate reduction + regular insulin infusion)",
+        "infoAvailableAtBaseline": "Initial glucose 248.",
+        "laterStageInfo": "stage_1 shows BG 324 despite sliding scale.",
+        "earliestPointAnswerable": "stage_1",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_1",
+        "confidence": "HIGH",
+        "rationale": "Evaluates glycemic escalation occurring in Stage 1."
+      },
+      {
+        "partId": "opus_tpn_case_mucositis_01_q3",
+        "queueIndex": 395,
+        "partOrdinal": 3,
+        "itemType": "ordered_response",
+        "testedDecision": "Sequencing interventions when preliminary blood culture flags positive before peripheral at Stage 2",
+        "infoAvailableAtBaseline": "Cultures pending.",
+        "laterStageInfo": "stage_2 provides preliminary culture report. CRITICAL LEAK: stage_3 exhibit confirms CRBSI, orders PICC removed, places new line for TPN, and continues vancomycin.",
+        "earliestPointAnswerable": "stage_2",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_2",
+        "confidence": "HIGH",
+        "rationale": "GATE-BREACH ROW 395. Stem explicitly says At Stage 2. Anchoring to stage_2 hides stage_3, which directly reveals line removal and alternative central access sequence."
+      },
+      {
+        "partId": "opus_tpn_case_mucositis_01_q4",
+        "queueIndex": 396,
+        "partOrdinal": 4,
+        "itemType": "multiple_choice",
+        "testedDecision": "Managing severe mucositis pain and oral care refusal at Stage 2 (coordinate analgesia prior to care)",
+        "infoAvailableAtBaseline": "Mucositis noted but pain refusal occurs at Stage 2.",
+        "laterStageInfo": "stage_2 describes oral care refusal due to bleeding mucositis pain.",
+        "earliestPointAnswerable": "stage_2",
+        "laterStageExposesAnswer": true,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_2",
+        "confidence": "HIGH",
+        "rationale": "Addresses patient refusal during Stage 2 update."
+      },
+      {
+        "partId": "opus_tpn_case_mucositis_01_q5",
+        "queueIndex": 397,
+        "partOrdinal": 5,
+        "itemType": "matrix",
+        "testedDecision": "Evaluating clinical response vs. ongoing monitoring cues at Stage 3 (lactate, glucose, temp vs triglycerides)",
+        "infoAvailableAtBaseline": "Earlier stage data.",
+        "laterStageInfo": "stage_3 provides post-intervention lab panel and vitals.",
+        "earliestPointAnswerable": "stage_3",
+        "laterStageExposesAnswer": false,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_3",
+        "confidence": "HIGH",
+        "rationale": "Evaluates post-intervention response in stage_3."
+      },
+      {
+        "partId": "opus_tpn_case_mucositis_01_q6",
+        "queueIndex": 398,
+        "partOrdinal": 6,
+        "itemType": "multiple_choice",
+        "testedDecision": "Evaluating safety of enteral transition vs. continuing TPN at Stage 3 given oral tolerance",
+        "infoAvailableAtBaseline": "Intake data only.",
+        "laterStageInfo": "stage_3 describes patient tolerating gentle rinses but unable to swallow liquids.",
+        "earliestPointAnswerable": "stage_3",
+        "laterStageExposesAnswer": false,
+        "proposedDisposition": "ANCHOR_RECOVERED",
+        "proposedAnchor": "stage_3",
+        "confidence": "HIGH",
+        "rationale": "Assesses nutritional transition readiness at Stage 3."
+      }
+    ]
+  }
+]

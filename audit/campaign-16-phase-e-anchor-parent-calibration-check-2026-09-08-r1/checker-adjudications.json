@@ -1,0 +1,283 @@
+{
+  "artifact": "Campaign 16 Phase E — Independent Checker Adjudications (blind, pre-reveal)",
+  "date": "2026-09-08",
+  "checkerRole": "Independent checker for the anchor-parent-calibration pilot. Read-only. No repair, schema, or renderer changes authorized.",
+  "sampleSizeParents": 8,
+  "sampleSizeAffectedPartsAdjudicated": 40,
+  "labelDefinitions": {
+    "BASELINE_BEFORE_FIRST_STAGE": "Answerable from always-visible baseline/global case material before any declared stage is revealed; revealing the first declared stage before answering would expose information occurring after the appropriate answer boundary or otherwise disclose later case state unnecessarily.",
+    "STAGE_ID": "Earliest appropriate boundary is after the named declared stage; the stage id is copied verbatim from that parent's caseStudy.stages[].id.",
+    "AMBIGUOUS": "Repository content does not support a unique defensible earliest boundary without guessing (P8: do not manufacture missing chronology with clinical knowledge)."
+  },
+  "adjudications": [
+    {
+      "parentId": "opus2_case_code_status_01",
+      "bankPath": "banks/claude-canonical.json",
+      "declaredStageIds": ["stage_1", "stage_2", "stage_3"],
+      "parts": [
+        {
+          "partId": "opus2_case_code_status_q1",
+          "queueIndex": 1,
+          "label": "BASELINE_BEFORE_FIRST_STAGE",
+          "evidence": "Stem is explicitly scoped to 0700 ('At 0700, what is the nurse's priority action in response to Mr. Jeffries's statement?'). The patient's refusal statement is stated in the top-level, always-visible caseStudy.summary at 0700, and the top-level exhibit_baseline (0700 vitals/labs) supplies the assessment context. Correct answer A is 'Assess and document his decision-making capacity and verbatim statements.' Stage 1 ('0700-0900') narrates: 'the nurse documents his verbatim statements and capacity' as an already-completed fact, plus later events (0745-0800 provider paging/response). Revealing Stage 1 before the learner answers Q1 would both hand the learner the correct answer (it is narrated as already done) and disclose events after 0700 that are not needed to answer a question explicitly anchored at 0700."
+        },
+        {
+          "partId": "opus2_case_code_status_q2",
+          "label": "STAGE:stage_1",
+          "evidence": "Stem is anchored 'At 0800, after Dr. Reeves indicates he will visit... around 1100.' Dr. Reeves's 0800 response is stated only in stage_1's exhibit_stage1 content. Not answerable from baseline alone."
+        },
+        {
+          "partId": "opus2_case_code_status_q3",
+          "label": "STAGE:stage_2",
+          "evidence": "Stem: 'By 1030, Mr. Jeffries remains hypoxemic...' — the 1030 vitals/SpO2 and escalating respiratory status are given only in stage_2's exhibit_stage2 (0930-1030 events)."
+        },
+        {
+          "partId": "opus2_case_code_status_q4",
+          "label": "STAGE:stage_3",
+          "evidence": "Stem: 'At 1100, the nurse activates the rapid response team (RRT).' The RRT activation and Dr. Anand interaction are given only in stage_3's exhibit_stage3."
+        },
+        {
+          "partId": "opus2_case_code_status_q5",
+          "label": "STAGE:stage_3",
+          "evidence": "Stem: 'At 1130, after the DNAR/DNI order is entered...' The DNAR/DNI order entry and subsequent loop-closure facts are given only in stage_3's exhibit_stage3."
+        }
+      ]
+    },
+    {
+      "parentId": "opus_vanco_case_01",
+      "bankPath": "banks/claude-canonical.json",
+      "declaredStageIds": ["stage_1_infusion_reaction", "stage_2_trough_monitoring", "stage_3_aki_tinnitus"],
+      "parts": [
+        {
+          "partId": "opus_vanco_case_01_q1_infusion_reaction",
+          "label": "STAGE:stage_1_infusion_reaction",
+          "evidence": "Stem is explicitly prefixed 'Stage 1:' and the described flushing/tachycardia/hypotension findings occur only in stage_1_infusion_reaction's exhibit stage_1_assessment. No top-level baseline exhibit contains the infusion-reaction findings."
+        },
+        {
+          "partId": "opus_vanco_case_01_q2_documentation_cloze",
+          "label": "STAGE:stage_1_infusion_reaction",
+          "evidence": "Stem is explicitly prefixed 'Stage 1:' and requires the stage_1_outcome exhibit (resolution after diphenhydramine, provider restart at slower rate)."
+        },
+        {
+          "partId": "opus_vanco_case_01_q3_supratherapeutic_trough_order",
+          "label": "STAGE:stage_2_trough_monitoring",
+          "evidence": "Stem is explicitly prefixed 'Stage 2:' and the 22.4 mcg/mL trough value is given only in stage_2_trough_monitoring's exhibit stage_2_data."
+        },
+        {
+          "partId": "opus_vanco_case_01_q4_ototoxicity_screening",
+          "label": "STAGE:stage_2_trough_monitoring",
+          "evidence": "Stem is explicitly prefixed 'Stage 2:' and references the pharmacist's ototoxicity-monitoring recommendation, given only in stage_2_trough_monitoring's exhibit stage_2_data."
+        },
+        {
+          "partId": "opus_vanco_case_01_q5_aki_cue_matrix",
+          "label": "STAGE:stage_3_aki_tinnitus",
+          "evidence": "Stem is explicitly prefixed 'Stage 3:' and the AKI/tinnitus findings (creatinine 2.4, new tinnitus) are given only in stage_3_aki_tinnitus's exhibit stage_3_data."
+        },
+        {
+          "partId": "opus_vanco_case_01_q6_lisinopril_aki",
+          "label": "STAGE:stage_3_aki_tinnitus",
+          "evidence": "Stem is explicitly prefixed 'Stage 3:' and references vancomycin being held and new orders, given only in stage_3_aki_tinnitus's exhibit stage_3_new_orders."
+        }
+      ]
+    },
+    {
+      "parentId": "opus_agvd_case_agvhd_01",
+      "bankPath": "banks/gemini-canonical.json",
+      "declaredStageIds": ["stage_1", "stage_2", "stage_3"],
+      "parts": [
+        {
+          "partId": "opus_agvd_case_agvhd_01_q1",
+          "label": "STAGE:stage_1",
+          "evidence": "Stem is explicitly anchored 'At Stage 1, after infectious stool studies and viral PCRs return negative...' Those negative infectious-workup results are given only in stage_1's exhibit_stage1_01; the baseline exhibits alone (presentation + labs) do not include the infectious workup results needed to reach the differential."
+        },
+        {
+          "partId": "opus_agvd_case_agvhd_01_q2",
+          "label": "STAGE:stage_1",
+          "evidence": "Stem is explicitly anchored 'At Stage 1, before high-dose corticosteroids are administered...' and references the repeat potassium/magnesium values (3.1/1.4) given only in stage_1's exhibit_stage1_01."
+        },
+        {
+          "partId": "opus_agvd_case_agvhd_01_q3",
+          "label": "STAGE:stage_2",
+          "evidence": "Stem is explicitly anchored 'At Stage 2' and cites vitals/labs (HR 118, BP 92/56, hemoglobin 7.9) given only in stage_2's exhibit_stage2_01."
+        },
+        {
+          "partId": "opus_agvd_case_agvhd_01_q4",
+          "label": "STAGE:stage_2",
+          "evidence": "Stem is explicitly anchored 'At Stage 2' and cites the tacrolimus trough 18.4 ng/mL and creatinine rise given only in stage_2's exhibit_stage2_01."
+        },
+        {
+          "partId": "opus_agvd_case_agvhd_01_q5",
+          "label": "STAGE:stage_2",
+          "evidence": "Stem is explicitly anchored 'At Stage 2' and requires the concurrent-orders list (fluid bolus, cardiac monitoring, potassium/magnesium, insulin, transfusion) given only in stage_2's exhibit_stage2_01."
+        },
+        {
+          "partId": "opus_agvd_case_agvhd_01_q6",
+          "label": "STAGE:stage_3",
+          "evidence": "Stem is explicitly anchored 'At Stage 3, after 48 hours of ruxolitinib...' and every matrix row cites Stage 3 values given only in stage_3's exhibit_stage3_01."
+        }
+      ]
+    },
+    {
+      "parentId": "gpt_case_gap_2026_06_11_case_adhf_01",
+      "bankPath": "banks/gpt-canonical.json",
+      "declaredStageIds": ["adhf_stage2", "adhf_stage3"],
+      "note": "Partially affected parent. Only the matrix item below is unresolved; the three sibling parts already carry valid stageId anchors (adhf_stage2, adhf_stage2, adhf_stage3) and were not re-adjudicated.",
+      "parts": [
+        {
+          "partId": "gpt_case_gap_2026_06_11_adhf_matrix_01",
+          "label": "BASELINE_BEFORE_FIRST_STAGE",
+          "evidence": "All five matrix rows (SpO2 89% RA, bibasilar crackles/orthopnea, troponin not elevated, 3.2 kg one-week weight gain, potassium 3.7) are drawn verbatim from the two top-level baseline exhibits (adhf_triage, adhf_labs) — none require adhf_stage2 or adhf_stage3 content. The declared stage list has no 'stage1'; the first declared stage is adhf_stage2, whose trigger/exhibit describes a materially later deterioration event (SpO2 84%, pink frothy sputum, HR 124) 30 minutes after triage. Revealing adhf_stage2 before this question is answered would expose that later deterioration, which is not needed to classify the baseline triage/labs findings and would blur the 'current deterioration' reference point the stem asks about."
+        }
+      ]
+    },
+    {
+      "parentId": "gpt_case_opus5_cdi_immunocompromised_01",
+      "bankPath": "banks/gpt-canonical.json",
+      "declaredStageIds": ["stage1", "stage2", "stage3"],
+      "note": "This parent has an empty top-level caseStudy.exhibits array; all narrative content (including history/risk-factor background) is embedded inside stage1. There is no baseline material distinguishable from stage1 in this parent's architecture, so no part can qualify as answerable 'before' stage1.",
+      "parts": [
+        {
+          "partId": "gpt_case_opus5_cdi_immunocompromised_01_q1",
+          "label": "STAGE:stage1",
+          "evidence": "The active MAR entry for loperamide and the clinical picture supporting CDI suspicion (fever, leukocytosis, antibiotic exposure) are given only inside stage1's exhibits (exhibit_background, exhibit_stage1_assessment, exhibit_stage1_labs). No top-level exhibits exist for this parent."
+        },
+        {
+          "partId": "gpt_case_opus5_cdi_immunocompromised_01_q2",
+          "label": "STAGE:stage1",
+          "evidence": "Asks about 'the first hour of care' for suspected CDI; the CDI-suspicion context and orders (contact precautions, stool testing) are given only inside stage1's exhibit_stage1_orders."
+        },
+        {
+          "partId": "gpt_case_opus5_cdi_immunocompromised_01_q3",
+          "label": "STAGE:stage1",
+          "evidence": "Cloze teaching item about the prescribed oral vancomycin route; the fact that oral vancomycin was prescribed is established only inside stage1's exhibit_stage1_orders."
+        },
+        {
+          "partId": "gpt_case_opus5_cdi_immunocompromised_01_q4",
+          "label": "STAGE:stage2",
+          "evidence": "Stem explicitly says 'For each finding during Stage 2 monitoring' and every matrix row cites stage2 values (WBC 21.4->18.6, hospital day 15 findings) given only in stage2's exhibit_stage2_status."
+        },
+        {
+          "partId": "gpt_case_opus5_cdi_immunocompromised_01_q5",
+          "label": "STAGE:stage1",
+          "evidence": "Stem explicitly says 'the initial response to the Stage 1 findings' and the ordered-response options match stage1's exhibit_stage1_orders sequence."
+        },
+        {
+          "partId": "gpt_case_opus5_cdi_immunocompromised_01_q6",
+          "label": "STAGE:stage3",
+          "evidence": "Discharge-teaching item; the discharge plan (10-day course, hold methotrexate, no repeat CDI test) is given only in stage3's exhibit_stage3_discharge."
+        }
+      ]
+    },
+    {
+      "parentId": "gpt_case_warfarin_mvr_2026_06_11_01",
+      "bankPath": "banks/gpt-canonical.json",
+      "declaredStageIds": ["stage_1_1400", "stage_2_2200", "stage_3_0645", "stage_3_1200"],
+      "parts": [
+        {
+          "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q1",
+          "label": "BASELINE_BEFORE_FIRST_STAGE",
+          "evidence": "Stem is explicitly scoped 'At 1030' and cites the home medication list (admission_record) plus INR 5.2/gingival oozing/ecchymoses (initial_assessment_labs) — both top-level baseline exhibits. Correct answer B is 'Hold the warfarin... and notify the provider.' Stage 1 (stage_1_1400) narrates: 'ED provider orders warfarin held pending INR results... vitamin K 2.5 mg PO once now' as an already-completed fact. Revealing Stage 1 before the learner answers Q1 would hand the learner the correct answer verbatim."
+        },
+        {
+          "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q2",
+          "label": "BASELINE_BEFORE_FIRST_STAGE",
+          "evidence": "Stem asks about the wife's naproxen report, itself stated in the top-level admission_record exhibit ('gave naproxen 220 mg twice over the past 2 days'). Correct answer A is 'Document the naproxen dose and timing and notify the provider.' Stage 1 (stage_1_1400) narrates: 'provider notification of naproxen exposure' as an already-completed nursing action. Revealing Stage 1 before the learner answers Q2 would disclose that this exact action was already taken, spoiling the answer."
+        },
+        {
+          "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q3",
+          "label": "STAGE:stage_1_1400",
+          "evidence": "Stem explicitly states 'The provider orders vitamin K 2.5 mg by mouth during Stage 1' — the 2.5 mg oral dose is given only in stage_1_1400's exhibit stage_1_orders_response."
+        },
+        {
+          "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q4",
+          "label": "STAGE:stage_3_0645",
+          "evidence": "Stem is explicitly scoped 'At 0645' and cites hematuria/hemoglobin 9.2/stool guaiac positive, given only in stage_3_0645's exhibit stage_3_deterioration."
+        },
+        {
+          "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q5",
+          "label": "STAGE:stage_3_1200",
+          "evidence": "Stem references IV vitamin K and 4-factor PCC orders for major bleeding, given only in stage_3_1200's exhibit stage_3_orders_outcomes."
+        },
+        {
+          "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q6",
+          "label": "STAGE:stage_3_1200",
+          "evidence": "Stem is explicitly scoped 'At 1200' and cites INR 3.8/hemoglobin 9.8 post-transfusion/negative head CT, given only in stage_3_1200's exhibit stage_3_orders_outcomes."
+        }
+      ]
+    },
+    {
+      "parentId": "cs_thyroid_storm_main",
+      "bankPath": "banks/hard-cases-canonical.json",
+      "declaredStageIds": ["stage_0830", "stage_1200"],
+      "parts": [
+        {
+          "partId": "cs_thyroid_storm_q1",
+          "queueIndex": 369,
+          "label": "BASELINE_BEFORE_FIRST_STAGE",
+          "evidence": "Stem is explicitly scoped: 'The nurse analyzes the client's initial 0800 triage presentation.' All four matrix rows (temperature 104.2F, goiter, agitation/confusion, HR 152) are drawn only from the top-level baseline exhibit ex_triage_0800; the classification task (uncomplicated hyperthyroidism vs. thyroid storm transition) is answerable from that baseline vital-sign/assessment picture alone using general clinical knowledge of the two presentations. Stage stage_0830 discloses confirmatory labs (TSH/T4) and treatment orders that are not needed to analyze the 0800 triage findings and would prematurely confirm the diagnosis and reveal the treatment sequence tested in Q2."
+        },
+        {
+          "partId": "cs_thyroid_storm_q2",
+          "queueIndex": 370,
+          "label": "STAGE:stage_0830",
+          "evidence": "Stem explicitly states 'Based on the 0830 orders' and the five-drug administration sequence (propranolol, PTU, iodine, hydrocortisone) is the exact order list in stage_0830's exhibit ex_orders_0830. Not derivable from baseline alone."
+        },
+        {
+          "partId": "cs_thyroid_storm_q3",
+          "queueIndex": 371,
+          "label": "AMBIGUOUS",
+          "evidence": "Stem asks for interventions 'between 0800 and 1200' to manage the hypermetabolic state. The listed supportive interventions (cooling, dark/quiet room, acetaminophen, seizure precautions, avoid aspirin/fluid restriction) do not cite any single new fact introduced specifically by stage_0830 or stage_1200 — they follow from the general thyroid-storm diagnosis and are framed as running throughout the whole 0800-1200 window rather than being gated behind one specific stage disclosure. The case's own top-level rationale describes them as 'concurrent[ ]' with the medication sequence (stage_0830) but does not state this as an answer-boundary fact, and the stem itself does not anchor to a specific stage. Per P8, the repository content does not support a unique defensible earliest boundary without guessing; this is not resolved as BASELINE_BEFORE_FIRST_STAGE or a specific STAGE id."
+        },
+        {
+          "partId": "cs_thyroid_storm_q4",
+          "queueIndex": 372,
+          "label": "STAGE:stage_1200",
+          "evidence": "Stem explicitly states 'The nurse evaluates the 1200 laboratory results' and the fact that the CBC/CMP were drawn at 1200 is established only in stage_1200's exhibit ex_trend_1200 ('A complete blood count... and a comprehensive metabolic panel... were drawn')."
+        }
+      ]
+    },
+    {
+      "parentId": "opus_tpn_case_mucositis_01",
+      "bankPath": "banks/hard-cases-canonical.json",
+      "declaredStageIds": ["stage_1", "stage_2", "stage_3"],
+      "parts": [
+        {
+          "partId": "opus_tpn_case_mucositis_01_q1",
+          "queueIndex": 393,
+          "label": "STAGE:stage_1",
+          "evidence": "Stem explicitly states 'At Stage 1, after the fluid bolus and electrolyte replacements, the patient's condition continues to worsen.' Required findings (worsening hypotension/tachycardia despite bolus, rising lactate) are given only in stage_1's exhibit_stage1."
+        },
+        {
+          "partId": "opus_tpn_case_mucositis_01_q2",
+          "queueIndex": 394,
+          "label": "STAGE:stage_1",
+          "evidence": "Stem explicitly states 'At Stage 1, the patient's blood glucose is 324 mg/dL and rising...' — that glucose trend is given only in stage_1's exhibit_stage1."
+        },
+        {
+          "partId": "opus_tpn_case_mucositis_01_q3",
+          "queueIndex": 395,
+          "label": "STAGE:stage_2",
+          "evidence": "Stem explicitly states 'At Stage 2, the nurse receives the preliminary blood culture report...' given only in stage_2's exhibit_stage2."
+        },
+        {
+          "partId": "opus_tpn_case_mucositis_01_q4",
+          "queueIndex": 396,
+          "label": "STAGE:stage_2",
+          "evidence": "Stem explicitly states 'At Stage 2, the patient has not performed mouth rinses in over 6 hours...' given only in stage_2's exhibit_stage2."
+        },
+        {
+          "partId": "opus_tpn_case_mucositis_01_q5",
+          "queueIndex": 397,
+          "label": "STAGE:stage_3",
+          "evidence": "Stem explicitly states 'At Stage 3, the nurse evaluates the patient's clinical response...' and every matrix row cites stage_3 values given only in stage_3's exhibit_stage3."
+        },
+        {
+          "partId": "opus_tpn_case_mucositis_01_q6",
+          "queueIndex": 398,
+          "label": "STAGE:stage_3",
+          "evidence": "Stem explicitly states 'At Stage 3, the patient can tolerate gentle mouth rinses with coaching...' given only in stage_3's exhibit_stage3."
+        }
+      ]
+    }
+  ]
+}

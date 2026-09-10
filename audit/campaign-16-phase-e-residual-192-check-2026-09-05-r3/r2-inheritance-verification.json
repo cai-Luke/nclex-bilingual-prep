@@ -1,0 +1,49 @@
+{
+  "status": "OPENING_EVIDENCE_RECHECKED; FULL_TOOL_INHERITANCE_NOT_ATTEMPTED",
+  "r2BoundFilesMatching": 104,
+  "r2BoundFilesTotal": 105,
+  "differences": [
+    {
+      "path": "AGENTS.md",
+      "expected": "8c00c562a765e70f9fc677b5bd8ef230fe55f9c943d08882c7f7e377d6625194",
+      "observed": "e5473c9d954b3a426345a6aaa4380f1ee24cec9eb81dd79dc45f1adbf44c20e3",
+      "match": false
+    }
+  ],
+  "governanceDifferenceDisposition": "Live AGENTS.md has precedence under R3 \u00a70. Historical hash drift disclosed; no assertion that all historical bindings are identical. Context-capacity stop independently applies.",
+  "D_legacy": 6,
+  "D_main": 0,
+  "admitted": 0,
+  "inferenceBearing": 5,
+  "ledgerCostAmounts": [
+    3.6928259999999997,
+    4.914905,
+    3.425999,
+    3.5146400000000004,
+    0,
+    4.166352
+  ],
+  "recordedLegacyCostUsd": "19.714722",
+  "exactDecimalSumOfSerializedLedgerValues": "19.7147220000000001",
+  "residualRederivation": {
+    "rows": 192,
+    "parentCases": 84,
+    "equalsR2IdentitySet": true,
+    "excluded370And395": true
+  },
+  "delegatedCalBRecheck": {
+    "phaseT": "PASS",
+    "phaseR": "PASS",
+    "reconstructionByteIdentical": true,
+    "controls": "3 correct positive LEAK loci and exact negative no-leak",
+    "escrowRows": 14,
+    "bytes": 699565,
+    "liveRows": 14,
+    "controlsCount": 4,
+    "parentCases": 7,
+    "stages": 21
+  },
+  "limitation": "No R3 validator, builder or dispatcher was adapted or certified; capacity stop occurred in OPENING.",
+  "bankHashesPass": true,
+  "parentCalBRecheck": "r2-cal-b-recheck.json"
+}

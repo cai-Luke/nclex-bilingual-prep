@@ -1,0 +1,2065 @@
+{
+  "checkerPacketVersion": "1.0",
+  "packetId": "packet-016",
+  "stage": "PHASE_E_STAGE_2_INDEPENDENT_CHECKER",
+  "bankSnapshotSha256": "540b5463f94ded8b88708f49f7e80b76ae0d560edf65d0dd75521c8962e2af0d",
+  "sourcePacket": {
+    "path": "audit/campaign-16-phase-e-stage-reference-census-2026-08-29-r1/packets/packet-016.json",
+    "sha256": "c680aa63afa049e98b4e87eb8d4944c0d7b71276ad6d4e25c09b75305bdca756"
+  },
+  "targetCount": 3,
+  "blinding": {
+    "containsProducerOutput": false,
+    "excludedFields": [
+      "bilingualRelation",
+      "classBalance",
+      "comparison",
+      "counts",
+      "firstByte",
+      "firstByteMod10",
+      "noLeakSafetyGateRow",
+      "producerReason",
+      "producerVerdict",
+      "producerVerdictClass",
+      "reason",
+      "requiredStageIds",
+      "sampleKey",
+      "sampleSha256",
+      "selected",
+      "selectionReasons",
+      "unsafeStageIds",
+      "verdict"
+    ],
+    "note": "This packet is derived only from the frozen Stage-0 source packet and the frozen population identities. It carries no producer verdict, reason, required/unsafe stages, bilingual relation, counts, class balance, comparison data, historical Gemini or calibration verdict material, or repair proposal."
+  },
+  "instructions": "Independently adjudicate every target in cases[].targets. Emit exactly one JSONL row per target, in ascending queueIndex order, using the closed row shape in the semantic contract below. Copy queueIndex, packetId, bankPath, parentCaseId and partId verbatim from each target. Cite only evidenceIds present in this packet evidenceCatalog and belonging to the same parentCaseId.",
+  "semanticContract": "## 6. Semantic adjudication contract\n\n### 6.1 Review question, in order\n\nFor each target, the semantic worker answers:\n\n1. What exact decision or response is this part testing, using the stored key/rationale only to identify the intended inference rather than to re-grade it?\n2. Which currently visible stage facts are actually needed to answer that part?\n3. Does any **otherwise unnecessary** exposed stage fact materially reduce the reasoning required by directly revealing or strongly cueing the keyed decision?\n4. Does the case/part instead intentionally operate on a complete record, making full-stage visibility appropriate?\n5. If the intended stage boundary cannot be recovered safely from the authored case, is `REVIEW` more accurate than forced certainty?\n6. Is the leakage relation parallel in English and Simplified Chinese, or materially different?\n\n### 6.2 Verdict vocabulary\n\nExactly one primary verdict per row:\n\n- `LEAK`\n  - one or more exposed stages materially help answer the active part by naming or strongly cueing a condition, action, priority, calculation/trend, response, outcome, or distractor-eliminating fact that the part otherwise requires the learner to infer;\n- `NO_LEAK_COMPLETE_RECORD`\n  - the authored case/part evidence supports that the complete staged record is intentionally available for this part;\n- `NO_LEAK_NONANSWERING_DATA`\n  - later-looking or extra stage information is exposed but does not materially help answer this part;\n- `REVIEW`\n  - the intended progression/dependency cannot be recovered safely from the packet.\n\nDo not invent additional primary verdicts.\n\nA later timestamp is not automatically a leak. Additional data is not automatically useful data. Strong cueing counts even when the answer does not appear verbatim. `NO_LEAK_COMPLETE_RECORD` requires positive evidence of complete-record intent and is not a default for difficult legacy cases.\n\n### 6.3 Bilingual relation vocabulary\n\nExactly one:\n\n- `PARALLEL`\n- `EN_ONLY_LEAK`\n- `ZH_ONLY_LEAK`\n- `MATERIAL_DIVERGENCE`\n- `UNRESOLVED`\n\nPunctuation, sentence count, or ordinary translation compression alone is not material divergence.\n\n### 6.4 Required candidate row\n\nEach producer/checker semantic row uses the closed shape:\n\n```json\n{\n  \"queueIndex\": 1,\n  \"packetId\": \"packet-001\",\n  \"bankPath\": \"banks/example-canonical.json\",\n  \"parentCaseId\": \"case_id\",\n  \"partId\": \"part_id\",\n  \"verdict\": \"LEAK\",\n  \"testedDecision\": \"Identify the priority response to worsening respiratory status.\",\n  \"requiredStageIds\": [\"baseline\"],\n  \"unsafeStageIds\": [\"post_intervention\"],\n  \"partEvidenceIds\": [\"...\"],\n  \"stageEvidenceIds\": [\"...\"],\n  \"bilingualRelation\": \"PARALLEL\",\n  \"reason\": \"Item-specific explanation.\"\n}\n```\n\nRules:\n\n- `testedDecision`: one item-specific sentence, maximum 30 words;\n- `requiredStageIds`: stages actually needed, or `[]` when global/baseline context suffices;\n- `unsafeStageIds`: nonempty only for `LEAK`;\n- `partEvidenceIds`: 1–4 packet-owned IDs from part stem/response/key/rationale;\n- `stageEvidenceIds`: 1–6 packet-owned stage IDs showing the relevant exposed evidence; for a no-leak row cite the most plausible exposed cue and explain why it does not answer the part;\n- `reason`: 1–3 item-specific sentences;\n- no confidence score;\n- no replacement prose;\n- no exact anchor recommendation;\n- no aggregate totals inside per-packet semantic output.\n\n",
+  "cases": [
+    {
+      "bankPath": "banks/gemini-canonical.json",
+      "bankSha256": "3dc416a4652f5f5712219dde7de87b92f0697fac953750b8abb8fc0dbb976bb6",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "casePath": "questions[818]",
+      "stem": {
+        "en": "Review the client record and answer the case study questions.",
+        "zh": "审查客户记录并回答案例研究问题。"
+      },
+      "title": {
+        "en": "Unfolding Case: Outpatient Congestive Heart Failure Management",
+        "zh": "展开式案例：门诊充血性心力衰竭管理"
+      },
+      "summary": {
+        "en": "A 68-year-old female with a history of chronic heart failure with reduced ejection fraction (HFrEF) is seen in the cardiology clinic for a routine follow-up.",
+        "zh": "一名有射血分数降低的慢性心力衰竭 (HFrEF) 病史的68岁女性在心内科诊所接受常规随访。"
+      },
+      "globalExhibits": [
+        {
+          "id": "ex1_hf_clinic_visit",
+          "title": {
+            "en": "Outpatient Progress Note",
+            "zh": "门诊病程记录"
+          },
+          "content": {
+            "en": "Subjective: Client reports feeling stable, walking daily. Adheres to fluid restriction of 1.5 L/day. Denies shortness of breath or orthopnea. Current medications: Lisinopril 10 mg orally daily, Metoprolol succinate 50 mg orally daily, Furosemide 40 mg orally daily.\n\nObjective:\n- Weight: 72.5 kg (Baseline weight: 72.0 kg)\n- Blood pressure: 116/70 mmHg\n- Heart rate: 64 bpm\n- Lungs: Clear to auscultation bilaterally.\n- Extremities: Trace ankle edema.",
+            "zh": "主观资料：患者报告感觉稳定，每日散步。坚持每天 1.5 L 的限水。否认呼吸困难或端坐呼吸。目前服用药物：赖诺普利 10 mg 口服，每日一次；琥珀酸美托洛尔 50 mg 口服，每日一次；呋塞米 40 mg 口服，每日一次。\n\n客观资料：\n- 体重：72.5 kg（基线体重：72.0 kg）\n- 血压：116/70 mmHg\n- 心率：64次/分\n- 双肺：听诊清晰。\n- 四肢：踝部微量水肿。"
+          },
+          "structuredMeasurements": {
+            "panels": [
+              {
+                "kind": "vitals",
+                "columns": [
+                  {
+                    "id": "current",
+                    "label": {
+                      "en": "Current",
+                      "zh": "当前"
+                    }
+                  }
+                ],
+                "rows": [
+                  {
+                    "key": "sbp",
+                    "label": {
+                      "en": "Systolic BP",
+                      "zh": "收缩压"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "116",
+                        "unit": "mmHg"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "dbp",
+                    "label": {
+                      "en": "Diastolic BP",
+                      "zh": "舒张压"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "70",
+                        "unit": "mmHg"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "hr",
+                    "label": {
+                      "en": "Heart rate",
+                      "zh": "心率"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "64",
+                        "unit": "bpm"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "evidenceIds": [
+            "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.content.en",
+            "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.content.zh",
+            "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.columns.0.label.en",
+            "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.columns.0.label.zh",
+            "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.0.key",
+            "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.0.label.en",
+            "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.0.label.zh",
+            "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.0.values.0.unit",
+            "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.0.values.0.value",
+            "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.1.key",
+            "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.1.label.en",
+            "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.1.label.zh",
+            "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.1.values.0.unit",
+            "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.1.values.0.value",
+            "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.2.key",
+            "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.2.label.en",
+            "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.2.label.zh",
+            "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.2.values.0.unit",
+            "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.2.values.0.value",
+            "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.title.en",
+            "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.title.zh"
+          ]
+        }
+      ],
+      "stages": [
+        {
+          "id": "stage_exacerbation",
+          "title": {
+            "en": "Telehealth Update (1 Week Later)",
+            "zh": "电话随访更新（1周后）"
+          },
+          "exhibits": [
+            {
+              "id": "ex2_hf_worsening",
+              "title": {
+                "en": "Telehealth Nursing Note",
+                "zh": "电话随访护理记录"
+              },
+              "content": {
+                "en": "The client calls the heart failure clinic line. She reports that over the last 2 days she has gained 4.5 lbs (2.0 kg). She notes that she feels increasingly short of breath when walking around her house and had to sleep on 3 pillows last night due to difficulty breathing when lying flat. She denies chest pain.",
+                "zh": "患者拨打心力衰竭诊所热线。她报告说在过去2天里体重增加了4.5磅 (2.0 kg)。她注意到在屋里走动时感觉呼吸困难加重，且昨晚由于平卧时呼吸困难，不得不垫3个枕头睡觉。她否认胸痛。"
+              }
+            }
+          ],
+          "evidenceIds": [
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.content.en",
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.content.zh",
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.title.en",
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.title.zh",
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.title.en",
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.title.zh"
+          ]
+        }
+      ],
+      "siblingPartOutlines": [
+        {
+          "ordinal": 1,
+          "id": "gemini_gap_case_chronic_hf_05_q1",
+          "itemType": "multiple_choice",
+          "stem": {
+            "en": "Which finding from the telehealth call is the most sensitive indicator of worsening fluid volume overload?",
+            "zh": "电话随访中的哪项发现是体液量超负荷加重的最敏感指标？"
+          },
+          "answerableAfterStageId": null,
+          "stageId": null,
+          "evidenceIds": [
+            "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q1.stem.en",
+            "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q1.stem.zh",
+            "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q1.anchors"
+          ]
+        },
+        {
+          "ordinal": 2,
+          "id": "gemini_gap_case_chronic_hf_05_q2",
+          "itemType": "dropdown_cloze",
+          "stem": {
+            "en": "The nurse is evaluating the symptoms reported by the client during the telehealth encounter. Select the appropriate options from the dropdown menus to complete the clinical summary and planning.",
+            "zh": "护士正在评估患者在电话随访中报告的症状。从下拉菜单中选择合适的选项以完成临床总结和计划。"
+          },
+          "answerableAfterStageId": null,
+          "stageId": null,
+          "evidenceIds": [
+            "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q2.stem.en",
+            "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q2.stem.zh",
+            "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q2.anchors"
+          ]
+        },
+        {
+          "ordinal": 3,
+          "id": "gemini_gap_case_chronic_hf_05_q3",
+          "itemType": "matrix",
+          "stem": {
+            "en": "The nurse is planning care and teaching for this client. For each intervention, click to specify if it is appropriate/indicated or inappropriate/contraindicated.",
+            "zh": "护士正在为该患者制定护理和指导计划。对于每项干预措施，点击以指定它是合适/适用还是不合适/禁用。"
+          },
+          "answerableAfterStageId": null,
+          "stageId": null,
+          "evidenceIds": [
+            "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q3.stem.en",
+            "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q3.stem.zh",
+            "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q3.anchors"
+          ]
+        },
+        {
+          "ordinal": 4,
+          "id": "gemini_gap_case_chronic_hf_05_q4",
+          "itemType": "select_all",
+          "stem": {
+            "en": "The nurse is providing discharge teaching to the client. Which instructions should the nurse include regarding when to call the healthcare provider? Select all that apply.",
+            "zh": "护士正在向患者提供出院指导。关于何时致电医疗保健提供者，护士应包括哪些说明？选择所有适用项。"
+          },
+          "answerableAfterStageId": null,
+          "stageId": null,
+          "evidenceIds": [
+            "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q4.stem.en",
+            "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q4.stem.zh",
+            "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q4.anchors"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "case.gemini_gap_case_chronic_hf_05.context.stem.en",
+        "case.gemini_gap_case_chronic_hf_05.context.stem.zh",
+        "case.gemini_gap_case_chronic_hf_05.context.title.en",
+        "case.gemini_gap_case_chronic_hf_05.context.title.zh",
+        "case.gemini_gap_case_chronic_hf_05.context.summary.en",
+        "case.gemini_gap_case_chronic_hf_05.context.summary.zh",
+        "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.content.en",
+        "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.content.zh",
+        "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.columns.0.label.en",
+        "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.columns.0.label.zh",
+        "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.0.key",
+        "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.0.label.en",
+        "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.0.label.zh",
+        "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.0.values.0.unit",
+        "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.0.values.0.value",
+        "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.1.key",
+        "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.1.label.en",
+        "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.1.label.zh",
+        "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.1.values.0.unit",
+        "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.1.values.0.value",
+        "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.2.key",
+        "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.2.label.en",
+        "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.2.label.zh",
+        "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.2.values.0.unit",
+        "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.2.values.0.value",
+        "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.title.en",
+        "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.title.zh",
+        "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.content.en",
+        "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.content.zh",
+        "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.title.en",
+        "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.title.zh",
+        "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.title.en",
+        "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.title.zh",
+        "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q1.stem.en",
+        "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q1.stem.zh",
+        "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q1.anchors",
+        "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q2.stem.en",
+        "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q2.stem.zh",
+        "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q2.anchors",
+        "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q3.stem.en",
+        "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q3.stem.zh",
+        "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q3.anchors",
+        "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q4.stem.en",
+        "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q4.stem.zh",
+        "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q4.anchors",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.stem.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.stem.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.0.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.0.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.1.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.1.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.2.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.2.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.3.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.3.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.key",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.0.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.0.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.1.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.1.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.2.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.2.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.3.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.3.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.correct.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.correct.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.strategy.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.strategy.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.stem.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.stem.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.clozeStem.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.clozeStem.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.0.options.0.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.0.options.0.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.0.options.1.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.0.options.1.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.0.options.2.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.0.options.2.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.1.options.0.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.1.options.0.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.1.options.1.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.1.options.1.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.1.options.2.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.1.options.2.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.key",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.rationale.byChoice.0.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.rationale.byChoice.0.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.rationale.byChoice.1.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.rationale.byChoice.1.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.rationale.correct.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.rationale.correct.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.strategy.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.strategy.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.stem.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.stem.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.response.matrix.columns.0.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.response.matrix.columns.0.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.response.matrix.columns.1.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.response.matrix.columns.1.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.response.matrix.rows.0.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.response.matrix.rows.0.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.response.matrix.rows.1.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.response.matrix.rows.1.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.response.matrix.rows.2.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.response.matrix.rows.2.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.response.matrix.selectionMode",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.key",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.rationale.byChoice.0.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.rationale.byChoice.0.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.rationale.byChoice.1.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.rationale.byChoice.1.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.rationale.byChoice.2.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.rationale.byChoice.2.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.rationale.correct.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.rationale.correct.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.strategy.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.strategy.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.stem.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.stem.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.0.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.0.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.1.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.1.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.2.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.2.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.3.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.3.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.4.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.4.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.key",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.0.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.0.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.1.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.1.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.2.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.2.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.3.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.3.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.4.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.4.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.correct.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.correct.zh",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.strategy.en",
+        "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.strategy.zh"
+      ],
+      "targets": [
+        {
+          "queueIndex": 101,
+          "packetId": "packet-016",
+          "bankPath": "banks/gemini-canonical.json",
+          "parentCaseId": "gemini_gap_case_chronic_hf_05",
+          "partId": "gemini_gap_case_chronic_hf_05_q1",
+          "partOrdinal": 1,
+          "itemType": "multiple_choice",
+          "stem": {
+            "en": "Which finding from the telehealth call is the most sensitive indicator of worsening fluid volume overload?",
+            "zh": "电话随访中的哪项发现是体液量超负荷加重的最敏感指标？"
+          },
+          "response": {
+            "options": [
+              {
+                "id": "B",
+                "en": "Shortness of breath when walking around the house",
+                "zh": "在屋里走动时呼吸困难"
+              },
+              {
+                "id": "A",
+                "en": "Weight gain of 4.5 lbs (2.0 kg) over 2 days",
+                "zh": "2天内体重增加4.5磅 (2.0 kg)"
+              },
+              {
+                "id": "D",
+                "en": "Absence of chest pain",
+                "zh": "无胸痛"
+              },
+              {
+                "id": "C",
+                "en": "Having to sleep on 3 pillows (orthopnea)",
+                "zh": "不得不垫3个枕头睡觉（端坐呼吸）"
+              }
+            ],
+            "correct": [
+              "A"
+            ]
+          },
+          "rationale": {
+            "correct": {
+              "en": "Daily weight tracking is the most sensitive and objective clinical indicator of fluid volume status in heart failure. A weight gain of >3 lbs (1.4 kg) in 2-5 days or >2 lbs (0.9 kg) in 24 hours indicates fluid accumulation and congestion before major symptoms (like severe dyspnea or peripheral edema) become overt. Dyspnea and orthopnea are symptoms of this accumulation, but weight gain is the most sensitive indicator.",
+              "zh": "每日体重追踪是心力衰竭患者体液量状态最敏感和客观的临床指标。在2-5天内体重增加 >3磅 (1.4 kg) 或在24小时内增加 >2磅 (0.9 kg) 提示在主要症状（如严重呼吸困难或外周水肿）变得明显之前就存在液体积聚和淤血。呼吸困难和端坐呼吸是这种积聚的症状，但体重增加是最敏感的指标。"
+            },
+            "byChoice": [
+              {
+                "refId": "D",
+                "en": "Absence of chest pain rules out coronary ischemia but does not indicate fluid volume status.",
+                "zh": "无胸痛排除了冠状动脉缺血，但不能指示体液容量状态。"
+              },
+              {
+                "refId": "B",
+                "en": "Exertional dyspnea is a clinical symptom of congestion but is subjective and less quantifiable than weight.",
+                "zh": "劳力性呼吸困难是淤血的临床症状，但是是主观的，不及体重易于量化。"
+              },
+              {
+                "refId": "C",
+                "en": "Orthopnea is a symptom of advanced pulmonary congestion, representing a consequence of fluid overload.",
+                "zh": "端坐呼吸是晚期肺淤血的症状，代表体液过负荷的后果。"
+              },
+              {
+                "refId": "A",
+                "en": "Rapid weight gain represents water weight accumulation, preceding gross symptomatic worsening.",
+                "zh": "体重的快速增加代表水分积聚，发生于明显的症状恶化之前。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "Look for objective, quantifiable metrics for fluid monitoring. Weight is the most sensitive and earliest detector of fluid balance changes compared to subjective breathing complaints.",
+            "zh": "寻找用于液体监测的客观、可量化的指标。与主观呼吸诉求相比，体重是液体平衡变化最敏感和最早的检测指标。"
+          },
+          "anchorState": {
+            "answerableAfterStageId": {
+              "status": "absent"
+            },
+            "stageId": {
+              "status": "absent"
+            }
+          },
+          "declaredStageIds": [
+            "stage_exacerbation"
+          ],
+          "rendererVisibleStageIds": [
+            "stage_exacerbation"
+          ],
+          "partEvidenceIds": [
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.stem.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.stem.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.0.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.0.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.1.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.1.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.2.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.2.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.3.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.3.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.key",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.0.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.0.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.1.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.1.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.2.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.2.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.3.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.3.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.correct.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.correct.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.strategy.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.strategy.zh"
+          ],
+          "stageEvidenceIds": [
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.content.en",
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.content.zh",
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.title.en",
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.title.zh",
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.title.en",
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.title.zh"
+          ],
+          "contextEvidenceIds": [
+            "case.gemini_gap_case_chronic_hf_05.context.stem.en",
+            "case.gemini_gap_case_chronic_hf_05.context.stem.zh",
+            "case.gemini_gap_case_chronic_hf_05.context.title.en",
+            "case.gemini_gap_case_chronic_hf_05.context.title.zh",
+            "case.gemini_gap_case_chronic_hf_05.context.summary.en",
+            "case.gemini_gap_case_chronic_hf_05.context.summary.zh"
+          ]
+        },
+        {
+          "queueIndex": 102,
+          "packetId": "packet-016",
+          "bankPath": "banks/gemini-canonical.json",
+          "parentCaseId": "gemini_gap_case_chronic_hf_05",
+          "partId": "gemini_gap_case_chronic_hf_05_q2",
+          "partOrdinal": 2,
+          "itemType": "dropdown_cloze",
+          "stem": {
+            "en": "The nurse is evaluating the symptoms reported by the client during the telehealth encounter. Select the appropriate options from the dropdown menus to complete the clinical summary and planning.",
+            "zh": "护士正在评估患者在电话随访中报告的症状。从下拉菜单中选择合适的选项以完成临床总结和计划。"
+          },
+          "response": {
+            "clozeStem": {
+              "en": "The client is experiencing a heart failure exacerbation characterized by pulmonary congestion, which has led to {{1}}. The nurse should anticipate an order to {{2}}.",
+              "zh": "该患者正在经历以肺淤血为特征的心力衰竭恶化，这导致了 {{1}}。护士应预料到会有 {{2}} 的医嘱。"
+            },
+            "dropdowns": [
+              {
+                "id": "1",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "orthopnea",
+                    "zh": "端坐呼吸"
+                  },
+                  {
+                    "id": "o3",
+                    "en": "bronchospasm",
+                    "zh": "支气管痉挛"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "hyperventilation syndrome",
+                    "zh": "过度通气综合征"
+                  }
+                ],
+                "correct": "o1"
+              },
+              {
+                "id": "2",
+                "options": [
+                  {
+                    "id": "o2",
+                    "en": "discontinue lisinopril therapy",
+                    "zh": "停用赖诺普利治疗"
+                  },
+                  {
+                    "id": "o3",
+                    "en": "administer a beta-blocker bolus",
+                    "zh": "给予β受体阻滞剂静脉推注"
+                  },
+                  {
+                    "id": "o1",
+                    "en": "increase the furosemide dosage",
+                    "zh": "增加呋塞米的剂量"
+                  }
+                ],
+                "correct": "o1"
+              }
+            ]
+          },
+          "rationale": {
+            "correct": {
+              "en": "Sleeping on multiple pillows due to dyspnea when lying flat is orthopnea, caused by increased venous return to the heart in a recumbent position, worsening pulmonary congestion. The standard intervention for fluid overload exacerbation is increasing loop diuretic (furosemide) dosing to promote fluid clearance. Discontinuing lisinopril would increase afterload and worsen HF. Beta-blockers must not be bolused during acute decompensation as they decrease myocardial contractility.",
+              "zh": "由于平卧时呼吸困难而需要垫多个枕头睡觉称为端坐呼吸，这是由于卧位时回心静脉血量增加，加重了肺淤血。针对体液超负荷恶化的标准干预措施是增加袢利尿剂（呋塞米）的剂量以促进液体排出。停用赖诺普利会增加后负荷并加重心力衰竭。在急性失代偿期间禁止静脉推注β受体阻滞剂，因为它们会降低心肌收缩力。"
+            },
+            "byChoice": [
+              {
+                "refId": "1",
+                "en": "Orthopnea is dyspnea that occurs when lying flat, a classic sign of left-sided heart failure pulmonary congestion.",
+                "zh": "端坐呼吸是平卧时发生的呼吸困难，是左心衰竭肺淤血的经典体征。"
+              },
+              {
+                "refId": "2",
+                "en": "Diuretic titration (increasing furosemide) is the gold standard response to acute fluid volume excess.",
+                "zh": "利尿剂剂量调整（增加呋塞米）是应对急性体液过剩的金标准。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "Define clinical terms. Connect breathing difficulty when lying flat to orthopnea, and select loop diuretics to clear excess fluid.",
+            "zh": "定义临床术语。将平卧时呼吸困难与端坐呼吸联系起来，并选择袢利尿剂以清除多余的液体。"
+          },
+          "anchorState": {
+            "answerableAfterStageId": {
+              "status": "absent"
+            },
+            "stageId": {
+              "status": "absent"
+            }
+          },
+          "declaredStageIds": [
+            "stage_exacerbation"
+          ],
+          "rendererVisibleStageIds": [
+            "stage_exacerbation"
+          ],
+          "partEvidenceIds": [
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.stem.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.stem.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.clozeStem.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.clozeStem.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.0.options.0.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.0.options.0.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.0.options.1.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.0.options.1.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.0.options.2.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.0.options.2.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.1.options.0.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.1.options.0.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.1.options.1.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.1.options.1.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.1.options.2.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.1.options.2.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.key",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.rationale.byChoice.0.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.rationale.byChoice.0.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.rationale.byChoice.1.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.rationale.byChoice.1.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.rationale.correct.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.rationale.correct.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.strategy.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.strategy.zh"
+          ],
+          "stageEvidenceIds": [
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.content.en",
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.content.zh",
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.title.en",
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.title.zh",
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.title.en",
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.title.zh"
+          ],
+          "contextEvidenceIds": [
+            "case.gemini_gap_case_chronic_hf_05.context.stem.en",
+            "case.gemini_gap_case_chronic_hf_05.context.stem.zh",
+            "case.gemini_gap_case_chronic_hf_05.context.title.en",
+            "case.gemini_gap_case_chronic_hf_05.context.title.zh",
+            "case.gemini_gap_case_chronic_hf_05.context.summary.en",
+            "case.gemini_gap_case_chronic_hf_05.context.summary.zh"
+          ]
+        },
+        {
+          "queueIndex": 104,
+          "packetId": "packet-016",
+          "bankPath": "banks/gemini-canonical.json",
+          "parentCaseId": "gemini_gap_case_chronic_hf_05",
+          "partId": "gemini_gap_case_chronic_hf_05_q4",
+          "partOrdinal": 4,
+          "itemType": "select_all",
+          "stem": {
+            "en": "The nurse is providing discharge teaching to the client. Which instructions should the nurse include regarding when to call the healthcare provider? Select all that apply.",
+            "zh": "护士正在向患者提供出院指导。关于何时致电医疗保健提供者，护士应包括哪些说明？选择所有适用项。"
+          },
+          "response": {
+            "options": [
+              {
+                "id": "D",
+                "en": "Frequent dizziness or lightheadedness when standing up.",
+                "zh": "起立时经常感到头晕或头轻。"
+              },
+              {
+                "id": "A",
+                "en": "Weight gain of 3 lbs (1.4 kg) in a single day or 5 lbs (2.3 kg) in a week.",
+                "zh": "单天体重增加 3 磅 (1.4 kg) 或一周内增加 5 磅 (2.3 kg)。"
+              },
+              {
+                "id": "B",
+                "en": "Development of dry, hacking cough that is new and persistent.",
+                "zh": "新出现且持续的干咳、无痰咳嗽。"
+              },
+              {
+                "id": "C",
+                "en": "Increased swelling of the ankles, feet, or abdomen.",
+                "zh": "踝部、足部或腹部肿胀加重。"
+              },
+              {
+                "id": "E",
+                "en": "Expectation of mild, occasional muscle cramps in the calves.",
+                "zh": "出现轻度、偶尔的小腿肌肉痉挛。"
+              }
+            ],
+            "correct": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          "rationale": {
+            "correct": {
+              "en": "Warning signs of worsening HF requiring provider notification include rapid weight gain (fluid retention), dry hacking cough (suggests pulmonary congestion or side effect of Lisinopril), worsening peripheral edema or ascites, and orthostatic dizziness (suggesting hypotension or dehydration from excessive diuretics). Calf muscle cramps are a non-specific symptom, although sometimes related to hypokalemia from loop diuretics, they are not a primary scheduled notification parameter compared to the major signs of cardiovascular collapse or lisinopril cough.",
+              "zh": "心力衰竭加重需要通知医生的警示体征包括体重快速增加（水钠潴留）、干咳无痰（提示肺淤血或赖诺普利的副作用）、外周水肿或腹水加重以及直立性头晕（提示低血压或利尿剂过量导致的脱水）。小腿肌肉痉挛是非特异性症状，虽然有时与袢利尿剂引起的低钾血症有关，但与心血管崩溃的主要征象或赖诺普利引起的咳嗽相比，它不是首要的必须通知参数。"
+            },
+            "byChoice": [
+              {
+                "refId": "C",
+                "en": "Worsening peripheral or abdominal edema signifies progression of right-sided heart failure or systemic fluid retention.",
+                "zh": "外周或腹部水肿加重意味着右心衰竭加重或全身性水肿积聚。"
+              },
+              {
+                "refId": "D",
+                "en": "Dizziness indicates orthostatic hypotension, possibly from over-diuresis or vasodilating heart failure drugs.",
+                "zh": "头晕提示直立性低血压，可能是由于过度利尿或使用血管舒张心衰药所致。"
+              },
+              {
+                "refId": "A",
+                "en": "Rapid weight changes signify significant fluid accumulation that requires adjusting diuretic doses.",
+                "zh": "快速的体重变化提示明显的液体积聚，需要调整利尿剂剂量。"
+              },
+              {
+                "refId": "E",
+                "en": "While muscle cramps can happen, they are not a critical baseline parameter parents/clients are instructed to immediately notify providers about.",
+                "zh": "虽然可能发生肌肉痉挛，但这并不是指导家长/患者立即通知医生的关键基线参数。"
+              },
+              {
+                "refId": "B",
+                "en": "A new dry cough can indicate developing pulmonary congestion or Lisinopril-induced cough, both needing evaluation.",
+                "zh": "新出现的干咳可能提示正在发生肺淤血或赖诺普利引起的咳嗽，两者都需要评估。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "Select parameters that directly monitor fluid overload status (weight, edema, cough indicating pulmonary congestion) or drug side effects (dizziness, cough). Exclude minor symptoms like calf cramps.",
+            "zh": "选择直接监测液体超负荷状态（体重、水肿、提示肺淤血的咳嗽）或药物副作用（头晕、咳嗽）的参数。排除小腿痉挛等次要症状。"
+          },
+          "anchorState": {
+            "answerableAfterStageId": {
+              "status": "absent"
+            },
+            "stageId": {
+              "status": "absent"
+            }
+          },
+          "declaredStageIds": [
+            "stage_exacerbation"
+          ],
+          "rendererVisibleStageIds": [
+            "stage_exacerbation"
+          ],
+          "partEvidenceIds": [
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.stem.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.stem.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.0.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.0.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.1.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.1.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.2.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.2.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.3.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.3.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.4.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.4.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.key",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.0.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.0.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.1.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.1.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.2.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.2.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.3.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.3.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.4.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.4.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.correct.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.correct.zh",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.strategy.en",
+            "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.strategy.zh"
+          ],
+          "stageEvidenceIds": [
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.content.en",
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.content.zh",
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.title.en",
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.title.zh",
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.title.en",
+            "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.title.zh"
+          ],
+          "contextEvidenceIds": [
+            "case.gemini_gap_case_chronic_hf_05.context.stem.en",
+            "case.gemini_gap_case_chronic_hf_05.context.stem.zh",
+            "case.gemini_gap_case_chronic_hf_05.context.title.en",
+            "case.gemini_gap_case_chronic_hf_05.context.title.zh",
+            "case.gemini_gap_case_chronic_hf_05.context.summary.en",
+            "case.gemini_gap_case_chronic_hf_05.context.summary.zh"
+          ]
+        }
+      ],
+      "selectedTargetCount": 3,
+      "totalTargetsInParentCase": 4
+    }
+  ],
+  "evidenceCatalog": [
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.context.stem.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "CASE_CONTEXT",
+      "jsonPath": "questions[818].stem.en",
+      "text": "Review the client record and answer the case study questions.",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.context.stem.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "CASE_CONTEXT",
+      "jsonPath": "questions[818].stem.zh",
+      "text": "审查客户记录并回答案例研究问题。",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.context.title.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "CASE_CONTEXT",
+      "jsonPath": "questions[818].caseStudy.title.en",
+      "text": "Unfolding Case: Outpatient Congestive Heart Failure Management",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.context.title.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "CASE_CONTEXT",
+      "jsonPath": "questions[818].caseStudy.title.zh",
+      "text": "展开式案例：门诊充血性心力衰竭管理",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.context.summary.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "CASE_CONTEXT",
+      "jsonPath": "questions[818].caseStudy.summary.en",
+      "text": "A 68-year-old female with a history of chronic heart failure with reduced ejection fraction (HFrEF) is seen in the cardiology clinic for a routine follow-up.",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.context.summary.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "CASE_CONTEXT",
+      "jsonPath": "questions[818].caseStudy.summary.zh",
+      "text": "一名有射血分数降低的慢性心力衰竭 (HFrEF) 病史的68岁女性在心内科诊所接受常规随访。",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.content.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[818].caseStudy.exhibits[0].content.en",
+      "text": "Subjective: Client reports feeling stable, walking daily. Adheres to fluid restriction of 1.5 L/day. Denies shortness of breath or orthopnea. Current medications: Lisinopril 10 mg orally daily, Metoprolol succinate 50 mg orally daily, Furosemide 40 mg orally daily.\n\nObjective:\n- Weight: 72.5 kg (Baseline weight: 72.0 kg)\n- Blood pressure: 116/70 mmHg\n- Heart rate: 64 bpm\n- Lungs: Clear to auscultation bilaterally.\n- Extremities: Trace ankle edema.",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.content.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[818].caseStudy.exhibits[0].content.zh",
+      "text": "主观资料：患者报告感觉稳定，每日散步。坚持每天 1.5 L 的限水。否认呼吸困难或端坐呼吸。目前服用药物：赖诺普利 10 mg 口服，每日一次；琥珀酸美托洛尔 50 mg 口服，每日一次；呋塞米 40 mg 口服，每日一次。\n\n客观资料：\n- 体重：72.5 kg（基线体重：72.0 kg）\n- 血压：116/70 mmHg\n- 心率：64次/分\n- 双肺：听诊清晰。\n- 四肢：踝部微量水肿。",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.columns.0.label.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[818].caseStudy.exhibits[0].structuredMeasurements.panels[0].columns[0].label.en",
+      "text": "Current",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.columns.0.label.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[818].caseStudy.exhibits[0].structuredMeasurements.panels[0].columns[0].label.zh",
+      "text": "当前",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.0.key",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[818].caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[0].key",
+      "text": "sbp"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.0.label.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[818].caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[0].label.en",
+      "text": "Systolic BP",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.0.label.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[818].caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[0].label.zh",
+      "text": "收缩压",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.0.values.0.unit",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[818].caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[0].values[0].unit",
+      "text": "mmHg"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.0.values.0.value",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[818].caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[0].values[0].value",
+      "text": "116"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.1.key",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[818].caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[1].key",
+      "text": "dbp"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.1.label.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[818].caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[1].label.en",
+      "text": "Diastolic BP",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.1.label.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[818].caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[1].label.zh",
+      "text": "舒张压",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.1.values.0.unit",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[818].caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[1].values[0].unit",
+      "text": "mmHg"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.1.values.0.value",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[818].caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[1].values[0].value",
+      "text": "70"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.2.key",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[818].caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[2].key",
+      "text": "hr"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.2.label.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[818].caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[2].label.en",
+      "text": "Heart rate",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.2.label.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[818].caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[2].label.zh",
+      "text": "心率",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.2.values.0.unit",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[818].caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[2].values[0].unit",
+      "text": "bpm"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.structuredMeasurements.panels.0.rows.2.values.0.value",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[818].caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[2].values[0].value",
+      "text": "64"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.title.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[818].caseStudy.exhibits[0].title.en",
+      "text": "Outpatient Progress Note",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.global.ex1_hf_clinic_visit.title.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[818].caseStudy.exhibits[0].title.zh",
+      "text": "门诊病程记录",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.content.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "STAGE",
+      "jsonPath": "questions[818].caseStudy.stages[0].exhibits[0].content.en",
+      "text": "The client calls the heart failure clinic line. She reports that over the last 2 days she has gained 4.5 lbs (2.0 kg). She notes that she feels increasingly short of breath when walking around her house and had to sleep on 3 pillows last night due to difficulty breathing when lying flat. She denies chest pain.",
+      "stageId": "stage_exacerbation",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.content.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "STAGE",
+      "jsonPath": "questions[818].caseStudy.stages[0].exhibits[0].content.zh",
+      "text": "患者拨打心力衰竭诊所热线。她报告说在过去2天里体重增加了4.5磅 (2.0 kg)。她注意到在屋里走动时感觉呼吸困难加重，且昨晚由于平卧时呼吸困难，不得不垫3个枕头睡觉。她否认胸痛。",
+      "stageId": "stage_exacerbation",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.title.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "STAGE",
+      "jsonPath": "questions[818].caseStudy.stages[0].exhibits[0].title.en",
+      "text": "Telehealth Nursing Note",
+      "stageId": "stage_exacerbation",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.exhibits.0.title.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "STAGE",
+      "jsonPath": "questions[818].caseStudy.stages[0].exhibits[0].title.zh",
+      "text": "电话随访护理记录",
+      "stageId": "stage_exacerbation",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.title.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "STAGE",
+      "jsonPath": "questions[818].caseStudy.stages[0].title.en",
+      "text": "Telehealth Update (1 Week Later)",
+      "stageId": "stage_exacerbation",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.stage.stage_exacerbation.title.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "STAGE",
+      "jsonPath": "questions[818].caseStudy.stages[0].title.zh",
+      "text": "电话随访更新（1周后）",
+      "stageId": "stage_exacerbation",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q1.stem.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[818].caseStudy.questions[0].stem.en",
+      "text": "Which finding from the telehealth call is the most sensitive indicator of worsening fluid volume overload?",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q1.stem.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[818].caseStudy.questions[0].stem.zh",
+      "text": "电话随访中的哪项发现是体液量超负荷加重的最敏感指标？",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q1.anchors",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[818].caseStudy.questions[0]",
+      "text": "{\"answerableAfterStageId\":null,\"stageId\":null}",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q2.stem.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[818].caseStudy.questions[1].stem.en",
+      "text": "The nurse is evaluating the symptoms reported by the client during the telehealth encounter. Select the appropriate options from the dropdown menus to complete the clinical summary and planning.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q2.stem.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[818].caseStudy.questions[1].stem.zh",
+      "text": "护士正在评估患者在电话随访中报告的症状。从下拉菜单中选择合适的选项以完成临床总结和计划。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q2.anchors",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[818].caseStudy.questions[1]",
+      "text": "{\"answerableAfterStageId\":null,\"stageId\":null}",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q3.stem.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[818].caseStudy.questions[2].stem.en",
+      "text": "The nurse is planning care and teaching for this client. For each intervention, click to specify if it is appropriate/indicated or inappropriate/contraindicated.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q3.stem.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[818].caseStudy.questions[2].stem.zh",
+      "text": "护士正在为该患者制定护理和指导计划。对于每项干预措施，点击以指定它是合适/适用还是不合适/禁用。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q3.anchors",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[818].caseStudy.questions[2]",
+      "text": "{\"answerableAfterStageId\":null,\"stageId\":null}",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q4.stem.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[818].caseStudy.questions[3].stem.en",
+      "text": "The nurse is providing discharge teaching to the client. Which instructions should the nurse include regarding when to call the healthcare provider? Select all that apply.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q4.stem.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[818].caseStudy.questions[3].stem.zh",
+      "text": "护士正在向患者提供出院指导。关于何时致电医疗保健提供者，护士应包括哪些说明？选择所有适用项。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.sibling.gemini_gap_case_chronic_hf_05_q4.anchors",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[818].caseStudy.questions[3]",
+      "text": "{\"answerableAfterStageId\":null,\"stageId\":null}",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.stem.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[818].caseStudy.questions[0].stem.en",
+      "text": "Which finding from the telehealth call is the most sensitive indicator of worsening fluid volume overload?",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.stem.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[818].caseStudy.questions[0].stem.zh",
+      "text": "电话随访中的哪项发现是体液量超负荷加重的最敏感指标？",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.0.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[0].options[0].en",
+      "text": "Shortness of breath when walking around the house",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.0.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[0].options[0].zh",
+      "text": "在屋里走动时呼吸困难",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.1.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[0].options[1].en",
+      "text": "Weight gain of 4.5 lbs (2.0 kg) over 2 days",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.1.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[0].options[1].zh",
+      "text": "2天内体重增加4.5磅 (2.0 kg)",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.2.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[0].options[2].en",
+      "text": "Absence of chest pain",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.2.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[0].options[2].zh",
+      "text": "无胸痛",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.3.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[0].options[3].en",
+      "text": "Having to sleep on 3 pillows (orthopnea)",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.response.options.3.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[0].options[3].zh",
+      "text": "不得不垫3个枕头睡觉（端坐呼吸）",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.key",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_KEY",
+      "jsonPath": "questions[818].caseStudy.questions[0]",
+      "text": "{\"correct\":[\"A\"]}",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.0.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[0].rationale.byChoice[0].en",
+      "text": "Absence of chest pain rules out coronary ischemia but does not indicate fluid volume status.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.0.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[0].rationale.byChoice[0].zh",
+      "text": "无胸痛排除了冠状动脉缺血，但不能指示体液容量状态。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.1.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[0].rationale.byChoice[1].en",
+      "text": "Exertional dyspnea is a clinical symptom of congestion but is subjective and less quantifiable than weight.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.1.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[0].rationale.byChoice[1].zh",
+      "text": "劳力性呼吸困难是淤血的临床症状，但是是主观的，不及体重易于量化。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.2.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[0].rationale.byChoice[2].en",
+      "text": "Orthopnea is a symptom of advanced pulmonary congestion, representing a consequence of fluid overload.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.2.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[0].rationale.byChoice[2].zh",
+      "text": "端坐呼吸是晚期肺淤血的症状，代表体液过负荷的后果。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.3.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[0].rationale.byChoice[3].en",
+      "text": "Rapid weight gain represents water weight accumulation, preceding gross symptomatic worsening.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.byChoice.3.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[0].rationale.byChoice[3].zh",
+      "text": "体重的快速增加代表水分积聚，发生于明显的症状恶化之前。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.correct.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[0].rationale.correct.en",
+      "text": "Daily weight tracking is the most sensitive and objective clinical indicator of fluid volume status in heart failure. A weight gain of >3 lbs (1.4 kg) in 2-5 days or >2 lbs (0.9 kg) in 24 hours indicates fluid accumulation and congestion before major symptoms (like severe dyspnea or peripheral edema) become overt. Dyspnea and orthopnea are symptoms of this accumulation, but weight gain is the most sensitive indicator.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.rationale.correct.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[0].rationale.correct.zh",
+      "text": "每日体重追踪是心力衰竭患者体液量状态最敏感和客观的临床指标。在2-5天内体重增加 >3磅 (1.4 kg) 或在24小时内增加 >2磅 (0.9 kg) 提示在主要症状（如严重呼吸困难或外周水肿）变得明显之前就存在液体积聚和淤血。呼吸困难和端坐呼吸是这种积聚的症状，但体重增加是最敏感的指标。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.strategy.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[0].testTakingStrategy.en",
+      "text": "Look for objective, quantifiable metrics for fluid monitoring. Weight is the most sensitive and earliest detector of fluid balance changes compared to subjective breathing complaints.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q1.strategy.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[0].testTakingStrategy.zh",
+      "text": "寻找用于液体监测的客观、可量化的指标。与主观呼吸诉求相比，体重是液体平衡变化最敏感和最早的检测指标。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.stem.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[818].caseStudy.questions[1].stem.en",
+      "text": "The nurse is evaluating the symptoms reported by the client during the telehealth encounter. Select the appropriate options from the dropdown menus to complete the clinical summary and planning.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.stem.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[818].caseStudy.questions[1].stem.zh",
+      "text": "护士正在评估患者在电话随访中报告的症状。从下拉菜单中选择合适的选项以完成临床总结和计划。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.clozeStem.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[1].clozeStem.en",
+      "text": "The client is experiencing a heart failure exacerbation characterized by pulmonary congestion, which has led to {{1}}. The nurse should anticipate an order to {{2}}.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.clozeStem.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[1].clozeStem.zh",
+      "text": "该患者正在经历以肺淤血为特征的心力衰竭恶化，这导致了 {{1}}。护士应预料到会有 {{2}} 的医嘱。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.0.options.0.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[1].dropdowns[0].options[0].en",
+      "text": "orthopnea",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.0.options.0.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[1].dropdowns[0].options[0].zh",
+      "text": "端坐呼吸",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.0.options.1.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[1].dropdowns[0].options[1].en",
+      "text": "bronchospasm",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.0.options.1.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[1].dropdowns[0].options[1].zh",
+      "text": "支气管痉挛",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.0.options.2.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[1].dropdowns[0].options[2].en",
+      "text": "hyperventilation syndrome",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.0.options.2.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[1].dropdowns[0].options[2].zh",
+      "text": "过度通气综合征",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.1.options.0.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[1].dropdowns[1].options[0].en",
+      "text": "discontinue lisinopril therapy",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.1.options.0.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[1].dropdowns[1].options[0].zh",
+      "text": "停用赖诺普利治疗",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.1.options.1.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[1].dropdowns[1].options[1].en",
+      "text": "administer a beta-blocker bolus",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.1.options.1.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[1].dropdowns[1].options[1].zh",
+      "text": "给予β受体阻滞剂静脉推注",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.1.options.2.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[1].dropdowns[1].options[2].en",
+      "text": "increase the furosemide dosage",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.response.dropdowns.1.options.2.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[1].dropdowns[1].options[2].zh",
+      "text": "增加呋塞米的剂量",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.key",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_KEY",
+      "jsonPath": "questions[818].caseStudy.questions[1]",
+      "text": "{\"dropdowns\":[{\"id\":\"1\",\"correct\":\"o1\"},{\"id\":\"2\",\"correct\":\"o1\"}]}",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.rationale.byChoice.0.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[1].rationale.byChoice[0].en",
+      "text": "Orthopnea is dyspnea that occurs when lying flat, a classic sign of left-sided heart failure pulmonary congestion.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.rationale.byChoice.0.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[1].rationale.byChoice[0].zh",
+      "text": "端坐呼吸是平卧时发生的呼吸困难，是左心衰竭肺淤血的经典体征。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.rationale.byChoice.1.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[1].rationale.byChoice[1].en",
+      "text": "Diuretic titration (increasing furosemide) is the gold standard response to acute fluid volume excess.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.rationale.byChoice.1.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[1].rationale.byChoice[1].zh",
+      "text": "利尿剂剂量调整（增加呋塞米）是应对急性体液过剩的金标准。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.rationale.correct.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[1].rationale.correct.en",
+      "text": "Sleeping on multiple pillows due to dyspnea when lying flat is orthopnea, caused by increased venous return to the heart in a recumbent position, worsening pulmonary congestion. The standard intervention for fluid overload exacerbation is increasing loop diuretic (furosemide) dosing to promote fluid clearance. Discontinuing lisinopril would increase afterload and worsen HF. Beta-blockers must not be bolused during acute decompensation as they decrease myocardial contractility.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.rationale.correct.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[1].rationale.correct.zh",
+      "text": "由于平卧时呼吸困难而需要垫多个枕头睡觉称为端坐呼吸，这是由于卧位时回心静脉血量增加，加重了肺淤血。针对体液超负荷恶化的标准干预措施是增加袢利尿剂（呋塞米）的剂量以促进液体排出。停用赖诺普利会增加后负荷并加重心力衰竭。在急性失代偿期间禁止静脉推注β受体阻滞剂，因为它们会降低心肌收缩力。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.strategy.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[1].testTakingStrategy.en",
+      "text": "Define clinical terms. Connect breathing difficulty when lying flat to orthopnea, and select loop diuretics to clear excess fluid.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q2.strategy.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[1].testTakingStrategy.zh",
+      "text": "定义临床术语。将平卧时呼吸困难与端坐呼吸联系起来，并选择袢利尿剂以清除多余的液体。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.stem.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[818].caseStudy.questions[2].stem.en",
+      "text": "The nurse is planning care and teaching for this client. For each intervention, click to specify if it is appropriate/indicated or inappropriate/contraindicated.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.stem.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[818].caseStudy.questions[2].stem.zh",
+      "text": "护士正在为该患者制定护理和指导计划。对于每项干预措施，点击以指定它是合适/适用还是不合适/禁用。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.response.matrix.columns.0.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[2].matrix.columns[0].en",
+      "text": "Appropriate/indicated",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.response.matrix.columns.0.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[2].matrix.columns[0].zh",
+      "text": "合适/适用",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.response.matrix.columns.1.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[2].matrix.columns[1].en",
+      "text": "Inappropriate/contraindicated",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.response.matrix.columns.1.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[2].matrix.columns[1].zh",
+      "text": "不合适/禁用",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.response.matrix.rows.0.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[2].matrix.rows[0].en",
+      "text": "Initiate daily weight monitoring using the same scale and same clothing type",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.response.matrix.rows.0.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[2].matrix.rows[0].zh",
+      "text": "开始每日体重监测，使用相同的体重秤和相同类型的衣服",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.response.matrix.rows.1.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[2].matrix.rows[1].en",
+      "text": "Administer ibuprofen 400 mg orally as needed for chronic joint pain",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.response.matrix.rows.1.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[2].matrix.rows[1].zh",
+      "text": "必要时口服布洛芬 400 mg 治疗慢性关节痛",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.response.matrix.rows.2.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[2].matrix.rows[2].en",
+      "text": "Adhere to a low-sodium diet (<2,000 mg/day)",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.response.matrix.rows.2.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[2].matrix.rows[2].zh",
+      "text": "坚持低钠饮食（<2,000 毫克/天）",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.response.matrix.selectionMode",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[2].matrix.selectionMode",
+      "text": "single_per_row",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.key",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_KEY",
+      "jsonPath": "questions[818].caseStudy.questions[2]",
+      "text": "{\"correct\":[{\"rowId\":\"r1\",\"columnIds\":[\"c1\"]},{\"rowId\":\"r2\",\"columnIds\":[\"c2\"]},{\"rowId\":\"r3\",\"columnIds\":[\"c1\"]}]}",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.rationale.byChoice.0.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[2].rationale.byChoice[0].en",
+      "text": "Standardizing daily weights ensures accuracy in detecting fluid gains.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.rationale.byChoice.0.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[2].rationale.byChoice[0].zh",
+      "text": "标准化每日体重可确保准确发现液体增加。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.rationale.byChoice.1.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[2].rationale.byChoice[1].en",
+      "text": "NSAIDs promote renal fluid retention and block the protective vasodilatory effects of heart failure drugs, making them contraindicated.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.rationale.byChoice.1.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[2].rationale.byChoice[1].zh",
+      "text": "非甾体抗炎药促进肾脏液体潴留并阻断心力衰竭药物的保护性血管舒张作用，因而属于禁忌。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.rationale.byChoice.2.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[2].rationale.byChoice[2].en",
+      "text": "Restricting dietary sodium limits systemic fluid retention, keeping blood volume manageable.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.rationale.byChoice.2.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[2].rationale.byChoice[2].zh",
+      "text": "限制饮食中的钠可以限制全身液体潴留，使血容量保持在可控范围内。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.rationale.correct.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[2].rationale.correct.en",
+      "text": "Daily weight tracking and maintaining low sodium intake are fundamental indicated components of heart failure self-management. NSAIDs like ibuprofen are strictly contraindicated in heart failure patients because they inhibit prostaglandin synthesis, leading to renal vasoconstriction, sodium and water retention, and worsening of heart failure decompensation. Acetaminophen is a safer alternative.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.rationale.correct.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[2].rationale.correct.zh",
+      "text": "每日体重追踪和保持低钠摄入是心力衰竭自我管理的基本适用部分。非甾体抗炎药（如布洛芬）在心力衰竭患者中属于绝对禁忌，因为它们会抑制前列腺素合成，导致肾血管收缩、水钠潴留并加重心力衰竭失代偿。对乙酰氨基酚是更安全的替代药物。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.strategy.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[2].testTakingStrategy.en",
+      "text": "Recall the class-specific drug contraindications for heart failure. Recognize that NSAIDs pose renal-compromise and fluid-retention risks, and classify them as contraindicated.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q3.strategy.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[2].testTakingStrategy.zh",
+      "text": "回忆心力衰竭的类特异性药物禁忌证。认识到非甾体抗炎药存在肾功能受损和水钠潴留风险，并将其分类为禁用。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.stem.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[818].caseStudy.questions[3].stem.en",
+      "text": "The nurse is providing discharge teaching to the client. Which instructions should the nurse include regarding when to call the healthcare provider? Select all that apply.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.stem.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[818].caseStudy.questions[3].stem.zh",
+      "text": "护士正在向患者提供出院指导。关于何时致电医疗保健提供者，护士应包括哪些说明？选择所有适用项。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.0.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[3].options[0].en",
+      "text": "Frequent dizziness or lightheadedness when standing up.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.0.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[3].options[0].zh",
+      "text": "起立时经常感到头晕或头轻。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.1.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[3].options[1].en",
+      "text": "Weight gain of 3 lbs (1.4 kg) in a single day or 5 lbs (2.3 kg) in a week.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.1.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[3].options[1].zh",
+      "text": "单天体重增加 3 磅 (1.4 kg) 或一周内增加 5 磅 (2.3 kg)。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.2.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[3].options[2].en",
+      "text": "Development of dry, hacking cough that is new and persistent.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.2.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[3].options[2].zh",
+      "text": "新出现且持续的干咳、无痰咳嗽。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.3.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[3].options[3].en",
+      "text": "Increased swelling of the ankles, feet, or abdomen.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.3.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[3].options[3].zh",
+      "text": "踝部、足部或腹部肿胀加重。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.4.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[3].options[4].en",
+      "text": "Expectation of mild, occasional muscle cramps in the calves.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.response.options.4.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[818].caseStudy.questions[3].options[4].zh",
+      "text": "出现轻度、偶尔的小腿肌肉痉挛。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.key",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_KEY",
+      "jsonPath": "questions[818].caseStudy.questions[3]",
+      "text": "{\"correct\":[\"A\",\"B\",\"C\",\"D\"]}",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.0.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[3].rationale.byChoice[0].en",
+      "text": "Worsening peripheral or abdominal edema signifies progression of right-sided heart failure or systemic fluid retention.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.0.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[3].rationale.byChoice[0].zh",
+      "text": "外周或腹部水肿加重意味着右心衰竭加重或全身性水肿积聚。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.1.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[3].rationale.byChoice[1].en",
+      "text": "Dizziness indicates orthostatic hypotension, possibly from over-diuresis or vasodilating heart failure drugs.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.1.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[3].rationale.byChoice[1].zh",
+      "text": "头晕提示直立性低血压，可能是由于过度利尿或使用血管舒张心衰药所致。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.2.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[3].rationale.byChoice[2].en",
+      "text": "Rapid weight changes signify significant fluid accumulation that requires adjusting diuretic doses.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.2.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[3].rationale.byChoice[2].zh",
+      "text": "快速的体重变化提示明显的液体积聚，需要调整利尿剂剂量。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.3.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[3].rationale.byChoice[3].en",
+      "text": "While muscle cramps can happen, they are not a critical baseline parameter parents/clients are instructed to immediately notify providers about.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.3.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[3].rationale.byChoice[3].zh",
+      "text": "虽然可能发生肌肉痉挛，但这并不是指导家长/患者立即通知医生的关键基线参数。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.4.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[3].rationale.byChoice[4].en",
+      "text": "A new dry cough can indicate developing pulmonary congestion or Lisinopril-induced cough, both needing evaluation.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.byChoice.4.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[3].rationale.byChoice[4].zh",
+      "text": "新出现的干咳可能提示正在发生肺淤血或赖诺普利引起的咳嗽，两者都需要评估。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.correct.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[3].rationale.correct.en",
+      "text": "Warning signs of worsening HF requiring provider notification include rapid weight gain (fluid retention), dry hacking cough (suggests pulmonary congestion or side effect of Lisinopril), worsening peripheral edema or ascites, and orthostatic dizziness (suggesting hypotension or dehydration from excessive diuretics). Calf muscle cramps are a non-specific symptom, although sometimes related to hypokalemia from loop diuretics, they are not a primary scheduled notification parameter compared to the major signs of cardiovascular collapse or lisinopril cough.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.rationale.correct.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[3].rationale.correct.zh",
+      "text": "心力衰竭加重需要通知医生的警示体征包括体重快速增加（水钠潴留）、干咳无痰（提示肺淤血或赖诺普利的副作用）、外周水肿或腹水加重以及直立性头晕（提示低血压或利尿剂过量导致的脱水）。小腿肌肉痉挛是非特异性症状，虽然有时与袢利尿剂引起的低钾血症有关，但与心血管崩溃的主要征象或赖诺普利引起的咳嗽相比，它不是首要的必须通知参数。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.strategy.en",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[3].testTakingStrategy.en",
+      "text": "Select parameters that directly monitor fluid overload status (weight, edema, cough indicating pulmonary congestion) or drug side effects (dizziness, cough). Exclude minor symptoms like calf cramps.",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gemini_gap_case_chronic_hf_05.part.gemini_gap_case_chronic_hf_05_q4.strategy.zh",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[818].caseStudy.questions[3].testTakingStrategy.zh",
+      "text": "选择直接监测液体超负荷状态（体重、水肿、提示肺淤血的咳嗽）或药物副作用（头晕、咳嗽）的参数。排除小腿痉挛等次要症状。",
+      "ownerPartId": "gemini_gap_case_chronic_hf_05_q4",
+      "language": "zh"
+    }
+  ]
+}

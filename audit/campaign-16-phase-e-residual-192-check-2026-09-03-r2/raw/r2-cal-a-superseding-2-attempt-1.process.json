@@ -1,0 +1,78 @@
+{
+  "dispatchProcessVersion": "2.0",
+  "packetId": "r2-cal-a-superseding-2",
+  "attempt": 1,
+  "startedAtUtc": "2026-09-04T05:36:24.862Z",
+  "endedAtUtc": "2026-09-04T05:36:25.839Z",
+  "wallTimeSeconds": 0.970303542,
+  "cli": "/Users/holemini/.local/bin/claude",
+  "invocation": {
+    "requestedModelAlias": "opus",
+    "requestedContextMode": "1M",
+    "effort": "max",
+    "systemPromptSource": "tools/SEMANTIC-PROMPT-TEMPLATE.md",
+    "userInputSource": "packets/r2-cal-a-superseding-2.json",
+    "mechanicalRetry": false,
+    "mechanicalErrorsPath": null,
+    "isolation": {
+      "safeMode": true,
+      "tools": [],
+      "disallowedTools": "*",
+      "strictMcpConfig": true,
+      "slashCommandsDisabled": true,
+      "sessionPersistence": false,
+      "browser": false,
+      "childCwd": "runtime-sandbox",
+      "freshProcess": true,
+      "priorOutputExposed": false
+    }
+  },
+  "packet": {
+    "sha256": "3309f5e4bcb9180cd514d7c75607e120561fee2dc339816b32c5a70850de2fd5",
+    "bytes": 614742
+  },
+  "semanticTemplate": {
+    "sha256": "fa4f87a3a4939cb43dc266a6857ecd4d7e9944c19d344cb548b764ee56c6d1fe",
+    "bytes": 3687
+  },
+  "exitStatus": 1,
+  "signal": null,
+  "error": null,
+  "stdoutSha256": "a6291b60cbb371d29d2ab2a9d24efee82946a1c981562083e88709b4069177ce",
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "responseParsed": true,
+  "parseError": null,
+  "outputCreated": true,
+  "outputSha256": "8cc9b1270cb50388fd8e797f7bf4124c7cda06210809fdb4ea99cc0ec80383de",
+  "semanticMetadata": {
+    "sessionId": "1aa213e7-1d86-4e0f-a011-f5f8b63e613c",
+    "durationApiMs": 0,
+    "totalCostUsd": 0,
+    "usage": {
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "input_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 0,
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "",
+      "iterations": [],
+      "speed": "standard"
+    },
+    "modelUsage": {},
+    "stopReason": "stop_sequence",
+    "terminalReason": "api_error",
+    "isError": true,
+    "numTurns": 1
+  }
+}

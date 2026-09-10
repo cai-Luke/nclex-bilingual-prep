@@ -1,0 +1,38 @@
+import crypto from "node:crypto";
+import fs from "node:fs";
+import path from "node:path";
+import { spawnSync } from "node:child_process";
+
+const ROOT = path.resolve(import.meta.dirname, "..");
+const shaBytes = (v) => crypto.createHash("sha256").update(v).digest("hex");
+const append = (p, value) => fs.appendFileSync(path.join(ROOT, p), `${JSON.stringify(value)}\n`);
+const args = process.argv.slice(2);
+const packetIndex = args.indexOf("--packet"), attemptIndex = args.indexOf("--attempt");
+if (packetIndex < 0) throw new Error("usage: dispatch-calibration.mjs --packet <cal-a|cal-b> [--attempt 1]");
+const packetId = args[packetIndex + 1], attempt = attemptIndex < 0 ? 1 : Number(args[attemptIndex + 1]);
+if (!/^cal-(?:a|b)(?:-superseding-[1-9][0-9]*)?$/u.test(packetId) || !Number.isInteger(attempt) || attempt < 1) throw new Error("invalid calibration dispatch identity");
+const packetPath = path.join(ROOT, "packets", `${packetId}.json`), promptPath = path.join(ROOT, "tools", "SEMANTIC-PROMPT-TEMPLATE.md");
+const errorIndex = args.indexOf("--mechanical-errors");
+const mechanicalErrorsPath = errorIndex < 0 ? null : path.resolve(args[errorIndex + 1]);
+const rawPath = path.join(ROOT, "raw", `${packetId}-attempt-${attempt}.cli.json`), stderrPath = path.join(ROOT, "raw", `${packetId}-attempt-${attempt}.stderr.txt`), outputPath = path.join(ROOT, "outputs", `${packetId}-attempt-${attempt}.jsonl`), processPath = path.join(ROOT, "raw", `${packetId}-attempt-${attempt}.process.json`);
+for (const p of [rawPath, stderrPath, outputPath, processPath]) if (fs.existsSync(p)) throw new Error(`immutable dispatch artifact already exists: ${p}`);
+const packet = fs.readFileSync(packetPath), prompt = fs.readFileSync(promptPath, "utf8");
+const mechanicalErrors = mechanicalErrorsPath ? fs.readFileSync(mechanicalErrorsPath, "utf8") : null;
+const semanticInput = mechanicalErrors ? Buffer.concat([packet, Buffer.from("\nMECHANICAL RETRY ERRORS (correct only these schema/identity defects; independently adjudicate the packet):\n"), Buffer.from(mechanicalErrors)]) : packet;
+const cli = "/Users/holemini/.local/bin/claude";
+const cliArgs = ["-p", "--safe-mode", "--model", "opus", "--autocompact", "1M", "--effort", "max", "--tools", "", "--disallowedTools", "*", "--strict-mcp-config", "--disable-slash-commands", "--no-session-persistence", "--no-chrome", "--system-prompt", prompt, "--output-format", "json"];
+const startedAtUtc = new Date().toISOString(), start = process.hrtime.bigint();
+append("dispatch-log.jsonl", { event: "START", packetId, attempt, startedAtUtc, packetSha256: shaBytes(packet), semanticTemplateSha256: shaBytes(prompt), mechanicalRetry: mechanicalErrors !== null, mechanicalErrorsSha256: mechanicalErrors === null ? null : shaBytes(mechanicalErrors), isolation: { safeMode: true, tools: [], disallowedTools: "*", strictMcpConfig: true, slashCommandsDisabled: true, sessionPersistence: false, chrome: false, childCwd: "runtime-sandbox", inputSurface: mechanicalErrors === null ? "system prompt template plus exact packet bytes on stdin" : "system prompt template plus exact packet bytes and schema/identity-only mechanical errors on stdin" } });
+const result = spawnSync(cli, cliArgs, { cwd: path.join(ROOT, "runtime-sandbox"), input: semanticInput, encoding: "utf8", maxBuffer: 80 * 1024 * 1024, timeout: 3_600_000 });
+const endedAtUtc = new Date().toISOString(), wallTimeSeconds = Number(process.hrtime.bigint() - start) / 1e9;
+fs.writeFileSync(rawPath, result.stdout ?? ""); fs.writeFileSync(stderrPath, result.stderr ?? "");
+let response = null, parseError = null;
+try { response = JSON.parse(result.stdout); } catch (error) { parseError = error.message; }
+if (response && typeof response.result === "string") fs.writeFileSync(outputPath, response.result.endsWith("\n") ? response.result : `${response.result}\n`);
+const processReceipt = { dispatchProcessVersion: "1.0", packetId, attempt, startedAtUtc, endedAtUtc, wallTimeSeconds, cli, cliVersion: "2.1.251 (Claude Code)", invocation: { print: true, safeMode: true, requestedModelAlias: "opus", requestedContextMode: "1M", effort: "max", tools: [], disallowedTools: "*", strictMcpConfig: true, slashCommandsDisabled: true, noSessionPersistence: true, noChrome: true, systemPromptSource: "tools/SEMANTIC-PROMPT-TEMPLATE.md", userInputSource: `packets/${packetId}.json`, mechanicalRetry: mechanicalErrors !== null, mechanicalErrorsPath: mechanicalErrorsPath ? path.relative(ROOT, mechanicalErrorsPath) : null, mechanicalErrorsSha256: mechanicalErrors === null ? null : shaBytes(mechanicalErrors), childCwd: "runtime-sandbox" }, packet: { path: `packets/${packetId}.json`, sha256: shaBytes(packet), bytes: packet.length }, semanticTemplate: { path: "tools/SEMANTIC-PROMPT-TEMPLATE.md", sha256: shaBytes(prompt), bytes: Buffer.byteLength(prompt) }, exitStatus: result.status, signal: result.signal, error: result.error ? String(result.error) : null, stdoutSha256: shaBytes(result.stdout ?? ""), stderrSha256: shaBytes(result.stderr ?? ""), responseParsed: response !== null, parseError, outputCreated: fs.existsSync(outputPath), outputSha256: fs.existsSync(outputPath) ? shaBytes(fs.readFileSync(outputPath)) : null, semanticMetadata: response ? { sessionId: response.session_id ?? null, durationApiMs: response.duration_api_ms ?? null, totalCostUsd: response.total_cost_usd ?? null, usage: response.usage ?? null, modelUsage: response.modelUsage ?? null, stopReason: response.stop_reason ?? null, terminalReason: response.terminal_reason ?? null, isError: response.is_error ?? null, numTurns: response.num_turns ?? null } : null };
+fs.writeFileSync(processPath, `${JSON.stringify(processReceipt, null, 2)}\n`);
+append("dispatch-log.jsonl", { event: "END", packetId, attempt, endedAtUtc, wallTimeSeconds, exitStatus: result.status, signal: result.signal, responseParsed: response !== null, outputCreated: fs.existsSync(outputPath), sessionId: response?.session_id ?? null });
+const rowMap = JSON.parse(fs.readFileSync(path.join(ROOT, "sealed", "row-map.json"), "utf8")).rows;
+for (const row of rowMap.filter((x) => x.packetId === packetId && x.role === "CONTROL")) append("control-exposure-log.jsonl", { packetId, attempt, rowToken: row.rowToken, sourceStage2QueueIndex: row.queueIndex, parentCaseId: row.parentCaseId, semanticSessionId: response?.session_id ?? null, exposedAtUtc: startedAtUtc, freshContext: true });
+console.log(JSON.stringify({ packetId, attempt, exitStatus: result.status, wallTimeSeconds, responseParsed: response !== null, outputCreated: fs.existsSync(outputPath), sessionId: response?.session_id ?? null, modelUsage: response?.modelUsage ?? null }, null, 2));
+if (result.status !== 0 || !response || response.is_error || !fs.existsSync(outputPath)) process.exitCode = 1;

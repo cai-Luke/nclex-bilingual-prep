@@ -1,0 +1,334 @@
+{
+  "validatorSelfTestVersion": "2.0",
+  "parserImplementation": "tools/strict-json.mjs recursive RFC-8259 JSON value parser with duplicate-key rejection at every object depth",
+  "allPass": true,
+  "phaseTAndParserTests": [
+    {
+      "name": "parser valid baseline",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "parser CJK UTF-8",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "parser escaped characters and quotes",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "parser decimals and exponent",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "parser nested arrays and objects",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "parser duplicate top level",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "parser duplicate stageEvaluations",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "parser duplicate stage value",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "parser duplicate locus",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "duplicate-collapsing parser accepts rejected fixture",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "parser malformed",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "parser row-not-object",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "valid Phase T fixture",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "T-G1 schema",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "T-G2 cardinality",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "T-G4 missing key",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "T-G4 foreign key",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "T-G4 sibling-token foreign key",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "T-G5 invalid contribution",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "T-G6 verdict binding",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "T-G7 locus binding",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "T-G8 evidence ownership",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "T-G9 locus containment",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "T-G10 span fidelity",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "T-G11 REVIEW adequacy",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "T-G12 bilingual vocabulary",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "T-G13 precision",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "T-G14 placeholder basis",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "T-G15 high-specificity identity leakage",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "T-G1 duplicate stage key",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "T-G3 retired",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "valid Phase R fixture",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R-A1 negative fixture",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R-A2 negative fixture",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R-A3 negative fixture",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R-A4 negative fixture",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "six historical R1 duplicate-stage failures reprojected",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "historicalR1Reprojections": [
+    {
+      "source": "outputs/cal-a-superseding-1-attempt-1.jsonl",
+      "sourceRow": 2,
+      "sourceRowToken": "row_b0fe9a8d2da436bf6c6ef83a",
+      "duplicateCanonicalStageId": "stage_pod3",
+      "reprojection": "keyed-object with repeated packet-local stage token",
+      "rejected": true,
+      "gate": "T-G1",
+      "parseClass": "DUPLICATE_KEY"
+    },
+    {
+      "source": "outputs/cal-a-superseding-1-attempt-2.jsonl",
+      "sourceRow": 2,
+      "sourceRowToken": "row_b0fe9a8d2da436bf6c6ef83a",
+      "duplicateCanonicalStageId": "stage_pod3",
+      "reprojection": "keyed-object with repeated packet-local stage token",
+      "rejected": true,
+      "gate": "T-G1",
+      "parseClass": "DUPLICATE_KEY"
+    },
+    {
+      "source": "outputs/cal-a-superseding-1-attempt-2.jsonl",
+      "sourceRow": 8,
+      "sourceRowToken": "row_7fdb9e9fbc22cac1d6ab56e3",
+      "duplicateCanonicalStageId": "stage_3",
+      "reprojection": "keyed-object with repeated packet-local stage token",
+      "rejected": true,
+      "gate": "T-G1",
+      "parseClass": "DUPLICATE_KEY"
+    },
+    {
+      "source": "outputs/cal-a-superseding-2-attempt-1.jsonl",
+      "sourceRow": 2,
+      "sourceRowToken": "row_870425a739d77632e5982005",
+      "duplicateCanonicalStageId": "stage_3_discharge",
+      "reprojection": "keyed-object with repeated packet-local stage token",
+      "rejected": true,
+      "gate": "T-G1",
+      "parseClass": "DUPLICATE_KEY"
+    },
+    {
+      "source": "outputs/cal-a-superseding-2-attempt-1.jsonl",
+      "sourceRow": 3,
+      "sourceRowToken": "row_7965c18beb6332138136b5d4",
+      "duplicateCanonicalStageId": "stage_3",
+      "reprojection": "keyed-object with repeated packet-local stage token",
+      "rejected": true,
+      "gate": "T-G1",
+      "parseClass": "DUPLICATE_KEY"
+    },
+    {
+      "source": "outputs/cal-a-superseding-2-attempt-2.jsonl",
+      "sourceRow": 1,
+      "sourceRowToken": "row_ea3cf6bdfde37228a3779258",
+      "duplicateCanonicalStageId": "stage_pod3",
+      "reprojection": "keyed-object with repeated packet-local stage token",
+      "rejected": true,
+      "gate": "T-G1",
+      "parseClass": "DUPLICATE_KEY"
+    }
+  ],
+  "counts": {
+    "tests": 37,
+    "passed": 37,
+    "historicalFailures": 6,
+    "historicalRejected": 6
+  }
+}

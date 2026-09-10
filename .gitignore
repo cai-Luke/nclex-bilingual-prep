@@ -9,6 +9,18 @@ banks/case_sources/
 scratch/
 # Blind-scoring answer key: retain locally, never publish in the public repository.
 audit/stage-reference-semantic-census-2026-07-23/checker/hidden-calibration-key.jsonl
+
+# Campaign audit sealed controls and interpreter caches are local-only evidence.
+audit/**/sealed/
+**/__pycache__/
+*.pyc
+
+# Closed non-governing Campaign 16 shadow experiments are retained locally, not published.
+audit/experimental-antigravity-opus-phase-e-residual192-shadow-2026-09-02-r1/
+audit/experimental-campaign16-phase-e-a1-mechanical-prototype-2026-09-03-r1/
+audit/experimental-campaign16-phase-e-r2-mechanical-redteam-2026-09-03-r1/
+audit/experimental-gemini-phase-e-residual192-shadow-2026-09-02-r1/
+
 # Generated TTS artifacts (deterministic, regenerable from banks/*.json; the
 # queue manifest is ~25 MB and the opus blobs ship out-of-band — see DECISIONS 20).
 audio/manifest.queue.json

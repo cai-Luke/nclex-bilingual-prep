@@ -1,0 +1,276 @@
+{
+  "partialProgressReceiptVersion": "1.0",
+  "stage": "PHASE_E_STAGE_2_INDEPENDENT_CLAUDE_CHECKER",
+  "status": "STAGE_2_COMPARISON_COMPLETE_BLOCKED_AT_SECTION_9_4_NO_LEAK_SAFETY_GATE",
+  "workOrderSha256": "91e7434905f52ef90f7288def1aa6d17118c3708b7e99d76f0384bfeeafad390",
+  "workOrderMatchesFrozen": true,
+  "producerFreezeSha256": "29b4973677eb1bab82af557ffeced2e6a034bb6118dd24097c56004e9660b82c",
+  "producerFreezeUnchanged": true,
+  "bankHashMismatches": [],
+  "allThirteenBanksUnchanged": true,
+  "checkerPacketHashMismatches": [],
+  "allCheckerPacketsFrozenIntact": true,
+  "totals": {
+    "formalCheckerPacketsSelected": 73,
+    "selectedTargets": 259,
+    "packetsCompletedAndValidated": 73,
+    "targetRowsCompletedAndValidated": 259,
+    "packetsRemaining": 0,
+    "targetRowsRemaining": 0
+  },
+  "completedPackets": [
+    "packet-001",
+    "packet-002",
+    "packet-003",
+    "packet-004",
+    "packet-005",
+    "packet-006",
+    "packet-007",
+    "packet-008",
+    "packet-009",
+    "packet-010",
+    "packet-011",
+    "packet-012",
+    "packet-013",
+    "packet-014",
+    "packet-015",
+    "packet-016",
+    "packet-017",
+    "packet-018",
+    "packet-019",
+    "packet-020",
+    "packet-021",
+    "packet-023",
+    "packet-024",
+    "packet-025",
+    "packet-026",
+    "packet-027",
+    "packet-028",
+    "packet-029",
+    "packet-030",
+    "packet-031",
+    "packet-032",
+    "packet-033",
+    "packet-034",
+    "packet-035",
+    "packet-036",
+    "packet-037",
+    "packet-038",
+    "packet-039",
+    "packet-040",
+    "packet-041",
+    "packet-042",
+    "packet-043",
+    "packet-044",
+    "packet-045",
+    "packet-046",
+    "packet-047",
+    "packet-048",
+    "packet-049",
+    "packet-050",
+    "packet-051",
+    "packet-052",
+    "packet-053",
+    "packet-054",
+    "packet-055",
+    "packet-056",
+    "packet-057",
+    "packet-058",
+    "packet-059",
+    "packet-060",
+    "packet-061",
+    "packet-062",
+    "packet-064",
+    "packet-065",
+    "packet-066",
+    "packet-067",
+    "packet-068",
+    "packet-069",
+    "packet-070",
+    "packet-071",
+    "packet-072",
+    "packet-073",
+    "packet-074",
+    "packet-075"
+  ],
+  "nextUncompletedCheckerPacket": null,
+  "remainingPackets": [],
+  "lockedReviewHashMismatches": [],
+  "everyCompletedReviewByteIdenticalToRecordedHash": true,
+  "receiptsMapOneToOneToOutputs": true,
+  "unresolvedMechanicalValidationFailure": null,
+  "boundedMechanicalRetriesUsed": [
+    "packet-001"
+  ],
+  "sessionResumeHistory": [
+    {
+      "date": "2026-09-01",
+      "endedAt": "packet-042",
+      "packetsAtEnd": 42,
+      "rowsAtEnd": 134
+    },
+    {
+      "date": "2026-09-02",
+      "startedAt": "packet-042",
+      "packetsAtEnd": 51,
+      "rowsAtEnd": 174,
+      "note": "Redispatched 042-045 and 048-050 as fresh isolated contexts after harvest confirmed the prior wave produced no artifact for them. Packets 048 and 052 wrote complete valid files before their contexts were terminated by the rate limit and were recovered by harvest, not by completion notification."
+    },
+    {
+      "date": "2026-09-02",
+      "window": "15:00-17:0x America/New_York",
+      "startedAt": "packet-053",
+      "packetsAtEnd": 65,
+      "rowsAtEnd": 231,
+      "note": "Second window of the day. Locked 053, 054, 055, 056, 057, 058, 059, 060, 061, 062, 064, 065, 066, 068 (14 packets, 57 rows). Packets 055, 057, 058, 059, 061, 065, 066 and 068 were recovered by harvest before or instead of their completion notification."
+    },
+    {
+      "date": "2026-09-02",
+      "window": "20:5x-21:0x America/New_York",
+      "startedAt": "packet-067",
+      "packetsAtEnd": 73,
+      "rowsAtEnd": 259,
+      "note": "Fourth and final collection window. Locked 067, 069, 070, 071, 072, 073, 074, 075 (8 packets, 28 rows), completing the selected population. Packets 067, 069, 071, 072 and 074 were recovered by harvest before or instead of their completion notification. No rate limit was hit in this window."
+    },
+    {
+      "date": "2026-09-02",
+      "window": "comparison session",
+      "startedAt": "post-Stage-2 completion boundary",
+      "note": "Re-derived all eight pre-comparison gates from live disk, re-ran the checker validator self-test (18/18 negative controls) and all 73 packets (73/73 valid), then performed the section 9.4 comparison. Wrote checker-adjudication.jsonl, comparison.json, review.md and verification.md. Terminal CAMPAIGN16_PHASE_E_BLOCKED_CHECKER_SAMPLE_DISAGREEMENT. No Stage 3, repair, mutation, commit, push or index change."
+    }
+  ],
+  "comparisonBegun": true,
+  "checkerAdjudicationCreated": true,
+  "comparisonJsonCreated": true,
+  "stage3Begun": false,
+  "phaseFBegun": false,
+  "repairsBegun": false,
+  "banksModified": false,
+  "gitIndexModified": false,
+  "commitOrPushPerformed": false,
+  "worktreePreservation": {
+    "head": "3286024bcab90c1a114811a7202d956c3e586bf4",
+    "headUnchanged": true,
+    "branch": "main",
+    "openingDirtyPathsExcludingCheckerRoot": 708,
+    "currentDirtyPathsExcludingCheckerRoot": 708,
+    "pathsAdded": 0,
+    "pathsRemoved": 0,
+    "statusCodeChanges": 0,
+    "worktreeContentChanges": 0,
+    "worktreeContentChangedPaths": [],
+    "trackedIndexBlobChanges": 0,
+    "trackedIndexBlobChangedPaths": []
+  },
+  "antigravityCanary": "NON_GOVERNING_NOT_IMPORTED — packet-026 was independently adjudicated by a formal blinded Stage 2 context, which returned the frozen queueIndex 158 (the canary had returned 1). The canary result was never read, imported, or exposed to any semantic context.",
+  "completionBoundary": {
+    "reachedAtUtc": "2026-09-03T01:00:07Z",
+    "note": "All 259 selected checker rows are locked and hashed, satisfying the section 9.4 precondition for comparison. The seat stopped here deliberately: that clause is a precondition, not a mandate to continue in the same session, and the owner directed a stop at this boundary. No producer verdict has been read."
+  },
+  "checkerSelectionSha256Matches": true,
+  "everySelectedQueueIndexCoveredExactlyOnce": true,
+  "checkerReviewVerdictsCarriedForwardUnadjudicated": [],
+  "checkerReviewVerdictsNote": "Both checker REVIEW rows are now adjudicated under section 9.4 third bullet. Each sits on a producer LEAK row, so each is an accepted Phase E REVIEW disposition routing to later full-case review, and neither is blocking. The block is caused solely by queueIndex 370 and 395, which are producer no-leak safety-gate rows the checker returned as LEAK.",
+  "checkerVerdictTallyAcrossAllLockedRows": {
+    "LEAK": 190,
+    "NO_LEAK_NONANSWERING_DATA": 56,
+    "NO_LEAK_COMPLETE_RECORD": 11,
+    "REVIEW": 2
+  },
+  "checkerVerdictTallyNote": "Completed-state evidence for the frozen checker output only. Not a comparison, carries no producer information, and computed after every row was already locked, so it could not influence any adjudication or dispatch.",
+  "producerVerdictsInspected": true,
+  "reviewMdCreated": true,
+  "verificationMdCreated": true,
+  "manifestAggregateRollupNote": "checkerPacketSetSha256 in checker-packet-manifest.json is not reproducible from any plain derivation of the per-packet hashes, and its recipe is recorded nowhere in the artifact set. This is a documentation gap in the manifest, not an integrity failure: all 73 individual packet hashes match, all 73 packet files are present, and there are no extra or missing packets.",
+  "producerVerdictsInspectedNote": "Exposed only after all eight pre-comparison gates were independently re-derived from live disk and all 259 checker rows were confirmed locked, hashed and frozen, satisfying the section 9.4 precondition.",
+  "terminal": "CAMPAIGN16_PHASE_E_BLOCKED_CHECKER_SAMPLE_DISAGREEMENT",
+  "terminalBasis": "Section 9.4 second bullet: a checker LEAK or REVIEW on a checker-selected producer no-leak row blocks Phase E closeout rather than being patched row-by-row. Two such rows returned LEAK. Section 12 lists the same condition as a stop condition.",
+  "comparisonSummary": {
+    "selectedRows": 259,
+    "exactPrimaryVerdictAgreement": 201,
+    "disagreementTotal": 58,
+    "disagreementByClass": {
+      "RECORDED_DISAGREEMENT_FULL_CHECK_ROUTED": 51,
+      "NO_LEAK_SUBCLASS_DISAGREEMENT": 5,
+      "BLOCKING_NO_LEAK_GATE_BREACH": 2
+    },
+    "bilingualRelationDisagreements": 0,
+    "noLeakSafetyGate": {
+      "checkerSelectedProducerNoLeakRows": 20,
+      "checkerReturnedNoLeak": 18,
+      "checkerReturnedLeakOrReview": 2,
+      "exactNoLeakSubclassAgreement": 13,
+      "noLeakSubclassDisagreementRecordedCheckerControls": 5,
+      "gateResult": "BLOCK"
+    },
+    "blockingRows": [
+      {
+        "queueIndex": 370,
+        "packetId": "packet-062",
+        "bankPath": "banks/hard-cases-canonical.json",
+        "parentCaseId": "cs_thyroid_storm_main",
+        "partId": "cs_thyroid_storm_q2",
+        "producerVerdict": "NO_LEAK_COMPLETE_RECORD",
+        "checkerVerdict": "LEAK",
+        "selectionReasons": [
+          "DETERMINISTIC_NOLEAK_SAMPLE"
+        ]
+      },
+      {
+        "queueIndex": 395,
+        "packetId": "packet-066",
+        "bankPath": "banks/hard-cases-canonical.json",
+        "parentCaseId": "opus_tpn_case_mucositis_01",
+        "partId": "opus_tpn_case_mucositis_01_q3",
+        "producerVerdict": "NO_LEAK_NONANSWERING_DATA",
+        "checkerVerdict": "LEAK",
+        "selectionReasons": [
+          "DETERMINISTIC_NOLEAK_SAMPLE"
+        ]
+      }
+    ]
+  },
+  "checkerReviewRowDispositions": [
+    {
+      "queueIndex": 204,
+      "packetId": "packet-035",
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03_q4",
+      "producerVerdict": "LEAK",
+      "checkerVerdict": "REVIEW",
+      "selectionClass": "FULL_CHECK_ROUTED",
+      "selectionReasons": [
+        "PRODUCER_LEAK"
+      ],
+      "section94Clause": "third bullet - checker REVIEW on a producer LEAK or REVIEW row is an accepted Phase E disposition meaning the stage boundary/intent remains genuinely unrecoverable; routes to later full-case review",
+      "acceptedDisposition": "REVIEW",
+      "blocking": false
+    },
+    {
+      "queueIndex": 280,
+      "packetId": "packet-048",
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_mass_casualty_start_triage_01",
+      "partId": "gpt_case_mass_casualty_start_triage_01_q5",
+      "producerVerdict": "LEAK",
+      "checkerVerdict": "REVIEW",
+      "selectionClass": "FULL_CHECK_ROUTED",
+      "selectionReasons": [
+        "PRODUCER_LEAK"
+      ],
+      "section94Clause": "third bullet - checker REVIEW on a producer LEAK or REVIEW row is an accepted Phase E disposition meaning the stage boundary/intent remains genuinely unrecoverable; routes to later full-case review",
+      "acceptedDisposition": "REVIEW",
+      "blocking": false
+    }
+  ],
+  "stage2ArtifactHashes": {
+    "checker-adjudication.jsonl": "ed3bbc7a2eaee168412c311a41949e15f314ffc27f1612ddf1b4c1a578530838",
+    "comparison.json": "9d32016ce0263611e24416cebda6adda8b8df2a96e4fa6ca81c75da3b5a02b04",
+    "review.md": "f6573ad20d5f3fb1c82f16916acd137ac14b7afb50f9d84e1fbf014ee703cf24",
+    "verification.md": "baa03bd2ff52628002dde8b1983ef39683b7fb919ca9674d61a8424e35285627"
+  },
+  "comparisonSessionUtc": "2026-09-03T01:12:00Z",
+  "checkerSampleExpanded": false,
+  "producerCensusRerun": false
+}

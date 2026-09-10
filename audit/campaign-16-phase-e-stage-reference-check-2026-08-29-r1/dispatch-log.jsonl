@@ -1,0 +1,98 @@
+{"packetId":"packet-001","agentId":"aaec8a31bdb8b2ea2","dispatch":"initial+bounded-mechanical-retry"}
+{"packetId":"packet-002","agentId":"ab2ed94ea124d698e","dispatch":"initial"}
+{"packetId":"packet-003","agentId":"ad5fa396c49c9b7dd","dispatch":"initial"}
+{"packetId":"packet-004","agentId":"aa8e1b1b497a3039d","dispatch":"initial"}
+{"packetId":"packet-005","agentId":"af6576a32640cdc3c","dispatch":"initial"}
+{"packetId":"packet-006","agentId":"ae72f90e5da62a055","dispatch":"initial"}
+{"packetId":"packet-007","agentId":"a514a1669a5db827c","dispatch":"initial"}
+{"packetId":"packet-008","agentId":"a3f7b9ed535ae39d0","dispatch":"initial"}
+{"packetId":"packet-009","agentId":"adf4f3c76928ff853","dispatch":"initial"}
+{"packetId":"packet-010","agentId":"ac3e123827cd52b59","dispatch":"initial"}
+{"packetId":"packet-011","agentId":"a843c87b258b7847c","dispatch":"initial"}
+{"packetId":"packet-012","agentId":"ada2f8092a4b14997","dispatch":"initial"}
+{"packetId":"packet-013","agentId":"a55fe55dc5c3c788d","dispatch":"initial"}
+{"packetId":"packet-014","agentId":"a2c9b6e58a0fc2e84","dispatch":"initial","outcome":"TERMINATED_USAGE_WALL_NO_ARTIFACT"}
+{"packetId":"packet-015","agentId":"af52ad7c201952afd","dispatch":"initial","outcome":"TERMINATED_USAGE_WALL_NO_ARTIFACT"}
+{"packetId":"packet-016","agentId":"a97f90aabd674a790","dispatch":"initial","outcome":"TERMINATED_USAGE_WALL_NO_ARTIFACT"}
+{"packetId":"packet-017","agentId":"a9156be6f64961f85","dispatch":"initial","outcome":"TERMINATED_USAGE_WALL_NO_ARTIFACT"}
+{"packetId":"packet-018","agentId":"a33b3a697ef6b8372","dispatch":"initial","outcome":"TERMINATED_USAGE_WALL_NO_ARTIFACT"}
+{"packetId":"packet-019","agentId":"a3511209e06972274","dispatch":"initial","outcome":"TERMINATED_USAGE_WALL_NO_ARTIFACT"}
+{"event":"USAGE_WALL_2026-08-30T21:34Z","note":"Claude session limit reached mid-flight. Reviews for packets 002,003,004,006,007,008,009 were already written complete to disk before their contexts terminated; harvested and locked after validation with no retry and no modification. Packets 010-019 had dispatched contexts with no artifact."}
+{"event":"RESUME_2026-08-31","note":"Original semantic contexts for packets 010-019 were resumed in place via SendMessage rather than replaced by fresh contexts, preserving one-context-one-packet. No producer output, aggregate totals, or other checker output was exposed on resume."}
+{"packetId":"packet-020","agentId":"a6cd1104005496d45","dispatch":"initial"}
+{"packetId":"packet-021","agentId":"ae1e567185fa53095","dispatch":"initial"}
+{"packetId":"packet-023","agentId":"a56e7b674cbf40f8c","dispatch":"initial"}
+{"packetId":"packet-024","agentId":"ad80d28ac51f4ab00","dispatch":"initial"}
+{"packetId":"packet-025","agentId":"ad74ae99c2f299dac","dispatch":"initial"}
+{"packetId":"packet-026","agentId":"ab2c80de9cac0e1a9","dispatch":"initial"}
+{"packetId":"packet-027","agentId":"a3725681caa2d5617","dispatch":"initial"}
+{"packetId":"packet-028","agentId":"ac6f416c5cf5b3103","dispatch":"initial"}
+{"packetId":"packet-029","agentId":"aa770f42642e62708","dispatch":"initial"}
+{"packetId":"packet-030","agentId":"a302f85de5c4e486b","dispatch":"initial"}
+{"packetId":"packet-031","agentId":"ae80ceff2947d6a0d","dispatch":"initial"}
+{"packetId":"packet-032","agentId":"a6cddbb5c2d0c4743","dispatch":"initial"}
+{"packetId":"packet-030","agentId":"a78ee0731c013280d","dispatch":"redispatch-fresh-context-after-usage-wall"}
+{"packetId":"packet-033","agentId":"a0e36e1ae24bc2173","dispatch":"initial"}
+{"packetId":"packet-034","agentId":"abc6f40120a1e957e","dispatch":"initial"}
+{"packetId":"packet-035","agentId":"a15ca675416358860","dispatch":"initial"}
+{"packetId":"packet-036","agentId":"a2027b9009955a248","dispatch":"initial"}
+{"packetId":"packet-037","agentId":"ae56c8aa74668cfcb","dispatch":"initial"}
+{"packetId":"packet-038","agentId":"a66fa5a84fe80ebd8","dispatch":"initial"}
+{"packetId":"packet-039","agentId":"a06d4ed8b17b682e6","dispatch":"initial"}
+{"packetId":"packet-040","agentId":"a0f337a86d855384d","dispatch":"initial"}
+{"packetId":"packet-041","agentId":"af19edca15cca6684","dispatch":"initial"}
+{"packetId":"packet-042","agentId":"a53e10248daacd77a","dispatch":"initial"}
+{"packetId":"packet-043","agentId":"ac0e6cae7df704451","dispatch":"initial"}
+{"packetId":"packet-044","agentId":"a05fdfe6c364af3d4","dispatch":"initial"}
+{"packetId":"packet-045","agentId":"a7655028153334634","dispatch":"initial"}
+{"packetId":"packet-046","agentId":"a8eddca90ed17537e","dispatch":"initial"}
+{"packetId":"packet-047","agentId":"a3be1f4bf934cccc9","dispatch":"initial"}
+{"packetId":"packet-048","agentId":"a205871969b25516a","dispatch":"initial"}
+{"packetId":"packet-049","agentId":"a0fd3569c809ffd2b","dispatch":"initial"}
+{"packetId":"packet-050","agentId":"a58a87f517c969602","dispatch":"initial"}
+{"event":"USAGE_WALL_2026-09-01","note":"Session limit reached again mid-wave. Packets 037-039 and 042-050 had dispatched contexts; any that wrote a complete valid file before termination were harvested and locked, the rest remain incomplete with no artifact."}
+{"event":"RESUME_2026-09-02","note":"Session resumed. Live-disk re-derivation: work-order sha256, producer candidate-freeze, all 13 bank hashes, all 73 checker packet hashes, and all 42 locked review hashes verified unchanged. harvest.py reported nothing to harvest, confirming contexts 042-045 and 048-050 from the prior wave produced no artifact. Those packets are redispatched to fresh isolated contexts."}
+{"packetId":"packet-042","agentId":"a5f99f403861541c4","dispatch":"redispatch-fresh-context"}
+{"packetId":"packet-043","agentId":"a1daa4f39db24f6ce","dispatch":"redispatch-fresh-context"}
+{"packetId":"packet-044","agentId":"a883bfd09146ce6ff","dispatch":"redispatch-fresh-context"}
+{"packetId":"packet-045","agentId":"a8c85e93a391c9eee","dispatch":"redispatch-fresh-context"}
+{"packetId":"packet-048","agentId":"a72e944a98d9f96ed","dispatch":"redispatch-fresh-context"}
+{"packetId":"packet-049","agentId":"aa2915ce2910e39c7","dispatch":"redispatch-fresh-context"}
+{"packetId":"packet-050","agentId":"a6c433d3d5f0cc0e8","dispatch":"redispatch-fresh-context"}
+{"packetId":"packet-051","agentId":"af6832ca513ffa675","dispatch":"initial"}
+{"packetId":"packet-052","agentId":"abbaf93a981bacae5","dispatch":"initial"}
+{"packetId":"packet-053","agentId":"ad08703807e8be198","dispatch":"initial"}
+{"packetId":"packet-054","agentId":"abd09adcd9d155010","dispatch":"initial"}
+{"packetId":"packet-055","agentId":"aca86aa93ee6f25a6","dispatch":"initial","outcome":"TERMINATED_RATE_LIMIT_NO_ARTIFACT"}
+{"packetId":"packet-056","agentId":"a0f1d55b755f4ca65","dispatch":"initial","outcome":"TERMINATED_RATE_LIMIT_NO_ARTIFACT"}
+{"packetId":"packet-057","agentId":"ab60355c3f9e519c5","dispatch":"initial","outcome":"TERMINATED_RATE_LIMIT_NO_ARTIFACT"}
+{"packetId":"packet-058","agentId":"aea0fc988453d7db8","dispatch":"initial","outcome":"TERMINATED_RATE_LIMIT_NO_ARTIFACT"}
+{"event":"USAGE_WALL_2026-09-02","note":"Session limit reached (resets 15:00 America/New_York). Packets 053-058 had dispatched contexts terminated by HTTP 429 with no review artifact written; they remain genuinely uncompleted and must be redispatched to fresh contexts. Packets 048 and 052 had written complete valid files before termination and were recovered by harvest rather than by completion notification. Locked this session: 042, 043, 044, 045, 048, 049, 050, 051, 052. Progress 51/73 packets, 174/259 rows."}
+{"event":"WINDOW_RESET_2026-09-02T15:00","note":"New usage window. Gates re-verified from live disk (work order, producer freeze, 13 banks, 73 packets, 51 locked reviews, receipts 1:1); harvest reported nothing outstanding. Packets 053-058 redispatched to fresh isolated contexts after their prior contexts were terminated by rate limit with no artifact."}
+{"packetId":"packet-053","agentId":"a71f643cbef6f922e","dispatch":"redispatch-fresh-context"}
+{"packetId":"packet-054","agentId":"a24e9614e968894e1","dispatch":"redispatch-fresh-context"}
+{"packetId":"packet-055","agentId":"aa41081e3ab62a99a","dispatch":"redispatch-fresh-context"}
+{"packetId":"packet-056","agentId":"a097383643fe59694","dispatch":"redispatch-fresh-context"}
+{"packetId":"packet-057","agentId":"a69df773e9f2f68e4","dispatch":"redispatch-fresh-context"}
+{"packetId":"packet-058","agentId":"a2d0c593358bcaa97","dispatch":"redispatch-fresh-context"}
+{"packetId":"packet-059","agentId":"ac10bab514b6971ec","dispatch":"initial"}
+{"packetId":"packet-060","agentId":"a97df0552acf52aa0","dispatch":"initial"}
+{"packetId":"packet-061","agentId":"adacad43dbba8aafd","dispatch":"initial"}
+{"packetId":"packet-062","agentId":"a5e57e660ff56284a","dispatch":"initial"}
+{"packetId":"packet-064","agentId":"a7c75ea42fb8c585b","dispatch":"initial"}
+{"packetId":"packet-065","agentId":"a95ee8e427f45a345","dispatch":"initial"}
+{"packetId":"packet-066","agentId":"a556e773d7fe2fa39","dispatch":"initial"}
+{"packetId":"packet-067","agentId":"a1f1fbbaf8ed1ddeb","dispatch":"initial"}
+{"packetId":"packet-068","agentId":"a24f07467f2f3942e","dispatch":"initial"}
+{"packetId":"packet-069","agentId":"a04cf54e8dd60e8f8","dispatch":"initial"}
+{"packetId":"packet-070","agentId":"a56fc43875ee7a6df","dispatch":"initial"}
+{"packetId":"packet-071","agentId":"ab53173b00bf93c5a","dispatch":"initial","outcome":"TERMINATED_RATE_LIMIT_NO_ARTIFACT"}
+{"event":"USAGE_WALL_2026-09-02T17","note":"Second wall of the day (resets 20:40 America/New_York). All six in-flight contexts terminated on HTTP 429 within the same minute: 066, 067, 068, 069, 070, 071. Packets 066 and 068 had already written complete valid files and were recovered by harvest; 067, 069, 070 and 071 wrote nothing and remain genuinely uncompleted. Owner directed a controlled stop rather than a further wave. Locked across this window: 053, 054, 055, 056, 057, 058, 059, 060, 061, 062, 064, 065, 066, 068. Progress 65/73 packets, 231/259 rows."}
+{"event":"SESSION_RESUME_2026-09-02T20:5x","note":"Fourth working window. Full live-disk re-derivation passed before any dispatch: work order 91e7434905f52ef90f7288def1aa6d17118c3708b7e99d76f0384bfeeafad390, producer freeze 29b4973677eb1bab82af557ffeced2e6a034bb6118dd24097c56004e9660b82c, all 13 bank hashes, all 73 checker packet hashes, checker-selection hash, 65 locked reviews byte-identical, 65 files / 65 receipts / 0 unlocked / 0 orphaned, HEAD 3286024, 708 dirty paths outside the checker root with zero added, removed or status-code changes. harvest.py reported nothing to harvest. Dispatching wave of six: 067, 069, 070, 071, 072, 073."}
+{"packetId":"packet-067","agentId":"af3cf56d30de37ed8","dispatch":"redispatch","priorOutcome":"TERMINATED_RATE_LIMIT_NO_ARTIFACT"}
+{"packetId":"packet-069","agentId":"ab2f36ec541e19747","dispatch":"redispatch","priorOutcome":"TERMINATED_RATE_LIMIT_NO_ARTIFACT"}
+{"packetId":"packet-070","agentId":"ad727d6a7be6651c2","dispatch":"redispatch","priorOutcome":"TERMINATED_RATE_LIMIT_NO_ARTIFACT"}
+{"packetId":"packet-071","agentId":"a5563980062d53d25","dispatch":"redispatch","priorOutcome":"TERMINATED_RATE_LIMIT_NO_ARTIFACT"}
+{"packetId":"packet-072","agentId":"afba240b6a85270fc","dispatch":"initial"}
+{"packetId":"packet-073","agentId":"a28f5d56f44003500","dispatch":"initial"}
+{"event":"STAGE_2_ROW_COLLECTION_COMPLETE_2026-09-02T21","note":"Final window locked 067, 069, 070, 071, 072, 073, 074 and 075 with no rate limit encountered; 067, 069, 071, 072 and 074 were recovered by harvest before or instead of their completion notification. Selected population complete at 73/73 packets and 259/259 rows, every selected queueIndex covered exactly once. Stopped at the Stage 2 completion boundary before comparison. No producer verdict read, no terminal claimed, no adjudication performed. Two checker REVIEW rows carried forward unadjudicated: packet-035 queueIndex 204 and packet-048 queueIndex 280."}

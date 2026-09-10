@@ -1,0 +1,2550 @@
+{
+  "checkerPacketVersion": "1.0",
+  "packetId": "packet-030",
+  "stage": "PHASE_E_STAGE_2_INDEPENDENT_CHECKER",
+  "bankSnapshotSha256": "540b5463f94ded8b88708f49f7e80b76ae0d560edf65d0dd75521c8962e2af0d",
+  "sourcePacket": {
+    "path": "audit/campaign-16-phase-e-stage-reference-census-2026-08-29-r1/packets/packet-030.json",
+    "sha256": "9e0d87494775cd0722daecd07230138c1609d594903c369cd1aa2bbb9f9cd016"
+  },
+  "targetCount": 1,
+  "blinding": {
+    "containsProducerOutput": false,
+    "excludedFields": [
+      "bilingualRelation",
+      "classBalance",
+      "comparison",
+      "counts",
+      "firstByte",
+      "firstByteMod10",
+      "noLeakSafetyGateRow",
+      "producerReason",
+      "producerVerdict",
+      "producerVerdictClass",
+      "reason",
+      "requiredStageIds",
+      "sampleKey",
+      "sampleSha256",
+      "selected",
+      "selectionReasons",
+      "unsafeStageIds",
+      "verdict"
+    ],
+    "note": "This packet is derived only from the frozen Stage-0 source packet and the frozen population identities. It carries no producer verdict, reason, required/unsafe stages, bilingual relation, counts, class balance, comparison data, historical Gemini or calibration verdict material, or repair proposal."
+  },
+  "instructions": "Independently adjudicate every target in cases[].targets. Emit exactly one JSONL row per target, in ascending queueIndex order, using the closed row shape in the semantic contract below. Copy queueIndex, packetId, bankPath, parentCaseId and partId verbatim from each target. Cite only evidenceIds present in this packet evidenceCatalog and belonging to the same parentCaseId.",
+  "semanticContract": "## 6. Semantic adjudication contract\n\n### 6.1 Review question, in order\n\nFor each target, the semantic worker answers:\n\n1. What exact decision or response is this part testing, using the stored key/rationale only to identify the intended inference rather than to re-grade it?\n2. Which currently visible stage facts are actually needed to answer that part?\n3. Does any **otherwise unnecessary** exposed stage fact materially reduce the reasoning required by directly revealing or strongly cueing the keyed decision?\n4. Does the case/part instead intentionally operate on a complete record, making full-stage visibility appropriate?\n5. If the intended stage boundary cannot be recovered safely from the authored case, is `REVIEW` more accurate than forced certainty?\n6. Is the leakage relation parallel in English and Simplified Chinese, or materially different?\n\n### 6.2 Verdict vocabulary\n\nExactly one primary verdict per row:\n\n- `LEAK`\n  - one or more exposed stages materially help answer the active part by naming or strongly cueing a condition, action, priority, calculation/trend, response, outcome, or distractor-eliminating fact that the part otherwise requires the learner to infer;\n- `NO_LEAK_COMPLETE_RECORD`\n  - the authored case/part evidence supports that the complete staged record is intentionally available for this part;\n- `NO_LEAK_NONANSWERING_DATA`\n  - later-looking or extra stage information is exposed but does not materially help answer this part;\n- `REVIEW`\n  - the intended progression/dependency cannot be recovered safely from the packet.\n\nDo not invent additional primary verdicts.\n\nA later timestamp is not automatically a leak. Additional data is not automatically useful data. Strong cueing counts even when the answer does not appear verbatim. `NO_LEAK_COMPLETE_RECORD` requires positive evidence of complete-record intent and is not a default for difficult legacy cases.\n\n### 6.3 Bilingual relation vocabulary\n\nExactly one:\n\n- `PARALLEL`\n- `EN_ONLY_LEAK`\n- `ZH_ONLY_LEAK`\n- `MATERIAL_DIVERGENCE`\n- `UNRESOLVED`\n\nPunctuation, sentence count, or ordinary translation compression alone is not material divergence.\n\n### 6.4 Required candidate row\n\nEach producer/checker semantic row uses the closed shape:\n\n```json\n{\n  \"queueIndex\": 1,\n  \"packetId\": \"packet-001\",\n  \"bankPath\": \"banks/example-canonical.json\",\n  \"parentCaseId\": \"case_id\",\n  \"partId\": \"part_id\",\n  \"verdict\": \"LEAK\",\n  \"testedDecision\": \"Identify the priority response to worsening respiratory status.\",\n  \"requiredStageIds\": [\"baseline\"],\n  \"unsafeStageIds\": [\"post_intervention\"],\n  \"partEvidenceIds\": [\"...\"],\n  \"stageEvidenceIds\": [\"...\"],\n  \"bilingualRelation\": \"PARALLEL\",\n  \"reason\": \"Item-specific explanation.\"\n}\n```\n\nRules:\n\n- `testedDecision`: one item-specific sentence, maximum 30 words;\n- `requiredStageIds`: stages actually needed, or `[]` when global/baseline context suffices;\n- `unsafeStageIds`: nonempty only for `LEAK`;\n- `partEvidenceIds`: 1–4 packet-owned IDs from part stem/response/key/rationale;\n- `stageEvidenceIds`: 1–6 packet-owned stage IDs showing the relevant exposed evidence; for a no-leak row cite the most plausible exposed cue and explain why it does not answer the part;\n- `reason`: 1–3 item-specific sentences;\n- no confidence score;\n- no replacement prose;\n- no exact anchor recommendation;\n- no aggregate totals inside per-packet semantic output.\n\n",
+  "cases": [
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "bankSha256": "d7d228afc282bd15bc730be4ca5b3d2c7c14c017bbc14f3d12a7cbccbfef0f20",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "casePath": "questions[242]",
+      "stem": {
+        "en": "Review the long-term-care resident record and answer the case-study items.",
+        "zh": "查看长期护理机构住民记录并回答病例题。"
+      },
+      "title": {
+        "en": "Unfolding case: unwitnessed fall in long-term care",
+        "zh": "展开病例：长期护理机构内无人目击跌倒"
+      },
+      "summary": {
+        "en": "An older adult resident is found on the floor near the bathroom during night shift.",
+        "zh": "一名老年住民夜班时在卫生间附近地上被发现。"
+      },
+      "globalExhibits": [
+        {
+          "id": "baseline",
+          "title": {
+            "en": "Resident baseline",
+            "zh": "住民基线"
+          },
+          "content": {
+            "en": "Age 84. Uses a walker. History: hypertension, atrial fibrillation, mild cognitive impairment. Medication list includes apixaban and newly prescribed trazodone at bedtime. Baseline orientation: person and place.",
+            "zh": "84 岁。使用助行器。有高血压、房颤、轻度认知障碍病史。用药包括阿哌沙班和新开的睡前曲唑酮。基线定向力：能辨认本人和地点。"
+          },
+          "evidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.global.baseline.content.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.global.baseline.content.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.global.baseline.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.global.baseline.title.zh"
+          ]
+        }
+      ],
+      "stages": [
+        {
+          "id": "stage_1_found",
+          "title": {
+            "en": "Stage 1: Found on floor",
+            "zh": "第 1 阶段：发现倒地"
+          },
+          "exhibits": [
+            {
+              "id": "found",
+              "title": {
+                "en": "Nursing note 0230",
+                "zh": "0230 护理记录"
+              },
+              "content": {
+                "en": "Resident found on floor next to bathroom doorway. Awake but anxious. States, 'My hip hurts.' No staff witnessed the fall. Bed alarm sounding. Walker is across the room.",
+                "zh": "住民被发现倒在卫生间门口旁。清醒但焦虑。说：“我的髋部痛。”无工作人员目击跌倒。床旁报警器正在响。助行器在房间另一侧。"
+              }
+            }
+          ],
+          "evidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.exhibits.0.content.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.exhibits.0.content.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.exhibits.0.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.exhibits.0.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.title.zh"
+          ]
+        },
+        {
+          "id": "stage_2_assessment",
+          "title": {
+            "en": "Stage 2: Focused assessment",
+            "zh": "第 2 阶段：重点评估"
+          },
+          "exhibits": [
+            {
+              "id": "assessment",
+              "title": {
+                "en": "Post-fall assessment 0240",
+                "zh": "0240 跌倒后评估"
+              },
+              "content": {
+                "en": "BP 148/86, HR 96 irregular, RR 18, SpO2 95% room air. Oriented to person only. Vomited once. Right pupil 5 mm, left pupil 3 mm. Right leg shortened and externally rotated. 2-cm elbow abrasion without active bleeding.",
+                "zh": "血压 148/86，心率 96 次/分且不规则，呼吸 18 次/分，室内空气 SpO2 95%。仅能辨认本人。呕吐一次。右瞳孔 5 mm，左瞳孔 3 mm。右腿短缩并外旋。肘部 2 cm 擦伤，无活动性出血。"
+              },
+              "structuredMeasurements": {
+                "panels": [
+                  {
+                    "kind": "vitals",
+                    "columns": [
+                      {
+                        "id": "current",
+                        "label": {
+                          "en": "0240",
+                          "zh": "0240"
+                        }
+                      }
+                    ],
+                    "rows": [
+                      {
+                        "key": "sbp",
+                        "label": {
+                          "en": "Systolic BP",
+                          "zh": "收缩压"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "148",
+                            "unit": "mmHg"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "dbp",
+                        "label": {
+                          "en": "Diastolic BP",
+                          "zh": "舒张压"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "86",
+                            "unit": "mmHg"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "hr",
+                        "label": {
+                          "en": "Heart rate",
+                          "zh": "心率"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "96",
+                            "unit": "bpm"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "rr",
+                        "label": {
+                          "en": "Respiratory rate",
+                          "zh": "呼吸频率"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "18",
+                            "unit": "/min"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "spo2",
+                        "label": {
+                          "en": "SpO2",
+                          "zh": "脉搏血氧饱和度"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "95",
+                            "unit": "%"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "evidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.content.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.content.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.columns.0.label.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.columns.0.label.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.0.key",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.0.label.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.0.label.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.0.values.0.unit",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.0.values.0.value",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.1.key",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.1.label.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.1.label.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.1.values.0.unit",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.1.values.0.value",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.2.key",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.2.label.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.2.label.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.2.values.0.unit",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.2.values.0.value",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.3.key",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.3.label.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.3.label.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.3.values.0.unit",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.3.values.0.value",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.4.key",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.4.label.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.4.label.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.4.values.0.unit",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.4.values.0.value",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.title.zh"
+          ]
+        },
+        {
+          "id": "stage_3_review",
+          "title": {
+            "en": "Stage 3: Safety review",
+            "zh": "第 3 阶段：安全复盘"
+          },
+          "exhibits": [
+            {
+              "id": "review",
+              "title": {
+                "en": "Interdisciplinary fall-risk review",
+                "zh": "跨专业跌倒风险复盘"
+              },
+              "content": {
+                "en": "Team reviews nighttime toileting pattern, walker placement, lighting, footwear, anticoagulant use, and recent trazodone start. Family asks whether restraints should be used so the resident cannot stand without help.",
+                "zh": "团队复盘夜间如厕模式、助行器摆放、照明、鞋袜、抗凝药使用以及近期开始曲唑酮。家属询问是否应使用约束，以免住民无人协助时站起。"
+              }
+            }
+          ],
+          "evidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.exhibits.0.content.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.exhibits.0.content.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.exhibits.0.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.exhibits.0.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.title.zh"
+          ]
+        }
+      ],
+      "siblingPartOutlines": [
+        {
+          "ordinal": 1,
+          "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+          "itemType": "multiple_choice",
+          "stem": {
+            "en": "Stage 1 describes a resident found on the floor. What should the nurse do first?",
+            "zh": "第 1 阶段描述一名长期护理机构住民被发现倒在地上。护士首先应做什么？"
+          },
+          "answerableAfterStageId": null,
+          "stageId": null,
+          "evidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.stem.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.stem.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.anchors"
+          ]
+        },
+        {
+          "ordinal": 2,
+          "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+          "itemType": "matrix",
+          "stem": {
+            "en": "Using Stage 2 data, classify each finding after the fall.",
+            "zh": "根据第 2 阶段资料，将跌倒后的每项发现分类。"
+          },
+          "answerableAfterStageId": null,
+          "stageId": null,
+          "evidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.stem.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.stem.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.anchors"
+          ]
+        },
+        {
+          "ordinal": 3,
+          "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+          "itemType": "dropdown_cloze",
+          "stem": {
+            "en": "The nurse prepares to notify the provider after reviewing the fall assessment.",
+            "zh": "护士查看跌倒评估后准备通知医护人员。"
+          },
+          "answerableAfterStageId": null,
+          "stageId": null,
+          "evidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.stem.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.stem.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.anchors"
+          ]
+        },
+        {
+          "ordinal": 4,
+          "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+          "itemType": "ordered_response",
+          "stem": {
+            "en": "After the provider has been notified and transfer is being arranged, place the nurse's ongoing monitoring actions in order.",
+            "zh": "已通知医护人员并正在安排转送后，请按顺序排列护士的持续监测行动。"
+          },
+          "answerableAfterStageId": null,
+          "stageId": null,
+          "evidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.stem.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.stem.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.anchors"
+          ]
+        },
+        {
+          "ordinal": 5,
+          "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+          "itemType": "matrix",
+          "stem": {
+            "en": "Stage 3 includes an interdisciplinary fall-risk review. Classify each prevention strategy.",
+            "zh": "第 3 阶段包含跨专业跌倒风险评估。请将每项预防策略分类。"
+          },
+          "answerableAfterStageId": null,
+          "stageId": null,
+          "evidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.stem.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.stem.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.anchors"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.context.stem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.context.stem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.context.title.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.context.title.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.context.summary.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.context.summary.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.global.baseline.content.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.global.baseline.content.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.global.baseline.title.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.global.baseline.title.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.exhibits.0.content.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.exhibits.0.content.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.exhibits.0.title.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.exhibits.0.title.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.title.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.title.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.content.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.content.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.columns.0.label.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.columns.0.label.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.0.key",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.0.label.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.0.label.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.0.values.0.unit",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.0.values.0.value",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.1.key",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.1.label.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.1.label.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.1.values.0.unit",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.1.values.0.value",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.2.key",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.2.label.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.2.label.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.2.values.0.unit",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.2.values.0.value",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.3.key",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.3.label.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.3.label.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.3.values.0.unit",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.3.values.0.value",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.4.key",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.4.label.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.4.label.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.4.values.0.unit",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.4.values.0.value",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.title.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.title.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.title.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.title.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.exhibits.0.content.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.exhibits.0.content.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.exhibits.0.title.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.exhibits.0.title.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.title.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.title.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.stem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.stem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.anchors",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.stem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.stem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.anchors",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.stem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.stem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.anchors",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.stem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.stem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.anchors",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.stem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.stem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.anchors",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.stem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.stem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.2.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.2.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.3.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.3.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.key",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.2.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.2.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.3.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.3.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.correct.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.correct.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.strategy.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.strategy.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.stem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.stem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.columns.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.columns.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.columns.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.columns.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.rows.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.rows.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.rows.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.rows.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.rows.2.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.rows.2.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.rows.3.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.rows.3.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.rows.4.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.rows.4.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.selectionMode",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.key",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.byChoice.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.byChoice.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.byChoice.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.byChoice.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.byChoice.2.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.byChoice.2.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.byChoice.3.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.byChoice.3.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.byChoice.4.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.byChoice.4.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.correct.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.correct.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.strategy.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.strategy.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.stem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.stem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.clozeStem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.clozeStem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.0.options.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.0.options.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.0.options.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.0.options.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.0.options.2.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.0.options.2.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.1.options.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.1.options.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.1.options.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.1.options.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.1.options.2.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.1.options.2.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.key",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.rationale.byChoice.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.rationale.byChoice.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.rationale.byChoice.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.rationale.byChoice.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.rationale.correct.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.rationale.correct.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.strategy.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.strategy.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.stem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.stem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.response.options.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.response.options.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.response.options.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.response.options.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.response.options.2.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.response.options.2.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.response.options.3.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.response.options.3.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.key",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.rationale.byChoice.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.rationale.byChoice.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.rationale.byChoice.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.rationale.byChoice.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.rationale.byChoice.2.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.rationale.byChoice.2.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.rationale.byChoice.3.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.rationale.byChoice.3.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.rationale.correct.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.rationale.correct.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.strategy.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.strategy.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.stem.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.stem.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.columns.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.columns.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.columns.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.columns.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.rows.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.rows.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.rows.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.rows.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.rows.2.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.rows.2.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.rows.3.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.rows.3.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.rows.4.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.rows.4.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.selectionMode",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.key",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.byChoice.0.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.byChoice.0.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.byChoice.1.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.byChoice.1.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.byChoice.2.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.byChoice.2.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.byChoice.3.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.byChoice.3.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.byChoice.4.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.byChoice.4.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.correct.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.correct.zh",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.strategy.en",
+        "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.strategy.zh"
+      ],
+      "targets": [
+        {
+          "queueIndex": 176,
+          "packetId": "packet-030",
+          "bankPath": "banks/gpt-canonical.json",
+          "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+          "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+          "partOrdinal": 1,
+          "itemType": "multiple_choice",
+          "stem": {
+            "en": "Stage 1 describes a resident found on the floor. What should the nurse do first?",
+            "zh": "第 1 阶段描述一名长期护理机构住民被发现倒在地上。护士首先应做什么？"
+          },
+          "response": {
+            "options": [
+              {
+                "id": "D",
+                "en": "Call the family to ask whether the resident has fallen before",
+                "zh": "打电话给家属询问住民以前是否跌倒过"
+              },
+              {
+                "id": "C",
+                "en": "Complete the occurrence report before providing further care",
+                "zh": "先完成事件报告，再继续护理"
+              },
+              {
+                "id": "A",
+                "en": "Help the resident back to bed and then obtain vital signs",
+                "zh": "先扶住民回床，再测量生命体征"
+              },
+              {
+                "id": "B",
+                "en": "Keep the resident still and assess airway, breathing, circulation, pain, and injury",
+                "zh": "让住民保持不动，并评估气道、呼吸、循环、疼痛和损伤"
+              }
+            ],
+            "correct": [
+              "B"
+            ]
+          },
+          "rationale": {
+            "correct": {
+              "en": "Before moving the resident, the nurse should assess airway, breathing, circulation, level of consciousness, pain, and obvious injury to prevent worsening an occult injury.",
+              "zh": "移动住民前，护士应评估气道、呼吸、循环、意识水平、疼痛和明显损伤，以免加重潜在损伤。"
+            },
+            "byChoice": [
+              {
+                "refId": "C",
+                "en": "The incident report is completed after the resident is assessed and care is initiated.",
+                "zh": "事件报告应在评估住民并开始护理后完成。"
+              },
+              {
+                "refId": "D",
+                "en": "Calling family may be needed later, but it does not replace immediate assessment.",
+                "zh": "之后可能需要联系家属，但不能替代立即评估。"
+              },
+              {
+                "refId": "B",
+                "en": "Immediate assessment for injury and instability is the safest first nursing action.",
+                "zh": "立即评估损伤和不稳定情况是最安全的首要护理行动。"
+              },
+              {
+                "refId": "A",
+                "en": "Moving the resident first can worsen an unrecognized fracture or head/neck injury.",
+                "zh": "先移动住民可能加重未识别的骨折或头颈部损伤。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "After an unwitnessed fall, do not rush to lift the person. Assess for injury and neurologic change first.",
+            "zh": "无人目击跌倒后，不要急着扶起。先评估损伤和神经状态变化。"
+          },
+          "anchorState": {
+            "answerableAfterStageId": {
+              "status": "absent"
+            },
+            "stageId": {
+              "status": "absent"
+            }
+          },
+          "declaredStageIds": [
+            "stage_1_found",
+            "stage_2_assessment",
+            "stage_3_review"
+          ],
+          "rendererVisibleStageIds": [
+            "stage_1_found",
+            "stage_2_assessment",
+            "stage_3_review"
+          ],
+          "partEvidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.stem.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.stem.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.0.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.0.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.1.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.1.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.2.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.2.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.3.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.3.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.key",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.0.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.0.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.1.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.1.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.2.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.2.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.3.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.3.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.correct.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.correct.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.strategy.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.strategy.zh"
+          ],
+          "stageEvidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.exhibits.0.content.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.exhibits.0.content.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.exhibits.0.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.exhibits.0.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.content.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.content.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.columns.0.label.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.columns.0.label.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.0.key",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.0.label.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.0.label.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.0.values.0.unit",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.0.values.0.value",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.1.key",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.1.label.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.1.label.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.1.values.0.unit",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.1.values.0.value",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.2.key",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.2.label.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.2.label.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.2.values.0.unit",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.2.values.0.value",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.3.key",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.3.label.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.3.label.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.3.values.0.unit",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.3.values.0.value",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.4.key",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.4.label.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.4.label.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.4.values.0.unit",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.4.values.0.value",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.exhibits.0.content.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.exhibits.0.content.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.exhibits.0.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.exhibits.0.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.title.zh"
+          ],
+          "contextEvidenceIds": [
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.context.stem.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.context.stem.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.context.title.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.context.title.zh",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.context.summary.en",
+            "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.context.summary.zh"
+          ]
+        }
+      ],
+      "selectedTargetCount": 1,
+      "totalTargetsInParentCase": 5
+    }
+  ],
+  "evidenceCatalog": [
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.context.stem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "CASE_CONTEXT",
+      "jsonPath": "questions[242].stem.en",
+      "text": "Review the long-term-care resident record and answer the case-study items.",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.context.stem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "CASE_CONTEXT",
+      "jsonPath": "questions[242].stem.zh",
+      "text": "查看长期护理机构住民记录并回答病例题。",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.context.title.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "CASE_CONTEXT",
+      "jsonPath": "questions[242].caseStudy.title.en",
+      "text": "Unfolding case: unwitnessed fall in long-term care",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.context.title.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "CASE_CONTEXT",
+      "jsonPath": "questions[242].caseStudy.title.zh",
+      "text": "展开病例：长期护理机构内无人目击跌倒",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.context.summary.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "CASE_CONTEXT",
+      "jsonPath": "questions[242].caseStudy.summary.en",
+      "text": "An older adult resident is found on the floor near the bathroom during night shift.",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.context.summary.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "CASE_CONTEXT",
+      "jsonPath": "questions[242].caseStudy.summary.zh",
+      "text": "一名老年住民夜班时在卫生间附近地上被发现。",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.global.baseline.content.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[242].caseStudy.exhibits[0].content.en",
+      "text": "Age 84. Uses a walker. History: hypertension, atrial fibrillation, mild cognitive impairment. Medication list includes apixaban and newly prescribed trazodone at bedtime. Baseline orientation: person and place.",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.global.baseline.content.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[242].caseStudy.exhibits[0].content.zh",
+      "text": "84 岁。使用助行器。有高血压、房颤、轻度认知障碍病史。用药包括阿哌沙班和新开的睡前曲唑酮。基线定向力：能辨认本人和地点。",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.global.baseline.title.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[242].caseStudy.exhibits[0].title.en",
+      "text": "Resident baseline",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.global.baseline.title.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "GLOBAL_EXHIBIT",
+      "jsonPath": "questions[242].caseStudy.exhibits[0].title.zh",
+      "text": "住民基线",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.exhibits.0.content.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[0].exhibits[0].content.en",
+      "text": "Resident found on floor next to bathroom doorway. Awake but anxious. States, 'My hip hurts.' No staff witnessed the fall. Bed alarm sounding. Walker is across the room.",
+      "stageId": "stage_1_found",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.exhibits.0.content.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[0].exhibits[0].content.zh",
+      "text": "住民被发现倒在卫生间门口旁。清醒但焦虑。说：“我的髋部痛。”无工作人员目击跌倒。床旁报警器正在响。助行器在房间另一侧。",
+      "stageId": "stage_1_found",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.exhibits.0.title.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[0].exhibits[0].title.en",
+      "text": "Nursing note 0230",
+      "stageId": "stage_1_found",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.exhibits.0.title.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[0].exhibits[0].title.zh",
+      "text": "0230 护理记录",
+      "stageId": "stage_1_found",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.title.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[0].title.en",
+      "text": "Stage 1: Found on floor",
+      "stageId": "stage_1_found",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_1_found.title.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[0].title.zh",
+      "text": "第 1 阶段：发现倒地",
+      "stageId": "stage_1_found",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.content.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].content.en",
+      "text": "BP 148/86, HR 96 irregular, RR 18, SpO2 95% room air. Oriented to person only. Vomited once. Right pupil 5 mm, left pupil 3 mm. Right leg shortened and externally rotated. 2-cm elbow abrasion without active bleeding.",
+      "stageId": "stage_2_assessment",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.content.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].content.zh",
+      "text": "血压 148/86，心率 96 次/分且不规则，呼吸 18 次/分，室内空气 SpO2 95%。仅能辨认本人。呕吐一次。右瞳孔 5 mm，左瞳孔 3 mm。右腿短缩并外旋。肘部 2 cm 擦伤，无活动性出血。",
+      "stageId": "stage_2_assessment",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.columns.0.label.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].columns[0].label.en",
+      "text": "0240",
+      "stageId": "stage_2_assessment",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.columns.0.label.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].columns[0].label.zh",
+      "text": "0240",
+      "stageId": "stage_2_assessment",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.0.key",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[0].key",
+      "text": "sbp",
+      "stageId": "stage_2_assessment"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.0.label.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[0].label.en",
+      "text": "Systolic BP",
+      "stageId": "stage_2_assessment",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.0.label.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[0].label.zh",
+      "text": "收缩压",
+      "stageId": "stage_2_assessment",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.0.values.0.unit",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[0].values[0].unit",
+      "text": "mmHg",
+      "stageId": "stage_2_assessment"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.0.values.0.value",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[0].values[0].value",
+      "text": "148",
+      "stageId": "stage_2_assessment"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.1.key",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[1].key",
+      "text": "dbp",
+      "stageId": "stage_2_assessment"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.1.label.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[1].label.en",
+      "text": "Diastolic BP",
+      "stageId": "stage_2_assessment",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.1.label.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[1].label.zh",
+      "text": "舒张压",
+      "stageId": "stage_2_assessment",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.1.values.0.unit",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[1].values[0].unit",
+      "text": "mmHg",
+      "stageId": "stage_2_assessment"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.1.values.0.value",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[1].values[0].value",
+      "text": "86",
+      "stageId": "stage_2_assessment"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.2.key",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[2].key",
+      "text": "hr",
+      "stageId": "stage_2_assessment"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.2.label.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[2].label.en",
+      "text": "Heart rate",
+      "stageId": "stage_2_assessment",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.2.label.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[2].label.zh",
+      "text": "心率",
+      "stageId": "stage_2_assessment",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.2.values.0.unit",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[2].values[0].unit",
+      "text": "bpm",
+      "stageId": "stage_2_assessment"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.2.values.0.value",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[2].values[0].value",
+      "text": "96",
+      "stageId": "stage_2_assessment"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.3.key",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[3].key",
+      "text": "rr",
+      "stageId": "stage_2_assessment"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.3.label.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[3].label.en",
+      "text": "Respiratory rate",
+      "stageId": "stage_2_assessment",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.3.label.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[3].label.zh",
+      "text": "呼吸频率",
+      "stageId": "stage_2_assessment",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.3.values.0.unit",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[3].values[0].unit",
+      "text": "/min",
+      "stageId": "stage_2_assessment"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.3.values.0.value",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[3].values[0].value",
+      "text": "18",
+      "stageId": "stage_2_assessment"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.4.key",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[4].key",
+      "text": "spo2",
+      "stageId": "stage_2_assessment"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.4.label.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[4].label.en",
+      "text": "SpO2",
+      "stageId": "stage_2_assessment",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.4.label.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[4].label.zh",
+      "text": "脉搏血氧饱和度",
+      "stageId": "stage_2_assessment",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.4.values.0.unit",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[4].values[0].unit",
+      "text": "%",
+      "stageId": "stage_2_assessment"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.structuredMeasurements.panels.0.rows.4.values.0.value",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0].rows[4].values[0].value",
+      "text": "95",
+      "stageId": "stage_2_assessment"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.title.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].title.en",
+      "text": "Post-fall assessment 0240",
+      "stageId": "stage_2_assessment",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.exhibits.0.title.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].exhibits[0].title.zh",
+      "text": "0240 跌倒后评估",
+      "stageId": "stage_2_assessment",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.title.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].title.en",
+      "text": "Stage 2: Focused assessment",
+      "stageId": "stage_2_assessment",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_2_assessment.title.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[1].title.zh",
+      "text": "第 2 阶段：重点评估",
+      "stageId": "stage_2_assessment",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.exhibits.0.content.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[2].exhibits[0].content.en",
+      "text": "Team reviews nighttime toileting pattern, walker placement, lighting, footwear, anticoagulant use, and recent trazodone start. Family asks whether restraints should be used so the resident cannot stand without help.",
+      "stageId": "stage_3_review",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.exhibits.0.content.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[2].exhibits[0].content.zh",
+      "text": "团队复盘夜间如厕模式、助行器摆放、照明、鞋袜、抗凝药使用以及近期开始曲唑酮。家属询问是否应使用约束，以免住民无人协助时站起。",
+      "stageId": "stage_3_review",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.exhibits.0.title.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[2].exhibits[0].title.en",
+      "text": "Interdisciplinary fall-risk review",
+      "stageId": "stage_3_review",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.exhibits.0.title.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[2].exhibits[0].title.zh",
+      "text": "跨专业跌倒风险复盘",
+      "stageId": "stage_3_review",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.title.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[2].title.en",
+      "text": "Stage 3: Safety review",
+      "stageId": "stage_3_review",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.stage.stage_3_review.title.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "STAGE",
+      "jsonPath": "questions[242].caseStudy.stages[2].title.zh",
+      "text": "第 3 阶段：安全复盘",
+      "stageId": "stage_3_review",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.stem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[242].caseStudy.questions[0].stem.en",
+      "text": "Stage 1 describes a resident found on the floor. What should the nurse do first?",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.stem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[242].caseStudy.questions[0].stem.zh",
+      "text": "第 1 阶段描述一名长期护理机构住民被发现倒在地上。护士首先应做什么？",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.anchors",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[242].caseStudy.questions[0]",
+      "text": "{\"answerableAfterStageId\":null,\"stageId\":null}",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.stem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[242].caseStudy.questions[1].stem.en",
+      "text": "Using Stage 2 data, classify each finding after the fall.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.stem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[242].caseStudy.questions[1].stem.zh",
+      "text": "根据第 2 阶段资料，将跌倒后的每项发现分类。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.anchors",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[242].caseStudy.questions[1]",
+      "text": "{\"answerableAfterStageId\":null,\"stageId\":null}",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.stem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[242].caseStudy.questions[2].stem.en",
+      "text": "The nurse prepares to notify the provider after reviewing the fall assessment.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.stem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[242].caseStudy.questions[2].stem.zh",
+      "text": "护士查看跌倒评估后准备通知医护人员。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.anchors",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[242].caseStudy.questions[2]",
+      "text": "{\"answerableAfterStageId\":null,\"stageId\":null}",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.stem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[242].caseStudy.questions[3].stem.en",
+      "text": "After the provider has been notified and transfer is being arranged, place the nurse's ongoing monitoring actions in order.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.stem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[242].caseStudy.questions[3].stem.zh",
+      "text": "已通知医护人员并正在安排转送后，请按顺序排列护士的持续监测行动。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.anchors",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[242].caseStudy.questions[3]",
+      "text": "{\"answerableAfterStageId\":null,\"stageId\":null}",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.stem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[242].caseStudy.questions[4].stem.en",
+      "text": "Stage 3 includes an interdisciplinary fall-risk review. Classify each prevention strategy.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.stem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[242].caseStudy.questions[4].stem.zh",
+      "text": "第 3 阶段包含跨专业跌倒风险评估。请将每项预防策略分类。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.sibling.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.anchors",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "SIBLING_OUTLINE",
+      "jsonPath": "questions[242].caseStudy.questions[4]",
+      "text": "{\"answerableAfterStageId\":null,\"stageId\":null}",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.stem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[242].caseStudy.questions[0].stem.en",
+      "text": "Stage 1 describes a resident found on the floor. What should the nurse do first?",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.stem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[242].caseStudy.questions[0].stem.zh",
+      "text": "第 1 阶段描述一名长期护理机构住民被发现倒在地上。护士首先应做什么？",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[0].options[0].en",
+      "text": "Call the family to ask whether the resident has fallen before",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[0].options[0].zh",
+      "text": "打电话给家属询问住民以前是否跌倒过",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[0].options[1].en",
+      "text": "Complete the occurrence report before providing further care",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[0].options[1].zh",
+      "text": "先完成事件报告，再继续护理",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.2.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[0].options[2].en",
+      "text": "Help the resident back to bed and then obtain vital signs",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.2.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[0].options[2].zh",
+      "text": "先扶住民回床，再测量生命体征",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.3.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[0].options[3].en",
+      "text": "Keep the resident still and assess airway, breathing, circulation, pain, and injury",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.response.options.3.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[0].options[3].zh",
+      "text": "让住民保持不动，并评估气道、呼吸、循环、疼痛和损伤",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.key",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_KEY",
+      "jsonPath": "questions[242].caseStudy.questions[0]",
+      "text": "{\"correct\":[\"B\"]}",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[0].rationale.byChoice[0].en",
+      "text": "The incident report is completed after the resident is assessed and care is initiated.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[0].rationale.byChoice[0].zh",
+      "text": "事件报告应在评估住民并开始护理后完成。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[0].rationale.byChoice[1].en",
+      "text": "Calling family may be needed later, but it does not replace immediate assessment.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[0].rationale.byChoice[1].zh",
+      "text": "之后可能需要联系家属，但不能替代立即评估。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.2.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[0].rationale.byChoice[2].en",
+      "text": "Immediate assessment for injury and instability is the safest first nursing action.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.2.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[0].rationale.byChoice[2].zh",
+      "text": "立即评估损伤和不稳定情况是最安全的首要护理行动。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.3.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[0].rationale.byChoice[3].en",
+      "text": "Moving the resident first can worsen an unrecognized fracture or head/neck injury.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.byChoice.3.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[0].rationale.byChoice[3].zh",
+      "text": "先移动住民可能加重未识别的骨折或头颈部损伤。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.correct.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[0].rationale.correct.en",
+      "text": "Before moving the resident, the nurse should assess airway, breathing, circulation, level of consciousness, pain, and obvious injury to prevent worsening an occult injury.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.rationale.correct.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[0].rationale.correct.zh",
+      "text": "移动住民前，护士应评估气道、呼吸、循环、意识水平、疼痛和明显损伤，以免加重潜在损伤。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.strategy.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[0].testTakingStrategy.en",
+      "text": "After an unwitnessed fall, do not rush to lift the person. Assess for injury and neurologic change first.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1.strategy.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[0].testTakingStrategy.zh",
+      "text": "无人目击跌倒后，不要急着扶起。先评估损伤和神经状态变化。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.stem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[242].caseStudy.questions[1].stem.en",
+      "text": "Using Stage 2 data, classify each finding after the fall.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.stem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[242].caseStudy.questions[1].stem.zh",
+      "text": "根据第 2 阶段资料，将跌倒后的每项发现分类。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.columns.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[1].matrix.columns[0].en",
+      "text": "Document and monitor",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.columns.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[1].matrix.columns[0].zh",
+      "text": "记录并监测",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.columns.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[1].matrix.columns[1].en",
+      "text": "Escalate promptly",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.columns.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[1].matrix.columns[1].zh",
+      "text": "立即升级处理",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.rows.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[1].matrix.rows[0].en",
+      "text": "Resident is oriented to person only; baseline is oriented to person and place",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.rows.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[1].matrix.rows[0].zh",
+      "text": "住民仅能辨认本人；基线为能辨认本人和地点",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.rows.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[1].matrix.rows[1].en",
+      "text": "One episode of emesis after the fall",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.rows.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[1].matrix.rows[1].zh",
+      "text": "跌倒后呕吐一次",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.rows.2.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[1].matrix.rows[2].en",
+      "text": "Right pupil 5 mm and left pupil 3 mm",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.rows.2.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[1].matrix.rows[2].zh",
+      "text": "右瞳孔 5 mm，左瞳孔 3 mm",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.rows.3.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[1].matrix.rows[3].en",
+      "text": "Right leg appears shortened and externally rotated",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.rows.3.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[1].matrix.rows[3].zh",
+      "text": "右腿看起来短缩并外旋",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.rows.4.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[1].matrix.rows[4].en",
+      "text": "2-cm elbow abrasion without active bleeding",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.rows.4.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[1].matrix.rows[4].zh",
+      "text": "肘部 2 cm 擦伤，无活动性出血",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.response.matrix.selectionMode",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[1].matrix.selectionMode",
+      "text": "single_per_row",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.key",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_KEY",
+      "jsonPath": "questions[242].caseStudy.questions[1]",
+      "text": "{\"correct\":[{\"rowId\":\"r1\",\"columnIds\":[\"c1\"]},{\"rowId\":\"r2\",\"columnIds\":[\"c1\"]},{\"rowId\":\"r3\",\"columnIds\":[\"c1\"]},{\"rowId\":\"r4\",\"columnIds\":[\"c1\"]},{\"rowId\":\"r5\",\"columnIds\":[\"c2\"]}]}",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.byChoice.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[1].rationale.byChoice[0].en",
+      "text": "A change from baseline orientation can indicate head injury, delirium, or another acute problem.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.byChoice.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[1].rationale.byChoice[0].zh",
+      "text": "与基线相比定向力改变可能提示头部损伤、谵妄或其他急性问题。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.byChoice.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[1].rationale.byChoice[1].en",
+      "text": "Vomiting after a fall is a concerning neurologic sign.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.byChoice.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[1].rationale.byChoice[1].zh",
+      "text": "跌倒后呕吐是令人担忧的神经系统体征。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.byChoice.2.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[1].rationale.byChoice[2].en",
+      "text": "Unequal pupils after a fall require prompt escalation.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.byChoice.2.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[1].rationale.byChoice[2].zh",
+      "text": "跌倒后瞳孔不等大需要立即升级处理。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.byChoice.3.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[1].rationale.byChoice[3].en",
+      "text": "Hip pain with shortening and external rotation suggests possible hip fracture.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.byChoice.3.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[1].rationale.byChoice[3].zh",
+      "text": "髋痛伴肢体短缩和外旋提示可能髋部骨折。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.byChoice.4.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[1].rationale.byChoice[4].en",
+      "text": "A small abrasion is a local injury to document but is not the urgent change compared with neurologic or fracture cues.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.byChoice.4.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[1].rationale.byChoice[4].zh",
+      "text": "小擦伤需记录，但与神经或骨折线索相比不是紧急变化。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.correct.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[1].rationale.correct.en",
+      "text": "New confusion, vomiting, unequal pupils, and hip pain with shortening/external rotation require urgent escalation. A small superficial abrasion without active bleeding is expected local trauma but still documented.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.rationale.correct.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[1].rationale.correct.zh",
+      "text": "新发意识混乱、呕吐、瞳孔不等大以及髋部疼痛伴短缩外旋需要紧急升级处理。小的表浅擦伤且无活动性出血属于局部外伤表现，但仍需记录。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.strategy.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[1].testTakingStrategy.en",
+      "text": "Compare each finding with baseline and ask whether it suggests head injury, fracture, or instability.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2.strategy.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[1].testTakingStrategy.zh",
+      "text": "将每项发现与基线比较，并判断是否提示头部损伤、骨折或不稳定。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.stem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[242].caseStudy.questions[2].stem.en",
+      "text": "The nurse prepares to notify the provider after reviewing the fall assessment.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.stem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[242].caseStudy.questions[2].stem.zh",
+      "text": "护士查看跌倒评估后准备通知医护人员。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.clozeStem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[2].clozeStem.en",
+      "text": "The nurse should report concern for {{1}} and maintain {{2}} until further evaluation.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.clozeStem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[2].clozeStem.zh",
+      "text": "护士应报告对 {{1}} 的担忧，并在进一步评估前维持 {{2}}。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.0.options.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[2].dropdowns[0].options[0].en",
+      "text": "chronic dementia without acute change",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.0.options.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[2].dropdowns[0].options[0].zh",
+      "text": "无急性变化的慢性痴呆",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.0.options.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[2].dropdowns[0].options[1].en",
+      "text": "intracranial injury and possible hip fracture",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.0.options.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[2].dropdowns[0].options[1].zh",
+      "text": "颅内损伤和可能髋部骨折",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.0.options.2.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[2].dropdowns[0].options[2].en",
+      "text": "mild bruising from a witnessed low-risk fall",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.0.options.2.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[2].dropdowns[0].options[2].zh",
+      "text": "目击低风险跌倒后的轻微瘀伤",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.1.options.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[2].dropdowns[1].options[0].en",
+      "text": "range-of-motion exercises to reduce stiffness",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.1.options.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[2].dropdowns[1].options[0].zh",
+      "text": "进行关节活动度练习以减少僵硬",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.1.options.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[2].dropdowns[1].options[1].en",
+      "text": "spinal and limb precautions with the resident still",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.1.options.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[2].dropdowns[1].options[1].zh",
+      "text": "脊柱和肢体防护，保持住民不动",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.1.options.2.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[2].dropdowns[1].options[2].en",
+      "text": "ambulation with two staff to assess gait",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.response.dropdowns.1.options.2.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[2].dropdowns[1].options[2].zh",
+      "text": "由两名工作人员协助行走以评估步态",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.key",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_KEY",
+      "jsonPath": "questions[242].caseStudy.questions[2]",
+      "text": "{\"dropdowns\":[{\"id\":\"1\",\"correct\":\"o1\"},{\"id\":\"2\",\"correct\":\"o1\"}]}",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.rationale.byChoice.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[2].rationale.byChoice[0].en",
+      "text": "New neurologic signs are the strongest reason for urgent escalation.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.rationale.byChoice.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[2].rationale.byChoice[0].zh",
+      "text": "新发神经体征是紧急升级的最重要原因。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.rationale.byChoice.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[2].rationale.byChoice[1].en",
+      "text": "Possible fracture signs require immobilization and provider-directed evaluation.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.rationale.byChoice.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[2].rationale.byChoice[1].zh",
+      "text": "可能骨折的体征需要制动，并由医护人员进一步评估。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.rationale.correct.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[2].rationale.correct.en",
+      "text": "The combination of neurologic changes and possible hip fracture requires provider notification and continued immobilization until evaluated. The resident should not be ambulated to test weight bearing.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.rationale.correct.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[2].rationale.correct.zh",
+      "text": "神经状态变化合并可能髋部骨折需要通知医护人员，并在评估前继续保持制动。不能让住民走路来测试负重能力。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.strategy.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[2].testTakingStrategy.en",
+      "text": "When multiple post-fall problems exist, neurologic deterioration and possible fracture both increase urgency.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3.strategy.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[2].testTakingStrategy.zh",
+      "text": "跌倒后存在多个问题时，神经恶化和可能骨折都会增加紧急性。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.stem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[242].caseStudy.questions[3].stem.en",
+      "text": "After the provider has been notified and transfer is being arranged, place the nurse's ongoing monitoring actions in order.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.stem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[242].caseStudy.questions[3].stem.zh",
+      "text": "已通知医护人员并正在安排转送后，请按顺序排列护士的持续监测行动。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.response.options.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[3].options[0].en",
+      "text": "Prepare a transfer handoff with baseline status, new findings, medications, and vital signs",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.response.options.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[3].options[0].zh",
+      "text": "准备转送交接，包含基线状态、新发现、用药和生命体征",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.response.options.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[3].options[1].en",
+      "text": "Complete the internal occurrence report according to facility procedure",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.response.options.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[3].options[1].zh",
+      "text": "按机构流程完成内部事件报告",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.response.options.2.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[3].options[2].en",
+      "text": "Repeat focused neurologic, pain, distal pulse, movement, and sensation checks",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.response.options.2.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[3].options[2].zh",
+      "text": "重复重点神经、疼痛、远端脉搏、活动和感觉检查",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.response.options.3.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[3].options[3].en",
+      "text": "Maintain fall precautions and keep the resident still with comfort measures",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.response.options.3.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[3].options[3].zh",
+      "text": "维持跌倒预防措施，让住民保持不动并给予舒适护理",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.key",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_KEY",
+      "jsonPath": "questions[242].caseStudy.questions[3]",
+      "text": "{\"correct\":[\"A\",\"B\",\"C\",\"D\"]}",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.rationale.byChoice.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[3].rationale.byChoice[0].en",
+      "text": "The occurrence report is not part of the medical record and follows immediate care priorities.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.rationale.byChoice.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[3].rationale.byChoice[0].zh",
+      "text": "事件报告不属于病历，应在立即护理优先事项之后完成。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.rationale.byChoice.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[3].rationale.byChoice[1].en",
+      "text": "Transfer handoff should include baseline, changes, anticoagulant use, vital signs, and injury findings.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.rationale.byChoice.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[3].rationale.byChoice[1].zh",
+      "text": "转送交接应包括基线、变化、抗凝药使用、生命体征和损伤发现。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.rationale.byChoice.2.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[3].rationale.byChoice[2].en",
+      "text": "Maintaining safety and immobilization is ongoing while transfer is arranged.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.rationale.byChoice.2.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[3].rationale.byChoice[2].zh",
+      "text": "安排转送期间应持续维持安全和制动。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.rationale.byChoice.3.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[3].rationale.byChoice[3].en",
+      "text": "Focused reassessment detects deterioration before transport.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.rationale.byChoice.3.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[3].rationale.byChoice[3].zh",
+      "text": "重点复评可在转运前发现恶化。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.rationale.correct.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[3].rationale.correct.en",
+      "text": "The nurse first maintains safety and immobilization, then repeats focused neurologic and pain/vascular checks, prepares concise transfer handoff information, and completes the occurrence report after clinical care and handoff needs are addressed.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.rationale.correct.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[3].rationale.correct.zh",
+      "text": "护士先维持安全和制动，然后重复重点神经评估及疼痛/血管检查，准备简明转送交接信息，最后在临床护理和交接需求处理后完成事件报告。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.strategy.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[3].testTakingStrategy.en",
+      "text": "In post-event workflows, protect the client, reassess for change, hand off actionable clinical data, then finish safety reporting.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4.strategy.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[3].testTakingStrategy.zh",
+      "text": "事件后流程中，先保护患者，再复评变化，交接可行动的临床资料，最后完成安全报告。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.stem.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[242].caseStudy.questions[4].stem.en",
+      "text": "Stage 3 includes an interdisciplinary fall-risk review. Classify each prevention strategy.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.stem.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_STEM",
+      "jsonPath": "questions[242].caseStudy.questions[4].stem.zh",
+      "text": "第 3 阶段包含跨专业跌倒风险评估。请将每项预防策略分类。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.columns.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[4].matrix.columns[0].en",
+      "text": "Appropriate fall-prevention action",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.columns.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[4].matrix.columns[0].zh",
+      "text": "恰当的跌倒预防措施",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.columns.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[4].matrix.columns[1].en",
+      "text": "Avoid as routine fall prevention",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.columns.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[4].matrix.columns[1].zh",
+      "text": "避免作为常规跌倒预防",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.rows.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[4].matrix.rows[0].en",
+      "text": "Request medication review for newly added nighttime sedative",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.rows.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[4].matrix.rows[0].zh",
+      "text": "请求复核新加的夜间镇静药",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.rows.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[4].matrix.rows[1].en",
+      "text": "Offer toileting before usual rest periods",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.rows.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[4].matrix.rows[1].zh",
+      "text": "在平时休息前协助如厕",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.rows.2.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[4].matrix.rows[2].en",
+      "text": "Place non-skid footwear within reach before transfers",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.rows.2.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[4].matrix.rows[2].zh",
+      "text": "转移前将防滑鞋袜放在可及处",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.rows.3.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[4].matrix.rows[3].en",
+      "text": "Apply a vest restraint whenever the resident is in the chair",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.rows.3.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[4].matrix.rows[3].zh",
+      "text": "住民坐椅时都使用背心约束",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.rows.4.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[4].matrix.rows[4].en",
+      "text": "Keep call light and walker on the resident's stronger side",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.rows.4.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[4].matrix.rows[4].zh",
+      "text": "将呼叫铃和助行器放在住民较强侧",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.response.matrix.selectionMode",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RESPONSE",
+      "jsonPath": "questions[242].caseStudy.questions[4].matrix.selectionMode",
+      "text": "single_per_row",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.key",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_KEY",
+      "jsonPath": "questions[242].caseStudy.questions[4]",
+      "text": "{\"correct\":[{\"rowId\":\"r1\",\"columnIds\":[\"c1\"]},{\"rowId\":\"r2\",\"columnIds\":[\"c1\"]},{\"rowId\":\"r3\",\"columnIds\":[\"c1\"]},{\"rowId\":\"r4\",\"columnIds\":[\"c2\"]},{\"rowId\":\"r5\",\"columnIds\":[\"c1\"]}]}",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.byChoice.0.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[4].rationale.byChoice[0].en",
+      "text": "Sedating or blood-pressure medications can contribute to falls and should be reviewed.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.byChoice.0.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[4].rationale.byChoice[0].zh",
+      "text": "镇静或降压药可能导致跌倒，应复核。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.byChoice.1.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[4].rationale.byChoice[1].en",
+      "text": "Scheduled toileting reduces unsupervised attempts to get up.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.byChoice.1.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[4].rationale.byChoice[1].zh",
+      "text": "定时如厕可减少无人协助起身的尝试。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.byChoice.2.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[4].rationale.byChoice[2].en",
+      "text": "Non-skid footwear supports safer transfers and ambulation.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.byChoice.2.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[4].rationale.byChoice[2].zh",
+      "text": "防滑鞋袜有助于更安全地转移和行走。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.byChoice.3.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[4].rationale.byChoice[3].en",
+      "text": "Restraints should not be used solely to prevent falls.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.byChoice.3.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[4].rationale.byChoice[3].zh",
+      "text": "不能仅为预防跌倒而使用约束。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.byChoice.4.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[4].rationale.byChoice[4].en",
+      "text": "Keeping the call light and walker within reach supports asking for help before moving.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.byChoice.4.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[4].rationale.byChoice[4].zh",
+      "text": "将呼叫铃和助行器放在可及处，有助于移动前求助。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.correct.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[4].rationale.correct.en",
+      "text": "Medication review, scheduled toileting, footwear, adequate lighting, and assistive-device access address modifiable fall risks. Restraints are not a routine fall-prevention strategy and may increase harm.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.rationale.correct.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[4].rationale.correct.zh",
+      "text": "用药复核、定时如厕、合适鞋袜、充足照明和辅助器具可及性可处理可改变的跌倒风险。约束不是常规跌倒预防策略，并可能增加伤害。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "zh"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.strategy.en",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[4].testTakingStrategy.en",
+      "text": "Favor least-restrictive interventions that address why the resident tries to get up or loses balance.",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "en"
+    },
+    {
+      "evidenceId": "case.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02.part.gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5.strategy.zh",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "surface": "PART_RATIONALE",
+      "jsonPath": "questions[242].caseStudy.questions[4].testTakingStrategy.zh",
+      "text": "优先选择最少限制且能解决住民为何起身或失衡的干预。",
+      "ownerPartId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "language": "zh"
+    }
+  ]
+}

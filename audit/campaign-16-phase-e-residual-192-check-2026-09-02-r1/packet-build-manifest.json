@@ -1,0 +1,60 @@
+{
+  "packetBuildManifestVersion": "1.0",
+  "createdAtUtc": "2026-09-03T11:48:17.616Z",
+  "seed": "campaign16-phase-e-residual192-r1-v1",
+  "workOrderSha256": "5e7c4a5595a75d5bbcdc2a9811dba80495bbf2f3514c90f8237511c0aea061f4",
+  "semanticTemplate": {
+    "path": "tools/SEMANTIC-PROMPT-TEMPLATE.md",
+    "sha256": "2bcfa2af096baecccd1d3f021188def10a310084be7e86a8a548bfe980cab36c",
+    "bytes": 4337
+  },
+  "residualPopulation": {
+    "path": "residual-population.jsonl",
+    "sha256": "8a6379c79e3a9aa623e02bf08cd0e45df8331f20bb6a4717f8b4d643497d4f67",
+    "rows": 192
+  },
+  "controlPool": {
+    "path": "sealed/control-pool.json",
+    "sha256": "f58ff822a08e10403dd1488ec8583b1db721927f75699a2cb84a3b2d60af304f",
+    "positiveRows": 114,
+    "negativeRows": 67
+  },
+  "packets": [
+    {
+      "packetId": "cal-a",
+      "path": "packets/cal-a.json",
+      "sha256": "c573b07a31ff2bc6c848536ce7c2de9b88b35b767441d2184a210596c1d5b41c",
+      "serializedUtf8Bytes": 536837,
+      "compactSerializedUtf8Bytes": 536836,
+      "liveRows": 9,
+      "controls": 4
+    },
+    {
+      "packetId": "cal-b",
+      "path": "packets/cal-b.json",
+      "sha256": "2e5847c8b31b1eae9f16c06d3df4816c59860c5949b39cde083127bef5f5c275",
+      "serializedUtf8Bytes": 617316,
+      "compactSerializedUtf8Bytes": 617315,
+      "liveRows": 11,
+      "controls": 4
+    }
+  ],
+  "deterministicRebuild": {
+    "temporarySurfaceRemoved": true,
+    "allByteIdentical": true,
+    "comparisons": [
+      {
+        "packetId": "cal-a",
+        "byteIdentical": true,
+        "originalSha256": "c573b07a31ff2bc6c848536ce7c2de9b88b35b767441d2184a210596c1d5b41c",
+        "rebuiltSha256": "c573b07a31ff2bc6c848536ce7c2de9b88b35b767441d2184a210596c1d5b41c"
+      },
+      {
+        "packetId": "cal-b",
+        "byteIdentical": true,
+        "originalSha256": "2e5847c8b31b1eae9f16c06d3df4816c59860c5949b39cde083127bef5f5c275",
+        "rebuiltSha256": "2e5847c8b31b1eae9f16c06d3df4816c59860c5949b39cde083127bef5f5c275"
+      }
+    ]
+  }
+}

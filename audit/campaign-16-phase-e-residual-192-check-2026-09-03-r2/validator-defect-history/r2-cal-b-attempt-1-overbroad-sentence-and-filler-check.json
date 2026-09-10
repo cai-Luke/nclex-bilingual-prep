@@ -1,0 +1,58 @@
+{
+  "validationVersion": "2.0",
+  "packetId": "r2-cal-b",
+  "attempt": 1,
+  "phaseT": {
+    "result": "FAIL",
+    "parseClass": null,
+    "duplicateKeyRows": 0,
+    "gates": {
+      "T-G1": "PASS",
+      "T-G2": "PASS",
+      "T-G4": "PASS",
+      "T-G5": "PASS",
+      "T-G6": "PASS",
+      "T-G7": "PASS",
+      "T-G8": "PASS",
+      "T-G9": "PASS",
+      "T-G10": "PASS",
+      "T-G11": "PASS",
+      "T-G12": "PASS",
+      "T-G13": "FAIL",
+      "T-G14": "FAIL",
+      "T-G15": "PASS",
+      "T-G3": "RETIRED"
+    },
+    "errors": [
+      {
+        "gate": "T-G14",
+        "row": 1,
+        "code": "VALUE",
+        "detail": {
+          "stageToken": "s_a85186d556f73c21ae22685d1372",
+          "field": "basis"
+        }
+      },
+      {
+        "gate": "T-G13",
+        "row": 11,
+        "code": "VALUE",
+        "detail": {
+          "words": 22,
+          "sentences": 2
+        }
+      }
+    ],
+    "observations": {
+      "missingOrForeignKeyRows": 0,
+      "fillerBasisRows": 1
+    }
+  },
+  "phaseR": {
+    "result": "NOT_RUN",
+    "assertions": {}
+  },
+  "controlScores": [],
+  "calibrationVoid": null,
+  "harvestStatus": "MECHANICAL_FAILURE"
+}

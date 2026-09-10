@@ -1,0 +1,85 @@
+{
+  "validationVersion": "2.0",
+  "packetId": "r2-cal-a-superseding-2",
+  "attempt": 2,
+  "phaseT": {
+    "result": "PASS",
+    "parseClass": null,
+    "duplicateKeyRows": 0,
+    "gates": {
+      "T-G1": "PASS",
+      "T-G2": "PASS",
+      "T-G4": "PASS",
+      "T-G5": "PASS",
+      "T-G6": "PASS",
+      "T-G7": "PASS",
+      "T-G8": "PASS",
+      "T-G9": "PASS",
+      "T-G10": "PASS",
+      "T-G11": "PASS",
+      "T-G12": "PASS",
+      "T-G13": "PASS",
+      "T-G14": "PASS",
+      "T-G15": "PASS",
+      "T-G3": "RETIRED"
+    },
+    "errors": [],
+    "observations": {
+      "missingOrForeignKeyRows": 0,
+      "fillerBasisRows": 0
+    }
+  },
+  "phaseR": {
+    "result": "PASS",
+    "assertions": {
+      "R-A1": "PASS",
+      "R-A2": "PASS",
+      "R-A3": "PASS",
+      "R-A4": "PASS"
+    }
+  },
+  "controlScores": [
+    {
+      "rowToken": "r_8981c6a964ede40dba88a3e8e3f5",
+      "sourceStage2QueueIndex": 414,
+      "expectedPrimaryVerdict": "LEAK",
+      "actualPrimaryVerdict": "LEAK",
+      "expectedUnsafeStageId": "stage_0855",
+      "actualLocusStageId": "stage_0855",
+      "classification": "PASS",
+      "bilingualMatch": true
+    },
+    {
+      "rowToken": "r_178b4406ce755887ae37a79eebfe",
+      "sourceStage2QueueIndex": 32,
+      "expectedPrimaryVerdict": "LEAK",
+      "actualPrimaryVerdict": "LEAK",
+      "expectedUnsafeStageId": "stage_3_response",
+      "actualLocusStageId": "stage_3_response",
+      "classification": "PASS",
+      "bilingualMatch": true
+    },
+    {
+      "rowToken": "r_e446f245491b5289e947fa799a63",
+      "sourceStage2QueueIndex": 273,
+      "expectedPrimaryVerdict": "LEAK",
+      "actualPrimaryVerdict": "LEAK",
+      "expectedUnsafeStageId": "stage_2",
+      "actualLocusStageId": "stage_2",
+      "classification": "PASS",
+      "bilingualMatch": true
+    },
+    {
+      "rowToken": "r_5fefc72e5b2011badd7854eea62f",
+      "sourceStage2QueueIndex": 225,
+      "expectedPrimaryVerdict": "NO_LEAK_NONANSWERING_DATA",
+      "actualPrimaryVerdict": "LEAK",
+      "expectedUnsafeStageId": null,
+      "actualLocusStageId": "stage_1000_1200",
+      "classification": "NEGATIVE_FALSE_POSITIVE",
+      "bilingualMatch": true
+    }
+  ],
+  "calibrationVoid": true,
+  "harvestStatus": "HARVESTED"
+}

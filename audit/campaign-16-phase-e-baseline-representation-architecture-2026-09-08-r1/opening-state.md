@@ -1,0 +1,68 @@
+# Opening state
+
+Disk-reading architecture investigation in the live local repository. Remote state was not fetched or assumed equivalent.
+
+Branch: `main`; HEAD: `3286024bcab90c1a114811a7202d956c3e586bf4`; upstream: `origin/main`; local ahead/behind: `0	0`.
+
+Pre-existing tracked, untracked non-ignored files and the ignored parked R3 work order were fingerprinted before artifact creation; index entries are recorded in [opening-snapshot.json](opening-snapshot.json). This is not a clean-tree or remote-publication claim.
+
+Authorized writes: this new audit directory only. No production/bank/governance edit, patch operations, semantic census, calibration rerun, repair, census regeneration, or Git mutation. All investigation work is by the primary architecture seat; no delegated or independent review is claimed.
+
+Opening `git status --short` (all entries pre-existing):
+
+```text
+ M AGENTS.md
+M  BANK-CENSUS.md
+MM BANK-REVIEW-LEDGER.md
+ M CLAUDE.md
+ M Gemini.md
+ M GeminiPrompt.md
+M  PROJECT-HISTORY.md
+ M STAGE-REFERENCE-SEMANTIC-CENSUS-GEMINI-CALIBRATION-SPEC-2026-07-23.md
+A  audit/campaign-16-phase-a-baseline-2026-08-26/baseline.json
+A  audit/campaign-16-phase-a-baseline-2026-08-26/baseline.md
+A  audit/campaign-16-phase-a-baseline-2026-08-26/execution-plan.md
+A  audit/campaign-16-phase-a-check-2026-08-26/check.json
+A  audit/campaign-16-phase-a-check-2026-08-26/check.md
+A  audit/campaign-16-phase-a-check-2026-08-26/comparison.md
+A  audit/campaign-16-phase-b-recovery-2026-08-27/execution-plan-iteration-1.md
+A  audit/campaign-16-phase-b-recovery-2026-08-27/execution-plan-stage-3.md
+A  audit/campaign-16-phase-b-recovery-2026-08-27/execution-plan.md
+A  audit/campaign-16-phase-b-recovery-2026-08-27/manifest-iteration-1.json
+A  audit/campaign-16-phase-b-recovery-2026-08-27/manifest.json
+A  audit/campaign-16-phase-b-recovery-2026-08-27/publication-freeze.json
+A  audit/campaign-16-phase-b-recovery-2026-08-27/publication-freeze.md
+A  audit/campaign-16-phase-b-recovery-2026-08-27/report-iteration-1.md
+A  audit/campaign-16-phase-b-recovery-2026-08-27/report.md
+A  audit/campaign-16-phase-b-recovery-2026-08-27/review-iteration-1.json
+A  audit/campaign-16-phase-b-recovery-2026-08-27/review-iteration-1.md
+A  audit/campaign-16-phase-b-recovery-2026-08-27/review.json
+A  audit/campaign-16-phase-b-recovery-2026-08-27/review.md
+MM banks/gpt-canonical.json
+ M banks/hard-cases-canonical.json
+M  census.json
+A  scripts/patches/2026-08-27-campaign16-phase-b-recovery-iteration-1.ts
+A  scripts/patches/2026-08-27-campaign16-phase-b-recovery.ts
+?? ASTRA-GOVERNANCE-COMPATIBILITY-AUDIT-2026-09-05.md
+?? audit/campaign-16-phase-c-check-2026-08-27-r5/
+?? audit/campaign-16-phase-c-closeout-2026-08-28-r6/
+?? audit/campaign-16-phase-c-closeout-check-2026-08-28-r6/
+?? audit/campaign-16-phase-c-unpaired-bowtie-2026-08-27-r5/
+?? audit/campaign-16-phase-c-unpaired-bowtie-2026-08-27/
+?? audit/campaign-16-phase-d-bowtie-repair-2026-08-29-r2/
+?? audit/campaign-16-phase-d-check-2026-08-29-r2-retry-1/
+?? audit/campaign-16-phase-d-check-2026-08-29-r2/
+?? audit/campaign-16-phase-e-anchor-omission-inventory-2026-09-08-r1/
+?? audit/campaign-16-phase-e-anchor-parent-calibration-2026-09-08-r1/
+?? audit/campaign-16-phase-e-anchor-parent-calibration-check-2026-09-08-r1/
+?? audit/campaign-16-phase-e-residual-192-check-2026-09-02-r1/
+?? audit/campaign-16-phase-e-residual-192-check-2026-09-03-r2/
+?? audit/campaign-16-phase-e-residual-192-check-2026-09-05-r3/
+?? audit/campaign-16-phase-e-stage-reference-census-2026-08-29-r1/
+?? audit/campaign-16-phase-e-stage-reference-check-2026-08-29-r1/
+?? audit/experimental-antigravity-opus-phase-e-residual192-shadow-2026-09-02-r1/
+?? audit/experimental-campaign16-phase-e-a1-mechanical-prototype-2026-09-03-r1/
+?? audit/experimental-campaign16-phase-e-r2-mechanical-redteam-2026-09-03-r1/
+?? audit/experimental-gemini-phase-e-residual192-shadow-2026-09-02-r1/
+?? scripts/patches/2026-08-29-campaign16-phase-d-bowtie-repair.ts
+```

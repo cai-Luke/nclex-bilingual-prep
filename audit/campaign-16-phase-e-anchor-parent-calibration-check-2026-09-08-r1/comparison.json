@@ -1,0 +1,72 @@
+{
+  "artifact": "Campaign 16 Phase E — Checker vs. Producer Comparison (post-reveal)",
+  "date": "2026-09-08",
+  "producerArtifactsReadAfterFreeze": [
+    "producer-adjudications.json",
+    "locked-producer-freeze.json",
+    "calibration-summary.json",
+    "locked-comparison.md"
+  ],
+  "note": "report.md in the producer directory was not needed for this comparison and was not read; nothing in it bears on the part-level/parent-level counts, which are fully captured by producer-adjudications.json.",
+  "statement": "This comparison is evidence only. The checker's frozen adjudications in checker-adjudications.json/checker-freeze.json were not revised after reading the producer artifacts.",
+  "partLevelAgreement": {
+    "totalPartsCompared": 40,
+    "exactLabelAgreementCount": 39,
+    "exactLabelAgreementRate": 0.975,
+    "disagreements": [
+      {
+        "parentId": "cs_thyroid_storm_main",
+        "partId": "cs_thyroid_storm_q3",
+        "queueIndex": 371,
+        "checkerLabel": "AMBIGUOUS",
+        "producerLabel": "STAGE:stage_0830",
+        "disagreementType": "EXACT_STAGE_CHOICE_NOT_BASELINE_QUESTION",
+        "note": "Both the checker and the producer agree this part is NOT a BASELINE_BEFORE_FIRST_STAGE case. The disagreement is that the producer commits to a specific declared-stage anchor (stage_0830) with HIGH confidence, while the checker found the repository content insufficient to defensibly choose one specific stage over treating the interventions as spanning the full 0800-1200 window, and returned AMBIGUOUS per P8 rather than resolve the tie by inference."
+      }
+    ]
+  },
+  "parentLevelAgreement": {
+    "question": "Does this parent contain at least one part whose appropriate boundary is BASELINE_BEFORE_FIRST_STAGE?",
+    "totalParentsCompared": 8,
+    "exactAgreementCount": 8,
+    "exactAgreementRate": 1.0,
+    "perParent": [
+      { "parentId": "opus2_case_code_status_01", "checker": true, "producer": true, "agree": true },
+      { "parentId": "opus_vanco_case_01", "checker": false, "producer": false, "agree": true },
+      { "parentId": "opus_agvd_case_agvhd_01", "checker": false, "producer": false, "agree": true },
+      { "parentId": "gpt_case_gap_2026_06_11_case_adhf_01", "checker": true, "producer": true, "agree": true },
+      { "parentId": "gpt_case_opus5_cdi_immunocompromised_01", "checker": false, "producer": false, "agree": true },
+      { "parentId": "gpt_case_warfarin_mvr_2026_06_11_01", "checker": true, "producer": true, "agree": true },
+      { "parentId": "cs_thyroid_storm_main", "checker": true, "producer": true, "agree": true },
+      { "parentId": "opus_tpn_case_mucositis_01", "checker": false, "producer": false, "agree": true }
+    ]
+  },
+  "baselineFindings": {
+    "sharedBaselineFindings": [
+      { "parentId": "opus2_case_code_status_01", "partId": "opus2_case_code_status_q1" },
+      { "parentId": "gpt_case_gap_2026_06_11_case_adhf_01", "partId": "gpt_case_gap_2026_06_11_adhf_matrix_01" },
+      { "parentId": "gpt_case_warfarin_mvr_2026_06_11_01", "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q1" },
+      { "parentId": "gpt_case_warfarin_mvr_2026_06_11_01", "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q2" },
+      { "parentId": "cs_thyroid_storm_main", "partId": "cs_thyroid_storm_q1" }
+    ],
+    "sharedBaselineFindingsCount": 5,
+    "producerOnlyBaselineFindings": [],
+    "checkerOnlyBaselineFindings": []
+  },
+  "gateBreachRowsIndependentCheck": {
+    "row370": {
+      "parentId": "cs_thyroid_storm_main",
+      "partId": "cs_thyroid_storm_q2",
+      "checkerLabel": "STAGE:stage_0830",
+      "producerLabel": "STAGE:stage_0830",
+      "agree": true
+    },
+    "row395": {
+      "parentId": "opus_tpn_case_mucositis_01",
+      "partId": "opus_tpn_case_mucositis_01_q3",
+      "checkerLabel": "STAGE:stage_2",
+      "producerLabel": "STAGE:stage_2",
+      "agree": true
+    }
+  }
+}

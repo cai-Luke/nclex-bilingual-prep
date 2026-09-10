@@ -1,0 +1,104 @@
+{
+  "dispatchProcessVersion": "2.0",
+  "packetId": "r2-cal-b",
+  "attempt": 1,
+  "startedAtUtc": "2026-09-03T23:54:35.693Z",
+  "endedAtUtc": "2026-09-04T00:08:50.196Z",
+  "wallTimeSeconds": 854.471569583,
+  "cli": "/Users/holemini/.local/bin/claude",
+  "invocation": {
+    "requestedModelAlias": "opus",
+    "requestedContextMode": "1M",
+    "effort": "max",
+    "systemPromptSource": "tools/SEMANTIC-PROMPT-TEMPLATE.md",
+    "userInputSource": "packets/r2-cal-b.json",
+    "mechanicalRetry": false,
+    "mechanicalErrorsPath": null,
+    "isolation": {
+      "safeMode": true,
+      "tools": [],
+      "disallowedTools": "*",
+      "strictMcpConfig": true,
+      "slashCommandsDisabled": true,
+      "sessionPersistence": false,
+      "browser": false,
+      "childCwd": "runtime-sandbox",
+      "freshProcess": true,
+      "priorOutputExposed": false
+    }
+  },
+  "packet": {
+    "sha256": "0926c12e7be375a4339ad7fb8bfd95bc59e27af661676ac989150b1f7adab0f8",
+    "bytes": 699565
+  },
+  "semanticTemplate": {
+    "sha256": "fa4f87a3a4939cb43dc266a6857ecd4d7e9944c19d344cb548b764ee56c6d1fe",
+    "bytes": 3687
+  },
+  "exitStatus": 0,
+  "signal": null,
+  "error": null,
+  "stdoutSha256": "2fb2edea9c8cc31e3695f9acb8f9b500048762f622187ed58fd8b49f7be97049",
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "responseParsed": true,
+  "parseError": null,
+  "outputCreated": true,
+  "outputSha256": "3a32151efabb78785cbd29ff7062ec8e5b9a40107776193e335582633a6c095b",
+  "semanticMetadata": {
+    "sessionId": "76504e56-fedd-496e-ac42-2f4df27d8cd7",
+    "durationApiMs": 850836,
+    "totalCostUsd": 4.914905,
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 352532,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 55583,
+      "output_tokens_details": {
+        "thinking_tokens": 38977
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 352532,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 55583,
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 352532,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 352532
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-opus-5": {
+        "inputTokens": 2,
+        "outputTokens": 55583,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 352532,
+        "webSearchRequests": 0,
+        "costUSD": 4.914905,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000,
+        "canonicalModel": "claude-opus-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "stopReason": "end_turn",
+    "terminalReason": "completed",
+    "isError": false,
+    "numTurns": 1
+  }
+}
