@@ -1,0 +1,181 @@
+{
+  "advisoryPriority": "P3",
+  "bilingualCollateral": [
+    {
+      "effectOnKey": "NONE",
+      "location": "Standalone stem, zh",
+      "note": "The addition is directionally consistent with P4 and P2 and does not steer a Chinese test-taker toward a different token than an English test-taker.",
+      "observation": "The English reads 'two parameters that best evaluate the response'; the Chinese reads '两个最能评价处理效果的监测/确认参数', adding the qualifier '监测/确认' (monitoring/confirmation) that has no English counterpart.",
+      "severity": "MINOR"
+    },
+    {
+      "effectOnKey": "NONE",
+      "location": "Standalone token C3, zh",
+      "note": "Terminology is internally consistent with the standalone glossary and the sibling q6 glossary entry; no meaning is lost that would affect selection.",
+      "observation": "'Unauthorized access of PHI requiring breach-response investigation' is rendered '未经授权访问PHI，需要隐私事件调查'; '隐私事件调查' compresses 'breach-response investigation' and drops the explicit response/determination framing carried by the sibling's own term '隐私事件判定' (breach determination).",
+      "severity": "MINOR"
+    },
+    {
+      "effectOnKey": "NONE",
+      "location": "Standalone token A4, zh",
+      "note": "'当班管理人员' is a superset that correctly covers the charge nurse; the standalone must remain policy-agnostic, so the broader rendering is appropriate rather than defective.",
+      "observation": "'unit leadership' is rendered '当班管理人员' (on-duty management staff), whereas the sibling policy specifies a two-step chain of 'charge nurse' then 'unit manager / 单元经理'.",
+      "severity": "MINOR"
+    },
+    {
+      "effectOnKey": "NONE",
+      "location": "Sibling zh text, multiple exhibits and options",
+      "note": "Sibling-side only; recorded as a narrow observation because the standalone item under review contains no such mixed-language artifacts. No content edit proposed.",
+      "observation": "Chinese passages retain untranslated English role terms inconsistently — 'charge nurse' is left in English throughout (stage_2_actions, q4_b, q5_a, q5_b, baseline_profile_policy) while 'unit manager' is translated to '单元经理' and 'Privacy Officer' to '隐私官'. 'HIM' and 'MAR' also appear untranslated in zh, though HIM is glossed at case level.",
+      "severity": "MINOR"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "explanation": "The sibling reaches the identical characterization — 'Viewing PHI without a treatment, payment, or operations purpose is an unauthorized access even if the information is not repeated to anyone' — and adds the motive ('curiosity', 'personal interest in orthopedic notes') that the standalone omits. Motive is not required: the standalone's 'without a care role' already negates every permitted purpose, so C3 stands without the sibling.",
+      "opaqueTokenLabel": "C3",
+      "overlapType": "CONCEPTUAL_AND_LEXICAL",
+      "siblingCounterpart": "q3 option q3_a ('RN Casey's unauthorized access to Mrs. Torrance's EHR', keyed correct) and q2 row q2_r1 mapped to column q2_c1 ('Completed impermissible access or identifiable record as it occurred'); also q1 option q1_b.",
+      "siblingNecessity": "CORROBORATIVE_ONLY"
+    },
+    {
+      "explanation": "The sibling independently keys containment-before-paperwork as the first action and its baseline policy exhibit names the charge nurse as the notification target. The standalone A4 hedges to 'unit leadership according to facility policy', which is self-contained; the learner does not need to know the facility's specific chain to prefer it over the contraindicated A1 and A3.",
+      "opaqueTokenLabel": "A4",
+      "overlapType": "CONCEPTUAL_AND_LEXICAL",
+      "siblingCounterpart": "q5 option q5_a ('Ask RN Casey to close the record or log out immediately, then notify the charge nurse and follow the breach-reporting chain', keyed correct) and the first clause of q4 option q4_b.",
+      "siblingNecessity": "CORROBORATIVE_ONLY"
+    },
+    {
+      "explanation": "The sibling confirms the electronic incident report as a required step and confirms its separation from the chart. The standalone stem's 'started the facility reporting process' already licenses A2 on its own terms; the sibling only adds the completion timestamp and the explicit policy basis.",
+      "opaqueTokenLabel": "A2",
+      "overlapType": "CONCEPTUAL_AND_LEXICAL",
+      "siblingCounterpart": "q4 option q4_b (second clause: 'complete the incident report, and keep the report out of the medical record'), supported by baseline_profile_policy and by stage_2 'By 1200, incident reporting is complete and is not documented in the medical record.'",
+      "siblingNecessity": "CORROBORATIVE_ONLY"
+    },
+    {
+      "explanation": "This is the closest overlap in the set — the two option texts are functionally identical. The sibling's stage_3 exhibit provides the event that would satisfy P4, but the standalone learner needs only the stem's 'started the facility reporting process' plus the general principle that a reporting handoff is evaluated by confirmation and evidence preservation. No dependency.",
+      "opaqueTokenLabel": "P4",
+      "overlapType": "NEAR_VERBATIM",
+      "siblingCounterpart": "q6 option q6_b ('The Privacy Officer has started the breach-determination process and preserved the EHR audit trail', keyed correct) — near-verbatim with standalone P4; supported by stage_3 '1430, the Privacy Officer states RN Casey's access will be investigated through the formal breach-determination process using the EHR audit trail.'",
+      "siblingNecessity": "CORROBORATIVE_ONLY"
+    },
+    {
+      "explanation": "The sibling enumerates concrete safeguards, three of which relate to the four events absent from the standalone; only the minimum-necessary/audit-trail in-service maps to the EHR access. The standalone P2 is deliberately generic ('targeted corrective education and follow-up safeguards identified through the privacy investigation'), which is why it remains supportable by general knowledge alone — this was classified GENERAL_KNOWLEDGE_LINK in the immutable standalone record, and the sibling reveal does not upgrade it to a dependency.",
+      "opaqueTokenLabel": "P2",
+      "overlapType": "CONCEPTUAL",
+      "siblingCounterpart": "stage_3_evaluation safeguards list ('fax-machine signage to redirect records requests to HIM, instructor reinforcement of the no-identifiable-photo policy, an in-service on minimum-necessary access and audit trails, and staff review of private spaces for report'); thematically adjacent to q6 options q6_a and q6_d.",
+      "siblingNecessity": "CORROBORATIVE_ONLY"
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "effectOnKey": "NONE",
+      "observation": "Distractor P3 ('current vital signs, wound appearance, and pain score') is clinically coherent for the sibling's postoperative day 1 ORIF client — the sibling documents T 99 °F, HR 78, BP 134/82, RR 14, SpO2 97%, pain 4/10, and a clean, dry, intact dressing with intact distal neurovascular status. The distractor is therefore realistic rather than fabricated, and mirrors sibling q6_e.",
+      "severity": "NONE"
+    },
+    {
+      "effectOnKey": "NONE",
+      "observation": "In the standalone item the stem contains no clinical data at all, so P3 is transparently irrelevant and functions as a weak distractor. This slightly reduces its discriminating power compared with its sibling counterpart q6_e, where stable postoperative findings are actively documented and thus genuinely tempting.",
+      "severity": "MINOR"
+    },
+    {
+      "effectOnKey": "NONE",
+      "observation": "The sibling's laboratory values (Hgb 11.4 g/dL, creatinine 1.3 mg/dL, eGFR 52 mL/min, glucose 168 mg/dL) are never used by any sibling question and have no bearing on the privacy construct. They are plausible for a 58-year-old postoperative client but remain unexercised context.",
+      "severity": "MINOR"
+    },
+    {
+      "effectOnKey": "NONE",
+      "observation": "No clinical inaccuracy was identified in either artifact. The privacy content (workforce-member snooping, minimum-necessary access, incidental disclosure standard, incident reports excluded from the chart, HIM as the records-release pathway) is consistent with standard HIPAA and nursing practice.",
+      "severity": "NONE"
+    }
+  ],
+  "defectSummary": "",
+  "missingFactProvenance": [
+    {
+      "explanation": "The sibling supplies time and the specific records viewed, but the standalone key turns only on 'opened the record' plus 'no care role.' Knowing it was 0830 or that it was the operative report and MAR does not move any token's rank; it would only populate fields inside the incident report (A2) and the audit review (P4).",
+      "impactOnStandaloneRankability": "NONE",
+      "missingFact": "Exact date, time, workstation, duration of the access, and which specific data elements were viewed",
+      "necessity": "CORROBORATIVE_ONLY",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingSource": "stage_1_privacy_events exhibit: '0830: RN Casey, assigned to another pod and with no care role, is seen scrolling through Mrs. Torrance's operative report and MAR because of personal interest in orthopedic notes.'"
+    },
+    {
+      "explanation": "The sibling confirms no onward sharing, which is precisely the premise A1 relies on — and the sibling explicitly rules that premise insufficient. This strengthens, rather than alters, the standalone exclusion of A1, which was already excluded on the mandatory-reporting standard alone.",
+      "impactOnStandaloneRankability": "NONE",
+      "missingFact": "Whether the coworker further disclosed, printed, photographed, or transmitted any of the information externally",
+      "necessity": "CORROBORATIVE_ONLY",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingSource": "stage_2_actions exhibit: 'RN Casey is dismissive and says she did not share the information.' Reinforced by q1 rationale for q1_b: 'even if the information is not repeated to anyone.'"
+    },
+    {
+      "explanation": "The sibling never addresses whether RN Casey accessed other charts either; it only frames her access as 'the broadest completed access exposure' relative to the other morning events. Since the fact is absent from both artifacts and neither key depends on it, it is confirmed as a non-issue rather than a hidden dependency.",
+      "impactOnStandaloneRankability": "NONE",
+      "missingFact": "Whether other patients' records were accessed by the same user (breach scope)",
+      "necessity": "NOT_NEEDED",
+      "provenance": "ABSENT_FROM_BOTH",
+      "siblingSource": ""
+    },
+    {
+      "explanation": "Neither the standalone pools nor any sibling question offers a credential-suspension or IT-security option; the sibling routes containment through 'close the record or log out immediately' (q5_a) and escalation through the charge nurse and Privacy Officer. This element that blind Stage 1 free-generated is simply outside the assessed construct in both artifacts.",
+      "impactOnStandaloneRankability": "NONE",
+      "missingFact": "Current status of the coworker's EHR credentials (suspended versus active) and any IT/Security involvement",
+      "necessity": "NOT_NEEDED",
+      "provenance": "ABSENT_FROM_BOTH",
+      "siblingSource": ""
+    },
+    {
+      "explanation": "The sibling shows breach determination started but not completed, and shows patient acknowledgment without formal notification — exactly the in-progress state P4 is designed to measure. The four-factor risk assessment is never itemized in either artifact. Nothing here changes which tokens are keyed.",
+      "impactOnStandaloneRankability": "NONE",
+      "missingFact": "Whether Mrs. Torrance has been notified and whether the four-factor breach risk assessment has been completed",
+      "necessity": "CORROBORATIVE_ONLY",
+      "provenance": "PARTIALLY_PRESENT_IN_SIBLING",
+      "siblingSource": "stage_3_evaluation exhibit: '1430, the Privacy Officer states RN Casey's access will be investigated through the formal breach-determination process using the EHR audit trail'; '1530, Mrs. Torrance asks about a concern with her chart; RN Jordan acknowledges the facility is aware of a concern and the Privacy Officer is handling it, without naming staff or disclosing investigation details.'"
+    },
+    {
+      "explanation": "This is the single largest overlap: the sibling policy exhibit spells out the exact sequence that A4 and A2 encode and states outright the rule that excludes A3. Critically, the standalone A4 option text defers to 'according to facility policy' on its face, and A3's exclusion rests on a universally taught documentation standard, so the standalone was rankable without this exhibit. State breach-notification law appears in neither artifact and is needed by neither.",
+      "impactOnStandaloneRankability": "NONE",
+      "missingFact": "Facility-specific privacy policy, escalation chain, and applicable state breach-notification law",
+      "necessity": "CORROBORATIVE_ONLY",
+      "provenance": "PARTIALLY_PRESENT_IN_SIBLING",
+      "siblingSource": "baseline_profile_policy exhibit: 'facility policy requires the nurse who discovers or witnesses a potential privacy breach to immediately mitigate exposure, notify the charge nurse, complete an electronic incident report, and ensure same-shift notification to the unit manager and Privacy Officer. Incident reports are quality-improvement documents and must not be referenced in the medical record.'"
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "Applying the fixed precedence in order: (1) FAIL_HIDDEN_CASE_DEPENDENCY does not apply — every keyed token is reachable from the standalone stem alone. The condition is fixed by two explicit stem facts ('open Mrs. Torrance's electronic record' + 'without a care role'); A4 and A2 restate the two containment/reporting steps the stem itself names; P4 is the verifiable output of the 'facility reporting process' the stem says was started; and P2 rests on general privacy-investigation knowledge, not on any sibling detail. Nothing in the revealed case is necessary to reach C3 / A4 + A2 / P4 + P2. (2) FAIL_UNSUPPORTED_TOKEN_PREMISE does not apply — the two non-keyed condition options are contradicted by stem text rather than left premise-less, the two non-keyed actions are excluded on universal practice standards (mandatory reporting; incident reports are risk-management documents kept out of the chart), and the two non-keyed parameters are excluded on categorical irrelevance. No keyed token required an unstated client premise. (3) FAIL_UNDERDETERMINED does not apply — the 1/2/2 set is forced, because both discarded actions are contraindicated rather than merely lower-priority and both discarded parameters cannot measure a privacy outcome at all. (4) FAIL_CANONICAL_KEY_OR_LOGIC does not apply — the canonical key matches the blind Stage 2 selection exactly and is internally consistent with the sibling's own logic (q3 keys the curiosity access as the completed non-incidental unauthorized access; q5 keys containment-then-reporting; q4 keys the exit-record/charge-nurse/incident-report bundle and rejects charting the incident report; q6 keys audit-trail/Privacy-Officer confirmation and rejects vital signs and the family-call finding). (5) HOLD_REVIEWER_DISAGREEMENT does not apply — no reviewer conflict exists; the blind and post-reveal readings converge. The sibling case functions purely as corroboration: it confirms the coworker's identity (RN Casey), the access time (0830), the records viewed (operative report and MAR), the absence of onward sharing, the exact facility reporting chain, and the safeguards later identified — none of which the standalone item needed. Verdict is PASS_STANDALONE, with narrow collateral observations recorded at advisory P3.",
+  "scopeCollateral": [
+    {
+      "effectOnKey": "NONE",
+      "observation": "The standalone stem correctly narrows to one of the sibling's five privacy events (RN Casey's curiosity-based EHR access) and omits the caller, employer fax, student photograph, and hallway report. It also omits the coworker's name, which the sibling supplies as RN Casey. This narrowing is clean: no keyed token references an omitted event or an unnamed actor.",
+      "severity": "NONE"
+    },
+    {
+      "effectOnKey": "NONE",
+      "observation": "Substantial token-level overlap exists between the standalone bow-tie and sibling questions: P4 is near-verbatim with q6_b, P2 tracks q6's safeguard/education theme and stage_3 safeguards, A4 tracks q5_a and the first half of q4_b, A2 tracks the second half of q4_b, A3 is near-verbatim with q4_f, P3 with q6_e, and P1 with q6_f. If the standalone and sibling are ever administered to the same learner, this creates redundancy and possible answer carryover.",
+      "severity": "MINOR"
+    },
+    {
+      "effectOnKey": "NONE",
+      "observation": "Distractor P1 ('Whether a family member calls before the end of the shift') is a decontextualized reduction of sibling q6_f, which names Robert and depends on the patient's stated restriction. Stripped of that backstory, P1 has no referent in the standalone stem — it is unambiguously wrong, but wrong for lack of connection rather than for the instructive reason the sibling supplies.",
+      "severity": "MINOR"
+    },
+    {
+      "effectOnKey": "NONE",
+      "observation": "Aspect/tense construction: the standalone stem reports containment and reporting as already accomplished ('has ... stopped further access, and started the facility reporting process') while the action fan asks the learner to select prospective actions, so keyed A4 and A2 formalize steps the stem places in the past. This tension was flagged in the immutable blind Stage 2 record and is confirmed here; it does not affect correctness because the alternatives are contraindicated, not merely later in sequence.",
+      "severity": "MINOR"
+    },
+    {
+      "effectOnKey": "NONE",
+      "observation": "The sibling's own priority logic (q3 rationale) is explicitly comparative — RN Casey's access outranks the student photograph because it is 'the broader, logged access with ongoing system-risk implications.' The standalone item does not inherit or require this comparison, since it presents only the EHR access. No hidden comparative premise leaks into the standalone key.",
+      "severity": "NONE"
+    }
+  ],
+  "secondaryFlags": [
+    "SIBLING_CORROBORATES_ALL_KEYED_TOKENS",
+    "NO_KEYED_TOKEN_REQUIRES_SIBLING_EXHIBIT",
+    "STANDALONE_PARAMETER_TOKENS_NEAR_DUPLICATE_SIBLING_Q6_OPTIONS",
+    "STANDALONE_ACTION_TOKENS_NEAR_DUPLICATE_SIBLING_Q4_Q5_OPTIONS",
+    "STEM_ASPECT_MISMATCH_COMPLETED_ACTIONS_PRESENTED_AS_PROSPECTIVE_CHOICES",
+    "DISTRACTOR_P1_ORPHANED_WHEN_DECONTEXTUALIZED",
+    "MIXED_LANGUAGE_TERMS_IN_SIBLING_CHINESE_TEXT"
+  ]
+}

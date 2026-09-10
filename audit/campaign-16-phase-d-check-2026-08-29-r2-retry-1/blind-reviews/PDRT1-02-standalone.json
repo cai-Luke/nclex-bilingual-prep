@@ -1,0 +1,98 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSetExplanation": "The blind Stage 2 record selected C1, [A4, A3], [P3, P2]; the canonical key is C1, [A4, A3], [P2, P3]. The parameter arrays differ only in listed order, and the prompt treats them as an unordered set of two, so the selections are identical token-for-token. The set is uniquely defensible on the standalone item alone. For the condition, C1 is the only token naming an actual, in-progress breach of the clean/dirty boundary in a shared supply area, giving it the broadest direct pathway to multiple clients; C2 is framed in the stem itself as a 'concern' awaiting policy verification (potential, not actual), and C3 is a single identified surface with a known targeted remedy, so neither can outrank C1 without inferring facts the stem does not supply. For actions, A4 is the only complete source-control response covering the device, contacted surfaces, adjacent supplies, and full wet-contact time, while A3 supplies the non-overlapping system-level correction of education, leadership notification, and event documentation. A1 and A2 are not merely weaker but contraindicated: A1 explicitly declines to clean the counter or assess nearby supplies, leaving the stated hazard in place, and A2 defers an active exposure for an entire shift. Because two of four action tokens are excludable on their own text, the keyed pair is forced. For parameters, P3 measures the exact variable that failed — equipment location and cleanliness — and P2 measures the precaution-adherence behavior whose failure produced the breach. P1 (antimicrobial monitoring) and P4 (another client's sputum culture, which belongs to the separate TB/AIIR thread) are treatment-response measures for individual clients and evaluate nothing about environmental containment, so they are excludable on relevance. With two of four parameters eliminated on their face, P2 and P3 are the only defensible pair.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "The stem does not state that the stethoscope was dedicated single-client equipment; C1 and A4 both use 'dedicated'/'designated' wording, and the item glossary defines 'Dedicated device' separately. The stem also does not state whether the device physically contacted the cart or any clean stock. Neither gap affects C1's rank: whether the device is dedicated or shared unit equipment, it is the only token describing contamination of a shared clean-supply area.",
+      "opaqueTokenLabel": "C1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Stem: 'A contaminated stethoscope from a client's MRSA contact-precautions room has been found in the clean utility room near a clean supply cart.' Every element of C1 — contaminated device, MRSA origin, clean utility room location, current cross-contamination risk — is stated verbatim or is the immediate consequence of the stated location."
+    },
+    {
+      "missingClientFact": "The facility policy for handling clean supplies exposed to a contaminated item, the specific disinfectant and its required wet-contact time, and confirmation that the device has a designated isolation room are not stated. These are execution details internal to the action text; because A4 defers to 'per policy' and 'the required' contact time, none of them is needed to rank it.",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Stem: 'found in the clean utility room near a clean supply cart.' Proximity to clean stock directly requires removal of the device, disinfection of contacted clean-utility surfaces, and assessment of nearby supplies — the exact components A4 enumerates. A4 self-references facility policy and the required wet-contact time rather than asserting specific values."
+    },
+    {
+      "missingClientFact": "The stem does not identify who placed the stethoscope in the clean utility room, so A3's 'the staff member involved' is not tied to a named individual, and no facility event-reporting policy is described. This does not affect rankability: the remaining action tokens are contraindicated, so A3 is the only available second action regardless of who the individual is.",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The stem establishes practice breaches on the unit ('A student also contaminated a door handle after CDI care') and an unexplained transfer of a contaminated device into a clean area. Standard infection-control practice for any precautions breach is corrective education plus notification of unit leadership so the event is documented for infection-prevention follow-up, which is what A3 states."
+    },
+    {
+      "missingClientFact": "The stem does not report any PPE lapse at room entry, does not state that visitors entered the MRSA room, and gives no baseline compliance data for trending. P2 is therefore an inference from the precaution status rather than from a stated lapse, but it remains the only parameter besides P3 that measures containment behavior, so the gap does not change its selection.",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Stem: 'a client's MRSA contact-precautions room.' Contact precautions require gown and gloves on every entry by staff and visitors, so PPE compliance at subsequent entries is the direct observable measure of whether the corrective education in A3 was sustained. The stem also places a visitor on the unit ('a visitor asked whether...'), making visitor PPE a live consideration."
+    },
+    {
+      "missingClientFact": "No baseline for equipment storage practice, no stated frequency of room entries, and no unit audit data are provided. These are monitoring-implementation details that do not affect the token's rank.",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Stem: the stethoscope 'has been found in the clean utility room' rather than in the isolation room. Equipment location and cleanliness is precisely the variable that failed and the direct measure of whether A4's corrective step — returning the device to its designated isolation room, disinfected — is holding."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "The stem states 'a soiled-linen handling concern was identified,' and C2 mirrors that framing as a 'potential' breach 'requiring policy verification.' The stem supplies no detail on what the concern was or whether any actual contamination occurred, but that absence is immaterial: a self-described potential issue awaiting verification cannot outrank an actual contamination of a shared clean-supply area under actual-over-potential priority setting. The item's byChoice rationale confirms this reading.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem states 'A student also contaminated a door handle after CDI care.' This is a genuine contamination event — C. difficile spores require a sporicidal agent and soap-and-water hand hygiene — making C3 the strongest distractor and a plausible near-miss for a learner. It ranks below C1 because it is a single, localized, already-identified surface with a targeted remedy, whereas C1 involves clean stock destined for multiple clients. The unstated details (whether the handle has since been cleaned, who touched it afterward, confirmed versus suspected CDI) cannot reverse that ordering without inventing facts.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "A1 would be adequate only if the counter and adjacent supplies were known to be unaffected, but the stem places the device 'near a clean supply cart.' A1 explicitly declines to clean the counter or assess nearby supplies, so it leaves the stated hazard in place and is a strict, incomplete subset of A4. It is excludable on stem text alone, with no additional client facts required.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "A2 defers action on an active environmental exposure until end of shift on the grounds that 'other scheduled care is pending.' The stem identifies no higher-acuity competing care, and none would justify prolonging contamination of a clean supply area; exposure expands for as long as the device remains there. Excludable on general infection-control knowledge regardless of what else is pending.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem reports no antimicrobial therapy, culture, drug level, or renal data for any client, and P1 does not specify which client is meant. The missing data is nevertheless immaterial: antimicrobial monitoring evaluates an individual client's treatment response, not containment of an environmental cross-contamination breach, so P1 is excludable on relevance without reference to any absent fact.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "P4 refers to 'another client's sputum-culture result' without identifying the client or reporting any result. The only sputum-relevant client in the stem is the smear-positive TB client, whose situation the stem frames as a visitor's question about leaving the AIIR — a separate thread from the priority cross-contamination problem. P4 is a thematically adjacent trap that measures nothing about the breach, so it is excludable on relevance.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    "Whether the stethoscope was dedicated single-client equipment or shared unit equipment — C1 says 'dedicated device' and A4 says 'its designated isolation room,' but the stem states only 'a contaminated stethoscope from a client's MRSA contact-precautions room'",
+    "Time elapsed since the stethoscope was placed in the clean utility room",
+    "Whether the stethoscope physically contacted the clean supply cart or any clean stock, and which specific supplies were exposed",
+    "Whether any potentially exposed supplies were already removed from the cart and used on other clients",
+    "Who placed the device in the clean utility room — A3's 'the staff member involved' has no antecedent in the stem",
+    "Facility policy for handling clean supplies exposed to a contaminated item, and the specific disinfectant and its required wet-contact time",
+    "Presence of immunocompromised or otherwise high-risk clients served by the affected supply cart",
+    "Baseline unit PPE and hand-hygiene compliance data against which P2 would be trended, and whether any PPE lapse at room entry has occurred",
+    "Whether the CDI door handle has since been cleaned with a sporicidal agent, and whether the CDI diagnosis is confirmed or suspected"
+  ],
+  "notes": [
+    "The blind Stage 2 record and the canonical key are token-identical; the only difference is the order in which P2 and P3 are listed, which the unordered two-parameter format does not distinguish.",
+    "My blind Stage 2 record rated P2's rankabilityImpact as MATERIAL, reasoning that PPE compliance monitors room-entry behavior rather than the clean utility area where the breach occurred and that the pool offered no clean-utility audit or MRSA surveillance option. With the full item revealed, that impact rating is better stated as LOW: P1 and P4 are excludable on relevance alone, so no unstated client fact could produce a different defensible pair. The observation that P2 is an indirect measure of this specific breach still stands and is reflected in its GENERAL_KNOWLEDGE_LINK classification above.",
+    "C1's 'dedicated device' wording and A4's 'its designated isolation room' both presuppose that the stethoscope was assigned to the isolation room, which the stem does not state. The two keyed tokens are internally consistent with each other and with the item glossary entry for 'Dedicated device,' and the ranking holds either way — a shared unit stethoscope in the clean utility room is at least as hazardous as a dedicated one — so this is a wording gap rather than a defect in the key. Adding 'dedicated' or 'single-client' to the stem would close it.",
+    "The three non-priority threads (CDI door handle, soiled linen, TB/AIIR visitor question) function as well-constructed distractors: each seeds one wrong condition token, and the TB thread additionally seeds the P4 sputum-culture trap. C3 is the strongest condition distractor because it describes a real contamination event; the discriminating principle is scope of exposure (shared clean-supply stock versus one surface), not actual-versus-potential, and the item's byChoice rationale states this correctly.",
+    "A1 and A2 are contraindicated rather than merely lower-priority, which makes the keyed action pair forced once the condition is fixed. This reduces the action row's discriminating power somewhat, since a learner who identifies C1 has only one coherent action pair available.",
+    "P2 and P3 are both specified 'on/at each room entry,' anchoring both parameters to the isolation room rather than to the clean utility room where the breach was found. Neither keyed parameter directly audits the clean utility area or surveils for new MRSA acquisition among clients served by the affected cart — both of which appeared in my Stage 1 free-generated parameters. This is a coverage limitation of the parameter pool, not an error in the key."
+  ],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "All five canonical targets were anticipated by the free-generated Stage 1 record. Stage 1's condition — 'actual breach of contact precautions with MRSA cross-contamination of a clean supply area,' with the CDI, linen, and TB threads explicitly identified as distractors — maps to C1. Stage 1's first priority action (contain and decontaminate: remove the device, disinfect the cart and adjacent surfaces, discard or reprocess exposed supplies, observe the full manufacturer wet contact time) maps component-for-component to A4, including the wet-contact-time requirement. Stage 1's second action (notify charge nurse and infection prevention, file a safety/event report, re-educate the involved staff and student) maps to A3, and its dedicated-equipment component maps to the closing clause of A4. Stage 1's first evaluation parameter, which included a clean utility room audit confirming no patient-care equipment is stored in the clean area and dedicated equipment present in the isolation room, maps to P3. Stage 1's second parameter combined MRSA surveillance with 'unit hand-hygiene, PPE, and equipment-disinfection audit scores'; the PPE-compliance component maps to P2, while the culture-surveillance component has no counterpart in the parameter pool. Alignment is therefore full at the token level, with the qualification that Stage 1 weighted new-MRSA-acquisition surveillance more heavily than any offered parameter allows, and that Stage 1 framed the audit as covering the clean utility area whereas P3 frames it at each room entry.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

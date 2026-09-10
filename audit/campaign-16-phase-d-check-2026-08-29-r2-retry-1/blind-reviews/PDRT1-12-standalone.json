@@ -1,0 +1,97 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSetExplanation": "The canonical set is uniquely defensible from the standalone stem alone. C3 is the only condition consistent with recurrent CGM-documented readings of 58–64 mg/dL accompanied by adrenergic and neuroglycopenic symptoms occurring exclusively during or within one hour after the new cycling routine, while noncycling fasting and premeal readings remain 95–140 mg/dL; C1 is contradicted by the explicit denial of fever, vomiting, ketones, and recent illness, and C2 is contradicted by the low rather than elevated readings and the absence of ketones. Among actions, A2 addresses the stated root cause that the preexisting meal and insulin plan was continued without an exercise-day adjustment, and correctly routes carbohydrate and medication changes through the prescriber or DSMES team rather than an independent change; A3 secures immediate safety before the next ride given repeated symptomatic lows. A1 is contradicted because increasing insulin would deepen hypoglycemia and exceeds independent scope, and A4 is contradicted because the remedy is an aligned plan, not permanent cessation of beneficial activity. Among parameters, P2 captures the peri-exercise glucose trajectory that defines the problem and its resolution, and P1 captures recurrence and timing, which is the direct outcome measure of a revised plan; P3 is contradicted by the stated absence of ketones, illness, and hyperglycemia, and P4 has no premise in the stem, which supplies no blood pressure or cardiovascular data. No two-item substitution within either the action or parameter pool preserves defensibility, so the 1/2/2 keyed set is unique.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Began a new 45-minute cycling routine after work; on three cycling days developed sweating, tremor, and difficulty concentrating during the ride or within one hour afterward with CGM 58–64 mg/dL; noncycling fasting and premeal glucose 95–140 mg/dL; continued the preexisting meal and insulin plan without an exercise-day adjustment."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Has continued the preexisting meal and insulin plan without an exercise-day adjustment, with repeated exercise-linked lows across three cycling days."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Sweating, tremor, and difficulty concentrating during the ride or within one hour afterward with CGM readings of 58–64 mg/dL on three separate cycling days."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "CGM readings were 58–64 mg/dL during the ride or within one hour afterward, contrasted with noncycling readings of 95–140 mg/dL."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "On three cycling days the client developed hypoglycemia symptoms during the ride or within one hour afterward, establishing a recurrence-and-timing pattern to track."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "The stem explicitly states the client has no fever, vomiting, ketones, or recent illness, removing any premise for intercurrent illness as the cause.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The documented abnormality is recurrent low glucose of 58–64 mg/dL with noncycling readings of 95–140 mg/dL and no ketones, which is incompatible with persistent hyperglycemia from insufficient insulin.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Increasing the pre-exercise insulin dose would worsen the documented exercise-associated hypoglycemia, and an independent dose increase is outside nursing and client scope.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Nothing in the stem indicates exercise is unsafe in principle; the identified gap is the unadjusted plan, so permanent cessation of all physical activity is not supportable.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem states there are no ketones, no illness, and no hyperglycemia, so daily urine ketone testing has no premise and would not evaluate response to an exercise-day plan.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem provides no blood pressure values, cardiovascular history, or hemodynamic concern, so resting blood pressure on nonexercise mornings has no anchor in the case and does not measure the glucose problem.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    "Type, dose, and timing of insulin relative to the cycling session",
+    "Timing and carbohydrate content of the preexercise meal or snack",
+    "Preexercise CGM value and trend arrow before starting the ride",
+    "Cycling intensity (heart rate or perceived exertion)",
+    "Whether nocturnal or delayed post-exercise hypoglycemia has occurred",
+    "Client's hypoglycemia awareness status and prior severe episodes",
+    "Whether the client currently carries rapid-acting carbohydrate during rides",
+    "The client's individualized low-glucose action threshold"
+  ],
+  "notes": [
+    "Both blind-stage records were produced before the canonical selection was revealed and are reproduced here unmodified; neither has been revised.",
+    "Stage 2 selected C3, A2/A3, and P1/P2, which matches the canonical set exactly; parameter ordering differs (P1,P2 versus canonical P2,P1) but the selected set is identical and the task does not treat parameter order as keyed.",
+    "The listed missing client facts are refinements that would sharpen the individualized plan; none of them is required to rank the pools, because each distractor is either explicitly contradicted by the stem or has no client premise at all.",
+    "No sibling case material was inspected, inferred, or assumed; this analysis rests solely on the standalone stem, prompts, token pools, and the revealed canonical selection.",
+    "The Stage 1 free-generated condition 'exercise-induced hypoglycemia' is semantically equivalent to canonical C3 'activity-associated hypoglycemia from a plan not aligned with the new exercise routine'.",
+    "Stage 1 free-generated priority action 1 was immediate 15 g fast-acting carbohydrate treatment with 15-minute recheck, which maps onto A3; Stage 1 priority action 2 combined preexercise carbohydrate with insulin reduction 'per provider protocol', which maps onto A2 once the pool restricts regimen changes to prescriber/DSMES-directed planning."
+  ],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "The Stage 1 blind free-generation produced, without any pool cues, a condition and both action and parameter categories that map one-to-one onto the canonical keyed tokens. Stage 1 named 'exercise-induced hypoglycemia', which is the same construct as C3. Its first priority action (treat with 15 g rapid-acting carbohydrate and recheck in 15 minutes) corresponds to A3's rapid-acting carbohydrate and prompt low-treatment instructions, and its second (preexercise carbohydrate plus insulin reduction on exercise days per provider protocol) corresponds to A2's individualized exercise-day carbohydrate and medication plan created with the prescriber or DSMES team. Its two evaluation parameters (CGM before, during, and for several hours after cycling including overnight; and recurrence and severity of hypoglycemia symptoms on cycling versus noncycling days) correspond directly to P2 and P1 respectively. Stage 2 then selected exactly the canonical labels. Alignment is therefore FULL across both blind stages, with the only differences being wording granularity and the ordering of the two parameters.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

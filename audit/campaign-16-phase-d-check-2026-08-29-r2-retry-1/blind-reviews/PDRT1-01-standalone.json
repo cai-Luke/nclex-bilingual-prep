@@ -1,0 +1,127 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSetExplanation": "The canonical set C2 + A2/A3 + P1/P2 is uniquely defensible on the standalone stem alone, because every non-keyed token fails on an explicit stem negation or on a defect internal to its own wording rather than on any absent client fact. C1 is contradicted verbatim: the stem documents functional impairment (missed work, weight loss, severe sleep deprivation) and safety consequences (unreported fall, stove-use risk, wandering, medication-administration problems), so 'without functional impairment or safety consequences' cannot stand. C3 is contradicted by the stem's preemptive negation of every physical-mistreatment criterion plus the affirmative fact of voluntary help-seeking, leaving C2 as the only condition token whose premises are met. Among actions, A4 falls with C3 on the identical negation and additionally concedes its own sole basis is a raised voice. A1 is the only genuine near-miss, since community resource referral is authentically indicated for caregiver role strain; it is excluded not on clinical merit but on its explicit sequencing clause 'without first validating Diane's distress,' which collides with the stem's stated 'fear of being judged.' That leaves A2 and A3 as the two remaining defensible actions, and both map one-to-one onto explicit stem hazards — wandering and stove-use risk for A2, bedtime diphenhydramine for A3, with the anticholinergic rationale supplied by standard pharmacology rather than by invented dose or duration data. Among parameters, P3 has no client premise whatsoever: the stem contains no respiratory or cardiopulmonary finding, and general knowledge establishes that an isolated oxygen saturation would not evaluate caregiver strain or hazard mitigation. P4 is defective in framing rather than in premise — repeat cognitive screening at short interval in established moderate dementia will not meaningfully change and would not measure either arm of this plan. P1 and P2 therefore remain as the only pair that evaluates both arms of the intervention: P1 the hazard-mitigation arm, P2 the caregiver-sustainability arm. Uniqueness holds because elimination is complete in both directions — each distractor is independently excluded, and each keyed token is independently supported.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": null,
+      "opaqueTokenLabel": "C2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'Diane is the sole caregiver and reports severe sleep deprivation, weight loss, missed work, guilt, and fear of being judged' combined with 'she voluntarily requested home-health help' — a complete caregiver role strain cluster (physical depletion, role disruption, affective burden, help-seeking) stated verbatim in the stem."
+    },
+    {
+      "missingClientFact": null,
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'worsening wandering, stove-use risk' names both hazards this action targets; the 'nonrestrictive' qualifier is consistent with the stem, which reports no restraint use and no indication for it."
+    },
+    {
+      "missingClientFact": null,
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "'bedtime diphenhydramine use' is stated explicitly; the link to provider review rests on general nursing pharmacology — diphenhydramine is an anticholinergic that worsens confusion, fall risk, urinary retention, and sleep architecture in dementia — not on any client-specific datum."
+    },
+    {
+      "missingClientFact": null,
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'worsening wandering, stove-use risk, ... a recent unreported fall, medication-administration problems' — the parameter enumerates exactly the four hazard domains the stem documents, so it measures remediation of stem-stated risks."
+    },
+    {
+      "missingClientFact": null,
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'severe sleep deprivation, weight loss, missed work' maps element-for-element onto sleep, appetite/weight, and ability to work; the support-engagement and personal-health-follow-up elements are prospective outcomes appropriate to an evaluation measure rather than absent baseline facts."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "The token requires absence of functional impairment and safety consequences; the stem asserts both. Missed work, weight loss, and severe sleep deprivation are functional impairment in Diane, and the unreported fall, stove-use risk, and medication-administration problems are safety consequences for Margaret. Elimination is complete on stem text with no data gap.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem negates striking, shoving, threatening, and physical restraint, and adds voluntary help-seeking — behavior inconsistent with concealment or willful neglect. A raised voice during agitation is a strain indicator, not evidence of intent to harm. Selecting C3 would also misdirect the entire action and parameter set, so its exclusion is load-bearing for the key.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The closest competitor, and the only distractor whose underlying intervention is clinically correct. It is excluded solely on its stated sequencing clause — listing resources 'without first validating Diane's distress' — which contradicts the explicitly documented 'fear of being judged' and risks disengaging a caregiver who has just sought help voluntarily. Rankability impact is LOW rather than NONE because a reworded token omitting that clause would compete credibly with A3.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "Falls on the same explicit negations that eliminate C3, and is self-defeating in its own wording by conceding that the accusation rests only on a raised voice. It is a punitive distractor with no premise support anywhere in the stem.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "No respiratory, cardiac, or hypoxia-related finding appears anywhere in the stem, so the token has no client premise at all. Independently, general knowledge establishes that an oxygen saturation measured in isolation evaluates neither caregiver role strain nor completion of home-safety modifications. Rankable last without any additional facts.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Unlike P3, this token has a real client premise — moderate dementia is documented — so ongoing cognitive assessment is not irrelevant per se. It fails as a framing defect: designating a short-interval formal cognitive score as 'the main outcome' is inappropriate because scores in established moderate dementia are not expected to shift meaningfully over the evaluation window and would measure neither hazard mitigation nor caregiver sustainability.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "affectsCanonicalTarget": false,
+      "explanation": "Would strengthen and quantify P2 in practice, but the stem's narrative strain indicators are already sufficient to select P2 over P3 and P4.",
+      "fact": "Validated baseline caregiver burden score (Zarit Burden Interview or Modified Caregiver Strain Index) and a depression screen for Diane",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "affectsCanonicalTarget": false,
+      "explanation": "A3 is selectable from the fact of use alone; the anticholinergic risk in dementia does not depend on these parameters for the decision to seek provider review.",
+      "fact": "Dose, duration, prescriber, and whether the bedtime diphenhydramine is prescribed or over-the-counter",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "affectsCanonicalTarget": false,
+      "explanation": "Relevant to clinical follow-through and already captured within P1's falls domain; does not alter which tokens are keyed.",
+      "fact": "Details of the unreported fall — mechanism, injury sustained, and whether any provider has evaluated Margaret since",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "affectsCanonicalTarget": false,
+      "explanation": "This is the fact most relevant to the A1-versus-A3 comparison. It does not rescue A1, however, because A1 fails on sequencing rather than on resource availability.",
+      "fact": "Availability of other family, paid aides, respite programs, insurance coverage, and Diane's willingness to accept them",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "affectsCanonicalTarget": false,
+      "explanation": "Would matter for ongoing reassessment of any reporting threshold, but the stem's explicit negations already exclude C3 and A4 for this item.",
+      "fact": "Frequency, triggers, and escalation trajectory of Margaret's agitation episodes and whether the raised voice was isolated or recurrent",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "affectsCanonicalTarget": false,
+      "explanation": "Would populate the content of the P1 and P2 measurements but does not bear on token selection.",
+      "fact": "Objective quantification of both weight losses, home-safety walkthrough findings, skin-irritation staging, and the full medication list",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "notes": [
+    "Blind Stage 2 reproduced the canonical set exactly: C2, A2, A3, P1, P2, with no substitutions in any of the three pools.",
+    "Both blind records independently identified the stem's explicit negation clause — no striking, shoving, threatening, or restraint, plus voluntary help-seeking — as the decisive discriminator eliminating the abuse framing in both the condition and action pools. This matches the published byChoice rationale for C3 and A4.",
+    "The blind Stage 2 record classified A1 as the sole near-miss with LOW rankability impact and attributed its failure to the sequencing clause rather than to the merit of resource referral. The published rationale for A1 states the same reasoning: 'giving a list before validating Diane's distress bypasses the emotional cue and may reduce engagement.'",
+    "The blind record drew an explicit distinction between P3 (no client premise at all) and P4 (real client premise, defective outcome framing), assigning NONE and LOW rankability impact respectively. The published rationales support this asymmetry, noting that formal cognitive scores 'can help staging' while oxygen saturation in isolation simply 'does not evaluate the primary caregiver-safety problem.'",
+    "Stage 1 free generation named caregiver role strain as the condition before any pool was visible, and independently flagged bedtime diphenhydramine as an anticholinergic warranting provider review — the substance of canonical A3 — indicating the key is recoverable from the stem without the token pool.",
+    "The one substantive divergence is at Stage 1 only and is a granularity artifact, not a clinical disagreement: Stage 1 bundled hazard mitigation and diphenhydramine review into a single composite action and elevated respite/caregiver-support referral to first priority. Canonical scoring splits the bundle into A2 and A3 and does not key any respite token, since the pool's only referral option (A1) carries a disqualifying sequencing clause.",
+    "No canonical target required inventing client-specific data. A3 is the only keyed token resting on a general-knowledge link rather than direct stem text, and that link is standard nursing pharmacology applied to an explicitly stated medication.",
+    "Stage 1's missingInformation list anticipated most of the practice-level gaps later confirmed as non-decisive here, including the absent validated burden score, undocumented fall mechanism, and unknown availability of other supports."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Alignment is full on the condition and effectively full on the parameters, but partial on the actions because of a granularity mismatch. Stage 1 free-generated 'caregiver role strain in the sole caregiver of a person with moderate dementia — not elder mistreatment/abuse,' which matches C2 exactly, including the explicit rejection of the abuse framing that later eliminated C3 and A4. On parameters, Stage 1 generated a caregiver-status measure (sleep hours, weight, mood, service uptake) that corresponds directly to P2, and a Margaret safety-and-care-outcomes measure (falls, wandering and stove events, medication accuracy, weight, skin integrity) that covers the same four hazard domains as P1, differing only in framing — Stage 1 counted adverse events, whereas P1 measures completion of the safety modifications intended to prevent them. On actions, Stage 1's second action was a composite home safety and care-simplification plan that explicitly contained both canonical actions: disabling the stove and wander-prevention measures (A2) and provider notification regarding bedtime diphenhydramine as an anticholinergic (A3). The divergence is that Stage 1 ranked respite and caregiver-support referral as the first priority — a defensible free-generation choice for caregiver role strain, and one the pool cannot reward, since its only referral token embeds the disqualifying clause 'without first validating Diane's distress.' Because Stage 1 produced the canonical content but distributed it across action slots differently and prioritized an unkeyed referral, PARTIAL is the accurate classification rather than FULL, even though blind Stage 2 then matched the key exactly once the constrained pools were visible.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

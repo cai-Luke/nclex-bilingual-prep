@@ -1,0 +1,159 @@
+{
+  "advisoryPriority": "P2",
+  "bilingualCollateral": [
+    {
+      "affectsRankability": false,
+      "location": "Standalone item, glossary entry termEn 'Bow-tie item' / termZh '弓形题'",
+      "observation": "'弓形' denotes an arc or bow shape rather than a bow tie. Common NGN rendering is '蝴蝶结题型' or '领结题'. The current term may not be recognized by learners familiar with standard NGN terminology.",
+      "severity": "low"
+    },
+    {
+      "affectsRankability": false,
+      "location": "Sibling baseline_protocol_resources exhibit, incident paragraph",
+      "observation": "The Chinese text adds '三英里外' (three miles away) — a distance not present in the English source, which reads simply 'at a fertilizer-blending facility'. The zh version introduces unsourced detail.",
+      "severity": "low"
+    },
+    {
+      "affectsRankability": false,
+      "location": "Sibling stage_1_update, stage_2_update, stage_3_update and case summary",
+      "observation": "'charge nurse' is left untranslated in the Chinese text of the sibling stage exhibits and summary, whereas the standalone item's zh stem renders it as '当班护士负责人'. Terminology is inconsistent across the paired materials.",
+      "severity": "low"
+    },
+    {
+      "affectsRankability": false,
+      "location": "Sibling exhibits and stage updates",
+      "observation": "Drug names (albuterol, dexamethasone, morphine) and lab/product abbreviations (PRBC, LR, TBSA, RN, PA, IV) are retained in Latin script inside the Chinese text without paired Chinese glosses. This is a defensible convention for medication names but is applied without a stated rule, and TBSA/PA in particular are not glossed anywhere.",
+      "severity": "low"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "explanation": "The sibling confirms the incident-level framing in detail, including that seven casualties exceed the 22-bed community ED's three treatment bays and staffing. The standalone stem independently states MCI activation, seven casualties, completed START triage, scarce resources, and chemical decontamination, so C3 was selectable without the sibling.",
+      "opaqueTokenLabel": "C3",
+      "overlapType": "CORROBORATIVE_ONLY",
+      "siblingAnalog": "Case title and summary: 'Mass-casualty START triage with chemical contamination in a resource-limited emergency department'; baseline_protocol_resources defines Level 1 resource-constrained MCI mode requiring START triage and full decontamination before ED entry."
+    },
+    {
+      "explanation": "The sibling operationalizes START-based sequencing across three questions. The standalone stem's 'START triage is complete' plus 'scarce blood and treatment spaces are being allocated' plus the charge nurse's synthesis task supply the full premise on their own.",
+      "opaqueTokenLabel": "A2",
+      "overlapType": "CORROBORATIVE_ONLY",
+      "siblingAnalog": "Questions q1 (assign START categories), q3 (sequence C into the trauma bay first), and q4 (proportionate resource actions for C, D, E with green deferral); baseline protocol 'red/immediate before yellow/delayed before green/minor'."
+    },
+    {
+      "explanation": "The sibling states the identical rule as facility protocol and dedicates an ordered-response item to it. The standalone stem's 'one contaminated red-category casualty has completed decontamination' establishes both the contamination hazard and the decontamination-before-entry control.",
+      "opaqueTokenLabel": "A1",
+      "overlapType": "CORROBORATIVE_ONLY",
+      "siblingAnalog": "Baseline protocol requiring 'full external decontamination of any chemically contaminated casualty before ED entry'; q5 ordered-response keying PPE, clothing removal, irrigation, reassessment, then ED entry; q3 rationale rejecting d_direct."
+    },
+    {
+      "explanation": "P2 is essentially the union of two sibling-keyed outcome options, which strongly validates the parameter. The standalone stem's seven casualties, red-category casualty, and scarce-resource allocation make salvageable-casualty trajectory the evident outcome measure without the sibling's per-patient data.",
+      "opaqueTokenLabel": "P2",
+      "overlapType": "CORROBORATIVE_ONLY",
+      "siblingAnalog": "Question q6 keyed options red_improving ('C and D are alive and clinically improving after timely treatment') and yellow_stable ('E remains stable and has an accepted burn-center transfer'); stage_3_update documenting both outcomes."
+    },
+    {
+      "explanation": "The sibling keys the near-identical statement as an effectiveness finding. The standalone stem's ammonia release plus completed decontamination independently make absence of secondary contamination the direct measure of the hazmat control.",
+      "opaqueTokenLabel": "P1",
+      "overlapType": "CORROBORATIVE_ONLY",
+      "siblingAnalog": "Question q6 keyed option no_secondary ('No staff or other casualties show evidence of secondary ammonia contamination inside the ED'); q5 glossary entry defining secondary contamination; q3 rationale on collapsing response capacity."
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "affectsRankability": false,
+      "location": "Standalone rationale.byChoice",
+      "observation": "The 'Correct:' / 'Incorrect:' prefix is applied inconsistently: C3, C2, A2, A1, P1, P4, and P3 carry a prefix, while C1, A3, A4, and P2 do not. P2 is a keyed correct option presented without a 'Correct:' marker, which could read as ambiguous next to the marked entries.",
+      "severity": "low"
+    },
+    {
+      "affectsRankability": false,
+      "location": "Standalone tokens A1 and A4 versus the standalone stem",
+      "observation": "The stem presents decontamination as already completed for the one described casualty, so A1 is phrased as a forward-looking action while the stem's evidence for it is retrospective. The action remains correct as the governing standing protocol, and the sibling confirms it applied to a second contaminated casualty (G), but the tense mismatch is worth noting.",
+      "severity": "low"
+    },
+    {
+      "affectsRankability": false,
+      "location": "Sibling triage_point_findings, Casualty G, versus q1 key",
+      "observation": "G is described as apneic after airway repositioning with an absent radial pulse but a 'faint and irregular' carotid pulse, and is keyed black/expectant. This is correct under START, which sorts on respirations first — apnea after repositioning is the black endpoint regardless of pulse — and the sibling rationale states this explicitly. Flagged only because the retained carotid pulse could invite a learner challenge; the key is clinically sound.",
+      "severity": "low"
+    },
+    {
+      "affectsRankability": false,
+      "location": "Sibling stage_3_update, Casualty C",
+      "observation": "Urine output of 25 mL in the past hour after four units of PRBCs is borderline-low for an adult and is presented among otherwise improving parameters without comment. Clinically plausible post-hemorrhagic-shock, and no question keys on it, but it sits unaddressed in the improvement narrative.",
+      "severity": "low"
+    }
+  ],
+  "defectSummary": "",
+  "missingFactProvenance": [
+    {
+      "explanation": "The standalone stem states that START triage is complete and that scarce resources are being allocated, which is all that A2 and P2 require. Knowing the exact 2 black / 2 red / 1 yellow / 2 green distribution confirms that salvageable red and yellow casualties exist but does not change which tokens are selectable; the blind record selected A2 and P2 without it.",
+      "missingFact": "Per-category START counts (how many red, yellow, green, black casualties)",
+      "necessity": "CORROBORATIVE_ONLY",
+      "provenance": "SIBLING_SUPPLIED",
+      "siblingLocation": "triage_point_findings exhibit and question gpt_case_mass_casualty_start_triage_01_q1 answer key: A black, B green, C red, D red, E yellow, F green, G black"
+    },
+    {
+      "explanation": "The stem's phrase 'scarce blood and treatment spaces are being allocated' already asserts scarcity, which is the only premise C3 and A2 depend on. The specific counts quantify the scarcity but no token turns on the number four versus any other number.",
+      "missingFact": "Actual inventory of blood units, ventilators, resuscitation bays, and staffing",
+      "necessity": "CORROBORATIVE_ONLY",
+      "provenance": "SIBLING_SUPPLIED",
+      "siblingLocation": "baseline_protocol_resources exhibit: three RNs, one physician, one PA, one trauma bay, two resuscitation bays, two ventilators (one in use), four O-negative PRBC units"
+    },
+    {
+      "explanation": "A1 is a standing protocol action governing any contaminated casualty; the stem confirms at least one existed and was decontaminated. Whether one or two others were contaminated does not alter A1's selection or P1's relevance.",
+      "missingFact": "Contamination status of the six casualties other than the one described",
+      "necessity": "CORROBORATIVE_ONLY",
+      "provenance": "SIBLING_SUPPLIED",
+      "siblingLocation": "stage_1_update: 'D and G are identified as chemically contaminated'; triage_point_findings notes B, C, E, F with no chemical exposure"
+    },
+    {
+      "explanation": "The bowtie operates at the incident level, not the individual-patient level. No keyed token references a vital sign. This fact was material only to the Stage 1 free-generated patient-level condition, which is not what the canonical key targets.",
+      "missingFact": "Vital signs, injuries, and clinical status of any individual casualty",
+      "necessity": "CORROBORATIVE_ONLY",
+      "provenance": "SIBLING_SUPPLIED",
+      "siblingLocation": "triage_point_findings exhibit and stage_1/stage_2/stage_3 updates (RR, pulse, capillary refill, BP, SpO2 for casualties A through G)"
+    },
+    {
+      "explanation": "A1 and P1 require only that contamination exists and that decontamination precedes ED entry, both stated in the standalone stem. The sibling adds operational detail for its ordered-response item; effluent containment remains unstated in both documents and is needed by neither.",
+      "missingFact": "PPE level, decontamination staffing, and effluent containment status",
+      "necessity": "CORROBORATIVE_ONLY",
+      "provenance": "PARTIALLY_SIBLING_SUPPLIED",
+      "siblingLocation": "baseline_protocol_resources ('The decontamination station outside the ambulance entrance is functional') and stage_1_update ('PPE-equipped staff remove clothing and begin full irrigation per facility protocol'); question q5 keys PPE as the first ordered step. Effluent containment is not specified anywhere, including in the sibling."
+    },
+    {
+      "explanation": "Transfer capacity supports the sibling's own yellow-casualty outcome item but is not a premise of any standalone token. No keyed token references transfer or command structure.",
+      "missingFact": "Incident command structure, secondary-transport capacity, and burn/trauma center availability",
+      "necessity": "CORROBORATIVE_ONLY",
+      "provenance": "PARTIALLY_SIBLING_SUPPLIED",
+      "siblingLocation": "stage_2_update and stage_3_update (burn-center transfer initiated and accepted for Casualty E; orthopedics contacted; anesthesiology standby; two reinforcement nurses arrive at 1929). Formal incident command structure is not described anywhere, including in the sibling."
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "Every canonical target (C3, A2, A1, P2, P1) is established by verbatim text in the standalone stem, and none required a fact that exists only in the now-revealed sibling case. The stem states 'activated MCI mode', 'seven casualties', 'industrial explosion with ammonia release', 'START triage is complete', 'one contaminated red-category casualty has completed decontamination', and 'scarce blood and treatment spaces are being allocated' — which together fully instantiate C3 and directly license A2 (use completed START categories to sequence scarce resources), A1 (decontamination before ED entry), P2 (trajectory of salvageable red/yellow casualties as the outcome of allocation), and P1 (absence of secondary contamination as the outcome of decontamination). All six distractors are excluded either on stem text (C1, C2) or on general MCI doctrine that requires no client-specific data (A3, A4, P3, P4). Applying the fixed precedence: no canonical target depends on a hidden case fact, so FAIL_HIDDEN_CASE_DEPENDENCY does not trigger; no keyed or distractor token rests on an unsupported premise that changes rankability, so FAIL_UNSUPPORTED_TOKEN_PREMISE does not trigger; the 1/2/2 set is uniquely determined with no viable alternative combination, so FAIL_UNDERDETERMINED does not trigger; the canonical key matches the blind Stage 2 selection as sets and the published rationale is internally consistent with MCI doctrine, so FAIL_CANONICAL_KEY_OR_LOGIC does not trigger; and I have no substantive disagreement with the key, so HOLD_REVIEWER_DISAGREEMENT does not trigger. The sibling case corroborates the entire keyed set in fine detail — it names the same two black/expectant casualties, the same decontamination barrier, the same red/yellow/green distribution, and question 6 keys the exact analogs of P2 and P1 while rejecting the exact analogs of P3 and P4 — but every one of those details is confirmatory rather than load-bearing. The blind Stage 2 record reached the identical set without any of them, which is itself direct evidence of standalone sufficiency. The only content observation worth passing to a reviewer is that distractor A4 imports a clinical detail ('a contaminated casualty with stridor') that appears nowhere in the standalone stem and is traceable to sibling Casualty D; this is a token-authoring artifact, not a dependency, because A4 is a distractor whose exclusion rests on the decontamination-bypass principle and would hold whether or not such a casualty existed. My standalone record already flagged this and rated its rankability impact NONE, and inspection of the sibling does not change that assessment.",
+  "scopeCollateral": [
+    {
+      "affectsRankability": false,
+      "location": "Standalone token A4",
+      "observation": "Imports the sibling-only clinical detail 'with stridor'. Recommend rephrasing to 'Bring a contaminated casualty directly into the ED before decontamination' so the distractor is fully self-contained. Advisory only — the token is already excludable on doctrine and its rankability impact is NONE.",
+      "severity": "low"
+    },
+    {
+      "affectsRankability": false,
+      "location": "Standalone stem",
+      "observation": "The stem carries incident-level detail (seven casualties, completed START triage, one decontaminated red casualty, scarce blood and spaces) sufficient for all five keyed targets without reference to any individual casualty. Scope is appropriate and self-contained; no client-specific inference is required.",
+      "severity": "none"
+    },
+    {
+      "affectsRankability": false,
+      "location": "Standalone item scope versus Stage 1 free generation",
+      "observation": "The item is keyed at the system/incident level while an unprimed clinician may free-generate at the individual-patient level, as the blind Stage 1 record did (caustic inhalation injury with impending airway obstruction). The token pools resolve this cleanly because no patient-level condition option is offered, so the framing is disambiguated at selection time. Noted as a construct observation, not a defect.",
+      "severity": "low"
+    }
+  ],
+  "secondaryFlags": [
+    "Distractor A4 ('Bring a contaminated casualty with stridor directly into the ED before decontamination') contains a clinical descriptor — stridor — that appears nowhere in the standalone stem and is traceable to sibling Casualty D. Exclusion of A4 does not depend on the descriptor, so rankability is unaffected, but the token reads as if referencing a client detail the learner was never given.",
+    "The standalone bowtie is a close distillation of sibling question q6 (its four keyed evaluation options map onto P2 and P1, and its two incorrect options map onto P4 and P3) and of sibling q2/q3 (mapping onto A3 and A4). This is strong construct alignment, not a defect, but reviewers should be aware the two items share nearly identical discriminating logic and would be partially redundant if delivered to the same learner in sequence.",
+    "The canonical action and parameter orderings (A2 before A1, P2 before P1) invert the blind record's listing order. Because bowtie action and parameter slots are unordered sets this is not a mismatch, but if any downstream scoring treats slot order as meaningful the item should state that the slots are unordered."
+  ]
+}

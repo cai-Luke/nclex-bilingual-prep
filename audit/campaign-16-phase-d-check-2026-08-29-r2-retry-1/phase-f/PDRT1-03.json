@@ -1,0 +1,220 @@
+{
+  "advisoryPriority": "P3",
+  "bilingualCollateral": [
+    {
+      "affectedLabels": [
+        "C2"
+      ],
+      "observation": "The standalone C2 token renders 'Anaphylactic transfusion reaction' as 过敏性休克型输血反应, while the sibling q2 option C renders 'Mild allergic transfusion reaction' as 轻度过敏性输血反应. The two Chinese strings remain distinguishable (休克型 vs 轻度), so severity is preserved across artifacts.",
+      "severity": "informational"
+    },
+    {
+      "affectedLabels": [
+        "P3"
+      ],
+      "observation": "'Port-wine urine' is rendered 葡萄酒色 in the standalone stem, matching the sibling stage_2_update (深葡萄酒色尿). The sibling separately uses 深红褐色 for the Stage 1 'dark reddish-brown' urine. Both renderings are accurate for their respective source phrases and are internally consistent.",
+      "severity": "informational"
+    },
+    {
+      "affectedLabels": [
+        "P1"
+      ],
+      "observation": "The standalone P1 'Temperature trend alone' is rendered 单独看体温趋势, closely paralleling the sibling matrix column c3 单独看不足以判断稳定. The shared 单独看 construction correctly conveys the disqualifying 'alone' qualifier that drives P1's exclusion.",
+      "severity": "informational"
+    },
+    {
+      "affectedLabels": [
+        "A4"
+      ],
+      "observation": "The standalone A4 zh (立即升级至更高级别护理) is a faithful shortening of the sibling q5 keyed option B zh (立即升级处理，启动快速反应或转入 ICU 级别护理). The standalone drops the explicit 快速反应/ICU examples but retains the escalation semantics.",
+      "severity": "informational"
+    },
+    {
+      "affectedLabels": [],
+      "observation": "Both artifacts follow the same glossary convention of termEn/termZh/defZh with no English definition field. The standalone is internally consistent with the sibling on this point; no bilingual asymmetry is introduced.",
+      "severity": "informational"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "explanation": "The sibling keys the identical diagnosis on the identical Stage 1 cue cluster, confirming the canonical condition. The standalone reaches it independently from the stem's hemolysis panel, so the sibling adds confirmation only.",
+      "opaqueTokenLabel": "C1",
+      "overlapType": "DIRECT_KEY_AGREEMENT",
+      "siblingLocation": "q2 (analyze_cues) keyed answer A 'Acute hemolytic transfusion reaction'; case title and case-level rationale; stage_3_update ABO confirmation (client A-positive, unit B-positive)",
+      "siblingNecessity": "CORROBORATIVE_ONLY",
+      "siblingOverlapPresent": true
+    },
+    {
+      "explanation": "The sibling independently keys evidence preservation as a required immediate action and later shows the blood bank actively requesting exactly these items. The standalone stem's 'transfusion is stopped' clause alone supports A2.",
+      "opaqueTokenLabel": "A2",
+      "overlapType": "DIRECT_KEY_AGREEMENT",
+      "siblingLocation": "q4 (generate_solutions) keyed option E 'Save the blood unit with attached tubing and labels for the blood bank investigation'; stage_2_update blood bank request for the unit, attached tubing, post-reaction sample, and original pretransfusion specimen",
+      "siblingNecessity": "CORROBORATIVE_ONLY",
+      "siblingOverlapPresent": true
+    },
+    {
+      "explanation": "Sibling q5 poses the same Stage 2 decision point with nearly identical wording and keys escalation, and Stage 3 shows the escalation actually occurring. The standalone stem independently evidences shock, DIC, and oliguric AKI.",
+      "opaqueTokenLabel": "A4",
+      "overlapType": "DIRECT_KEY_AGREEMENT",
+      "siblingLocation": "q5 (take_action) keyed option B 'Escalate immediately for rapid response or ICU-level care while continuing perfusion support and strict output monitoring'; stage_3_update ICU transfer with norepinephrine and dialysis evaluation",
+      "siblingNecessity": "CORROBORATIVE_ONLY",
+      "siblingOverlapPresent": true
+    },
+    {
+      "explanation": "The sibling operationalizes urine volume plus color as a deterioration criterion, matching P3's function. The standalone's stated oliguria with port-wine urine already anchors it.",
+      "opaqueTokenLabel": "P3",
+      "overlapType": "DIRECT_KEY_AGREEMENT",
+      "siblingLocation": "q6 (evaluate_outcomes) row r1 keyed as continued deterioration ('urine output 8 mL in the past hour with persistent hemoglobin-positive dark urine'); q5 keyed rationale emphasizing strict output monitoring; case-level rationale naming urine output among required outcome measures",
+      "siblingNecessity": "CORROBORATIVE_ONLY",
+      "siblingOverlapPresent": true
+    },
+    {
+      "explanation": "The sibling uses fibrinogen and clotting-time trends as the discriminator between stabilization and deterioration, exactly the role P4 serves. The standalone stem quantifies the same studies, so no sibling input is required.",
+      "opaqueTokenLabel": "P4",
+      "overlapType": "DIRECT_KEY_AGREEMENT",
+      "siblingLocation": "q6 row r3 keyed as stabilization ('fibrinogen is rising while INR and aPTT are falling toward baseline'); stage_2_update and stage_3_update coagulation trends; case-level rationale naming coagulation studies among outcome measures",
+      "siblingNecessity": "CORROBORATIVE_ONLY",
+      "siblingOverlapPresent": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "affectedLabels": [
+        "C1",
+        "P4"
+      ],
+      "observation": "Every laboratory value in the standalone stem (platelets 104, fibrinogen 140, INR 1.8, aPTT 52, LDH 1,840, bilirubin 4.2, haptoglobin <10) reproduces the sibling stage_2_update panel exactly. No value conflicts, and the direction of each abnormality is consistent with the sibling's Stage 3 progression (platelets 78, fibrinogen 88, INR 2.2, aPTT 68, LDH 2,600, bilirubin 6.1).",
+      "severity": "informational"
+    },
+    {
+      "affectedLabels": [
+        "P4"
+      ],
+      "observation": "The standalone stem omits petechiae, which the sibling stage_2_update reports across the anterior chest alongside the oozing. The retained 'oozing from puncture sites' is sufficient to evidence clinical bleeding for P4; the omission narrows but does not distort the DIC picture.",
+      "severity": "informational"
+    },
+    {
+      "affectedLabels": [
+        "A2"
+      ],
+      "observation": "Standalone A2 states the transfusion service must receive 'the stopped unit, attached tubing, and required post-reaction patient sample'. The sibling stage_2_update specifies additionally a post-reaction sample drawn from the opposite arm and the original pretransfusion specimen. A2's generalized wording remains clinically correct and is not contradicted; the omitted specifics are procedural detail.",
+      "severity": "informational"
+    },
+    {
+      "affectedLabels": [
+        "P3"
+      ],
+      "observation": "The standalone stem's oliguria is clinically more alarming in light of the sibling's baseline creatinine 1.8 with CKD stage 3b and prior urine output of about 40 mL/hr with straw-colored urine. That context is unavailable standalone but is not needed: 'oliguria with port-wine urine' is self-evidently abnormal and anchors P3 directly.",
+      "severity": "informational"
+    },
+    {
+      "affectedLabels": [],
+      "observation": "The sibling's Stage 3 hyperkalemia (K 5.9) with rising creatinine represents a genuine second-order threat in hemolytic reactions that the standalone item does not surface in any token. This is a coverage narrowing, not an error, since the standalone stem also omits potassium values.",
+      "severity": "informational"
+    }
+  ],
+  "defectSummary": "",
+  "missingFactProvenance": [
+    {
+      "explanation": "The standalone stem's qualitative descriptors ('hypotension', then 'worsening hypotension') are sufficient to establish shock physiology and select A4. The sibling's numbers quantify the same trajectory but change no token's rank.",
+      "missingClientFact": "Numeric vital signs (blood pressure, MAP, heart rate, respiratory rate, SpO2) and pre-transfusion baseline values",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "baseline_record exhibit (T 98.2 °F, HR 92, BP 108/68, RR 18, SpO2 96%); stage_1_update (T 101.5 °F, HR 118, BP 96/58, RR 24, SpO2 95%); stage_2_update (T 102.4 °F, HR 132, BP 82/50, RR 28, SpO2 93% on 4 L); stage_3_update (BP 88/56 on norepinephrine, MAP >65 target)",
+      "siblingNecessity": "CORROBORATIVE_ONLY"
+    },
+    {
+      "explanation": "Absent from the sibling as well, confirming the standalone record's judgment that weight refines numeric targets but is not required to select P3 or any other keyed token.",
+      "missingClientFact": "Client weight, needed for mL/kg/hr urine output targets and weight-based fluid and component dosing",
+      "provenance": "ABSENT_FROM_BOTH",
+      "siblingLocation": "Not stated anywhere in the sibling; weight is only implied indirectly by the weight-based norepinephrine dose 0.08 mcg/kg/min in stage_3_update",
+      "siblingNecessity": "NOT_NEEDED"
+    },
+    {
+      "explanation": "The small infused volume underscores the severity of ABO incompatibility but does not alter the condition, action, or parameter selection; the standalone stem's 12-minute onset already carries the decisive temporal link.",
+      "missingClientFact": "Volume of red blood cells actually infused before the transfusion was stopped",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "stage_1_update: 'About 25 mL of the unit has infused'; summary: initial rate 2 mL/min for the first 15 minutes",
+      "siblingNecessity": "CORROBORATIVE_ONLY"
+    },
+    {
+      "explanation": "This is the etiologic confirmation, but it arrives at Stage 3 in the sibling — after the point the bow-tie depicts. A2 is selected precisely because this information is not yet available and must be generated by the transfusion-service investigation, so its absence is structurally correct rather than a gap.",
+      "missingClientFact": "Clerical/bedside identification recheck result and the ABO/Rh type of both the client and the implicated unit",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "summary ('true blood type is A-positive, but a mislabeled pretransfusion specimen leads to issue of an ABO-incompatible packed red blood cell unit'); stage_3_update ('blood bank confirms the client is A-positive and the transfused unit was B-positive')",
+      "siblingNecessity": "CORROBORATIVE_ONLY"
+    },
+    {
+      "explanation": "Elevated free plasma hemoglobin corroborates C1 but adds nothing beyond the standalone's LDH/bilirubin/haptoglobin triad. DAT and crossmatch results are absent from both artifacts, consistent with their status as outputs of A2 rather than prerequisites for it.",
+      "missingClientFact": "Direct antiglobulin test, repeat type and crossmatch, and plasma-free hemoglobin results",
+      "provenance": "PARTIALLY_PRESENT_IN_SIBLING",
+      "siblingLocation": "stage_2_update reports 'free plasma hemoglobin elevated' and the blood bank's request for the discontinued unit with attached tubing, a post-reaction sample from the opposite arm, and the original pretransfusion specimen; DAT and repeat crossmatch results are never reported",
+      "siblingNecessity": "CORROBORATIVE_ONLY"
+    },
+    {
+      "explanation": "Baselines sharpen the delta (fibrinogen 310→140, platelets 218→104, LDH 190→1,840) but the standalone's absolute values are already unambiguously abnormal, so P4 and P3 rank identically with or without them.",
+      "missingClientFact": "Baseline renal function (prior BUN/creatinine, eGFR) and pre-transfusion CBC and coagulation values",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "baseline_record exhibit: BUN 32, creatinine 1.8, platelets 218, INR 1.0, aPTT 28, fibrinogen 310, LDH 190, bilirubin 0.9, haptoglobin 95, urinalysis yellow/clear with no blood; summary notes CKD stage 3b",
+      "siblingNecessity": "CORROBORATIVE_ONLY"
+    },
+    {
+      "explanation": "The sibling elevates potassium to a keyed deterioration marker in q6 r4, which the standalone bow-tie does not offer as a parameter token. Because the standalone pool contains no potassium option, its absence cannot affect ranking among the offered tokens; P3 and P4 remain the only stem-anchored choices.",
+      "missingClientFact": "Serum potassium, ionized calcium, and D-dimer",
+      "provenance": "PARTIALLY_PRESENT_IN_SIBLING",
+      "siblingLocation": "Potassium reported throughout (4.6 baseline, 5.4 at stage 2, 5.9 at stage 3, and as matrix row r4); ionized calcium and D-dimer are absent from the entire sibling",
+      "siblingNecessity": "CORROBORATIVE_ONLY"
+    },
+    {
+      "explanation": "Confirms that access exists and is uncomplicated, reinforcing the standalone's CONTRADICTED classification of A1, but the standalone already excluded A1 on the basis of progressive hypotension requiring access.",
+      "missingClientFact": "Current IV access status, number of patent sites, and availability of central access",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "summary (20-gauge peripheral IV); baseline_record and stage_1_update (IV site without redness/swelling/tenderness or streaking); stage_3_update (central venous catheter placed)",
+      "siblingNecessity": "CORROBORATIVE_ONLY"
+    },
+    {
+      "explanation": "Both A2 and A4 are worded as protocol-referencing and escalation actions that a nurse initiates without pre-existing orders, so the sibling's protocol detail confirms feasibility without being a precondition.",
+      "missingClientFact": "Available provider orders and institutional transfusion-reaction and DIC protocols, including vasopressor and component orders",
+      "provenance": "PARTIALLY_PRESENT_IN_SIBLING",
+      "siblingLocation": "summary (facility protocol for initial transfusion rate); stage_2_update (provider at bedside; blood bank specimen protocol); stage_3_update (ICU protocol for norepinephrine titration to MAP >65; ICU team evaluating emergent dialysis and blood component therapy); q4 references protocol-guided new tubing with 0.9% normal saline",
+      "siblingNecessity": "CORROBORATIVE_ONLY"
+    },
+    {
+      "explanation": "Absent from both artifacts and irrelevant to the offered token pools; no keyed or distractor token turns on transfusion history, allergy, or code status.",
+      "missingClientFact": "Prior transfusion history, previous reactions, allergies, and code status or goals of care",
+      "provenance": "ABSENT_FROM_BOTH",
+      "siblingLocation": "Not stated anywhere in the sibling; the summary supplies only age 58, female, CKD stage 3b, hypertension, and type 2 diabetes",
+      "siblingNecessity": "NOT_NEEDED"
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "Applying the fixed precedence in order: (1) FAIL_HIDDEN_CASE_DEPENDENCY does not apply — every canonical target was classified DIRECT in the immutable standalone-unblinding record on the basis of explicitly stated stem text, and inspection of the sibling confirms that nothing the sibling adds (baseline vitals, 25 mL infused volume, A-positive client vs B-positive unit, mislabeled specimen, CKD stage 3b, norepinephrine, central line) is required to reach C1 + A2/A4 + P3/P4. The sibling material is corroborative, not necessary; the blind Stage 2 selection reproduced the canonical key exactly without any of it. (2) FAIL_UNSUPPORTED_TOKEN_PREMISE does not apply — all eleven tokens were premise-classified against stem text alone, the two unsupported distractors (C3 lacking infection data, P2 lacking any site premise) carry only LOW rankability impact, and no keyed token rests on an absent premise. Notably P2's premise, if anything, is corroborated by the sibling ('IV site remains unchanged with no redness, swelling, or streaking'), which reinforces rather than undermines its exclusion as a monitoring parameter. (3) FAIL_UNDERDETERMINED does not apply — the standalone record found the canonical set uniquely defensible, with A1 and A3 affirmatively unsafe (not merely inferior) and P1 self-limited by the word 'alone', leaving no competing 1/2/2 combination. (4) FAIL_CANONICAL_KEY_OR_LOGIC does not apply — the revealed key matches the blind selection in all five slots, and the sibling's own keys are directionally identical (q2 correct = A, acute hemolytic transfusion reaction; q4 correct includes E, save unit/tubing/labels for the blood bank; q5 correct = B, escalate for rapid response or ICU-level care; q6 keys urine output and coagulation trends as the discriminating parameters and temperature alone as 'insufficient by itself'). (5) HOLD_REVIEWER_DISAGREEMENT does not apply — there is no unresolved reviewer conflict; the sole Stage 1 vs canonical divergence was already documented as PARTIAL alignment on action framing (Stage 1 emphasized bedside fluid resuscitation while the key selects an investigative step plus an escalation decision), and the sibling resolves that in the key's favor by separating q4 (immediate bedside actions including saline through new tubing) from q5 (escalation), confirming the bow-tie's action pair is the intended Stage-2-level pairing. The verdict is therefore PASS_STANDALONE. Collateral observations are limited to narrow redundancy between standalone distractors and sibling distractors and to facts absent from both artifacts; none affects answerability.",
+  "scopeCollateral": [
+    {
+      "observation": "The standalone is a bow-tie item, an item type absent from the sibling's six questions (highlight, two multiple-choice, select-all, multiple-choice, matrix). It therefore adds a distinct NGN format rather than duplicating one.",
+      "severity": "informational"
+    },
+    {
+      "observation": "By NGN skill, the standalone bow-tie spans analyze cues (condition), generate solutions / take action (A2, A4), and evaluate outcomes (P3, P4) in one item, overlapping the skill coverage of sibling q2, q4, q5, and q6 simultaneously. Content overlap is substantial even though the format differs.",
+      "severity": "informational"
+    },
+    {
+      "observation": "The standalone action pair intentionally splits an investigative/system step (A2, echoing sibling q4 option E) from an escalation decision (A4, echoing sibling q5 option B), which spans two different sibling stages. The bow-tie stem's own two-part timeline (12 minutes, then 30 minutes after stopping) legitimizes that span.",
+      "severity": "informational"
+    },
+    {
+      "observation": "The standalone testTakingStrategy ('match the center condition first, then select actions and monitoring parameters that address that specific pathophysiology') is format-generic and does not restate the sibling's transfusion-specific strategy text, so the two do not conflict.",
+      "severity": "informational"
+    },
+    {
+      "observation": "The standalone glossary (Bow-tie, Acute hemolytic transfusion reaction, Component therapy) overlaps the sibling case-level glossary on only one term (Acute hemolytic transfusion reaction, with a near-identical Chinese definition) and otherwise adds format and treatment terms. No definitional conflict.",
+      "severity": "informational"
+    }
+  ],
+  "secondaryFlags": [
+    "SIBLING_FACTS_CORROBORATIVE_NOT_NECESSARY — every missing fact recoverable from the sibling only strengthens the already-DIRECT support for the keyed tokens; none is load-bearing.",
+    "DISTRACTOR_REUSE_ACROSS_ARTIFACTS — standalone A1, A3, and P1 restate the same defeaters used in sibling q4 (option F, option C), q5 (options C, A), q3 (option A), and q6 (row r5). Pedagogically consistent, but it means the bow-tie tests a defeater set the learner has already encountered.",
+    "CKD_CONTEXT_NOT_IMPORTED — the sibling's CKD stage 3b and baseline creatinine 1.8 underpin sibling q5 distractor E (slow the saline for fluid overload). The standalone pool contains no CKD-dependent token, so the omission is correct and creates no dependency.",
+    "TIMELINE_COMPRESSION — the standalone stem merges sibling Stage 1 presentation with Stage 2 laboratory values into a single vignette. The merge is internally coherent (Stage 2 is explicitly '30 minutes after transfusion stopped', matching the stem's wording) and introduces no contradiction.",
+    "POTASSIUM_PARAMETER_NOT_OFFERED — hyperkalemia (K 5.4→5.9) is a keyed deterioration marker in sibling q6 but has no counterpart token in the standalone parameter pool; this narrows coverage without affecting the defensibility of P3/P4."
+  ]
+}

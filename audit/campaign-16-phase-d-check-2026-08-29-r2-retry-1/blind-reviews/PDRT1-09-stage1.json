@@ -1,0 +1,89 @@
+{
+  "condition": "Septic shock from neutropenic sepsis (febrile neutropenia progressing to sepsis-induced tissue hypoperfusion despite initial empiric antibiotics)",
+  "evaluationParameters": [
+    "Blood pressure/MAP and heart rate on continuous monitoring, targeting MAP >= 65 mmHg and resolution of tachycardia after fluid resuscitation",
+    "Repeat serum lactate in 2 hours (targeting clearance below 2 mmol/L) together with hourly urine output >= 0.5 mL/kg/hr and capillary refill < 3 seconds as perfusion endpoints"
+  ],
+  "missingInformation": [
+    "Client weight, needed to calculate the 30 mL/kg fluid volume and to interpret 60 mL/4 hr against a 0.5 mL/kg/hr threshold",
+    "Calculated MAP and whether the 92/58 reading is a change from the client's documented baseline blood pressure",
+    "Level of consciousness/mental status and other end-organ signs (skin mottling, peripheral temperature)",
+    "Exact temperature value, trend, and antipyretic administration since the fever was identified",
+    "Absolute neutrophil count value, day of nadir, chemotherapy regimen, and whether growth factor (G-CSF) support is in use",
+    "Time the empiric antibiotics were started, which agents were given, and whether coverage matches the suspected source",
+    "Whether blood and site cultures were obtained before antibiotics, and any preliminary results or identified source (line, lung, GI, skin)",
+    "Volume of IV fluid already infused during this shift and fluid balance since admission",
+    "Presence and type of central venous access device and its appearance/exit-site findings",
+    "Cardiac, renal, and hepatic history plus current medications (beta blockers, antihypertensives) that would alter fluid tolerance and vital sign interpretation",
+    "Additional labs: CBC with differential, creatinine/BUN, platelets, coagulation studies, blood gas, and blood glucose",
+    "Allergies, code status/goals of care, and ICU bed availability for escalation planning"
+  ],
+  "priorityActions": [
+    "Administer a rapid IV isotonic crystalloid bolus (30 mL/kg per weight-based sepsis protocol) through large-bore access, infused wide open rather than by pump maintenance rate",
+    "Activate the rapid response/sepsis team and notify the provider immediately for escalation to vasopressor support (norepinephrine) and higher level of care, while maintaining neutropenic precautions and continuing the antibiotic regimen"
+  ],
+  "reasoning": "The stem gives a confirmed severe neutropenia baseline plus persistent fever after empiric antibiotics, which establishes neutropenic sepsis as the underlying process. What moves the answer from sepsis to septic shock is the cluster of perfusion failure findings: hypotension at 92/58, compensatory tachycardia of 118 and tachypnea of 24, capillary refill prolonged to 4 seconds, oliguria at roughly 15 mL/hr, and a lactate of 3.2 mmol/L indicating anaerobic metabolism. The normal SpO2 of 94% on room air argues against a primary respiratory cause, pointing to distributive circulatory failure instead. Because hypoperfusion persists after antibiotics, the highest-priority nursing actions are hemodynamic rescue and escalation rather than repeating the antibiotic step: aggressive weight-based crystalloid resuscitation restores preload in a vasodilated circulation, and immediate rapid response activation secures vasopressor and critical care support since a lactate above 2 mmol/L with hypotension predicts fluid-refractory shock. Evaluation therefore targets the same variables that defined the deterioration: MAP/heart rate response to volume, and lactate clearance paired with urine output and capillary refill as tissue-level perfusion endpoints. Confidence is high because the stem supplies an explicit precipitant, an explicit lactate, and a full hypoperfusion picture, though weight and mental status are absent and limit dose-level and end-organ specificity.",
+  "stage1Confidence": "high",
+  "stemEvidence": [
+    {
+      "stemFact": "confirmed severe neutropenia",
+      "target": "condition"
+    },
+    {
+      "stemFact": "persistent fever after initial empiric antibiotics",
+      "target": "condition"
+    },
+    {
+      "stemFact": "lactate 3.2 mmol/L",
+      "target": "condition"
+    },
+    {
+      "stemFact": "BP 92/58 with HR 118",
+      "target": "condition"
+    },
+    {
+      "stemFact": "capillary refill 4 seconds",
+      "target": "condition"
+    },
+    {
+      "stemFact": "BP 92/58 (hypotension requiring volume restoration)",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "urine output 60 mL over 4 hours indicating renal hypoperfusion",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "capillary refill 4 seconds indicating poor peripheral perfusion",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "deterioration persists after initial empiric antibiotics",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "lactate 3.2 mmol/L with hypotension signaling shock physiology",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "HR 118 and RR 24 as compensatory shock responses",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "BP 92/58 and HR 118",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "lactate 3.2 mmol/L",
+      "target": "evaluationParameter2"
+    },
+    {
+      "stemFact": "urine output 60 mL over 4 hours",
+      "target": "evaluationParameter2"
+    },
+    {
+      "stemFact": "capillary refill 4 seconds",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

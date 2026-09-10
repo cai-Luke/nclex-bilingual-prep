@@ -1,0 +1,75 @@
+{
+  "condition": "Hypertensive urgency — severely elevated blood pressure (186/102) with headache following an amlodipine dose increase, without documented evidence of acute end-organ damage; risk of progression to hypertensive emergency is increased by the missed 1800 monitoring check",
+  "evaluationParameters": [
+    "Blood pressure trend: manual recheck within 15-30 minutes and then per order/provider direction, evaluating for SBP reduction toward < 180 without an abrupt drop (avoid > 25% reduction in the first hour) and without symptomatic hypotension",
+    "Neurologic and end-organ symptom status: headache severity on a 0-10 scale, level of consciousness, vision changes, focal deficits, chest pain, dyspnea, and urine output, evaluated for resolution versus escalation to hypertensive emergency"
+  ],
+  "missingInformation": [
+    "Baseline and prior BP values for Mrs. Vega, including all readings since admission and the reading that would have been obtained at 1800",
+    "Complete current vital signs: heart rate, respiratory rate, temperature, SpO2, and BP in both arms with documented cuff size and patient position",
+    "Focused neurologic assessment findings: pupils, orientation, motor/sensory symmetry, visual changes, and whether the headache is new, sudden-onset, or worst-ever",
+    "Headache characteristics: onset time, quality, location, severity score, aggravating factors, and response to any analgesia already given",
+    "Whether the increased amlodipine dose was actually administered today, the exact time, the old and new dose, and any other scheduled or PRN antihypertensives on the MAR",
+    "Presence of any PRN or standing antihypertensive order the nurse may act on before the provider returns the call",
+    "Relevant history: hypertension control at home, home antihypertensive regimen and last doses taken, stroke/CAD/CKD/heart failure history, pregnancy status, and admitting diagnosis",
+    "Associated symptoms: chest pain, dyspnea, nausea/vomiting, epistaxis, edema, or anxiety/pain that could be transiently elevating BP",
+    "Recent laboratory and diagnostic data: creatinine/BUN, electrolytes, troponin, ECG, and any imaging",
+    "Documentation of the handoff itself — what was communicated, by whom, and to whom — for incident reporting and unit follow-up"
+  ],
+  "priorityActions": [
+    "Immediately recheck the BP manually with a correctly sized cuff with Mrs. Vega resting and seated/supine, while performing a rapid focused assessment for end-organ involvement (level of consciousness, vision changes, focal neuro deficits, chest pain, dyspnea) and obtaining full vital signs",
+    "Notify the hospitalist without delay per the ordered call parameter (SBP > 180), using SBAR to report the 186/102 reading, the headache, the amlodipine dose increase today, and the missed 1800 check, and request orders for BP management and monitoring frequency"
+  ],
+  "reasoning": "The stem supplies a single objective abnormality — BP 186/102 — paired with headache, a classic symptom of markedly elevated pressure, in a patient whose amlodipine dose was increased the same day. Severe hypertension with a symptom but no stated evidence of acute target-organ injury is best labeled hypertensive urgency; hypertensive emergency cannot be excluded from the stem because no neurologic, cardiac, or renal assessment data are given, which is why the first priority action pairs BP verification with a focused end-organ assessment. Verification also guards against a spurious reading from cuff size, position, or activity. The second priority action is dictated explicitly by the stem: the hospitalist wrote a call parameter for SBP > 180, and 186 breaches it, so notification is a non-discretionary nursing obligation; the report must include the amlodipine change and the missed 1800 check because both alter clinical interpretation — the dose change means a pharmacologic effect may still be developing, and the missed check means the current value has no recent trend to anchor it. Evaluation parameters follow directly from the two actions: serial BP to judge whether the pressure is responding and to guard against an overly rapid drop, and serial neurologic/end-organ symptom assessment to detect conversion to hypertensive emergency. Confidence is medium rather than high because the stem gives one BP, one symptom, and no assessment findings, so the urgency-versus-emergency distinction rests on absent rather than negative data. The incomplete, dismissive handoff is a contributing system factor and a documentation/reporting issue rather than a nursing priority ahead of patient assessment and provider notification.",
+  "stage1Confidence": "medium",
+  "stemEvidence": [
+    {
+      "stemFact": "BP is 186/102",
+      "target": "condition"
+    },
+    {
+      "stemFact": "reports ... a headache",
+      "target": "condition"
+    },
+    {
+      "stemFact": "the amlodipine dose was increased today",
+      "target": "condition"
+    },
+    {
+      "stemFact": "BP is 186/102 with a headache",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "the 1800 monitoring check was missed after an incomplete, dismissive handoff",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "the hospitalist ordered ... a call if SBP > 180",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "At 2200, Priya reports Mrs. Vega's BP is 186/102",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "the amlodipine dose was increased today",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "the hospitalist ordered BP monitoring q4h x 24 hours",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "BP is 186/102",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "reports ... a headache",
+      "target": "evaluationParameter2"
+    },
+    {
+      "stemFact": "the 1800 monitoring check was missed",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

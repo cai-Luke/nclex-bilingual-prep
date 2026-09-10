@@ -1,0 +1,153 @@
+{
+  "actionLabels": [
+    "A4",
+    "A2"
+  ],
+  "ambiguousAlternatives": [
+    {
+      "comparison": "A4 versus A2",
+      "note": "Both are correct and both are selected; if only one were allowed, A4 would rank first as the immediate containment step, with A2 as the formal documentation step. No ambiguity affects the final pair."
+    },
+    {
+      "comparison": "A4 relative to stem timing",
+      "note": "The stem says access was already stopped and reporting already started, so A4 and A2 restate/formalize completed steps rather than introduce new ones. This does not change ranking, since the remaining options (A1, A3) are contraindicated rather than merely lower priority."
+    },
+    {
+      "comparison": "C1 versus C3",
+      "note": "C1 would be plausible only if the exposure were a byproduct of a permitted activity with safeguards in place; the stem's 'open ... record' establishes deliberate access, resolving this cleanly toward C3."
+    }
+  ],
+  "conditionLabel": "C3",
+  "missingInformation": [
+    "Exact date, time, workstation, and duration of the coworker's access, and which data elements were viewed",
+    "Whether the coworker further disclosed, printed, or transmitted any information externally",
+    "Whether other patients' records were accessed by the same user (scope of the breach)",
+    "Whether Mrs. Torrance has been notified and whether the four-factor breach risk assessment has been completed",
+    "Facility-specific privacy policy, escalation chain, and applicable state breach-notification requirements",
+    "Current status of the coworker's EHR credentials (suspended versus active)"
+  ],
+  "parameterLabels": [
+    "P4",
+    "P2"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The stem states two facts that fully determine the condition: the coworker opened the electronic record, and had no care role. Access to PHI by a workforce member without a treatment, payment, or operations relationship is by definition unauthorized access and triggers the breach-response/risk-assessment workflow, so C3 is selected. C1 fails because an incidental disclosure is an unavoidable byproduct of a permitted use, whereas this was direct, purposeful record entry; C2 fails because the stem explicitly negates any care role, and education is not a blanket operations exception for identifiable records of patients outside one's assignment. For actions, A4 and A2 mirror and formalize the two steps the stem says RN Jordan has already begun — stopping access and initiating facility reporting — providing immediate containment plus the written incident report with access details and mitigation. A1 is contraindicated because it substitutes the involved employee's self-report for mandated reporting. A3 is contraindicated because incident reports are confidential quality/risk documents and are never referenced in the medical record. For parameters, P4 evaluates the immediate integrity of the response (Privacy Officer engaged, breach determination started, audit trail preserved as evidence), and P2 evaluates the downstream corrective outcome (targeted education and strengthened safeguards). P1 and P3 are irrelevant: a family call is unrelated to breach handling, and vital signs, wound appearance, and pain score evaluate physiologic status, not a privacy response.",
+  "selectionEvidence": [
+    {
+      "label": "C3",
+      "rationale": "Record access by a workforce member with no care relationship is unauthorized access to PHI and mandates breach-response investigation.",
+      "stemText": "witnessed a coworker open Mrs. Torrance's electronic record without a care role"
+    },
+    {
+      "label": "A4",
+      "rationale": "Directing the coworker out of the record and notifying unit leadership per policy is the containment/escalation action the stem describes.",
+      "stemText": "stopped further access"
+    },
+    {
+      "label": "A2",
+      "rationale": "The facility electronic incident report with access details and mitigation steps is the formal completion of the reporting the stem says was started.",
+      "stemText": "started the facility reporting process"
+    },
+    {
+      "label": "P4",
+      "rationale": "Privacy Officer confirmation that breach determination has begun and the audit trail is preserved directly measures whether the reporting handoff succeeded and evidence was protected.",
+      "stemText": "started the facility reporting process"
+    },
+    {
+      "label": "P2",
+      "rationale": "Corrective education and follow-up safeguards from the privacy investigation measure the effectiveness and durability of the response.",
+      "stemText": "Complete the bow-tie by selecting ... two parameters that best evaluate the response"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "That the exposure was an unavoidable byproduct of a permitted use or disclosure with reasonable safeguards already in place",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem describes deliberate opening of the record by someone with no care role, which is direct unauthorized access, not an incidental disclosure; the option is excluded on stem text alone.",
+      "supportingStemText": "witnessed a coworker open Mrs. Torrance's electronic record without a care role"
+    },
+    {
+      "missingPremise": "That the coworker had a legitimate healthcare-operations or approved educational authorization to view this identifiable record",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem explicitly negates any care role, so the permissible-access premise is directly refuted and the option is eliminated without inference.",
+      "supportingStemText": "without a care role"
+    },
+    {
+      "missingPremise": "None; the stem supplies both required elements (record accessed, no care relationship)",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Explicit stem facts plus general HIPAA knowledge fully support this as the unique best condition; no client-specific gap affects its selection.",
+      "supportingStemText": "witnessed a coworker open Mrs. Torrance's electronic record without a care role"
+    },
+    {
+      "missingPremise": "That accepting the involved employee's self-report could satisfy the facility's mandatory reporting obligation",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem states the reporting process was already started, and non-reporting violates mandatory privacy-breach obligations; excluded regardless of unknown details.",
+      "supportingStemText": "started the facility reporting process"
+    },
+    {
+      "missingPremise": "None required; the stem establishes that facility reporting was initiated and general knowledge supplies the incident-report standard",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Directly continues the reporting action named in the stem; selection does not depend on any absent client fact.",
+      "supportingStemText": "started the facility reporting process"
+    },
+    {
+      "missingPremise": "That an incident report may be referenced in the patient's medical record",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "General knowledge holds that incident reports are confidential risk-management documents and are not documented in the chart; excluded on principle, not on missing facts.",
+      "supportingStemText": "started the facility reporting process"
+    },
+    {
+      "missingPremise": "Facility-specific escalation chain and whether unit leadership was the notified party; not needed for ranking",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The stem confirms access was stopped and reporting begun, so containment plus policy-based notification is supported; the unspecified escalation chain does not change its rank above A1 or A3.",
+      "supportingStemText": "stopped further access, and started the facility reporting process"
+    },
+    {
+      "missingPremise": "Any stated family involvement, call, or communication expectation for this client",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem contains no family element and a family call has no logical bearing on evaluating a privacy-breach response; excluded as irrelevant rather than underdetermined.",
+      "supportingStemText": "Complete the bow-tie by selecting ... two parameters that best evaluate the response"
+    },
+    {
+      "missingPremise": "None required; the corrective-action phase follows generally from any privacy investigation",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Corrective education and strengthened safeguards are the standard outcome measures of a completed privacy investigation, making this a valid evaluation parameter without added client facts.",
+      "supportingStemText": "started the facility reporting process"
+    },
+    {
+      "missingPremise": "Any physiologic problem, wound, or pain complaint for Mrs. Torrance",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem presents an administrative privacy scenario with no clinical findings; physiologic parameters cannot evaluate a privacy response, so the option is excluded on relevance.",
+      "supportingStemText": "Complete the bow-tie by selecting the most likely privacy condition"
+    },
+    {
+      "missingPremise": "Whether the Privacy Officer has yet responded and whether the audit trail was in fact preserved; this is the outcome being measured, not a prerequisite",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem's initiation of facility reporting makes Privacy Officer confirmation and audit-trail preservation the direct, verifiable measure of that response; the unknown status is what the parameter evaluates.",
+      "supportingStemText": "started the facility reporting process"
+    }
+  ]
+}

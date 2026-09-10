@@ -1,0 +1,222 @@
+{
+  "advisoryPriority": "P3",
+  "bilingualCollateral": [
+    {
+      "advisoryPriority": "P3",
+      "location": "bowtie.parameters.tokens[P3]",
+      "observation": "P3 English reads 'Heart-rate and blood-pressure variability' while the Chinese '心率和血压变异范围' adds 范围 ('range'). The addition is semantically harmless and actually aligns with the sibling's day-5 framing of narrowing HR/BP swings, but the two renderings are not strictly parallel.",
+      "severity": "COSMETIC"
+    },
+    {
+      "advisoryPriority": "P3",
+      "location": "bowtie.actions.tokens[A4], bowtie.parameters.tokens[P1] versus [P2], [P4]",
+      "observation": "Mixed spacing convention in the Chinese strings: a space precedes Latin-script tokens in some places ('按医嘱继续 IVIG', '连续 CSF 蛋白水平') but not others ('连续FVC和MIP趋势', 'SpO2作为'). Purely typographic and consistent with the sibling case's own mixed usage.",
+      "severity": "COSMETIC"
+    },
+    {
+      "advisoryPriority": "P3",
+      "location": "glossary[0..2]",
+      "observation": "Glossary entries in the standalone item carry termEn, termZh, and defZh but no defEn. This matches the sibling case's glossary convention throughout, so it appears to be an intentional format rather than a translation gap; noted only for completeness.",
+      "severity": "COSMETIC"
+    },
+    {
+      "advisoryPriority": "P3",
+      "location": "stem, bowtie tokens, rationale.byChoice",
+      "observation": "Clinical terminology in the stem translates faithfully in both directions: '进行性四肢轻瘫' for progressive quadriparesis, '血压波动' for labile blood pressure, '单侧咽反射消失' for unilateral absent gag, and all numeric values (FVC 1.6 L / 19 mL/kg, MIP -26 cmH2O) are preserved unchanged. No meaning-altering discrepancy found in any of the eleven token strings or eleven byChoice rationales.",
+      "severity": "NONE"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "explanation": "The standalone stem already states 'confirmed Guillain-Barre syndrome after recent Campylobacter enteritis' and supplies FVC 19 mL/kg with MIP -26 cmH2O plus few-word speech, which independently establishes both halves of the token. The sibling's diagnostic workup confirms the diagnosis the standalone stem simply asserts, and its 'impending respiratory failure' phrasing matches but does not supply the standalone conclusion.",
+      "necessityClassification": "SIBLING_CORROBORATIVE_ONLY",
+      "opaqueTokenLabel": "C1",
+      "siblingMaterial": "Sibling q3 keys option A ('Guillain-Barre syndrome, acute inflammatory demyelinating polyneuropathy variant'); stage2_12_24h_update states the client 'transfers to ICU for impending respiratory failure'; ex_diagnostics supplies albuminocytologic dissociation (CSF protein 98 mg/dL, WBC 3) and demyelinating NCS confirming AIDP."
+    },
+    {
+      "explanation": "The thresholds the sibling attributes to the provider are the standard 20/30/40 criteria available as general nursing knowledge, and the standalone stem supplies values on both sides of them along with ineffective cough and absent gag. A2 was selected blind without any sibling access, so the case order confirms rather than enables the selection. No hidden case dependency.",
+      "necessityClassification": "SIBLING_CORROBORATIVE_ONLY",
+      "opaqueTokenLabel": "A2",
+      "siblingMaterial": "Verbatim match to sibling q5 option A (keyed correct); stage2_12_24h_update records the provider ordering emergent endotracheal intubation at hour 20 with uncomplicated intubation; sibling q4 option D states the case escalation thresholds (FVC <20 mL/kg or MIP weaker than -30 cmH2O)."
+    },
+    {
+      "explanation": "The standalone token reverses the emphasis of the sibling option, leading with evaluation of the diaphoresis and hemodynamic changes and making continuation conditional. Both triggering findings are explicit in the standalone stem ('diaphoretic while receiving IVIG in the ICU', 'labile blood pressure, tachycardia'), and the IVIG-reaction link is general knowledge. The sibling's order details refine the picture but are not required; notably the sibling never documents an actual infusion reaction, so the conditional framing is correct standalone and in-case alike.",
+      "necessityClassification": "SIBLING_CORROBORATIVE_ONLY",
+      "opaqueTokenLabel": "A4",
+      "siblingMaterial": "Sibling q5 option D (keyed correct): 'Continue the IVIG infusion on schedule through the airway transition unless a separate infusion reaction or safety issue occurs', with rationale that intubation does not replace immunotherapy; stage1 order set specifies IVIG 0.4 g/kg/day IV for 5 days; stage2 notes 'IVIG continues on schedule'."
+    },
+    {
+      "explanation": "The standalone stem names both measures with values, establishing the baseline to be trended. The sibling's longitudinal series demonstrates the same principle across the whole case but adds nothing needed to select P2, which was chosen blind.",
+      "necessityClassification": "SIBLING_CORROBORATIVE_ONLY",
+      "opaqueTokenLabel": "P2",
+      "siblingMaterial": "Sibling q2 row r3 keyed to column c2 ('Serial bedside FVC and MIP measurements' as primary respiratory trend) and row r5 keyed to c2 (baseline FVC 42 mL/kg / MIP -62 to be trended); sibling q4 option C; the full serial dataset across stages 1-3; q6 dropdown 3 using FVC 13 mL/kg and MIP -22 as the extubation barrier."
+    },
+    {
+      "explanation": "The standalone stem's 'labile blood pressure, tachycardia' is sufficient to select P3. The sibling supplies the numeric ranges and the later evaluative use of narrowing variability, which corroborates the parameter's value as a trend but is not needed for the bow-tie selection made blind.",
+      "necessityClassification": "SIBLING_CORROBORATIVE_ONLY",
+      "opaqueTokenLabel": "P3",
+      "siblingMaterial": "Sibling q5 option F (keyed: continuous telemetry with short-acting titrated agents for labile BP); stage2 documents BP 156/98 to 98/62 within 30 minutes with occasional PVCs; stage3 documents HR 56-128, BP 88/54-172/104, two SVT runs, then narrowing to HR 68-102 and BP 104/66-146/88; q6 dropdown 4 keys 'improving autonomic stability' to the narrowing swings."
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "advisoryPriority": "P3",
+      "impactOnKey": "NONE",
+      "observation": "The standalone record's LOW-impact caveat about A2's 'emergent' qualifier is resolved by the sibling: at hour 20 the provider does order emergent intubation, so the token wording is faithful to the case narrative rather than imprecise. The underlying clinical point still stands as a narrow advisory - at hour 16 (FVC 24 mL/kg, MIP -32 cmH2O, 'breathing through a straw', worsening bulbar signs, new left absent gag) many clinicians would have proceeded to controlled intubation before the numbers crossed the stated thresholds. The case is internally consistent because it defines escalation strictly by the FVC <20 / MIP weaker than -30 thresholds; this is a teaching-design choice, not an error."
+    },
+    {
+      "advisoryPriority": "P3",
+      "impactOnKey": "NONE",
+      "observation": "All FVC/mL-per-kg pairs across the sibling (3.6/42, 3.4/40, 3.1/36, 2.6/31, 2.0/24, 1.6/19, 1.1/13, 0.9/11) are internally consistent with a body weight of approximately 85 kg, even though weight is never stated. The standalone item inherits this consistency, so the actual-versus-ideal-weight ambiguity flagged in the standalone record has no numeric consequence."
+    },
+    {
+      "advisoryPriority": "P3",
+      "impactOnKey": "NONE",
+      "observation": "The diaphoresis in the standalone stem remains genuinely dual-attributable after unblinding: the sibling attributes it to escalating work of breathing (RR 28 labored, accessory use) and never documents an IVIG infusion reaction. A4's conditional construction ('evaluate ... continue only if it is safe') is therefore correct in both readings and does not require the learner to assume a reaction is occurring. The standalone wording is arguably safer than the sibling's q5 option D, which leads with continuation."
+    },
+    {
+      "advisoryPriority": "P3",
+      "impactOnKey": "NONE",
+      "observation": "Distractor P4 ('SpO2 alone as the primary respiratory marker') is reinforced by the sibling, where SpO2 is 93% on 2 L at the moment both thresholds are breached - a concrete demonstration of oximetry as a lagging marker. The standalone stem omits SpO2 entirely, which if anything strengthens the item by removing a falsely reassuring number."
+    },
+    {
+      "advisoryPriority": "P3",
+      "impactOnKey": "NONE",
+      "observation": "Distractor A1 (corticosteroids) is independently addressed in sibling q4 options B and F, and A3 (BiPAP) in sibling q5 option B, with rationales consistent with the standalone item's. No cross-item contradiction was found in the treatment logic."
+    }
+  ],
+  "defectSummary": "",
+  "missingFactProvenance": [
+    {
+      "affectedTokens": [
+        "P3",
+        "A4"
+      ],
+      "explanation": "The standalone stem's qualitative 'labile blood pressure, tachycardia' already triggers P3 and supplies the hemodynamic-change trigger for A4. The sibling numbers quantify severity but do not change which tokens are selected; no keyed token becomes selectable only after seeing them.",
+      "missingFact": "Numeric vital signs - specific blood pressure range, heart rate, respiratory rate, SpO2, temperature",
+      "necessityClassification": "SIBLING_CORROBORATIVE_ONLY",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "stage2_12_24h_update (hour 16: HR 112, BP 156/98 to 98/62 within 30 minutes, RR 24; hour 20: HR 118, BP 162/100, RR 28 labored, SpO2 93% on 2 L NC); ex_initial_assessment for baseline vitals"
+    },
+    {
+      "affectedTokens": [
+        "C1",
+        "A2",
+        "P2"
+      ],
+      "explanation": "The only ABG in the entire case is drawn after intubation, so it is temporally incapable of driving the airway decision. C1, A2, and P2 rest on FVC/MIP and bedside signs stated in the standalone stem.",
+      "missingFact": "ABG values (PaCO2, PaO2, pH)",
+      "necessityClassification": "SIBLING_CORROBORATIVE_ONLY",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "stage2_12_24h_update: post-intubation ABG pH 7.34, PaCO2 48, PaO2 142, HCO3 25"
+    },
+    {
+      "affectedTokens": [
+        "C1",
+        "P2",
+        "A2"
+      ],
+      "explanation": "The trend confirms a steep 20-hour decline and reinforces the urgency, but the single standalone timepoint already breaches both thresholds, which is independently sufficient for C1, A2, and P2.",
+      "missingFact": "Prior serial FVC/MIP values and the interval over which they declined",
+      "necessityClassification": "SIBLING_CORROBORATIVE_ONLY",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "stage1_0_12h_update (hour 4: 40 mL/kg / -58; hour 8: 36 / -48; hour 12: 31 / -38) and stage2_12_24h_update (hour 16: 24 / -32; hour 20: 19 / -26)"
+    },
+    {
+      "affectedTokens": [
+        "C1",
+        "P2"
+      ],
+      "explanation": "Never resolved even with full case access, confirming it was never load-bearing. MIP -26 cmH2O independently breaches threshold regardless of the weight basis.",
+      "missingFact": "Whether the 19 mL/kg calculation used actual or ideal body weight",
+      "necessityClassification": "NOT_NECESSARY",
+      "provenance": "ABSENT_FROM_BOTH",
+      "siblingLocation": "Not stated anywhere in the sibling; body weight is never given, though all FVC values across stages are internally consistent with roughly 85 kg"
+    },
+    {
+      "affectedTokens": [
+        "A4"
+      ],
+      "explanation": "The sibling confirms IVIG is a standing order, supporting the token's 'as ordered' phrasing, but the reaction-relevant details remain unstated even in the full case. A4 is deliberately conditional ('evaluate ... continue only if safe'), which is the correct nursing action precisely under this residual uncertainty.",
+      "missingFact": "IVIG specifics - dose, infusion rate, hours elapsed, premedication, prior reaction history, renal function",
+      "necessityClassification": "SIBLING_CORROBORATIVE_ONLY",
+      "provenance": "PARTIALLY_PRESENT_IN_SIBLING",
+      "siblingLocation": "stage1_0_12h_update states IVIG 0.4 g/kg/day IV for 5 days; stage2 states 'IVIG continues on schedule'; stage3 states IVIG completed through day 5. Infusion rate, hours elapsed at hour 20, premedication, prior reaction history, and renal function are absent from the sibling as well"
+    },
+    {
+      "affectedTokens": [
+        "C1",
+        "A2"
+      ],
+      "explanation": "'Progressive quadriparesis' in the standalone stem already conveys an unstable pre-nadir trajectory; the sibling timeline adds context without altering any selection.",
+      "missingFact": "Days since symptom onset and whether the nadir has been reached",
+      "necessityClassification": "SIBLING_CORROBORATIVE_ONLY",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "ex_initial_history (five days of ascending symptoms, Campylobacter three weeks prior); stage3_icu_days2_5_update (weakness plateaus by ICU day 4)"
+    },
+    {
+      "affectedTokens": [
+        "P3"
+      ],
+      "explanation": "These findings strengthen the rationale for continuous telemetry but arrive after the bow-tie timepoint for the SVT runs; documented lability and tachycardia in the standalone stem are sufficient to select P3.",
+      "missingFact": "Cardiac rhythm/telemetry findings and any bradycardic or arrhythmic episodes",
+      "necessityClassification": "SIBLING_CORROBORATIVE_ONLY",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "stage2_12_24h_update (occasional PVCs at hour 16); stage3_icu_days2_5_update (HR 56-128, two brief self-terminating SVT runs)"
+    },
+    {
+      "affectedTokens": [
+        "A2",
+        "A3"
+      ],
+      "explanation": "'Ineffective cough' and 'unilateral absent gag reflex' in the standalone stem are sufficient to establish loss of airway protection, select A2, and exclude A3; the full case adds nothing further.",
+      "missingFact": "Secretion burden, cough peak flow, swallow screen, chest auscultation or imaging",
+      "necessityClassification": "NOT_NECESSARY",
+      "provenance": "ABSENT_FROM_BOTH",
+      "siblingLocation": "Cough is described only qualitatively across stages ('cough is weaker', 'cannot cough effectively'); no swallow screen, cough peak flow, or chest imaging appears anywhere in the sibling"
+    },
+    {
+      "affectedTokens": [
+        "A2"
+      ],
+      "explanation": "The sibling confirms the airway plan the standalone stem leaves implicit, but A2 is a preparation-and-assist action that the nurse selects on the standalone evidence alone; code status is never addressed even in the full case.",
+      "missingFact": "Whether an airway plan, consent discussion, code status, or aspiration precautions are already in place",
+      "necessityClassification": "SIBLING_CORROBORATIVE_ONLY",
+      "provenance": "PARTIALLY_PRESENT_IN_SIBLING",
+      "siblingLocation": "stage2_12_24h_update (provider orders emergent endotracheal intubation; intubated without complication); sibling q5 option C covers suction/oxygen/IV access/RSI readiness. Code status and consent discussion are absent from the sibling"
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "The standalone bow-tie survives unblinding. Every one of the five keyed tokens was classified DIRECT in the immutable standalone record on the strength of stem text alone, and the blind Stage 2 selection (C1 / A2 + A4 / P2 + P3) matched the canonical key exactly without any access to the sibling case. Re-examining each of the nine missing client facts now that the paired case is visible: six of them (numeric vitals, ABG, prior serial FVC/MIP values and interval, days since onset/nadir, telemetry rhythm findings, and the existence of an airway plan) are indeed supplied by the sibling, but in every instance the sibling material is corroborative rather than necessary - each keyed token was already fully triggered by explicit standalone stem text (FVC 19 mL/kg and MIP -26 cmH2O; ineffective cough and unilateral absent gag; labile BP and tachycardia; diaphoresis during active IVIG). Notably the sibling's ABG is drawn post-intubation, so it could not have informed the airway decision even in the full case. Three missing facts (actual versus ideal body weight, full IVIG administration details such as rate/hours elapsed/premedication/prior reactions, and swallow screen/cough peak flow/chest imaging/code status) remain absent from the sibling as well, confirming they were never load-bearing for the key. No keyed token requires a case-only threshold: although the sibling states provider thresholds of FVC <20 mL/kg or MIP weaker than -30 cmH2O, these are the standard 20/30/40 criteria available as general nursing knowledge, so A2 does not depend on hidden case content. All six distractors remain CONTRADICTED on standalone grounds. There is therefore no hidden case dependency, no unsupported token premise, no underdetermination, and no key or logic error. Remaining observations are narrow and cosmetic, warranting only an advisory P3.",
+  "scopeCollateral": [
+    {
+      "advisoryPriority": "P3",
+      "impactOnKey": "NONE",
+      "observation": "Token text overlap: A2 is verbatim identical to sibling q5 option A, and A3 is a close paraphrase of sibling q5 option B ('Initiate BiPAP as the preferred substitute for intubation because he is still awake'). A4 is a reworded and re-emphasized version of sibling q5 option D. This indicates the bow-tie pool was derived from the sibling's take-action SATA item. It does not create a dependency - the standalone stem carries its own evidence for every token - but it means a learner who has completed the sibling case would recognize the options."
+    },
+    {
+      "advisoryPriority": "P3",
+      "impactOnKey": "NONE",
+      "observation": "Pool coverage gap noted in the standalone record is confirmed: the sibling's q5 includes option C (suction, oxygen, IV access, RSI readiness, continuous monitoring), the closest analogue to the aspiration/airway-protection action that blind Stage 1 free-generated as its second priority. The bow-tie pool omits any such token, so the standalone item cannot reward that reasoning path. A4 remains the correct and defensible second action; this is an option-set coverage observation, not a key defect."
+    },
+    {
+      "advisoryPriority": "P3",
+      "impactOnKey": "NONE",
+      "observation": "The bow-tie's 'as ordered' phrasing in A4 is inferable standalone from 'while receiving IVIG in the ICU' (an infusion in progress implies a standing order) and is explicitly confirmed by the sibling order set (IVIG 0.4 g/kg/day for 5 days). No learner is required to import the sibling order to select A4."
+    },
+    {
+      "advisoryPriority": "P3",
+      "impactOnKey": "NONE",
+      "observation": "The standalone item's testTakingStrategy ('identify the central threat first, then pick actions that reduce it and monitoring that tracks it') is self-contained and does not reference case stages, exhibits, or provider orders, keeping the item usable outside the case context."
+    }
+  ],
+  "secondaryFlags": [
+    "MISSING_FACTS_ALL_CORROBORATIVE_NONE_NECESSARY",
+    "THREE_MISSING_FACTS_ABSENT_FROM_SIBLING_TOO_CONFIRMING_NON_LOAD_BEARING",
+    "KEYED_TOKEN_TEXT_SHARED_VERBATIM_WITH_SIBLING_Q5_OPTIONS_A_AND_B",
+    "STANDALONE_A4_REWORDED_FROM_SIBLING_Q5_OPTION_D_TO_LEAD_WITH_SAFETY_EVALUATION",
+    "POOL_COVERAGE_GAP_NO_ASPIRATION_PRECAUTION_ACTION_TOKEN",
+    "CASE_THRESHOLDS_MIRROR_GENERAL_20_30_40_KNOWLEDGE_SO_NO_HIDDEN_DEPENDENCY",
+    "BLIND_STAGE2_EXACT_MATCH_WITHOUT_SIBLING_ACCESS"
+  ]
+}

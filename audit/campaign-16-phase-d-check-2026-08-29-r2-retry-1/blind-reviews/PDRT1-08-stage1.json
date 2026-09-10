@@ -1,0 +1,53 @@
+{
+  "condition": "HIPAA privacy breach — unauthorized access (snooping) of Mrs. Torrance's ePHI by a workforce member with no treatment, payment, or operations role in her care",
+  "evaluationParameters": [
+    "Audit-trail/access-log review of Mrs. Torrance's record confirms no further access by the involved employee or other non-care users after the account restriction (verified at 24-48 hours and at case closure)",
+    "Timeliness and completeness of the required breach workflow: documented four-factor breach risk assessment, privacy officer acknowledgment, and patient notification within policy/HIPAA timelines (≤60 days), with sanction and re-education steps recorded"
+  ],
+  "missingInformation": [
+    "Exact date, time, and duration of the unauthorized access, and which specific screens/data elements were viewed",
+    "Whether the coworker further disclosed, printed, photographed, or transmitted any of Mrs. Torrance's information externally",
+    "The coworker's role and employment status, and whether their EHR access has actually been suspended by IT/Security",
+    "Whether other patients' records were also accessed inappropriately by the same user (scope of breach)",
+    "Whether Mrs. Torrance has been notified yet and whether a breach risk assessment has been initiated by the privacy officer",
+    "Facility-specific privacy policy, chain of escalation, and applicable state breach-notification law",
+    "Whether RN Jordan's report has been formally documented in writing (incident/compliance system) versus verbally reported",
+    "Whether the record was flagged for VIP/heightened confidentiality or break-the-glass monitoring"
+  ],
+  "priorityActions": [
+    "Immediately escalate a written, factual incident report to the privacy officer/compliance and nursing leadership — documenting who, what was observed, date/time, workstation, and record accessed — and request IT security suspend or restrict the coworker's EHR credentials pending investigation",
+    "Request and preserve the EHR audit trail/access log for Mrs. Torrance's record (and the coworker's user account) as evidence, without altering the chart or confronting/investigating the coworker independently, and support the privacy officer's breach risk assessment and patient-notification process"
+  ],
+  "reasoning": "The stem describes a witnessed access to a patient's electronic record by an employee with no care role — the defining feature of an impermissible use/access of PHI under the HIPAA Privacy and Security Rules, commonly called record snooping, which is presumed a reportable breach unless a low-probability-of-compromise risk assessment shows otherwise. The RN's own duties are already partly met (access stopped, reporting started), so the remaining priorities are formal escalation with credential containment and evidence preservation via audit logs, both of which are institutional processes the nurse triggers rather than conducts alone. Evaluation of the response therefore rests on objective, verifiable outputs: audit-log confirmation that unauthorized access has ceased, and documented, timely completion of the mandated breach assessment, notification, and sanction/re-education steps. Confidence in the condition is high because the stem states the two elements that define it (record opened; no care role); specificity of actions and parameters is limited only by unknown scope and facility policy detail.",
+  "stage1Confidence": "high",
+  "stemEvidence": [
+    {
+      "stemFact": "Coworker opened Mrs. Torrance's electronic record without a care role",
+      "target": "condition"
+    },
+    {
+      "stemFact": "RN Jordan witnessed the access firsthand, giving a first-person factual account of the event",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "RN Jordan started the facility reporting process, which must be carried forward to the privacy officer/compliance and leadership",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "Access occurred in the electronic record, which generates a retrievable audit trail",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "RN Jordan stopped further access, an immediate containment step that must be made durable by credential restriction and evidence preservation",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "Further access was stopped, so effectiveness is judged by whether unauthorized access actually ceases",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "The facility reporting process was initiated by the end of the shift, starting the regulatory breach timeline",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

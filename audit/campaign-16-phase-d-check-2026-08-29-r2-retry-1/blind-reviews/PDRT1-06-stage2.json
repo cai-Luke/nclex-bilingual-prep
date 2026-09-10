@@ -1,0 +1,160 @@
+{
+  "actionLabels": [
+    "A1",
+    "A2"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C3",
+  "missingInformation": [
+    "Number of casualties in each START category (red, yellow, green, black)",
+    "Quantity of blood units, ventilators, and resuscitation bays actually available",
+    "Whether the remaining six casualties are contaminated or already decontaminated",
+    "Vital signs, injuries, and clinical status of any individual casualty",
+    "Availability of hazmat/decontamination staff, PPE level, and effluent containment status",
+    "Incident command structure, secondary-transport capacity, and burn/trauma center availability"
+  ],
+  "parameterLabels": [
+    "P1",
+    "P2"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The stem names every element of C3 explicitly: activated MCI mode with seven casualties arriving at once, completed START triage, chemical (ammonia) contamination with a completed decontamination, and scarce blood and treatment spaces being allocated — i.e., demand exceeding ED resources. C1 is contradicted because resource-allocation triage is explicitly occurring; C2 is contradicted because the stem states MCI activation and scarce-resource allocation rather than a manageable conventional surge. A1 is the standing hazmat control the stem confirms is in force (a contaminated casualty completed decontamination), and it protects the department from secondary contamination. A2 operationalizes the completed START triage into sequencing of scarce blood and treatment spaces, which is the exact synthesis task assigned to the charge nurse. A3 is contradicted by MCI doctrine, which withholds resource-intensive resuscitation from black/expectant casualties so salvageable ones are treated; A4 directly reverses the decontamination-before-entry principle the stem shows being followed. P1 evaluates A1 by confirming no secondary contamination of staff, casualties, or treatment areas; P2 evaluates A2 by tracking whether the salvageable red/yellow casualties actually benefit from the allocation decisions. P3 is a routine-operations metric that MCI documentation standards intentionally abbreviate, and P4 as an isolated number gives no denominator or salvageability context and cannot guide nursing action.",
+  "selectionEvidence": [
+    {
+      "rationale": "Establishes a mass-casualty incident with a chemical agent.",
+      "stemText": "The ED is in activated MCI mode after seven casualties arrive from an industrial explosion with ammonia release",
+      "tokenLabel": "C3"
+    },
+    {
+      "rationale": "Names the required triage system explicitly.",
+      "stemText": "START triage is complete",
+      "tokenLabel": "C3"
+    },
+    {
+      "rationale": "Confirms demand exceeds available ED resources.",
+      "stemText": "scarce blood and treatment spaces are being allocated",
+      "tokenLabel": "C3"
+    },
+    {
+      "rationale": "Confirms the chemical decontamination component.",
+      "stemText": "one contaminated red-category casualty has completed decontamination",
+      "tokenLabel": "C3"
+    },
+    {
+      "rationale": "Decontamination before ED entry is the control already in force for contaminated casualties.",
+      "stemText": "one contaminated red-category casualty has completed decontamination",
+      "tokenLabel": "A1"
+    },
+    {
+      "rationale": "Triage categories exist and must be used to sequence scarce resources among salvageable casualties.",
+      "stemText": "START triage is complete, ... scarce blood and treatment spaces are being allocated",
+      "tokenLabel": "A2"
+    },
+    {
+      "rationale": "Assigns the allocation/sequencing decision to the nurse.",
+      "stemText": "the charge nurse must synthesize the safest condition, actions, and monitoring parameters",
+      "tokenLabel": "A2"
+    },
+    {
+      "rationale": "Contamination hazard makes absence of secondary contamination the direct measure of decontamination effectiveness.",
+      "stemText": "industrial explosion with ammonia release ... one contaminated red-category casualty has completed decontamination",
+      "tokenLabel": "P1"
+    },
+    {
+      "rationale": "Survival and trajectory of salvageable red/yellow casualties is the outcome measure of correct triage-driven allocation.",
+      "stemText": "seven casualties ... START triage is complete ... scarce blood and treatment spaces are being allocated",
+      "tokenLabel": "P2"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "That the event is a single-problem hazmat exposure with no resource-allocation triage occurring",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem explicitly states START triage is complete and scarce blood and treatment spaces are being allocated, so this token is ruled out on stem text alone without needing further client facts.",
+      "supportingStemText": "START triage is complete, ... scarce blood and treatment spaces are being allocated"
+    },
+    {
+      "missingPremise": "That resources remain adequate for a conventional surge of several trauma patients",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Activated MCI mode plus explicit scarcity of blood and treatment spaces contradicts a conventional-surge framing; ruled out from the stem.",
+      "supportingStemText": "The ED is in activated MCI mode ... scarce blood and treatment spaces are being allocated"
+    },
+    {
+      "missingPremise": "None; all four elements (MCI, resources exceeded, START triage, chemical decontamination) are stated",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Every component of this token is named verbatim in the stem, making it fully rankable without inference.",
+      "supportingStemText": "activated MCI mode after seven casualties ... ammonia release. START triage is complete, one contaminated red-category casualty has completed decontamination, scarce blood and treatment spaces are being allocated"
+    },
+    {
+      "missingPremise": "Whether the six remaining casualties are still contaminated and awaiting decontamination",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The stem confirms contamination and a completed decontamination, so decontamination-before-entry is established as the operative control; not knowing how many casualties remain contaminated does not change this token's rank.",
+      "supportingStemText": "one contaminated red-category casualty has completed decontamination"
+    },
+    {
+      "missingPremise": "The per-category casualty counts and the specific resource inventory to be sequenced",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The stem states triage is complete and scarce resources are being allocated, which is sufficient to select this token; the missing counts affect execution detail, not ranking.",
+      "supportingStemText": "START triage is complete, ... scarce blood and treatment spaces are being allocated"
+    },
+    {
+      "missingPremise": "That black/expectant casualties exist and that resources permit full resuscitation for them",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "MCI doctrine under declared scarcity withholds resource-intensive resuscitation from expectant casualties so salvageable patients are treated; the stem's stated scarcity rules this token out regardless of missing counts.",
+      "supportingStemText": "activated MCI mode ... scarce blood and treatment spaces are being allocated"
+    },
+    {
+      "missingPremise": "That a contaminated casualty with stridor exists (no casualty is described as having stridor)",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Stridor is not stated anywhere in the stem, and bypassing decontamination reverses the control the stem shows in force; the token is excluded on doctrine without inferring client facts.",
+      "supportingStemText": "one contaminated red-category casualty has completed decontamination"
+    },
+    {
+      "missingPremise": "Baseline contamination-monitoring method, PPE level, and effluent containment status",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The stem establishes a chemical release and active decontamination, so absence of secondary contamination is a directly relevant evaluation parameter; the missing measurement details do not alter its rank.",
+      "supportingStemText": "industrial explosion with ammonia release ... one contaminated red-category casualty has completed decontamination"
+    },
+    {
+      "missingPremise": "Individual vital signs, injuries, and category counts for the red/yellow casualties",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The stem names a red-category casualty and scarce-resource allocation among seven casualties, so trajectory and survival of salvageable patients is the natural outcome measure; missing per-patient data does not change selection.",
+      "supportingStemText": "seven casualties ... one contaminated red-category casualty ... scarce blood and treatment spaces are being allocated"
+    },
+    {
+      "missingPremise": "That routine full documentation standards apply during an activated MCI",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "MCI operations use abbreviated triage-tag documentation by design, so timing routine full charting is not a safety-relevant parameter here; excluded without needing client facts.",
+      "supportingStemText": "The ED is in activated MCI mode"
+    },
+    {
+      "missingPremise": "A denominator, salvageability breakdown, or benchmark that would make a raw mortality count interpretable",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "An isolated mortality total provides no actionable feedback on triage or decontamination performance and requires no client fact to rank last.",
+      "supportingStemText": "the charge nurse must synthesize the safest condition, actions, and monitoring parameters"
+    }
+  ]
+}

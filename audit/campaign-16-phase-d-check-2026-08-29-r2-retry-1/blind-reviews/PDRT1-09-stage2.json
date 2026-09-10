@@ -1,0 +1,167 @@
+{
+  "actionLabels": [
+    "A2",
+    "A4"
+  ],
+  "ambiguousAlternatives": [
+    {
+      "label": "A3",
+      "reason": "Culture collection and antimicrobial review are legitimate sepsis-bundle elements, so the token is superficially plausible; it is rejected only because it explicitly delays fluid resuscitation in a client with documented hypoperfusion, and the stem states empiric antibiotics were already administered."
+    },
+    {
+      "label": "P4",
+      "reason": "Repeat WBC/ANC is relevant to neutropenia management generally, but it does not change on the acute resuscitation timescale and would not evaluate the response to fluids or escalation, so it loses to P1 and P3 as an immediate marker."
+    }
+  ],
+  "conditionLabel": "C3",
+  "missingInformation": [
+    "Client weight, required to calculate the A2 bolus volume and to judge 60 mL over 4 hours against a weight-based urine output threshold",
+    "Calculated mean arterial pressure and the client's baseline blood pressure for comparison",
+    "Level of consciousness and mental status, which the stem does not report",
+    "Exact temperature value and trend behind the phrase 'persistent fever'",
+    "Absolute neutrophil count value and the time and identity of the empiric antibiotics given",
+    "Whether blood cultures were obtained and any identified or suspected infection source",
+    "Volume of IV fluid already infused and current IV access",
+    "Cardiac and renal history plus current medications that would affect fluid tolerance",
+    "Institution-specific sepsis/oncology protocol parameters and rapid response activation criteria"
+  ],
+  "parameterLabels": [
+    "P1",
+    "P3"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The stem explicitly supplies confirmed severe neutropenia plus persistent fever after initial empiric antibiotics, which names the neutropenic fever syndrome directly; the added hypotension (92/58), tachycardia (118), tachypnea (24), capillary refill of 4 seconds, oliguria (60 mL over 4 hours), and lactate 3.2 mmol/L document tissue hypoperfusion, so C3 (progression toward sepsis) is the only condition token the stem supports. C1 requires a medication-reaction premise the stem never provides, and C2 is contradicted by the documented infection-risk state and persistent fever. Among the actions, A2 addresses the hypotension and hypoperfusion with weight-based isotonic volume, and A4 addresses the fact that deterioration is continuing despite antibiotics already given, which mandates escalation rather than nurse-level management alone. A1 is contradicted by an abnormal lactate and hypotension that require immediate intervention, and A3 is contradicted because withholding fluids in documented hypoperfusion is unsafe and the stem states empiric antibiotics were already started. For monitoring, P1 tracks clearance of the explicitly abnormal 3.2 mmol/L lactate, and P3 tracks the perfusion endpoints already abnormal in the stem (blood pressure and the 60 mL/4 hr urine output), making them the direct response markers for the two selected interventions. P2 has no client premise, since no respiratory complaint or abnormal oxygenation is present (SpO2 94% on room air), and P4 is not a meaningful acute-response marker because ANC will not shift on the timescale of resuscitation.",
+  "selectionEvidence": [
+    {
+      "rationale": "Names the neutropenic fever state explicitly as an established client fact.",
+      "selection": "C3",
+      "stemText": "the client with confirmed severe neutropenia has persistent fever"
+    },
+    {
+      "rationale": "Elevated lactate with hypotension after antibiotics indicates progression from febrile neutropenia toward sepsis rather than a stable febrile state.",
+      "selection": "C3",
+      "stemText": "lactate 3.2 mmol/L after initial empiric antibiotics"
+    },
+    {
+      "rationale": "Cluster of hypoperfusion and compensatory findings supports systemic progression.",
+      "selection": "C3",
+      "stemText": "HR 118, BP 92/58, RR 24, capillary refill 4 seconds, urine output 60 mL over 4 hours"
+    },
+    {
+      "rationale": "Hypotension with delayed refill and low urine output is the direct indication for isotonic crystalloid resuscitation per sepsis protocol.",
+      "selection": "A2",
+      "stemText": "BP 92/58 ... capillary refill 4 seconds, urine output 60 mL over 4 hours"
+    },
+    {
+      "rationale": "Failure to stabilize after the first-line intervention requires team activation and oncology notification.",
+      "selection": "A4",
+      "stemText": "persistent fever ... after initial empiric antibiotics"
+    },
+    {
+      "rationale": "Lactate above 2 mmol/L with hypotension signals possible fluid-refractory shock needing higher-level escalation.",
+      "selection": "A4",
+      "stemText": "lactate 3.2 mmol/L"
+    },
+    {
+      "rationale": "An explicitly abnormal baseline value that provides a measurable clearance target after resuscitation.",
+      "selection": "P1",
+      "stemText": "lactate 3.2 mmol/L"
+    },
+    {
+      "rationale": "Both parameters are explicitly abnormal in the stem and are the standard endpoints for evaluating fluid and escalation response.",
+      "selection": "P3",
+      "stemText": "BP 92/58 ... urine output 60 mL over 4 hours"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "No medication administration record, timing of a new drug, or hypersensitivity features (rash, urticaria, wheeze, angioedema) are stated that would make a drug reaction the primary explanation.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The absence of any drug-reaction premise does not impair ranking, because the stem affirmatively supplies a competing and complete infection-progression explanation; C1 is eliminated on the strength of C3's explicit support rather than on the gap itself.",
+      "supportingStemText": "after initial empiric antibiotics"
+    },
+    {
+      "missingPremise": "No intake/output deficit history, vomiting, diarrhea, poor oral intake, or absence-of-infection evidence is provided; simple volume depletion also requires ruling out the infection that the stem documents.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Explicitly contradicted by confirmed severe neutropenia with persistent fever, which establishes systemic infection; no additional client fact is needed to reject it.",
+      "supportingStemText": "the client with confirmed severe neutropenia has persistent fever"
+    },
+    {
+      "missingPremise": "Full sepsis criteria confirmation (mental status, calculated MAP, source identification) is not stated, but the required premises of neutropenia, fever, hypotension, and elevated lactate are all explicit.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Every element needed to select this token is stated verbatim in the stem, so the residual detail gaps do not affect its rank as the clear best option.",
+      "supportingStemText": "confirmed severe neutropenia has persistent fever ... BP 92/58 ... lactate 3.2 mmol/L after initial empiric antibiotics"
+    },
+    {
+      "missingPremise": "No premise of hemodynamic stability, normal lactate, or an existing monitoring frequency that would justify waiting is present.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Contradicted by hypotension, delayed capillary refill, oliguria, and an elevated lactate, all of which require immediate action; the token is unrankable as correct regardless of missing detail.",
+      "supportingStemText": "BP 92/58 ... capillary refill 4 seconds ... lactate 3.2 mmol/L"
+    },
+    {
+      "missingPremise": "Client weight, IV access, and cardiac/renal fluid tolerance are not stated, so the exact bolus volume and infusion safety margin cannot be specified.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The indication for fluid resuscitation is fully established by explicit hypotension and hypoperfusion findings; the missing weight affects dose calculation at the bedside but not the ranking of this token against the alternatives.",
+      "supportingStemText": "BP 92/58 ... capillary refill 4 seconds, urine output 60 mL over 4 hours"
+    },
+    {
+      "missingPremise": "No premise indicates that cultures are outstanding or that antimicrobial coverage is inadequate; the stem states antibiotics were already begun.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The token's defining element is delaying fluids, which is contradicted by documented hypoperfusion; whether cultures were drawn is therefore immaterial to rejecting it.",
+      "supportingStemText": "lactate 3.2 mmol/L after initial empiric antibiotics"
+    },
+    {
+      "missingPremise": "Institutional rapid response activation criteria and current oncology team availability are not stated.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Continued deterioration despite empiric antibiotics plus an elevated lactate with hypotension is explicit in the stem and independently justifies escalation; protocol specifics would refine execution, not selection.",
+      "supportingStemText": "persistent fever ... after initial empiric antibiotics"
+    },
+    {
+      "missingPremise": "No repeat draw interval or institutional lactate clearance target is stated, though the baseline value is explicit.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "An explicit abnormal baseline of 3.2 mmol/L makes the trend directly measurable; the absent recheck interval does not weaken its rank as a top monitoring parameter.",
+      "supportingStemText": "lactate 3.2 mmol/L"
+    },
+    {
+      "missingPremise": "No respiratory complaint, adventitious breath sounds, hypoxemia, or prior imaging is described that would make chest imaging the immediate response marker.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "SpO2 of 94% on room air is stated and gives no imaging indication as an immediate marker; imaging also lags real-time resuscitation response, so the token ranks last without needing further facts.",
+      "supportingStemText": "SpO2 94% on room air"
+    },
+    {
+      "missingPremise": "Calculated MAP, baseline blood pressure, and client weight for a mL/kg/hr urine output threshold are not provided.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Both components are explicitly abnormal in the stem (92/58 and 60 mL over 4 hours), so the token ranks highly; the missing weight and baseline limit precision of the target values only.",
+      "supportingStemText": "BP 92/58 ... urine output 60 mL over 4 hours"
+    },
+    {
+      "missingPremise": "No ANC value, nadir timing, or growth-factor status is given, and no premise supports WBC/ANC changing within the acute resuscitation window.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Even with the ANC value supplied, general knowledge that counts do not shift over minutes to hours would keep this below P1 and P3 as an acute response marker, so the gap only slightly affects its standing.",
+      "supportingStemText": "the client with confirmed severe neutropenia"
+    }
+  ]
+}

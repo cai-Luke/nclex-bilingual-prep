@@ -1,0 +1,238 @@
+{
+  "advisoryPriority": "P3",
+  "bilingualCollateral": [
+    {
+      "advisory": "Observation only; no edit proposed.",
+      "location": "Standalone item, glossary entry 'Mean arterial pressure' / '平均动脉压'",
+      "observation": "The Chinese definition reads '反映器官灌注压力的血压指标' (a blood-pressure index reflecting organ perfusion pressure). This conveys the clinical function but omits that MAP is the average arterial pressure across the cardiac cycle, which is the definitional content a learner needs to compute or interpret it.",
+      "severity": "MINOR"
+    },
+    {
+      "advisory": "Consistency confirmed against the sibling; no action implied.",
+      "location": "Standalone item, glossary entries generally",
+      "observation": "All three glossary entries provide termEn, termZh, and defZh but no English definition field. This matches the sibling case's glossary pattern exactly, so it appears to be an intentional schema convention rather than a translation omission.",
+      "severity": "NONE"
+    },
+    {
+      "advisory": "No issue.",
+      "location": "Standalone stem, zh rendering",
+      "observation": "The Chinese stem preserves every numeric value and unit from the English (HR 118, BP 92/58, RR 24, SpO2 94%, capillary refill 4 seconds, 4-hour urine output 60 mL, lactate 3.2 mmol/L) and correctly renders 'after initial empiric antibiotics' as '在初始经验性抗生素后'. No content drift between the two languages.",
+      "severity": "NONE"
+    },
+    {
+      "advisory": "No issue.",
+      "location": "Standalone item, token and rationale zh text",
+      "observation": "All eleven token translations and all eleven byChoice rationale translations are faithful to their English counterparts, including the load-bearing qualifiers in A3 ('延迟补液复苏' for 'delay fluid resuscitation') and P2 ('作为即时反应指标' for 'as the immediate response marker'), which are the exact words that make those tokens incorrect.",
+      "severity": "NONE"
+    },
+    {
+      "advisory": "Entirely internal to the sibling; it does not touch the standalone item, whose stem never states a threshold. Noted for the sibling's own review, no edit proposed here.",
+      "location": "Sibling case, summary.en vs baseline_orders exhibit and q6 option q6_a",
+      "observation": "The sibling summary states the single-reading threshold as '100.9 °F (38.3 °C)' while the baseline_orders exhibit and the q6 correct option both state '101 °F (38.3 °C)'. Both map to 38.3 °C, but the Fahrenheit figures differ between the summary and the operative order text.",
+      "severity": "MINOR"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "explanation": "The sibling uses nearly the same wording as the C3 token, confirming the intended label, but the standalone stem's 'confirmed severe neutropenia', 'persistent fever', and hypoperfusion cluster already establish it without any sibling input.",
+      "necessity": "NOT_NECESSARY",
+      "opaqueTokenLabel": "C3",
+      "siblingEvidence": "'Stage 2 shows progression toward neutropenic sepsis'; the sibling's own q3 rationale states 'The Stage 2 findings show progression toward sepsis with hypotension, rising lactate, oliguria, tachycardia, and slower responses.'",
+      "siblingLocation": "caseStudy.rationale.correct and stage_2_course",
+      "siblingOverlap": "CORROBORATIVE"
+    },
+    {
+      "explanation": "The sibling ranks the identical intervention first for identical reasons, but the standalone's stated BP, refill, and urine output independently key it. The sibling adds a protocol context and an O2 2 L/min step that the standalone item does not need.",
+      "necessity": "NOT_NECESSARY",
+      "opaqueTokenLabel": "A2",
+      "siblingEvidence": "'The nurse repositions the client supine, initiates an isotonic crystalloid bolus per sepsis protocol with reassessment'; q3_a is ranked first with the rationale 'This is first because hypotension, rising lactate, delayed capillary refill, and falling urine output indicate inadequate perfusion.'",
+      "siblingLocation": "stage_2_course and question q3 option q3_a",
+      "siblingOverlap": "CORROBORATIVE"
+    },
+    {
+      "explanation": "The sibling names the same escalation with the same structured cues. The standalone reaches it from 'persistent fever ... after initial empiric antibiotics' plus the elevated lactate, with no sibling material required.",
+      "necessity": "NOT_NECESSARY",
+      "opaqueTokenLabel": "A4",
+      "siblingEvidence": "'notifies oncology and rapid response'; q3_b reads 'Activate the rapid response team and notify the oncologist with the BP drop, HR rise, urine-output decline, and lactate rise', ranked second so that 'broader antibiotics, possible vasopressors, and higher-level care are not delayed.'",
+      "siblingLocation": "stage_2_course and question q3 option q3_b",
+      "siblingOverlap": "CORROBORATIVE"
+    },
+    {
+      "explanation": "The sibling demonstrates these as the actual evaluation endpoints in Stage 3, validating the parameter choice. The standalone keys it from its own explicitly abnormal BP 92/58 and 60 mL over 4 hours.",
+      "necessity": "NOT_NECESSARY",
+      "opaqueTokenLabel": "P3",
+      "siblingEvidence": "BP trend 92/58 to 100/64 to 106/68 and 'Urine output improves from 15 mL/hr to 45-55 mL/hr', with q5 rationale calling urine output 'a direct perfusion marker'.",
+      "siblingLocation": "stage_3_course and question q5 rows r3 and r4",
+      "siblingOverlap": "CORROBORATIVE"
+    },
+    {
+      "explanation": "The sibling shows the serial lactate actually being ordered and trended, which confirms P1's role. The standalone's explicit 3.2 mmol/L baseline is sufficient on its own to key the parameter.",
+      "necessity": "NOT_NECESSARY",
+      "opaqueTokenLabel": "P1",
+      "siblingEvidence": "Stage 1 orders 'repeat lactate in four hours'; Stage 3 records 'Lactate at 2100: 2.0 mmol/L'; q5 row r5 trends 'Lactate decreases from 3.2 to 2.0 mmol/L' with the rationale that 'the downward trend suggests tissue perfusion is improving.'",
+      "siblingLocation": "stage_1_course, stage_3_course, and question q5 row r5",
+      "siblingOverlap": "CORROBORATIVE"
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "advisory": "Observation only; the token key is correct as written.",
+      "location": "Standalone item, glossary entry 'Septic shock'",
+      "observation": "The glossary defines septic shock while the keyed condition token C3 reads 'Neutropenic fever progressing toward sepsis'. The glossary term is defensible as background vocabulary for the hypotension-plus-lactate picture, but it names a stage beyond what the keyed token asserts and beyond what the stem can establish, since no post-resuscitation hypotension is documented. This is the same calibration point flagged in the blind Stage 1 record, where the free-generated answer said 'septic shock' and the canonical token said 'progressing toward'.",
+      "severity": "MINOR"
+    },
+    {
+      "advisory": "No issue.",
+      "location": "Standalone item, token A2",
+      "observation": "A2 bundles 'position supine' with the crystalloid bolus. Supine positioning is a general-knowledge adjunct not explicitly cued by the stem, but it is clinically appropriate for the stated hypotension and it exactly mirrors the sibling's Stage 2 nursing action ('The nurse repositions the client supine, initiates an isotonic crystalloid bolus per sepsis protocol'), so the bundling introduces no defect.",
+      "severity": "NONE"
+    },
+    {
+      "advisory": "Observation only; does not affect the key.",
+      "location": "Standalone item, token P3 vs stem values",
+      "observation": "MAP computed from 92/58 is approximately 69 mmHg, which sits just above the conventional 65 mmHg target despite the hypotensive systolic reading. P3 remains the correct parameter because it is the trend against a documented baseline that matters, and the sibling's Stage 3 data confirm the intended use (BP recovering 92/58 to 100/64 to 106/68 alongside urine output rising from 15 mL/hr to 45-55 mL/hr).",
+      "severity": "MINOR"
+    },
+    {
+      "advisory": "Cross-document numeric consistency confirmed.",
+      "location": "Standalone item, arithmetic consistency",
+      "observation": "The stem's 'urine output 60 mL over 4 hours' equals 15 mL/hr, which matches the sibling q5 row r4 exactly ('Urine output improves from 15 mL/hr to 45-55 mL/hr'). The lactate value of 3.2 mmol/L and its Stage 3 fall to 2.0 also align across documents.",
+      "severity": "NONE"
+    },
+    {
+      "advisory": "Pedagogical alignment confirmed.",
+      "location": "Standalone item, treatment of A3 as a distractor",
+      "observation": "A3 is correctly scored as incorrect for delaying fluids, and the sibling handles the same tension consistently: its q3 ordered-response places 'redraw blood cultures' fourth while affirming in the rationale that repeat cultures matter before broadening antibiotics. Neither document teaches that cultures are unimportant, only that they must not delay perfusion restoration.",
+      "severity": "NONE"
+    }
+  ],
+  "defectSummary": "",
+  "missingFactProvenance": [
+    {
+      "explanation": "Because the A2 token and the sibling both defer dosing to protocol, weight is never required to select or defend the action. Its absence from both documents confirms the standalone record's LOW impact assessment rather than revealing a dependency.",
+      "fact": "Client weight",
+      "impactOnCanonicalSet": "NONE",
+      "provenance": "ABSENT_FROM_BOTH",
+      "siblingEvidence": "No weight appears anywhere in the sibling exhibits, stages, or questions; the sibling's own Stage 2 narrative likewise orders 'an isotonic crystalloid bolus per sepsis protocol' without a mL/kg figure.",
+      "siblingNecessity": "NOT_NECESSARY",
+      "siblingStatus": "ABSENT",
+      "standaloneStatus": "ABSENT"
+    },
+    {
+      "explanation": "The baseline of 118/72 quantifies the drop to 92/58 and reinforces P3, but 92/58 is already hypotensive against ordinary adult norms, so the standalone selection does not depend on it. Note that the sibling supplies no calculated MAP, so that half of the recorded gap is absent from both.",
+      "fact": "Calculated MAP and baseline blood pressure",
+      "impactOnCanonicalSet": "NONE",
+      "provenance": "SIBLING_CORROBORATIVE",
+      "siblingEvidence": "baseline_orders exhibit: 'Baseline admission vitals: T 98.2 °F (36.8 °C), HR 78, BP 118/72, RR 14, SpO2 98% room air.' Sibling q1 rationale for s4 also notes the BP is 'lower than baseline'. No calculated MAP appears in the sibling either.",
+      "siblingNecessity": "NOT_NECESSARY",
+      "siblingStatus": "PRESENT (baseline only)",
+      "standaloneStatus": "ABSENT (systolic/diastolic given, baseline not given)"
+    },
+    {
+      "explanation": "Slowed responsiveness is an additional end-organ hypoperfusion criterion that strengthens C3, but the standalone already documents four perfusion abnormalities (BP, refill, urine output, lactate). This is corroboration, not necessity.",
+      "fact": "Level of consciousness and mental status",
+      "impactOnCanonicalSet": "NONE",
+      "provenance": "SIBLING_CORROBORATIVE",
+      "siblingEvidence": "stage_2_course: '1730: restless and lightheaded when sitting up... Alert but slower to respond and fatigued.' Sibling q5 row r6 trends 'Mental status improves from slower responses to alert and conversational.'",
+      "siblingNecessity": "NOT_NECESSARY",
+      "siblingStatus": "PRESENT",
+      "standaloneStatus": "ABSENT"
+    },
+    {
+      "explanation": "The qualitative phrase 'persistent fever' is sufficient for the neutropenic fever premise underlying C3; the numeric value changes no token's rank. Confirms the standalone record's NONE impact rating.",
+      "fact": "Exact temperature value and trend",
+      "impactOnCanonicalSet": "NONE",
+      "provenance": "SIBLING_CORROBORATIVE",
+      "siblingEvidence": "stage_2_course: '1745 vitals: T 102.9 °F (39.4 °C)'; Stage 1 documented 102 °F (38.9 °C) at 1415.",
+      "siblingNecessity": "NOT_NECESSARY",
+      "siblingStatus": "PRESENT",
+      "standaloneStatus": "ABSENT (qualitative 'persistent fever')"
+    },
+    {
+      "explanation": "ANC 180/uL confirms the severity the standalone asserts qualitatively. It also independently confirms the standalone record's reasoning for demoting P4: the value exists but would not move within the resuscitation window, so supplying it does not promote that distractor.",
+      "fact": "Absolute neutrophil count value",
+      "impactOnCanonicalSet": "NONE",
+      "provenance": "SIBLING_CORROBORATIVE",
+      "siblingEvidence": "initial_assessment_labs: '1420 CBC: WBC 0.6 x10^3/uL, ANC 180/uL'; sibling q1 keys segment s9 on this value.",
+      "siblingNecessity": "NOT_NECESSARY",
+      "siblingStatus": "PRESENT",
+      "standaloneStatus": "ABSENT (qualitative 'confirmed severe neutropenia')"
+    },
+    {
+      "explanation": "This confirms that cultures were already obtained before the first dose, which is exactly why A3's delay-for-specimens framing is a distractor. The standalone rejects A3 on the delay element alone, so the sibling timeline corroborates the rejection without being required for it.",
+      "fact": "Identity and timing of the empiric antibiotics, and whether cultures were drawn",
+      "impactOnCanonicalSet": "NONE",
+      "provenance": "SIBLING_CORROBORATIVE",
+      "siblingEvidence": "stage_1_course: cultures drawn from two peripheral sites and one PICC lumen at 1425, oncology notified 1430, 'empiric broad-spectrum IV antibiotics' with first dose within one hour, 'Antibiotic infusion begins via the PICC at 1445, 15 minutes after cultures.' Stage 2: 'redraws blood cultures. The oncologist broadens antibiotics.'",
+      "siblingNecessity": "NOT_NECESSARY",
+      "siblingStatus": "PRESENT",
+      "standaloneStatus": "ABSENT"
+    },
+    {
+      "explanation": "Knowing maintenance fluid was running at 125 mL/hr and that hypoperfusion still developed arguably strengthens the case for a bolus, but A2 is already indicated by the stated hypotension and oliguria. Corroborative only.",
+      "fact": "Volume of IV fluid already infused and IV access type",
+      "impactOnCanonicalSet": "NONE",
+      "provenance": "SIBLING_CORROBORATIVE",
+      "siblingEvidence": "stage_1_course orders 'normal saline at 125 mL/hr'; baseline_orders: 'Line: triple-lumen PICC, flushed and patent.'",
+      "siblingNecessity": "NOT_NECESSARY",
+      "siblingStatus": "PRESENT",
+      "standaloneStatus": "ABSENT"
+    },
+    {
+      "explanation": "Renal function is effectively covered by the normal creatinine, but cardiac history and a medication list remain absent from both documents. Since fluid resuscitation is indicated regardless in documented hypoperfusion, and the token defers to protocol with reassessment, neither gap affects the canonical set.",
+      "fact": "Cardiac and renal history and current medications",
+      "impactOnCanonicalSet": "NONE",
+      "provenance": "PARTIAL_SIBLING_CORROBORATIVE",
+      "siblingEvidence": "baseline_orders gives diagnosis (stage IIIB DLBCL), regimen (cycle 2 day 10 R-CHOP), and 'Allergies: none known'; initial_assessment_labs gives BUN 18 and creatinine 0.9, indicating baseline-normal renal function. No cardiac history and no home medication list appear in the sibling.",
+      "siblingNecessity": "NOT_NECESSARY",
+      "siblingStatus": "PARTIAL",
+      "standaloneStatus": "ABSENT"
+    },
+    {
+      "explanation": "The sibling ultimately points to a catheter-related bloodstream source, but source identification does not change the Stage-2 resuscitation priorities. Notably, the sibling's negative chest X-ray independently reinforces the standalone record's judgment that P2 (chest imaging as the immediate response marker) has no supporting premise.",
+      "fact": "Identified or suspected infection source",
+      "impactOnCanonicalSet": "NONE",
+      "provenance": "SIBLING_CORROBORATIVE",
+      "siblingEvidence": "initial_assessment_labs notes 'a small intact oral mucositis area on left buccal mucosa' with a clean PICC site, clear lungs, and clear UA; stage_1_course chest X-ray at 1455 shows 'no infiltrate or effusion'; stage_3_course reports 'a preliminary Gram-positive organism in the PICC lumen bottle at 20 hours'.",
+      "siblingNecessity": "NOT_NECESSARY",
+      "siblingStatus": "PRESENT",
+      "standaloneStatus": "ABSENT"
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "Every missing client fact recorded in the immutable standalone-unblinding record is either absent from the sibling as well or present there only as corroboration; none is necessary to reach the canonical 1/2/2 set. The sibling supplies the numeric temperature (102.9 °F / 39.4 °C at 1745), the ANC (180/µL), the baseline blood pressure (118/72), the mental-status detail ('alert but slower to respond and fatigued'), the culture and antibiotic timeline (cultures 1425, first dose 1445, broadened at Stage 2), the maintenance fluid rate (NS 125 mL/hr), the access type (triple-lumen PICC), and the eventual source signal (preliminary Gram-positive organism in the PICC lumen bottle). Each of these enriches the picture, but the standalone stem already states 'confirmed severe neutropenia', 'persistent fever', 'after initial empiric antibiotics', BP 92/58, HR 118, RR 24, capillary refill 4 seconds, urine output 60 mL over 4 hours, and lactate 3.2 mmol/L, which independently key C3 and rule out C1 (no drug-reaction premise) and C2 (contradicted by fever plus neutropenia). A2 is keyed by the explicit hypotension, delayed refill, and oliguria, and the token defers dosing to protocol so the still-absent weight is not required. A4 is keyed by deterioration after antibiotics already given. P3 and P1 are keyed by the two explicitly abnormal baselines in the stem. Client weight remains absent from both documents and is therefore not a hidden-case dependency at all; it is simply an unstated fact that neither item needs. Applying the fixed precedence: there is no hidden-case dependency (no keyed token requires sibling-only material), no unsupported token premise (each distractor is contradicted by stem text or premise-free rather than depending on withheld data), the pool is not underdetermined (a unique 1/2/2 set is reachable), the canonical key matches sound clinical logic and matches the blind Stage 2 selection exactly, and I hold no substantive disagreement with the key. The verdict is PASS_STANDALONE, with only minor advisory collateral noted below, including one internal fever-threshold inconsistency that lives entirely inside the sibling and does not touch the standalone item.",
+  "scopeCollateral": [
+    {
+      "advisory": "If the standalone item and the sibling case were ever deployed to the same learner in one sitting, the take-action content would be partially redundant. Advisory only, no edit proposed.",
+      "location": "Standalone item vs sibling stage_2 and question q3",
+      "observation": "The standalone bow-tie is drawn from the same 1745 clinical moment as the sibling's Stage 2, and its two keyed actions correspond closely to the sibling's q3 ordered-response options q3_a (supine plus crystalloid bolus) and q3_b (rapid response plus oncology notification with the deterioration cues). This is content overlap, not a dependency: the standalone stem restates every value it needs.",
+      "severity": "MINOR"
+    },
+    {
+      "advisory": "No issue.",
+      "location": "Standalone parameter P1 vs sibling question q5 row r5",
+      "observation": "P1 (serum lactate trend) maps onto the sibling's Stage 3 evaluation row 'Lactate decreases from 3.2 to 2.0 mmol/L'. The standalone asks the learner to select lactate as a parameter to monitor; the sibling asks the learner to interpret its actual trend. Complementary rather than duplicative.",
+      "severity": "NONE"
+    },
+    {
+      "advisory": "Scope integrity confirmed.",
+      "location": "Standalone item scope boundary",
+      "observation": "The standalone item confines itself to the single deterioration timepoint and does not require the sibling's Stage 1 recognition content, Stage 3 evaluation content, neutropenic-precautions content, or discharge-teaching content. No keyed token reaches outside the standalone stem.",
+      "severity": "NONE"
+    },
+    {
+      "advisory": "No issue.",
+      "location": "Sibling case, absence of a bow-tie item type",
+      "observation": "The sibling case contains highlight, dropdown_cloze, ordered_response, select_all, matrix, and select_all item types but no bow-tie item, so the standalone bow-tie does not duplicate any sibling item structurally.",
+      "severity": "NONE"
+    }
+  ],
+  "secondaryFlags": [
+    "No keyed token draws on any sibling-only fact; the canonical set is fully reachable from the standalone stem.",
+    "Client weight is absent from both the standalone item and the sibling case, so the recorded gap is a shared non-dependency rather than hidden-case material.",
+    "The sibling's negative chest X-ray at 1455 independently confirms the standalone assessment that P2 is premise-free; a learner working from the sibling would reject P2 for the same reason.",
+    "The sibling's ANC of 180/uL confirms that supplying the numeric value would not promote P4, matching the standalone record's LOW-impact rating for that distractor.",
+    "The sibling's Stage 1 timeline (cultures at 1425, antibiotics at 1445) confirms A3's delay framing is the defect, not the culture concept itself.",
+    "Blind Stage 2 selection, the canonical key, and the sibling's own Stage 2 narrative all converge on supine positioning plus crystalloid bolus followed by rapid response and oncology notification, which is strong triangulated support for the key."
+  ]
+}

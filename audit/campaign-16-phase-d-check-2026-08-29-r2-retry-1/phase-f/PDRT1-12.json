@@ -1,0 +1,140 @@
+{
+  "advisoryPriority": "P3",
+  "bilingualCollateral": [
+    {
+      "field": "bowtie.actions.A3",
+      "observation": "English 'obtain rapid-acting carbohydrate and clear instructions for treating a low reading' is rendered as 备好速效碳水化合物并获得处理低血糖读数的明确指导. 备好 ('have ready / prepare') is slightly more presumptive about prior absence than the neutral English 'obtain', but both convey pre-ride preparation and neither changes selectability.",
+      "severity": "LOW"
+    },
+    {
+      "field": "rationale.correct",
+      "observation": "The Chinese rationale compresses 'while nonexercise readings remain in the stated range and illness cues are absent' into 而非锻炼日血糖仍处于题干范围，并且没有疾病线索, preserving both clauses. Semantic parity is maintained across the full paragraph.",
+      "severity": "NONE"
+    },
+    {
+      "field": "rationale.byChoice.A1",
+      "observation": "English 'is not an independent nursing or client decision' maps to 不应由护士或患者自行决定, which is faithful and preserves the scope-of-practice point in both languages.",
+      "severity": "NONE"
+    },
+    {
+      "field": "bowtie.parameters.P1",
+      "observation": "English 'the client's action threshold' is rendered 个人行动阈值 ('personal action threshold'). The Chinese drops the explicit possessive tie to the client but retains the individualized sense; no impact on ranking.",
+      "severity": "LOW"
+    },
+    {
+      "field": "glossary",
+      "observation": "All three glossary entries provide Chinese definitions only (defZh) with no English definition field, which is structurally consistent across entries and appears intentional for a Chinese-support glossary rather than an omission.",
+      "severity": "NONE"
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "observation": "CGM values of 58-64 mg/dL fall in the Level 1 hypoglycemia range (below 70 mg/dL, at or above 54 mg/dL), which is consistent with the described adrenergic and early neuroglycopenic symptoms and supports urgent-but-not-emergent framing. The item's actions match this severity: preparation plus prescriber/DSMES planning rather than emergency glucagon.",
+      "severity": "NONE"
+    },
+    {
+      "observation": "The rationale and glossary correctly attribute activity-associated hypoglycemia to increased glucose utilization and insulin action during and after exercise. The glossary definition explicitly covers the post-exercise window (运动中或运动后), which is clinically accurate and consistent with the stem's 'within one hour afterward'.",
+      "severity": "NONE"
+    },
+    {
+      "observation": "The item does not mention the delayed or nocturnal hypoglycemia risk that commonly follows late-afternoon or evening aerobic exercise, which is relevant given the stem's 'after work' timing. P2's 'several hours after cycling' partially covers this. Adding an explicit nocturnal-risk note to the rationale would strengthen teaching value without altering the key.",
+      "severity": "LOW"
+    },
+    {
+      "observation": "A4 ('stop all physical activity permanently') is a clearly implausible distractor; its byChoice correctly reframes the goal as safe individualized activity, which reinforces the guideline position that exercise should be supported rather than avoided in type 1 diabetes.",
+      "severity": "NONE"
+    }
+  ],
+  "defectSummary": "",
+  "missingFactProvenance": [
+    {
+      "affectsKeyedToken": false,
+      "evidenceEn": "",
+      "evidenceZh": "",
+      "explanation": "No insulin type, dose, or timing detail appears in the rationale, byChoice, test-taking strategy, or glossary in either language. A2 references an individualized exercise-day 'carbohydrate and medication plan' and A1's byChoice notes that increasing insulin can worsen exercise-associated hypoglycemia, but neither states or presumes this client's regimen. The absence is immaterial: A2 is keyed precisely because the regimen has not yet been individualized, so the specific current dose is the output of the intervention rather than a premise for it.",
+      "missingClientFact": "Type, dose, and timing of insulin relative to the cycling session",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED"
+    },
+    {
+      "affectsKeyedToken": false,
+      "evidenceEn": "",
+      "evidenceZh": "",
+      "explanation": "Neither the English nor Chinese rationale, byChoice, strategy, nor glossary supplies any preexercise meal timing or carbohydrate quantity for this client. The correct-rationale phrase 'a self-management plan that has not yet been aligned with the new routine' and its Chinese counterpart remain at the plan level. No keyed token depends on this fact.",
+      "missingClientFact": "Timing and carbohydrate content of the preexercise meal or snack",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED"
+    },
+    {
+      "affectsKeyedToken": false,
+      "evidenceEn": "Glucose immediately before, during, and for several hours after cycling (P2 token) with byChoice 'Correct: peri-exercise glucose shows the direction and duration of the exercise effect.'",
+      "evidenceZh": "骑车前、骑车中以及结束后数小时的血糖；'正确：围绕运动时段的血糖可显示运动影响的方向和持续时间。'",
+      "explanation": "The preexercise glucose value is referenced only prospectively, as something P2 directs the client to begin measuring. The rationale does not assert any preexercise value for this client. This is forward-looking monitoring guidance rather than a hidden case fact, so it does not create a dependency; P2 is keyed on the already-stated contrast between exercise-day and nonexercise-day readings.",
+      "missingClientFact": "Preexercise CGM value and trend arrow before starting the ride",
+      "provenance": "RATIONALE_ONLY"
+    },
+    {
+      "affectsKeyedToken": false,
+      "evidenceEn": "",
+      "evidenceZh": "",
+      "explanation": "No heart rate, exertion level, or intensity descriptor appears anywhere in the checked English or Chinese fields. The stem's stated duration (45 minutes) and consistent symptom timing are sufficient to rank the pools; intensity would refine dosing but changes no token's standing.",
+      "missingClientFact": "Cycling intensity (heart rate or perceived exertion)",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED"
+    },
+    {
+      "affectsKeyedToken": false,
+      "evidenceEn": "P2 byChoice: 'peri-exercise glucose shows the direction and duration of the exercise effect'; glossary defines activity-associated hypoglycemia as occurring 'during or after exercise'.",
+      "evidenceZh": "'围绕运动时段的血糖可显示运动影响的方向和持续时间'；术语表：'运动中或运动后因葡萄糖利用增加和胰岛素作用而发生的低血糖。'",
+      "explanation": "The possibility of a delayed effect is conveyed only as general mechanism in the glossary and as the rationale for extending monitoring 'for several hours after cycling'. No claim is made that this client has experienced nocturnal lows. The reference is general-knowledge framing, not client-specific data, and P2 is defensible on the stem's within-one-hour episodes alone.",
+      "missingClientFact": "Whether nocturnal or delayed post-exercise hypoglycemia has occurred",
+      "provenance": "RATIONALE_ONLY"
+    },
+    {
+      "affectsKeyedToken": false,
+      "evidenceEn": "",
+      "evidenceZh": "",
+      "explanation": "Nothing in the rationale, byChoice, strategy, or glossary addresses hypoglycemia awareness or a history of severe episodes in either language. The stem in fact documents preserved symptom perception (sweating, tremor, difficulty concentrating), so this fact is not needed to rank A3 or P1.",
+      "missingClientFact": "Client's hypoglycemia awareness status and prior severe episodes",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED"
+    },
+    {
+      "affectsKeyedToken": true,
+      "evidenceEn": "A3: 'Before the next ride, obtain rapid-acting carbohydrate and clear instructions for treating a low reading'; byChoice: 'Immediate safety requires arranging access to rapid-acting carbohydrate and clear treatment instructions before the next ride.'",
+      "evidenceZh": "'下次骑车前备好速效碳水化合物并获得处理低血糖读数的明确指导'；'近期安全需要在下次骑车前备好速效碳水化合物并获得明确处理指导。'",
+      "explanation": "A3 is phrased as obtaining or arranging access before the next ride, which reads most naturally if the client does not already carry carbohydrate. However, the token is defensible either way: the stem documents three symptomatic CGM-confirmed lows without any treatment plan mentioned, so ensuring availability and explicit treatment instructions is indicated regardless of current possession. The dependency is therefore soft framing, not a premise gap, and does not disturb the key.",
+      "missingClientFact": "Whether the client currently carries rapid-acting carbohydrate during rides",
+      "provenance": "RATIONALE_ONLY"
+    },
+    {
+      "affectsKeyedToken": true,
+      "evidenceEn": "P1 token text: 'readings below the client's action threshold'; byChoice: 'fewer or absent episodes indicate that the revised plan is working.'",
+      "evidenceZh": "'低于个人行动阈值读数'；'发作减少或消失说明调整后的方案有效。'",
+      "explanation": "P1 explicitly invokes 'the client's action threshold' without the stem defining one. This is a deliberate placeholder pointing at the individualized threshold that A2's prescriber/DSMES plan would establish, and the stem's documented 58-64 mg/dL readings fall below any conventional threshold, so P1 remains rankable. Worth noting only as advisory wording: the token forward-references an output of A2.",
+      "missingClientFact": "The client's individualized low-glucose action threshold",
+      "provenance": "RATIONALE_ONLY"
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "The candidate is answerable from its own standalone stem, prompts, and token pools. The keyed condition C3 rests on explicit stem facts: repeated CGM readings of 58-64 mg/dL with adrenergic and neuroglycopenic symptoms occurring only during or within one hour after the new 45-minute cycling routine, noncycling readings of 95-140 mg/dL, and continuation of the preexisting meal and insulin plan without an exercise-day adjustment. Both non-keyed conditions are explicitly contradicted by the stem (C1 by the stated absence of fever, vomiting, ketones, and recent illness; C2 by low rather than elevated glucose with no ketones). The keyed actions A2 and A3 map to the stated unadjusted plan and to the documented recurrent symptomatic lows, while A1 and A4 are contradicted on clinical and scope grounds. The keyed parameters P2 and P1 map to the peri-exercise glucose pattern and to the three-day recurrence pattern, while P3 is contradicted by the stated absence of ketones and illness and P4 has no client premise at all. Every missing client fact identified in the standalone-unblinding record is a refinement that would sharpen an individualized plan, not a premise required to rank any token; none of them appears only in the rationale or glossary in a way that would supply otherwise-absent case data, and none is used to justify a keyed token. Because the item is unpaired, FAIL_HIDDEN_CASE_DEPENDENCY is unreachable and is not asserted. No token premise is unsupported, the pools are not underdetermined, the canonical key matches both blind records, and there is no reviewer disagreement, so under the fixed precedence the verdict resolves to PASS_STANDALONE. Collateral observations are narrow and advisory only: a small number of missing facts are echoed as general clinical framing in the rationale or glossary without adding client-specific data, and the Chinese and English rationale, byChoice, strategy, and glossary text are semantically parallel with only minor compression.",
+  "scopeCollateral": [
+    {
+      "observation": "A2 routes carbohydrate and medication adjustment to the diabetes prescriber or DSMES team rather than to independent nursing action, correctly respecting prescriptive authority boundaries for insulin dose changes.",
+      "severity": "NONE"
+    },
+    {
+      "observation": "A1's byChoice explicitly names the scope violation ('not an independent nursing or client decision') in addition to the clinical harm, which is pedagogically appropriate and consistent with A2's framing.",
+      "severity": "NONE"
+    },
+    {
+      "observation": "A3 as written stays within independent nursing scope: it covers arranging access to rapid-acting carbohydrate and ensuring the client has clear treatment instructions, without specifying a gram amount or dose that would require an order. This is a deliberate and defensible scope choice, though it makes A3 less clinically specific than the Stage 1 free-generated '15 g and recheck in 15 minutes' formulation.",
+      "severity": "LOW"
+    },
+    {
+      "observation": "The test-taking strategy directs the learner to 'involve the diabetes team in planning for future exercise', which is consistent with the scope boundary encoded in A2 and A1 and does not invite independent regimen changes.",
+      "severity": "NONE"
+    }
+  ],
+  "secondaryFlags": [
+    "A3 and P1 each reference a client-specific detail (whether rapid-acting carbohydrate is already carried; the individualized action threshold) that the stem does not state; both remain rankable on the stated 58-64 mg/dL symptomatic episodes, so these are advisory wording observations rather than premise defects.",
+    "P1's phrase 'the client's action threshold' forward-references a parameter that keyed action A2 would establish, creating a mild circularity in token wording without affecting selectability.",
+    "Canonical parameter order is P2 then P1 while the blind Stage 2 record listed P1 then P2; the selected sets are identical and no ordering requirement is specified, so this is a non-issue recorded for completeness."
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "actionLabels": [
+    "A2",
+    "A3"
+  ],
+  "ambiguousAlternatives": [
+    {
+      "impactOnRanking": "LOW",
+      "label": "A1",
+      "reason": "Community resource referral is genuinely indicated for caregiver role strain, and A1 is the closest competitor to A3. It is rejected only on its stated sequencing — 'without first validating Diane's distress' — which conflicts with the stem's explicit note that Diane fears being judged. A reworded version omitting that clause would be a strong selection and could plausibly displace A3."
+    },
+    {
+      "impactOnRanking": "LOW",
+      "label": "P4",
+      "reason": "Ongoing cognitive assessment has some legitimate role in dementia follow-up; P4 is defective mainly because it is designated 'the main outcome' at a short interval, not because cognitive tracking is irrelevant. This is a framing defect rather than a clinical contradiction."
+    }
+  ],
+  "conditionLabel": "C2",
+  "missingInformation": [
+    "No prompt text was supplied (Prompts object is empty), so any intended per-slot cueing or ordering constraint is unavailable",
+    "Whether the two action slots are ordered by priority or are an unordered pair, which would matter if A2 and A3 had to be sequenced",
+    "Whether A1's defect is intended as sequencing only or as a substantive rejection of resource referral within this visit",
+    "Whether more than one token per pool may map to the same underlying intervention, which would affect how closely A1 and A3 compete"
+  ],
+  "parameterLabels": [
+    "P1",
+    "P2"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "C2 (caregiver role strain) is the only condition token whose premises are fully carried by the stem. C1 is contradicted: functional impairment and safety consequences are explicitly present — missed work, weight loss, and severe sleep deprivation in Diane, and an unreported fall, stove-use risk, wandering, skin irritation, and medication-administration problems in Margaret. C3 is contradicted by the stem's explicit negations: no striking, shoving, threatening, or physical restraint, and Diane voluntarily requested home-health help; a raised voice during agitation does not establish intent to harm or willful neglect. Among the actions, A2 and A3 are the two that address stem-documented immediate hazards. A2 targets the explicitly stated wandering and stove-use risk with nonrestrictive safeguards today. A3 targets the explicitly stated bedtime diphenhydramine, an anticholinergic whose review falls within provider scope; this is general nursing pharmacology knowledge applied to an explicit stem fact, requiring no invented client data. A1 is defective in its framing — it sequences resource listing ahead of validating distress in a caregiver who explicitly fears being judged, so it risks rupturing the alliance even though resource referral itself is appropriate. A4 is contradicted by the same explicit negations that eliminate C3. For parameters, P1 and P2 evaluate the two arms of the plan against stem-documented findings: P1 tracks completion of safety changes for wandering, stove use, falls, and medication access; P2 tracks Diane's sleep, appetite and weight, work capacity, and engagement with support, which are precisely the strain indicators the stem reports. P3 is unsupported — no respiratory finding, hypoxia, or cardiopulmonary complaint appears anywhere in the stem, and oxygen saturation in isolation would not evaluate either the strain or the safety plan. P4 is a poor outcome measure regardless of client facts: short-interval repeat cognitive screening in established moderate dementia is not expected to change meaningfully and would not measure resolution of caregiver strain or hazard mitigation. The pool is ANSWERABLE: each distractor fails on an explicit stem contradiction or on general knowledge about measure selection, so no absent client-specific fact is needed to rank the tokens.",
+  "selectionEvidence": [
+    {
+      "label": "C2",
+      "rationale": "Textbook cluster of subjective and objective caregiver role strain indicators in a sole caregiver.",
+      "stemText": "Diane is the sole caregiver and reports severe sleep deprivation, weight loss, missed work, guilt, and fear of being judged"
+    },
+    {
+      "label": "C2",
+      "rationale": "Help-seeking behavior consistent with an overwhelmed caregiver rather than intentional abuse or concealment.",
+      "stemText": "she voluntarily requested home-health help"
+    },
+    {
+      "label": "A2",
+      "rationale": "Explicit, immediate physical hazards requiring same-visit nonrestrictive mitigation.",
+      "stemText": "worsening wandering, stove-use risk"
+    },
+    {
+      "label": "A3",
+      "rationale": "Explicit medication fact; anticholinergic use in dementia warrants provider review for safer sleep alternatives.",
+      "stemText": "bedtime diphenhydramine use"
+    },
+    {
+      "label": "P1",
+      "rationale": "Directly measures whether the hazards named in the stem were actually remediated.",
+      "stemText": "worsening wandering, stove-use risk, ... a recent unreported fall, medication-administration problems"
+    },
+    {
+      "label": "P2",
+      "rationale": "Directly measures the strain indicators the stem documents, plus engagement with support.",
+      "stemText": "severe sleep deprivation, weight loss, missed work, guilt"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "Requires that Diane's stress has produced no functional impairment and no safety consequences for either person.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem explicitly documents functional impairment (missed work, weight loss, severe sleep deprivation) and safety consequences (unreported fall, stove-use risk, wandering, medication-administration problems), so the token is eliminated on stem text alone with no impact on rankability.",
+      "supportingStemText": "missed work ... a recent unreported fall, medication-administration problems"
+    },
+    {
+      "missingPremise": "Requires documented caregiver burden indicators plus a caregiving role that exceeds the caregiver's capacity.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Every premise is stated verbatim in the stem — sole caregiver status, sleep deprivation, weight loss, missed work, guilt, fear of judgment — so the token is fully rankable without inference.",
+      "supportingStemText": "Diane is the sole caregiver and reports severe sleep deprivation, weight loss, missed work, guilt, and fear of being judged"
+    },
+    {
+      "missingPremise": "Requires evidence of intent to harm, willful withholding of care, or physical mistreatment as the primary explanation.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem preemptively negates each abuse criterion and adds voluntary help-seeking, so the token is excluded by explicit text rather than by absent data.",
+      "supportingStemText": "did not strike, shove, threaten, or physically restrain Margaret, and she voluntarily requested home-health help"
+    },
+    {
+      "missingPremise": "Requires that immediate resource listing ahead of validation is acceptable — i.e., that the caregiver is not emotionally guarded.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The stem's explicit 'fear of being judged' contradicts the token's stated sequencing. The underlying intervention is appropriate, so the token remains a near-miss distractor, but it is rankable below A2 and A3 on stem text alone.",
+      "supportingStemText": "guilt, and fear of being judged"
+    },
+    {
+      "missingPremise": "Requires documented wandering and unsupervised stove access as active hazards.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Both hazards are named explicitly in the stem, and the nonrestrictive framing matches the absence of any restraint indication, making the token fully rankable.",
+      "supportingStemText": "worsening wandering, stove-use risk"
+    },
+    {
+      "missingPremise": "Requires that the client is taking an agent warranting provider review; the harm profile of diphenhydramine in dementia comes from general pharmacology knowledge.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The medication is stated explicitly; the anticholinergic risk rationale is standard nursing knowledge and needs no additional client-specific data such as dose, duration, or prescriber.",
+      "supportingStemText": "bedtime diphenhydramine use"
+    },
+    {
+      "missingPremise": "Requires evidence of intentional abuse sufficient to support an accusation.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem explicitly negates all physical mistreatment and the token itself concedes the sole basis is a raised voice, so it is eliminated without needing further facts.",
+      "supportingStemText": "She raised her voice during an episode of agitation but did not strike, shove, threaten, or physically restrain Margaret"
+    },
+    {
+      "missingPremise": "Requires that specific home hazards were identified and that a safety plan exists to be completed.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Wandering, stove use, the fall, and medication access are all explicitly documented, so this parameter maps one-to-one onto stem findings and is fully rankable.",
+      "supportingStemText": "worsening wandering, stove-use risk, weight loss, incontinence-related skin irritation, a recent unreported fall, medication-administration problems"
+    },
+    {
+      "missingPremise": "Requires documented baseline caregiver sleep, appetite/weight, and work disruption to evaluate against.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Each element of the parameter corresponds to a strain indicator stated in the stem; only the support-engagement element is prospective, which is expected of an evaluation measure.",
+      "supportingStemText": "severe sleep deprivation, weight loss, missed work"
+    },
+    {
+      "missingPremise": "Requires a respiratory, cardiac, or hypoxia-related finding making oxygen saturation a relevant outcome.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem contains no cardiopulmonary data whatsoever, and general knowledge establishes that an isolated oxygen saturation would not evaluate caregiver strain or hazard mitigation, so the token ranks last without needing the absent facts.",
+      "supportingStemText": "(no respiratory or cardiopulmonary finding appears anywhere in the stem)"
+    },
+    {
+      "missingPremise": "Requires that short-interval cognitive score change is an expected and meaningful outcome of the planned interventions.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Established moderate dementia is documented, and general knowledge holds that repeat screening over a short interval will not meaningfully change or measure the targeted outcomes; the token is rankable below P1 and P2 as a framing defect rather than a data gap.",
+      "supportingStemText": "Margaret has moderate dementia"
+    }
+  ]
+}

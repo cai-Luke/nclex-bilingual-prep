@@ -1,0 +1,180 @@
+{
+  "actionLabels": [
+    "A2",
+    "A4"
+  ],
+  "ambiguousAlternatives": [
+    {
+      "concern": "The token says 'emergent' intubation, while best practice in GBS is controlled, semi-elective intubation before respiratory arrest. No other pool option offers definitive airway control, so A2 remains the correct selection despite the imprecise wording.",
+      "impact": "LOW",
+      "label": "A2"
+    },
+    {
+      "concern": "BiPAP can be a bridge in selected neuromuscular patients without bulbar involvement; here the unilateral absent gag and ineffective cough make noninvasive ventilation unsafe, and the token frames it as a replacement for intubation ('instead of'), which is incorrect.",
+      "impact": "NONE",
+      "label": "A3"
+    },
+    {
+      "concern": "An oxygenation/ventilation measure such as ABG PaCO2 would also be defensible as a second parameter, but the pool offers only SpO2 alone (P4), which is a late marker; P3 is anchored in explicit stem findings and is therefore the stronger second choice.",
+      "impact": "LOW",
+      "label": "P3"
+    }
+  ],
+  "conditionLabel": "C1",
+  "missingInformation": [
+    "No prompts were supplied (empty prompts object), so item-level cueing about what each bow-tie slot should emphasize is unavailable",
+    "Actual numeric vital signs: specific blood pressure range, heart rate, respiratory rate, SpO2, temperature",
+    "ABG values (PaCO2, PaO2, pH) that would distinguish impending from established ventilatory failure",
+    "Prior serial FVC/MIP values and the time interval over which they declined",
+    "Whether body weight used for the 19 mL/kg calculation is actual or ideal body weight",
+    "IVIG specifics: dose, infusion rate, hours elapsed, premedication, prior infusion reactions, renal function",
+    "Days since symptom onset and whether the nadir has been reached",
+    "Cardiac rhythm/telemetry findings and any bradycardic or arrhythmic episodes",
+    "Secretion burden, cough peak flow, swallow screen results, and chest auscultation or imaging",
+    "Whether an airway plan, consent discussion, or code status has already been addressed"
+  ],
+  "parameterLabels": [
+    "P2",
+    "P3"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "C1 is stated almost verbatim by the stem: GBS is confirmed after Campylobacter enteritis, and the respiratory mechanics (FVC 19 mL/kg, MIP -26 cmH2O) plus few-word speech, ineffective cough, and diaphoresis establish impending, not established, respiratory failure. C2 and C3 are contradicted by the confirmed GBS diagnosis and by the flaccid ascending quadriparesis with dysautonomia rather than a sensory level or fluctuating fatigable ocular/bulbar weakness. Among actions, A2 is the airway priority because FVC <20 mL/kg with MIP less negative than -30 cmH2O meets the 20/30/40 intubation criteria in a client who can no longer complete sentences; the pool offers only the 'emergent' phrasing of intubation, whereas the ideal is controlled/semi-elective intubation before arrest, so A2 is selected as the closest correct airway action. A4 is the second action: the client is actively receiving IVIG, and diaphoresis with labile blood pressure and tachycardia could represent an infusion-related reaction as well as work of breathing, so nurse-driven evaluation with conditional continuation is both safe and directly anchored in the stem. A1 is contraindicated - corticosteroids are not effective in GBS. A3 is unsafe here: BiPAP is not recommended as a substitute for intubation in neuromuscular respiratory failure with bulbar dysfunction and an absent gag because of aspiration and abrupt decompensation risk. Among parameters, P2 tracks the exact measures already breaching threshold and is the standard trend for timing and evaluating airway support; P3 tracks the dysautonomia evidenced by labile blood pressure and tachycardia, which also governs safety during suctioning and intubation. P1 is irrelevant to acute airway decisions, and P4 is a known distractor because SpO2 falls late in neuromuscular failure.",
+  "selectionEvidence": [
+    {
+      "label": "C1",
+      "rationale": "Diagnosis is explicitly given, including the classic antecedent infection.",
+      "stemText": "confirmed Guillain-Barre syndrome after recent Campylobacter enteritis"
+    },
+    {
+      "label": "C1",
+      "rationale": "Both values breach the 20/30/40 thresholds, defining impending respiratory failure.",
+      "stemText": "FVC 1.6 L (19 mL/kg), and MIP -26 cmH2O"
+    },
+    {
+      "label": "C1",
+      "rationale": "Short single-breath count and sympathetic surge indicate imminent decompensation.",
+      "stemText": "He speaks only a few words at a time and is diaphoretic"
+    },
+    {
+      "label": "A2",
+      "rationale": "Objective mechanics plus bedside speech marker meet criteria for definitive airway control.",
+      "stemText": "FVC 1.6 L (19 mL/kg), and MIP -26 cmH2O ... speaks only a few words at a time"
+    },
+    {
+      "label": "A2",
+      "rationale": "Loss of airway protection and secretion clearance make an artificial airway necessary.",
+      "stemText": "ineffective cough, unilateral absent gag reflex"
+    },
+    {
+      "label": "A4",
+      "rationale": "Active infusion plus diaphoresis requires assessment for an infusion-related reaction before assuming a purely respiratory cause.",
+      "stemText": "diaphoretic while receiving IVIG in the ICU"
+    },
+    {
+      "label": "A4",
+      "rationale": "Hemodynamic changes are the stem-anchored trigger for evaluating IVIG safety while continuing therapy only if safe.",
+      "stemText": "labile blood pressure, tachycardia"
+    },
+    {
+      "label": "P2",
+      "rationale": "These are the baseline values that must be trended to time and evaluate ventilatory support.",
+      "stemText": "FVC 1.6 L (19 mL/kg), and MIP -26 cmH2O"
+    },
+    {
+      "label": "P3",
+      "rationale": "Directly documents autonomic instability requiring continuous cardiovascular surveillance.",
+      "stemText": "labile blood pressure, tachycardia"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "None - GBS is confirmed and the respiratory mechanics defining 'impending respiratory failure' are given numerically.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Every element of this token is stated in the stem, so it is fully rankable as the top condition.",
+      "supportingStemText": "confirmed Guillain-Barre syndrome after recent Campylobacter enteritis ... FVC 1.6 L (19 mL/kg), and MIP -26 cmH2O"
+    },
+    {
+      "missingPremise": "Would require a sensory level, bowel/bladder dysfunction, spinal cord MRI signal change, and absence of a confirmed alternative diagnosis - none present.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem confirms GBS outright, so transverse myelitis is excluded without needing further client facts.",
+      "supportingStemText": "confirmed Guillain-Barre syndrome after recent Campylobacter enteritis"
+    },
+    {
+      "missingPremise": "Would require fatigable ptosis/diplopia, known myasthenia history, positive acetylcholine receptor antibodies, or a precipitant such as infection or medication - none present.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Confirmed GBS with post-Campylobacter onset and dysautonomia excludes myasthenic crisis; the shared feature of low FVC/MIP does not create genuine competition.",
+      "supportingStemText": "confirmed Guillain-Barre syndrome after recent Campylobacter enteritis ... progressive quadriparesis, labile blood pressure, tachycardia"
+    },
+    {
+      "missingPremise": "No client fact supports steroids; general knowledge establishes corticosteroids are ineffective and not recommended in GBS.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Ranked last on evidence grounds alone; no missing client fact could make it correct.",
+      "supportingStemText": "confirmed Guillain-Barre syndrome ... while receiving IVIG in the ICU"
+    },
+    {
+      "missingPremise": "The word 'emergent' presumes the client has already decompensated; the stem supports impending failure warranting controlled intubation. No additional client fact is needed to identify intubation as the priority.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The urgency qualifier is imprecise, but the objective thresholds are explicit and no competing airway option exists, so ranking is unaffected.",
+      "supportingStemText": "FVC 1.6 L (19 mL/kg), and MIP -26 cmH2O ... speaks only a few words at a time ... ineffective cough, unilateral absent gag reflex"
+    },
+    {
+      "missingPremise": "Would require intact bulbar function, effective secretion clearance, and a stable or improving trajectory - all contradicted by the stem.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Absent gag and ineffective cough make noninvasive ventilation unsafe as a substitute for intubation, so this is excluded on stated facts.",
+      "supportingStemText": "ineffective cough, unilateral absent gag reflex"
+    },
+    {
+      "missingPremise": "IVIG dose, rate, and time into infusion are not given, but the stem states the client is actively receiving IVIG and has diaphoresis with labile BP and tachycardia, which is sufficient to trigger a safety evaluation.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The missing infusion details would refine the assessment but do not change that evaluation-before-continuation is the correct nursing action; it remains clearly rankable above A1 and A3.",
+      "supportingStemText": "diaphoretic while receiving IVIG in the ICU ... labile blood pressure, tachycardia"
+    },
+    {
+      "missingPremise": "No CSF results are given; general knowledge establishes CSF protein is a diagnostic finding that lags clinically and has no role in acute airway decisions.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Excluded on general knowledge regardless of any missing client data; the token's own stated purpose is invalid.",
+      "supportingStemText": "confirmed Guillain-Barre syndrome after recent Campylobacter enteritis"
+    },
+    {
+      "missingPremise": "Prior serial values and measurement interval are not given, but current FVC and MIP are stated explicitly, establishing the baseline for trending.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem names both measures with values; absence of prior readings does not weaken this as the highest-yield parameter.",
+      "supportingStemText": "FVC 1.6 L (19 mL/kg), and MIP -26 cmH2O"
+    },
+    {
+      "missingPremise": "Specific numeric BP and heart-rate values are not given, but lability and tachycardia are explicitly documented.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Missing numbers limit precision of the assessment but not the selection; dysautonomia is stated and is a recognized cause of death in GBS.",
+      "supportingStemText": "labile blood pressure, tachycardia"
+    },
+    {
+      "missingPremise": "No SpO2 value is given; general knowledge establishes that SpO2 remains normal until late in neuromuscular respiratory failure, so 'alone as the primary marker' is unsafe.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The token is a classic distractor invalidated by the exclusivity wording ('alone'); no client fact could rehabilitate it.",
+      "supportingStemText": "FVC 1.6 L (19 mL/kg), and MIP -26 cmH2O"
+    }
+  ]
+}

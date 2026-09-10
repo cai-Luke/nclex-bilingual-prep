@@ -1,0 +1,176 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSetExplanation": "Within the supplied pools the canonical 1/2/2 set is the only internally consistent reading. The condition pool contains no clinical option, so the item is scored on the system-level problem rather than the physiologic one; among C1/C2/C3 only C1 is asserted by the stem, which states that the 1800 monitoring check was missed 'after an incomplete, dismissive handoff' and that the same-day amlodipine increase had to be discovered rather than received. C2 fails because an omitted ordered assessment is by definition not friction 'requiring no formal intervention,' and C3 fails because the stem locates the defect in the handoff given to Priya while showing Priya correctly recognizing and escalating the abnormal BP. On actions, A1 is compelled by the explicit call parameter (SBP > 180, actual 186) in a symptomatic client, and A2 is the standard structured response to observed unprofessional conduct — private, behavior-specific, tied to patient-care impact, documented per policy. A3 and A4 are not merely weaker but affirmatively wrong: A3 inverts the safety-before-personnel priority while the client remains symptomatic above the threshold, and A4 asserts that a near miss without severe harm needs no documentation or manager notification, which contradicts near-miss reporting standards. On parameters, the evaluation must track the selected condition, so P2 (handoff completeness and professionalism, including medication changes and time for questions) is the process measure and P3 (q4h adherence and no further omissions) is the outcome measure; the pair covers both limbs of the bow-tie. P1 is a clinical parameter with no stem basis and does not evaluate a communication breakdown, and P4 sets a social rather than professional endpoint. Because every non-keyed token is eliminable on stem text or general professional standards alone, no second defensible set exists.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "None; the causal chain is asserted in the stem and requires no inference.",
+      "opaqueTokenLabel": "C1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'the 1800 monitoring check was missed after an incomplete, dismissive handoff' and 'She has just discovered that the amlodipine dose was increased today' — the stem states both the communication defect and the resulting omitted ordered assessment."
+    },
+    {
+      "missingClientFact": "None; the threshold, the breaching value, and the missed intervals are all explicit.",
+      "opaqueTokenLabel": "A1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'the hospitalist ordered BP monitoring q4h x 24 hours with a call if SBP > 180' together with 'BP is 186/102 with a headache' — 186 breaches the stated call parameter in a symptomatic client, and the missed intervals are named in the stem."
+    },
+    {
+      "missingClientFact": "The facility's handoff and incident-reporting policy and the identity/role of the off-going nurse are unstated, but these affect execution detail rather than whether A2 is the correct action.",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "'an incomplete, dismissive handoff' identifies a specific observed behavior by a specific staff member; professional practice standards supply the response format — private conversation, specific behaviors, patient-care impact, policy-based documentation."
+    },
+    {
+      "missingClientFact": "None; P2 restates the failed elements as the measure of correction.",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'an incomplete, dismissive handoff' plus 'She has just discovered that the amlodipine dose was increased today' — the stem names both the defective process and the specific content element (medication change) that failed to transfer."
+    },
+    {
+      "missingClientFact": "None; the order and the omission are explicit.",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'BP monitoring q4h x 24 hours' and 'the 1800 monitoring check was missed' — the ordered schedule and the specific omission are both stated, making adherence the direct outcome measure."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "C2 presupposes that no client-care process was affected. The stem states an ordered q4h assessment was omitted as a consequence of the handoff, which defeats the 'no formal intervention' premise on stem text alone.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "C3 presupposes the failure originates in Priya's knowledge. The stem shows Priya correctly identifying 186/102 with headache and escalating, and attributes the omission to the handoff she received, so the premise is contradicted rather than merely unsupported.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "A3 presupposes no urgent clinical finding is pending. With an active BP of 186/102, a headache, and a breached SBP > 180 call parameter, deferring provider notification to handle an interpersonal matter inverts the required priority.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "A4 presupposes that absence of severe harm extinguishes the documentation and manager-notification obligation. A missed ordered assessment is a reportable safety event regardless of outcome, so the premise conflicts with professional standards.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "P1 requires client-specific renal data — baseline or serial creatinine, renal history, or evidence of end-organ injury — none of which appear anywhere in the stem. Even if such data existed, P1 would evaluate Mrs. Vega's renal status rather than the communication breakdown named as the condition, so the absent fact lowers its standing without being the reason it is non-keyed.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "P4 rests on no stem fact and on no professional standard; personal friendship between staff is not a nursing evaluation parameter. It is eliminable without any additional client information.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "affectedLabels": [
+        "A1",
+        "P3"
+      ],
+      "fact": "Mrs. Vega's baseline and prior BP readings, including all values obtained since admission",
+      "impact": "NONE",
+      "note": "Would enrich the report to the hospitalist and the interpretation of 186/102, but the explicit call parameter already compels A1 and the ordered schedule already defines P3."
+    },
+    {
+      "affectedLabels": [
+        "A1"
+      ],
+      "fact": "Full current vital signs and focused neurologic/end-organ assessment findings (LOC, vision, focal deficits, chest pain, dyspnea)",
+      "impact": "NONE",
+      "note": "Relevant to distinguishing hypertensive urgency from emergency, which mattered in Stage 1, but the pools contain no clinical condition option so this cannot alter the keyed set."
+    },
+    {
+      "affectedLabels": [
+        "C1",
+        "A1",
+        "P2"
+      ],
+      "fact": "Whether the increased amlodipine dose was actually administered, the time given, and the old and new doses",
+      "impact": "NONE",
+      "note": "Sharpens the handoff-content failure and the provider report; C1 and P2 already rest on the stated fact that the change had to be discovered rather than communicated."
+    },
+    {
+      "affectedLabels": [
+        "A1"
+      ],
+      "fact": "Existence of any PRN or standing antihypertensive order the nurse could act on pending callback",
+      "impact": "NONE",
+      "note": "Would add a nursing intervention but not displace the mandated notification; no such token appears in the pool."
+    },
+    {
+      "affectedLabels": [
+        "A2"
+      ],
+      "fact": "Identity and role of the off-going nurse, and whether the dismissive handoff is a first occurrence or a pattern",
+      "impact": "LOW",
+      "note": "Would determine escalation level and whether progressive discipline applies, but A2 remains the correct first-line response to a single observed incident either way."
+    },
+    {
+      "affectedLabels": [
+        "A2",
+        "A4",
+        "P2"
+      ],
+      "fact": "The facility's handoff policy, standardized tool (SBAR/I-PASS), incident-reporting policy, and chain of command",
+      "impact": "LOW",
+      "note": "Supplies the 'policy-based documentation' referent in A2 and the reporting duty that defeats A4; the general professional standard is sufficient without it."
+    },
+    {
+      "affectedLabels": [
+        "A2"
+      ],
+      "fact": "The speaker's own role and authority relative to the staff member responsible for the handoff (charge nurse, preceptor, manager)",
+      "impact": "LOW",
+      "note": "Affects who conducts the private conversation and how manager notification proceeds, not whether the action is indicated."
+    },
+    {
+      "affectedLabels": [
+        "C3",
+        "A2"
+      ],
+      "fact": "Whether Priya is a new graduate or on orientation and whether a preceptor or charge nurse was available at 1800",
+      "impact": "NONE",
+      "note": "Could contextualize contributing factors, but C3 is contradicted by Priya's demonstrated recognition and escalation regardless."
+    },
+    {
+      "affectedLabels": [
+        "P1"
+      ],
+      "fact": "Laboratory and diagnostic data including creatinine, electrolytes, troponin, and ECG",
+      "impact": "LOW",
+      "note": "Their total absence is why P1 lacks a client premise; supplying them still would not make P1 an evaluation measure for a communication breakdown."
+    },
+    {
+      "affectedLabels": [
+        "P3"
+      ],
+      "fact": "Whether any other ordered assessments or medications were omitted during the same shift",
+      "impact": "NONE",
+      "note": "Would broaden the scope of the safety review; P3 already specifies 'absence of further care omissions' prospectively."
+    }
+  ],
+  "notes": [
+    "The blind Stage 2 selection reproduced the canonical set exactly — C1, A1+A2, P2+P3 — with no partial credit or near miss on any of the five keyed labels.",
+    "The blind Stage 2 record independently anticipated the item's central design feature: it stated that the pool 'reframes the item away from the clinical diagnosis I generated in Stage 1 toward the underlying system/management problem' and that 'the condition pool contains no clinical option at all,' which is the same pivot the revealed rationale describes.",
+    "The revealed byChoice rationales align with the blind Stage 2 reasoning on every non-keyed token: C2 rejected because the behavior 'reached the patient-care process,' C3 because 'the handoff itself failed,' A3 because it 'delays action while the client remains symptomatic,' A4 because avoided harm 'does not erase a missed-monitoring safety event,' P4 because 'professional communication is the safety target,' and P1 because it 'does not evaluate the handoff communication breakdown.'",
+    "The revealed rationale for P1 ('Creatinine may matter medically, but...') confirms the blind Stage 2 classification of P1 as relevance-failing rather than merely fact-starved; the blind record captured both limbs by assigning MISSING_CLIENT_FACT with only LOW rankability impact and noting it was 'independently non-selectable.'",
+    "The keyed action pair mirrors the item's stated test-taking strategy of pairing one immediate safety action (A1) with one process action (A2), and the keyed parameter pair correspondingly splits into one process measure (P2) and one outcome measure (P3).",
+    "No sibling case was inspected, inferred, or assumed at any stage; all three records rest solely on the standalone stem, prompts, and token pools supplied.",
+    "Neither blind record was revised in producing this comparison."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 free-generated a clinical bow-tie — condition 'hypertensive urgency,' with evaluation parameters of serial BP trend and neurologic/end-organ symptom status — whereas the canonical key scores the system-level problem, C1 client-safety communication breakdown. One of the two Stage 1 priority actions maps cleanly onto a keyed token: 'Notify the hospitalist without delay per the ordered call parameter (SBP > 180), using SBAR to report the 186/102 reading, the headache, the amlodipine dose increase today, and the missed 1800 check' corresponds directly to A1, including its instruction to convey the missed monitoring interval. The other Stage 1 action (manual BP recheck plus focused end-organ assessment) has no counterpart in the action pool, and neither Stage 1 parameter corresponds to P2 or P3, since both were physiologic rather than process measures. The divergence is not an error in either record but a consequence of the pool's framing: Stage 1 was asked for the most likely condition from the stem alone, where symptomatic severe hypertension after a same-day amlodipine increase is the salient clinical answer, while the revealed pools offer only communication and competence framings and force the systems reading. Stage 1 also explicitly flagged the handoff as 'a contributing system factor and a documentation/reporting issue,' so it identified the canonical element while subordinating it to the clinical priority. Alignment is therefore partial: one action matched, the condition and both parameters occupy a different but compatible layer of the same event.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

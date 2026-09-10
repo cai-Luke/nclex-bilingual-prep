@@ -1,0 +1,56 @@
+{
+  "condition": "Exercise-induced hypoglycemia",
+  "evaluationParameters": [
+    "Continuous glucose monitor readings before, during, and for several hours after cycling including overnight",
+    "Recurrence and severity of hypoglycemia symptoms on cycling versus noncycling days"
+  ],
+  "missingInformation": [
+    "Type, dose, and timing of insulin relative to the cycling session",
+    "Timing and carbohydrate content of the preexercise meal or snack",
+    "Preexercise CGM value and glucose trend arrow before the ride",
+    "Intensity of cycling and whether it is steady-state aerobic",
+    "Occurrence of nocturnal hypoglycemia on cycling days",
+    "Client's hypoglycemia awareness and prior episodes",
+    "Whether fast-acting carbohydrate is carried during rides"
+  ],
+  "priorityActions": [
+    "Treat acute hypoglycemia with 15 g of fast-acting carbohydrate and recheck glucose in 15 minutes, repeating until glucose is above 70 mg/dL",
+    "Consume 15 to 30 g of additional carbohydrate before cycling and reduce the preceding insulin dose on exercise days per provider protocol"
+  ],
+  "reasoning": "Client with type 1 diabetes has adrenergic and neuroglycopenic symptoms with CGM-confirmed glucose 58 to 64 mg/dL only during or within one hour after cycling, while noncycling glucose is normal. No illness or ketones are present, and insulin/meals were not adjusted for the new exercise. This pattern is classic for exercise-induced hypoglycemia due to increased insulin-mediated glucose uptake during aerobic activity without compensatory carbohydrate increase or insulin reduction.",
+  "stage1Confidence": "high",
+  "stemEvidence": [
+    {
+      "stemFact": "Client with type 1 diabetes",
+      "target": "condition"
+    },
+    {
+      "stemFact": "Sweating, tremor, and difficulty concentrating during the ride or within one hour afterward",
+      "target": "condition"
+    },
+    {
+      "stemFact": "CGM readings were 58 to 64 mg/dL on cycling days",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "Noncycling fasting and premeal glucose 95 to 140 mg/dL",
+      "target": "evaluationParameter2"
+    },
+    {
+      "stemFact": "Continued preexisting meal and insulin plan without an exercise-day adjustment",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "Began a new 45-minute cycling routine after work",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "Symptoms recurred on three cycling days",
+      "target": "evaluationParameter2"
+    },
+    {
+      "stemFact": "CGM already in use with readings during and after exercise",
+      "target": "evaluationParameter1"
+    }
+  ]
+}

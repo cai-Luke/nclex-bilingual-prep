@@ -1,0 +1,238 @@
+{
+  "advisoryPriority": "P2",
+  "bilingualCollateral": [
+    {
+      "advisory": "P2",
+      "location": "standalone glossary array",
+      "observation": "The standalone item's glossary carries four terms (Lateral incivility, Handoff, Call parameter, Incident report) but omits 'Behavior-focused feedback' (聚焦行为的反馈), which the sibling attaches to q1, q2, and q4. A2 — the keyed action — is precisely a behavior-focused-feedback action ('specific observed behaviors, patient-care impact'), so the supporting term is missing from the standalone where it is most directly needed.",
+      "rankabilityImpact": "NONE",
+      "severity": "LOW"
+    },
+    {
+      "advisory": "P3",
+      "location": "standalone glossary array; sibling glossary arrays at case and question level",
+      "observation": "Every glossary entry supplies termEn, termZh, and defZh but no defEn. An English-only learner receives the term pair without any definition. This is a consistent pattern across both the standalone item and the sibling, so it is a design convention rather than an item-specific defect.",
+      "rankabilityImpact": "NONE",
+      "severity": "LOW"
+    },
+    {
+      "advisory": "P2",
+      "location": "sibling caseStudy.summary.zh and exhibit baseline_client_record.zh",
+      "observation": "Sibling-only translation mismatch: 'hypertensive urgency' is rendered 高血压急症 in both the case summary and baseline_client_record. 高血压急症 conventionally denotes hypertensive emergency (with acute end-organ damage); hypertensive urgency is 高血压次急症 or 高血压亚急症. The distinction is clinically meaningful given the case turns on whether end-organ involvement is present. The standalone bow-tie does not contain this term and is unaffected.",
+      "rankabilityImpact": "NONE",
+      "severity": "MODERATE"
+    },
+    {
+      "advisory": "P3",
+      "location": "standalone stem.zh and bowtie token zh strings",
+      "observation": "The standalone stem's zh rendering is otherwise faithful to the en: '不完整且轻慢的交接' captures 'incomplete, dismissive handoff', and '若 SBP > 180 则通知' preserves the call parameter with its threshold intact. Token zh strings likewise preserve the de-identified phrasing ('负责该次交接的工作人员' for 'the staff member responsible for the handoff'), correctly avoiding the sibling's named Renee.",
+      "rankabilityImpact": "NONE",
+      "severity": "NONE"
+    },
+    {
+      "advisory": "P3",
+      "location": "standalone bowtie.actions token A4",
+      "observation": "Minor register note: A4's zh ('不记录也不通知护士经理') supplies 护士经理 for 'the manager', which is more specific than the en 'the manager'. The specification is correct against the sibling (nurse manager) but is an en/zh asymmetry in the standalone, where no manager role has been established.",
+      "rankabilityImpact": "NONE",
+      "severity": "LOW"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "explanation": "The sibling keys the identical construct as the priority problem, and its distractors mirror the bow-tie's C3 (option C, Priya's inexperience) and A3 (option A, mediate the conflict first). Nothing in the sibling was needed to select C1: the standalone stem itself asserts the dismissive handoff, the omitted medication change, and the resulting missed check. The sibling adds the phrase 'above the provider call threshold' to the condition, which the standalone stem also supports via its SBP > 180 parameter.",
+      "opaqueTokenLabel": "C1",
+      "overlapType": "NEAR_VERBATIM_KEYED_MATCH",
+      "siblingCounterpart": "q3 (gpt_case_lateral_incivility_01_q3) keyed option B: 'A client-safety communication breakdown with missed monitoring and a current BP above the provider call threshold'",
+      "siblingNecessity": "CORROBORATION_ONLY"
+    },
+    {
+      "explanation": "Keyed in the sibling twice, once as a component of the full response set and once as the single first action, which independently confirms its priority ranking. The standalone stem supplies both the threshold and the breaching value, so no sibling fact was required. The sibling's 'No PRN antihypertensive is ordered' further removes any alternative, but the blind record reached A1 without it.",
+      "opaqueTokenLabel": "A1",
+      "overlapType": "NEAR_VERBATIM_KEYED_MATCH",
+      "siblingCounterpart": "q4 keyed option A ('Instruct Priya to notify the hospitalist now and report the BP, headache, and missed monitoring') and q5 keyed option A ('Tell Priya to notify the hospitalist now using the stated call parameter...')",
+      "siblingNecessity": "CORROBORATION_ONLY"
+    },
+    {
+      "explanation": "The bow-tie de-identifies 'Renee' to 'the staff member responsible for the handoff' and adds 'policy-based documentation', which absorbs sibling q4 option D (safety reporting and manager notification). This is the one keyed token classified GENERAL_KNOWLEDGE_LINK rather than DIRECT in the blind record, and the sibling confirms the link was correctly drawn: stage_3_conduct_followup shows exactly a private call naming observed behaviors and their impact, followed by documentation through the conduct pathway. The sibling supplies the pathway names but was not necessary — the professional standard alone selects A2, and all competing actions are contradicted.",
+      "opaqueTokenLabel": "A2",
+      "overlapType": "NEAR_VERBATIM_KEYED_MATCH_WITH_DEIDENTIFICATION",
+      "siblingCounterpart": "q4 keyed option B: 'Speak privately with Renee, focusing on observed behaviors and the impact on patient care rather than personality'",
+      "siblingNecessity": "CORROBORATION_ONLY"
+    },
+    {
+      "explanation": "Content-identical, including the three constituent elements (medication changes, monitoring orders, time for questions), each of which maps to a sibling q1 highlight segment (s7, s8, s6). The standalone stem independently names all three failures, so the segment-level detail is corroborative only.",
+      "opaqueTokenLabel": "P2",
+      "overlapType": "NEAR_VERBATIM_KEYED_MATCH",
+      "siblingCounterpart": "q6 keyed option C: 'Subsequent handoffs include verbal medication changes, monitoring orders, and time for clarifying questions'",
+      "siblingNecessity": "CORROBORATION_ONLY"
+    },
+    {
+      "explanation": "P3 compresses two sibling keyed outcomes into one token: performance of the q4h schedule and absence of repeat omissions. It drops the sibling's explicit 'nurse-manager follow-up is documented' clause, which instead surfaces in the bow-tie's A2 as 'policy-based documentation'. The compression loses no keyed content and creates no ambiguity, since P1 and P4 remain the only alternatives and both fail on relevance. The standalone stem supplies both the ordered schedule and the specific omission, so P3 was selectable without the sibling.",
+      "opaqueTokenLabel": "P3",
+      "overlapType": "MERGED_KEYED_MATCH",
+      "siblingCounterpart": "q6 keyed options B and D combined: 'Priya documents the q4h BP checks and updates the care plan...' and 'No further care omissions related to handoff occur, and nurse-manager follow-up is documented'",
+      "siblingNecessity": "CORROBORATION_ONLY"
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "advisory": "P2",
+      "location": "sibling stages[1].exhibits[0].content.en and .zh",
+      "observation": "Sibling-only clinical wording error: stage_2_bp_spike states 'Telemetry shows sinus tachycardia at 92, no ST changes' (遥测显示窦性心动过速 92 次/分). A rate of 92 bpm is normal sinus rhythm, not sinus tachycardia (>100 bpm). The same exhibit's own vitals panel lists HR 92 without the tachycardia label, and the 1930 baseline correctly calls HR 78 'normal sinus rhythm'. Does not touch the standalone item.",
+      "rankabilityImpact": "NONE",
+      "severity": "MODERATE"
+    },
+    {
+      "advisory": "P3",
+      "location": "standalone bowtie.condition.prompt and token C1",
+      "observation": "The standalone bow-tie labels a communication breakdown as the 'Most likely condition', which is a non-physiologic use of the condition slot. This is defensible for a Management of Care bow-tie and the sibling confirms the intent (q3 keys the same construct as 'the priority problem'), but a learner trained on clinical bow-ties may misread the prompt. The item's own testTakingStrategy partially mitigates by directing the reader to 'the condition that explains the whole chain'.",
+      "rankabilityImpact": "NONE",
+      "severity": "LOW"
+    },
+    {
+      "advisory": "P3",
+      "location": "standalone stem vs sibling stage_2_bp_spike and baseline_assessment_labs",
+      "observation": "Standalone clinical omission that the sibling fills: the stem gives no end-organ assessment, so a reader cannot distinguish hypertensive urgency from emergency. The sibling resolves it (A&O x4, no visual changes, no chest pain, no dyspnea, no ST changes, UA without protein or blood). Because the condition pool is non-clinical, this omission is inert for the bow-tie, but it is the single largest clinical gap between the two documents.",
+      "rankabilityImpact": "NONE",
+      "severity": "LOW"
+    },
+    {
+      "advisory": "P3",
+      "location": "sibling stage_3_intervention vs standalone token A1",
+      "observation": "The keyed A1 and the sibling's clinical resolution are consistent: with no PRN antihypertensive ordered, provider notification is the only route to treatment, and the sibling shows hydralazine 10 mg IV ordered at notification with BP falling 186/102 to 162/90 to 154/86 and headache resolution. The standalone item does not require this trajectory but is not contradicted by it.",
+      "rankabilityImpact": "NONE",
+      "severity": "NONE"
+    }
+  ],
+  "defectSummary": "",
+  "missingFactProvenance": [
+    {
+      "missingFact": "Mrs. Vega's baseline and prior BP readings, including all values obtained since admission",
+      "note": "The blind record rated this NONE because the explicit call parameter already compels A1 and the ordered q4h schedule already defines P3. The sibling trend (218/114 on arrival, 152/88 at 1930, 186/102 at 2200) enriches the clinical narrative but changes no token rank.",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "baseline_client_record ('arrival BP 218/114'; 'BP trend 168-174/92-96'), baseline_assessment_labs ('1930 assessment: ... BP 152/88 left arm sitting')",
+      "siblingNecessity": "CORROBORATION_ONLY",
+      "standaloneImpact": "NONE"
+    },
+    {
+      "missingFact": "Full current vital signs and focused neurologic/end-organ assessment findings (LOC, vision, focal deficits, chest pain, dyspnea)",
+      "note": "These data would matter for a clinical condition pool (urgency vs emergency), which the blind record anticipated. The supplied condition pool contains no clinical option, so their absence could not affect the keyed set.",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "stage_2_bp_spike ('T 36.9 C, HR 92, BP 186/102, RR 18, SpO2 96% ... alert and oriented x4, with no visual changes, chest pain, or shortness of breath ... no ST changes') and its structuredMeasurements vitals panel",
+      "siblingNecessity": "CORROBORATION_ONLY",
+      "standaloneImpact": "NONE"
+    },
+    {
+      "missingFact": "Whether the increased amlodipine dose was actually administered, the time given, and the old and new doses",
+      "note": "C1 and P2 rest on the stem's assertion that the change had to be discovered rather than communicated; the exact dose and administration time sharpen the handoff-omission narrative without altering selection.",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "baseline_client_record ('amlodipine 10 mg PO daily, increased from 5 mg'), baseline_assessment_labs ('amlodipine 10 mg given at 1700'), q1 segment s7",
+      "siblingNecessity": "CORROBORATION_ONLY",
+      "standaloneImpact": "NONE"
+    },
+    {
+      "missingFact": "Existence of any PRN or standing antihypertensive order the nurse could act on pending callback",
+      "note": "The sibling's explicit negative removes any competing nursing intervention, which reinforces A1. No such alternative token existed in the action pool regardless.",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "baseline_assessment_labs and stage_2_bp_spike ('No PRN antihypertensive is ordered')",
+      "siblingNecessity": "CORROBORATION_ONLY",
+      "standaloneImpact": "NONE"
+    },
+    {
+      "missingFact": "Identity and role of the off-going nurse, and whether the dismissive handoff is a first occurrence or a pattern",
+      "note": "Identity is supplied; recurrence is not, in either document. The blind record rated impact LOW on the grounds that A2 is the correct first-line response to a single observed incident either way, which the sibling's q4 key (private behavior-focused conversation plus reporting) confirms.",
+      "provenance": "PARTIALLY_PRESENT_IN_SIBLING",
+      "siblingLocation": "summary ('senior nurse Renee Talbot'), stage_1_handoff; pattern status is not established anywhere, though q4 rationale for option D refers to 'the conduct pattern'",
+      "siblingNecessity": "CORROBORATION_ONLY",
+      "standaloneImpact": "LOW"
+    },
+    {
+      "missingFact": "The facility's handoff policy, standardized tool (SBAR/I-PASS), incident-reporting policy, and chain of command",
+      "note": "The sibling names the pathways used but reproduces no policy text. The blind record correctly held that the general professional standard suffices to select A2 and to defeat A4.",
+      "provenance": "PARTIALLY_PRESENT_IN_SIBLING",
+      "siblingLocation": "stage_3_conduct_followup ('civility/professional-conduct pathway', 'completes a safety report', 'notifies the nurse manager'), stage_3 coaching reference to 'structured SBAR', glossary 'Incident report'",
+      "siblingNecessity": "CORROBORATION_ONLY",
+      "standaloneImpact": "LOW"
+    },
+    {
+      "missingFact": "The speaker's own role and authority relative to the staff member responsible for the handoff (charge nurse, preceptor, manager)",
+      "note": "This is the most substantive standalone omission: the bow-tie stem never names Marcus or establishes the test-taker as charge nurse, yet A2 and A4 presuppose that authority. The blind record flagged it at LOW impact and still selected A2, because the pool contains no competing action that a non-charge nurse could take and because escalating observed incivility with documentation is within any nurse's scope. Recorded below as scope collateral, not as a dependency.",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "summary ('The charge nurse, Marcus Chen'), all sibling question stems ('what should Marcus do first', 'the charge-nurse response')",
+      "siblingNecessity": "CORROBORATION_ONLY",
+      "standaloneImpact": "LOW"
+    },
+    {
+      "missingFact": "Whether Priya is a new graduate or on orientation and whether a preceptor or charge nurse was available at 1800",
+      "note": "The blind record rated NONE because C3 is contradicted by Priya's demonstrated recognition and escalation regardless of her experience level. The sibling agrees explicitly: q1 rationale for s10 states 'Priya is not the source of the incivility', and q3 rejects option C for shifting attention away from the active risk.",
+      "provenance": "PARTIALLY_PRESENT_IN_SIBLING",
+      "siblingLocation": "summary ('newly licensed nurse Priya Anand'); preceptor availability at 1800 is not stated anywhere",
+      "siblingNecessity": "CORROBORATION_ONLY",
+      "standaloneImpact": "NONE"
+    },
+    {
+      "missingFact": "Laboratory and diagnostic data including creatinine, electrolytes, troponin, and ECG",
+      "note": "Most informative provenance finding: the sibling supplies exactly the data whose absence made P1 a MISSING_CLIENT_FACT in the blind record, yet the sibling's own q6 still keys F (creatinine trend) as incorrect because it 'does not measure whether the handoff failure was resolved.' This confirms the blind judgment that P1's LOW rankability impact was not the operative reason for its exclusion — relevance was.",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "baseline_assessment_labs (full 0600 chemistry, CBC, BNP 320, UA) and baseline_client_record ('CKD stage 3b, baseline creatinine 1.5 mg/dL/eGFR 37')",
+      "siblingNecessity": "CORROBORATION_ONLY",
+      "standaloneImpact": "LOW"
+    },
+    {
+      "missingFact": "Whether any other ordered assessments or medications were omitted during the same shift",
+      "note": "The fact is unavailable in both documents, which itself demonstrates it is not load-bearing. P3 already specifies 'absence of further care omissions' prospectively, matching sibling q6 option D.",
+      "provenance": "ABSENT_IN_BOTH",
+      "siblingLocation": "Not addressed; the only other medication event is metformin held per pharmacy renal-dose flag, which is a deliberate hold rather than an omission",
+      "siblingNecessity": "NOT_APPLICABLE",
+      "standaloneImpact": "NONE"
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "The standalone bow-tie was answerable to the canonical key from the stem, prompts, and token pools alone, and the blind Stage 2 record demonstrates this empirically: it selected C1, A1+A2, P2+P3 with no sibling material in context and reached blindExactMatch. Every keyed token traces to text present in the standalone stem — C1 to 'the 1800 monitoring check was missed after an incomplete, dismissive handoff' and 'She has just discovered that the amlodipine dose was increased today'; A1 to the stated call parameter 'a call if SBP > 180' against the stated 'BP is 186/102 with a headache'; P2 to the named handoff defect plus the uncommunicated medication change; P3 to 'BP monitoring q4h x 24 hours' plus the stated omission. A2 is the only keyed token resting on a general-knowledge link rather than direct stem text, and the link (private, behavior-specific, patient-impact-framed, policy-documented feedback for observed unprofessional conduct) is standard professional practice, not a case-specific fact. Every non-keyed token was eliminable without sibling data: C2, C3, A3, and A4 are contradicted by the stem or by professional standards, P4 has no premise of any kind, and P1 fails on relevance to the selected condition independent of whether laboratory values exist. Inspecting the sibling now confirms rather than supplies: all ten missing client facts from the standalone-unblinding record are either corroborated by the case study or absent from it as well, and none of them is load-bearing for any keyed selection. The sibling in fact strengthens the P1 call — the case study supplies exactly the renal data whose absence the blind record noted (CKD stage 3b, creatinine 1.6, eGFR 34), and its own q6 rationale still rejects the creatinine trend because 'it does not measure whether the handoff failure was resolved,' which matches the blind record's judgment that P1 fails on relevance rather than on missing facts. The bow-tie is a faithful condensation of sibling q3 (condition), q4/q5 (actions), and q6 (parameters), with keyed tokens that are near-verbatim reuses of the case study's own keyed options; no bow-tie token depends on a fact that lives only in the exhibits or stages. Because there is no hidden-case dependency, no unsupported keyed-token premise, no underdetermination, and no key or logic defect, and because I do not disagree with the canonical key, precedence resolves to PASS_STANDALONE. The collateral items recorded below — the ambiguous 'She' antecedent and unnamed actor role in the standalone stem, the absent 'Behavior-focused feedback' glossary entry, and two sibling-only translation/clinical wording issues — are advisory and did not affect rankability.",
+  "scopeCollateral": [
+    {
+      "advisory": "P2",
+      "location": "standalone stem.en / stem.zh, second sentence",
+      "observation": "The standalone stem's second sentence begins 'She has just discovered that the amlodipine dose was increased today.' The antecedent of 'She' is ambiguous between Priya (the immediately preceding subject) and the unnamed reader/charge nurse who receives Priya's report. The sibling disambiguates — Priya finds the 1400 hospitalist note and Marcus verifies the threshold — but the standalone leaves it open. The ambiguity is inert for selection because both readings yield the same keyed set, but it is a clarity defect.",
+      "rankabilityImpact": "NONE",
+      "severity": "MODERATE"
+    },
+    {
+      "advisory": "P2",
+      "location": "standalone stem vs bowtie.actions tokens A1, A2, A4",
+      "observation": "The standalone stem never establishes the test-taker's role, yet A2 ('speak privately with the staff member responsible for the handoff'), A4 ('notify the manager'), and A1's phrasing ('Have Priya notify...') all presuppose supervisory or charge-nurse authority over Priya. The sibling supplies the missing frame (Marcus Chen, charge nurse). This was flagged at LOW impact in the blind record and did not prevent correct selection, since no pool action is available to a non-supervisory nurse that would compete with A2.",
+      "rankabilityImpact": "NONE",
+      "severity": "MODERATE"
+    },
+    {
+      "advisory": "P3",
+      "location": "standalone bowtie.actions token A1 vs sibling q5 options A and E",
+      "observation": "'Have Priya notify the hospitalist' (A1) implies delegation rather than direct action, which is coherent only under the charge-nurse frame. The sibling's q5 makes the pedagogical point explicit — the charge nurse should ensure the call happens and support Priya rather than take over — but the standalone bow-tie gives no cue that delegation-versus-takeover is at issue. No competing takeover token exists in the standalone pool, so no ambiguity results.",
+      "rankabilityImpact": "NONE",
+      "severity": "LOW"
+    },
+    {
+      "advisory": "P3",
+      "location": "standalone item overall vs sibling questions q3, q4, q6",
+      "observation": "The standalone item compresses three sibling NGN skills (prioritize_hypotheses, generate_solutions, evaluate_outcomes) into one bow-tie. The compression is clean and the keyed content is preserved, but the bow-tie inherits the sibling's Stage 2/Stage 3 timeline in a single stem, which is why the actor and role details thin out. This is a structural observation about the derivation, not a defect in the standalone item as presented.",
+      "rankabilityImpact": "NONE",
+      "severity": "LOW"
+    },
+    {
+      "advisory": "P3",
+      "location": "standalone bowtie tokens and rationale.byChoice",
+      "observation": "The standalone item is correctly self-contained on de-identification: no sibling proper nouns (Renee Talbot, Marcus Chen, room 312) leak into the tokens or rationales, and no token references an exhibit, stage, or laboratory value that exists only in the case study.",
+      "rankabilityImpact": "NONE",
+      "severity": "NONE"
+    }
+  ],
+  "secondaryFlags": [
+    "Blind Stage 2 reproduced the canonical key exactly with no sibling material in context, which is direct evidence of standalone answerability rather than an inference about it.",
+    "All five keyed bow-tie tokens are near-verbatim condensations of keyed options in the sibling questions (C1 from q3 option B, A1 from q4 option A / q5 option A, A2 from q4 option B, P2 from q6 option C, P3 from q6 option D); the bow-tie is a faithful compression of q3+q4+q6 with no added dependency.",
+    "All six non-keyed bow-tie tokens likewise mirror sibling distractors with matching rationales (A3 from q3 option A / q5 option B, A4 from q4 option F, C3 from q3 option C, P1 from q6 option F, P4 from q6 option E); only C2 ('routine interpersonal friction') has no direct sibling analog, though sibling q2 row r5 encodes the same 'not incivility by itself' concept.",
+    "The sibling caps the bow-tie's action set: sibling q4 keys four actions (A/B/C/D), of which the bow-tie retains only two. The dropped ones — coaching Priya, and completing the safety report plus manager notification — are legitimately absent from the bow-tie action pool but their content resurfaces inside A2 ('policy-based documentation') and P3 ('absence of further care omissions'), so no keyed content is lost.",
+    "The Stage 1 free-generation divergence (clinical 'hypertensive urgency' vs. keyed 'communication breakdown') is a designed feature of the pool framing, not an item defect; sibling q3 confirms the intended systems reading and its rationale for option A concedes that 'the conflict is an upstream cause' while the safety gap is the priority.",
+    "The bow-tie's condition pool is exhaustively non-clinical, so a test-taker who reasons clinically first (as the Stage 1 record did) is not penalized at selection time; the pool itself performs the reframing.",
+    "No keyed token requires knowledge of Mrs. Vega's CKD, HFpEF, diabetes, telemetry, or laboratory status, all of which are sibling-exclusive."
+  ]
+}

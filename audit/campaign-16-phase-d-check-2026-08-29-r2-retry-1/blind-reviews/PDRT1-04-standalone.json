@@ -1,0 +1,128 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSetExplanation": "The canonical set C2 / A3 + A2 / P3 + P2 is uniquely defensible from the standalone stem. The stem supplies every premise the keyed set needs: a repeated refusal, documented intact decisional capacity, independent palliative-care confirmation of that capacity, an explicit instance of treatment planning proceeding against the refusal, and an arranged family meeting. C2 is the only condition option compatible with documented intact capacity, since C1 requires loss of capacity and C3 requires impaired capacity — both directly negated by stem text. Among actions, A1 and A4 are not merely lower-priority but affirmatively contraindicated, because each overrides a capacitated client's documented refusal; that leaves A3 and A2 as the only defensible pair, and both are independently anchored (A3 to the physician's consult suggestion, A2 to the arranged family meeting with palliative care). Among parameters, P3 measures whether the advocacy held over time and P2 measures whether the client's voice survived the family meeting intact; P1 requires nutritional and laboratory data the stem never provides, and P4 sets family satisfaction as the endpoint, which inverts the ethical priority when a capacitated client has refused. No competing 1/2/2 combination survives all of these constraints, so the keyed set is unique rather than merely best-available.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": null,
+      "opaqueTokenLabel": "C2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'Mrs. Ellison has repeatedly refused PEG placement with documented intact decisional capacity' plus 'The physician's suggestion to schedule the consult anyway has been addressed' and 'Palliative care confirms her capacity and wishes' — together these state both halves of C2: an autonomous refusal by a capacitated client, and treatment planning that challenges it."
+    },
+    {
+      "missingClientFact": null,
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'The physician's suggestion to schedule the consult anyway has been addressed' names the exact conflict A3 resolves, and 'repeatedly refused PEG placement' supplies the documented refusal that the communication invokes."
+    },
+    {
+      "missingClientFact": null,
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'Palliative care confirms her capacity and wishes, and a family meeting is arranged' establishes both the meeting and the interdisciplinary palliative-care involvement that A2 describes facilitating."
+    },
+    {
+      "missingClientFact": null,
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'repeatedly refused PEG placement with documented intact decisional capacity' supplies documented wishes against which the care plan and orders can be compared; the physician's consult suggestion establishes the concrete risk of drift that P3 detects."
+    },
+    {
+      "missingClientFact": null,
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'a family meeting is arranged' combined with a refusal that has already been challenged establishes the coercion risk P2 monitors; 'Palliative care confirms her capacity and wishes' makes her own statements the authoritative measure."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "C1 requires loss of decisional capacity to activate surrogate decision-making. The stem states capacity is documented and intact and that palliative care confirms it, so the triggering premise is explicitly negated. No absent client fact is needed to exclude it.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "C3 requires impaired capacity producing an uninformed refusal. The stem asserts documented intact capacity confirmed by a second clinician, which directly contradicts the premise. C3 functions as a clean distractor for learners who assume any refusal of recommended treatment signals impaired judgment.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "A1 would require either absent capacity or client consent. Neither exists, and the stem specifically notes the suggestion to schedule the consult anyway 'has been addressed,' marking this course as already rejected. A1 is contraindicated rather than merely deprioritized.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "A4 presupposes deferring to a family member's demand over the client's decision. The stem names no such demand, and even if one existed, documented intact capacity makes deference contraindicated. The absence of a stated family demand does not create ambiguity because the option is excluded on autonomy grounds regardless.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Albumin and prealbumin trends would require baseline nutritional laboratory values, weight trend, or a stated nutritional concern, none of which the stem provides. The missing data lowers P1 rather than making the item underdetermined, because P3 and P2 are explicitly anchored and P1 measures a physiologic outcome irrelevant to whether the autonomy intervention succeeded. This is the most plausible distractor for learners who read 'refused PEG' as a nutrition problem.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "A family meeting is stated, so family satisfaction is nominally observable, but general ethical standards establish that family satisfaction is not the evaluative endpoint for a capacitated client's refusal and may legitimately remain low when rights are properly protected. P4 is rankable below P2 and P3 on general knowledge alone, with no missing client fact involved.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "affectsKeyedSet": false,
+      "fact": "Underlying diagnosis and prognosis prompting the PEG recommendation",
+      "impact": "NONE — the keyed set turns on capacity and refusal, not on the clinical indication"
+    },
+    {
+      "affectsKeyedSet": false,
+      "fact": "Nutritional and hydration status, weight trend, albumin/prealbumin values",
+      "impact": "LOW — would strengthen P1's plausibility as a distractor but cannot displace P3 or P2, which measure the autonomy outcome"
+    },
+    {
+      "affectsKeyedSet": false,
+      "fact": "Swallow evaluation results and documented aspiration risk",
+      "impact": "NONE — physiologic risk does not alter a capacitated refusal"
+    },
+    {
+      "affectsKeyedSet": false,
+      "fact": "Existence and content of an advance directive, POLST/MOLST, or healthcare proxy",
+      "impact": "NONE — a proxy's authority would remain dormant while capacity is intact, so C1 stays excluded"
+    },
+    {
+      "affectsKeyedSet": false,
+      "fact": "Current code status and whether comfort-focused care or hospice has been discussed",
+      "impact": "NONE — contextual only"
+    },
+    {
+      "affectsKeyedSet": false,
+      "fact": "Which alternatives to PEG the client would accept",
+      "impact": "NONE — relevant to care planning, not to token ranking"
+    },
+    {
+      "affectsKeyedSet": false,
+      "fact": "The family's stated position entering the meeting",
+      "impact": "NONE — A4 is excluded on autonomy grounds whether or not a family demand exists"
+    },
+    {
+      "affectsKeyedSet": false,
+      "fact": "Whether an ethics consult has been initiated",
+      "impact": "NONE — no ethics-consult token appears in any pool"
+    }
+  ],
+  "notes": [
+    "Set-level match is exact; only the within-category ordering differs. The blind Stage 2 record listed actions as [A2, A3] and parameters as [P2, P3], while the canonical key lists [A3, A2] and [P3, P2]. The canonical ordering is the better one on the merits: A3 addresses the immediate threat of a consult being placed over the refusal and should precede facilitation of the meeting, and P3 is the primary advocacy outcome with P2 the corroborating client-perception measure. The blind record's own reasoning already treated A3 as addressing 'the specific threat named in the stem' and P3 as 'the direct outcome for this condition,' so the substance agreed even though the listed order did not.",
+    "The stem phrase 'has been addressed' creates mild tension with A3 being a keyed priority action, since it can be read as the physician communication having already occurred. The defensible reading is that A3 names the ongoing advocacy stance the nurse must sustain, not a one-time completed act; the blind record adopted this reading and it matches the canonical rationale ('protects the patient from the immediate risk of a consult being placed over refusal'). Impact on rankability is LOW because no alternative action token is available to occupy the slot.",
+    "The glossary defines 'dormant authority' (surrogate authority documented but not yet triggered), a term that appears nowhere in the stem, tokens, or rationales. It is a reasonable conceptual scaffold for why C1 is wrong, but as an item artifact it is unanchored. Flagged as an editorial observation only; it does not affect the keyed set or any premise status.",
+    "Both blind records were produced before this selection was revealed and are reported here unchanged; nothing above revises either.",
+    "No sibling case material was provided, inspected, or assumed. All findings derive solely from the standalone stem, prompts, token pools, and the revealed canonical key."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Four of the five keyed slots align cleanly with the free-generation Stage 1 record. Stage 1's condition — 'informed refusal of PEG tube placement by a patient with intact decisional capacity — an autonomy/ethical conflict requiring nursing advocacy, not a physiologic complication' — maps directly onto C2. Stage 1's first priority action (advocate so that no PEG consult or placement is scheduled without her authorization, communicating this to the physician and team) maps onto A3, and its second (facilitate and support the patient-centered family meeting with palliative care) maps onto A2. Stage 1's first evaluation parameter (verify each shift that the plan, orders, advance directive, and goals of care match her expressed decision) maps onto P3. The divergence is at the second parameter: Stage 1 free-generated a nutrition, hydration, and comfort parameter — oral intake, weight trend, hydration markers, aspiration signs — which corresponds to the non-keyed distractor P1 rather than to P2. Stage 1 did include a coercion-adjacent element, noting that she 'restates the same decision consistently with unchanged capacity,' but that was folded into the concordance parameter and framed as decision stability rather than as freedom from coercion, so it does not constitute independent generation of P2. Alignment is therefore PARTIAL rather than FULL. Notably, once the pools were visible at Stage 2, the blind selection did choose P2 and explicitly demoted P1 for lacking any stem-supplied nutritional data — indicating the Stage 1 gap reflected the wider latitude of free generation rather than a misread of the stem's ethical frame.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

@@ -1,0 +1,62 @@
+{
+  "condition": "Uterine atony causing postpartum hemorrhage with class III hypovolemic shock (grand multiparity and 4.2 kg macrosomia as risk factors; retained fragments and genital tract lacerations already excluded at bedside)",
+  "evaluationParameters": [
+    "Perfusion and shock resolution: continuous HR, BP/MAP, SpO2, level of consciousness, skin color/temperature, and hourly urine output (goal ≥30 mL/hr), trended against the shock index",
+    "Bleeding source control: uterine fundal tone/position on serial palpation and cumulative quantitative blood loss (pad/canister weights), with serial hemoglobin/hematocrit, platelets, fibrinogen and coagulation studies"
+  ],
+  "missingInformation": [
+    "Current IV access (number, gauge, patency) and whether a type and crossmatch/blood product order is already in place",
+    "Hemoglobin, hematocrit, platelet count, fibrinogen, PT/INR/aPTT — baseline and current — to distinguish pure atony from developing consumptive coagulopathy/DIC",
+    "Exact doses, routes, and times of oxytocin already given and any uterotonics administered beyond oxytocin, plus the response to each",
+    "Severity and current control of the asthma (last exacerbation, rescue inhaler use) to weigh whether carboprost is truly contraindicated if misoprostol fails",
+    "Blood pressure trend and labetalol dosing history before the hemorrhage, since the current BP of 80/52 may be masked or compounded by beta-blockade (blunted tachycardic response, though HR is 132)",
+    "Assessment for uterine inversion, an expanding vulvar/vaginal/retroperitoneal hematoma, or uterine rupture — bedside exploration excluded fragments and lacerations but these were not documented",
+    "Prenatal/intrapartum details: labor augmentation, duration of labor, chorioamnionitis, magnesium sulfate exposure, and bladder distention status",
+    "Client weight, allergies, and any preexisting anemia or bleeding disorder",
+    "Whether the hemorrhage protocol/rapid response has already been activated and provider/anesthesia/OR availability"
+  ],
+  "priorityActions": [
+    "Activate the obstetric hemorrhage/massive transfusion protocol and call for immediate provider help while giving a second-line uterotonic that is safe for this client — misoprostol 800–1000 mcg rectally (withhold methylergonovine because of pregnancy-induced hypertension and carboprost/Hemabate because of asthma) — with continuous bimanual uterine compression between doses",
+    "Restore circulating volume and oxygen delivery: establish two large-bore IVs, give rapid warmed isotonic crystalloid and type-specific or O-negative PRBCs per protocol, administer tranexamic acid 1 g IV, apply supplemental oxygen 10–15 L/min by non-rebreather, place the client flat, insert an indwelling catheter, and prepare for uterine tamponade (intrauterine balloon) or operative management if bleeding persists"
+  ],
+  "reasoning": "An intermittently boggy uterus that relaxes within seconds of massage, with retained products and lower genital tract trauma excluded, points to uterine atony — the cause of roughly 70–80% of primary PPH — and the grand multiparity (G5P5) plus a 4.2 kg macrosomic infant are classic overdistension/atony risk factors. QBL 1,200 mL with HR 132, BP 80/52, confusion, and pallor places her in class III hypovolemic shock, so treatment must simultaneously control the source (uterotonic escalation plus mechanical compression/tamponade) and restore perfusion (volume, blood products, TXA, oxygen). The two comorbidities are decision-critical for drug selection: pregnancy-induced hypertension contraindicates methylergonovine and asthma contraindicates carboprost, leaving misoprostol as the safest second-line agent. Monitoring parameters are chosen to track the two things that can kill her — inadequate perfusion and uncontrolled ongoing bleeding — with fundal tone and quantitative loss confirming whether the uterotonic worked and vital signs/urine output/mentation confirming whether resuscitation is keeping pace.",
+  "stage1Confidence": "high",
+  "stemEvidence": [
+    {
+      "stemFact": "Uterus is intermittently boggy and relaxes within seconds after massage",
+      "target": "condition"
+    },
+    {
+      "stemFact": "Bedside exploration shows no retained placental fragments and no cervical or vaginal lacerations beyond the repaired second-degree perineal tear",
+      "target": "condition"
+    },
+    {
+      "stemFact": "G5P5 with vaginal birth of a 4.2 kg infant (grand multiparity plus macrosomia causing uterine overdistension)",
+      "target": "condition"
+    },
+    {
+      "stemFact": "Persistent heavy bleeding despite oxytocin and fundal massage at 90 minutes postpartum",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "Pregnancy-induced hypertension treated with labetalol (excludes methylergonovine)",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "Mild intermittent asthma (excludes carboprost/Hemabate)",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "QBL 1,200 mL with HR 132, BP 80/52, confusion and pallor — class III hypovolemic shock",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "Confused and pale with HR 132 and BP 80/52 indicating impaired end-organ perfusion",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "QBL 1,200 mL and ongoing heavy bleeding with a uterus that will not stay contracted",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "condition": "Acute hemolytic transfusion reaction (ABO-incompatible RBC transfusion) with intravascular hemolysis complicated by disseminated intravascular coagulation and evolving hemolysis-induced acute kidney injury",
+  "evaluationParameters": [
+    "Hourly urine output and urine color with blood pressure/MAP, heart rate, and serial BUN/creatinine and potassium — targeting urine output at least 0.5–1 mL/kg/hr and clearing of port-wine discoloration as evidence that renal perfusion and hemoglobin clearance are improving",
+    "Serial DIC and hemolysis panels — fibrinogen, platelet count, INR/aPTT, D-dimer, LDH, bilirubin, haptoglobin, and plasma-free hemoglobin — trended alongside bedside assessment of oozing from puncture sites, mucosal/IV-site bleeding, and hematoma formation"
+  ],
+  "missingInformation": [
+    "Actual numeric vital signs (blood pressure, MAP, heart rate, respiratory rate, SpO2, temperature) and baseline values for comparison",
+    "Client weight, needed for mL/kg/hr urine output targets and weight-based fluid and product dosing",
+    "Volume of incompatible blood actually infused before the transfusion was stopped",
+    "Results of the clerical/bedside identification recheck and the ABO/Rh type of both the client and the unit",
+    "Direct antiglobulin test (DAT/Coombs), repeat type and crossmatch, and plasma-free hemoglobin results",
+    "Baseline renal function (prior BUN/creatinine, eGFR) and pre-transfusion CBC and coagulation values",
+    "Serum potassium, ionized calcium, and D-dimer, which drive hyperkalemia and DIC management decisions",
+    "Patency and number of current IV access sites and whether central access is available",
+    "Available provider orders or institutional transfusion-reaction and DIC protocols, including vasopressor and blood component orders",
+    "Medication and transfusion history, prior reactions, allergies, and code status/goals of care"
+  ],
+  "priorityActions": [
+    "With the transfusion already stopped, maintain the IV line with new tubing and infuse 0.9% sodium chloride wide open for aggressive isotonic volume resuscitation to restore perfusion and maintain renal blood flow and urine output, escalating to vasopressor support per order if hypotension persists; do not flush the residual blood in the existing tubing into the client",
+    "Immediately notify the provider and the blood bank, initiate the transfusion-reaction protocol by returning the unit and tubing and sending clerical recheck plus post-reaction blood and urine specimens (DAT, repeat type and crossmatch, plasma-free hemoglobin, CBC, coagulation studies), and obtain and administer ordered blood component replacement for DIC (cryoprecipitate/fibrinogen for fibrinogen 140 mg/dL, FFP for INR 1.8 and aPTT 52 seconds, platelets as indicated)"
+  ],
+  "reasoning": "Onset within 12 minutes of starting RBCs with fever, rigors, bilateral flank pain, hypotension, hemoglobinuria, and a sense of impending doom is the classic presentation of an acute hemolytic transfusion reaction from ABO incompatibility. The laboratory picture confirms brisk intravascular hemolysis: LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL with port-wine urine. Progression 30 minutes after stopping the transfusion — falling platelets (104), fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds, and oozing from puncture sites — is consumptive coagulopathy (DIC) triggered by the hemolytic reaction, while worsening hypotension with oliguria and pigmented urine signals hemoglobin-mediated acute kidney injury. Because the transfusion has already been stopped, the next priorities are hemodynamic and renal rescue (isotonic fluids through fresh tubing, vasopressors if needed) and simultaneous activation of the transfusion-reaction pathway with provider/blood bank notification, specimen and unit return, and factor/platelet replacement for the DIC. Monitoring therefore centers on the two organ systems failing in real time: renal perfusion (hourly urine output and color, MAP, BUN/creatinine, potassium) and the coagulation/hemolysis trajectory (fibrinogen, platelets, INR/aPTT, D-dimer, LDH, bilirubin, haptoglobin, plus bleeding assessment).",
+  "stage1Confidence": "high",
+  "stemEvidence": [
+    {
+      "stemFact": "Fever, rigors, bilateral flank pain, hypotension, and a sense of impending doom within 12 minutes of starting a red blood cell transfusion",
+      "target": "condition"
+    },
+    {
+      "stemFact": "Hemoglobinuria and port-wine urine with LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL indicating intravascular hemolysis",
+      "target": "condition"
+    },
+    {
+      "stemFact": "Platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds, and oozing from puncture sites indicating consumptive coagulopathy",
+      "target": "condition"
+    },
+    {
+      "stemFact": "Worsening hypotension 30 minutes after the transfusion was stopped",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "Oliguria with port-wine urine reflecting hemoglobin-induced renal injury requiring flow and perfusion support",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "Acute reaction to a red blood cell transfusion requiring transfusion-reaction protocol, unit and specimen return, and clerical/ABO verification",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "Fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds, platelets 104 ×10³/µL, and oozing from puncture sites requiring ordered component replacement",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "Oliguria with port-wine urine and worsening hypotension",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "Hemoglobinuria from ongoing intravascular hemolysis threatening renal tubular function",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "Platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds",
+      "target": "evaluationParameter2"
+    },
+    {
+      "stemFact": "Oozing from puncture sites with LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "actionLabels": [
+    "A3",
+    "A1"
+  ],
+  "ambiguousAlternatives": [
+    {
+      "comparedTo": "A1",
+      "label": "A4",
+      "note": "A4 overlaps the education component of the plan, but written instructions and a follow-up appointment alone do not resolve the failed teach-back, the unaffordable diuretic, the absent home scale, or the exertional desaturation; A1 is broader and addresses the documented barriers, so the distinction is clear rather than genuinely ambiguous"
+    },
+    {
+      "comparedTo": "P2",
+      "label": "P4",
+      "note": "Daily weight trend is clinically relevant to heart failure, but the token restricts it to the inpatient trend alone, which the stem already reports as improving and which does not evaluate either identified barrier; P2 is unambiguously superior"
+    }
+  ],
+  "conditionLabel": "C2",
+  "missingInformation": [
+    "Resting room-air oxygen saturation and any baseline or prior home oxygen requirement",
+    "Heart rate, blood pressure, respiratory rate, and symptoms during and after the 40-foot walk, and the oxygen flow rate and time required for recovery",
+    "Whether the client can physically climb the stairs to her second-floor apartment",
+    "Specific BNP values, serial weights, net intake and output, renal function, and electrolytes",
+    "Ejection fraction, heart failure type, and the specific new medication regimen prescribed",
+    "Insurance and prescription coverage, the out-of-pocket cost of the diuretic, and availability of assistance programs or formulary alternatives",
+    "Cognitive status, health literacy, vision, hearing, or language factors contributing to the failed teach-back",
+    "Availability of family, neighbors, or caregivers for support and transportation",
+    "Whether case management, social work, pharmacy, home health, or a follow-up appointment has already been initiated",
+    "Prior heart failure admission history and fall risk or functional mobility assessment"
+  ],
+  "parameterLabels": [
+    "P2",
+    "P1"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The stem pairs an active 11:00 discharge order with unresolved physiologic and psychosocial barriers documented at 09:15: desaturation to 89% after 40 feet requiring oxygen to recover, failed teach-back on new medications and warning signs, inability to afford the prescribed diuretic, no home scale, and living alone in a second-floor walk-up. C2 (unsafe premature discharge) is the only condition token that names this discrepancy. C1 is contradicted because the failed teach-back and unmet resource needs make standard written instructions insufficient. C3 is contradicted because BNP and weight are improving, so the client is not in continued acute decompensation requiring indefinite inpatient treatment. Among actions, A3 addresses the time-critical physiologic finding by advocating to hold the discharge with objective safety data and escalating as needed, and A1 addresses the affordability, home-scale, isolation, and education barriers through case management, social work, clinical pharmacy, and home-health planning. A2 is contradicted by the same safety findings, and A4 repeats the education modality that already failed and leaves the oxygenation and resource barriers unaddressed. Among parameters, P2 directly re-evaluates the exertional desaturation and the stair demand created by the second-floor walk-up, and P1 directly re-evaluates the failed teach-back on medications, daily weights, call parameters, and warning signs. P3 and P4 are already improving in the stem and, restricted to a single inpatient measure, do not evaluate either identified barrier or the client's readiness for the home environment.",
+  "selectionEvidence": [
+    {
+      "label": "C2",
+      "rationale": "Discharge is imminent while objective safety and self-management prerequisites remain unmet, which is precisely an unsafe premature discharge",
+      "stemFact": "Active 11:00 discharge order coexisting with desaturation to 89% requiring oxygen, failed teach-back, unaffordable diuretic, no home scale, and living alone in a second-floor walk-up"
+    },
+    {
+      "label": "C2",
+      "rationale": "Distinguishes a readiness/safety problem from ongoing acute decompensation, excluding C3 and confirming C2",
+      "stemFact": "BNP and weight are improving"
+    },
+    {
+      "label": "A3",
+      "rationale": "An objective, measurable safety finding must be communicated to hold the discharge before 11:00, with escalation available if the concern is not addressed",
+      "stemFact": "Desaturates to 89% after walking 40 feet and requires oxygen to recover, with discharge ordered for 11:00"
+    },
+    {
+      "label": "A1",
+      "rationale": "These are resource, environment, and education barriers requiring interdisciplinary case management, social work, pharmacy, and home-health coordination rather than nursing action alone",
+      "stemFact": "Cannot afford the prescribed diuretic, has no home scale, lives alone in a second-floor walk-up, and fails teach-back"
+    },
+    {
+      "label": "P2",
+      "rationale": "Repeat ambulation and stair tolerance with oxygen saturation and recovery time re-measures the exact deficit against the actual home demand",
+      "stemFact": "Desaturates to 89% after walking 40 feet, requires oxygen to recover, and lives in a second-floor walk-up apartment"
+    },
+    {
+      "label": "P1",
+      "rationale": "Repeat teach-back on medication purpose, daily weights, call parameters, and warning signs is the direct evaluation of the failed learning outcome",
+      "stemFact": "Fails teach-back about her new medications and warning signs"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "That the client has demonstrated understanding of her regimen and has the resources to follow written instructions safely at home",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem explicitly documents failed teach-back, an unaffordable diuretic, and no home scale, so routine discharge with standard written instructions is directly excluded and does not impair ranking",
+      "supportingStemText": "fails teach-back about her new medications and warning signs, cannot afford the prescribed diuretic ... and has no home scale"
+    },
+    {
+      "missingPremise": "None; the stem supplies both the imminent discharge order and the unresolved safety and readiness barriers",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Every element of this condition is stated in the stem, making it the clearly rankable best choice",
+      "supportingStemText": "has an active 11:00 discharge order. She desaturates to 89% after walking 40 feet, requires oxygen to recover, fails teach-back ... cannot afford the prescribed diuretic, lives alone in a second-floor walk-up apartment, and has no home scale"
+    },
+    {
+      "missingPremise": "That the client remains acutely decompensated with worsening congestion markers",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Improving BNP and weight contradict continued acute decompensation, and no stem finding supports indefinite inpatient treatment, so this token is cleanly eliminated",
+      "supportingStemText": "BNP and weight are improving"
+    },
+    {
+      "missingPremise": "Confirmation of which interdisciplinary services are already involved and what community or family resources exist; the barriers themselves are explicit",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem names four distinct barriers this action targets, so the action is selectable without inferring additional client facts",
+      "supportingStemText": "cannot afford the prescribed diuretic, lives alone in a second-floor walk-up apartment, and has no home scale"
+    },
+    {
+      "missingPremise": "That the client is physiologically stable and prepared for self-care at home, and that a telemetry bed shortage exists",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Exertional desaturation requiring oxygen and failed teach-back contradict readiness; bed availability is never mentioned in the stem and cannot outweigh documented safety findings",
+      "supportingStemText": "She desaturates to 89% after walking 40 feet, requires oxygen to recover, fails teach-back"
+    },
+    {
+      "missingPremise": "None for selection; the escalation pathway and provider response are unspecified but the objective safety concern justifying advocacy is explicit",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The measurable desaturation and the 11:00 discharge order together make holding the discharge the time-critical action, fully supported by the stem",
+      "supportingStemText": "an active 11:00 discharge order. She desaturates to 89% after walking 40 feet, requires oxygen to recover"
+    },
+    {
+      "missingPremise": "That written material and a follow-up appointment would overcome the failed teach-back and the financial, equipment, and oxygenation barriers",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Education is genuinely needed, so this token is partially attractive, but the word 'only' excludes the affordability, home-scale, and desaturation issues, ranking it clearly below A1 and A3",
+      "supportingStemText": "fails teach-back about her new medications and warning signs ... cannot afford the prescribed diuretic"
+    },
+    {
+      "missingPremise": "The reason teach-back failed (cognition, literacy, sensory, or language) is not stated, but the failure itself is explicit",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem documents the failed teach-back, so re-evaluating it is a directly indicated parameter regardless of the unstated cause",
+      "supportingStemText": "fails teach-back about her new medications and warning signs"
+    },
+    {
+      "missingPremise": "Baseline resting saturation, prior activity tolerance, and recovery time are not given, but the exertional desaturation event is explicit",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The 89% desaturation after 40 feet and the second-floor walk-up make repeat ambulation and stair tolerance with saturation and recovery time the directly matched parameter",
+      "supportingStemText": "desaturates to 89% after walking 40 feet, requires oxygen to recover ... lives alone in a second-floor walk-up apartment"
+    },
+    {
+      "missingPremise": "That BNP in isolation reflects functional readiness, safe oxygenation with activity, and self-management capability",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "BNP is already reported as improving and, taken alone, monitors none of the identified barriers, so it ranks below P1 and P2 without ambiguity",
+      "supportingStemText": "BNP and weight are improving"
+    },
+    {
+      "missingPremise": "That the inpatient weight trend alone would detect the discharge-readiness deficits; no home weight capability exists to extend this monitoring",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Weight monitoring is relevant to heart failure generally, giving mild surface appeal, but the inpatient trend is already improving and the client has no home scale, so it does not evaluate either barrier",
+      "supportingStemText": "BNP and weight are improving ... has no home scale"
+    }
+  ]
+}

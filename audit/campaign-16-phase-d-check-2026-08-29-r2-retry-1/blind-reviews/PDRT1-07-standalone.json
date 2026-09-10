@@ -1,0 +1,170 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSetExplanation": "Within the supplied pools the canonical 1/2/2 set is the only defensible combination. C1 is stated almost verbatim: GBS is confirmed after Campylobacter enteritis, and FVC 19 mL/kg with MIP -26 cmH2O plus few-word speech, ineffective cough, and diaphoresis establish impending (not yet established) respiratory failure; C2 and C3 are excluded by the confirmed diagnosis. Among the four actions, only A2 addresses the airway threat that the objective mechanics define, and only A4 addresses the second stem-anchored risk - diaphoresis with labile blood pressure and tachycardia arising during an active IVIG infusion. A1 is contraindicated by general knowledge (corticosteroids are ineffective in GBS) and A3 is contraindicated by the stem itself (an absent gag and ineffective cough make BiPAP unsafe as a substitute for a definitive airway). Among parameters, P2 trends the exact measures already breaching the 20/30/40 thresholds and P3 trends the explicitly documented dysautonomia, while P1 is irrelevant to acute airway decisions and P4 is invalidated by its own exclusivity wording ('alone') because SpO2 is a late marker in neuromuscular failure. Two wording caveats do not disturb uniqueness: A2 says 'emergent' where controlled/semi-elective intubation before arrest is the ideal, and the pool contains no aspiration-precaution/NPO option even though absent gag and ineffective cough would clinically warrant one - but neither creates a competing correct token.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "None. Every component of this token is explicit in the stem; ABG values and the FVC/MIP trend over time would add precision but are not required for selection.",
+      "opaqueTokenLabel": "C1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'confirmed Guillain-Barre syndrome after recent Campylobacter enteritis' names the disease and its classic antecedent; 'FVC 1.6 L (19 mL/kg), and MIP -26 cmH2O' both breach the 20/30/40 thresholds; 'speaks only a few words at a time and is diaphoretic' plus 'ineffective cough, unilateral absent gag reflex' and 'progressive quadriparesis' establish the 'impending respiratory failure' half of the token."
+    },
+    {
+      "missingClientFact": "None required for selection. The token's 'emergent' qualifier slightly overstates urgency relative to the stem's impending-failure picture, where controlled intubation before arrest is preferred, but no absent client fact is needed to identify definitive airway control as the priority.",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'FVC 1.6 L (19 mL/kg), and MIP -26 cmH2O' meet the standard intubation criteria (FVC <20 mL/kg, MIP less negative than -30 cmH2O); 'He speaks only a few words at a time' is a bedside proxy for a critically short single-breath count; 'ineffective cough, unilateral absent gag reflex' shows the airway is unprotected and secretions cannot be cleared."
+    },
+    {
+      "missingClientFact": "None required for selection. Infusion rate, dose, hours elapsed, premedication, temperature, and prior reaction history would refine the assessment, and the diaphoresis is genuinely dual-attributable (work of breathing versus infusion reaction) - which is precisely why the token's conditional framing ('continue only if safe') is correct rather than assumption-dependent.",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'diaphoretic while receiving IVIG in the ICU' places the client on an active infusion at the moment the finding appears, and 'labile blood pressure, tachycardia' supplies the hemodynamic changes the token names. The link from these findings to a possible infusion-related reaction rests on general knowledge of IVIG adverse effects, but the triggering findings themselves are explicit."
+    },
+    {
+      "missingClientFact": "None required for selection. Prior serial values and the measurement interval are absent, so the rate of decline cannot be quantified, but this affects timing granularity rather than whether the parameter should be monitored.",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'FVC 1.6 L (19 mL/kg), and MIP -26 cmH2O' are the exact two measures the token names, given with values that establish the baseline to be trended."
+    },
+    {
+      "missingClientFact": "None required for selection. Specific numeric blood pressure and heart-rate values, rhythm strip findings, and any bradycardic episodes are absent, limiting characterization of severity but not the choice of parameter.",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'labile blood pressure, tachycardia' explicitly documents the autonomic instability that this parameter tracks; the term 'labile' itself denotes variability."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "Transverse myelitis would require a sensory level, bowel/bladder dysfunction, and cord imaging findings; none appear, and the stem confirms GBS outright. The flaccid ascending quadriparesis with dysautonomia is peripheral, not myelopathic. Excluded on stated facts without any missing client data.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Myasthenic crisis shares the low FVC/MIP picture, which makes it the most plausible-looking distractor, but it would require fatigable ocular/bulbar weakness, a known myasthenia history, or a precipitant. The confirmed post-Campylobacter GBS diagnosis with progressive quadriparesis and autonomic instability excludes it.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "No client fact points toward steroids, and general knowledge establishes that corticosteroids do not modify GBS and should not displace IVIG or plasma exchange. Ranked last regardless of any unstated data; no absent fact could rehabilitate it.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "BiPAP as a substitute for intubation ('instead of') is unsafe here: 'ineffective cough, unilateral absent gag reflex' means the airway is unprotected, so noninvasive ventilation risks aspiration and delays definitive management. Contradicted by explicit stem findings rather than by missing information.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "No CSF results are given, and the token's stated purpose - guiding acute airway decisions - is invalid on general knowledge, since albuminocytologic dissociation is a diagnostic finding that lags clinically and never drives intubation timing. Invalidated by its own framing, not by absent client data.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "No SpO2 value is stated, but the token fails on the exclusivity wording: SpO2 is a late, lagging marker in neuromuscular respiratory failure and cannot serve alone as the primary respiratory marker when FVC and MIP are already breaching thresholds. Supplying an SpO2 value would not change the ranking.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "affectedTokens": [
+        "P3",
+        "A4"
+      ],
+      "explanation": "Would quantify the dysautonomia and help distinguish infusion reaction from respiratory distress, but both P3 and A4 are already triggered by the explicit qualitative findings.",
+      "fact": "Numeric vital signs - specific blood pressure range, heart rate, respiratory rate, SpO2, temperature",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "affectedTokens": [
+        "C1",
+        "A2",
+        "P2"
+      ],
+      "explanation": "Would confirm whether failure is impending or established and thus how emergent the intubation is; does not change that C1, A2, and P2 are correct.",
+      "fact": "ABG values (PaCO2, PaO2, pH)",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "affectedTokens": [
+        "C1",
+        "P2",
+        "A2"
+      ],
+      "explanation": "Rate of decline informs intubation timing; the current values alone already meet criteria.",
+      "fact": "Prior serial FVC/MIP values and the interval over which they declined",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "affectedTokens": [
+        "C1",
+        "P2"
+      ],
+      "explanation": "MIP -26 cmH2O independently breaches threshold, so the conclusion holds either way.",
+      "fact": "Whether the 19 mL/kg calculation used actual or ideal body weight",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "affectedTokens": [
+        "A4"
+      ],
+      "explanation": "Would sharpen the infusion-reaction assessment, but A4 is deliberately written as a conditional evaluate-then-continue action, which is correct precisely under this uncertainty.",
+      "fact": "IVIG specifics - dose, infusion rate, hours elapsed, premedication, prior reaction history, renal function",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "affectedTokens": [
+        "C1",
+        "A2"
+      ],
+      "explanation": "Progressive quadriparesis already signals an unstable, pre-nadir trajectory.",
+      "fact": "Days since symptom onset and whether the nadir has been reached",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "affectedTokens": [
+        "P3"
+      ],
+      "explanation": "Documented lability and tachycardia already establish the need for continuous cardiovascular monitoring.",
+      "fact": "Cardiac rhythm/telemetry findings and any bradycardic or arrhythmic episodes",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "affectedTokens": [
+        "A2",
+        "A3"
+      ],
+      "explanation": "'Ineffective cough' and 'unilateral absent gag reflex' are sufficient to establish loss of airway protection and to exclude A3.",
+      "fact": "Secretion burden, cough peak flow, swallow screen, chest auscultation or imaging",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "affectedTokens": [
+        "A2"
+      ],
+      "explanation": "Affects execution logistics only; A2 remains the priority action.",
+      "fact": "Whether an airway plan, consent discussion, code status, or aspiration precautions are already in place",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "notes": [
+    "Blind Stage 2 selected C1 / A2 + A4 / P2 + P3, which matches the canonical set exactly across all five keyed labels.",
+    "Every canonical target is DIRECT - anchored in explicit stem text. A4 is the only one whose correctness additionally requires a general-knowledge step (IVIG can cause infusion reactions), but the triggering findings (diaphoresis during infusion, labile BP, tachycardia) are stated, so it does not depend on an absent client fact.",
+    "All six distractors are CONTRADICTED rather than merely unsupported: C2 and C3 by the confirmed GBS diagnosis, A1 by GBS pharmacology, A3 by the stem's own absent gag and ineffective cough, P1 by its invalid stated purpose, and P4 by its exclusivity wording. None is left in genuine competition with a keyed token, so the item discriminates cleanly.",
+    "Wording observation on A2: 'emergent' endotracheal intubation slightly overstates urgency for a client described as having impending rather than established failure, where controlled/semi-elective intubation before arrest is the standard. Because no other pool token offers definitive airway control, this does not affect answerability, and the same observation was recorded in the blind Stage 2 record as a LOW-impact ambiguity.",
+    "Pool-coverage observation: the unilateral absent gag and ineffective cough would clinically warrant an explicit aspiration-precaution/NPO action, which the blind Stage 1 free-generation ranked as its second priority action. No such token exists in the pool, so A4 - also stem-anchored and safety-critical - is the correct second selection here. This is a coverage gap in the option set, not a defect in the key.",
+    "The item's byChoice rationales are consistent with this analysis, including the correct conditional framing of A4 and the identification of SpO2 as a lagging marker.",
+    "This analysis used only the standalone stem, pools, and the two immutable blind records; no sibling case material was available, referenced, or assumed."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Four of five canonical targets align fully with the blind Stage 1 free-generation. Stage 1's condition ('Impending neuromuscular respiratory failure with bulbar dysfunction ... from Guillain-Barre syndrome') maps to C1; its first priority action (escalate for definitive airway control and prepare for intubation, citing the 20/30/40 criteria) maps to A2; its first evaluation parameter (serial FVC, MIP, single-breath count, gas exchange) maps to P2; and its second parameter (continuous ECG and blood pressure for dysautonomia, with bulbar status and IVIG infusion tolerance) maps to P3. The divergence is in the second action: Stage 1 named strict aspiration and airway-protection precautions - NPO, suctioning, and dysautonomia precautions - as the second priority, with 'continue the IVIG while assessing for infusion reaction' appearing only as a trailing clause inside that same action rather than as a standalone priority. A4's content was therefore present in the Stage 1 record but subordinated, and Stage 1's dominant second action has no counterpart in the option pool. Alignment is scored PARTIAL on that basis; Stage 2, with the pools visible, selected A4 and reached an exact match with the key.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

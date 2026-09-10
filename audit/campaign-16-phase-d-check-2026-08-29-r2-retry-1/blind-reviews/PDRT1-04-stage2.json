@@ -1,0 +1,163 @@
+{
+  "actionLabels": [
+    "A2",
+    "A3"
+  ],
+  "ambiguousAlternatives": [
+    {
+      "impact": "LOW",
+      "label": "P1",
+      "reason": "Albumin and prealbumin trends are plausible in any patient declining enteral nutrition, but the stem provides no nutritional or laboratory data and frames the scenario as an ethical synthesis stage, so P1 ranks below P2 and P3 without requiring any inferred client fact."
+    },
+    {
+      "impact": "LOW",
+      "label": "P4",
+      "reason": "Family satisfaction is a superficially attractive endpoint given the arranged family meeting, but it is not the outcome measure for a capacitated client's refusal and would subordinate her autonomy to family preference; it is clearly distinguishable from P2, which measures her own experience."
+    }
+  ],
+  "conditionLabel": "C2",
+  "missingInformation": [
+    "Underlying diagnosis and prognosis prompting the PEG recommendation",
+    "Current nutritional and hydration status, weight trend, and laboratory values",
+    "Results of any swallow evaluation or documented aspiration risk",
+    "Existence and content of an advance directive, POLST/MOLST, or healthcare proxy",
+    "Current code status and whether comfort-focused care or hospice has been discussed",
+    "Which alternatives to PEG the client is willing to accept",
+    "The family's stated position going into the meeting",
+    "Whether an ethics consult has been or should be initiated"
+  ],
+  "parameterLabels": [
+    "P2",
+    "P3"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The stem supplies three explicit anchors: a repeated refusal of PEG placement, documented intact decisional capacity independently confirmed by palliative care, and a physician suggestion to schedule the consult anyway. That combination is exactly C2 — a capacitated client's autonomous refusal being challenged by continued treatment planning. C1 is contradicted because capacity is intact, so no surrogate is activated; C3 is contradicted because the stem states capacity is documented and confirmed rather than impaired. Among actions, A3 addresses the specific threat named in the stem (treatment planning proceeding over a documented refusal) and A2 operationalizes the family meeting the stem says is arranged, with the palliative care team already involved. A1 and A4 both override a capacitated refusal and are contraindicated on general ethical/legal grounds as well as contradicted by the stem's statement that the physician's suggestion 'has been addressed.' For parameters, P3 measures whether orders and the plan continue to match the client's stated wishes — the direct outcome for this condition — and P2 measures whether the arranged family meeting preserved her voice free of coercion, the principal risk when family and clinicians convene around a refusal. P1 requires nutritional laboratory values that the stem never provides and would only be relevant to a physiologic nutrition problem, not to this autonomy conflict. P4 is misdirected: family satisfaction is not the evaluative endpoint when a capacitated client has refused, and treating it as one would invert the ethical priority. The pool is answerable without inferring any absent client-specific fact.",
+  "selectionEvidence": [
+    {
+      "label": "C2",
+      "rationale": "Establishes both an autonomous refusal and preserved capacity, the defining elements of C2",
+      "stemText": "Mrs. Ellison has repeatedly refused PEG placement with documented intact decisional capacity"
+    },
+    {
+      "label": "C2",
+      "rationale": "Names the 'challenged by continued treatment planning' half of C2 explicitly",
+      "stemText": "The physician's suggestion to schedule the consult anyway has been addressed"
+    },
+    {
+      "label": "C2",
+      "rationale": "Independent confirmation removes any capacity question, excluding C1 and C3",
+      "stemText": "Palliative care confirms her capacity and wishes"
+    },
+    {
+      "label": "A3",
+      "rationale": "Direct physician communication that the consult must not proceed over the documented refusal is the action the stem describes as required",
+      "stemText": "The physician's suggestion to schedule the consult anyway has been addressed"
+    },
+    {
+      "label": "A2",
+      "rationale": "The meeting is already arranged with palliative care involved, so facilitating it interdisciplinarily is a stem-anchored nursing action",
+      "stemText": "Palliative care confirms her capacity and wishes, and a family meeting is arranged"
+    },
+    {
+      "label": "P3",
+      "rationale": "Ongoing alignment of orders and plan with her stated wishes is the measurable outcome of honoring the refusal",
+      "stemText": "repeatedly refused PEG placement with documented intact decisional capacity"
+    },
+    {
+      "label": "P2",
+      "rationale": "A family meeting around a contested refusal creates coercion risk; her own statements are the evaluative measure",
+      "stemText": "a family meeting is arranged"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "Requires that the client has lost decisional capacity and that a surrogate decision-maker has been activated",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem twice affirms intact capacity, so C1 is eliminated on explicit stem text without needing any additional client fact",
+      "supportingStemText": "documented intact decisional capacity ... Palliative care confirms her capacity and wishes"
+    },
+    {
+      "missingPremise": "Requires an autonomous refusal by a capacitated client plus treatment planning that continues to challenge it — both are stated",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Every element of C2 is explicitly present in the stem, making it selectable with no inference",
+      "supportingStemText": "has repeatedly refused PEG placement with documented intact decisional capacity. The physician's suggestion to schedule the consult anyway has been addressed"
+    },
+    {
+      "missingPremise": "Requires evidence of impaired capacity or an uninformed refusal",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Capacity is documented and independently confirmed, directly negating the premise of C3",
+      "supportingStemText": "documented intact decisional capacity ... Palliative care confirms her capacity"
+    },
+    {
+      "missingPremise": "Would require either absent capacity or client consent to proceed with the consult; neither exists",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Explicitly counter to the documented refusal and to the stem's note that this suggestion has already been addressed",
+      "supportingStemText": "The physician's suggestion to schedule the consult anyway has been addressed"
+    },
+    {
+      "missingPremise": "Requires that a family meeting is planned and that palliative care is engaged — both stated",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly names the arranged family meeting and palliative care involvement, so this action is selectable as given",
+      "supportingStemText": "Palliative care confirms her capacity and wishes, and a family meeting is arranged"
+    },
+    {
+      "missingPremise": "Requires a documented refusal and a physician plan that would proceed against it — both stated",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem supplies the exact conflict this action resolves, so no client fact is missing",
+      "supportingStemText": "repeatedly refused PEG placement ... The physician's suggestion to schedule the consult anyway"
+    },
+    {
+      "missingPremise": "Would require a family member's demand and a basis for overriding the client; the stem names no such demand and capacity is intact",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Deferring to family over a capacitated client's documented refusal is contradicted by the stem regardless of whether a family demand exists",
+      "supportingStemText": "repeatedly refused PEG placement with documented intact decisional capacity"
+    },
+    {
+      "missingPremise": "Requires baseline nutritional laboratory values, weight trend, or a stated nutritional concern; the stem provides none",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The absent nutritional data keeps P1 unrankable as a top parameter, but it does not obstruct selection because P2 and P3 are explicitly supported and directly match the ethical condition",
+      "supportingStemText": "No stem text addresses nutritional status, weight, or laboratory values"
+    },
+    {
+      "missingPremise": "Requires a context in which the client's voice could be pressured — supplied by the arranged family meeting and the contested refusal",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem's family meeting and challenged refusal make coercion-freedom a directly evaluable endpoint",
+      "supportingStemText": "Palliative care confirms her capacity and wishes, and a family meeting is arranged"
+    },
+    {
+      "missingPremise": "Requires documented client wishes against which orders can be compared — supplied by the documented refusal",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Explicit documented wishes make plan-to-wishes concordance measurable without added facts",
+      "supportingStemText": "repeatedly refused PEG placement with documented intact decisional capacity"
+    },
+    {
+      "missingPremise": "Would require family satisfaction to be a legitimate outcome measure for a capacitated client's refusal; general ethical standards establish it is not",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "General knowledge that autonomy outranks family preference is sufficient to rank P4 below P2 and P3; no missing client fact is involved",
+      "supportingStemText": "documented intact decisional capacity ... a family meeting is arranged"
+    }
+  ]
+}

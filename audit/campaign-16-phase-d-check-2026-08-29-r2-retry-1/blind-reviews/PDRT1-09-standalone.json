@@ -1,0 +1,167 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSetExplanation": "The standalone stem supplies every premise needed to reach C3/A2+A4/P3+P1 without importing outside client facts. The condition is named almost verbatim: 'confirmed severe neutropenia' plus 'persistent fever' establishes neutropenic fever, and the hypoperfusion cluster (BP 92/58, HR 118, RR 24, capillary refill 4 seconds, urine output 60 mL over 4 hours, lactate 3.2 mmol/L) establishes progression toward sepsis, so C3 is the only condition token that accounts for all stated findings. C1 has no drug-reaction premise anywhere in the stem, and C2 is contradicted by the documented neutropenia-plus-fever infection state. On the action side, the stem's hypotension, delayed refill, and oliguria give a direct indication for isotonic crystalloid (A2), while 'after initial empiric antibiotics' establishes that the first-line intervention has already failed to stabilize the client, which is the specific trigger for rapid response activation and oncology notification (A4). A1 is contradicted by an actively decompensating hemodynamic picture, and A3 is contradicted because it explicitly delays perfusion restoration in a client with an elevated lactate and hypotension. For monitoring, P3 and P1 are the only tokens whose baselines are explicitly abnormal in the stem and that move on the timescale of resuscitation: MAP/urine output measure the response to the bolus, and serial lactate measures whether tissue hypoperfusion is clearing. P4 is ruled out by general knowledge that ANC does not change meaningfully over the acute window, and P2 has no supporting premise given SpO2 94% on room air and no respiratory findings. Because each keyed token is uniquely supported and each distractor is either contradicted or premise-free, the 1/2/2 set is uniquely defensible on the standalone item alone.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'the client with confirmed severe neutropenia has persistent fever' names the neutropenic fever state outright, and 'BP 92/58', 'HR 118', 'capillary refill 4 seconds', 'urine output 60 mL over 4 hours', and 'lactate 3.2 mmol/L after initial empiric antibiotics' document the progression toward sepsis."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'BP 92/58', 'capillary refill 4 seconds', and 'urine output 60 mL over 4 hours' are explicit indications for isotonic crystalloid volume resuscitation; the token defers dosing to the sepsis/oncology protocol, so no weight figure is required for selection."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'persistent fever ... after initial empiric antibiotics' plus 'lactate 3.2 mmol/L' shows deterioration despite treatment already given, which is the explicit trigger for rapid response activation and oncology escalation."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'BP 92/58' and 'urine output 60 mL over 4 hours' are both explicitly abnormal in the stem, making MAP and urine output the direct response markers for the fluid bolus and escalation."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'lactate 3.2 mmol/L' provides an explicit abnormal baseline, so the trend is directly measurable as an index of tissue perfusion recovery or refractory shock."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "The stem provides no medication administration timing, no hypersensitivity features (rash, urticaria, wheeze, angioedema), and no drug-exposure narrative that would make an acute medication reaction the primary explanation. The only medication referenced is the empiric antibiotics, and they are framed as treatment that has failed to resolve the fever rather than as a suspected cause. The absence of this premise does not impair ranking, because C3 is affirmatively and fully supported; the item does not require the learner to rule C1 out from client data it lacks.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "'Without systemic infection' is directly contradicted by 'confirmed severe neutropenia has persistent fever' after empiric antibiotics, which by definition establishes an infection-risk state under active antimicrobial treatment. Volume depletion could coexist, but the token asserts it as the explanation absent infection, so it is eliminated on stated stem text alone with no missing fact needed.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Waiting for a scheduled reassessment is contradicted by hypotension at 92/58, capillary refill of 4 seconds, oliguria of 60 mL over 4 hours, and a lactate of 3.2 mmol/L, all of which mandate immediate intervention. No unstated client fact could rehabilitate this token given the explicitly documented decompensation.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The token's defining feature is delaying fluid resuscitation, which is contradicted by documented tissue hypoperfusion. The rationale that specimens and antimicrobial orders matter is true in general, but the stem states antibiotics were already started, so the sequencing premise the token relies on does not hold. Its plausibility as a near-miss distractor comes from real bundle elements, not from any client fact the stem withholds.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "No respiratory complaint, adventitious breath sounds, cough, or hypoxemia is described; 'SpO2 94% on room air' is stated and gives no indication for urgent chest imaging. The token additionally fails on its own terms because imaging is a source-evaluation tool that lags real-time resuscitation, so it cannot serve as an immediate response marker even if a pulmonary source were later suspected.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem gives 'confirmed severe neutropenia' but no numeric ANC, nadir day, or growth-factor status. That gap is not decision-relevant here: general knowledge that WBC/ANC does not shift meaningfully across a resuscitation window means the token would still rank below P3 and P1 as an acute response marker even if the value were supplied. Impact is LOW rather than NONE only because the missing value is a genuine client fact the item elects not to state.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "affectedTokens": [
+        "A2",
+        "P3"
+      ],
+      "explanation": "Weight would be needed to compute the mL/kg bolus and to score urine output against a 0.5 mL/kg/hr threshold, but A2 defers to protocol and 60 mL over 4 hours (15 mL/hr) is low for any adult, so neither token's rank changes.",
+      "fact": "Client weight",
+      "impact": "LOW"
+    },
+    {
+      "affectedTokens": [
+        "P3",
+        "C3"
+      ],
+      "explanation": "A calculated MAP (~69 from 92/58) and a documented baseline would sharpen the target value and confirm the magnitude of change, but the systolic/diastolic pair already establishes hypotension relative to normal adult ranges.",
+      "fact": "Calculated MAP and baseline blood pressure",
+      "impact": "LOW"
+    },
+    {
+      "affectedTokens": [
+        "C3"
+      ],
+      "explanation": "Altered mentation would add an end-organ criterion, but the lactate, oliguria, refill, and blood pressure already document hypoperfusion sufficiently to key C3.",
+      "fact": "Level of consciousness and mental status",
+      "impact": "LOW"
+    },
+    {
+      "affectedTokens": [
+        "C3"
+      ],
+      "explanation": "'Persistent fever' is qualitatively sufficient for the neutropenic fever premise; the numeric value would not shift any token's rank.",
+      "fact": "Exact temperature value and trend",
+      "impact": "NONE"
+    },
+    {
+      "affectedTokens": [
+        "C3",
+        "P4"
+      ],
+      "explanation": "'Confirmed severe neutropenia' supplies the qualitative premise; the number would matter for prognosis and P4's framing but not for the keyed selections.",
+      "fact": "Absolute neutrophil count value",
+      "impact": "LOW"
+    },
+    {
+      "affectedTokens": [
+        "A3",
+        "A4"
+      ],
+      "explanation": "These would inform coverage-broadening decisions during escalation, but A3 is rejected on its delay-of-fluids element regardless, and A4 is triggered by deterioration despite treatment.",
+      "fact": "Identity and timing of the empiric antibiotics, and whether cultures were drawn",
+      "impact": "LOW"
+    },
+    {
+      "affectedTokens": [
+        "A2"
+      ],
+      "explanation": "Prior fluid volume would affect how much more to give and how quickly the client is judged fluid-refractory; it does not change whether a bolus is indicated now.",
+      "fact": "Volume of IV fluid already infused and IV access type",
+      "impact": "LOW"
+    },
+    {
+      "affectedTokens": [
+        "A2"
+      ],
+      "explanation": "Heart failure or renal impairment would call for smaller aliquots with closer reassessment, but volume resuscitation remains the indicated first action in documented hypoperfusion.",
+      "fact": "Cardiac and renal history and current medications",
+      "impact": "LOW"
+    },
+    {
+      "affectedTokens": [
+        "P2",
+        "A4"
+      ],
+      "explanation": "A suspected pulmonary source would give chest imaging a purpose in source workup, though still not as the immediate response marker the P2 token claims.",
+      "fact": "Identified or suspected infection source",
+      "impact": "LOW"
+    }
+  ],
+  "notes": [
+    "Both blind records are left unrevised; this comparison is additive only.",
+    "Blind Stage 2 selected C3, A2+A4, P1+P3, which matches the canonical key exactly. Parameter ordering differs (blind listed P1 first, canonical lists P3 first), but the required set is order-insensitive, so blindExactMatch is true.",
+    "Blind Stage 1 free-generated 'septic shock from neutropenic sepsis' while the canonical condition token reads 'Neutropenic fever progressing toward sepsis.' These describe the same trajectory; the free-generated wording asserted a slightly further-advanced stage than the token. Under a strict shock definition, septic shock requires hypotension persisting after adequate fluid resuscitation plus lactate above 2 mmol/L, and the stem does not state that a fluid challenge was given, so the canonical 'progressing toward' framing is the more conservative and better-calibrated label for the stated data. This did not affect any Stage 2 selection.",
+    "Blind Stage 1 named MAP/HR and lactate-plus-urine-output as its two evaluation parameters; the canonical pool splits these differently, pairing MAP with urine output (P3) and isolating lactate (P1). The union of the free-generated parameters equals the canonical union, so the mapping is clean despite the different partitioning.",
+    "The A2 token bundles 'position supine' with the crystalloid bolus. Supine positioning is a general-knowledge adjunct for hypotension rather than something the stem cues explicitly; it does not weaken the token because the fluid element is directly indicated and the positioning element is consistent with the stated hypotension.",
+    "Blind Stage 1 flagged client weight, MAP, and mental status as missing, and Stage 2 recorded the same gaps with LOW-or-NONE rankability impact. The revealed item confirms these facts remain absent, and none of them is required to reach the canonical set, so the blind assessment of their impact holds.",
+    "The distractor set is well constructed for premise integrity: C2, A1, and A3 are refuted by stem text rather than by facts the item withholds, and C1 and P2 are premise-free rather than premise-conflicting. Only P4 involves a genuinely unstated client fact (the numeric ANC), and general knowledge about count kinetics resolves it independently."
+  ],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "Every element of the blind free-generated Stage 1 answer maps onto the canonical key. The Stage 1 condition (septic shock from neutropenic sepsis, described as febrile neutropenia progressing to sepsis-induced tissue hypoperfusion despite empiric antibiotics) corresponds to C3; the only divergence is severity framing, since Stage 1 asserted established shock while the canonical token says 'progressing toward sepsis' — the canonical wording is the better-calibrated reading because the stem never states that adequate fluid resuscitation preceded the hypotension. Stage 1's first priority action (rapid weight-based isotonic crystalloid bolus per sepsis protocol) maps to A2, and its second (activate rapid response/sepsis team and notify the provider for escalation while maintaining neutropenic precautions) maps to A4. Stage 1's evaluation parameters covered BP/MAP with heart rate, repeat lactate, hourly urine output, and capillary refill, whose union is exactly P3 plus P1, differing only in how the four measures were grouped into two entries. No Stage 1 element points to a non-keyed token, and no keyed token was omitted, so alignment is FULL.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

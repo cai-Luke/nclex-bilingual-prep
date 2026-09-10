@@ -1,0 +1,395 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A4",
+      "A3"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P2",
+      "P3"
+    ]
+  },
+  "instruction": "The two blind-stage records above are immutable and were produced by you in this same session before this selection was revealed. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item below. Do not inspect, infer, or assume any sibling-case material — none has been provided and none exists in this context. Return the required Phase-E-equivalent structured JSON without revising either blind record.",
+  "stage1": {
+    "condition": "Actual breach of contact precautions with MRSA cross-contamination of a clean supply area — a MRSA-exposed, non-disinfected stethoscope was placed in the clean utility room adjacent to a clean supply cart, contaminating clean stock and creating a high risk for MRSA transmission to multiple clients on the unit",
+    "evaluationParameters": [
+      "Verification of effective decontamination and workflow correction: documented removal/reprocessing or discard of all potentially contaminated supplies, disinfectant wet contact time achieved, clean utility room audit showing no patient-care equipment stored in the clean area, dedicated equipment present in the MRSA room, and completed event report with infection prevention follow-up",
+      "Surveillance for transmission and practice compliance: new MRSA colonization or infection (positive surveillance/clinical cultures, new wound drainage, purulent sputum, fever/WBC) in clients who received supplies from that cart over the incubation window, plus unit hand-hygiene, PPE, and equipment-disinfection audit scores trending to target"
+    ],
+    "missingInformation": [
+      "Time elapsed since the stethoscope was placed in the clean utility room and whether it was ever disinfected after use in the MRSA room",
+      "Whether the stethoscope physically touched the clean supply cart or stock, and which specific supplies were exposed",
+      "Whether any exposed supplies were already taken to and used on other clients, and the identity/room numbers of those clients",
+      "Site and burden of the client's MRSA (wound, sputum, urine, bacteremia) and whether the organism is actively draining or aerosolized",
+      "Presence of high-risk clients on the unit (immunocompromised, open wounds, central lines, invasive devices) served by that supply cart",
+      "Facility policy for shared equipment disinfection, the specific disinfectant and its required contact time, and clean utility room storage standards",
+      "Who placed the stethoscope there (staff, student, or the client) and whether the item is unit-owned or personal",
+      "Unit baseline MRSA HAI rate and current hand-hygiene/PPE audit compliance data",
+      "Whether the clean utility room has already been used by other staff since the contamination occurred"
+    ],
+    "priorityActions": [
+      "Immediately contain and decontaminate: don gloves (and gown as indicated), remove the stethoscope and any clean supplies on/near the cart that could have been contaminated from the clean utility room, discard or reprocess those supplies, and disinfect the stethoscope, cart, and adjacent surfaces with an EPA-registered hospital-grade disinfectant observing the full manufacturer wet contact time, performing hand hygiene before and after; take the clean utility room/cart out of service until terminal cleaning is complete",
+      "Prevent recurrence and escalate: assign dedicated single-client equipment (stethoscope, BP cuff, thermometer) that remains in the MRSA client's contact-precautions room, notify the charge nurse and infection prevention and file a safety/event report, and re-educate the involved staff and student on point-of-use equipment disinfection and clean/dirty workflow separation"
+    ],
+    "reasoning": "Three of the four scenario elements are distractors that describe risk, education needs, or a question to be answered: the CDI door handle is a documented contamination requiring soap-and-water hand hygiene and a sporicidal (bleach) wipe, the soiled-linen issue is a handling concern, and the visitor's TB question is an education need about the smear-positive client remaining in the AIIR with a surgical mask for medically necessary transport only. The stethoscope, by contrast, is an actual completed breach in which a contaminated multi-use item has already crossed the clean/dirty boundary into the clean supply area, so the exposure is not confined to one room or one staff member — every client who receives stock from that cart is potentially exposed. Under priority-setting for actual over potential problems and for the greatest number affected, this is the priority cross-contamination problem. The bow-tie therefore drives left to source control (contain, remove, disinfect, take the area out of service) and system correction (dedicated in-room equipment, infection prevention notification, staff re-education), and drives right to outcome checks that close both loops: proof the contamination was eliminated and workflow corrected, and surveillance that no client actually acquired MRSA, supported by compliance audit data.",
+    "stage1Confidence": "high",
+    "stemEvidence": [
+      {
+        "stemFact": "A contaminated stethoscope from a client's MRSA contact-precautions room has been found in the clean utility room near a clean supply cart",
+        "target": "condition"
+      },
+      {
+        "stemFact": "The stethoscope was found near a clean supply cart, meaning clean stock destined for multiple clients is potentially contaminated",
+        "target": "priorityAction1"
+      },
+      {
+        "stemFact": "The item is a shared, non-disinfected piece of patient-care equipment removed from a contact-precautions room",
+        "target": "priorityAction2"
+      },
+      {
+        "stemFact": "The stethoscope crossed the clean/dirty boundary into the clean utility room, indicating a workflow and equipment-disinfection failure",
+        "target": "evaluationParameter1"
+      },
+      {
+        "stemFact": "MRSA contact precautions were in effect, and multiple clients could receive supplies from the affected cart",
+        "target": "evaluationParameter2"
+      },
+      {
+        "stemFact": "A student also contaminated a door handle after CDI care, a soiled-linen handling concern was identified, and a visitor asked whether a smear-positive TB client could leave the AIIR",
+        "target": "condition"
+      }
+    ]
+  },
+  "stage1Sha256": "67428ea313b1c9576a1dc187c80b6f623ce012561a9d78bc7ee54b29f229182d",
+  "stage2": {
+    "actionLabels": [
+      "A4",
+      "A3"
+    ],
+    "ambiguousAlternatives": [
+      {
+        "competesWith": "A1",
+        "note": "A1 also addresses the stethoscope but is an incomplete version of A4 that omits surface disinfection and supply assessment, making it a contraindicated subset rather than a genuine competitor; A3 was selected because it adds non-overlapping system-level correction.",
+        "tokenLabel": "A3"
+      },
+      {
+        "competesWith": "P1, P4",
+        "note": "P2 is the only remaining parameter tied to precaution adherence, though it monitors room-entry behavior rather than the clean utility area itself; the pool contains no clean-utility audit or MRSA surveillance option, so P2 is the best available second parameter rather than an ideal match.",
+        "tokenLabel": "P2"
+      },
+      {
+        "competesWith": "C3",
+        "note": "C3 is a real contamination event but is confined to a single surface with a known remedy and does not involve clean supply stock, so it does not genuinely compete for priority.",
+        "tokenLabel": "C1"
+      }
+    ],
+    "conditionLabel": "C1",
+    "missingInformation": [
+      "Time elapsed since the stethoscope was placed in the clean utility room",
+      "Whether the stethoscope physically contacted the clean supply cart or any clean stock",
+      "Whether any exposed supplies were already removed and used on other clients",
+      "Whether the stethoscope was in fact dedicated single-client equipment or shared unit equipment",
+      "Facility policy for handling clean supplies exposed to a contaminated item and the required disinfectant wet-contact time",
+      "Who placed the device in the clean utility room and whether that person is the 'staff member involved' referenced in A3",
+      "Presence of immunocompromised or high-risk clients served by the affected supply cart",
+      "Baseline unit hand-hygiene and PPE compliance data against which P2 would be trended"
+    ],
+    "parameterLabels": [
+      "P3",
+      "P2"
+    ],
+    "poolAnswerability": "ANSWERABLE",
+    "reasoning": "The stem asks for the priority cross-contamination problem. C1 names the only actual, in-progress contamination event: a stethoscope carried out of an MRSA contact-precautions room is sitting in the clean utility room beside a clean supply cart, so clean stock destined for multiple clients is currently exposed. C2 is explicitly framed in the stem as a 'concern' requiring policy verification and C3 is a localized, already-identified surface contamination limited to one door handle; both are narrower and neither involves breach of the clean/dirty boundary in a shared supply area, so they rank below C1 on actual-over-potential and number-affected priority rules. Among actions, A4 is the complete source-control response — remove the device, disinfect contacted clean-utility surfaces, address nearby supplies per policy, observe the disinfectant wet-contact time, and restore the device to its designated isolation room. A3 is the system-level complement: immediate corrective education plus leadership notification so the breach is documented for infection-control follow-up. A1 is a partial intervention that leaves the counter and adjacent supplies contaminated, and A2 defers an active contamination hazard; both are contraindicated rather than merely lower priority. For parameters, P3 directly evaluates whether the corrective action held: equipment location and cleanliness checked at each room entry confirms the device stays dedicated to the isolation room and is disinfected. P2 evaluates ongoing contact-precautions adherence by visitors and staff at subsequent entries, the behavior whose failure produced the breach. P1 and P4 are distractors — antimicrobial monitoring is a treatment parameter unrelated to the contamination event, and a sputum culture belongs to the separate TB/AIIR thread in the stem. No client-specific facts were inferred; selection rests on stem text and general infection-control knowledge.",
+    "selectionEvidence": [
+      {
+        "rationale": "Only token describing an actual completed breach of the clean/dirty boundary affecting shared clean stock",
+        "supportingStemText": "A contaminated stethoscope from a client's MRSA contact-precautions room has been found in the clean utility room near a clean supply cart",
+        "tokenLabel": "C1"
+      },
+      {
+        "rationale": "Proximity to clean stock requires removal of the device plus surface disinfection and assessment of nearby supplies, not device cleaning alone",
+        "supportingStemText": "found in the clean utility room near a clean supply cart",
+        "tokenLabel": "A4"
+      },
+      {
+        "rationale": "Stem establishes learner/staff practice breaches on the unit, supporting corrective education and leadership notification for infection-control documentation",
+        "supportingStemText": "A student also contaminated a door handle after CDI care",
+        "tokenLabel": "A3"
+      },
+      {
+        "rationale": "Device location and cleanliness is the exact variable that failed and the direct measure of whether A4 was sustained",
+        "supportingStemText": "A contaminated stethoscope from a client's MRSA contact-precautions room has been found in the clean utility room",
+        "tokenLabel": "P3"
+      },
+      {
+        "rationale": "Contact precautions require PPE at every entry; compliance monitoring evaluates the practice failure underlying the breach",
+        "supportingStemText": "a client's MRSA contact-precautions room",
+        "tokenLabel": "P2"
+      }
+    ],
+    "stage2Confidence": "high",
+    "tokenPremiseTable": [
+      {
+        "missingPremise": "The stem does not state that the stethoscope was dedicated single-client equipment, nor whether it contacted the clean supply cart or stock; C1 asserts a 'dedicated device' and a 'current' risk.",
+        "opaqueTokenLabel": "C1",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "LOW",
+        "rankabilityJustification": "The core premise — a contaminated MRSA-room stethoscope now located in the clean utility room near clean supplies — is stated verbatim, which is sufficient to rank C1 first. The unstated 'dedicated' qualifier and the unknown extent of contact do not change its rank relative to C2 or C3, since neither alternative involves clean stock.",
+        "supportingStemText": "A contaminated stethoscope from a client's MRSA contact-precautions room has been found in the clean utility room near a clean supply cart"
+      },
+      {
+        "missingPremise": "The stem does not describe what the soiled-linen concern was, whether any actual contamination occurred, or which policy is in question.",
+        "opaqueTokenLabel": "C2",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The stem itself labels this a 'concern' that was 'identified,' i.e., potential and awaiting verification. That framing alone is enough to rank it below an actual contamination event; the missing detail cannot elevate it without inferring absent facts.",
+        "supportingStemText": "a soiled-linen handling concern was identified"
+      },
+      {
+        "missingPremise": "The stem does not state whether the door handle has since been cleaned, who subsequently touched it, or whether the CDI client's status is confirmed versus suspected.",
+        "opaqueTokenLabel": "C3",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "LOW",
+        "rankabilityJustification": "The event is explicitly stated, and it is a genuine contamination requiring sporicidal cleaning and soap-and-water hand hygiene. It ranks below C1 because it is a single identified surface rather than exposure of shared clean supply stock; the missing follow-up details do not reverse that ordering.",
+        "supportingStemText": "A student also contaminated a door handle after CDI care"
+      },
+      {
+        "missingPremise": "No stem fact establishes that the counter and nearby supplies were unaffected, which is the only premise under which cleaning the stethoscope alone would suffice.",
+        "opaqueTokenLabel": "A1",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The stem places the device near a clean supply cart, so an action that explicitly declines to clean the counter or assess nearby supplies leaves the stated hazard in place. It is excludable on stem text without any additional client facts.",
+        "supportingStemText": "has been found in the clean utility room near a clean supply cart"
+      },
+      {
+        "missingPremise": "No stem fact identifies competing care of higher acuity that would justify deferral, and none is needed.",
+        "opaqueTokenLabel": "A2",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Deferring an active contamination of a clean supply area until end of shift prolongs exposure of clean stock; general infection-control practice excludes it regardless of what other care is pending.",
+        "supportingStemText": "Complete the bow-tie for the priority cross-contamination problem"
+      },
+      {
+        "missingPremise": "The stem does not identify who placed the stethoscope in the clean utility room, so 'the staff member involved' is not tied to a named individual, and no facility reporting policy is described.",
+        "opaqueTokenLabel": "A3",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "LOW",
+        "rankabilityJustification": "Corrective education and leadership notification for infection-control documentation is standard practice for any precautions breach and does not depend on knowing the individual's identity. The gap slightly weakens the education component but does not displace A3 from the top two, since the only alternatives are a contraindicated partial action and a deferral.",
+        "supportingStemText": "A student also contaminated a door handle after CDI care"
+      },
+      {
+        "missingPremise": "The stem does not specify the facility policy for exposed clean supplies, the required disinfectant wet-contact time, or confirm that the stethoscope has a designated isolation room.",
+        "opaqueTokenLabel": "A4",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "LOW",
+        "rankabilityJustification": "A4 is self-referencing to policy ('per policy', 'required wet-contact time'), so the unstated specifics do not block selection — they are execution details, not ranking inputs. The stem-stated location of the device beside clean stock fully supports every component of the action.",
+        "supportingStemText": "found in the clean utility room near a clean supply cart"
+      },
+      {
+        "missingPremise": "The stem provides no antimicrobial therapy, culture, drug level, or renal function data for any client, and does not indicate which client is meant.",
+        "opaqueTokenLabel": "P1",
+        "premiseStatus": "MISSING_CLIENT_FACT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Antimicrobial monitoring evaluates treatment response, not containment of an environmental cross-contamination breach. It is excludable on relevance alone, so the absent client data does not affect rankability.",
+        "supportingStemText": "Complete the bow-tie for the priority cross-contamination problem"
+      },
+      {
+        "missingPremise": "The stem does not state that any PPE lapse occurred at room entry, does not mention visitors entering the MRSA room, and gives no baseline compliance data for trending.",
+        "opaqueTokenLabel": "P2",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "MATERIAL",
+        "rankabilityJustification": "Contact precautions inherently require PPE at every entry, so the parameter is defensible in general terms, but it monitors room-entry behavior rather than the clean utility area where the breach actually occurred. Because the pool offers no clean-utility audit or MRSA surveillance option, P2 is selected as the best available second parameter; a stem fact about a PPE lapse, or an alternative token, could change this selection.",
+        "supportingStemText": "a client's MRSA contact-precautions room"
+      },
+      {
+        "missingPremise": "The stem does not state a baseline for equipment storage practice or how often room entries occur.",
+        "opaqueTokenLabel": "P3",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Equipment location and cleanliness is the precise variable that failed in the stem-described event and the direct measure of whether the corrective action held. Frequency and baseline are implementation details that do not affect its rank.",
+        "supportingStemText": "A contaminated stethoscope from a client's MRSA contact-precautions room has been found in the clean utility room"
+      },
+      {
+        "missingPremise": "The stem does not identify which client's sputum culture is meant, report any culture result, or indicate a pending specimen; the only sputum-relevant client is the separate smear-positive TB client.",
+        "opaqueTokenLabel": "P4",
+        "premiseStatus": "MISSING_CLIENT_FACT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "A sputum culture belongs to the TB/AIIR thread, which the stem frames as a visitor question rather than the priority cross-contamination problem. It is excludable on relevance without inferring any absent client fact.",
+        "supportingStemText": "a visitor asked whether a smear-positive TB client could leave the AIIR"
+      }
+    ]
+  },
+  "stage2Sha256": "802631af820a2c14e49410839fe87a4d4fc834d4b4853cfa250d1aaff62fa180",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority nursing actions",
+          "zh": "优先护理措施"
+        },
+        "tokens": [
+          {
+            "en": "Disinfect only the stethoscope without cleaning the counter or assessing nearby supplies.",
+            "opaqueTokenLabel": "A1",
+            "zh": "只消毒听诊器，不清洁柜台，也不评估附近物品。"
+          },
+          {
+            "en": "Wait until the end of the shift to address the stethoscope because other scheduled care is pending.",
+            "opaqueTokenLabel": "A2",
+            "zh": "因还有其他计划护理，等到班末再处理听诊器。"
+          },
+          {
+            "en": "Provide immediate corrective education to the staff member involved and notify unit leadership so the breach is documented for infection-control follow-up.",
+            "opaqueTokenLabel": "A3",
+            "zh": "立即教育相关工作人员，并通知当班管理人员记录该漏洞，以便感染控制后续追踪。"
+          },
+          {
+            "en": "Remove the stethoscope, disinfect contacted clean-utility surfaces, assess or remove nearby supplies per policy, complete the required disinfectant wet-contact time, and return the device to its designated isolation room.",
+            "opaqueTokenLabel": "A4",
+            "zh": "取走听诊器，消毒其接触过的清洁用物间表面，按制度评估或移除附近物品，完成规定的消毒剂湿接触时间后，将设备送回其指定隔离病房。"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely priority problem",
+          "zh": "最可能的优先问题"
+        },
+        "tokens": [
+          {
+            "en": "Current cross-contamination risk from a contaminated MRSA dedicated device in the clean utility room",
+            "opaqueTokenLabel": "C1",
+            "zh": "污染的 MRSA 专用设备进入清洁用物间造成的当前交叉污染风险"
+          },
+          {
+            "en": "Potential soiled-linen handling breach requiring policy verification",
+            "opaqueTokenLabel": "C2",
+            "zh": "需要按制度核实的潜在污染布草处理漏洞"
+          },
+          {
+            "en": "Door-handle contamination after CDI care",
+            "opaqueTokenLabel": "C3",
+            "zh": "CDI 照护后的门把手污染"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "应监测的指标"
+        },
+        "tokens": [
+          {
+            "en": "A client's antimicrobial monitoring results",
+            "opaqueTokenLabel": "P1",
+            "zh": "某患者的抗感染药物监测结果"
+          },
+          {
+            "en": "Visitor and staff PPE compliance on subsequent room entries",
+            "opaqueTokenLabel": "P2",
+            "zh": "后续进入病房时探视者和工作人员 PPE 依从性"
+          },
+          {
+            "en": "Equipment location and cleanliness at each room entry",
+            "opaqueTokenLabel": "P3",
+            "zh": "每次进入病房时设备位置和清洁状态"
+          },
+          {
+            "en": "Another client's sputum-culture result",
+            "opaqueTokenLabel": "P4",
+            "zh": "另一名患者的痰培养结果"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "把最可能问题、优先措施和监测指标连接起来的临床判断方式。",
+        "termEn": "Bow-tie reasoning",
+        "termZh": "蝴蝶结推理"
+      },
+      {
+        "defZh": "通过移除污染源、清洁消毒和限制传播范围来控制环境污染。",
+        "termEn": "Environmental containment",
+        "termZh": "环境控制"
+      },
+      {
+        "defZh": "限定给同一患者或隔离区域使用的设备。",
+        "termEn": "Dedicated device",
+        "termZh": "专用设备"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct: it has the broadest direct pathway to multiple clients through a shared clean-supply area.",
+          "opaqueTokenLabel": "C1",
+          "zh": "正确：它通过共享清洁供应区域，对多名患者形成最广且最直接的传播路径。"
+        },
+        {
+          "en": "The contaminated door handle requires targeted cleaning, but the device in a shared clean-supply area creates the broader immediate pathway.",
+          "opaqueTokenLabel": "C3",
+          "zh": "被污染的门把手需要定点清洁，但共享清洁供应区域内的污染设备形成了更广泛的即时传播路径。"
+        },
+        {
+          "en": "A linen-handling concern requires policy verification, but it is less immediate than a contaminated device resting beside clean supplies.",
+          "opaqueTokenLabel": "C2",
+          "zh": "污染布草处理问题需要按制度核实，但其即时性低于放在清洁物品旁的污染设备。"
+        },
+        {
+          "en": "This addresses the device, contacted surfaces, nearby supplies, and full disinfection before the device returns to its designated isolation room.",
+          "opaqueTokenLabel": "A4",
+          "zh": "这同时处理设备、接触表面、附近物品，并在设备送回其指定隔离病房前完成完整消毒。"
+        },
+        {
+          "en": "Staff education, unit-leadership notification, and event logging reduce recurrence and support infection-control follow-up.",
+          "opaqueTokenLabel": "A3",
+          "zh": "工作人员教育、通知当班管理人员和事件记录可减少复发，并支持感染控制追踪。"
+        },
+        {
+          "en": "Incorrect: cleaning only the device leaves the clean-utility environment and supplies potentially contaminated.",
+          "opaqueTokenLabel": "A1",
+          "zh": "错误：只清洁设备会留下可能已污染的清洁用物间环境和物品。"
+        },
+        {
+          "en": "Incorrect: the exposure can expand each minute the device remains in the clean utility room.",
+          "opaqueTokenLabel": "A2",
+          "zh": "错误：设备留在清洁用物间的每一分钟都可能扩大暴露范围。"
+        },
+        {
+          "en": "Correct: direct observation of PPE use shows whether teaching and correction are sustained.",
+          "opaqueTokenLabel": "P2",
+          "zh": "正确：直接观察 PPE 使用可显示教学和纠正是否持续有效。"
+        },
+        {
+          "en": "Correct: checking dedicated and shared equipment confirms that the system breach is not recurring.",
+          "opaqueTokenLabel": "P3",
+          "zh": "正确：检查专用和共用设备可确认系统性漏洞没有复发。"
+        },
+        {
+          "en": "Another client's culture result may guide that client's care but does not evaluate containment of this breach.",
+          "opaqueTokenLabel": "P4",
+          "zh": "另一名患者的培养结果可指导其护理，但不能评价本次漏洞是否得到控制。"
+        },
+        {
+          "en": "Antimicrobial monitoring may guide an individual client's therapy but does not measure environmental containment.",
+          "opaqueTokenLabel": "P1",
+          "zh": "抗感染药物监测可指导个体患者治疗，但不能衡量环境控制效果。"
+        }
+      ],
+      "correct": {
+        "en": "The priority problem is the contaminated MRSA stethoscope in the clean utility room because it creates a direct fomite pathway into a shared supply area. The nurse must contain the environmental exposure immediately, correct the staff practice, and monitor sustained PPE compliance and equipment control. Other clients' treatment or culture results do not measure containment of this cross-contamination breach.",
+        "zh": "优先问题是污染的 MRSA 听诊器进入清洁用物间，因为它把隔离区域污染物直接带入共享供应区域，形成污染媒介传播路径。护士必须立即控制环境暴露，纠正工作人员做法，并监测 PPE 依从性和设备管理能否持续。其他患者的治疗或培养结果不能衡量本次交叉污染漏洞是否得到控制。"
+      }
+    },
+    "stem": {
+      "en": "A contaminated stethoscope from a client's MRSA contact-precautions room has been found in the clean utility room near a clean supply cart. A student also contaminated a door handle after CDI care, a soiled-linen handling concern was identified, and a visitor asked whether a smear-positive TB client could leave the AIIR. Complete the bow-tie for the priority cross-contamination problem.",
+      "zh": "一件来自 MRSA 接触隔离病房的污染听诊器被发现放在清洁用物间、靠近清洁物品车。护生在 CDI 照护后也污染了门把手，同时发现一项污染布草处理问题，另有探视者询问痰涂片阳性结核病患者能否离开 AIIR。请完成针对优先交叉污染问题的蝴蝶结题。"
+    },
+    "testTakingStrategy": {
+      "en": "For bow-tie items, match the priority condition to the actions and monitoring. The correct chain should address the same hazard from recognition through containment and follow-up.",
+      "zh": "做蝴蝶结题时，把优先问题与措施和监测配对。正确链条应从识别、控制到后续追踪都针对同一危险。"
+    }
+  }
+}

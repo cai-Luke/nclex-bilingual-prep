@@ -1,0 +1,58 @@
+{
+  "condition": "Acute caustic inhalation injury with impending upper-airway obstruction in a blast-injured, red-category casualty following anhydrous ammonia exposure (alkali airway/mucosal burn with concurrent blast trauma and hemorrhage risk)",
+  "evaluationParameters": [
+    "Serial airway and oxygenation status: presence or progression of stridor, hoarseness, voice change, drooling, soot/edema of the oropharynx, accessory muscle use, respiratory rate, continuous SpO2, and waveform capnography/ETCO2 (plus ABG and serial chest auscultation for delayed bronchospasm or noncardiogenic pulmonary edema) reassessed at least every 15 minutes.",
+    "Perfusion and transfusion response: continuous heart rate, blood pressure/MAP, level of consciousness, capillary refill, urine output, and serial hemoglobin/lactate/base deficit after each blood product, to detect ongoing hemorrhage and to justify continued use of the limited blood supply."
+  ],
+  "missingInformation": [
+    "Baseline and current vital signs (HR, BP, RR, SpO2, temperature) and GCS/mental status",
+    "Whether the airway is already secured or the patient is spontaneously ventilating",
+    "Ammonia exposure specifics: concentration, duration, enclosed vs open space, and whether ocular/skin alkali burns are present with documented pH-neutral irrigation endpoint",
+    "Burn TBSA/depth and results of the blast-injury secondary survey (chest, abdomen, pelvis, tympanic membranes, penetrating fragments)",
+    "Diagnostics: ABG with co-oximetry (carboxyhemoglobin/methemoglobin), lactate, hemoglobin, chest imaging, eFAST, bronchoscopy findings",
+    "Age, weight, pregnancy status, comorbidities (especially reactive airway disease), and anticoagulant use",
+    "Current MCI resource inventory: number of blood units available, ventilators, resuscitation bays, ICU/burn-center transfer capacity, and the incident commander's allocation criteria",
+    "Verification that decontamination is complete/effluent-controlled and the required PPE level for staff in the treatment area",
+    "Status and category of the other six casualties, which determines competing claims on scarce blood and space"
+  ],
+  "priorityActions": [
+    "Secure the airway early: keep the casualty upright, apply high-flow humidified 100% oxygen, place difficult-airway/surgical-airway equipment at the bedside, and escalate immediately for definitive intubation before progressive edema, stridor, or hoarseness makes the airway unobtainable.",
+    "Concurrently resuscitate and formally claim the scarce resource allocation: establish two large-bore IVs, initiate warmed balanced-fluid/blood-product resuscitation per the MCI massive transfusion and scarce-blood allocation protocol, perform a blast-injury trauma reassessment (chest, abdomen, tympanic membranes), and confirm with the triage officer that the casualty is assigned a resuscitation-capable treatment space and that decontamination clearance is documented so staff can de-escalate PPE safely."
+  ],
+  "reasoning": "Anhydrous ammonia is a highly water-soluble alkali that causes liquefactive necrosis of the upper airway; edema is progressive and can convert a patent airway into an unobtainable one over minutes to hours, so early definitive airway control outranks all other interventions. The blast mechanism adds hemorrhage, blast lung, and hollow-viscus injury, which explains the red category and the demand on scarce blood. Because decontamination is already complete, the nursing priority shifts from hazmat containment to resuscitation plus disciplined scarce-resource stewardship under MCI rules. Monitoring is therefore split along the two threats the stem names: airway/oxygenation trajectory from the chemical burn, and perfusion/transfusion response from the blast trauma, the latter also serving as the objective justification for continued allocation of limited blood.",
+  "stage1Confidence": "medium",
+  "stemEvidence": [
+    {
+      "stemFact": "Industrial explosion with ammonia release",
+      "target": "condition"
+    },
+    {
+      "stemFact": "Casualty is triaged red-category, indicating immediate life threat",
+      "target": "condition"
+    },
+    {
+      "stemFact": "Ammonia is a caustic alkali inhalant causing progressive upper-airway edema, and the casualty is red-category",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "Scarce blood and treatment spaces are being allocated in activated MCI mode with START triage complete",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "The casualty has completed decontamination, allowing hands-on resuscitation and PPE de-escalation",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "Ammonia inhalation exposure with red-category acuity",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "Explosion mechanism with scarce blood being allocated",
+      "target": "evaluationParameter2"
+    },
+    {
+      "stemFact": "Charge nurse must synthesize the safest condition, actions, and monitoring parameters across seven casualties",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

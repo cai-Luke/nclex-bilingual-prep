@@ -1,0 +1,160 @@
+{
+  "actionLabels": [
+    "A2",
+    "A4"
+  ],
+  "ambiguousAlternatives": [
+    {
+      "discriminatingStemText": "hemoglobinuria ... LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL",
+      "label": "C3",
+      "reason": "Fever and rigors with hypotension can occur in a septic transfusion reaction, so the token is superficially plausible; it is rejected because the stem supplies no culture, unit-contamination, or infection-source data and because hemoglobinuria with LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL points to hemolysis rather than sepsis as the primary explanation."
+    },
+    {
+      "discriminatingStemText": "worsening hypotension, oliguria with port-wine urine, oozing from puncture sites",
+      "label": "P1",
+      "reason": "Temperature is an explicit stem finding, so trending it is not wrong in isolation; it is rejected because the token restricts monitoring to temperature 'alone,' which would fail to capture the shock, oliguria, and coagulopathy that are the life-threatening trajectory here."
+    }
+  ],
+  "conditionLabel": "C1",
+  "missingInformation": [
+    "Numeric vital signs including actual blood pressure, MAP, heart rate, respiratory rate, and SpO2, and baseline values for comparison",
+    "Client weight for weight-based urine output targets and fluid or product dosing",
+    "Volume of red blood cells actually infused before the transfusion was stopped",
+    "Clerical/bedside identification recheck result and the ABO/Rh type of both the client and the unit",
+    "Direct antiglobulin test, repeat type and crossmatch, and plasma-free hemoglobin results",
+    "Baseline renal function and pre-transfusion CBC and coagulation values",
+    "Serum potassium, ionized calcium, and D-dimer",
+    "Current IV access status, number of sites, and availability of central access",
+    "Available provider orders and institutional transfusion-reaction and DIC protocols",
+    "Prior transfusion history, prior reactions, allergies, and code status"
+  ],
+  "parameterLabels": [
+    "P3",
+    "P4"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The stem gives fever, rigors, bilateral flank pain, hypotension, hemoglobinuria, and a sense of impending doom within 12 minutes of starting red blood cells, plus laboratory evidence of intravascular hemolysis (LDH 1,840 U/L, bilirubin 4.2 mg/dL, haptoglobin <10 mg/dL, port-wine urine). That combination selects C1, acute hemolytic transfusion reaction. C2 is contradicted because no urticaria, angioedema, bronchospasm, or airway involvement is stated and hemoglobinuria with a hemolysis panel is not an anaphylaxis picture. C3 is not supportable as the primary explanation: the stem provides no culture, unit-contamination, or infectious-source data, and sepsis alone does not produce this hemolysis triad. Among the actions, the transfusion is already stopped, so A2 is the required protocol step of returning the unit, attached tubing, and post-reaction specimen to the transfusion service for clerical recheck and compatibility testing. A4 is supported directly by the stated trajectory: worsening hypotension (shock), oozing from puncture sites with fibrinogen 140 mg/dL, platelets 104 ×10³/µL, INR 1.8, and aPTT 52 seconds (DIC), and oliguria with port-wine urine (oliguric acute kidney injury). A1 is contradicted because IV access is needed for resuscitation and removing it would remove the route for fluids and vasopressors. A3 is contradicted because it treats the event as a febrile nonhemolytic reaction and would continue exposure to incompatible blood. For monitoring, P3 tracks the renal and hemolysis trajectory explicitly named in the stem (oliguria, port-wine urine), and P4 tracks the consumptive coagulopathy explicitly quantified in the stem (fibrinogen, platelets, INR, aPTT). P1 is too narrow because temperature alone would miss the shock, renal, and coagulation deterioration that dominate this presentation. P2 is a site-level observation with no premise in the stem and no bearing on the organ failure in progress.",
+  "selectionEvidence": [
+    {
+      "label": "C1",
+      "rationale": "Classic time-linked symptom cluster of an acute hemolytic transfusion reaction to red blood cells.",
+      "stemText": "fever, rigors, bilateral flank pain, hypotension, hemoglobinuria, and a sense of impending doom within 12 minutes of starting a red blood cell transfusion"
+    },
+    {
+      "label": "C1",
+      "rationale": "Laboratory confirmation of brisk intravascular hemolysis, consistent with hemoglobinuria and port-wine urine.",
+      "stemText": "LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL"
+    },
+    {
+      "label": "A2",
+      "rationale": "The transfusion has already been stopped, so the next protocol-driven step is returning the unit, tubing, and post-reaction specimen to the transfusion service.",
+      "stemText": "Thirty minutes after the transfusion is stopped"
+    },
+    {
+      "label": "A4",
+      "rationale": "Explicitly documents progressing shock, DIC, and oliguric acute kidney injury, which is the escalation trigger described in A4.",
+      "stemText": "worsening hypotension, oliguria with port-wine urine, oozing from puncture sites, platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds"
+    },
+    {
+      "label": "P3",
+      "rationale": "Urine output and color are the stem-stated markers of renal perfusion and ongoing hemoglobin clearance.",
+      "stemText": "oliguria with port-wine urine"
+    },
+    {
+      "label": "P4",
+      "rationale": "Coagulation studies with fibrinogen and platelet count are the stem-stated markers of the consumptive coagulopathy.",
+      "stemText": "platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds, oozing from puncture sites"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "None; the stem supplies the full symptom cluster and hemolysis laboratory panel needed to select this condition.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Time-linked symptoms plus LDH, bilirubin, and haptoglobin values make this token the uniquely best fit without any added client facts.",
+      "supportingStemText": "fever, rigors, bilateral flank pain, hypotension, hemoglobinuria, and a sense of impending doom within 12 minutes of starting a red blood cell transfusion ... LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL"
+    },
+    {
+      "missingPremise": "Would require urticaria, angioedema, bronchospasm, stridor, or other airway/mucocutaneous findings, none of which are stated; the stated hemolysis findings actively point away from anaphylaxis.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Hemoglobinuria with a hemolysis panel and flank pain is incompatible with an anaphylactic reaction, so the token can be excluded on stem evidence alone.",
+      "supportingStemText": "hemoglobinuria ... haptoglobin <10 mg/dL"
+    },
+    {
+      "missingPremise": "Would require culture results, evidence of bacterial contamination of the unit, or another infectious source; no such client fact appears in the stem.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The missing infection data is not needed to rank it below C1, because the explicit intravascular hemolysis panel already establishes hemolysis as the primary explanation; the gap only limits ruling sepsis out as a coexisting process.",
+      "supportingStemText": "fever, rigors ... LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL"
+    },
+    {
+      "missingPremise": "Would require evidence that the IV site is the problem, such as infiltration or local infection; the stem instead documents shock requiring vascular access.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Removing access during worsening hypotension eliminates the route for resuscitation, so the token is excludable from stem facts alone.",
+      "supportingStemText": "worsening hypotension, oliguria with port-wine urine"
+    },
+    {
+      "missingPremise": "None; the stem states the transfusion was stopped, which is the precondition for returning the unit, tubing, and post-reaction sample.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The protocol step follows directly from the stated stopped transfusion and suspected hemolytic reaction.",
+      "supportingStemText": "Thirty minutes after the transfusion is stopped"
+    },
+    {
+      "missingPremise": "Would require this to be a febrile nonhemolytic reaction with a still-running transfusion; the stem states the transfusion is already stopped and documents hemolysis and DIC.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Slowing rather than discontinuing is incompatible with the stated stopped transfusion and would perpetuate exposure to incompatible blood.",
+      "supportingStemText": "Thirty minutes after the transfusion is stopped ... fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds"
+    },
+    {
+      "missingPremise": "None; shock, DIC, and oliguric acute kidney injury are all evidenced by stated findings and values.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Each element named in the token maps to explicit stem data, so escalation is selectable without added facts.",
+      "supportingStemText": "worsening hypotension, oliguria with port-wine urine, oozing from puncture sites, platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds"
+    },
+    {
+      "missingPremise": "Would require fever to be the dominant or sole problem; the stem shows multi-system deterioration that temperature alone cannot track.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The restriction to temperature 'alone' is refuted by the explicit hemodynamic, renal, and coagulation deterioration, so it ranks below P3 and P4 on stem evidence.",
+      "supportingStemText": "worsening hypotension, oliguria with port-wine urine, oozing from puncture sites"
+    },
+    {
+      "missingPremise": "Would require a stated concern about the IV site such as redness, swelling, infiltration, or phlebitis; no site assessment appears in the stem.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Absence of any site-related premise leaves the token unsupported, but it does not impede ranking because P3 and P4 are directly evidenced.",
+      "supportingStemText": "oozing from puncture sites"
+    },
+    {
+      "missingPremise": "None; oliguria and port-wine urine are explicitly stated, making urine output and color a directly indicated monitoring parameter.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Directly anchored to stated renal and hemolysis findings, requiring no additional client data.",
+      "supportingStemText": "oliguria with port-wine urine"
+    },
+    {
+      "missingPremise": "None; fibrinogen, platelet count, INR, and aPTT values are given along with clinical bleeding.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem quantifies the exact coagulation studies named in the token, so serial monitoring is selectable without inference.",
+      "supportingStemText": "oozing from puncture sites, platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds"
+    }
+  ]
+}

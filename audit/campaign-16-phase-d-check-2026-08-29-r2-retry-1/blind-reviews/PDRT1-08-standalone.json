@@ -1,0 +1,125 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSetExplanation": "The canonical set C3 / A4 + A2 / P4 + P2 is uniquely defensible on the standalone stem alone. The condition is fixed by two explicit stem facts — the coworker opened the electronic record, and had no care role — which together define unauthorized access to PHI and trigger the breach-response pathway; C1 requires an unavoidable byproduct of a permitted use and C2 requires a permitted operations/education purpose, both of which the stem's 'without a care role' and 'open ... record' language directly refute, leaving no competing condition. Among the four action options only two are safe: A4 (stop the exposure, notify leadership per policy) and A2 (complete the incident report with access and mitigation details) match the two steps the stem says RN Jordan has already begun, while A1 substitutes the involved employee's self-report for mandatory reporting and A3 violates the standard that incident reports are confidential risk documents never referenced in the chart. Because the two non-keyed actions are contraindicated rather than merely lower-priority, the keyed pair is forced. Among the parameters, only P4 and P2 measure the privacy response itself — institutional investigation with audit-trail preservation, and the corrective education and safeguards the investigation identifies — whereas P1 (family call) has no logical connection to breach containment and P3 (vital signs, wound, pain) evaluates physiologic status in a stem that presents no clinical problem at all. No client-specific fact beyond what the stem states is needed to reach this 1/2/2 set.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'witnessed a coworker open Mrs. Torrance's electronic record without a care role' — the stem supplies both defining elements: purposeful record access and absence of a treatment/payment/operations relationship."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'stopped further access, and started the facility reporting process' — the stem names containment and policy-based escalation, which A4 states as asking the coworker to exit the record and notifying unit leadership per facility policy."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'started the facility reporting process' — completing the facility electronic incident report with access details and mitigation steps is the formal execution of the reporting the stem says was initiated."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'started the facility reporting process' plus 'two parameters that best evaluate the response' — Privacy Officer confirmation that breach determination has begun and that the EHR audit trail is preserved is the direct, verifiable outcome of the reporting step the stem describes."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "'started the facility reporting process' — general privacy/quality knowledge holds that a completed breach investigation yields targeted corrective education and strengthened safeguards, making their completion a standard measure of response effectiveness and recurrence control."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "Incidental disclosure presupposes a limited, unavoidable exposure occurring alongside a permitted use with reasonable safeguards applied. The stem describes the coworker deliberately opening the record, so the required premise is refuted by explicit stem text rather than left unstated.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "This option requires a permitted healthcare-operations or educational purpose. The stem's 'without a care role' negates any permitted purpose, and viewing an identifiable record of a non-assigned patient is not covered by an education exception; no absent fact is needed to exclude it.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Accepting the involved employee's assurance and withholding the report contradicts the stem, which states reporting was already started, and contradicts mandatory breach-reporting obligations. Absence of onward disclosure does not make unauthorized viewing permissible.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Incident reports are confidential risk-management documents; recording their existence in the patient's medical record is a documentation error. This is excluded on established practice standards, not on any missing client detail.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem contains no family member, call, or communication element, and even if one existed a family call would not measure whether unauthorized access was contained, investigated, or corrected. Excluded as logically irrelevant rather than underdetermined.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem presents an administrative privacy event with no physiologic complaint, wound, or pain report. Vital signs, wound appearance, and pain score evaluate clinical status and cannot evaluate a privacy-breach response, so the option is excluded on relevance.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "affectsCanonicalSet": false,
+      "fact": "Exact date, time, workstation, duration of the access, and which specific data elements were viewed",
+      "impact": "NONE",
+      "note": "These details populate the incident report (A2) and the audit-trail review (P4) but are not required to rank any option."
+    },
+    {
+      "affectsCanonicalSet": false,
+      "fact": "Whether the coworker further disclosed, printed, photographed, or transmitted any of the information externally",
+      "impact": "NONE",
+      "note": "Onward disclosure would affect breach-risk severity and notification scope, not the identity of the condition or the keyed actions and parameters."
+    },
+    {
+      "affectsCanonicalSet": false,
+      "fact": "Whether other patients' records were accessed by the same user (breach scope)",
+      "impact": "NONE",
+      "note": "Scope drives the investigation's size; the same containment, reporting, and evaluation steps apply regardless."
+    },
+    {
+      "affectsCanonicalSet": false,
+      "fact": "Current status of the coworker's EHR credentials (suspended versus active) and any IT/Security involvement",
+      "impact": "NONE",
+      "note": "No pool option addresses credential suspension, so this gap cannot alter the ranking among the given tokens."
+    },
+    {
+      "affectsCanonicalSet": false,
+      "fact": "Whether Mrs. Torrance has been notified and whether the four-factor breach risk assessment has been completed",
+      "impact": "NONE",
+      "note": "Patient notification is a downstream Privacy Officer duty captured indirectly by P4; its status does not change which tokens are keyed."
+    },
+    {
+      "affectsCanonicalSet": false,
+      "fact": "Facility-specific privacy policy, escalation chain, and applicable state breach-notification law",
+      "impact": "NONE",
+      "note": "A4 defers explicitly to 'facility policy,' so the unspecified chain is absorbed by the option text itself."
+    }
+  ],
+  "notes": [
+    "Blind Stage 2 selected C3, [A4, A2], [P4, P2], which is an exact match to the canonical key across all three fans; no revision to either blind record is needed or made.",
+    "Discrimination in this item rests on contraindication rather than on fine priority ordering: both non-keyed actions (A1, A3) are unsafe or improper practice, and both non-keyed parameters (P1, P3) are categorically irrelevant to a privacy outcome. This makes the 1/2/2 set forced from the stem alone.",
+    "A timing nuance worth recording: the stem states access was already stopped and reporting already started, so A4 and A2 formalize and continue steps in progress rather than introduce new ones. This was flagged in the blind Stage 2 ambiguousAlternatives and does not affect correctness, because the alternatives are contraindicated rather than merely later-priority.",
+    "The blind Stage 2 premise table classified every non-keyed token as CONTRADICTED or NO_CLIENT_PREMISE with rankabilityImpact NONE, and the post-reveal review reaches the same classifications for all six distractors.",
+    "Blind Stage 1 free generation independently proposed credential suspension by IT/Security and evidence preservation as priority actions; the pool contains no credential-suspension option, so that element is simply not assessed by this item rather than being scored wrong.",
+    "P2 is the one keyed token supported by a general-knowledge link rather than direct stem text — the stem never mentions education or safeguards — but the inference is a standard, non-client-specific feature of any privacy investigation and does not require assuming facts about Mrs. Torrance or the coworker."
+  ],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "Blind Stage 1, generated before any pool was revealed, named the condition as a HIPAA privacy breach involving unauthorized access (snooping) of Mrs. Torrance's ePHI by a workforce member with no treatment, payment, or operations role — semantically identical to canonical C3. Its two free-generated priority actions were (1) written factual escalation to the privacy officer/compliance and nursing leadership with credential suspension, and (2) preservation of the EHR audit trail with support for the breach risk assessment, without confronting or independently investigating the coworker. These map onto canonical A2 (formal incident report with access details) and A4 (containment plus notification of leadership per policy), with the credential-suspension and evidence-preservation components having no counterpart in the action pool. Its two free-generated evaluation parameters were audit-log confirmation that unauthorized access has ceased, and documented timely completion of the breach workflow including sanction and re-education steps — mapping onto canonical P4 (Privacy Officer breach determination and audit-trail preservation) and P2 (targeted corrective education and follow-up safeguards) respectively. Every canonical target has a Stage 1 semantic counterpart and Stage 1 introduced no element that conflicts with the key, so alignment is FULL; the only divergence is Stage 1 proposing IT credential suspension, which the pool does not offer as an option.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

@@ -1,0 +1,140 @@
+{
+  "actionLabels": [
+    "A2",
+    "A3"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C3",
+  "missingInformation": [
+    "Type, dose, and timing of insulin relative to cycling",
+    "Timing and carbohydrate content of the preexercise meal",
+    "Preexercise CGM value and trend arrow",
+    "Cycling intensity and heart rate",
+    "Whether nocturnal hypoglycemia has occurred",
+    "Client's hypoglycemia awareness and prior episodes",
+    "Whether the client currently carries rapid-acting carbohydrate"
+  ],
+  "parameterLabels": [
+    "P1",
+    "P2"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The stem describes a client with type 1 diabetes who began a new 45-minute cycling routine without adjusting the preexisting meal and insulin plan, and who developed adrenergic and neuroglycopenic symptoms with CGM-confirmed glucose of 58 to 64 mg/dL only during or within one hour after cycling. Noncycling glucose is normal and there is no illness or ketones, so C3 (activity-associated hypoglycemia from a plan not aligned with the new exercise) fits best. A2 addresses the root cause by obtaining an individualized exercise-day carbohydrate and medication plan from the prescriber or DSMES team, and A3 ensures the client is prepared to promptly treat a low during the next ride. P1 tracks recurrence and timing of hypoglycemia, and P2 captures peri-exercise glucose patterns needed to evaluate the plan adjustment.",
+  "selectionEvidence": [
+    {
+      "stemFact": "Client with type 1 diabetes began a new 45-minute cycling routine after work",
+      "target": "conditionLabel"
+    },
+    {
+      "stemFact": "Sweating, tremor, and difficulty concentrating during the ride or within one hour afterward with CGM 58 to 64 mg/dL",
+      "target": "conditionLabel"
+    },
+    {
+      "stemFact": "Continued preexisting meal and insulin plan without an exercise-day adjustment",
+      "target": "actionLabels"
+    },
+    {
+      "stemFact": "Symptomatic low glucose readings during or after cycling",
+      "target": "actionLabels"
+    },
+    {
+      "stemFact": "Symptoms recurred on three cycling days",
+      "target": "parameterLabels"
+    },
+    {
+      "stemFact": "CGM readings 58 to 64 mg/dL during or within one hour after cycling",
+      "target": "parameterLabels"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "Evidence of an intercurrent illness such as fever, vomiting, or infection",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Stem explicitly rules out fever, vomiting, ketones, and recent illness, so this option is excluded.",
+      "supportingStemText": "The client has no fever, vomiting, ketones, or recent illness"
+    },
+    {
+      "missingPremise": "Evidence of sustained hyperglycemia or insulin deficiency",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Noncycling glucose is 95 to 140 mg/dL and cycling-day readings are low (58 to 64 mg/dL), with no ketones, contradicting persistent hyperglycemia from insufficient insulin.",
+      "supportingStemText": "Noncycling fasting and premeal glucose 95 to 140 mg/dL; CGM readings were 58 to 64 mg/dL; no ketones"
+    },
+    {
+      "missingPremise": "Evidence that hypoglycemia is temporally linked to new exercise with an unadjusted regimen",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Stem explicitly links low glucose and symptoms to cycling days while the meal and insulin plan were unchanged.",
+      "supportingStemText": "Began a new 45-minute cycling routine; symptoms and CGM 58 to 64 mg/dL during or within one hour after cycling; continued preexisting meal and insulin plan without an exercise-day adjustment"
+    },
+    {
+      "missingPremise": "Clinical rationale to increase insulin in a client already experiencing hypoglycemia",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Increasing pre-exercise insulin would worsen hypoglycemia and is unsafe given the documented lows.",
+      "supportingStemText": "CGM readings were 58 to 64 mg/dL during or within one hour after cycling"
+    },
+    {
+      "missingPremise": "Need for individualized exercise-day carbohydrate and medication adjustment",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Stem states the client has not adjusted the plan for exercise, making prescriber/DSMES-guided individualization directly indicated.",
+      "supportingStemText": "Continued the preexisting meal and insulin plan without an exercise-day adjustment"
+    },
+    {
+      "missingPremise": "Need for readily available rapid-acting carbohydrate and treatment instructions for lows",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Documented symptomatic lows during rides make immediate access to rapid-acting carbohydrate and a clear treatment plan a priority safety action.",
+      "supportingStemText": "Sweating, tremor, and difficulty concentrating during the ride or within one hour afterward; CGM 58 to 64 mg/dL"
+    },
+    {
+      "missingPremise": "Clinical justification for permanent cessation of physical activity",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Exercise is beneficial in type 1 diabetes; the issue is regimen adjustment, not activity itself, so permanent cessation is inappropriate.",
+      "supportingStemText": "Began a new 45-minute cycling routine after work"
+    },
+    {
+      "missingPremise": "Ongoing tracking of symptom timing and low readings",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Symptoms recurred on three cycling days with CGM lows, so monitoring recurrence and timing is directly indicated to evaluate the intervention.",
+      "supportingStemText": "On three cycling days, the client developed sweating, tremor, and difficulty concentrating; CGM 58 to 64 mg/dL"
+    },
+    {
+      "missingPremise": "Peri-exercise glucose measurements before, during, and after cycling",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "CGM captured lows during and within one hour after cycling, so continued peri-exercise glucose monitoring is essential to evaluate the plan.",
+      "supportingStemText": "CGM readings were 58 to 64 mg/dL during the ride or within one hour afterward"
+    },
+    {
+      "missingPremise": "Indication for daily ketone monitoring",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Stem states no ketones and no illness, and glucose is not elevated, so routine daily ketone checks are not indicated here.",
+      "supportingStemText": "The client has no fever, vomiting, ketones, or recent illness"
+    },
+    {
+      "missingPremise": "Clinical link between resting blood pressure on nonexercise mornings and this problem",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "No stem evidence connects resting blood pressure on nonexercise mornings to the exercise-associated hypoglycemia problem.",
+      "supportingStemText": "Stem provides no blood pressure data or cardiovascular concern"
+    }
+  ]
+}

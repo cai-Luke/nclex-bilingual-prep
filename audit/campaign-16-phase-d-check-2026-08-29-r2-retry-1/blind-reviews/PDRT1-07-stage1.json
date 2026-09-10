@@ -1,0 +1,95 @@
+{
+  "condition": "Impending neuromuscular respiratory failure with bulbar dysfunction (acute ventilatory failure from Guillain-Barre syndrome, with aspiration risk and autonomic instability)",
+  "evaluationParameters": [
+    "Serial bedside respiratory mechanics and gas exchange every 2-4 hours or more often: FVC (mL/kg), MIP/NIF, respiratory rate and pattern, single-breath count/length of spoken phrases, accessory muscle use and paradoxical abdominal motion, continuous SpO2 and ETCO2, and ABG for rising PaCO2 or falling pH signaling decompensation",
+    "Continuous cardiac rhythm and blood pressure monitoring for dysautonomia (swings between hypertension and hypotension, tachy- or bradyarrhythmias, especially with suctioning or position change), plus bulbar/airway status - gag and swallow, secretion volume and clearance, voice quality - and IVIG infusion tolerance (fever, chills, rash, headache, urine output, signs of thrombosis or aseptic meningitis)"
+  ],
+  "missingInformation": [
+    "Actual vital sign values and trend: specific BP range, heart rate, respiratory rate, SpO2, temperature",
+    "Baseline and serial ABG results (PaCO2, PaO2, pH) to confirm hypercapnic failure versus impending failure",
+    "Documented body weight and whether the 19 mL/kg FVC was calculated on actual or ideal body weight",
+    "Rate of change: prior FVC/MIP values and the interval over which they declined, and hours/days since symptom onset (nadir not yet reached)",
+    "Detailed bulbar and secretion assessment: swallow screen results, ability to handle oral secretions, cough peak flow, chest imaging or auscultation for aspiration/atelectasis",
+    "Cardiac rhythm strip/telemetry findings and any history of arrhythmia or bradycardic episodes",
+    "IVIG details: dose, rate, hours into the infusion, premedication, prior reactions, renal function and hydration status - diaphoresis could reflect an infusion reaction rather than only work of breathing",
+    "Neurologic exam detail: MRC/Hughes disability grade, ocular and facial involvement, autonomic symptoms such as ileus or urinary retention",
+    "Whether an airway/intubation plan, rapid response activation, or ICU airway equipment is already in place, and code status/advance directives",
+    "Comorbidities, allergies, current medications (including sedation, analgesia, VTE prophylaxis), and prior consent discussion with the client and family"
+  ],
+  "priorityActions": [
+    "Immediately escalate for definitive airway control: notify the intensivist/rapid response and prepare for elective (semi-urgent, non-emergent) endotracheal intubation and mechanical ventilation - FVC <20 mL/kg with MIP not more negative than -30 cmH2O plus single-word speech meets the 20/30/40 criteria. Meanwhile keep the client upright/HOB 30-45 degrees, apply continuous SpO2 and ETCO2 with cardiac monitoring, and keep suction, bag-valve-mask, and intubation equipment at the bedside; avoid sedatives and other respiratory depressants and stay with the client",
+    "Institute strict aspiration/airway-protection precautions for the unilateral absent gag and ineffective cough: keep NPO (no oral fluids, food, or oral medications), suction oropharyngeal secretions as needed, position to protect the airway, and anticipate vagally mediated bradycardia or blood pressure swings during suctioning given the dysautonomia - have atropine and vasoactive agents available, avoid abrupt position changes and Valsalva, and continue the IVIG while assessing for infusion reaction"
+  ],
+  "reasoning": "The stem describes classic post-Campylobacter GBS in the ascending/plateau phase with three converging emergencies. First, ventilatory failure is imminent, not hypothetical: FVC 1.6 L (19 mL/kg) and MIP -26 cmH2O both breach the 20/30/40 rule (FVC <20 mL/kg, MIP less negative than -30, MEP <40), and speaking only a few words at a time is a bedside proxy for a short single-breath count; diaphoresis reflects sympathetic surge from escalating work of breathing. Because diaphragmatic failure in GBS is progressive and does not reverse with oxygen or IVIG in real time, the priority is controlled intubation before arrest rather than waiting for hypoxemia or a rising PaCO2, which are late findings. Second, the unilateral absent gag plus ineffective cough means the airway is unprotected and secretions cannot be cleared, so NPO status and suction-readiness prevent aspiration in the interval before intubation. Third, labile blood pressure and tachycardia indicate autonomic neuropathy, which makes suctioning, laryngoscopy, and position changes hazardous (vagal bradycardia, asystole, wide BP swings) - hence continuous ECG/BP monitoring and drugs at hand. Monitoring therefore tracks the two failing systems: serial respiratory mechanics with gas exchange to time and then evaluate airway support, and continuous cardiovascular/autonomic surveillance alongside bulbar status and IVIG tolerance. IVIG addresses the underlying immune process over days and does not substitute for airway management now.",
+  "stage1Confidence": "high",
+  "stemEvidence": [
+    {
+      "stemFact": "Confirmed Guillain-Barre syndrome following recent Campylobacter jejuni enteritis, a classic antecedent trigger",
+      "target": "condition"
+    },
+    {
+      "stemFact": "Progressive quadriparesis indicating ongoing ascending weakness that has not yet reached nadir",
+      "target": "condition"
+    },
+    {
+      "stemFact": "FVC 1.6 L (19 mL/kg), below the 20 mL/kg intubation threshold",
+      "target": "condition"
+    },
+    {
+      "stemFact": "MIP -26 cmH2O, failing the -30 cmH2O threshold, indicating inspiratory muscle failure",
+      "target": "condition"
+    },
+    {
+      "stemFact": "Speaks only a few words at a time (short single-breath count) and is diaphoretic, signs of exhaustion and impending decompensation",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "FVC 19 mL/kg with MIP -26 cmH2O meeting the 20/30/40 criteria for elective intubation",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "Already in the ICU receiving IVIG, so airway personnel and equipment can be mobilized for a controlled, non-emergent intubation",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "Unilateral absent gag reflex indicating bulbar involvement and loss of airway protection",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "Ineffective cough, so secretions cannot be cleared independently",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "Labile blood pressure and tachycardia (dysautonomia) making suctioning and position changes high-risk for vagal bradycardia and pressure swings",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "FVC 1.6 L (19 mL/kg) and MIP -26 cmH2O provide the baseline respiratory mechanics that must be trended",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "Speaking only a few words at a time gives a reproducible bedside measure (single-breath count/phrase length) to follow",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "Progressive quadriparesis with ineffective cough predicts continued decline in FVC, MIP, and gas exchange",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "Labile blood pressure and tachycardia signal autonomic neuropathy requiring continuous ECG and BP surveillance",
+      "target": "evaluationParameter2"
+    },
+    {
+      "stemFact": "Unilateral absent gag reflex requires ongoing reassessment of bulbar function, secretion burden, and swallow safety",
+      "target": "evaluationParameter2"
+    },
+    {
+      "stemFact": "Receiving IVIG, which carries risk of infusion reaction, aseptic meningitis, renal injury, and thrombosis",
+      "target": "evaluationParameter2"
+    },
+    {
+      "stemFact": "Diaphoresis, which may reflect either sympathetic overdrive from respiratory distress or an IVIG infusion reaction and must be tracked",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

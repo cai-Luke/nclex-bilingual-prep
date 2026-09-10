@@ -1,0 +1,437 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A2"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P2",
+      "P3"
+    ]
+  },
+  "instruction": "The two blind-stage records above are immutable and were produced by you in this same session before this selection was revealed. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item below. Do not inspect, infer, or assume any sibling-case material — none has been provided and none exists in this context. Return the required Phase-E-equivalent structured JSON without revising either blind record.",
+  "stage1": {
+    "condition": "Hypertensive urgency — severely elevated blood pressure (186/102) with headache following an amlodipine dose increase, without documented evidence of acute end-organ damage; risk of progression to hypertensive emergency is increased by the missed 1800 monitoring check",
+    "evaluationParameters": [
+      "Blood pressure trend: manual recheck within 15-30 minutes and then per order/provider direction, evaluating for SBP reduction toward < 180 without an abrupt drop (avoid > 25% reduction in the first hour) and without symptomatic hypotension",
+      "Neurologic and end-organ symptom status: headache severity on a 0-10 scale, level of consciousness, vision changes, focal deficits, chest pain, dyspnea, and urine output, evaluated for resolution versus escalation to hypertensive emergency"
+    ],
+    "missingInformation": [
+      "Baseline and prior BP values for Mrs. Vega, including all readings since admission and the reading that would have been obtained at 1800",
+      "Complete current vital signs: heart rate, respiratory rate, temperature, SpO2, and BP in both arms with documented cuff size and patient position",
+      "Focused neurologic assessment findings: pupils, orientation, motor/sensory symmetry, visual changes, and whether the headache is new, sudden-onset, or worst-ever",
+      "Headache characteristics: onset time, quality, location, severity score, aggravating factors, and response to any analgesia already given",
+      "Whether the increased amlodipine dose was actually administered today, the exact time, the old and new dose, and any other scheduled or PRN antihypertensives on the MAR",
+      "Presence of any PRN or standing antihypertensive order the nurse may act on before the provider returns the call",
+      "Relevant history: hypertension control at home, home antihypertensive regimen and last doses taken, stroke/CAD/CKD/heart failure history, pregnancy status, and admitting diagnosis",
+      "Associated symptoms: chest pain, dyspnea, nausea/vomiting, epistaxis, edema, or anxiety/pain that could be transiently elevating BP",
+      "Recent laboratory and diagnostic data: creatinine/BUN, electrolytes, troponin, ECG, and any imaging",
+      "Documentation of the handoff itself — what was communicated, by whom, and to whom — for incident reporting and unit follow-up"
+    ],
+    "priorityActions": [
+      "Immediately recheck the BP manually with a correctly sized cuff with Mrs. Vega resting and seated/supine, while performing a rapid focused assessment for end-organ involvement (level of consciousness, vision changes, focal neuro deficits, chest pain, dyspnea) and obtaining full vital signs",
+      "Notify the hospitalist without delay per the ordered call parameter (SBP > 180), using SBAR to report the 186/102 reading, the headache, the amlodipine dose increase today, and the missed 1800 check, and request orders for BP management and monitoring frequency"
+    ],
+    "reasoning": "The stem supplies a single objective abnormality — BP 186/102 — paired with headache, a classic symptom of markedly elevated pressure, in a patient whose amlodipine dose was increased the same day. Severe hypertension with a symptom but no stated evidence of acute target-organ injury is best labeled hypertensive urgency; hypertensive emergency cannot be excluded from the stem because no neurologic, cardiac, or renal assessment data are given, which is why the first priority action pairs BP verification with a focused end-organ assessment. Verification also guards against a spurious reading from cuff size, position, or activity. The second priority action is dictated explicitly by the stem: the hospitalist wrote a call parameter for SBP > 180, and 186 breaches it, so notification is a non-discretionary nursing obligation; the report must include the amlodipine change and the missed 1800 check because both alter clinical interpretation — the dose change means a pharmacologic effect may still be developing, and the missed check means the current value has no recent trend to anchor it. Evaluation parameters follow directly from the two actions: serial BP to judge whether the pressure is responding and to guard against an overly rapid drop, and serial neurologic/end-organ symptom assessment to detect conversion to hypertensive emergency. Confidence is medium rather than high because the stem gives one BP, one symptom, and no assessment findings, so the urgency-versus-emergency distinction rests on absent rather than negative data. The incomplete, dismissive handoff is a contributing system factor and a documentation/reporting issue rather than a nursing priority ahead of patient assessment and provider notification.",
+    "stage1Confidence": "medium",
+    "stemEvidence": [
+      {
+        "stemFact": "BP is 186/102",
+        "target": "condition"
+      },
+      {
+        "stemFact": "reports ... a headache",
+        "target": "condition"
+      },
+      {
+        "stemFact": "the amlodipine dose was increased today",
+        "target": "condition"
+      },
+      {
+        "stemFact": "BP is 186/102 with a headache",
+        "target": "priorityAction1"
+      },
+      {
+        "stemFact": "the 1800 monitoring check was missed after an incomplete, dismissive handoff",
+        "target": "priorityAction1"
+      },
+      {
+        "stemFact": "the hospitalist ordered ... a call if SBP > 180",
+        "target": "priorityAction2"
+      },
+      {
+        "stemFact": "At 2200, Priya reports Mrs. Vega's BP is 186/102",
+        "target": "priorityAction2"
+      },
+      {
+        "stemFact": "the amlodipine dose was increased today",
+        "target": "priorityAction2"
+      },
+      {
+        "stemFact": "the hospitalist ordered BP monitoring q4h x 24 hours",
+        "target": "evaluationParameter1"
+      },
+      {
+        "stemFact": "BP is 186/102",
+        "target": "evaluationParameter1"
+      },
+      {
+        "stemFact": "reports ... a headache",
+        "target": "evaluationParameter2"
+      },
+      {
+        "stemFact": "the 1800 monitoring check was missed",
+        "target": "evaluationParameter2"
+      }
+    ]
+  },
+  "stage1Sha256": "3d7b566df049a0c96e734a4fd5fab22e9a5cc410d4c99d3600a0f5e27f04a896",
+  "stage2": {
+    "actionLabels": [
+      "A1",
+      "A2"
+    ],
+    "ambiguousAlternatives": [
+      {
+        "competingLabel": "A1",
+        "label": "A2",
+        "note": "Both A1 and A2 are defensible actions and are selected together; the only genuine judgment is sequencing, which the stem resolves in favor of A1 first via the explicit call parameter. No selection ambiguity results."
+      },
+      {
+        "competingLabel": "P3",
+        "label": "P1",
+        "note": "P1 would be a plausible parameter if the item were scored on the Stage 1 clinical condition (hypertensive urgency), but no renal or laboratory data appear in the stem and it does not evaluate the communication breakdown selected as the condition."
+      }
+    ],
+    "conditionLabel": "C1",
+    "missingInformation": [
+      "Identity and role of the off-going nurse who gave the incomplete handoff, and whether this is a first occurrence or a pattern",
+      "The facility's handoff policy and standardized handoff tool (e.g., SBAR/I-PASS) and whether it was used",
+      "The facility's incident/near-miss reporting and chain-of-command policy, and whether manager notification is mandatory",
+      "Whether Priya is a new graduate or on orientation, and whether a preceptor or charge nurse was available at 1800",
+      "Mrs. Vega's baseline and prior BP readings, including all values since admission, to contextualize the 186/102",
+      "Full current vital signs and focused neurologic assessment findings to distinguish hypertensive urgency from emergency",
+      "Whether the increased amlodipine dose was actually administered, at what time, and the old and new dose",
+      "Whether any PRN or standing antihypertensive order exists that the nurse may act on pending the provider callback",
+      "The speaker's own role and authority (charge nurse, preceptor, manager) in relation to the staff member responsible for the handoff",
+      "Whether any other ordered assessments or medications were omitted during the same shift"
+    ],
+    "parameterLabels": [
+      "P2",
+      "P3"
+    ],
+    "poolAnswerability": "ANSWERABLE",
+    "reasoning": "The pool reframes the item away from the clinical diagnosis I generated in Stage 1 (hypertensive urgency) toward the underlying system/management problem, and the condition pool contains no clinical option at all — C1, C2, and C3 are all communication or competence framings. Within that pool, C1 is the only option the stem supports: the stem states explicitly that the 1800 monitoring check was missed 'after an incomplete, dismissive handoff,' which links a communication failure directly to a care omission with client-safety consequences (an unmonitored 186/102 with headache after a same-day amlodipine increase). C2 is contradicted because an omitted ordered assessment is by definition more than friction requiring no intervention. C3 is contradicted because the stem attributes the failure to the handoff given to Priya, not to Priya's knowledge; Priya in fact correctly recognized and escalated the abnormal BP. For actions, client safety precedes personnel management: A1 operationalizes the standing order (call if SBP > 180, and 186 breaches it) and includes the missed monitoring intervals, which the provider needs to interpret the value. A2 is the correct second action because addressing the handoff failure requires a private, behavior-specific, policy-based conversation with the responsible staff member, including documentation. A3 is contradicted because it inverts the priority, delaying provider notification for an interpersonal issue. A4 is contradicted because absence of harm does not remove the obligation to document a care omission and notify the manager per policy; near misses are reportable. For parameters, the evaluation must match the selected condition rather than the clinical picture: P2 measures whether the handoff process itself improved (completeness, professionalism, medication changes communicated, time for questions), and P3 measures the downstream client-safety outcome (q4h monitoring actually performed, no further omissions). P1 is a clinical parameter with no stem basis — no labs, renal history, or end-organ findings are given — and it evaluates Mrs. Vega's kidneys rather than the communication breakdown. P4 measures a social outcome that is not a professional-practice endpoint and would be inappropriate as a resolution criterion.",
+    "selectionEvidence": [
+      {
+        "label": "C1",
+        "rationale": "Stem explicitly names the incomplete, dismissive handoff as the antecedent of a missed ordered assessment, establishing a communication breakdown with client-safety impact.",
+        "stemText": "the 1800 monitoring check was missed after an incomplete, dismissive handoff"
+      },
+      {
+        "label": "C1",
+        "rationale": "A same-day antihypertensive change that was not conveyed at handoff demonstrates the information transfer failure directly.",
+        "stemText": "She has just discovered that the amlodipine dose was increased today"
+      },
+      {
+        "label": "A1",
+        "rationale": "BP 186/102 breaches the explicit call parameter, making immediate provider notification a non-discretionary obligation.",
+        "stemText": "the hospitalist ordered BP monitoring q4h x 24 hours with a call if SBP > 180"
+      },
+      {
+        "label": "A1",
+        "rationale": "Symptomatic severe hypertension requires provider notification before any personnel matter is addressed.",
+        "stemText": "Mrs. Vega's BP is 186/102 with a headache"
+      },
+      {
+        "label": "A2",
+        "rationale": "A described behavior by an identifiable staff member warrants a private, specific, policy-based conversation linking the behavior to patient-care impact.",
+        "stemText": "an incomplete, dismissive handoff"
+      },
+      {
+        "label": "P2",
+        "rationale": "Handoff completeness and professionalism is the process measure that maps directly to the selected condition.",
+        "stemText": "incomplete, dismissive handoff"
+      },
+      {
+        "label": "P2",
+        "rationale": "Communication of medication changes is the specific handoff content element that failed and must be re-evaluated.",
+        "stemText": "the amlodipine dose was increased today"
+      },
+      {
+        "label": "P3",
+        "rationale": "Adherence to the ordered monitoring schedule is the measurable client-safety outcome of resolving the breakdown.",
+        "stemText": "BP monitoring q4h x 24 hours ... the 1800 monitoring check was missed"
+      }
+    ],
+    "stage2Confidence": "high",
+    "tokenPremiseTable": [
+      {
+        "missingPremise": "None required beyond the stem; the stem asserts both the handoff defect and the resulting missed ordered assessment.",
+        "opaqueTokenLabel": "C1",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Directly stated causal chain from incomplete, dismissive handoff to omitted q4h check on a client with symptomatic severe hypertension; selectable without inference.",
+        "supportingStemText": "the 1800 monitoring check was missed after an incomplete, dismissive handoff"
+      },
+      {
+        "missingPremise": "Would require that no client care was affected and no policy breach occurred.",
+        "opaqueTokenLabel": "C2",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The stem documents an actual omitted ordered assessment, which defeats the 'no formal intervention' premise; eliminable on stem text alone.",
+        "supportingStemText": "the 1800 monitoring check was missed"
+      },
+      {
+        "missingPremise": "Would require evidence that Priya lacked knowledge or failed to recognize the abnormal finding.",
+        "opaqueTokenLabel": "C3",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Priya identified the elevated BP and headache and escalated, and the stem locates the defect in the handoff given to her, not in her knowledge.",
+        "supportingStemText": "Priya reports Mrs. Vega's BP is 186/102 with a headache"
+      },
+      {
+        "missingPremise": "None required; the call threshold and the breaching value are both stated.",
+        "opaqueTokenLabel": "A1",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "SBP 186 exceeds the ordered call parameter of 180, making notification an explicit, stem-grounded obligation.",
+        "supportingStemText": "the hospitalist ordered BP monitoring q4h x 24 hours with a call if SBP > 180"
+      },
+      {
+        "missingPremise": "The specific facility policy and the identity of the responsible staff member are unstated, but the professional standard for addressing observed unprofessional behavior privately and specifically is general knowledge.",
+        "opaqueTokenLabel": "A2",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "LOW",
+        "rankabilityJustification": "The stem names the behavior (incomplete, dismissive) and its patient-care impact, which is sufficient to select the private, behavior-specific, documented conversation; the unnamed policy affects execution detail, not rank.",
+        "supportingStemText": "an incomplete, dismissive handoff"
+      },
+      {
+        "missingPremise": "Would require that no urgent clinical finding was pending.",
+        "opaqueTokenLabel": "A3",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "An active BP of 186/102 with headache and a breached call parameter makes deferring provider notification for an interpersonal issue an inversion of priority.",
+        "supportingStemText": "BP is 186/102 with a headache ... a call if SBP > 180"
+      },
+      {
+        "missingPremise": "Would require that absence of harm removes the documentation and reporting obligation.",
+        "opaqueTokenLabel": "A4",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "A missed ordered assessment is a reportable care omission and near miss regardless of outcome; the premise conflicts with professional practice standards.",
+        "supportingStemText": "the 1800 monitoring check was missed"
+      },
+      {
+        "missingPremise": "Requires client-specific renal data — baseline and serial creatinine, renal history, or evidence of hypertensive end-organ injury — none of which appear in the stem.",
+        "opaqueTokenLabel": "P1",
+        "premiseStatus": "MISSING_CLIENT_FACT",
+        "rankabilityImpact": "LOW",
+        "rankabilityJustification": "The absent laboratory premise means it cannot be preferred, and it is independently non-selectable because it evaluates renal status rather than the communication breakdown identified as the condition.",
+        "supportingStemText": "No stem text addresses laboratory values, renal function, or end-organ assessment."
+      },
+      {
+        "missingPremise": "None required; the stem names the handoff defect and the specific content element (medication change) that was not communicated.",
+        "opaqueTokenLabel": "P2",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Maps one-to-one onto the selected condition as the process measure of resolution.",
+        "supportingStemText": "She has just discovered that the amlodipine dose was increased today ... an incomplete, dismissive handoff"
+      },
+      {
+        "missingPremise": "None required; the monitoring order and the specific omission are both stated.",
+        "opaqueTokenLabel": "P3",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Provides the measurable client-safety outcome that confirms the breakdown has been corrected.",
+        "supportingStemText": "BP monitoring q4h x 24 hours ... the 1800 monitoring check was missed"
+      },
+      {
+        "missingPremise": "Would require that personal friendship between staff is a professional practice or client-safety endpoint; no stem fact or professional standard supports this.",
+        "opaqueTokenLabel": "P4",
+        "premiseStatus": "NO_CLIENT_PREMISE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Not a nursing evaluation parameter under any reading of the stem; eliminable without additional information.",
+        "supportingStemText": "No stem text addresses personal relationships between staff members."
+      }
+    ]
+  },
+  "stage2Sha256": "2ff6cf6c29d3e6cfd6a4ae04cdc66bd596939e8672779ce9a1749b3fc5cb7beb",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions",
+          "zh": "优先措施"
+        },
+        "tokens": [
+          {
+            "en": "Have Priya notify the hospitalist immediately with the BP, headache, and missed monitoring intervals",
+            "opaqueTokenLabel": "A1",
+            "zh": "让 Priya 立即向住院医报告 BP、头痛和漏监测时间段"
+          },
+          {
+            "en": "Speak privately with the staff member responsible for the handoff about specific observed behaviors, patient-care impact, and policy-based documentation",
+            "opaqueTokenLabel": "A2",
+            "zh": "私下与负责该次交接的工作人员讨论具体观察到的行为、对患者护理的影响，以及按政策记录"
+          },
+          {
+            "en": "Address the interpersonal conflict before contacting the hospitalist",
+            "opaqueTokenLabel": "A3",
+            "zh": "先处理人际冲突，再联系住院医"
+          },
+          {
+            "en": "Do not document or notify the manager because serious harm was avoided",
+            "opaqueTokenLabel": "A4",
+            "zh": "因为避免了严重伤害，所以不记录也不通知护士经理"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的问题"
+        },
+        "tokens": [
+          {
+            "en": "Client-safety communication breakdown after an incomplete, dismissive handoff",
+            "opaqueTokenLabel": "C1",
+            "zh": "不完整且轻慢的交接导致患者安全沟通中断"
+          },
+          {
+            "en": "Routine interpersonal friction requiring no formal intervention",
+            "opaqueTokenLabel": "C2",
+            "zh": "无需正式介入的普通人际摩擦"
+          },
+          {
+            "en": "Isolated knowledge deficit in the new nurse",
+            "opaqueTokenLabel": "C3",
+            "zh": "新护士单纯知识不足"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "应监测的指标"
+        },
+        "tokens": [
+          {
+            "en": "Mrs. Vega's serum creatinine trend",
+            "opaqueTokenLabel": "P1",
+            "zh": "Vega 太太的血清肌酐趋势"
+          },
+          {
+            "en": "Completeness and professionalism of subsequent handoffs, including medication changes and time for questions",
+            "opaqueTokenLabel": "P2",
+            "zh": "后续交接的完整性和专业性，包括药物变更和提问时间"
+          },
+          {
+            "en": "Adherence to the q4h BP monitoring schedule and absence of further care omissions",
+            "opaqueTokenLabel": "P3",
+            "zh": "是否遵守每 4 小时 BP 监测安排，并且无进一步护理遗漏"
+          },
+          {
+            "en": "Whether the staff members become personal friends during breaks",
+            "opaqueTokenLabel": "P4",
+            "zh": "相关工作人员是否在休息时成为私人朋友"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "同事之间贬低、排斥、羞辱或破坏专业沟通的行为。",
+        "termEn": "Lateral incivility",
+        "termZh": "横向不文明行为"
+      },
+      {
+        "defZh": "护士在交接护理责任时传递患者关键资料、近期变化和后续计划的过程。",
+        "termEn": "Handoff",
+        "termZh": "交接班"
+      },
+      {
+        "defZh": "医嘱或流程中规定需要通知医护人员的具体阈值或症状。",
+        "termEn": "Call parameter",
+        "termZh": "通知医嘱参数"
+      },
+      {
+        "defZh": "用于记录安全事件、近失误或流程缺陷的机构内部报告。",
+        "termEn": "Incident report",
+        "termZh": "事件报告"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "The incomplete, dismissive handoff omitted critical medication and monitoring information and contributed to a missed safety check.",
+          "opaqueTokenLabel": "C1",
+          "zh": "不完整且轻慢的交接遗漏了关键用药和监测信息，并导致一次安全监测漏做。"
+        },
+        {
+          "en": "Priya needs coaching, but the event is not explained by her knowledge deficit alone; the handoff itself failed.",
+          "opaqueTokenLabel": "C3",
+          "zh": "Priya 需要指导，但该事件不能仅用她知识不足解释；交接本身失败了。"
+        },
+        {
+          "en": "The behavior reached the patient-care process and therefore is not routine friction.",
+          "opaqueTokenLabel": "C2",
+          "zh": "该行为已经影响患者护理流程，因此不是普通摩擦。"
+        },
+        {
+          "en": "This closes the active care gap and follows the provider's SBP > 180 call parameter.",
+          "opaqueTokenLabel": "A1",
+          "zh": "这能关闭当前护理缺口，并符合 SBP > 180 的医嘱通知参数。"
+        },
+        {
+          "en": "This addresses the responsible staff member's conduct without public shaming and creates accountability through policy-based documentation.",
+          "opaqueTokenLabel": "A2",
+          "zh": "这能在不公开羞辱的情况下处理相关工作人员的行为，并通过按政策记录建立问责。"
+        },
+        {
+          "en": "This delays action while the client remains symptomatic and above the call threshold.",
+          "opaqueTokenLabel": "A3",
+          "zh": "这会在患者仍有症状且超过通知阈值时延误处理。"
+        },
+        {
+          "en": "Avoiding severe harm does not erase a missed-monitoring safety event or the need for manager follow-up.",
+          "opaqueTokenLabel": "A4",
+          "zh": "避免严重伤害并不会抹去漏监测安全事件，也不取消护士经理跟进的需要。"
+        },
+        {
+          "en": "This directly measures whether the handoff communication pattern is safer after intervention.",
+          "opaqueTokenLabel": "P2",
+          "zh": "这直接衡量干预后交接沟通模式是否更安全。"
+        },
+        {
+          "en": "This confirms that the specific missed-monitoring problem has been corrected.",
+          "opaqueTokenLabel": "P3",
+          "zh": "这确认具体的漏监测问题已被纠正。"
+        },
+        {
+          "en": "Friendship is not required; professional communication is the safety target.",
+          "opaqueTokenLabel": "P4",
+          "zh": "不要求成为朋友；安全目标是专业沟通。"
+        },
+        {
+          "en": "Creatinine may matter medically, but it does not evaluate the handoff communication breakdown.",
+          "opaqueTokenLabel": "P1",
+          "zh": "肌酐在医学上可能重要，但不能评价交接沟通中断。"
+        }
+      ],
+      "correct": {
+        "en": "The bow-tie centers on a client-safety communication breakdown after an incomplete, dismissive handoff. The immediate action is provider notification because the systolic blood pressure exceeds the ordered threshold and the client is symptomatic. The second priority is structured, private follow-up with the staff member responsible for the handoff and policy-based documentation. Monitoring must evaluate both the corrected blood-pressure monitoring process and the professionalism and completeness of later handoffs.",
+        "zh": "本蝴蝶结题的核心是不完整且轻慢的交接造成患者安全沟通中断。立即措施是通知住院医，因为收缩压超过医嘱阈值且患者有症状。第二个优先事项是与负责该次交接的工作人员进行结构化、私下的跟进，并按政策记录。监测必须同时评价血压监测流程是否纠正，以及后续交接是否专业且完整。"
+      }
+    },
+    "stem": {
+      "en": "At 2200, Priya reports Mrs. Vega's BP is 186/102 with a headache. She has just discovered that the amlodipine dose was increased today, the hospitalist ordered BP monitoring q4h x 24 hours with a call if SBP > 180, and the 1800 monitoring check was missed after an incomplete, dismissive handoff. Complete the bow-tie diagram.",
+      "zh": "2200，Priya 报告 Vega 太太 BP 为 186/102，并有头痛。她刚发现今天氨氯地平已加量，住院医要求 24 小时内每 4 小时监测 BP，若 SBP > 180 则通知；而由于一次不完整且轻慢的交接，1800 的监测已漏做。请完成蝴蝶结图。"
+    },
+    "testTakingStrategy": {
+      "en": "In bow-tie items, choose the condition that explains the whole chain, then pair one immediate safety action with one process action and monitor outcomes that match both.",
+      "zh": "做蝴蝶结题时，选择能解释整条事件链的问题，再搭配一个立即安全措施和一个流程措施，并监测与二者相符的结果。"
+    }
+  }
+}

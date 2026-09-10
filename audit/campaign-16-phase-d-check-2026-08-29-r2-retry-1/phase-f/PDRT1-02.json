@@ -1,0 +1,214 @@
+{
+  "advisoryPriority": "P2",
+  "bilingualCollateral": [
+    {
+      "affectsKeyedSelection": false,
+      "location": "Standalone item, token C1 (zh)",
+      "observation": "'污染的 MRSA 专用设备' is ambiguous between 'device dedicated to a MRSA client' (intended) and 'device dedicated for MRSA use' (a category of equipment). The sibling's own glossary renders the concept as '只用于同一名患者或同一隔离房间的设备', and the sibling q4_c token uses the clearer 'C 患者专用听诊器'. Advisory only: '该 MRSA 患者的专用设备' would remove the ambiguity.",
+      "severity": "MINOR"
+    },
+    {
+      "affectsKeyedSelection": false,
+      "location": "Standalone item, token A3 (zh)",
+      "observation": "'unit leadership' is rendered '当班管理人员' (on-duty/shift supervisor), which narrows the English to the charge nurse specifically. Consistent with the sibling's charge-nurse framing, so not misleading here, but '病区管理人员' would track the English more closely.",
+      "severity": "MINOR"
+    },
+    {
+      "affectsKeyedSelection": false,
+      "location": "Sibling, stage_2_breaches_and_requests, 1030 entry",
+      "observation": "The zh adds '协助清洁时' ('while assisting with cleaning'), which has no counterpart in the English 'While the nurse is gowned and gloved in Room 12'. A small unilateral addition; it does not change who committed the linen-bagging error or its classification.",
+      "severity": "MINOR"
+    },
+    {
+      "affectsKeyedSelection": false,
+      "location": "Sibling, stage_2_1130_status",
+      "observation": "The zh prefixes 'T 101.1 °F (38.4 °C)' where the English gives only 'T 38.4 C', and renders 'output about 1,100 mL' as '尿液和粪便总出量约 1,100 mL', specifying urine-plus-stool where the English is unspecified. The added Fahrenheit value is arithmetically consistent (38.4 °C = 101.1 °F); both are unilateral zh elaborations rather than errors.",
+      "severity": "MINOR"
+    },
+    {
+      "affectsKeyedSelection": false,
+      "location": "Sibling and standalone glossaries",
+      "observation": "All glossary entries provide termEn, termZh, and defZh but no defEn, so an English-only learner receives terms without definitions. This is a consistent structural pattern across both artifacts rather than a defect introduced by either, and it touches no keyed token.",
+      "severity": "MINOR"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "necessityClassification": "CORROBORATIVE",
+      "opaqueTokenLabel": "C1",
+      "selectionDependency": "NONE — C1 was selected blind and is forced by the standalone text alone.",
+      "siblingAddedFacts": "Dedicated-equipment status of the stethoscope; 20-minute elapsed time; counter placement; the MRSA source is a large, open, draining stage 3 sacral pressure injury.",
+      "siblingCorrespondence": "Directly corresponds to sibling q4, keyed option q4_c: 'Client C's dedicated stethoscope placed on the clean-utility-room counter near the clean supply cart.' The sibling's correct rationale states the same discriminator — 'the widest and most direct cross-contamination pathway ... a clean supply area used for multiple clients' — and its byChoice entries downrank the door handle (contained radius) and linen bagging (downstream laundry risk) exactly as the standalone reasoning did."
+    },
+    {
+      "necessityClassification": "CORROBORATIVE",
+      "opaqueTokenLabel": "A4",
+      "selectionDependency": "NONE — A4 defeats A1 and A2 on the standalone text, since A1 explicitly omits surface and supply handling and A2 defers an active exposure.",
+      "siblingAddedFacts": "The manufacturer-specified wet-contact-time requirement is stated as unit policy; the sibling documents that the resolution was actually carried out in this sequence.",
+      "siblingCorrespondence": "Corresponds to sibling stage_3_resolution end-of-shift narrative and keyed option q6_c: retrieval, disinfection of contacted clean-utility surfaces, removal or policy handling of nearby supplies, full wet-contact disinfection, and return to Room 16. Also grounded in baseline_unit_policy rule 2."
+    },
+    {
+      "necessityClassification": "CORROBORATIVE",
+      "opaqueTokenLabel": "A3",
+      "selectionDependency": "NONE for selection. The sibling does resolve A3's dangling 'staff member involved' referent, which is why this is flagged as scope collateral rather than treated as necessity.",
+      "siblingAddedFacts": "Identifies the stethoscope mover as a staff member distinct from the student; specifies supervised return demonstration as the education modality; the charge nurse's involvement supplies the leadership-notification context.",
+      "siblingCorrespondence": "Corresponds to sibling stage_3_resolution 1215 debrief (the nurse debriefs the student on all identified breaches including the stethoscope) and keyed option q6_f (follow-up education plus supervised return demonstration before independent isolation-room contact)."
+    },
+    {
+      "necessityClassification": "CORROBORATIVE",
+      "opaqueTokenLabel": "P2",
+      "selectionDependency": "NONE for selection: P1 and P4 fail on relevance, leaving P2 and P3 as the only defensible pair. This is the keyed token with the largest interpretive gap between standalone and sibling, and it drives the advisory priority.",
+      "siblingAddedFacts": "Supplies P2's actual referent (the ungowned daughter in the MRSA room), the student's own gown omission, and the unit's visitor-orientation policy — none of which appear in the standalone stem.",
+      "siblingCorrespondence": "Corresponds to sibling keyed option q6_a — Client C's daughter demonstrating correct gown and glove donning and doffing as evidence that visitor teaching changed behavior — together with baseline_unit_policy rules 3 and 4 (PPE donning/doffing sequence; visitor precautions orientation at first visit each shift) and the q3 visitor-teaching question."
+    },
+    {
+      "necessityClassification": "CORROBORATIVE",
+      "opaqueTokenLabel": "P3",
+      "selectionDependency": "NONE — P3 measures the exact variable named as having failed in the standalone stem.",
+      "siblingAddedFacts": "Establishes the dedicated-equipment-stays-in-room baseline explicitly and documents the corrected end state (stethoscope returned to Room 16).",
+      "siblingCorrespondence": "Corresponds to sibling keyed option q6_c (verification that the device, contacted surfaces, and nearby supplies were addressed before the device returned to the room) and to baseline_unit_policy rule 2 plus baseline_client_snapshot's statement that dedicated equipment 'are in the room' — the storage standard whose violation created the breach."
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "affectsKeyedSelection": false,
+      "location": "Standalone item, token A4 and the keyed condition C1",
+      "observation": "A4 correctly does not specify a sporicidal agent. The keyed organism is MRSA, for which an EPA-registered hospital disinfectant with label contact time is appropriate; sporicidal product is required for the CDI thread (sibling q2_b), not this one. The standalone avoids conflating the two organisms' disinfection requirements, which is clinically correct.",
+      "severity": "NONE_CONFIRMATORY"
+    },
+    {
+      "affectsKeyedSelection": false,
+      "location": "Standalone item, token A4 closing clause",
+      "observation": "Returning the device to its designated isolation room after completing full wet-contact disinfection is clinically sound and matches the sibling's end-of-shift resolution verbatim in substance ('the stethoscope is disinfected with full wet-contact time and returned to Room 16'). No conflict.",
+      "severity": "NONE_CONFIRMATORY"
+    },
+    {
+      "affectsKeyedSelection": false,
+      "location": "Standalone item, parameter pool timeframe",
+      "observation": "Both keyed parameters are process indicators rather than outcome measures, which is clinically appropriate for evaluating containment within a single shift. The sibling makes the same pedagogical point explicitly by keying q6_b as incorrect ('no new infections ... by the end of the shift' is premature reassurance). The standalone pool contains no infection-rate trap, so this teaching point is present in the sibling but absent from the standalone — a difference in coverage, not a clinical error.",
+      "severity": "MINOR"
+    },
+    {
+      "affectsKeyedSelection": false,
+      "location": "Standalone item, distractor P1",
+      "observation": "'A client's antimicrobial monitoring results' is clinically live in the sibling (Client C is on vancomycin, 'monitoring managed by pharmacy'), which makes it a well-constructed trap: real for the MRSA client, but a treatment-response measure that evaluates nothing about environmental containment. Its exclusion in the standalone rests on the same reasoning and needs no sibling context.",
+      "severity": "NONE_CONFIRMATORY"
+    },
+    {
+      "affectsKeyedSelection": false,
+      "location": "Standalone item, distractor P4",
+      "observation": "'Another client's sputum-culture result' maps in the sibling to two distinct clients — Client B's Streptococcus pneumoniae culture and Client D's AFB smear. The standalone's TB clause makes the AFB reading the salient one. Either reading yields the same exclusion on relevance grounds, so the underspecified referent does not create ambiguity in practice.",
+      "severity": "MINOR"
+    }
+  ],
+  "defectSummary": "",
+  "missingFactProvenance": [
+    {
+      "effectOnKeyedSelection": "None. C1 outranks C2 and C3 on scope of exposure whether the device is dedicated or shared; a shared unit stethoscope in the clean utility room is at least as hazardous. The sibling confirms the wording rather than enabling the selection.",
+      "missingClientFact": "Whether the stethoscope was dedicated single-client equipment or shared unit equipment (C1: 'dedicated device'; A4: 'its designated isolation room')",
+      "necessityClassification": "CORROBORATIVE",
+      "provenance": "SIBLING_SUPPLIED",
+      "siblingLocation": "baseline_client_snapshot: 'Client C, Room 16 ... Dedicated stethoscope and blood-pressure cuff are in the room.'; baseline_unit_policy rule 2: 'Dedicated or single-use equipment is required for clients on contact precautions.'; q4_c token text: 'Client C's dedicated stethoscope placed on the clean-utility-room counter near the clean supply cart.'",
+      "standaloneAdequacy": "ADEQUATE_WITHOUT_SIBLING"
+    },
+    {
+      "effectOnKeyedSelection": "None. A2 (defer to end of shift) is contraindicated at any elapsed interval, and no keyed token turns on duration. The 20-minute figure only reinforces that the exposure is current.",
+      "missingClientFact": "Time elapsed since the stethoscope was placed in the clean utility room",
+      "necessityClassification": "CORROBORATIVE",
+      "provenance": "SIBLING_SUPPLIED",
+      "siblingLocation": "stage_2_breaches_and_requests, 0945: 'A housekeeper reports another staff member carried it out of Room 16 about 20 minutes earlier.'",
+      "standaloneAdequacy": "ADEQUATE_WITHOUT_SIBLING"
+    },
+    {
+      "effectOnKeyedSelection": "None. The sibling likewise leaves the exact contact radius indeterminate ('may have touched', 'potentially contaminated'), and A4 is written to handle that uncertainty by assessing or removing nearby supplies per policy. The gap is by design, not an omission.",
+      "missingClientFact": "Whether the stethoscope physically contacted the clean supply cart or any clean stock, and which specific supplies were exposed",
+      "necessityClassification": "CORROBORATIVE",
+      "provenance": "PARTIALLY_SIBLING_SUPPLIED",
+      "siblingLocation": "stage_2_breaches_and_requests, 0945: 'sitting on the clean-utility-room counter next to the clean supply cart'; stage_3_resolution: 'clean-utility surfaces it may have touched are disinfected; potentially contaminated nearby supplies are removed or handled per policy.'",
+      "standaloneAdequacy": "ADEQUATE_WITHOUT_SIBLING"
+    },
+    {
+      "effectOnKeyedSelection": "None. This fact would matter for downstream client surveillance, which no parameter token offers. Its absence from both artifacts confirms it was never load-bearing for the keyed set.",
+      "missingClientFact": "Whether any potentially exposed supplies were already removed from the cart and used on other clients",
+      "necessityClassification": "NOT_NECESSARY",
+      "provenance": "UNRESOLVED_IN_BOTH",
+      "siblingLocation": "Not addressed anywhere in the sibling case; stage_3_resolution states only that nearby supplies were removed or handled per policy, with no account of prior distribution.",
+      "standaloneAdequacy": "ADEQUATE_WITHOUT_SIBLING"
+    },
+    {
+      "effectOnKeyedSelection": "None for selection: A3 is keyed regardless of who the individual is, since A1 and A2 are contraindicated and A3 is the only available second action. But see scopeCollateral — the sibling reveals that the person who moved the stethoscope is NOT the student, whereas the standalone stem names only a student, inviting a learner to conflate the two.",
+      "missingClientFact": "Who placed the device in the clean utility room — A3's 'the staff member involved' has no antecedent in the standalone stem",
+      "necessityClassification": "CORROBORATIVE",
+      "provenance": "SIBLING_SUPPLIED",
+      "siblingLocation": "stage_2_breaches_and_requests, 0945: 'another staff member carried it out of Room 16'; stage_3_resolution, 1215 debrief addresses the student separately for the Room 12 entry, hand hygiene, door handle, and linen errors.",
+      "standaloneAdequacy": "ADEQUATE_WITHOUT_SIBLING"
+    },
+    {
+      "effectOnKeyedSelection": "None. A4 self-references policy ('per policy', 'the required disinfectant wet-contact time') rather than asserting values, so no external policy text is needed to rank it above A1, which omits the surface and supply steps entirely.",
+      "missingClientFact": "Facility policy for handling clean supplies exposed to a contaminated item, and the specific disinfectant and its required wet-contact time",
+      "necessityClassification": "CORROBORATIVE",
+      "provenance": "SIBLING_SUPPLIED",
+      "siblingLocation": "baseline_unit_policy rule 2: 'clean visible soil, disinfect with an appropriate agent, and allow the manufacturer-specified wet-contact time before the device enters the next room.'",
+      "standaloneAdequacy": "ADEQUATE_WITHOUT_SIBLING"
+    },
+    {
+      "effectOnKeyedSelection": "None. C1's ranking rests on the breadth of the pathway ('many clients'), not on any named client's susceptibility.",
+      "missingClientFact": "Presence of immunocompromised or otherwise high-risk clients served by the affected supply cart",
+      "necessityClassification": "NOT_NECESSARY",
+      "provenance": "UNRESOLVED_IN_BOTH",
+      "siblingLocation": "The sibling identifies four clients (post-op day 2 CDI, pneumonia, stage 3 pressure injury, pulmonary TB) but never links any to the affected clean supply cart or characterizes cart-served risk.",
+      "standaloneAdequacy": "ADEQUATE_WITHOUT_SIBLING"
+    },
+    {
+      "effectOnKeyedSelection": "None for selection — P1 and P4 fail on relevance, so P2 is forced as the second parameter. But the sibling shows P2's true referent is the ungowned daughter in the MRSA room, a person absent from the standalone stem, where the only visitor mentioned is at the AIIR. See scopeCollateral.",
+      "missingClientFact": "Baseline unit PPE and hand-hygiene compliance data, and whether any PPE lapse at room entry has occurred (P2's antecedent)",
+      "necessityClassification": "CORROBORATIVE",
+      "provenance": "SIBLING_SUPPLIED",
+      "siblingLocation": "stage_1_shared_equipment_and_visitor, 0800: 'Client C's daughter is in Room 16 in street clothes with no gown or gloves'; baseline_unit_policy rule 4 (visitor precautions orientation); stage_1_room12_student (student enters Room 12 'wearing gloves but no gown'); q6_a keys the daughter's correct gown-and-glove return demonstration as the evidence that teaching changed behavior.",
+      "standaloneAdequacy": "ADEQUATE_WITHOUT_SIBLING"
+    },
+    {
+      "effectOnKeyedSelection": "None. C3 was already ranked below C1 on scope of exposure, not on remediation status. The sibling's q4_a rationale reaches the identical conclusion: the door handle 'is one high-touch surface at one doorway and can be addressed with targeted disinfection.'",
+      "missingClientFact": "Whether the CDI door handle has since been cleaned with a sporicidal agent, and whether the CDI diagnosis is confirmed or suspected",
+      "necessityClassification": "CORROBORATIVE",
+      "provenance": "SIBLING_SUPPLIED",
+      "siblingLocation": "baseline_client_snapshot: 'stool PCR positive for Clostridioides difficile at 0545'; stage_1_room12_student: 'The nurse stops the student before she exits, directs soap-and-water hand hygiene, and arranges door-handle disinfection.'",
+      "standaloneAdequacy": "ADEQUATE_WITHOUT_SIBLING"
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "Applying the fixed precedence in order:\n\n(1) FAIL_HIDDEN_CASE_DEPENDENCY — not triggered. The standalone blind record reached the canonical set C1 / [A4, A3] / [P2, P3] token-for-token with no access to the sibling, and the standalone-unblinding record documented why the set is forced by the item's own text: C2 is self-described as a 'potential' concern awaiting policy verification, C3 is one localized surface, A1 explicitly declines to clean the counter or assess nearby supplies, A2 defers an active exposure for a full shift, and P1/P4 are individual-client treatment-response measures that evaluate nothing about environmental containment. Two of four action tokens and two of four parameter tokens are excludable on their own face, so the keyed pairs are determinate once C1 is fixed. Every sibling fact that touches a keyed token (the ~20-minute elapsed time, the counter placement, 'Client C's dedicated stethoscope', the unit policy's wet-contact-time rule, the ungowned daughter, the end-of-shift retrieval and disinfection) confirms the standalone reading rather than supplying a premise the learner needed. Sibling necessity is therefore nil; all overlap is corroborative.\n\n(2) FAIL_UNSUPPORTED_TOKEN_PREMISE — considered and not triggered, though this is the closest call. Two keyed tokens carry client-specific qualifiers the standalone stem never states: C1's 'MRSA dedicated device' and A4's 'its designated isolation room' both presuppose the stethoscope was assigned single-client equipment, and P2's 'visitor ... PPE compliance on subsequent room entries' presupposes a visitor who enters an isolation room. The sibling supplies the antecedents (Room 16 'Dedicated stethoscope and blood-pressure cuff are in the room'; Client C's daughter repositioning her father in street clothes). But neither gap is load-bearing for ranking. Whether the device is dedicated or shared unit equipment, it is the only token describing contamination of a shared clean-supply area, so C1 outranks C2 and C3 either way; A4's remaining components (remove, disinfect contacted surfaces, assess supplies per policy, full wet-contact time) are independently sufficient to defeat A1 and A2; and P2 remains the only defensible second parameter because P1 and P4 fail on relevance, not on a missing premise. Unstated-but-uncontradicted qualifiers that cannot reverse any ordering are collateral, not a token-premise failure.\n\n(3) FAIL_UNDERDETERMINED — not triggered. Exactly one condition, one action pair, and one parameter pair survive elimination; the blind record classified the pool ANSWERABLE and that classification holds against the revealed key.\n\n(4) FAIL_CANONICAL_KEY_OR_LOGIC — not triggered. The key is clinically and logically sound. Prioritization by scope and directness of the transmission pathway (shared clean-supply stock versus one door handle) is the correct principle, matching the sibling's own q4 rationale. A4's sequence is clinically correct, A3's education-plus-documentation is standard breach follow-up, and P2/P3 are process indicators appropriate to a short evaluation window — the sibling's q6 makes the same point explicitly by rejecting same-shift infection rates (q6_b) as proof of effectiveness.\n\n(5) HOLD_REVIEWER_DISAGREEMENT — not triggered. My blind selection and the canonical key agree completely; the only divergence is the listed order of P2 and P3 within an unordered pair.\n\nVerdict: PASS_STANDALONE, with three narrow collateral observations recorded below at advisory P2. Note that the standalone-unblinding record's one self-correction (downgrading P2's rankability impact from MATERIAL to LOW once the full pool was visible) is unaffected by the sibling and stands as written.",
+  "scopeCollateral": [
+    {
+      "impact": "Does not change the keyed set, since P1 and P4 fail on relevance regardless. Adding a short clause about an ungowned visitor in the MRSA room would restore P2's antecedent without disturbing the key.",
+      "location": "Standalone stem versus sibling stage_1 and stage_2 exhibits",
+      "observation": "The standalone compresses four sibling threads into one sentence. Three survive only as distractor seeds (CDI door handle to C3, soiled linen to C2, TB/AIIR to P4), and the compression drops the visitor thread that actually motivates P2 — Client C's daughter repositioning her father in street clothes with no gown or gloves. The consequence is that P2 reads in the standalone as attaching to the TB visitor, for whom respiratory protection rather than contact PPE is at issue.",
+      "severity": "MODERATE"
+    },
+    {
+      "impact": "No effect on selection; A3 is the only non-contraindicated second action either way.",
+      "location": "Standalone stem, attribution of the stethoscope breach",
+      "observation": "The standalone names a student for the door-handle contamination and leaves the stethoscope's mover unstated, while A3 refers to 'the staff member involved'. The sibling establishes these are two different people. A standalone learner is likely to attribute both breaches to the student, which does not change the answer but slightly distorts the scenario and blurs A3's education target.",
+      "severity": "MINOR"
+    },
+    {
+      "impact": "Confirms the standalone is a self-contained excerpt rather than a fragment dependent on the parent case.",
+      "location": "Standalone item scope versus sibling breadth",
+      "observation": "The sibling covers six questions across four clients, three transmission categories, PPE sequencing, organism-specific disinfection, visitor teaching, and outcome-versus-process evaluation. The standalone correctly extracts only the single prioritization thread (sibling q4) plus its containment and evaluation follow-through (sibling q6_c, q6_a). The extraction boundary is clean: no keyed token in the standalone requires reasoning that lives only in another sibling question.",
+      "severity": "NONE_CONFIRMATORY"
+    },
+    {
+      "impact": "None on defensibility; the intended discrimination (scope and directness of pathway) is fully preserved.",
+      "location": "Standalone item, condition pool composition",
+      "observation": "C2 and C3 are drawn directly from sibling distractors q4_b and q4_a and retain their sibling ranking logic. The sibling's fourth distractor (q4_d, Client B's wife at the open doorway) is dropped, and the sibling's four-option prioritization is reduced to three conditions. The reduction removes the weakest distractor, which mildly lowers difficulty but preserves the discriminating contrast between C1 and C3.",
+      "severity": "MINOR"
+    }
+  ],
+  "secondaryFlags": [
+    "P2's referent is sibling-only: within the standalone stem the sole visitor is the one asking about the AIIR, for whom the relevant protection is airborne (N95 per the sibling's q5_a), not the contact-precautions gown and gloves that 'PPE compliance' most naturally denotes for the keyed MRSA problem. The sibling shows P2 was written for Client C's ungowned daughter. Selection is unaffected; interpretive cleanliness is.",
+    "A3's 'the staff member involved' has no antecedent in the standalone stem, which names only a student in connection with the door handle. The sibling establishes these are different people ('another staff member carried it out of Room 16'). A standalone learner may reasonably but incorrectly infer the student moved the stethoscope.",
+    "C1 and A4 introduce 'dedicated'/'designated' equipment status not stated in the standalone stem. The item's own glossary defines 'Dedicated device', which partially compensates, but the qualifier remains an unstated client fact appearing only in keyed tokens.",
+    "'Dedicated' appears in the correct condition token and in no distractor condition token; combined with its glossary entry, this is a mild surface-feature cue toward C1 independent of clinical reasoning.",
+    "Neither keyed parameter audits the clean utility room itself or surveils clients served by the affected cart. Both P2 and P3 are anchored 'on/at each room entry', i.e., to the isolation room rather than to the location where the breach was found — a coverage limitation of the parameter pool already recorded in the standalone-unblinding notes and not altered by the sibling."
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "condition": "Unsafe/premature discharge — impaired discharge readiness in acute decompensated heart failure, evidenced by unresolved exertional hypoxemia plus knowledge, financial, and home-environment barriers placing the client at high risk for decompensation and 30-day readmission",
+  "evaluationParameters": [
+    "Repeat ambulation/exertion tolerance: SpO2 maintained at or above 90% on room air while walking a comparable distance, with no supplemental oxygen required for recovery, and no dyspnea, chest pain, or abnormal heart rate/blood pressure response",
+    "Documented discharge-readiness endpoints: successful teach-back of new medications, daily weight monitoring, and HF warning signs (weight gain >2-3 lb/day or >5 lb/week, increasing dyspnea, edema), plus confirmed possession of an affordable diuretic, a home scale, and an arranged follow-up/home support plan"
+  ],
+  "missingInformation": [
+    "Resting room-air SpO2 and whether the client has a baseline or home oxygen requirement",
+    "Vital signs, heart rate/blood pressure response, respiratory rate, and symptoms recorded during and after the 40-foot walk, and the liter flow/duration of oxygen needed to recover",
+    "Lung sounds, jugular venous distension, and peripheral edema on current assessment",
+    "Actual serial weights, admission-to-current weight change, and net intake/output",
+    "Specific BNP values and trend, plus renal function, electrolytes (especially potassium), and hemoglobin",
+    "Ejection fraction and HF type (HFrEF vs HFpEF) and the specific new medication regimen prescribed",
+    "Insurance/prescription coverage, exact out-of-pocket cost of the diuretic, and availability of formulary alternatives or assistance programs",
+    "Cognitive/health-literacy screening results, vision and hearing status, and any language barrier affecting teach-back",
+    "Availability of family, neighbors, or caregivers for support, transportation, and stair assistance",
+    "Fall risk and functional mobility assessment relevant to a second-floor walk-up (ability to climb stairs safely)",
+    "Whether home health, cardiac rehabilitation, telehealth monitoring, or a case management/social work consult has already been requested",
+    "Number and timing of prior HF admissions and scheduled follow-up appointment date"
+  ],
+  "priorityActions": [
+    "Hold/delay the 11:00 discharge and immediately notify the provider of the exertional desaturation to 89% requiring supplemental oxygen, requesting reassessment of discharge readiness and orders for continued oxygen saturation monitoring and activity evaluation; keep the client on prescribed oxygen with activity in the interim",
+    "Initiate coordinated discharge planning now — consult case management/social work and pharmacy for medication affordability (assistance program or an affordable formulary alternative) and for a home scale, arrange home health/support given she lives alone in a second-floor walk-up, and repeat structured teach-back education on medications, daily weights, and HF warning signs until she demonstrates understanding"
+  ],
+  "reasoning": "Although the objective HF markers (BNP and weight) are improving, the client demonstrates two independent, unresolved discharge barriers. Physiologically, desaturation to 89% after only 40 feet with an oxygen requirement to recover shows she has not achieved the functional/oxygenation stability needed to live alone and climb stairs to a second-floor apartment; this is the acute safety issue and must be communicated to the provider before the 11:00 discharge proceeds. Psychosocially, failed teach-back, inability to afford the prescribed diuretic, and absence of a home scale mean the self-management plan that prevents re-decompensation cannot be executed at home — the classic drivers of early HF readmission. The unifying condition is therefore not recurrent fluid overload but unsafe/premature discharge with impaired discharge readiness. The two priority actions address the physiologic barrier (stop the clock, escalate to the provider, continue oxygen monitoring with activity) and the resource/knowledge barriers (interdisciplinary referral for affordability, scale, home support, and repeat teach-back). Evaluation logically mirrors those actions: repeat exertional oximetry demonstrating SpO2 at least 90% on room air without oxygen, and objective confirmation that teach-back is passed and the medication, scale, and support resources are actually in place.",
+  "stage1Confidence": "high",
+  "stemEvidence": [
+    {
+      "stemFact": "Active 11:00 discharge order while multiple unresolved physiologic and psychosocial barriers persist at 09:15",
+      "target": "condition"
+    },
+    {
+      "stemFact": "Desaturates to 89% after walking 40 feet and requires oxygen to recover",
+      "target": "condition"
+    },
+    {
+      "stemFact": "Fails teach-back about new medications and warning signs",
+      "target": "condition"
+    },
+    {
+      "stemFact": "BNP and weight are improving, indicating the problem is discharge readiness rather than ongoing acute fluid overload",
+      "target": "condition"
+    },
+    {
+      "stemFact": "Desaturates to 89% with 40 feet of ambulation and requires supplemental oxygen to recover",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "Discharge is ordered for 11:00, less than two hours away, so escalation must occur before the client leaves",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "Cannot afford the prescribed diuretic",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "Has no home scale and lives alone in a second-floor walk-up apartment",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "Fails teach-back about her new medications and warning signs",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "Oxygen saturation of 89% with a 40-foot walk and oxygen needed for recovery establishes the exertional oximetry benchmark",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "Second-floor walk-up apartment requires demonstrated exertional tolerance before safe discharge",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "Failed teach-back about medications and warning signs must be reassessed for successful return demonstration",
+      "target": "evaluationParameter2"
+    },
+    {
+      "stemFact": "Cannot afford the prescribed diuretic and has no home scale, so resource acquisition must be verified",
+      "target": "evaluationParameter2"
+    },
+    {
+      "stemFact": "Improving weight trend makes daily home weight monitoring the key post-discharge surveillance measure",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSetExplanation": "The canonical 1/2/2 set is uniquely defensible from the standalone stem alone. C3 is the only condition token whose four components — mass-casualty incident, resources exceeded, START triage, chemical decontamination — are each stated verbatim ('activated MCI mode', 'seven casualties', 'scarce blood and treatment spaces are being allocated', 'START triage is complete', 'one contaminated red-category casualty has completed decontamination'). C1 is contradicted by the explicit resource-allocation triage, and C2 is contradicted by the explicit MCI activation and scarcity. Among actions, A2 and A1 are the only two that follow from the stated condition: the stem confirms triage categories exist and scarce resources are being allocated (A2) and that contaminated casualties are decontaminated before entry (A1). A3 is contradicted by MCI doctrine that withholds resource-intensive resuscitation from black/expectant casualties under declared scarcity, and A4 reverses the decontamination barrier the stem shows in force. Among parameters, P2 measures whether the A2 allocation reached salvageable casualties and P1 measures whether the A1 hazmat control held; P3 is contradicted because MCI response uses abbreviated documentation by design, and P4 is uninterpretable as an isolated number because expectant deaths occur even under correct triage. No alternative combination survives, and no absent client-specific fact is needed to reach the canonical set.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'The ED is in activated MCI mode after seven casualties arrive from an industrial explosion with ammonia release. START triage is complete, one contaminated red-category casualty has completed decontamination, scarce blood and treatment spaces are being allocated' — every element of the token (MCI, resources exceeded, START triage, chemical decontamination) appears explicitly."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'START triage is complete' plus 'scarce blood and treatment spaces are being allocated' and 'the charge nurse must synthesize the safest condition, actions, and monitoring parameters' — triage categories exist and the nurse must use them to sequence scarce resources."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'one contaminated red-category casualty has completed decontamination' establishes contamination and confirms decontamination-before-ED-entry as the operative control for contaminated casualties."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'seven casualties', 'one contaminated red-category casualty', and 'scarce blood and treatment spaces are being allocated' — trajectory and survival of salvageable red/yellow casualties is the outcome measure of triage-driven allocation (A2)."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'industrial explosion with ammonia release' and 'one contaminated red-category casualty has completed decontamination' — absence of secondary contamination is the direct effectiveness measure of the decontamination action (A1)."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "The token requires an absence of resource-allocation triage, but the stem states START triage is complete and scarce blood and treatment spaces are being allocated among seven casualties. Contradicted on stem text alone; no client fact is needed to exclude it.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "A conventional surge presumes resources remain adequate, but the stem states activated MCI mode with explicitly scarce blood and treatment spaces, and a conventional surge would not involve START black/expectant categorization or mandatory hazmat decontamination.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Full CPR and advanced resuscitation for black/expectant casualties inverts the governing MCI principle under the stem's stated scarcity: resource-intensive resuscitation is withheld from expectant casualties so salvageable ones can be treated. The stem does not state whether any black-category casualties exist, but that count is irrelevant — the token is excluded on doctrine, not on a missing count.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The token introduces a client detail absent from the stem (a contaminated casualty with stridor), but its exclusion does not depend on that detail: bypassing decontamination reverses the barrier the stem shows in force and would contaminate the ED and expose staff and other casualties. Even if such a casualty existed, the action would remain wrong, so rankability is unaffected.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Routine full nursing documentation is not the acute-phase standard during an activated MCI; abbreviated triage-tag documentation is appropriate. Timing routine charting measures neither triage accuracy nor contamination control, so it is not a safety-relevant parameter here.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "A raw mortality total carries no denominator, salvageability breakdown, or benchmark, so it cannot distinguish correct from incorrect allocation — expectant deaths occur even when triage is performed correctly. No client fact would make an isolated count actionable, so it ranks last regardless.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    "Per-category START counts (how many red, yellow, green, black casualties)",
+    "Actual inventory of blood units, ventilators, resuscitation bays, and staffing",
+    "Contamination status of the six casualties other than the one described",
+    "Vital signs, injuries, and clinical status of any individual casualty",
+    "PPE level, decontamination staffing, and effluent containment status",
+    "Incident command structure, secondary-transport capacity, and burn/trauma center availability"
+  ],
+  "notes": [
+    "The blind Stage 2 record selected the identical sets — C3, {A1, A2}, {P1, P2} — matching the canonical selection. The only difference is intra-set ordering (blind listed A1 before A2 and P1 before P2; canonical lists A2 before A1 and P2 before P1). Bowtie action and parameter slots are unordered sets, so this is a full set match rather than a discrepancy; no revision to the blind record is warranted or has been made.",
+    "The published rationale's action ordering (A2 then A1) reflects that START-based allocation is the synthesis task assigned to the charge nurse, while decontamination is the standing environmental control already demonstrated in the stem. The blind record's reasoning cited both justifications, so the underlying logic is aligned even though the listing order differed.",
+    "Every canonical target is supported by verbatim stem text; no canonical target required general-knowledge bridging or an absent client fact.",
+    "All six distractors are excluded on stem text or on general MCI doctrine. A4 is the only token that introduces an unstated client detail (stridor), and its exclusion is independent of that detail.",
+    "The blind Stage 2 record listed A4's premise status as CONTRADICTED with the observation that stridor is not stated anywhere in the stem; that assessment holds against the revealed item, whose byChoice rationale likewise rejects A4 on the decontamination-bypass principle rather than on the stridor detail."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 free-generation answered at the individual-patient clinical level rather than the system/incident level the canonical item targets. The Stage 1 condition — acute caustic inhalation injury with impending upper-airway obstruction in a blast-injured red-category casualty — is clinically defensible for the decontaminated casualty named in the stem but does not correspond to C3, which frames the condition as the incident itself (MCI exceeding ED resources with START triage and chemical decontamination). Alignment is genuine but partial on actions: Stage 1's second priority action explicitly invoked 'the MCI massive transfusion and scarce-blood allocation protocol' and confirmation with the triage officer of treatment-space assignment, which maps onto A2, and the same action included confirming documented decontamination clearance so staff could de-escalate PPE safely, which touches A1's protective intent. Stage 1's first action — early definitive airway management — has no counterpart in the canonical action pool. On parameters, Stage 1's perfusion-and-transfusion-response parameter aligns in spirit with P2's focus on salvageable-casualty trajectory as the justification for continued use of limited blood, but Stage 1's airway/oxygenation parameter has no counterpart to P1's secondary-contamination focus. Stage 1 self-assigned medium confidence and its missingInformation list already flagged the MCI resource inventory, allocation criteria, decontamination completeness, PPE level, and status of the other six casualties — the same system-level dimensions the canonical set keys on — indicating the incident-level framing was recognized as relevant even though the free-generated condition centered on one patient.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

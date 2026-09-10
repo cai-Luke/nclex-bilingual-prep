@@ -1,0 +1,273 @@
+{
+  "explicitlyLinkedHistoricalSources": [],
+  "instruction": "The standalone-unblinding record above is immutable and was produced by you in this same session. This candidate has no paired sibling case — none exists and none will be provided. For every missing client fact identified in your standalone-unblinding record, inspect only this candidate's own rationale, byChoice, test-taking strategy, and glossary (English and Chinese), classify bounded provenance (RATIONALE_ONLY, UNSUPPORTED_ANYWHERE_CHECKED, or OTHER_PROVENANCE), apply the fixed six-value verdict precedence (FAIL_HIDDEN_CASE_DEPENDENCY is unreachable for an unpaired candidate and is a blocker if asserted), and record narrow bilingual/clinical/scope collateral observations. Do not revise the standalone-unblinding record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions — select 2",
+          "zh": "优先措施——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Increase the pre-exercise insulin dose independently.",
+            "opaqueTokenLabel": "A1",
+            "zh": "自行增加锻炼前胰岛素剂量。"
+          },
+          {
+            "en": "Contact the diabetes prescriber or DSMES team to create an individualized exercise-day carbohydrate and medication plan before the next ride.",
+            "opaqueTokenLabel": "A2",
+            "zh": "在下次骑车前联系糖尿病开立者或 DSMES 团队，共同制定个体化锻炼日碳水化合物和用药方案。"
+          },
+          {
+            "en": "Before the next ride, obtain rapid-acting carbohydrate and clear instructions for treating a low reading; follow those instructions promptly if symptoms or a low reading occur.",
+            "opaqueTokenLabel": "A3",
+            "zh": "下次骑车前备好速效碳水化合物并获得处理低血糖读数的明确指导；出现症状或低血糖读数时及时按指导处理。"
+          },
+          {
+            "en": "Stop all physical activity permanently.",
+            "opaqueTokenLabel": "A4",
+            "zh": "永久停止所有身体活动。"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的状况"
+        },
+        "tokens": [
+          {
+            "en": "Intercurrent illness causing unstable glucose",
+            "opaqueTokenLabel": "C1",
+            "zh": "合并急性疾病导致血糖不稳定"
+          },
+          {
+            "en": "Persistent hyperglycemia from insufficient insulin",
+            "opaqueTokenLabel": "C2",
+            "zh": "胰岛素不足导致的持续高血糖"
+          },
+          {
+            "en": "Activity-associated hypoglycemia from a plan not aligned with the new exercise routine",
+            "opaqueTokenLabel": "C3",
+            "zh": "因现有方案未与新锻炼习惯协调而发生的运动相关低血糖"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor — select 2",
+          "zh": "需要监测的指标——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Timing and recurrence of hypoglycemia symptoms or readings below the client’s action threshold",
+            "opaqueTokenLabel": "P1",
+            "zh": "低血糖症状或低于个人行动阈值读数的发生时间及是否复发"
+          },
+          {
+            "en": "Glucose immediately before, during, and for several hours after cycling",
+            "opaqueTokenLabel": "P2",
+            "zh": "骑车前、骑车中以及结束后数小时的血糖"
+          },
+          {
+            "en": "Daily urine ketones despite normal glucose and no illness",
+            "opaqueTokenLabel": "P3",
+            "zh": "在血糖正常且无疾病时每日检测尿酮体"
+          },
+          {
+            "en": "Resting blood pressure on nonexercise mornings",
+            "opaqueTokenLabel": "P4",
+            "zh": "非锻炼日早晨的静息血压"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "运动中或运动后因葡萄糖利用增加和胰岛素作用而发生的低血糖。",
+        "termEn": "activity-associated hypoglycemia",
+        "termZh": "运动相关低血糖"
+      },
+      {
+        "defZh": "帮助患者把监测、饮食、活动和药物管理融入日常生活的个体化服务。",
+        "termEn": "DSMES",
+        "termZh": "糖尿病自我管理教育与支持"
+      },
+      {
+        "defZh": "可较快升高血糖、用于处理低血糖的含糖食物或饮料。",
+        "termEn": "rapid-acting carbohydrate",
+        "termZh": "速效碳水化合物"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct: the low readings and symptoms consistently track the new exercise routine.",
+          "opaqueTokenLabel": "C3",
+          "zh": "正确：低血糖读数和症状始终与新锻炼习惯相对应。"
+        },
+        {
+          "en": "Incorrect: the documented problem is recurrent low glucose, not persistent hyperglycemia.",
+          "opaqueTokenLabel": "C2",
+          "zh": "错误：题干记录的是反复低血糖，而不是持续高血糖。"
+        },
+        {
+          "en": "Incorrect: the stem supplies no illness cues, and the episodes are exercise-linked.",
+          "opaqueTokenLabel": "C1",
+          "zh": "错误：题干没有疾病线索，而且每次发作都与运动相关。"
+        },
+        {
+          "en": "Correct: exercise-related carbohydrate and medication adjustments must be individualized with the prescribing/education team.",
+          "opaqueTokenLabel": "A2",
+          "zh": "正确：运动相关的碳水化合物和药物调整应由开立者/教育团队进行个体化设计。"
+        },
+        {
+          "en": "Immediate safety requires arranging access to rapid-acting carbohydrate and clear treatment instructions before the next ride, then using them promptly if symptoms or a low reading occur.",
+          "opaqueTokenLabel": "A3",
+          "zh": "近期安全需要在下次骑车前备好速效碳水化合物并获得明确处理指导，出现症状或低血糖读数时及时按指导处理。"
+        },
+        {
+          "en": "Incorrect: increasing insulin can worsen exercise-associated hypoglycemia and is not an independent nursing or client decision.",
+          "opaqueTokenLabel": "A1",
+          "zh": "错误：增加胰岛素可能加重运动相关低血糖，而且不应由护士或患者自行决定。"
+        },
+        {
+          "en": "Incorrect: the goal is safe individualized activity, not permanent avoidance.",
+          "opaqueTokenLabel": "A4",
+          "zh": "错误：目标是安全、个体化地活动，而不是永久停止运动。"
+        },
+        {
+          "en": "Correct: peri-exercise glucose shows the direction and duration of the exercise effect.",
+          "opaqueTokenLabel": "P2",
+          "zh": "正确：围绕运动时段的血糖可显示运动影响的方向和持续时间。"
+        },
+        {
+          "en": "Correct: fewer or absent episodes indicate that the revised plan is working.",
+          "opaqueTokenLabel": "P1",
+          "zh": "正确：发作减少或消失说明调整后的方案有效。"
+        },
+        {
+          "en": "Incorrect: resting blood pressure does not specifically evaluate the exercise-linked glucose problem.",
+          "opaqueTokenLabel": "P4",
+          "zh": "错误：静息血压不能特异性评价运动相关血糖问题。"
+        },
+        {
+          "en": "Incorrect: routine ketone checks without hyperglycemia or illness do not measure response to this plan.",
+          "opaqueTokenLabel": "P3",
+          "zh": "错误：在无高血糖或疾病时每日测尿酮体不能评价本方案的效果。"
+        }
+      ],
+      "correct": {
+        "en": "The repeated low-glucose episodes occur specifically during or shortly after the new exercise routine, while nonexercise readings remain in the stated range and illness cues are absent. This supports activity-associated hypoglycemia caused by a self-management plan that has not yet been aligned with the new routine. Priority actions are to involve the diabetes prescriber or DSMES team in an individualized exercise-day plan and, before the next ride, to obtain rapid-acting carbohydrate and clear low-glucose treatment instructions. Glucose around exercise and recurrence or timing of symptoms show whether the revised plan works.",
+        "zh": "低血糖反复发生在新锻炼过程中或结束后不久，而非锻炼日血糖仍处于题干范围，并且没有疾病线索，因此最符合自我管理方案尚未与新锻炼习惯协调所导致的运动相关低血糖。优先措施是请糖尿病开立者或 DSMES 团队共同制定个体化锻炼日方案，并在下次骑车前备好速效碳水化合物、获得明确的低血糖处理指导。监测锻炼前后血糖以及症状或低血糖是否再次出现，可判断调整后的方案是否有效。"
+      }
+    },
+    "stem": {
+      "en": "A client with type 1 diabetes began a new 45-minute cycling routine after work. On three cycling days, the client developed sweating, tremor, and difficulty concentrating during the ride or within one hour afterward; continuous glucose monitor readings were 58–64 mg/dL. On noncycling days, fasting and premeal glucose readings remain 95–140 mg/dL. The client has no fever, vomiting, ketones, or recent illness and has continued the preexisting meal and insulin plan without an exercise-day adjustment.\n\nComplete the bowtie by selecting the most likely condition, the 2 priority actions, and the 2 parameters to monitor.",
+      "zh": "一名 1 型糖尿病患者开始在下班后进行新的 45 分钟骑车锻炼。在 3 个骑车日中，患者在骑行中或结束后 1 小时内出现出汗、手抖和注意力难以集中，连续血糖监测值为 58–64 mg/dL。非骑车日的空腹及餐前血糖仍为 95–140 mg/dL。患者无发热、呕吐、酮体或近期疾病，并且一直沿用原有饮食和胰岛素方案，没有针对锻炼日进行调整。\n\n完成蝴蝶结题：选择最可能的状况、2 项优先措施和 2 项需要监测的指标。"
+    },
+    "testTakingStrategy": {
+      "en": "Resolve the condition by matching timing and glucose pattern. Choose actions that establish immediate low-glucose safety and involve the diabetes team in planning for future exercise.",
+      "zh": "根据症状发生时间和血糖模式判断状况。选择能建立即时低血糖安全措施，并由糖尿病团队共同制定后续锻炼计划的行动。"
+    }
+  },
+  "standaloneReview": {
+    "anyCanonicalTargetDependsOnAbsentFact": false,
+    "blindExactMatch": true,
+    "canonicalSetExplanation": "The canonical set is uniquely defensible from the standalone stem alone. C3 is the only condition consistent with recurrent CGM-documented readings of 58–64 mg/dL accompanied by adrenergic and neuroglycopenic symptoms occurring exclusively during or within one hour after the new cycling routine, while noncycling fasting and premeal readings remain 95–140 mg/dL; C1 is contradicted by the explicit denial of fever, vomiting, ketones, and recent illness, and C2 is contradicted by the low rather than elevated readings and the absence of ketones. Among actions, A2 addresses the stated root cause that the preexisting meal and insulin plan was continued without an exercise-day adjustment, and correctly routes carbohydrate and medication changes through the prescriber or DSMES team rather than an independent change; A3 secures immediate safety before the next ride given repeated symptomatic lows. A1 is contradicted because increasing insulin would deepen hypoglycemia and exceeds independent scope, and A4 is contradicted because the remedy is an aligned plan, not permanent cessation of beneficial activity. Among parameters, P2 captures the peri-exercise glucose trajectory that defines the problem and its resolution, and P1 captures recurrence and timing, which is the direct outcome measure of a revised plan; P3 is contradicted by the stated absence of ketones, illness, and hyperglycemia, and P4 has no premise in the stem, which supplies no blood pressure or cardiovascular data. No two-item substitution within either the action or parameter pool preserves defensibility, so the 1/2/2 keyed set is unique.",
+    "canonicalSetUniquelyDefensible": true,
+    "canonicalTargetSupport": [
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C3",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "Began a new 45-minute cycling routine after work; on three cycling days developed sweating, tremor, and difficulty concentrating during the ride or within one hour afterward with CGM 58–64 mg/dL; noncycling fasting and premeal glucose 95–140 mg/dL; continued the preexisting meal and insulin plan without an exercise-day adjustment."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A2",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "Has continued the preexisting meal and insulin plan without an exercise-day adjustment, with repeated exercise-linked lows across three cycling days."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A3",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "Sweating, tremor, and difficulty concentrating during the ride or within one hour afterward with CGM readings of 58–64 mg/dL on three separate cycling days."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P2",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "CGM readings were 58–64 mg/dL during the ride or within one hour afterward, contrasted with noncycling readings of 95–140 mg/dL."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P1",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "On three cycling days the client developed hypoglycemia symptoms during the ride or within one hour afterward, establishing a recurrence-and-timing pattern to track."
+      }
+    ],
+    "distractorPremiseFindings": [
+      {
+        "explanation": "The stem explicitly states the client has no fever, vomiting, ketones, or recent illness, removing any premise for intercurrent illness as the cause.",
+        "opaqueTokenLabel": "C1",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE"
+      },
+      {
+        "explanation": "The documented abnormality is recurrent low glucose of 58–64 mg/dL with noncycling readings of 95–140 mg/dL and no ketones, which is incompatible with persistent hyperglycemia from insufficient insulin.",
+        "opaqueTokenLabel": "C2",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE"
+      },
+      {
+        "explanation": "Increasing the pre-exercise insulin dose would worsen the documented exercise-associated hypoglycemia, and an independent dose increase is outside nursing and client scope.",
+        "opaqueTokenLabel": "A1",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE"
+      },
+      {
+        "explanation": "Nothing in the stem indicates exercise is unsafe in principle; the identified gap is the unadjusted plan, so permanent cessation of all physical activity is not supportable.",
+        "opaqueTokenLabel": "A4",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE"
+      },
+      {
+        "explanation": "The stem states there are no ketones, no illness, and no hyperglycemia, so daily urine ketone testing has no premise and would not evaluate response to an exercise-day plan.",
+        "opaqueTokenLabel": "P3",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE"
+      },
+      {
+        "explanation": "The stem provides no blood pressure values, cardiovascular history, or hemodynamic concern, so resting blood pressure on nonexercise mornings has no anchor in the case and does not measure the glucose problem.",
+        "opaqueTokenLabel": "P4",
+        "premiseStatus": "NO_CLIENT_PREMISE",
+        "rankabilityImpact": "NONE"
+      }
+    ],
+    "missingClientFacts": [
+      "Type, dose, and timing of insulin relative to the cycling session",
+      "Timing and carbohydrate content of the preexercise meal or snack",
+      "Preexercise CGM value and trend arrow before starting the ride",
+      "Cycling intensity (heart rate or perceived exertion)",
+      "Whether nocturnal or delayed post-exercise hypoglycemia has occurred",
+      "Client's hypoglycemia awareness status and prior severe episodes",
+      "Whether the client currently carries rapid-acting carbohydrate during rides",
+      "The client's individualized low-glucose action threshold"
+    ],
+    "notes": [
+      "Both blind-stage records were produced before the canonical selection was revealed and are reproduced here unmodified; neither has been revised.",
+      "Stage 2 selected C3, A2/A3, and P1/P2, which matches the canonical set exactly; parameter ordering differs (P1,P2 versus canonical P2,P1) but the selected set is identical and the task does not treat parameter order as keyed.",
+      "The listed missing client facts are refinements that would sharpen the individualized plan; none of them is required to rank the pools, because each distractor is either explicitly contradicted by the stem or has no client premise at all.",
+      "No sibling case material was inspected, inferred, or assumed; this analysis rests solely on the standalone stem, prompts, token pools, and the revealed canonical selection.",
+      "The Stage 1 free-generated condition 'exercise-induced hypoglycemia' is semantically equivalent to canonical C3 'activity-associated hypoglycemia from a plan not aligned with the new exercise routine'.",
+      "Stage 1 free-generated priority action 1 was immediate 15 g fast-acting carbohydrate treatment with 15-minute recheck, which maps onto A3; Stage 1 priority action 2 combined preexercise carbohydrate with insulin reduction 'per provider protocol', which maps onto A2 once the pool restricts regimen changes to prescriber/DSMES-directed planning."
+    ],
+    "stage1Alignment": "FULL",
+    "stage1AlignmentExplanation": "The Stage 1 blind free-generation produced, without any pool cues, a condition and both action and parameter categories that map one-to-one onto the canonical keyed tokens. Stage 1 named 'exercise-induced hypoglycemia', which is the same construct as C3. Its first priority action (treat with 15 g rapid-acting carbohydrate and recheck in 15 minutes) corresponds to A3's rapid-acting carbohydrate and prompt low-treatment instructions, and its second (preexercise carbohydrate plus insulin reduction on exercise days per provider protocol) corresponds to A2's individualized exercise-day carbohydrate and medication plan created with the prescriber or DSMES team. Its two evaluation parameters (CGM before, during, and for several hours after cycling including overnight; and recurrence and severity of hypoglycemia symptoms on cycling versus noncycling days) correspond directly to P2 and P1 respectively. Stage 2 then selected exactly the canonical labels. Alignment is therefore FULL across both blind stages, with the only differences being wording granularity and the ordering of the two parameters.",
+    "unstatedClientFactMateriallyChangesRankability": false
+  },
+  "standaloneSha256": "13b03ecdcf035b41601b7e6af7ebc19ba4aa3c10f4870d94bec8a2c488b72830"
+}

@@ -1,0 +1,50 @@
+{
+  "condition": "Actual breach of contact precautions with MRSA cross-contamination of a clean supply area — a MRSA-exposed, non-disinfected stethoscope was placed in the clean utility room adjacent to a clean supply cart, contaminating clean stock and creating a high risk for MRSA transmission to multiple clients on the unit",
+  "evaluationParameters": [
+    "Verification of effective decontamination and workflow correction: documented removal/reprocessing or discard of all potentially contaminated supplies, disinfectant wet contact time achieved, clean utility room audit showing no patient-care equipment stored in the clean area, dedicated equipment present in the MRSA room, and completed event report with infection prevention follow-up",
+    "Surveillance for transmission and practice compliance: new MRSA colonization or infection (positive surveillance/clinical cultures, new wound drainage, purulent sputum, fever/WBC) in clients who received supplies from that cart over the incubation window, plus unit hand-hygiene, PPE, and equipment-disinfection audit scores trending to target"
+  ],
+  "missingInformation": [
+    "Time elapsed since the stethoscope was placed in the clean utility room and whether it was ever disinfected after use in the MRSA room",
+    "Whether the stethoscope physically touched the clean supply cart or stock, and which specific supplies were exposed",
+    "Whether any exposed supplies were already taken to and used on other clients, and the identity/room numbers of those clients",
+    "Site and burden of the client's MRSA (wound, sputum, urine, bacteremia) and whether the organism is actively draining or aerosolized",
+    "Presence of high-risk clients on the unit (immunocompromised, open wounds, central lines, invasive devices) served by that supply cart",
+    "Facility policy for shared equipment disinfection, the specific disinfectant and its required contact time, and clean utility room storage standards",
+    "Who placed the stethoscope there (staff, student, or the client) and whether the item is unit-owned or personal",
+    "Unit baseline MRSA HAI rate and current hand-hygiene/PPE audit compliance data",
+    "Whether the clean utility room has already been used by other staff since the contamination occurred"
+  ],
+  "priorityActions": [
+    "Immediately contain and decontaminate: don gloves (and gown as indicated), remove the stethoscope and any clean supplies on/near the cart that could have been contaminated from the clean utility room, discard or reprocess those supplies, and disinfect the stethoscope, cart, and adjacent surfaces with an EPA-registered hospital-grade disinfectant observing the full manufacturer wet contact time, performing hand hygiene before and after; take the clean utility room/cart out of service until terminal cleaning is complete",
+    "Prevent recurrence and escalate: assign dedicated single-client equipment (stethoscope, BP cuff, thermometer) that remains in the MRSA client's contact-precautions room, notify the charge nurse and infection prevention and file a safety/event report, and re-educate the involved staff and student on point-of-use equipment disinfection and clean/dirty workflow separation"
+  ],
+  "reasoning": "Three of the four scenario elements are distractors that describe risk, education needs, or a question to be answered: the CDI door handle is a documented contamination requiring soap-and-water hand hygiene and a sporicidal (bleach) wipe, the soiled-linen issue is a handling concern, and the visitor's TB question is an education need about the smear-positive client remaining in the AIIR with a surgical mask for medically necessary transport only. The stethoscope, by contrast, is an actual completed breach in which a contaminated multi-use item has already crossed the clean/dirty boundary into the clean supply area, so the exposure is not confined to one room or one staff member — every client who receives stock from that cart is potentially exposed. Under priority-setting for actual over potential problems and for the greatest number affected, this is the priority cross-contamination problem. The bow-tie therefore drives left to source control (contain, remove, disinfect, take the area out of service) and system correction (dedicated in-room equipment, infection prevention notification, staff re-education), and drives right to outcome checks that close both loops: proof the contamination was eliminated and workflow corrected, and surveillance that no client actually acquired MRSA, supported by compliance audit data.",
+  "stage1Confidence": "high",
+  "stemEvidence": [
+    {
+      "stemFact": "A contaminated stethoscope from a client's MRSA contact-precautions room has been found in the clean utility room near a clean supply cart",
+      "target": "condition"
+    },
+    {
+      "stemFact": "The stethoscope was found near a clean supply cart, meaning clean stock destined for multiple clients is potentially contaminated",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "The item is a shared, non-disinfected piece of patient-care equipment removed from a contact-precautions room",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "The stethoscope crossed the clean/dirty boundary into the clean utility room, indicating a workflow and equipment-disinfection failure",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "MRSA contact precautions were in effect, and multiple clients could receive supplies from the affected cart",
+      "target": "evaluationParameter2"
+    },
+    {
+      "stemFact": "A student also contaminated a door handle after CDI care, a soiled-linen handling concern was identified, and a visitor asked whether a smear-positive TB client could leave the AIIR",
+      "target": "condition"
+    }
+  ]
+}

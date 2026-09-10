@@ -1,0 +1,591 @@
+{
+  "adapterPath": "audit/campaign-16-phase-d-bowtie-repair-2026-08-29-r2/adapter.ts",
+  "candidateCount": 12,
+  "exactByteComparisonCount": 48,
+  "frozenLineageWrites": [],
+  "importedFrozenHelpers": [
+    "stableJson",
+    "sha256"
+  ],
+  "prohibitedFrozenEntrypointsInvoked": [],
+  "rows": [
+    {
+      "candidateId": "gpt_case_caregiver_role_strain_dementia_01_bowtie",
+      "cardinalities": {
+        "phaseECanonicalSupportRows": 5,
+        "phaseEDistractorRows": 6,
+        "stage2PremiseRows": 11
+      },
+      "finalVerdictVocabularyValid": true,
+      "historicalInputLocks": {
+        "phaseEReviewSha256": "8c0c1d2b051d7e90b5ec9676d98e2fa2779ce5dddefff9f7b12f2a58c08bf135",
+        "phaseFReviewSha256": "fa5a6251e597ffc3c47fe719ba47d4fa6734e54facddc1c683d31cbeea879802",
+        "stage1ReviewSha256": "67f06c12612fa7868be357a5b640afd15cb1d6fd8199e68c8f55c2c5e300dcf9",
+        "stage2ReviewSha256": "cda4e249323ac56322fad56fda852be22cac13b606ac2c95aff62cd83046276f"
+      },
+      "historicalLineage": "standalone-bowtie-answerability-census-2026-08-23",
+      "historicalSurrogateId": "CAND-05",
+      "leakageChecks": "PASS",
+      "stages": [
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-05-stage1.json",
+          "expectedSha256": "11662499bd7f0ba9655312d0ed17df7116145a7a015b514f16f1bdcb620b115e",
+          "observedSha256": "11662499bd7f0ba9655312d0ed17df7116145a7a015b514f16f1bdcb620b115e",
+          "stage": "stage1"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-05-stage2.json",
+          "expectedSha256": "917e92dab8ee3d70d053df5512a6809b7f4cc2f77cb9e79231a0116eb9df41cf",
+          "observedSha256": "917e92dab8ee3d70d053df5512a6809b7f4cc2f77cb9e79231a0116eb9df41cf",
+          "stage": "stage2"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-05.json",
+          "expectedSha256": "2c2120d9b1102c5947ac51e1c6ef290b777574dbef676e4d8e8001673de9eb3b",
+          "observedSha256": "2c2120d9b1102c5947ac51e1c6ef290b777574dbef676e4d8e8001673de9eb3b",
+          "stage": "phase-e"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-05.json",
+          "expectedSha256": "08dcd5d866bcaddc32359ac85b466df1fd9b73933f0ea58869419072d3158e08",
+          "observedSha256": "08dcd5d866bcaddc32359ac85b466df1fd9b73933f0ea58869419072d3158e08",
+          "stage": "phase-f"
+        }
+      ]
+    },
+    {
+      "candidateId": "gpt_case_infection_control_clustered_care_01_bowtie",
+      "cardinalities": {
+        "phaseECanonicalSupportRows": 5,
+        "phaseEDistractorRows": 6,
+        "stage2PremiseRows": 11
+      },
+      "finalVerdictVocabularyValid": true,
+      "historicalInputLocks": {
+        "phaseEReviewSha256": "cfed43df7b8ebd572f9bd60b7e5c15cdf6b921bca91eb1983e244d195db78ded",
+        "phaseFReviewSha256": "99849050009357fc9eba0953e59d156029bf3ba1255c61179991c0b638f712fe",
+        "stage1ReviewSha256": "0eac667d597d3eb48a18145345fb10218049354204840596c7e361513da7bf30",
+        "stage2ReviewSha256": "60ae4067b9daa98e3477308b458ba6a512042470293a665c9c3aba984ea12dbd"
+      },
+      "historicalLineage": "standalone-bowtie-answerability-census-2026-08-23",
+      "historicalSurrogateId": "CAND-11",
+      "leakageChecks": "PASS",
+      "stages": [
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-11-stage1.json",
+          "expectedSha256": "9f726ceca1db7e6d2f6d24e7793297b85d8ada29cc1290f8ae38aa1d5b481cc8",
+          "observedSha256": "9f726ceca1db7e6d2f6d24e7793297b85d8ada29cc1290f8ae38aa1d5b481cc8",
+          "stage": "stage1"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-11-stage2.json",
+          "expectedSha256": "84727b3a7925a4434b57a7782a853bd4c7e428e9cdcb6b0e37287316efc3009a",
+          "observedSha256": "84727b3a7925a4434b57a7782a853bd4c7e428e9cdcb6b0e37287316efc3009a",
+          "stage": "stage2"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-11.json",
+          "expectedSha256": "6b3b37b1b031612feb0b4a5e19a367e84ffaaefd0ef00ef5edc7cc94f0e7ee49",
+          "observedSha256": "6b3b37b1b031612feb0b4a5e19a367e84ffaaefd0ef00ef5edc7cc94f0e7ee49",
+          "stage": "phase-e"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-11.json",
+          "expectedSha256": "0fd0d7dcb8c4f58a03e77b24a85873016ae889dd968c91e094bb8a38cbbda69d",
+          "observedSha256": "0fd0d7dcb8c4f58a03e77b24a85873016ae889dd968c91e094bb8a38cbbda69d",
+          "stage": "phase-f"
+        }
+      ]
+    },
+    {
+      "candidateId": "gpt_case_acute_hemolytic_transfusion_reaction_01_bowtie",
+      "cardinalities": {
+        "phaseECanonicalSupportRows": 5,
+        "phaseEDistractorRows": 6,
+        "stage2PremiseRows": 11
+      },
+      "finalVerdictVocabularyValid": true,
+      "historicalInputLocks": {
+        "phaseEReviewSha256": "d1ceda8cf1cb37610a0e6069620296faf80085807412014d50dea7adaafccc68",
+        "phaseFReviewSha256": "f027735f9e7307b9de875704f59c159eaa2b53c43dda7b363e52a840693dca6a",
+        "stage1ReviewSha256": "c4d5da4b461325a6ee7b2a443699c1dc92b335fb641b714072c9194b7fd263b1",
+        "stage2ReviewSha256": "ba044e4534c190fc097d68775f7df60ae0dc26afb7f758d186ab350f9e1679e3"
+      },
+      "historicalLineage": "standalone-bowtie-answerability-census-2026-08-23",
+      "historicalSurrogateId": "CAND-03",
+      "leakageChecks": "PASS",
+      "stages": [
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-03-stage1.json",
+          "expectedSha256": "cfbfec85083a09f0e31a3f8e99e64fca222c37d4497b06a6a4207d98dfabcd04",
+          "observedSha256": "cfbfec85083a09f0e31a3f8e99e64fca222c37d4497b06a6a4207d98dfabcd04",
+          "stage": "stage1"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-03-stage2.json",
+          "expectedSha256": "054a2e54576e74ea5120395cf37ca69b427c25ad012a23b73bb610e072fc95a9",
+          "observedSha256": "054a2e54576e74ea5120395cf37ca69b427c25ad012a23b73bb610e072fc95a9",
+          "stage": "stage2"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-03.json",
+          "expectedSha256": "433060ed99334f7cba3a4dd3801e8d6fa730377357f8c46cf1aa18dd5017523f",
+          "observedSha256": "433060ed99334f7cba3a4dd3801e8d6fa730377357f8c46cf1aa18dd5017523f",
+          "stage": "phase-e"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-03.json",
+          "expectedSha256": "17858080c34b59b3b68654c2bebce7fd522cb78c22969cd3bb02caf829a28d39",
+          "observedSha256": "17858080c34b59b3b68654c2bebce7fd522cb78c22969cd3bb02caf829a28d39",
+          "stage": "phase-f"
+        }
+      ]
+    },
+    {
+      "candidateId": "gpt_case_client_advocacy_refusal_01_bowtie",
+      "cardinalities": {
+        "phaseECanonicalSupportRows": 5,
+        "phaseEDistractorRows": 6,
+        "stage2PremiseRows": 11
+      },
+      "finalVerdictVocabularyValid": true,
+      "historicalInputLocks": {
+        "phaseEReviewSha256": "417c7f317fb8683196b60b11c3ef4dc331989e66be8c024f53bf0ad6c3e5416a",
+        "phaseFReviewSha256": "02ce3797ba86f2c6a1bef8879bb358de61457c443d74ef7b8b178c572715aa74",
+        "stage1ReviewSha256": "13b41ccdb39a6c5f3033a821edf444f67c18bfab9a7d2c91f99655e9011ea7fe",
+        "stage2ReviewSha256": "3d7da417fa4187d9b0b8e2767005bb3e16a042b278d514f8b1e30792b5907bde"
+      },
+      "historicalLineage": "standalone-bowtie-answerability-census-2026-08-23",
+      "historicalSurrogateId": "CAND-06",
+      "leakageChecks": "PASS",
+      "stages": [
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-06-stage1.json",
+          "expectedSha256": "9667b50e231a57938888be36677dc9a6ca501a29fbcf2690a10ac1788388098b",
+          "observedSha256": "9667b50e231a57938888be36677dc9a6ca501a29fbcf2690a10ac1788388098b",
+          "stage": "stage1"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-06-stage2.json",
+          "expectedSha256": "4fef9875cf288a9d1ee8c7e66de8b9efe6bfb9fd7219f6b1c85a28d5ecec4543",
+          "observedSha256": "4fef9875cf288a9d1ee8c7e66de8b9efe6bfb9fd7219f6b1c85a28d5ecec4543",
+          "stage": "stage2"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-06.json",
+          "expectedSha256": "6ccf992fae5c9169801e0b27dd1e36144c0f905aa459499ae0fba4c89accfbd5",
+          "observedSha256": "6ccf992fae5c9169801e0b27dd1e36144c0f905aa459499ae0fba4c89accfbd5",
+          "stage": "phase-e"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-06.json",
+          "expectedSha256": "1390dac0687d58ec67f718c324f477ed4ca771e6c831a4169a9973ecc979ae59",
+          "observedSha256": "1390dac0687d58ec67f718c324f477ed4ca771e6c831a4169a9973ecc979ae59",
+          "stage": "phase-f"
+        }
+      ]
+    },
+    {
+      "candidateId": "gpt_case_lateral_incivility_01_bowtie",
+      "cardinalities": {
+        "phaseECanonicalSupportRows": 5,
+        "phaseEDistractorRows": 6,
+        "stage2PremiseRows": 11
+      },
+      "finalVerdictVocabularyValid": true,
+      "historicalInputLocks": {
+        "phaseEReviewSha256": "33ab94cc26f389df7563eec85df4d556cfc129efab7afdb7d7b13dd3b31b2b7b",
+        "phaseFReviewSha256": "d66a62de6812b3d5fa36cd31decac24fef19a7a5e78962d26f044ff9514f0920",
+        "stage1ReviewSha256": "f0dc46fde706c4e141a3345318ca79f373d3a678758111b06a2fa9129f49e45e",
+        "stage2ReviewSha256": "93b7366185a23d06c3fa82bca1bb7b0bf926ac6d06368894da91e74e94bcba90"
+      },
+      "historicalLineage": "standalone-bowtie-answerability-census-2026-08-23",
+      "historicalSurrogateId": "CAND-12",
+      "leakageChecks": "PASS",
+      "stages": [
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-12-stage1.json",
+          "expectedSha256": "2463dfb8f8131a45c57a8672568ae06949b13771329bf3cf3b35151521221fbd",
+          "observedSha256": "2463dfb8f8131a45c57a8672568ae06949b13771329bf3cf3b35151521221fbd",
+          "stage": "stage1"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-12-stage2.json",
+          "expectedSha256": "7305c9f07e36986c2325818a51c49851a62906fa0328badc6d2047c48182db50",
+          "observedSha256": "7305c9f07e36986c2325818a51c49851a62906fa0328badc6d2047c48182db50",
+          "stage": "stage2"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-12.json",
+          "expectedSha256": "c5fc07606274e86cb5cc60ab669e66f1c067bca91de3caa29e92b7bd5d0e552a",
+          "observedSha256": "c5fc07606274e86cb5cc60ab669e66f1c067bca91de3caa29e92b7bd5d0e552a",
+          "stage": "phase-e"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-12.json",
+          "expectedSha256": "32ec4a0170c7e68c384032135cac81990ecc540e8569834196ba09b4ad1f2024",
+          "observedSha256": "32ec4a0170c7e68c384032135cac81990ecc540e8569834196ba09b4ad1f2024",
+          "stage": "phase-f"
+        }
+      ]
+    },
+    {
+      "candidateId": "gpt_case_mass_casualty_start_triage_01_bowtie",
+      "cardinalities": {
+        "phaseECanonicalSupportRows": 5,
+        "phaseEDistractorRows": 6,
+        "stage2PremiseRows": 11
+      },
+      "finalVerdictVocabularyValid": true,
+      "historicalInputLocks": {
+        "phaseEReviewSha256": "e22766815053fece0ac32d827bb3e5dbdea48ed64ed79ceff0238b09efedda15",
+        "phaseFReviewSha256": "bd2f3fbe1543bf2e2f8e27d291c776772105e6872c2e75d72d57f401260bcdc1",
+        "stage1ReviewSha256": "e3b22387b641cd37070db9617fb0b8743f9858cd470e1f64c27472187c48cc0e",
+        "stage2ReviewSha256": "6ea085e823274b78837f7d94c7dccacefc796c1fb89dae68c346ac844a6123a6"
+      },
+      "historicalLineage": "standalone-bowtie-answerability-census-2026-08-23",
+      "historicalSurrogateId": "CAND-14",
+      "leakageChecks": "PASS",
+      "stages": [
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-14-stage1.json",
+          "expectedSha256": "8ff4644badc66d1c561b0300cb3c8126ed0086976c999334d956577d588d97a8",
+          "observedSha256": "8ff4644badc66d1c561b0300cb3c8126ed0086976c999334d956577d588d97a8",
+          "stage": "stage1"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-14-stage2.json",
+          "expectedSha256": "d1c9e06d7316e987127c22e876e5947988ed7f21392c50aa5b6d0f1cf4dcb55f",
+          "observedSha256": "d1c9e06d7316e987127c22e876e5947988ed7f21392c50aa5b6d0f1cf4dcb55f",
+          "stage": "stage2"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-14.json",
+          "expectedSha256": "28422fbecb9358f2a4ea61210d2dc922a0741ec28c44924a0c0852d6c29cada3",
+          "observedSha256": "28422fbecb9358f2a4ea61210d2dc922a0741ec28c44924a0c0852d6c29cada3",
+          "stage": "phase-e"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-14.json",
+          "expectedSha256": "389e63051a0b24f7fe91360376a2df834615100281c1367a25fd955dceb10e08",
+          "observedSha256": "389e63051a0b24f7fe91360376a2df834615100281c1367a25fd955dceb10e08",
+          "stage": "phase-f"
+        }
+      ]
+    },
+    {
+      "candidateId": "gpt_case_gbs_respiratory_compromise_01_bowtie",
+      "cardinalities": {
+        "phaseECanonicalSupportRows": 5,
+        "phaseEDistractorRows": 6,
+        "stage2PremiseRows": 11
+      },
+      "finalVerdictVocabularyValid": true,
+      "historicalInputLocks": {
+        "phaseEReviewSha256": "ff248f40ab9cec8602233efc2f7fa598a141facc9e073f2c847833cf658a2d24",
+        "phaseFReviewSha256": "b09b9286b6d485ec4729954b23873f1f466e407708c29108fe831432256b2ae3",
+        "stage1ReviewSha256": "eea1e117cbc44a71714054ff1aa52dd9833ce51e75b2da73291a4f9a6d05c82c",
+        "stage2ReviewSha256": "0ff83cc5ee440e323318fb3931f11c3f15102d8e5f51737772d826b5bc5e041b"
+      },
+      "historicalLineage": "standalone-bowtie-answerability-census-2026-08-23",
+      "historicalSurrogateId": "CAND-09",
+      "leakageChecks": "PASS",
+      "stages": [
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-09-stage1.json",
+          "expectedSha256": "ddd85f0616470684fe8f3e5291ba537a6c8904a67153d349314ad6274268753e",
+          "observedSha256": "ddd85f0616470684fe8f3e5291ba537a6c8904a67153d349314ad6274268753e",
+          "stage": "stage1"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-09-stage2.json",
+          "expectedSha256": "8667703090cf34309bc92918f76ee8c0dea3e71a57150304bb3e894450be930b",
+          "observedSha256": "8667703090cf34309bc92918f76ee8c0dea3e71a57150304bb3e894450be930b",
+          "stage": "stage2"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-09.json",
+          "expectedSha256": "bb1431fafd383695a46e1769ac41648f14d26b838de59ec4dc3fd5ffac105078",
+          "observedSha256": "bb1431fafd383695a46e1769ac41648f14d26b838de59ec4dc3fd5ffac105078",
+          "stage": "phase-e"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-09.json",
+          "expectedSha256": "379a4f0494bd369093a3e2c1683996c35df000e639cb49d6b09ebfbad787e28f",
+          "observedSha256": "379a4f0494bd369093a3e2c1683996c35df000e639cb49d6b09ebfbad787e28f",
+          "stage": "phase-f"
+        }
+      ]
+    },
+    {
+      "candidateId": "gpt_case_hipaa_disclosure_breach_01_bowtie",
+      "cardinalities": {
+        "phaseECanonicalSupportRows": 5,
+        "phaseEDistractorRows": 6,
+        "stage2PremiseRows": 11
+      },
+      "finalVerdictVocabularyValid": true,
+      "historicalInputLocks": {
+        "phaseEReviewSha256": "df2d15e53b03afe0336e746f00292ba8f897d5448764d888c8943e426918f250",
+        "phaseFReviewSha256": "ccfef7da20cda78161c91cf79f773bf3e812028bc668d292690e708104182d75",
+        "stage1ReviewSha256": "02a43ca8f10ae21f55268d298551cfd840cc446cbad9df035a8aa50b9b494e83",
+        "stage2ReviewSha256": "20e28ad0dc0c4a5a5678d8b68e38fe5b646037c14e5a210d5e15f6ef01f3884f"
+      },
+      "historicalLineage": "standalone-bowtie-answerability-census-2026-08-23",
+      "historicalSurrogateId": "CAND-10",
+      "leakageChecks": "PASS",
+      "stages": [
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-10-stage1.json",
+          "expectedSha256": "06e4ffe2c9d4c41f06eef539e3b28b48998dc45a10f2cd913c57a0be000d62f8",
+          "observedSha256": "06e4ffe2c9d4c41f06eef539e3b28b48998dc45a10f2cd913c57a0be000d62f8",
+          "stage": "stage1"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-10-stage2.json",
+          "expectedSha256": "57ef7496ed1f60e78ddc1af29d8fbc51512e7394027ca0f5a5fa327f453e33c2",
+          "observedSha256": "57ef7496ed1f60e78ddc1af29d8fbc51512e7394027ca0f5a5fa327f453e33c2",
+          "stage": "stage2"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-10.json",
+          "expectedSha256": "8bbc946882b65a2caa7891f54acf85dbef29d7e125c5f29ebd7188aa477d7f1c",
+          "observedSha256": "8bbc946882b65a2caa7891f54acf85dbef29d7e125c5f29ebd7188aa477d7f1c",
+          "stage": "phase-e"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-10.json",
+          "expectedSha256": "316b474e39ee4822384448484f5f7f97cccd1cf62a6414a830a0fa2f90e33cb0",
+          "observedSha256": "316b474e39ee4822384448484f5f7f97cccd1cf62a6414a830a0fa2f90e33cb0",
+          "stage": "phase-f"
+        }
+      ]
+    },
+    {
+      "candidateId": "gpt_case_neutropenic_fever_nadir_01_bowtie",
+      "cardinalities": {
+        "phaseECanonicalSupportRows": 5,
+        "phaseEDistractorRows": 6,
+        "stage2PremiseRows": 11
+      },
+      "finalVerdictVocabularyValid": true,
+      "historicalInputLocks": {
+        "phaseEReviewSha256": "52f7c3e1536a840724104d5a049483ece6d903e975cd5381d3fd8f421c28bb0c",
+        "phaseFReviewSha256": "19a67b443d68c5d904427dd0524dbc4afe5427902200f8308efa46184eb54287",
+        "stage1ReviewSha256": "e4d6aded14fca22ad033bc230edc1e3efd34b35497ee7b58942e1894403b5aba",
+        "stage2ReviewSha256": "00d8a949ebdf12b423c715d84bd6d76450c81ed74ca8808d7851a9eb047bad02"
+      },
+      "historicalLineage": "standalone-bowtie-answerability-census-2026-08-23",
+      "historicalSurrogateId": "CAND-15",
+      "leakageChecks": "PASS",
+      "stages": [
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-15-stage1.json",
+          "expectedSha256": "3f0df017e50f8a7b6eb80fd59c23a14231b80d81339cf051f1f9d71332acc7ca",
+          "observedSha256": "3f0df017e50f8a7b6eb80fd59c23a14231b80d81339cf051f1f9d71332acc7ca",
+          "stage": "stage1"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-15-stage2.json",
+          "expectedSha256": "a09b7c70ec8b69e93078af08bdc21f7e78af2ec80209fae3b983663072176adb",
+          "observedSha256": "a09b7c70ec8b69e93078af08bdc21f7e78af2ec80209fae3b983663072176adb",
+          "stage": "stage2"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-15.json",
+          "expectedSha256": "4f1209b091c7d47abdb40706f0dc40be51299e35489fc9822ebf93dffee1aea5",
+          "observedSha256": "4f1209b091c7d47abdb40706f0dc40be51299e35489fc9822ebf93dffee1aea5",
+          "stage": "phase-e"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-15.json",
+          "expectedSha256": "1c9b1d7724506422a5dba2aedef10199cffd456e481a91f7aa993fbb1ac9a43d",
+          "observedSha256": "1c9b1d7724506422a5dba2aedef10199cffd456e481a91f7aa993fbb1ac9a43d",
+          "stage": "phase-f"
+        }
+      ]
+    },
+    {
+      "candidateId": "gpt_case_unsafe_premature_discharge_01_bowtie",
+      "cardinalities": {
+        "phaseECanonicalSupportRows": 5,
+        "phaseEDistractorRows": 6,
+        "stage2PremiseRows": 11
+      },
+      "finalVerdictVocabularyValid": true,
+      "historicalInputLocks": {
+        "phaseEReviewSha256": "2a1368b175eeb04689b719b145ee2ea58e6d1cdf33f3430151ddacae8cfa8c8c",
+        "phaseFReviewSha256": "93c620e593886927a6589c47a281922715c8cbeccea01147d62ba69f0cd25244",
+        "stage1ReviewSha256": "2118da6ad7c7c68422cb74152434579ca719404bd18190a8005e82e68fbd3107",
+        "stage2ReviewSha256": "9dbbce1a943aef807b91edd4d2bf71a49a14ed61f29a1c7daa0ad41c8720a290"
+      },
+      "historicalLineage": "standalone-bowtie-answerability-census-2026-08-23",
+      "historicalSurrogateId": "CAND-26",
+      "leakageChecks": "PASS",
+      "stages": [
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-26-stage1.json",
+          "expectedSha256": "869a6fc0220709197fb44dc932d9dea00cc03578f36e60305efc091e54cc428c",
+          "observedSha256": "869a6fc0220709197fb44dc932d9dea00cc03578f36e60305efc091e54cc428c",
+          "stage": "stage1"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-26-stage2.json",
+          "expectedSha256": "d40375c15e63a708ac3098a252ec01d512061fce236a91728b3abaff10fdd54a",
+          "observedSha256": "d40375c15e63a708ac3098a252ec01d512061fce236a91728b3abaff10fdd54a",
+          "stage": "stage2"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-26.json",
+          "expectedSha256": "7500599705ba936b759a5d07791ce1cfdf0ac8a72a68274a055ecd5c25d72039",
+          "observedSha256": "7500599705ba936b759a5d07791ce1cfdf0ac8a72a68274a055ecd5c25d72039",
+          "stage": "phase-e"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-26.json",
+          "expectedSha256": "eec8955bcdd21711d1ea63134c3df6d341c3b6d78e623e0b10edfea0397e701c",
+          "observedSha256": "eec8955bcdd21711d1ea63134c3df6d341c3b6d78e623e0b10edfea0397e701c",
+          "stage": "phase-f"
+        }
+      ]
+    },
+    {
+      "candidateId": "gpt_pph_2026_06_16_case_01_bowtie",
+      "cardinalities": {
+        "phaseECanonicalSupportRows": 5,
+        "phaseEDistractorRows": 6,
+        "stage2PremiseRows": 11
+      },
+      "finalVerdictVocabularyValid": true,
+      "historicalInputLocks": {
+        "phaseEReviewSha256": "ab25419f24fa8027971291a1128c8378cf7cc3c0adfad2f2f8f71ad9a1d9576e",
+        "phaseFReviewSha256": "8e8e282f283a11e57d797d84fc6b5c6c6b207660cfbfe2ccb7e1a33107db7fd6",
+        "stage1ReviewSha256": "429f69ef14670c990043c858cbaa45316fa656ec7d43f4c7b576875b3da314ea",
+        "stage2ReviewSha256": "63770fcb23936ce685501fa26b0fcd69077f2a0e68eb10a79a37fb36f92a1a3b"
+      },
+      "historicalLineage": "standalone-bowtie-answerability-census-2026-08-23",
+      "historicalSurrogateId": "CAND-28",
+      "leakageChecks": "PASS",
+      "stages": [
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-28-stage1.json",
+          "expectedSha256": "4e2e4b9f783b01a3663f696c17a429094cc36aa73c021cca0ed1385084a170b3",
+          "observedSha256": "4e2e4b9f783b01a3663f696c17a429094cc36aa73c021cca0ed1385084a170b3",
+          "stage": "stage1"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-28-stage2.json",
+          "expectedSha256": "d3476059bda972fbf5d6eb2e27b1c81c043644e8f3200652e78504b53281c60d",
+          "observedSha256": "d3476059bda972fbf5d6eb2e27b1c81c043644e8f3200652e78504b53281c60d",
+          "stage": "stage2"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-28.json",
+          "expectedSha256": "42e57c344fc8ae5e28e778a892a990d2687b6bd57d4058840ab1bdf077686615",
+          "observedSha256": "42e57c344fc8ae5e28e778a892a990d2687b6bd57d4058840ab1bdf077686615",
+          "stage": "phase-e"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-28.json",
+          "expectedSha256": "d2a00ef60110b2897b4bbdc618da65cbc4fe7a26beb5282e645afce1b297dee7",
+          "observedSha256": "d2a00ef60110b2897b4bbdc618da65cbc4fe7a26beb5282e645afce1b297dee7",
+          "stage": "phase-f"
+        }
+      ]
+    },
+    {
+      "candidateId": "gpt_format7c_exercise_hypoglycemia_bowtie",
+      "cardinalities": {
+        "phaseECanonicalSupportRows": 5,
+        "phaseEDistractorRows": 6,
+        "stage2PremiseRows": 11
+      },
+      "finalVerdictVocabularyValid": true,
+      "historicalInputLocks": {
+        "phaseEReviewSha256": "57af275beb9b4bdafb73775c73d26ebd31a032f471acb9314f8fac30f548879e",
+        "phaseFReviewSha256": "021112323879082c0a8f0308fba6b3b9a4f732be32a2c7401b3a6deb1e75fded",
+        "stage1ReviewSha256": "eb53dba82e356430105ab9ef59091227580f7d222269cc6c230b9e1043ab5d71",
+        "stage2ReviewSha256": "876401a1fb385a2d65805acd6d0198f06c9a0ea92500e0fcc2910036a7685f70"
+      },
+      "historicalLineage": "campaign-16-phase-c-unpaired-bowtie-2026-08-27-r5",
+      "historicalSurrogateId": "CAND-18",
+      "leakageChecks": "PASS",
+      "stages": [
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/campaign-16-phase-c-unpaired-bowtie-2026-08-27-r5/blind-packets/CAND-18-stage1.json",
+          "expectedSha256": "3fbdc764b92acccbc2c2bd775f5463944151c42f3bc3b2771079921089f7efec",
+          "observedSha256": "3fbdc764b92acccbc2c2bd775f5463944151c42f3bc3b2771079921089f7efec",
+          "stage": "stage1"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/campaign-16-phase-c-unpaired-bowtie-2026-08-27-r5/blind-packets/CAND-18-stage2.json",
+          "expectedSha256": "22bf19fc12b32acf74391e46e21797f783b9316e1db94c95ff33328ec2d7f908",
+          "observedSha256": "22bf19fc12b32acf74391e46e21797f783b9316e1db94c95ff33328ec2d7f908",
+          "stage": "stage2"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/campaign-16-phase-c-unpaired-bowtie-2026-08-27-r5/phase-e-packets/CAND-18.json",
+          "expectedSha256": "41c875065ea4232ac6e6d0fb4f65bf627536d6dd02002f8eba72dc2f590fd0e7",
+          "observedSha256": "41c875065ea4232ac6e6d0fb4f65bf627536d6dd02002f8eba72dc2f590fd0e7",
+          "stage": "phase-e"
+        },
+        {
+          "exactByteMatch": true,
+          "expectedPath": "audit/campaign-16-phase-c-unpaired-bowtie-2026-08-27-r5/phase-f-packets/CAND-18.json",
+          "expectedSha256": "e99e44eb768629275e307f7ed38865ea3e456f127176d5524905e92269b71dba",
+          "observedSha256": "e99e44eb768629275e307f7ed38865ea3e456f127176d5524905e92269b71dba",
+          "stage": "phase-f"
+        }
+      ]
+    }
+  ],
+  "stageComparisonCount": 48,
+  "status": "PASS"
+}

@@ -1,0 +1,421 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A3",
+      "A2"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P3",
+      "P2"
+    ]
+  },
+  "instruction": "The two blind-stage records above are immutable and were produced by you in this same session before this selection was revealed. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item below. Do not inspect, infer, or assume any sibling-case material — none has been provided and none exists in this context. Return the required Phase-E-equivalent structured JSON without revising either blind record.",
+  "stage1": {
+    "condition": "Informed refusal of PEG tube placement by a patient with intact decisional capacity — an autonomy/ethical conflict requiring nursing advocacy, not a physiologic complication",
+    "evaluationParameters": [
+      "Concordance of the plan of care with the patient's stated wishes — verify each shift that no PEG order or consult remains active and that documented goals of care, advance directive/POLST, and code status match her expressed decision, and that she restates the same decision consistently with unchanged capacity",
+      "Nutrition, hydration, and comfort status under the agreed non-PEG plan — oral intake and percentage of meals consumed, weight trend, intake/output and hydration markers, and signs of aspiration or dysphagia distress (coughing with meals, respiratory changes, temperature)"
+    ],
+    "missingInformation": [
+      "Underlying diagnosis and prognosis prompting the PEG recommendation (e.g., dysphagia from stroke, neurodegenerative disease, or head/neck malignancy)",
+      "Current nutritional and hydration data: weight and weight trend, albumin/prealbumin, intake/output, serum electrolytes and BUN/creatinine",
+      "Results of any swallow evaluation and documented aspiration risk",
+      "Whether a written advance directive, POLST/MOLST, or healthcare proxy exists and whether it aligns with her current statements",
+      "Current code status and whether hospice or comfort-focused care has been discussed",
+      "Which alternatives to PEG she is willing to accept (comfort feeding, modified-texture diet, NG tube, IV or subcutaneous hydration, appetite stimulants)",
+      "The family's position and whether they are contesting her decision or requesting the PEG",
+      "Whether the physician has withdrawn the suggestion to schedule the consult, and whether an ethics consult or institutional policy/state law review is warranted",
+      "Baseline mental status and any factors (pain, medication, delirium) that could later alter capacity",
+      "Vital signs, functional status, and symptom burden (pain, dyspnea, oral discomfort)"
+    ],
+    "priorityActions": [
+      "Advocate for the patient: ensure her documented refusal is communicated to the physician and entire care team and that no PEG consult, consent, or placement is scheduled or pursued without her authorization; document the refusal, the capacity determination, and the palliative care findings in the record",
+      "Facilitate and support the patient-centered family meeting: arrange for Mrs. Ellison to state her own goals of care, provide education on alternatives (comfort/hand feeding, oral nutrition, hydration options), and ensure decisions are translated into an updated advance directive/POLST and orders"
+    ],
+    "reasoning": "The stem states three decisive facts: the refusal is repeated (not a transient reaction), decisional capacity is documented and independently confirmed by palliative care, and the plan to schedule the consult 'anyway' has already been addressed. Together these define the problem as an autonomy/informed-refusal issue rather than a physiologic one; a capacitated adult's refusal of an invasive intervention is binding regardless of clinician disagreement. Because Stage 3 of a bow-tie asks for actions and parameters flowing from that condition, the two highest-priority nursing actions are the advocacy/communication-and-documentation action that operationalizes the refusal across the team, and facilitation of the arranged family meeting so the patient herself directs goals of care and the outcome is captured in durable documentation. Evaluation logically mirrors the two risks that remain: that the plan drifts back toward the unwanted procedure (evaluated by auditing orders and documentation against her stated wishes and by confirming her decision remains consistent with intact capacity), and that declining the PEG leads to unmonitored nutritional, hydration, or aspiration compromise (evaluated by intake, weight, hydration markers, and aspiration/comfort signs). Confidence is high because the stem explicitly supplies the capacity determination, the repetition of the refusal, and the palliative care confirmation; the residual uncertainty is about physiologic specifics, not about the nature of the condition.",
+    "stage1Confidence": "high",
+    "stemEvidence": [
+      {
+        "stemFact": "Mrs. Ellison has repeatedly refused PEG placement",
+        "target": "condition"
+      },
+      {
+        "stemFact": "documented intact decisional capacity",
+        "target": "condition"
+      },
+      {
+        "stemFact": "Palliative care confirms her capacity and wishes",
+        "target": "condition"
+      },
+      {
+        "stemFact": "The physician's suggestion to schedule the consult anyway has been addressed",
+        "target": "priorityAction1"
+      },
+      {
+        "stemFact": "repeatedly refused PEG placement with documented intact decisional capacity",
+        "target": "priorityAction1"
+      },
+      {
+        "stemFact": "a family meeting is arranged",
+        "target": "priorityAction2"
+      },
+      {
+        "stemFact": "Palliative care confirms her capacity and wishes",
+        "target": "priorityAction2"
+      },
+      {
+        "stemFact": "documented intact decisional capacity; palliative care confirms her capacity and wishes",
+        "target": "evaluationParameter1"
+      },
+      {
+        "stemFact": "The physician's suggestion to schedule the consult anyway has been addressed",
+        "target": "evaluationParameter1"
+      },
+      {
+        "stemFact": "refusal of PEG placement (the proposed route for enteral nutrition)",
+        "target": "evaluationParameter2"
+      },
+      {
+        "stemFact": "Stage 3 synthesis following confirmed refusal, with palliative care involvement",
+        "target": "evaluationParameter2"
+      }
+    ]
+  },
+  "stage1Sha256": "ed6615711e03527b0028d0d2cddb2fe89c8c661d4de878ebbed513ce4b964be2",
+  "stage2": {
+    "actionLabels": [
+      "A2",
+      "A3"
+    ],
+    "ambiguousAlternatives": [
+      {
+        "impact": "LOW",
+        "label": "P1",
+        "reason": "Albumin and prealbumin trends are plausible in any patient declining enteral nutrition, but the stem provides no nutritional or laboratory data and frames the scenario as an ethical synthesis stage, so P1 ranks below P2 and P3 without requiring any inferred client fact."
+      },
+      {
+        "impact": "LOW",
+        "label": "P4",
+        "reason": "Family satisfaction is a superficially attractive endpoint given the arranged family meeting, but it is not the outcome measure for a capacitated client's refusal and would subordinate her autonomy to family preference; it is clearly distinguishable from P2, which measures her own experience."
+      }
+    ],
+    "conditionLabel": "C2",
+    "missingInformation": [
+      "Underlying diagnosis and prognosis prompting the PEG recommendation",
+      "Current nutritional and hydration status, weight trend, and laboratory values",
+      "Results of any swallow evaluation or documented aspiration risk",
+      "Existence and content of an advance directive, POLST/MOLST, or healthcare proxy",
+      "Current code status and whether comfort-focused care or hospice has been discussed",
+      "Which alternatives to PEG the client is willing to accept",
+      "The family's stated position going into the meeting",
+      "Whether an ethics consult has been or should be initiated"
+    ],
+    "parameterLabels": [
+      "P2",
+      "P3"
+    ],
+    "poolAnswerability": "ANSWERABLE",
+    "reasoning": "The stem supplies three explicit anchors: a repeated refusal of PEG placement, documented intact decisional capacity independently confirmed by palliative care, and a physician suggestion to schedule the consult anyway. That combination is exactly C2 — a capacitated client's autonomous refusal being challenged by continued treatment planning. C1 is contradicted because capacity is intact, so no surrogate is activated; C3 is contradicted because the stem states capacity is documented and confirmed rather than impaired. Among actions, A3 addresses the specific threat named in the stem (treatment planning proceeding over a documented refusal) and A2 operationalizes the family meeting the stem says is arranged, with the palliative care team already involved. A1 and A4 both override a capacitated refusal and are contraindicated on general ethical/legal grounds as well as contradicted by the stem's statement that the physician's suggestion 'has been addressed.' For parameters, P3 measures whether orders and the plan continue to match the client's stated wishes — the direct outcome for this condition — and P2 measures whether the arranged family meeting preserved her voice free of coercion, the principal risk when family and clinicians convene around a refusal. P1 requires nutritional laboratory values that the stem never provides and would only be relevant to a physiologic nutrition problem, not to this autonomy conflict. P4 is misdirected: family satisfaction is not the evaluative endpoint when a capacitated client has refused, and treating it as one would invert the ethical priority. The pool is answerable without inferring any absent client-specific fact.",
+    "selectionEvidence": [
+      {
+        "label": "C2",
+        "rationale": "Establishes both an autonomous refusal and preserved capacity, the defining elements of C2",
+        "stemText": "Mrs. Ellison has repeatedly refused PEG placement with documented intact decisional capacity"
+      },
+      {
+        "label": "C2",
+        "rationale": "Names the 'challenged by continued treatment planning' half of C2 explicitly",
+        "stemText": "The physician's suggestion to schedule the consult anyway has been addressed"
+      },
+      {
+        "label": "C2",
+        "rationale": "Independent confirmation removes any capacity question, excluding C1 and C3",
+        "stemText": "Palliative care confirms her capacity and wishes"
+      },
+      {
+        "label": "A3",
+        "rationale": "Direct physician communication that the consult must not proceed over the documented refusal is the action the stem describes as required",
+        "stemText": "The physician's suggestion to schedule the consult anyway has been addressed"
+      },
+      {
+        "label": "A2",
+        "rationale": "The meeting is already arranged with palliative care involved, so facilitating it interdisciplinarily is a stem-anchored nursing action",
+        "stemText": "Palliative care confirms her capacity and wishes, and a family meeting is arranged"
+      },
+      {
+        "label": "P3",
+        "rationale": "Ongoing alignment of orders and plan with her stated wishes is the measurable outcome of honoring the refusal",
+        "stemText": "repeatedly refused PEG placement with documented intact decisional capacity"
+      },
+      {
+        "label": "P2",
+        "rationale": "A family meeting around a contested refusal creates coercion risk; her own statements are the evaluative measure",
+        "stemText": "a family meeting is arranged"
+      }
+    ],
+    "stage2Confidence": "high",
+    "tokenPremiseTable": [
+      {
+        "missingPremise": "Requires that the client has lost decisional capacity and that a surrogate decision-maker has been activated",
+        "opaqueTokenLabel": "C1",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The stem twice affirms intact capacity, so C1 is eliminated on explicit stem text without needing any additional client fact",
+        "supportingStemText": "documented intact decisional capacity ... Palliative care confirms her capacity and wishes"
+      },
+      {
+        "missingPremise": "Requires an autonomous refusal by a capacitated client plus treatment planning that continues to challenge it — both are stated",
+        "opaqueTokenLabel": "C2",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Every element of C2 is explicitly present in the stem, making it selectable with no inference",
+        "supportingStemText": "has repeatedly refused PEG placement with documented intact decisional capacity. The physician's suggestion to schedule the consult anyway has been addressed"
+      },
+      {
+        "missingPremise": "Requires evidence of impaired capacity or an uninformed refusal",
+        "opaqueTokenLabel": "C3",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Capacity is documented and independently confirmed, directly negating the premise of C3",
+        "supportingStemText": "documented intact decisional capacity ... Palliative care confirms her capacity"
+      },
+      {
+        "missingPremise": "Would require either absent capacity or client consent to proceed with the consult; neither exists",
+        "opaqueTokenLabel": "A1",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Explicitly counter to the documented refusal and to the stem's note that this suggestion has already been addressed",
+        "supportingStemText": "The physician's suggestion to schedule the consult anyway has been addressed"
+      },
+      {
+        "missingPremise": "Requires that a family meeting is planned and that palliative care is engaged — both stated",
+        "opaqueTokenLabel": "A2",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The stem directly names the arranged family meeting and palliative care involvement, so this action is selectable as given",
+        "supportingStemText": "Palliative care confirms her capacity and wishes, and a family meeting is arranged"
+      },
+      {
+        "missingPremise": "Requires a documented refusal and a physician plan that would proceed against it — both stated",
+        "opaqueTokenLabel": "A3",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The stem supplies the exact conflict this action resolves, so no client fact is missing",
+        "supportingStemText": "repeatedly refused PEG placement ... The physician's suggestion to schedule the consult anyway"
+      },
+      {
+        "missingPremise": "Would require a family member's demand and a basis for overriding the client; the stem names no such demand and capacity is intact",
+        "opaqueTokenLabel": "A4",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Deferring to family over a capacitated client's documented refusal is contradicted by the stem regardless of whether a family demand exists",
+        "supportingStemText": "repeatedly refused PEG placement with documented intact decisional capacity"
+      },
+      {
+        "missingPremise": "Requires baseline nutritional laboratory values, weight trend, or a stated nutritional concern; the stem provides none",
+        "opaqueTokenLabel": "P1",
+        "premiseStatus": "MISSING_CLIENT_FACT",
+        "rankabilityImpact": "LOW",
+        "rankabilityJustification": "The absent nutritional data keeps P1 unrankable as a top parameter, but it does not obstruct selection because P2 and P3 are explicitly supported and directly match the ethical condition",
+        "supportingStemText": "No stem text addresses nutritional status, weight, or laboratory values"
+      },
+      {
+        "missingPremise": "Requires a context in which the client's voice could be pressured — supplied by the arranged family meeting and the contested refusal",
+        "opaqueTokenLabel": "P2",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The stem's family meeting and challenged refusal make coercion-freedom a directly evaluable endpoint",
+        "supportingStemText": "Palliative care confirms her capacity and wishes, and a family meeting is arranged"
+      },
+      {
+        "missingPremise": "Requires documented client wishes against which orders can be compared — supplied by the documented refusal",
+        "opaqueTokenLabel": "P3",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Explicit documented wishes make plan-to-wishes concordance measurable without added facts",
+        "supportingStemText": "repeatedly refused PEG placement with documented intact decisional capacity"
+      },
+      {
+        "missingPremise": "Would require family satisfaction to be a legitimate outcome measure for a capacitated client's refusal; general ethical standards establish it is not",
+        "opaqueTokenLabel": "P4",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "General knowledge that autonomy outranks family preference is sufficient to rank P4 below P2 and P3; no missing client fact is involved",
+        "supportingStemText": "documented intact decisional capacity ... a family meeting is arranged"
+      }
+    ]
+  },
+  "stage2Sha256": "1cdc98661cb70008a274c7d5257a08c0a6080dd29b50d10e2961f85646d37625",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions",
+          "zh": "优先措施"
+        },
+        "tokens": [
+          {
+            "en": "Schedule the PEG consult without patient consent to move the treatment plan forward",
+            "opaqueTokenLabel": "A1",
+            "zh": "未经患者同意安排 PEG 会诊，以继续推进治疗计划"
+          },
+          {
+            "en": "Facilitate the interdisciplinary family meeting with palliative care and appropriate support services",
+            "opaqueTokenLabel": "A2",
+            "zh": "在姑息治疗和适当支持服务参与下促成跨专业家庭会议"
+          },
+          {
+            "en": "Communicate directly with the physician that PEG consult should not proceed over the documented refusal",
+            "opaqueTokenLabel": "A3",
+            "zh": "直接告知医师，不应在已有拒绝记录的情况下继续安排 PEG 会诊"
+          },
+          {
+            "en": "Defer to a family member's demand despite the client's documented capacity and refusal",
+            "opaqueTokenLabel": "A4",
+            "zh": "尽管患者已有决策能力和拒绝记录，仍听从家属要求"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的情况"
+        },
+        "tokens": [
+          {
+            "en": "Active surrogate decision-making after loss of decisional capacity",
+            "opaqueTokenLabel": "C1",
+            "zh": "患者丧失决策能力后的有效代理决策"
+          },
+          {
+            "en": "Capacitated client's autonomous refusal challenged by continued treatment planning",
+            "opaqueTokenLabel": "C2",
+            "zh": "有决策能力患者的自主拒绝受到继续治疗规划的挑战"
+          },
+          {
+            "en": "Impaired capacity causing an uninformed refusal",
+            "opaqueTokenLabel": "C3",
+            "zh": "决策能力受损导致的非知情拒绝"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "应监测的指标"
+        },
+        "tokens": [
+          {
+            "en": "Albumin and prealbumin trends",
+            "opaqueTokenLabel": "P1",
+            "zh": "白蛋白和前白蛋白趋势"
+          },
+          {
+            "en": "Mrs. Ellison's statements show she feels heard and free from coercion",
+            "opaqueTokenLabel": "P2",
+            "zh": "Ellison 太太的表述显示她感到被倾听且未受胁迫"
+          },
+          {
+            "en": "Care plan and orders remain aligned with Mrs. Ellison's stated wishes",
+            "opaqueTokenLabel": "P3",
+            "zh": "照护计划和医嘱持续符合 Ellison 太太表达的意愿"
+          },
+          {
+            "en": "Family satisfaction with the decision",
+            "opaqueTokenLabel": "P4",
+            "zh": "家属对决定的满意度"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "要求同时选择最可能情况、优先措施和监测指标的 NGN 题型。",
+        "termEn": "bow-tie",
+        "termZh": "弓形图题"
+      },
+      {
+        "defZh": "文件存在但触发条件尚未满足，因此暂时不能用于决策的代理权。",
+        "termEn": "dormant authority",
+        "termZh": "尚未生效的权力"
+      },
+      {
+        "defZh": "根据患者价值观、预后和偏好确定的治疗方向。",
+        "termEn": "goals of care",
+        "termZh": "照护目标"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "This is the correct condition because the client has documented capacity and her refusal is being challenged by continued treatment planning.",
+          "opaqueTokenLabel": "C2",
+          "zh": "这是正确情况，因为患者有已记录的决策能力，而继续治疗规划正在挑战她的拒绝决定。"
+        },
+        {
+          "en": "This would apply only after loss of decisional capacity, which is not the case here.",
+          "opaqueTokenLabel": "C1",
+          "zh": "只有在患者丧失决策能力后才适用；本题并非如此。"
+        },
+        {
+          "en": "Her capacity and informed reasoning have been documented by both the physician and palliative-care clinician.",
+          "opaqueTokenLabel": "C3",
+          "zh": "医师和姑息治疗临床人员均已记录她有能力并能进行知情推理。"
+        },
+        {
+          "en": "This protects the patient from the immediate risk of a consult being placed over refusal.",
+          "opaqueTokenLabel": "A3",
+          "zh": "这可保护患者，避免在拒绝后仍被安排会诊这一即时风险。"
+        },
+        {
+          "en": "This addresses family concerns through interdisciplinary support without moving decision authority away from the patient.",
+          "opaqueTokenLabel": "A2",
+          "zh": "这通过跨专业支持处理家属关切，同时不把决定权从患者身上移开。"
+        },
+        {
+          "en": "Proceeding with a refused consult can become coercive and fails to honor the capacitated client's autonomy.",
+          "opaqueTokenLabel": "A1",
+          "zh": "继续安排患者已拒绝的会诊可能形成胁迫，也未尊重有决策能力患者的自主权。"
+        },
+        {
+          "en": "A family member does not replace the decision of a client with documented decisional capacity.",
+          "opaqueTokenLabel": "A4",
+          "zh": "家属不能取代已有决策能力记录的患者作出决定。"
+        },
+        {
+          "en": "Alignment of the care plan and orders with her wishes shows advocacy is sustained over time.",
+          "opaqueTokenLabel": "P3",
+          "zh": "照护计划和医嘱持续符合她的意愿，说明倡导得以维持。"
+        },
+        {
+          "en": "The patient's perception of being heard and not coerced is a direct measure of whether autonomy is being protected.",
+          "opaqueTokenLabel": "P2",
+          "zh": "患者是否感到被倾听且未受胁迫，是自主权是否受到保护的直接指标。"
+        },
+        {
+          "en": "Albumin and prealbumin values do not determine whether the advocacy intervention protected the client's refusal and autonomy.",
+          "opaqueTokenLabel": "P1",
+          "zh": "白蛋白和前白蛋白数值不能判断倡导干预是否保护了患者的拒绝决定和自主权。"
+        },
+        {
+          "en": "Family satisfaction may remain low even when the patient's rights are properly protected.",
+          "opaqueTokenLabel": "P4",
+          "zh": "即使患者权利得到正确保护，家属满意度仍可能较低。"
+        }
+      ],
+      "correct": {
+        "en": "The synthesis is an autonomy and advocacy problem, not an impaired-capacity decision case. The priority nursing actions are to communicate and escalate so treatment planning honors the documented refusal, and to support a structured interdisciplinary family meeting. Monitoring should focus on whether orders and the care plan continue to match the client's goals and whether she feels respected and free from coercion.",
+        "zh": "本题综合的是自主权和护理倡导问题，而不是决策能力受损的情境。优先护理措施是沟通并在必要时逐级上报，使治疗规划尊重已有记录的拒绝决定，同时支持结构化跨专业家庭会议。监测重点应放在医嘱和照护计划是否持续符合患者目标，以及患者是否感到受尊重且未受胁迫。"
+      }
+    },
+    "stem": {
+      "en": "Stage 3 synthesis: Mrs. Ellison has repeatedly refused PEG placement with documented intact decisional capacity. The physician's suggestion to schedule the consult anyway has been addressed. Palliative care confirms her capacity and wishes, and a family meeting is arranged. Complete the bow-tie diagram.",
+      "zh": "阶段 3 综合题：Ellison 太太已多次拒绝 PEG 置管，并有完整决策能力的记录。医师曾建议仍安排会诊的问题已被处理。姑息治疗团队确认她有能力且意愿一致，并已安排家庭会议。请完成弓形图。"
+    },
+    "testTakingStrategy": {
+      "en": "In bow-tie items, make the center condition match the ethical frame first. Then choose actions and monitoring parameters that follow from that frame, not from the family's preferred outcome.",
+      "zh": "做弓形图题时，先让中间病情/情况符合伦理框架，再选择由该框架推出的措施和监测指标，而不是依据家属想要的结果。"
+    }
+  }
+}

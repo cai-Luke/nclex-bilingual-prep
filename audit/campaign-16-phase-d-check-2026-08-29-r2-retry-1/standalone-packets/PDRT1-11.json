@@ -1,0 +1,405 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A2",
+      "A4"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P3",
+      "P1"
+    ]
+  },
+  "instruction": "The two blind-stage records above are immutable and were produced by you in this same session before this selection was revealed. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item below. Do not inspect, infer, or assume any sibling-case material — none has been provided and none exists in this context. Return the required Phase-E-equivalent structured JSON without revising either blind record.",
+  "stage1": {
+    "condition": "Uterine atony causing postpartum hemorrhage with class III hypovolemic shock (grand multiparity and 4.2 kg macrosomia as risk factors; retained fragments and genital tract lacerations already excluded at bedside)",
+    "evaluationParameters": [
+      "Perfusion and shock resolution: continuous HR, BP/MAP, SpO2, level of consciousness, skin color/temperature, and hourly urine output (goal ≥30 mL/hr), trended against the shock index",
+      "Bleeding source control: uterine fundal tone/position on serial palpation and cumulative quantitative blood loss (pad/canister weights), with serial hemoglobin/hematocrit, platelets, fibrinogen and coagulation studies"
+    ],
+    "missingInformation": [
+      "Current IV access (number, gauge, patency) and whether a type and crossmatch/blood product order is already in place",
+      "Hemoglobin, hematocrit, platelet count, fibrinogen, PT/INR/aPTT — baseline and current — to distinguish pure atony from developing consumptive coagulopathy/DIC",
+      "Exact doses, routes, and times of oxytocin already given and any uterotonics administered beyond oxytocin, plus the response to each",
+      "Severity and current control of the asthma (last exacerbation, rescue inhaler use) to weigh whether carboprost is truly contraindicated if misoprostol fails",
+      "Blood pressure trend and labetalol dosing history before the hemorrhage, since the current BP of 80/52 may be masked or compounded by beta-blockade (blunted tachycardic response, though HR is 132)",
+      "Assessment for uterine inversion, an expanding vulvar/vaginal/retroperitoneal hematoma, or uterine rupture — bedside exploration excluded fragments and lacerations but these were not documented",
+      "Prenatal/intrapartum details: labor augmentation, duration of labor, chorioamnionitis, magnesium sulfate exposure, and bladder distention status",
+      "Client weight, allergies, and any preexisting anemia or bleeding disorder",
+      "Whether the hemorrhage protocol/rapid response has already been activated and provider/anesthesia/OR availability"
+    ],
+    "priorityActions": [
+      "Activate the obstetric hemorrhage/massive transfusion protocol and call for immediate provider help while giving a second-line uterotonic that is safe for this client — misoprostol 800–1000 mcg rectally (withhold methylergonovine because of pregnancy-induced hypertension and carboprost/Hemabate because of asthma) — with continuous bimanual uterine compression between doses",
+      "Restore circulating volume and oxygen delivery: establish two large-bore IVs, give rapid warmed isotonic crystalloid and type-specific or O-negative PRBCs per protocol, administer tranexamic acid 1 g IV, apply supplemental oxygen 10–15 L/min by non-rebreather, place the client flat, insert an indwelling catheter, and prepare for uterine tamponade (intrauterine balloon) or operative management if bleeding persists"
+    ],
+    "reasoning": "An intermittently boggy uterus that relaxes within seconds of massage, with retained products and lower genital tract trauma excluded, points to uterine atony — the cause of roughly 70–80% of primary PPH — and the grand multiparity (G5P5) plus a 4.2 kg macrosomic infant are classic overdistension/atony risk factors. QBL 1,200 mL with HR 132, BP 80/52, confusion, and pallor places her in class III hypovolemic shock, so treatment must simultaneously control the source (uterotonic escalation plus mechanical compression/tamponade) and restore perfusion (volume, blood products, TXA, oxygen). The two comorbidities are decision-critical for drug selection: pregnancy-induced hypertension contraindicates methylergonovine and asthma contraindicates carboprost, leaving misoprostol as the safest second-line agent. Monitoring parameters are chosen to track the two things that can kill her — inadequate perfusion and uncontrolled ongoing bleeding — with fundal tone and quantitative loss confirming whether the uterotonic worked and vital signs/urine output/mentation confirming whether resuscitation is keeping pace.",
+    "stage1Confidence": "high",
+    "stemEvidence": [
+      {
+        "stemFact": "Uterus is intermittently boggy and relaxes within seconds after massage",
+        "target": "condition"
+      },
+      {
+        "stemFact": "Bedside exploration shows no retained placental fragments and no cervical or vaginal lacerations beyond the repaired second-degree perineal tear",
+        "target": "condition"
+      },
+      {
+        "stemFact": "G5P5 with vaginal birth of a 4.2 kg infant (grand multiparity plus macrosomia causing uterine overdistension)",
+        "target": "condition"
+      },
+      {
+        "stemFact": "Persistent heavy bleeding despite oxytocin and fundal massage at 90 minutes postpartum",
+        "target": "priorityAction1"
+      },
+      {
+        "stemFact": "Pregnancy-induced hypertension treated with labetalol (excludes methylergonovine)",
+        "target": "priorityAction1"
+      },
+      {
+        "stemFact": "Mild intermittent asthma (excludes carboprost/Hemabate)",
+        "target": "priorityAction1"
+      },
+      {
+        "stemFact": "QBL 1,200 mL with HR 132, BP 80/52, confusion and pallor — class III hypovolemic shock",
+        "target": "priorityAction2"
+      },
+      {
+        "stemFact": "Confused and pale with HR 132 and BP 80/52 indicating impaired end-organ perfusion",
+        "target": "evaluationParameter1"
+      },
+      {
+        "stemFact": "QBL 1,200 mL and ongoing heavy bleeding with a uterus that will not stay contracted",
+        "target": "evaluationParameter2"
+      }
+    ]
+  },
+  "stage1Sha256": "b3ce0e58c274cb54ff1f010d66a69c828a353714fe25ff37c9f7f75172a143a1",
+  "stage2": {
+    "actionLabels": [
+      "A2",
+      "A4"
+    ],
+    "ambiguousAlternatives": [
+      {
+        "impactOnRanking": "LOW",
+        "label": "C1",
+        "reason": "Primary obstetric coagulopathy is not excluded as a later complication of a 1,200 mL hemorrhage, but the stem provides no coagulation studies, no bleeding from IV sites or mucosa, and no clot-quality description, and the stated boggy uterus points to atony as the primary process rather than a primary coagulopathy."
+      },
+      {
+        "impactOnRanking": "LOW",
+        "label": "A1",
+        "reason": "Methylergonovine would otherwise be a reasonable second-line uterotonic after failed oxytocin, and the current BP of 80/52 is low, but the explicitly stated pregnancy-induced hypertension makes it the contraindicated distractor relative to A4."
+      }
+    ],
+    "conditionLabel": "C2",
+    "missingInformation": [
+      "Doses, routes, and timing of the oxytocin already administered and the response to each dose",
+      "Coagulation studies (fibrinogen, PT/INR/aPTT, platelets) and hemoglobin/hematocrit that would confirm or exclude C1",
+      "IV access status and whether blood products, type and crossmatch, or a hemorrhage protocol have been initiated",
+      "Whether tranexamic acid has been given",
+      "Current bladder status (distention can impair uterine contraction)",
+      "Assessment for uterine inversion or an expanding hematoma, which bedside exploration for fragments and lacerations does not address",
+      "Severity/control of the mild intermittent asthma, which would bear on whether carboprost could be used if misoprostol fails (not offered in this pool)",
+      "Allergy history and client weight"
+    ],
+    "parameterLabels": [
+      "P1",
+      "P3"
+    ],
+    "poolAnswerability": "ANSWERABLE",
+    "reasoning": "The stem gives the atony picture directly: a uterus that is intermittently boggy and relaxes within seconds of massage, bleeding that persists despite oxytocin and fundal massage, and overdistension risk factors (G5P5, 4.2 kg infant). Bedside exploration explicitly excludes retained fragments and cervical/vaginal lacerations, which contradicts C3, and no coagulation data or bleeding-from-other-sites findings are given to support C1, so C2 is the only supported condition. For actions, A2 (continuous uterine massage/compression) is the immediate mechanical measure indicated when the uterus will not stay contracted, and A4 (misoprostol 800 mcg rectally) is the correct second-line uterotonic here because A1 (methylergonovine) is contraindicated by the explicitly stated pregnancy-induced hypertension, and A3 (stopping massage to draw labs and document) abandons source control during class III shock. For parameters, P1 (QBL trend) and P3 (uterine tone/fundal firmness) directly evaluate whether the uterotonic and compression are working; P2 is irrelevant to the postpartum client's hemorrhage, and P4 (serum creatinine) is too slow to serve as the immediate trajectory marker in an acute hemorrhage.",
+    "selectionEvidence": [
+      {
+        "label": "C2",
+        "rationale": "Boggy, poorly sustained uterine tone with ongoing bleeding is the defining presentation of atonic postpartum hemorrhage.",
+        "stemText": "The uterus is intermittently boggy and relaxes within seconds after massage; persistent heavy bleeding despite oxytocin and fundal massage"
+      },
+      {
+        "label": "C2",
+        "rationale": "Grand multiparity and macrosomia are stated risk factors for uterine overdistension and atony.",
+        "stemText": "G5P5 ... vaginal birth of a 4.2 kg infant"
+      },
+      {
+        "label": "C2",
+        "rationale": "Explicitly excludes the main competing structural causes in the pool.",
+        "stemText": "Bedside exploration shows no retained placental fragments and no cervical or vaginal lacerations beyond the repaired second-degree perineal tear"
+      },
+      {
+        "label": "A2",
+        "rationale": "Because tone is lost within seconds, massage/compression must be continuous rather than intermittent to maintain mechanical hemostasis.",
+        "stemText": "The uterus is intermittently boggy and relaxes within seconds after massage"
+      },
+      {
+        "label": "A4",
+        "rationale": "Ergot alkaloids are contraindicated with hypertension, making misoprostol the appropriate next uterotonic from this pool.",
+        "stemText": "She has pregnancy-induced hypertension treated with labetalol"
+      },
+      {
+        "label": "A4",
+        "rationale": "Failure of first-line oxytocin mandates escalation to a second-line uterotonic.",
+        "stemText": "persistent heavy bleeding despite oxytocin"
+      },
+      {
+        "label": "P1",
+        "rationale": "A quantified baseline loss is stated, so serial QBL is directly trendable to judge response to treatment.",
+        "stemText": "QBL is 1,200 mL"
+      },
+      {
+        "label": "P3",
+        "rationale": "Fundal tone is the abnormal finding driving the hemorrhage and is the direct measure of uterotonic effectiveness.",
+        "stemText": "The uterus is intermittently boggy and relaxes within seconds after massage"
+      }
+    ],
+    "stage2Confidence": "high",
+    "tokenPremiseTable": [
+      {
+        "missingPremise": "Coagulation results (fibrinogen, PT/INR/aPTT, platelets) or clinical signs of coagulopathy such as oozing from puncture sites, mucosal bleeding, or non-clotting blood.",
+        "opaqueTokenLabel": "C1",
+        "premiseStatus": "MISSING_CLIENT_FACT",
+        "rankabilityImpact": "LOW",
+        "rankabilityJustification": "No coagulation data are given, so C1 cannot be affirmatively supported; the explicit boggy-uterus finding independently establishes atony as the primary process, so the missing labs do not prevent ranking C2 above C1.",
+        "supportingStemText": "QBL is 1,200 mL, HR 132, BP 80/52, and she is confused and pale."
+      },
+      {
+        "missingPremise": "None — the stem supplies boggy uterine tone, failure of oxytocin and massage, overdistension risk factors, and exclusion of competing causes.",
+        "opaqueTokenLabel": "C2",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Every element needed to select this condition is stated explicitly in the stem.",
+        "supportingStemText": "The uterus is intermittently boggy and relaxes within seconds after massage. Bedside exploration shows no retained placental fragments and no cervical or vaginal lacerations beyond the repaired second-degree perineal tear."
+      },
+      {
+        "missingPremise": "None needed — the premise this token requires is directly negated by the stem.",
+        "opaqueTokenLabel": "C3",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Bedside exploration explicitly rules out cervical and vaginal lacerations, eliminating this option without ambiguity.",
+        "supportingStemText": "no cervical or vaginal lacerations beyond the repaired second-degree perineal tear"
+      },
+      {
+        "missingPremise": "None needed — the stem supplies the fact that contraindicates this drug.",
+        "opaqueTokenLabel": "A1",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Pregnancy-induced hypertension is stated explicitly, and ergot alkaloids are contraindicated in hypertension, so this token is excludable on stem facts plus general pharmacology.",
+        "supportingStemText": "She has pregnancy-induced hypertension treated with labetalol"
+      },
+      {
+        "missingPremise": "None — the stem establishes that tone is not sustained after intermittent massage, which is the indication for continuous compression.",
+        "opaqueTokenLabel": "A2",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The need for uninterrupted mechanical hemostasis follows directly from the stated loss of tone within seconds of massage.",
+        "supportingStemText": "The uterus is intermittently boggy and relaxes within seconds after massage."
+      },
+      {
+        "missingPremise": "None needed — this token is contraindicated by the stem's active hemorrhage and shock findings.",
+        "opaqueTokenLabel": "A3",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Stopping massage during ongoing hemorrhage with HR 132 and BP 80/52 removes the only working hemostatic measure; documentation is never a priority over source control.",
+        "supportingStemText": "persistent heavy bleeding ... QBL is 1,200 mL, HR 132, BP 80/52, and she is confused and pale"
+      },
+      {
+        "missingPremise": "Exact oxytocin dose already given and any allergy history; neither is required, since first-line failure is stated and misoprostol has no contraindication among the stated comorbidities.",
+        "opaqueTokenLabel": "A4",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Failure of oxytocin is stated, and misoprostol is the only pool uterotonic safe with both the stated hypertension and asthma, so it ranks first among drug options regardless of the missing dose detail.",
+        "supportingStemText": "persistent heavy bleeding despite oxytocin and fundal massage"
+      },
+      {
+        "missingPremise": "None — a quantified baseline blood loss is stated, making a trend measurable.",
+        "opaqueTokenLabel": "P1",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The stem gives QBL 1,200 mL, so serial QBL is an explicitly anchored evaluation parameter.",
+        "supportingStemText": "QBL is 1,200 mL"
+      },
+      {
+        "missingPremise": "None needed — the token concerns the neonate, and no neonatal assessment question is posed.",
+        "opaqueTokenLabel": "P2",
+        "premiseStatus": "NO_CLIENT_PREMISE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Apgar scores are assigned at 1 and 5 minutes of life and have no bearing on maternal hemorrhage 90 minutes postpartum; the token is excludable without further facts.",
+        "supportingStemText": "Select the most likely condition, two priority actions, and two parameters to monitor."
+      },
+      {
+        "missingPremise": "None — abnormal uterine tone is the stem's central finding and the direct target of treatment.",
+        "opaqueTokenLabel": "P3",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Fundal firmness is explicitly described as abnormal and fluctuating, making it the primary measure of treatment response.",
+        "supportingStemText": "The uterus is intermittently boggy and relaxes within seconds after massage."
+      },
+      {
+        "missingPremise": "A baseline serum creatinine or any renal data; none is provided.",
+        "opaqueTokenLabel": "P4",
+        "premiseStatus": "MISSING_CLIENT_FACT",
+        "rankabilityImpact": "LOW",
+        "rankabilityJustification": "No baseline creatinine is given, and general knowledge establishes that creatinine lags acute hypoperfusion by hours to days, so it cannot serve as the immediate trajectory marker; its exclusion is secure despite the missing value.",
+        "supportingStemText": "HR 132, BP 80/52, and she is confused and pale"
+      }
+    ]
+  },
+  "stage2Sha256": "5bc79f7c1f969724468d0597705ac9dcb80a66278f907450045797b22559eb76",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "tokens": [
+          {
+            "en": "Administer methylergonovine 0.2 mg IM",
+            "opaqueTokenLabel": "A1",
+            "zh": "给予甲基麦角新碱 0.2 mg IM"
+          },
+          {
+            "en": "Maintain continuous uterine massage/compression",
+            "opaqueTokenLabel": "A2",
+            "zh": "持续进行子宫按摩/压迫"
+          },
+          {
+            "en": "Stop fundal massage to draw labs and document",
+            "opaqueTokenLabel": "A3",
+            "zh": "停止子宫底按摩以抽血并记录"
+          },
+          {
+            "en": "Administer misoprostol 800 mcg rectally",
+            "opaqueTokenLabel": "A4",
+            "zh": "给予米索前列醇 800 mcg 经直肠给药"
+          }
+        ]
+      },
+      "condition": {
+        "tokens": [
+          {
+            "en": "Primary obstetric coagulopathy",
+            "opaqueTokenLabel": "C1",
+            "zh": "原发性产科凝血障碍"
+          },
+          {
+            "en": "Postpartum hemorrhage due to uterine atony",
+            "opaqueTokenLabel": "C2",
+            "zh": "子宫收缩乏力导致的产后出血"
+          },
+          {
+            "en": "Cervical or vaginal laceration",
+            "opaqueTokenLabel": "C3",
+            "zh": "宫颈或阴道裂伤"
+          }
+        ]
+      },
+      "parameters": {
+        "tokens": [
+          {
+            "en": "Quantitative blood loss trend",
+            "opaqueTokenLabel": "P1",
+            "zh": "定量失血趋势"
+          },
+          {
+            "en": "Neonatal Apgar scores",
+            "opaqueTokenLabel": "P2",
+            "zh": "新生儿 Apgar 评分"
+          },
+          {
+            "en": "Uterine tone and fundal firmness",
+            "opaqueTokenLabel": "P3",
+            "zh": "子宫张力和子宫底坚硬度"
+          },
+          {
+            "en": "Serum creatinine as the immediate trajectory marker",
+            "opaqueTokenLabel": "P4",
+            "zh": "将血清肌酐作为即时病情趋势指标"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "通过触诊子宫底评估产后子宫的坚硬程度。",
+        "termEn": "Uterine tone",
+        "termZh": "子宫张力"
+      },
+      {
+        "defZh": "正常肌肉张力或收缩能力下降。",
+        "termEn": "Atony",
+        "termZh": "收缩乏力"
+      },
+      {
+        "defZh": "对累计失血量进行客观测量。",
+        "termEn": "Quantitative blood loss",
+        "termZh": "定量失血评估"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct: the boggy uterus, failure to sustain tone, escalating QBL, and risk factors identify atony.",
+          "opaqueTokenLabel": "C2",
+          "zh": "正确：子宫松软、不能维持张力、定量失血增加以及风险因素均指向子宫收缩乏力。"
+        },
+        {
+          "en": "Wrong: bedside exploration found no cervical or vaginal lacerations beyond the repaired tear, and the uterus is boggy.",
+          "opaqueTokenLabel": "C3",
+          "zh": "错误：床旁探查未发现除已修补裂伤外的宫颈或阴道裂伤，且子宫松软。"
+        },
+        {
+          "en": "The boggy uterus that repeatedly loses tone supports uterine atony; no standalone finding identifies primary coagulopathy as the main cause of the hemorrhage.",
+          "opaqueTokenLabel": "C1",
+          "zh": "子宫松软且反复失去张力支持子宫收缩乏力；题干没有发现表明原发性凝血障碍是出血主要原因。"
+        },
+        {
+          "en": "Correct: continuous compression maintains source control while medications and resuscitation take effect.",
+          "opaqueTokenLabel": "A2",
+          "zh": "正确：持续压迫可在药物和复苏发挥作用期间维持止血源控制。"
+        },
+        {
+          "en": "Correct: misoprostol is the safe uterotonic among the listed options for a client with hypertension and asthma.",
+          "opaqueTokenLabel": "A4",
+          "zh": "正确：在列出的药物中，米索前列醇对同时有高血压和哮喘的患者最安全。"
+        },
+        {
+          "en": "Wrong: methylergonovine is contraindicated with pregnancy-induced hypertension despite current hemorrhagic hypotension.",
+          "opaqueTokenLabel": "A1",
+          "zh": "错误：即使当前因失血而低血压，妊娠期高血压仍禁用甲基麦角新碱。"
+        },
+        {
+          "en": "Wrong: stopping compression for labs or documentation can allow renewed bleeding from the atonic uterus.",
+          "opaqueTokenLabel": "A3",
+          "zh": "错误：为了抽血或记录而停止压迫，可能使松软子宫再次出血。"
+        },
+        {
+          "en": "Correct: fundal tone is the immediate bedside indicator of whether atony is controlled.",
+          "opaqueTokenLabel": "P3",
+          "zh": "正确：子宫底张力是床旁判断子宫收缩乏力是否受控的即时指标。"
+        },
+        {
+          "en": "Correct: QBL trend shows whether hemorrhage is plateauing or escalating.",
+          "opaqueTokenLabel": "P1",
+          "zh": "正确：定量失血趋势显示出血是在停止上升还是继续加重。"
+        },
+        {
+          "en": "Wrong: the newborn's status does not guide immediate management of the maternal hemorrhage.",
+          "opaqueTokenLabel": "P2",
+          "zh": "错误：新生儿状态不能指导此刻母体出血的即时处理。"
+        },
+        {
+          "en": "Creatinine is not provided and would not directly measure immediate uterine response or ongoing blood-loss trajectory.",
+          "opaqueTokenLabel": "P4",
+          "zh": "题干未提供肌酐，而且肌酐不能直接衡量子宫的即时反应或持续失血趋势。"
+        }
+      ],
+      "correct": {
+        "en": "Persistent bleeding with a boggy uterus that will not sustain tone after massage identifies uterine atony. Exploration has ruled out retained fragments and unrepaired lacerations, and no standalone finding identifies primary coagulopathy as the main driver. Priority actions are continuous uterine compression and a safe uterotonic; misoprostol avoids the listed alternatives' hypertension- and asthma-related concerns. The most immediate response parameters are uterine tone and measured blood-loss trend.",
+        "zh": "持续出血并伴有按摩后不能维持张力的松软子宫，指向子宫收缩乏力。探查已排除胎盘碎片残留和未修补裂伤，题干也没有发现表明原发性凝血障碍是主要驱动因素。优先措施是持续子宫压迫和安全宫缩药；米索前列醇可避开列出替代药物与高血压和哮喘相关的顾虑。最直接的反应监测参数是子宫张力和定量失血趋势。"
+      }
+    },
+    "stem": {
+      "en": "A 32-year-old G5P5 client is 90 minutes postpartum after vaginal birth of a 4.2 kg infant. She has pregnancy-induced hypertension treated with labetalol and mild intermittent asthma. She has persistent heavy bleeding despite oxytocin and fundal massage. QBL is 1,200 mL, HR 132, BP 80/52, and she is confused and pale. The uterus is intermittently boggy and relaxes within seconds after massage. Bedside exploration shows no retained placental fragments and no cervical or vaginal lacerations beyond the repaired second-degree perineal tear. Select the most likely condition, two priority actions, and two parameters to monitor.",
+      "zh": "一名 32 岁 G5P5 产妇阴道分娩 4.2 kg 新生儿后 90 分钟。她有妊娠期高血压，使用拉贝洛尔治疗，并有轻度间歇性哮喘。尽管已使用催产素和子宫底按摩，她仍持续大量出血。定量失血 1,200 mL，HR 132，BP 80/52，患者意识混乱、面色苍白。子宫间歇性松软，按摩后数秒内又松弛。床旁探查未见胎盘碎片残留，也无宫颈或阴道裂伤，只有已修补的二度会阴裂伤。请选择最可能的情况、两个优先措施和两个需要监测的参数。"
+    },
+    "testTakingStrategy": {
+      "en": "In bowtie items, lock the condition to the most decisive cue first. Here the decisive cue is uterine tone; then choose actions and monitoring that directly control and track that condition.",
+      "zh": "做 bowtie 题时，先用最决定性的线索锁定病情。本题决定性线索是子宫张力；随后选择能直接控制并追踪该病情的措施和监测项目。"
+    }
+  }
+}

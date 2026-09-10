@@ -1,0 +1,195 @@
+{
+  "advisoryPriority": "P3",
+  "bilingualCollateral": [
+    {
+      "advisoryPriority": "P3",
+      "location": "standalone item — glossary entries ('Uterine tone', 'Atony', 'Quantitative blood loss')",
+      "observation": "Each glossary entry carries termEn, termZh, and defZh but no defEn, so an English-only learner sees a term pair with no English definition. The identical convention appears throughout the sibling case (all six question-level glossaries and the case-level glossary), so this is a house schema pattern rather than an item-specific omission."
+    },
+    {
+      "advisoryPriority": "P3",
+      "location": "standalone item — rationale.byChoice zh for A1 ('错误：即使当前因失血而低血压，妊娠期高血压仍禁用甲基麦角新碱。')",
+      "observation": "The Chinese rendering compresses the English 'despite current hemorrhagic hypotension' accurately and matches the sibling's fuller q3 explanation, which adds the mechanism ('补足容量后血管收缩作用可能导致严重反跳性高血压'). The standalone Chinese is faithful; the only difference is that the sibling states the rebound-hypertension mechanism and the standalone does not. Narrow observation only, no mistranslation."
+    },
+    {
+      "advisoryPriority": "P3",
+      "location": "sibling case — q1 rationale.byChoice zh for seg_resp ('无胸痛或气短较为 reassuring，但不能说明出血来源或严重程度。')",
+      "observation": "An untranslated English word ('reassuring') is embedded in the Chinese rationale. This defect lies wholly in the sibling case and does not touch the standalone item under review; recorded here only because the sibling was inspected."
+    },
+    {
+      "advisoryPriority": "P3",
+      "location": "standalone item — stem.zh",
+      "observation": "The Chinese stem faithfully mirrors every discriminating English element: 松软/按摩后数秒内又松弛 (boggy, relaxes within seconds), 定量失血 1,200 mL, 妊娠期高血压/拉贝洛尔, 轻度间歇性哮喘, and the bedside exploration negatives. No cue is lost or added in translation, so the Chinese-language learner faces the same 1/2/2 decision."
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "dependencyClassification": "CORROBORATIVE_ONLY",
+      "explanation": "The standalone stem contains the same boggy-uterus cue verbatim in substance and additionally states the exclusions the sibling establishes through separate exhibits. Selection of C2 required no sibling content.",
+      "opaqueTokenLabel": "C2",
+      "siblingOverlap": "Directly mirrored by sibling q2, where dd_condition_atony is keyed correct with dd_evidence_boggy ('the boggy fundus briefly firms with massage but immediately relaxes') as the best supporting evidence; also by q1, which keys seg_fundus and seg_relax as hallmark atony cues, and by the case-level title and rationale."
+    },
+    {
+      "dependencyClassification": "CORROBORATIVE_ONLY",
+      "explanation": "The standalone stem's statement that the uterus 'relaxes within seconds after massage' is by itself the indication for continuous rather than intermittent compression. The sibling's confirmation of efficacy at Stage 3 is outcome corroboration, not a needed premise.",
+      "opaqueTokenLabel": "A2",
+      "siblingOverlap": "Mirrored by sibling q4 option act_massage ('Maintain continuous external fundal massage or assist with bimanual compression'), keyed correct with the rationale 'source control must be maintained continuously while the uterus is atonic'; and by stage_3_update, where aggressive bimanual compression contributes to restoring tone."
+    },
+    {
+      "dependencyClassification": "CORROBORATIVE_ONLY",
+      "explanation": "The sibling adds carboprost as a fourth option and thereby activates the asthma contraindication, but the standalone pool contains no prostaglandin alternative, so the explicitly stated pregnancy-induced hypertension alone eliminates A1 and leaves A4 as the only safe uterotonic. The keyed selection stands without the sibling's expanded option set.",
+      "opaqueTokenLabel": "A4",
+      "siblingOverlap": "Mirrored by sibling q3, a dedicated medication item whose sole correct answer is med_misoprostol ('Administer misoprostol 800 mcg rectally'), with methylergonovine excluded for pregnancy-induced hypertension and carboprost for asthma; misoprostol is then administered in stage_3_update."
+    },
+    {
+      "dependencyClassification": "CORROBORATIVE_ONLY",
+      "explanation": "Fundal tone is the standalone stem's own stated abnormality, making it the self-evident measure of treatment response. The sibling demonstrates the same parameter operating in both the improvement and the deterioration direction, which reinforces but does not supply the rationale.",
+      "opaqueTokenLabel": "P3",
+      "siblingOverlap": "Mirrored by sibling q5 row_firm_uterus ('Uterus is firm and contracted at the umbilicus'), classified as evidence of early stabilization; by q6 esc_boggy_again (recurrent bogginess as an escalation trigger); and by q1 seg_fundus/seg_relax as recognition cues."
+    },
+    {
+      "dependencyClassification": "CORROBORATIVE_ONLY",
+      "explanation": "The standalone stem supplies an explicit quantified baseline (QBL 1,200 mL), so a serial trend is directly measurable and interpretable from the stem alone. The sibling's later 1,450 mL plateau illustrates the parameter in use but is not required to select it.",
+      "opaqueTokenLabel": "P1",
+      "siblingOverlap": "Mirrored by sibling q5 row_qbl_plateau ('Quantitative blood loss has plateaued at 1,450 mL with no new accumulation for 15 minutes'), keyed as early stabilization; by q6 esc_qbl_rising (QBL resuming a climb as an escalation trigger); by q1 seg_ebl; and by the QBL glossary entry repeated at case level."
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "advisoryPriority": "P3",
+      "location": "standalone item — rationale.byChoice en for A4 ('misoprostol is the safe uterotonic among the listed options for a client with hypertension and asthma')",
+      "observation": "The phrase 'for a client with hypertension and asthma' implies both comorbidities do exclusionary work, but within the standalone four-token pool only hypertension excludes anything (A1). No prostaglandin-F2-alpha option is listed, so asthma eliminates no token. The statement is clinically true and not misleading about the drug, merely broader than the pool requires. The sibling's q3, which does include carboprost, is where asthma actually discriminates."
+    },
+    {
+      "advisoryPriority": "P3",
+      "location": "standalone item — condition pool vs. sibling differential",
+      "observation": "The sibling's q2 differential includes retained placental tissue and uterine inversion alongside atony and laceration; the standalone pool substitutes primary obstetric coagulopathy for those two. The substitution is clinically coherent — the stem pre-excludes retained fragments in text, and the palpable, massage-responsive fundus is inconsistent with inversion — and coagulopathy is a legitimate PPH differential at 1,200 mL. No clinical defect."
+    },
+    {
+      "advisoryPriority": "P3",
+      "location": "standalone item — omission of bladder distention",
+      "observation": "The sibling identifies a distended bladder as a contributor to uterine displacement and keys seg_bladder as a cue requiring follow-up, and it is drained (450 mL) during Stage 1. The standalone stem, set at the later Stage 2 timepoint, omits the bladder entirely. This is temporally consistent rather than a suppressed cue, and no catheterization token is offered, so the atony reasoning chain in the standalone remains complete."
+    },
+    {
+      "advisoryPriority": "P3",
+      "location": "standalone item — timepoint label '90 minutes postpartum'",
+      "observation": "The sibling anchors initial assessment at one hour postpartum with an interposed Stage 1 response (catheterization, IV placement, oxytocin increase, QBL 800 mL) before reaching the Stage 2 values the standalone reproduces. A 90-minute label is consistent with that elapsed sequence; no internal timeline conflict between the two artifacts."
+    },
+    {
+      "advisoryPriority": "P3",
+      "location": "standalone item — parameter pool distractor P4 ('Serum creatinine as the immediate trajectory marker')",
+      "observation": "The sibling reports creatinine 0.7 mg/dL (normal) in the admission panel and never revisits it, while it does track urine output as the renal-perfusion parameter. This corroborates the standalone record's judgment that creatinine cannot serve as an immediate trajectory marker in acute hemorrhage; the token's self-description is the basis for its exclusion."
+    }
+  ],
+  "defectSummary": "",
+  "missingFactProvenance": [
+    {
+      "affectedTokens": [
+        "A4"
+      ],
+      "explanation": "The standalone stem's phrase 'persistent heavy bleeding despite oxytocin and fundal massage' already establishes first-line uterotonic failure, which is the entire premise A4 requires. The sibling merely quantifies a dosing history that does not change the escalation decision.",
+      "missingFact": "Doses, routes, and timing of the oxytocin already administered and the response to each dose",
+      "necessityClassification": "CORROBORATIVE_ONLY",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "ex_background ('Oxytocin 20 units in 1 L LR has been infusing for about 50 minutes after placental delivery'); stage_1_update ('Oxytocin is confirmed infusing and increased per standing order to infuse the remaining volume over 30 minutes'); stage_2_update ('Despite massage and increased oxytocin, the uterus intermittently firms then relaxes within seconds')"
+    },
+    {
+      "affectedTokens": [
+        "C1"
+      ],
+      "explanation": "The sibling values at the matching timepoint (fibrinogen 280 mg/dL, INR 1.1, platelets 162) affirmatively exclude primary coagulopathy, but the standalone had already excluded C1 sufficiently: the explicit boggy uterus supplies a complete competing mechanism, and the standalone record correctly graded C1 as MISSING_CLIENT_FACT with only LOW rankability impact. The sibling confirms that grading rather than repairing a gap.",
+      "missingFact": "Coagulation studies (fibrinogen, PT/INR/aPTT, platelets) and hemoglobin/hematocrit",
+      "necessityClassification": "CORROBORATIVE_ONLY",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "ex_baseline_labs (Hgb 11.8, Hct 35.2, platelets 188, fibrinogen 410, INR 1.0, aPTT 28); stage_2_update (Hgb 8.1, Hct 24.3, platelets 162, fibrinogen 280, INR 1.1, aPTT 30)"
+    },
+    {
+      "affectedTokens": [],
+      "explanation": "No standalone token represents IV access, transfusion, or protocol activation, so this information cannot alter the ranking of C1–C3, A1–A4, or P1–P4. It is load-bearing only for the sibling's own select-all item q4.",
+      "missingFact": "IV access status, type and crossmatch, blood product availability, and whether a hemorrhage/massive transfusion protocol has been activated",
+      "necessityClassification": "CORROBORATIVE_ONLY",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "stage_1_update ('Two 16-gauge peripheral IVs are placed; warmed LR is hung wide open'); stage_2_update ('Type and crossmatch for 2 units PRBC is sent'); q4 options act_crossmatch, act_fluids"
+    },
+    {
+      "affectedTokens": [],
+      "explanation": "TXA appears in no standalone action pool token. Its status has no bearing on the A1–A4 ranking. Notably the Stage 1 free-generation record independently recommended TXA, which the sibling protocol confirms as clinically appropriate, but this affects neither the key nor the standalone's defensibility.",
+      "missingFact": "Whether tranexamic acid has been administered",
+      "necessityClassification": "CORROBORATIVE_ONLY",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "stage_2_update ('The unit protocol orders tranexamic acid 1 g IV over 10 minutes within 3 hours of birth'); q4 option act_txa; stage_3_update ('tranexamic acid 1 g IV was infused over 10 minutes')"
+    },
+    {
+      "affectedTokens": [
+        "A2"
+      ],
+      "explanation": "In the sibling timeline the bladder was already drained during Stage 1, before the timepoint the standalone stem depicts, and the uterus remained boggy afterward. So the standalone's silence on the bladder is temporally consistent rather than a withheld cue, and catheterization is not an offered token in any case. This confirms the standalone record's NONE impact grading.",
+      "missingFact": "Bladder distention status",
+      "necessityClassification": "CORROBORATIVE_ONLY",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "ex_initial_assessment ('Bladder is palpable above the symphysis pubis'); q1 seg_bladder keyed correct; stage_1_update ('Straight catheterization drains 450 mL of clear urine; the uterus descends to the umbilicus but remains boggy')"
+    },
+    {
+      "affectedTokens": [
+        "C1",
+        "C3"
+      ],
+      "explanation": "Neither uterine inversion nor hematoma is an option in the standalone condition pool, so their formal rule-out is unnecessary there. The standalone stem's description of a uterus that is palpable, intermittently firms with massage, and then relaxes is itself inconsistent with inversion, matching the sibling's rule-out logic.",
+      "missingFact": "Assessment for uterine inversion or an expanding vulvar/vaginal/retroperitoneal hematoma",
+      "necessityClassification": "CORROBORATIVE_ONLY",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "q2 dropdown dd_inversion_ruleout with correct option dd_ruleout_fundus ('the fundus is palpable above the umbilicus'); ex_initial_assessment ('Repaired second-degree perineal laceration has no active bleeding and no visible hematoma')"
+    },
+    {
+      "affectedTokens": [
+        "A4"
+      ],
+      "explanation": "Asthma is the discriminator that eliminates carboprost, but carboprost exists only in the sibling's q3 option set. Within the standalone four-token action pool, misoprostol wins on the hypertension contraindication to methylergonovine alone, so the asthma detail is inert for the key. See also the scope observation recorded below.",
+      "missingFact": "Severity and current control of the mild intermittent asthma",
+      "necessityClassification": "CORROBORATIVE_ONLY",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "stage_2_update ('Available uterotonics are methylergonovine 0.2 mg IM, misoprostol 800 mcg rectally, and carboprost 250 mcg IM'); q3 option med_carboprost with rationale 'Carboprost should be avoided in asthma because it can trigger bronchospasm'"
+    },
+    {
+      "affectedTokens": [
+        "A4",
+        "C1"
+      ],
+      "explanation": "The sibling's negative bleeding-disorder history further weakens C1, and normal admission indices confirm the anemia is acute rather than preexisting. Misoprostol 800 mcg rectally is a fixed, non-weight-based dose, so none of these facts is needed to select or defend any keyed token.",
+      "missingFact": "Client weight, allergy history, and any preexisting anemia or bleeding disorder",
+      "necessityClassification": "CORROBORATIVE_ONLY",
+      "provenance": "PRESENT_IN_SIBLING_ONLY",
+      "siblingLocation": "ex_background ('No bleeding disorder, prior PPH, or uterine surgery'; 'Admission Hgb 11.8 g/dL, Hct 35.2%'; 'Blood type O-positive')"
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "Every element of the canonical 1/2/2 key is derivable from the standalone stem plus general nursing/pharmacology knowledge, and inspection of the sibling case confirms that none of the missing client facts catalogued in the immutable standalone-unblinding record is necessary to reach or defend that key. The condition (C2) is fixed by the stem's own boggy-uterus finding and its explicit exclusion of retained fragments and cervical/vaginal lacerations; the sibling's q2 reaches the identical conclusion using the same cue, which is corroboration, not supply. A2 rests on the stem's statement that tone is lost within seconds of massage. A4 rests on the stem's explicitly stated pregnancy-induced hypertension, which contraindicates the only competing drug token (A1); the sibling's q3 adds carboprost and the asthma contraindication, but carboprost is absent from the standalone pool, so that added fact is not needed. P3 and P1 are anchored by the stem's boggy fundus and its explicit QBL of 1,200 mL. The sibling data that the standalone record listed as missing — oxytocin dosing (20 units/1 L LR, ~50 min), coagulation panel and H/H (Hgb 8.1, fibrinogen 280, INR 1.1), two 16-gauge IVs and type-and-crossmatch, the TXA protocol order, bladder distention with 450 mL catheterized during Stage 1, the fundus-palpable inversion rule-out, and the negative bleeding-disorder history — all either confirm exclusions the standalone already secured on other grounds or pertain to tokens not present in the standalone pools. No keyed token depends on an absent fact, no distractor becomes defensible with the sibling in hand, and no unstated fact reverses the ranking, so no FAIL tier is triggered and there is no reviewer disagreement to hold.",
+  "scopeCollateral": [
+    {
+      "advisoryPriority": "P3",
+      "location": "standalone item — stem clause 'and mild intermittent asthma'",
+      "observation": "This comorbidity is carried over from the sibling, where it is decision-critical because carboprost is an available option. In the standalone pool it is non-discriminating context. It does not mislead — misoprostol remains correct and asthma-safe — but a learner may search for an asthma-driven exclusion that no token supplies. Advisory only; no content edit proposed."
+    },
+    {
+      "advisoryPriority": "P3",
+      "location": "standalone item — stem clause 'no retained placental fragments'",
+      "observation": "The stem pre-resolves retained tissue in text, whereas the sibling makes it a live distractor (dd_condition_retained). The standalone therefore narrows the differential before the learner engages it. This is appropriate for a self-contained bowtie item and is what makes C2 uniquely defensible without exhibits, but it does reduce the differential-diagnosis work relative to the sibling."
+    },
+    {
+      "advisoryPriority": "P3",
+      "location": "standalone item — testTakingStrategy",
+      "observation": "The strategy text ('lock the condition to the most decisive cue first... Here the decisive cue is uterine tone') is generic to bowtie items and references no exhibit, stage, or sibling question. It parallels the sibling's case-level four-T guidance without depending on it. No scope leakage."
+    },
+    {
+      "advisoryPriority": "P3",
+      "location": "standalone item — action pool breadth",
+      "observation": "The sibling's q4 keys five concurrent actions (massage, uterotonic, fluids, TXA, crossmatch); the standalone pool offers only two of these concepts plus two distractors, forcing exactly the two the canonical key selects. The reduction is a deliberate and internally consistent scope narrowing, not an omission that makes the standalone unanswerable — the Stage 1 free-generation record's broader resuscitation package simply has no tokens to map onto."
+    }
+  ],
+  "secondaryFlags": [
+    "Blind Stage 1 free generation, blind Stage 2 token selection, and the canonical key are in full agreement; the sibling case independently reaches the same condition (q2), the same uterotonic (q3), the same compression action (q4), and the same two response parameters (q5 rows row_firm_uterus and row_qbl_plateau), so there is no key-versus-reasoning conflict at any layer.",
+    "The standalone item and the sibling Stage 2 exhibit share identical clinical values (QBL 1,200 mL, HR 132, BP 80/52, confusion, pallor, uterus firming then relaxing within seconds, provider rule-out of retained fragments and unrepaired lacerations), indicating the standalone was derived from that exhibit without introducing conflicting data.",
+    "Two standalone distractors (C1, P4) are excluded on absence of data rather than contradiction; the sibling supplies the data (fibrinogen 280 mg/dL, creatinine 0.7 mg/dL) and it confirms rather than reverses both exclusions, so the absence-based reasoning in the immutable record was sound.",
+    "No standalone token, stem sentence, rationale, or strategy text references an exhibit, stage, prior question, or any artifact that exists only in the sibling case; the item reads as fully self-contained."
+  ]
+}

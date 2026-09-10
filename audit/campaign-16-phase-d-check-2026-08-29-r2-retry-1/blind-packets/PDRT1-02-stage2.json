@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Priority nursing actions",
+    "condition": "Most likely priority problem",
+    "parameters": "Parameters to monitor"
+  },
+  "stem": "A contaminated stethoscope from a client's MRSA contact-precautions room has been found in the clean utility room near a clean supply cart. A student also contaminated a door handle after CDI care, a soiled-linen handling concern was identified, and a visitor asked whether a smear-positive TB client could leave the AIIR. Complete the bow-tie for the priority cross-contamination problem.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Disinfect only the stethoscope without cleaning the counter or assessing nearby supplies."
+      },
+      {
+        "label": "A2",
+        "text": "Wait until the end of the shift to address the stethoscope because other scheduled care is pending."
+      },
+      {
+        "label": "A3",
+        "text": "Provide immediate corrective education to the staff member involved and notify unit leadership so the breach is documented for infection-control follow-up."
+      },
+      {
+        "label": "A4",
+        "text": "Remove the stethoscope, disinfect contacted clean-utility surfaces, assess or remove nearby supplies per policy, complete the required disinfectant wet-contact time, and return the device to its designated isolation room."
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Current cross-contamination risk from a contaminated MRSA dedicated device in the clean utility room"
+      },
+      {
+        "label": "C2",
+        "text": "Potential soiled-linen handling breach requiring policy verification"
+      },
+      {
+        "label": "C3",
+        "text": "Door-handle contamination after CDI care"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "A client's antimicrobial monitoring results"
+      },
+      {
+        "label": "P2",
+        "text": "Visitor and staff PPE compliance on subsequent room entries"
+      },
+      {
+        "label": "P3",
+        "text": "Equipment location and cleanliness at each room entry"
+      },
+      {
+        "label": "P4",
+        "text": "Another client's sputum-culture result"
+      }
+    ]
+  }
+}

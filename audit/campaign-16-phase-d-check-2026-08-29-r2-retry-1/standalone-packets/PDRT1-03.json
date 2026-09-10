@@ -1,0 +1,406 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A2",
+      "A4"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P3",
+      "P4"
+    ]
+  },
+  "instruction": "The two blind-stage records above are immutable and were produced by you in this same session before this selection was revealed. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item below. Do not inspect, infer, or assume any sibling-case material — none has been provided and none exists in this context. Return the required Phase-E-equivalent structured JSON without revising either blind record.",
+  "stage1": {
+    "condition": "Acute hemolytic transfusion reaction (ABO-incompatible RBC transfusion) with intravascular hemolysis complicated by disseminated intravascular coagulation and evolving hemolysis-induced acute kidney injury",
+    "evaluationParameters": [
+      "Hourly urine output and urine color with blood pressure/MAP, heart rate, and serial BUN/creatinine and potassium — targeting urine output at least 0.5–1 mL/kg/hr and clearing of port-wine discoloration as evidence that renal perfusion and hemoglobin clearance are improving",
+      "Serial DIC and hemolysis panels — fibrinogen, platelet count, INR/aPTT, D-dimer, LDH, bilirubin, haptoglobin, and plasma-free hemoglobin — trended alongside bedside assessment of oozing from puncture sites, mucosal/IV-site bleeding, and hematoma formation"
+    ],
+    "missingInformation": [
+      "Actual numeric vital signs (blood pressure, MAP, heart rate, respiratory rate, SpO2, temperature) and baseline values for comparison",
+      "Client weight, needed for mL/kg/hr urine output targets and weight-based fluid and product dosing",
+      "Volume of incompatible blood actually infused before the transfusion was stopped",
+      "Results of the clerical/bedside identification recheck and the ABO/Rh type of both the client and the unit",
+      "Direct antiglobulin test (DAT/Coombs), repeat type and crossmatch, and plasma-free hemoglobin results",
+      "Baseline renal function (prior BUN/creatinine, eGFR) and pre-transfusion CBC and coagulation values",
+      "Serum potassium, ionized calcium, and D-dimer, which drive hyperkalemia and DIC management decisions",
+      "Patency and number of current IV access sites and whether central access is available",
+      "Available provider orders or institutional transfusion-reaction and DIC protocols, including vasopressor and blood component orders",
+      "Medication and transfusion history, prior reactions, allergies, and code status/goals of care"
+    ],
+    "priorityActions": [
+      "With the transfusion already stopped, maintain the IV line with new tubing and infuse 0.9% sodium chloride wide open for aggressive isotonic volume resuscitation to restore perfusion and maintain renal blood flow and urine output, escalating to vasopressor support per order if hypotension persists; do not flush the residual blood in the existing tubing into the client",
+      "Immediately notify the provider and the blood bank, initiate the transfusion-reaction protocol by returning the unit and tubing and sending clerical recheck plus post-reaction blood and urine specimens (DAT, repeat type and crossmatch, plasma-free hemoglobin, CBC, coagulation studies), and obtain and administer ordered blood component replacement for DIC (cryoprecipitate/fibrinogen for fibrinogen 140 mg/dL, FFP for INR 1.8 and aPTT 52 seconds, platelets as indicated)"
+    ],
+    "reasoning": "Onset within 12 minutes of starting RBCs with fever, rigors, bilateral flank pain, hypotension, hemoglobinuria, and a sense of impending doom is the classic presentation of an acute hemolytic transfusion reaction from ABO incompatibility. The laboratory picture confirms brisk intravascular hemolysis: LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL with port-wine urine. Progression 30 minutes after stopping the transfusion — falling platelets (104), fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds, and oozing from puncture sites — is consumptive coagulopathy (DIC) triggered by the hemolytic reaction, while worsening hypotension with oliguria and pigmented urine signals hemoglobin-mediated acute kidney injury. Because the transfusion has already been stopped, the next priorities are hemodynamic and renal rescue (isotonic fluids through fresh tubing, vasopressors if needed) and simultaneous activation of the transfusion-reaction pathway with provider/blood bank notification, specimen and unit return, and factor/platelet replacement for the DIC. Monitoring therefore centers on the two organ systems failing in real time: renal perfusion (hourly urine output and color, MAP, BUN/creatinine, potassium) and the coagulation/hemolysis trajectory (fibrinogen, platelets, INR/aPTT, D-dimer, LDH, bilirubin, haptoglobin, plus bleeding assessment).",
+    "stage1Confidence": "high",
+    "stemEvidence": [
+      {
+        "stemFact": "Fever, rigors, bilateral flank pain, hypotension, and a sense of impending doom within 12 minutes of starting a red blood cell transfusion",
+        "target": "condition"
+      },
+      {
+        "stemFact": "Hemoglobinuria and port-wine urine with LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL indicating intravascular hemolysis",
+        "target": "condition"
+      },
+      {
+        "stemFact": "Platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds, and oozing from puncture sites indicating consumptive coagulopathy",
+        "target": "condition"
+      },
+      {
+        "stemFact": "Worsening hypotension 30 minutes after the transfusion was stopped",
+        "target": "priorityAction1"
+      },
+      {
+        "stemFact": "Oliguria with port-wine urine reflecting hemoglobin-induced renal injury requiring flow and perfusion support",
+        "target": "priorityAction1"
+      },
+      {
+        "stemFact": "Acute reaction to a red blood cell transfusion requiring transfusion-reaction protocol, unit and specimen return, and clerical/ABO verification",
+        "target": "priorityAction2"
+      },
+      {
+        "stemFact": "Fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds, platelets 104 ×10³/µL, and oozing from puncture sites requiring ordered component replacement",
+        "target": "priorityAction2"
+      },
+      {
+        "stemFact": "Oliguria with port-wine urine and worsening hypotension",
+        "target": "evaluationParameter1"
+      },
+      {
+        "stemFact": "Hemoglobinuria from ongoing intravascular hemolysis threatening renal tubular function",
+        "target": "evaluationParameter1"
+      },
+      {
+        "stemFact": "Platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds",
+        "target": "evaluationParameter2"
+      },
+      {
+        "stemFact": "Oozing from puncture sites with LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL",
+        "target": "evaluationParameter2"
+      }
+    ]
+  },
+  "stage1Sha256": "534945abfdad27c7eae3118fd09ef43efd38367149b0d32b1ad4289c67ebc369",
+  "stage2": {
+    "actionLabels": [
+      "A2",
+      "A4"
+    ],
+    "ambiguousAlternatives": [
+      {
+        "discriminatingStemText": "hemoglobinuria ... LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL",
+        "label": "C3",
+        "reason": "Fever and rigors with hypotension can occur in a septic transfusion reaction, so the token is superficially plausible; it is rejected because the stem supplies no culture, unit-contamination, or infection-source data and because hemoglobinuria with LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL points to hemolysis rather than sepsis as the primary explanation."
+      },
+      {
+        "discriminatingStemText": "worsening hypotension, oliguria with port-wine urine, oozing from puncture sites",
+        "label": "P1",
+        "reason": "Temperature is an explicit stem finding, so trending it is not wrong in isolation; it is rejected because the token restricts monitoring to temperature 'alone,' which would fail to capture the shock, oliguria, and coagulopathy that are the life-threatening trajectory here."
+      }
+    ],
+    "conditionLabel": "C1",
+    "missingInformation": [
+      "Numeric vital signs including actual blood pressure, MAP, heart rate, respiratory rate, and SpO2, and baseline values for comparison",
+      "Client weight for weight-based urine output targets and fluid or product dosing",
+      "Volume of red blood cells actually infused before the transfusion was stopped",
+      "Clerical/bedside identification recheck result and the ABO/Rh type of both the client and the unit",
+      "Direct antiglobulin test, repeat type and crossmatch, and plasma-free hemoglobin results",
+      "Baseline renal function and pre-transfusion CBC and coagulation values",
+      "Serum potassium, ionized calcium, and D-dimer",
+      "Current IV access status, number of sites, and availability of central access",
+      "Available provider orders and institutional transfusion-reaction and DIC protocols",
+      "Prior transfusion history, prior reactions, allergies, and code status"
+    ],
+    "parameterLabels": [
+      "P3",
+      "P4"
+    ],
+    "poolAnswerability": "ANSWERABLE",
+    "reasoning": "The stem gives fever, rigors, bilateral flank pain, hypotension, hemoglobinuria, and a sense of impending doom within 12 minutes of starting red blood cells, plus laboratory evidence of intravascular hemolysis (LDH 1,840 U/L, bilirubin 4.2 mg/dL, haptoglobin <10 mg/dL, port-wine urine). That combination selects C1, acute hemolytic transfusion reaction. C2 is contradicted because no urticaria, angioedema, bronchospasm, or airway involvement is stated and hemoglobinuria with a hemolysis panel is not an anaphylaxis picture. C3 is not supportable as the primary explanation: the stem provides no culture, unit-contamination, or infectious-source data, and sepsis alone does not produce this hemolysis triad. Among the actions, the transfusion is already stopped, so A2 is the required protocol step of returning the unit, attached tubing, and post-reaction specimen to the transfusion service for clerical recheck and compatibility testing. A4 is supported directly by the stated trajectory: worsening hypotension (shock), oozing from puncture sites with fibrinogen 140 mg/dL, platelets 104 ×10³/µL, INR 1.8, and aPTT 52 seconds (DIC), and oliguria with port-wine urine (oliguric acute kidney injury). A1 is contradicted because IV access is needed for resuscitation and removing it would remove the route for fluids and vasopressors. A3 is contradicted because it treats the event as a febrile nonhemolytic reaction and would continue exposure to incompatible blood. For monitoring, P3 tracks the renal and hemolysis trajectory explicitly named in the stem (oliguria, port-wine urine), and P4 tracks the consumptive coagulopathy explicitly quantified in the stem (fibrinogen, platelets, INR, aPTT). P1 is too narrow because temperature alone would miss the shock, renal, and coagulation deterioration that dominate this presentation. P2 is a site-level observation with no premise in the stem and no bearing on the organ failure in progress.",
+    "selectionEvidence": [
+      {
+        "label": "C1",
+        "rationale": "Classic time-linked symptom cluster of an acute hemolytic transfusion reaction to red blood cells.",
+        "stemText": "fever, rigors, bilateral flank pain, hypotension, hemoglobinuria, and a sense of impending doom within 12 minutes of starting a red blood cell transfusion"
+      },
+      {
+        "label": "C1",
+        "rationale": "Laboratory confirmation of brisk intravascular hemolysis, consistent with hemoglobinuria and port-wine urine.",
+        "stemText": "LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL"
+      },
+      {
+        "label": "A2",
+        "rationale": "The transfusion has already been stopped, so the next protocol-driven step is returning the unit, tubing, and post-reaction specimen to the transfusion service.",
+        "stemText": "Thirty minutes after the transfusion is stopped"
+      },
+      {
+        "label": "A4",
+        "rationale": "Explicitly documents progressing shock, DIC, and oliguric acute kidney injury, which is the escalation trigger described in A4.",
+        "stemText": "worsening hypotension, oliguria with port-wine urine, oozing from puncture sites, platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds"
+      },
+      {
+        "label": "P3",
+        "rationale": "Urine output and color are the stem-stated markers of renal perfusion and ongoing hemoglobin clearance.",
+        "stemText": "oliguria with port-wine urine"
+      },
+      {
+        "label": "P4",
+        "rationale": "Coagulation studies with fibrinogen and platelet count are the stem-stated markers of the consumptive coagulopathy.",
+        "stemText": "platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds, oozing from puncture sites"
+      }
+    ],
+    "stage2Confidence": "high",
+    "tokenPremiseTable": [
+      {
+        "missingPremise": "None; the stem supplies the full symptom cluster and hemolysis laboratory panel needed to select this condition.",
+        "opaqueTokenLabel": "C1",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Time-linked symptoms plus LDH, bilirubin, and haptoglobin values make this token the uniquely best fit without any added client facts.",
+        "supportingStemText": "fever, rigors, bilateral flank pain, hypotension, hemoglobinuria, and a sense of impending doom within 12 minutes of starting a red blood cell transfusion ... LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL"
+      },
+      {
+        "missingPremise": "Would require urticaria, angioedema, bronchospasm, stridor, or other airway/mucocutaneous findings, none of which are stated; the stated hemolysis findings actively point away from anaphylaxis.",
+        "opaqueTokenLabel": "C2",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Hemoglobinuria with a hemolysis panel and flank pain is incompatible with an anaphylactic reaction, so the token can be excluded on stem evidence alone.",
+        "supportingStemText": "hemoglobinuria ... haptoglobin <10 mg/dL"
+      },
+      {
+        "missingPremise": "Would require culture results, evidence of bacterial contamination of the unit, or another infectious source; no such client fact appears in the stem.",
+        "opaqueTokenLabel": "C3",
+        "premiseStatus": "MISSING_CLIENT_FACT",
+        "rankabilityImpact": "LOW",
+        "rankabilityJustification": "The missing infection data is not needed to rank it below C1, because the explicit intravascular hemolysis panel already establishes hemolysis as the primary explanation; the gap only limits ruling sepsis out as a coexisting process.",
+        "supportingStemText": "fever, rigors ... LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL"
+      },
+      {
+        "missingPremise": "Would require evidence that the IV site is the problem, such as infiltration or local infection; the stem instead documents shock requiring vascular access.",
+        "opaqueTokenLabel": "A1",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Removing access during worsening hypotension eliminates the route for resuscitation, so the token is excludable from stem facts alone.",
+        "supportingStemText": "worsening hypotension, oliguria with port-wine urine"
+      },
+      {
+        "missingPremise": "None; the stem states the transfusion was stopped, which is the precondition for returning the unit, tubing, and post-reaction sample.",
+        "opaqueTokenLabel": "A2",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The protocol step follows directly from the stated stopped transfusion and suspected hemolytic reaction.",
+        "supportingStemText": "Thirty minutes after the transfusion is stopped"
+      },
+      {
+        "missingPremise": "Would require this to be a febrile nonhemolytic reaction with a still-running transfusion; the stem states the transfusion is already stopped and documents hemolysis and DIC.",
+        "opaqueTokenLabel": "A3",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Slowing rather than discontinuing is incompatible with the stated stopped transfusion and would perpetuate exposure to incompatible blood.",
+        "supportingStemText": "Thirty minutes after the transfusion is stopped ... fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds"
+      },
+      {
+        "missingPremise": "None; shock, DIC, and oliguric acute kidney injury are all evidenced by stated findings and values.",
+        "opaqueTokenLabel": "A4",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Each element named in the token maps to explicit stem data, so escalation is selectable without added facts.",
+        "supportingStemText": "worsening hypotension, oliguria with port-wine urine, oozing from puncture sites, platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds"
+      },
+      {
+        "missingPremise": "Would require fever to be the dominant or sole problem; the stem shows multi-system deterioration that temperature alone cannot track.",
+        "opaqueTokenLabel": "P1",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The restriction to temperature 'alone' is refuted by the explicit hemodynamic, renal, and coagulation deterioration, so it ranks below P3 and P4 on stem evidence.",
+        "supportingStemText": "worsening hypotension, oliguria with port-wine urine, oozing from puncture sites"
+      },
+      {
+        "missingPremise": "Would require a stated concern about the IV site such as redness, swelling, infiltration, or phlebitis; no site assessment appears in the stem.",
+        "opaqueTokenLabel": "P2",
+        "premiseStatus": "NO_CLIENT_PREMISE",
+        "rankabilityImpact": "LOW",
+        "rankabilityJustification": "Absence of any site-related premise leaves the token unsupported, but it does not impede ranking because P3 and P4 are directly evidenced.",
+        "supportingStemText": "oozing from puncture sites"
+      },
+      {
+        "missingPremise": "None; oliguria and port-wine urine are explicitly stated, making urine output and color a directly indicated monitoring parameter.",
+        "opaqueTokenLabel": "P3",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Directly anchored to stated renal and hemolysis findings, requiring no additional client data.",
+        "supportingStemText": "oliguria with port-wine urine"
+      },
+      {
+        "missingPremise": "None; fibrinogen, platelet count, INR, and aPTT values are given along with clinical bleeding.",
+        "opaqueTokenLabel": "P4",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The stem quantifies the exact coagulation studies named in the token, so serial monitoring is selectable without inference.",
+        "supportingStemText": "oozing from puncture sites, platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds"
+      }
+    ]
+  },
+  "stage2Sha256": "53e5287628aa39318b37ed1864d8b12e3f2cc7fa60b0451d747a57999c23bb90",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "tokens": [
+          {
+            "en": "Remove the peripheral IV and plan to obtain new access later.",
+            "opaqueTokenLabel": "A1",
+            "zh": "拔除外周 IV，并计划稍后重新建立通路。"
+          },
+          {
+            "en": "Ensure the transfusion service receives the stopped unit, attached tubing, and required post-reaction patient sample according to protocol.",
+            "opaqueTokenLabel": "A2",
+            "zh": "按制度确保输血服务部门收到已停止输注的血袋、连接管路和所需的输血反应后患者样本。"
+          },
+          {
+            "en": "Give acetaminophen and slow the transfusion rate.",
+            "opaqueTokenLabel": "A3",
+            "zh": "给予对乙酰氨基酚并减慢输血速率。"
+          },
+          {
+            "en": "Escalate immediately for higher-level care because shock, DIC, and oliguric acute kidney injury are progressing.",
+            "opaqueTokenLabel": "A4",
+            "zh": "因休克、DIC 和少尿性急性肾损伤正在进展，立即升级至更高级别护理。"
+          }
+        ]
+      },
+      "condition": {
+        "tokens": [
+          {
+            "en": "Acute hemolytic transfusion reaction",
+            "opaqueTokenLabel": "C1",
+            "zh": "急性溶血性输血反应"
+          },
+          {
+            "en": "Anaphylactic transfusion reaction",
+            "opaqueTokenLabel": "C2",
+            "zh": "过敏性休克型输血反应"
+          },
+          {
+            "en": "Isolated septic transfusion reaction as the primary explanation",
+            "opaqueTokenLabel": "C3",
+            "zh": "以单纯脓毒性输血反应作为主要解释"
+          }
+        ]
+      },
+      "parameters": {
+        "tokens": [
+          {
+            "en": "Temperature trend alone",
+            "opaqueTokenLabel": "P1",
+            "zh": "单独看体温趋势"
+          },
+          {
+            "en": "Peripheral IV insertion-site appearance",
+            "opaqueTokenLabel": "P2",
+            "zh": "外周 IV 穿刺部位外观"
+          },
+          {
+            "en": "Urine output and urine color",
+            "opaqueTokenLabel": "P3",
+            "zh": "尿量和尿液颜色"
+          },
+          {
+            "en": "Coagulation studies, especially fibrinogen and platelet count",
+            "opaqueTokenLabel": "P4",
+            "zh": "凝血指标，尤其是纤维蛋白原和血小板计数"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "把最可能病情、优先措施和监测参数连接起来的 NGN 临床判断题型。",
+        "termEn": "Bow-tie",
+        "termZh": "Bow-tie 题型"
+      },
+      {
+        "defZh": "输血后迅速发生红细胞破坏，可伴休克、血红蛋白尿和凝血异常。",
+        "termEn": "Acute hemolytic transfusion reaction",
+        "termZh": "急性溶血性输血反应"
+      },
+      {
+        "defZh": "根据需要输注红细胞、血浆、冷沉淀或血小板等成分。",
+        "termEn": "Component therapy",
+        "termZh": "血液成分治疗"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Rapid onset during transfusion with hemoglobinuria, flank pain, hemolysis findings, shock, and DIC supports a severe acute hemolytic transfusion reaction.",
+          "opaqueTokenLabel": "C1",
+          "zh": "输血期间快速发作并伴血红蛋白尿、腰痛、溶血证据、休克和 DIC，支持严重急性溶血性输血反应。"
+        },
+        {
+          "en": "Anaphylaxis would emphasize airway compromise, wheezing, angioedema, urticaria, or IgA-mediated allergy rather than hemoglobinuria and hemolysis labs.",
+          "opaqueTokenLabel": "C2",
+          "zh": "过敏性休克更强调气道受累、喘鸣、血管性水肿、荨麻疹或 IgA 相关过敏，而不是血红蛋白尿和溶血实验室表现。"
+        },
+        {
+          "en": "A septic transfusion reaction can share fever and hypotension, but it does not account as well for the prominent intravascular hemolysis pattern; contamination evaluation remains part of the reaction workup.",
+          "opaqueTokenLabel": "C3",
+          "zh": "脓毒性输血反应也可出现发热和低血压，但对明显的血管内溶血表现解释较差；输血反应调查仍需评估污染可能。"
+        },
+        {
+          "en": "The transfusion service needs the stopped unit, tubing, labels, and required post-reaction sample for the reaction investigation before further transfusion decisions.",
+          "opaqueTokenLabel": "A2",
+          "zh": "输血服务部门需要已停止输注的血袋、管路、标签和所需的输血反应后样本进行调查，以支持后续输血决策。"
+        },
+        {
+          "en": "This is correct because the client is moving into multiorgan dysfunction requiring ICU-level monitoring, vasopressors, dialysis evaluation, and component therapy.",
+          "opaqueTokenLabel": "A4",
+          "zh": "正确。患者正在进入多器官功能障碍，需要 ICU 级监护、升压药、透析评估和血液成分治疗。"
+        },
+        {
+          "en": "This is unsafe because the transfusion must be stopped, not slowed; antipyretics do not address hemolysis or shock.",
+          "opaqueTokenLabel": "A3",
+          "zh": "不安全。输血必须停止，而不是减慢；退热药不能处理溶血或休克。"
+        },
+        {
+          "en": "This is unsafe because the unstable client needs vascular access for fluids, vasopressors, and blood components.",
+          "opaqueTokenLabel": "A1",
+          "zh": "不安全。不稳定患者需要血管通路以补液、用升压药和输注血液成分。"
+        },
+        {
+          "en": "Urine output and color show renal perfusion and ongoing hemoglobin burden.",
+          "opaqueTokenLabel": "P3",
+          "zh": "尿量和尿色反映肾灌注和持续血红蛋白负荷。"
+        },
+        {
+          "en": "Fibrinogen and platelet count help determine whether DIC is worsening or stabilizing.",
+          "opaqueTokenLabel": "P4",
+          "zh": "纤维蛋白原和血小板计数有助于判断 DIC 是恶化还是稳定。"
+        },
+        {
+          "en": "Temperature helped identify the reaction, but temperature alone cannot show stabilization when renal and coagulation data are worsening.",
+          "opaqueTokenLabel": "P1",
+          "zh": "体温有助于识别反应，但当肾脏和凝血数据恶化时，单看体温不能说明稳定。"
+        },
+        {
+          "en": "Routine IV-site assessment is appropriate, but insertion-site appearance does not track the systemic hemolytic crisis.",
+          "opaqueTokenLabel": "P2",
+          "zh": "常规评估 IV 部位是合适的，但穿刺部位外观不能反映全身溶血危机的进展。"
+        }
+      ],
+      "correct": {
+        "en": "The condition is an acute hemolytic transfusion reaction. The priority actions are to ensure the transfusion-service investigation receives the required unit, tubing, and patient sample, and to escalate to higher-level care for shock, DIC, and oliguric acute kidney injury. The best monitoring parameters are urine output and color plus coagulation trends because these track the major organ-system threats.",
+        "zh": "该病情是急性溶血性输血反应。优先措施是确保输血服务部门调查取得所需的血袋、管路和患者样本，并因休克、DIC 和少尿性急性肾损伤升级至更高级别护理。最佳监测参数是尿量和尿色以及凝血趋势，因为这些指标反映主要受威胁的器官系统。"
+      }
+    },
+    "stem": {
+      "en": "A client develops fever, rigors, bilateral flank pain, hypotension, hemoglobinuria, and a sense of impending doom within 12 minutes of starting a red blood cell transfusion. Thirty minutes after the transfusion is stopped, the client has worsening hypotension, oliguria with port-wine urine, oozing from puncture sites, platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds, LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL. Complete the bow-tie by selecting the most likely condition, two priority actions, and two parameters to monitor.",
+      "zh": "一名患者开始输注红细胞后 12 分钟内出现发热、寒战、双侧腰痛、低血压、血红蛋白尿和濒危感。停止输血 30 分钟后，患者低血压加重，少尿且尿呈葡萄酒色，穿刺部位渗血，血小板 104 ×10³/µL，纤维蛋白原 140 mg/dL，INR 1.8，aPTT 52 秒，LDH 1,840 U/L，胆红素 4.2 mg/dL，结合珠蛋白 <10 mg/dL。请选择最可能的病情、两个优先措施和两个需要监测的参数来完成 bow-tie。"
+    },
+    "testTakingStrategy": {
+      "en": "For bow-tie items, match the center condition first, then select actions and monitoring parameters that address that specific pathophysiology.",
+      "zh": "做 bow-tie 题时先锁定中心病情，再选择针对该病理生理过程的措施和监测参数。"
+    }
+  }
+}

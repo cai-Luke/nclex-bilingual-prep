@@ -1,0 +1,184 @@
+{
+  "advisoryPriority": "P2",
+  "bilingualCollateral": [
+    {
+      "advisory": "Terminology-consistency observation only; the accompanying defZh accurately describes the format, so comprehension is preserved. No edit proposed.",
+      "location": "standalone glossary, termEn 'bow-tie' / termZh '弓形图题'; same rendering in stem.zh '请完成弓形图'",
+      "observation": "'弓形图' is an idiosyncratic rendering of the NGN bow-tie format; '弓形' commonly denotes an arc or arcuate shape and does not convey the bow-tie (领结/蝴蝶结) image. Renderings such as '领结图' or '蝶形图' are more transparent to a Chinese-reading learner.",
+      "severity": "LOW"
+    },
+    {
+      "advisory": "Cross-item term-alignment observation.",
+      "location": "standalone glossary, termEn 'dormant authority' / termZh '尚未生效的权力'",
+      "observation": "The Chinese rendering is accurate for the concept, but the English head term 'dormant authority' is not the phrase used anywhere in the sibling case, which consistently uses 'capacity activation' (代理权生效) and 'surrogate authority' (代理决策权). The standalone glossary thus introduces a third label for the same concept.",
+      "severity": "LOW"
+    },
+    {
+      "advisory": "Recorded for completeness; no action implied.",
+      "location": "all standalone and sibling glossary entries",
+      "observation": "Every glossary entry provides termEn, termZh, and defZh but no defEn. This is uniform across the standalone item and all six sibling questions, so it reads as an intentional house convention (Chinese-gloss support for an English-primary item) rather than an omission.",
+      "severity": "NONE"
+    },
+    {
+      "advisory": "Minor en/zh asymmetry; does not affect token selection.",
+      "location": "standalone rationale.correct.zh vs .en",
+      "observation": "The Chinese rendering adds '并在必要时逐级上报' (escalate up the chain as needed) where the English says only 'communicate and escalate.' The Chinese is arguably clearer about the chain-of-command meaning, but it makes the zh version slightly more specific than the en version about an action with no corresponding token.",
+      "severity": "LOW"
+    },
+    {
+      "advisory": "Verified clean.",
+      "location": "standalone byChoice P2.zh and P3.zh",
+      "observation": "Both render the keyed parameters faithfully, including the coercion concept ('未受胁迫') and the ongoing-alignment concept ('持续符合'). No semantic drift found.",
+      "severity": "NONE"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "explanation": "The standalone stem states documented intact capacity, a repeated refusal, and treatment planning that challenges it — all three elements of C2 — and excludes C1 and C3 by direct contradiction. The sibling adds the DPOAHC dormancy mechanism that makes C1 an attractive distractor, but that mechanism is not needed to reject C1 once capacity is stated as intact.",
+      "opaqueTokenLabel": "C2",
+      "siblingNecessity": "CORROBORATIVE_ONLY",
+      "siblingOverlap": "Directly mirrored by sibling q2 keyed option A ('Mrs. Ellison's refusal governs because her decision-making capacity is intact and documented') and by the case-level summary and rationale, which frame the whole case as protecting a capacitated adult's informed refusal against family pressure and provider ambivalence. Sibling q1 keys the four cues (s2, s3, s4, s5) that establish the same condition.",
+      "standaloneSufficiency": "SUFFICIENT"
+    },
+    {
+      "explanation": "The standalone stem independently supplies both the documented refusal and the physician's suggestion to schedule the consult anyway, which is the entire premise A3 acts on. The sibling confirms the priority ordering (physician communication before slower support processes) that the canonical key's A3-then-A2 sequence reflects.",
+      "opaqueTokenLabel": "A3",
+      "siblingNecessity": "CORROBORATIVE_ONLY",
+      "siblingOverlap": "Near-verbatim in sibling q4 option C ('Communicate directly with the physician that scheduling a PEG consult over the documented refusal raises an ethical concern') and keyed as the single first action in sibling q5 option A, with the rationale identifying the consult as 'the proximate threat to autonomy.'",
+      "standaloneSufficiency": "SUFFICIENT"
+    },
+    {
+      "explanation": "The standalone stem states that palliative care is involved and that a family meeting is arranged, which is all A2 requires. The sibling adds the consent-and-participation qualifier ('with Mrs. Ellison's consent and participation as she desires') that the standalone A2 wording omits; this is a nuance gain, not a support dependency.",
+      "opaqueTokenLabel": "A2",
+      "siblingNecessity": "CORROBORATIVE_ONLY",
+      "siblingOverlap": "Mirrored by sibling q4 option D ('Request palliative-care/social-work support and help arrange a structured family meeting with Mrs. Ellison's consent and participation as she desires') and enacted in the stage_3 narrative, where the meeting is arranged with the attending, palliative care, social worker, and both children.",
+      "standaloneSufficiency": "SUFFICIENT"
+    },
+    {
+      "explanation": "The standalone stem's documented refusal supplies the reference standard against which orders and plan are compared, and the physician's consult suggestion supplies the concrete drift risk P3 detects. The sibling decomposes P3 into finer-grained indicators but establishes no fact the standalone lacks.",
+      "opaqueTokenLabel": "P3",
+      "siblingNecessity": "CORROBORATIVE_ONLY",
+      "siblingOverlap": "Mirrored by sibling q6 rows r2 ('No PEG consult has been placed over the patient's refusal') and r3 ('A comfort-focused plan and hospice referral are being developed according to her expressed wishes'), both keyed as showing effective advocacy; also by r1 on consistent documentation.",
+      "standaloneSufficiency": "SUFFICIENT"
+    },
+    {
+      "explanation": "The standalone stem establishes an arranged family meeting around an already-challenged refusal, which is sufficient to make freedom from coercion a live and rankable parameter without knowing that coercion actually occurred. The sibling's explicit coercion episode makes P2 vivid rather than selectable — the blind Stage 2 record selected P2 with no knowledge of it.",
+      "opaqueTokenLabel": "P2",
+      "siblingNecessity": "CORROBORATIVE_ONLY",
+      "siblingOverlap": "Mirrored by sibling q6 row r4 ('Mrs. Ellison says she is glad someone is listening and asks about hospice options at home'), keyed as showing effective advocacy, and grounded in the stage_2 coercion assessment where she reports pressure from David that does not change her decision. Sibling q4 option A also keys ongoing assessment of voluntariness.",
+      "standaloneSufficiency": "SUFFICIENT"
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "implication": "Strengthens rather than undermines the keying of P1 as a distractor.",
+      "observation": "The item's treatment of albumin and prealbumin as non-indicators of advocacy effectiveness is clinically sound and, as it happens, doubly so: in a patient with NYHA IV heart failure, CKD stage 4, and volume overload (the sibling's actual physiology), albumin and prealbumin are confounded by inflammation, dilution, and renal loss and are poor nutritional markers regardless. The standalone rationale reaches the right conclusion on autonomy grounds alone, which is the appropriate reasoning for a Management of Care item.",
+      "severity": "NONE"
+    },
+    {
+      "implication": "No defect; noted because it shows the item does not depend on a contested clinical claim.",
+      "observation": "PEG placement in a patient with EF 15%, eGFR 14, and progressive dysphagia carries limited evidence of survival or aspiration benefit, and the sibling's own physician documentation acknowledges that 'PEG does not necessarily eliminate aspiration risk.' The standalone item does not rely on this, keying the refusal as governing on autonomy grounds irrespective of net clinical benefit — which is the correct and more generalizable teaching point.",
+      "severity": "NONE"
+    },
+    {
+      "implication": "Does not alter the verdict; no alternative action token could occupy the slot in any case.",
+      "observation": "The standalone stem's 'has been addressed' phrasing sits in mild tension with A3 being keyed as a forward-looking priority action, since the physician communication could be read as already complete. The sibling resolves this cleanly — q5 keys the physician communication as the first advocacy action at Stage 2, and the Stage 3 narrative confirms it was carried out — so within the case the sequence is coherent. Standalone, the tension is absorbed by reading A3 as the sustained advocacy stance, which is what my immutable blind record did and what the standalone rationale endorses ('protects the patient from the immediate risk of a consult being placed over refusal').",
+      "severity": "LOW"
+    },
+    {
+      "implication": "Interpretive richness is lost standalone; the keyed selection is unaffected because P2 remains clearly superior to P1 and P4 either way.",
+      "observation": "P2 as written measures the client's subjective report of being heard and uncoerced. The sibling supplies the clinically important nuance that coercion may be present and distressing yet not decision-altering — 'David keeps coming in and telling me I'm being selfish. It upsets me, but it doesn't change my mind.' A learner reading P2 standalone might infer that any reported pressure signals failed advocacy. The standalone rationale for P4 partially inoculates against this ('family satisfaction may remain low even when the patient's rights are properly protected'), but the distinction between distress-present and autonomy-compromised is developed only in the sibling.",
+      "severity": "LOW"
+    }
+  ],
+  "defectSummary": "",
+  "missingFactProvenance": [
+    {
+      "explanation": "The keyed set turns on capacity and refusal, not on the clinical indication. The sibling's own q1 rationale for s9 makes this explicit: dysphagia 'supports the clinical rationale for discussing PEG but does not override a capacitated refusal.' Knowing the diagnosis changes no token ranking.",
+      "missingClientFact": "Underlying diagnosis and prognosis prompting the PEG recommendation",
+      "provenance": "PRESENT_IN_SIBLING",
+      "siblingLocation": "baseline_record exhibit: NYHA class IV heart-failure exacerbation, ischemic cardiomyopathy EF 15%, CKD stage 4, progressive dysphagia followed by SLP for 6 months, three admissions in 4 months",
+      "siblingNecessity": "CORROBORATIVE_ONLY"
+    },
+    {
+      "explanation": "These values would make P1 concrete rather than contextless, but they cannot promote it: sibling q6 row r6 keys the identical labs as 'Does not show advocacy effectiveness,' and sibling q3 option D keys correcting malnutrition as wrong. The sibling therefore confirms rather than reverses the standalone demotion of P1.",
+      "missingClientFact": "Nutritional and hydration status, weight trend, albumin/prealbumin values",
+      "provenance": "PRESENT_IN_SIBLING",
+      "siblingLocation": "baseline_record: albumin 2.6 g/dL, prealbumin 11 mg/dL, weight 68.4 kg vs dry weight 64.2 kg, temporal wasting; serial weights 67.8 → 67.2 → 66.8 kg across stages",
+      "siblingNecessity": "CORROBORATIVE_ONLY"
+    },
+    {
+      "explanation": "Aspiration risk is physiologic context that a capacitated refusal overrides. It supports no token and displaces none.",
+      "missingClientFact": "Swallow evaluation results and documented aspiration risk",
+      "provenance": "PRESENT_IN_SIBLING",
+      "siblingLocation": "baseline_record and stage_1_update: pureed foods and nectar-thick liquids per SLP; prolonged swallow initiation; physician documentation that 'PEG does not necessarily eliminate aspiration risk'",
+      "siblingNecessity": "CORROBORATIVE_ONLY"
+    },
+    {
+      "explanation": "This is the single fact with the most apparent potential to matter, because C1 concerns surrogate decision-making. It does not change rankability: the standalone stem's 'documented intact decisional capacity' already excludes C1 on its own, since a surrogate cannot act while capacity is intact regardless of whether a directive exists. The sibling merely shows why the item author had C1 in mind as a distractor. Confirmed as corroborative, not necessary.",
+      "missingClientFact": "Existence and content of an advance directive, POLST/MOLST, or healthcare proxy",
+      "provenance": "PRESENT_IN_SIBLING",
+      "siblingLocation": "baseline_record and stage_1_update: son David named DPOAHC 'to be activated only if Mrs. Ellison loses decisional capacity'; sibling q1 segment s5 and q2 key both turn on this clause",
+      "siblingNecessity": "CORROBORATIVE_ONLY"
+    },
+    {
+      "explanation": "No token in any standalone pool references code status or hospice, so this fact has no token to attach to. It enriches the narrative only.",
+      "missingClientFact": "Current code status and whether comfort-focused care or hospice has been discussed",
+      "provenance": "PRESENT_IN_SIBLING",
+      "siblingLocation": "stage_3_update: palliative-care NP recommends 'comfort-focused plan of care, and hospice referral per patient's expressed wishes'; patient asks about home hospice",
+      "siblingNecessity": "CORROBORATIVE_ONLY"
+    },
+    {
+      "explanation": "Relevant to constructing a care plan, not to selecting among the given tokens. No pool option concerns feeding alternatives.",
+      "missingClientFact": "Which alternatives to PEG the client would accept",
+      "provenance": "PRESENT_IN_SIBLING",
+      "siblingLocation": "stage_1_update: 'I want to eat what I can and be comfortable'; tolerating small amounts of pureed food and nectar-thick liquids; ate ~30% of pureed breakfast in stage 2",
+      "siblingNecessity": "CORROBORATIVE_ONLY"
+    },
+    {
+      "explanation": "My standalone record predicted this would not matter because A4 is excluded on autonomy grounds whether or not a family demand exists. The sibling confirms this directly: q4 option F ('Defer to David's demand because he holds the DPOAHC document and is threatening escalation') is keyed incorrect precisely despite the demand being real and forceful. The strongest possible version of the absent fact still does not rehabilitate A4.",
+      "missingClientFact": "The family's stated position entering the meeting",
+      "provenance": "PRESENT_IN_SIBLING",
+      "siblingLocation": "stage_1_update: David 'She doesn't know what she's saying... I'm her power of attorney — I want the tube placed'; daughter Karen 'We want everything done'; stage_3_update: David threatens a court order",
+      "siblingNecessity": "CORROBORATIVE_ONLY"
+    },
+    {
+      "explanation": "No ethics-consult token appears in any standalone pool, so this fact is unrankable-irrelevant. The sibling additionally establishes that ethics consultation is subordinate to direct physician communication, which is consistent with A3 being keyed.",
+      "missingClientFact": "Whether an ethics consult has been initiated",
+      "provenance": "PRESENT_IN_SIBLING",
+      "siblingLocation": "sibling q5 option C, keyed incorrect: 'Call the ethics committee first before addressing the concern with the physician'; case-level rationale mentions 'escalation to ethics or risk management if needed'",
+      "siblingNecessity": "CORROBORATIVE_ONLY"
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "Every canonical target is supported by explicit text in the standalone stem, and none of them requires a fact that exists only in the now-revealed sibling case. C2 rests on 'repeatedly refused PEG placement with documented intact decisional capacity' plus 'The physician's suggestion to schedule the consult anyway has been addressed' and 'Palliative care confirms her capacity and wishes.' A3 rests on the physician's consult suggestion set against the documented refusal. A2 rests on 'Palliative care confirms her capacity and wishes, and a family meeting is arranged.' P3 rests on the documented wishes against which orders can be audited. P2 rests on the arranged family meeting combined with an already-challenged refusal, which is what makes coercion-freedom a live measure. Applying the precedence order: no keyed target depends on a hidden case fact, so FAIL_HIDDEN_CASE_DEPENDENCY does not apply. No keyed or distractor token rests on an unsupported premise — the four distractors are excluded on explicit stem contradiction (C1, C3, A1, A4), on a missing but non-decisive client fact (P1), or on general ethical knowledge (P4) — so FAIL_UNSUPPORTED_TOKEN_PREMISE does not apply. The 1/2/2 set is uniquely determined without inference, so FAIL_UNDERDETERMINED does not apply. The canonical key matches the defensible answer and its rationales are internally consistent, so FAIL_CANONICAL_KEY_OR_LOGIC does not apply. My blind Stage 2 selection matched the key at set level, so there is no reviewer disagreement to hold. The sibling case supplies rich corroboration — the DPOAHC dormancy clause, the son's demand and legal threat, the albumin/prealbumin values, the palliative-care note — but every one of these strengthens confidence in a set that was already fully determined standalone. Corroboration is not necessity. Verdict is PASS_STANDALONE, with narrow collateral observations recorded below at advisory P2; none of them affects answerability.",
+  "scopeCollateral": [
+    {
+      "implication": "Supports PASS_STANDALONE.",
+      "observation": "The standalone item is scoped as a Stage 3 synthesis and presupposes that the learner accepts three prior determinations — capacity established, the consult suggestion resolved, palliative care engaged — without re-deriving them. This is appropriate for a synthesis item and is fully self-contained: the stem asserts each determination rather than requiring the learner to infer it.",
+      "severity": "NONE"
+    },
+    {
+      "implication": "Advisory only, contributing to the P2 rating. No content edit proposed per instruction.",
+      "observation": "The 'dormant authority' glossary entry extends the standalone item's conceptual scope past its own content into surrogate-authority doctrine that the item never exercises. Traced now to the sibling's DPOAHC activation clause. It is a harmless but orphaned scaffold: a learner encountering the standalone item alone would find a defined term with nothing in the item to attach it to.",
+      "severity": "LOW"
+    },
+    {
+      "implication": "Item-bank efficiency observation. If the standalone is intended for independent deployment this is a strength (self-sufficiency); if deployed adjacent to the sibling it adds little discrimination.",
+      "observation": "Redundancy with the sibling set: standalone A3 ≈ sibling q4 option C and q5 option A; standalone A2 ≈ sibling q4 option D; standalone P3 ≈ sibling q6 row r2; standalone P2 ≈ sibling q6 row r4; standalone P1 ≈ sibling q6 row r6; standalone P4 ≈ the family-satisfaction concept in the sibling q6 correct rationale. The standalone bow-tie therefore recapitulates ground already covered by q4, q5, and q6 rather than testing a distinct inference.",
+      "severity": "LOW"
+    },
+    {
+      "implication": "Minor rationale-to-pool scope mismatch; does not create ambiguity because the two keyed actions are unambiguously the best available.",
+      "observation": "The standalone action pool contains no escalation option (charge nurse, ethics committee, risk management) even though its own correct-rationale mentions escalation. The sibling exercises that dimension in q5. Scope of the standalone pool is thus narrower than its rationale language implies.",
+      "severity": "LOW"
+    }
+  ],
+  "secondaryFlags": [
+    "Substantial content overlap between the standalone bow-tie item and sibling items q4 and q6: standalone A3/A2 are near-verbatim restatements of sibling q4 options C and D, and standalone P3/P2 map onto sibling q6 rows r2 and r4. Within a single case study this is reinforcement by design, but as a standalone item it carries little independent discriminating value.",
+    "The standalone glossary term 'dormant authority' has no anchor anywhere in the standalone stem, tokens, or rationales; it is intelligible only against the sibling's DPOAHC activation clause. Flagged in the immutable standalone-unblinding record as an unanchored artifact before the sibling was seen; the sibling now confirms its origin.",
+    "The standalone byChoice rationale for C3 states capacity was 'documented by both the physician and palliative-care clinician,' but the standalone stem attributes documentation to no one in particular and names only palliative care as confirming. The physician attribution is true in the sibling and harmless here, but it is a rationale-level import beyond the standalone text.",
+    "The standalone correct-rationale phrase 'communicate and escalate' gestures at escalation (charge nurse, ethics, risk management) for which no token exists in the standalone pools; the escalation chain is developed only in the sibling.",
+    "The standalone A2 rationale refers to addressing 'family concerns,' which the standalone stem implies through the arranged family meeting but never states as conflict. Low severity — a family meeting reasonably presupposes something to discuss."
+  ]
+}

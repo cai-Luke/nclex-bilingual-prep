@@ -1,0 +1,204 @@
+{
+  "advisoryPriority": "P3",
+  "bilingualCollateral": [
+    {
+      "affectsStandaloneItem": false,
+      "location": "caseStudy.stages[0].title.zh",
+      "observation": "The Chinese stage title reads '激动 episode 与照护者反应' — the English word 'episode' is left untranslated inside the Chinese string. Expected rendering would be '激动发作' or '躁动发作'.",
+      "severity": "cosmetic"
+    },
+    {
+      "affectsStandaloneItem": false,
+      "location": "caseStudy.questions[0].highlight.segments[0] (q1_s1)",
+      "observation": "English reads 'Margaret is oriented only to her first name.' The Chinese adds material the English omits: '仅能说出自己的名字，无法定向到日期、季节或地址' (adds the date/season/address negatives). Both are faithful to the source exhibit, but the two language versions are not equivalent in scope, which could affect a bilingual learner's read of what the single highlightable segment covers.",
+      "severity": "minor"
+    },
+    {
+      "affectsStandaloneItem": false,
+      "location": "caseStudy.questions[0].highlight.segments[17] (q1_s18)",
+      "observation": "English 'Pill bottles are open and the wrong-day pill organizer is in use' versus Chinese '药瓶敞开，且药盒日期使用混乱'. The Chinese generalizes to 'day usage is confused' and drops the specific wrong-day framing; acceptable in sense but looser than the English.",
+      "severity": "cosmetic"
+    },
+    {
+      "affectsStandaloneItem": true,
+      "location": "Standalone item, glossary",
+      "observation": "The standalone glossary entries supply Chinese definitions (defZh) with no English definitions, whereas all other bilingual fields in both artifacts are paired. This is a consistent pattern across both files rather than a defect introduced here, but it leaves English-preferring learners without definitions for 'Bow-tie item', 'Priority action', and 'Monitoring parameter'.",
+      "severity": "cosmetic"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "explanation": "The sibling names the condition explicitly, but the standalone stem already contained the full diagnostic cluster — sole caregiver, severe sleep deprivation, weight loss, missed work, guilt, fear of judgment, voluntary help-seeking — and both blind stages reached caregiver role strain without it. The sibling additionally confirms the elimination logic for C1 and C3 rather than supplying it.",
+      "opaqueTokenLabel": "C2",
+      "overlapClassification": "CORROBORATIVE_ONLY",
+      "siblingEvidence": "The case is titled 'Caregiver role strain in home management of moderate Alzheimer's dementia'; the topic field on every question is 'Caregiver Role Strain & Family Coping'; q2_a is keyed as 'The pattern best supports caregiver role strain with unsafe compensatory strategies'; and the case-level rationale states the case 'centers on caregiver role strain affecting home safety.'",
+      "siblingNecessity": "NOT_NECESSARY",
+      "siblingSupportPresent": true
+    },
+    {
+      "explanation": "The sibling supplies vivid mechanism and confirms the nonrestrictive framing is deliberate, but the standalone stem's 'worsening wandering, stove-use risk' was sufficient to select A2 over the alternatives, none of which addressed physical hazards at all.",
+      "opaqueTokenLabel": "A2",
+      "overlapClassification": "CORROBORATIVE_ONLY",
+      "siblingEvidence": "Stage 1 shows Margaret turning on a burner and a prior 20-minute unattended burner; the assessment exhibit records 'Stove knobs are not covered or disabled' and a deadbolt Margaret can unlock. q3_a keys pre-departure hazard control including a nonrestrictive door-alert strategy and preventing unsupervised stove access; q4_a and q4_b key door alarms and stove control; q4_f is keyed wrong for retaining the barricade; q6_r5 keys the still-unsecured stove as a remaining gap.",
+      "siblingNecessity": "NOT_NECESSARY",
+      "siblingSupportPresent": true
+    },
+    {
+      "explanation": "The standalone record classified A3 as a GENERAL_KNOWLEDGE_LINK rather than DIRECT, and the sibling validates that classification precisely: the sibling supplies dose and duration, but the reasoning that selects A3 is pharmacologic knowledge applied to the stem's bare mention of bedtime diphenhydramine, which blind Stage 1 performed before seeing any pool.",
+      "opaqueTokenLabel": "A3",
+      "overlapClassification": "CORROBORATIVE_ONLY",
+      "siblingEvidence": "Stage 2 discloses diphenhydramine 25 mg nightly for 3 weeks with worsening morning confusion; q3_a includes notifying the provider about diphenhydramine; q4_d routes it through provider and pharmacist; q4_f is keyed wrong for continuing it at a lower dose; Stage 3 reports the provider discontinued it with less morning confusion following, and q6_r3 keys that as improvement; the q3 glossary defines 'anticholinergic burden'.",
+      "siblingNecessity": "NOT_NECESSARY",
+      "siblingSupportPresent": true
+    },
+    {
+      "explanation": "The sibling operationalizes P1 as the organizing logic of its entire outcome-evaluation item, which strongly validates the parameter's design. The standalone stem's enumeration of wandering, stove-use risk, a fall, and medication-administration problems was already sufficient to select it over the isolated-SpO2 and cognitive-score alternatives.",
+      "opaqueTokenLabel": "P1",
+      "overlapClassification": "CORROBORATIVE_ONLY",
+      "siblingEvidence": "Q6 evaluates exactly this parameter by tracking completion of safety changes: q6_r1 (barricade removed, front-door alarm installed) is keyed as improvement, while q6_r5 (stove still unsecured) and q6_r6 (throw rugs in place, cleaning supplies unlocked) are keyed as remaining gaps. q6_r2 keys medication reliability as improvement, covering P1's medication-access domain.",
+      "siblingNecessity": "NOT_NECESSARY",
+      "siblingSupportPresent": true
+    },
+    {
+      "explanation": "Every element of P2 — sleep, appetite and weight, ability to work, engagement with caregiver support, personal health follow-up — is independently tracked in the sibling's Stage 3 and keyed in q6. The corroboration is essentially element-for-element, yet the standalone stem's own report of severe sleep deprivation, weight loss, and missed work already mapped onto three of those five elements directly, with the remaining two being prospective outcomes appropriate to any evaluation measure.",
+      "opaqueTokenLabel": "P2",
+      "overlapClassification": "CORROBORATIVE_ONLY",
+      "siblingEvidence": "q6_r4 keys Diane contacting the Area Agency on Aging, attending an online support group, and scheduling her own primary-care appointment as improvement; q6_r7 keys the absence of adult-day enrollment and her continued status as sole reliable caregiver as a remaining gap. Stage 3 tracks her sleep improvement and fewer headaches; the baseline assessment supplies the sleep, weight, work-absence, and no-PCP-in-a-year data the parameter measures.",
+      "siblingNecessity": "NOT_NECESSARY",
+      "siblingSupportPresent": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "affectsStandaloneItem": false,
+      "location": "caseStudy.questions[0].highlight.segments[12] (q1_s13)",
+      "observation": "The segment asserts causation not present in any exhibit: 'Diane has lost twelve pounds in two months because she forgets to eat.' The baseline record states only that she 'lost 12 lb in 2 months' with no stated mechanism. The Chinese carries the same unsourced attribution ('因忘记吃饭').",
+      "severity": "minor"
+    },
+    {
+      "affectsStandaloneItem": false,
+      "location": "caseStudy.questions[0].highlight.segments[15] (q1_s16) and questions[1].rationale.correct",
+      "observation": "Both describe Diane as tearful ('becomes tearful', 'she is exhausted, guilty, tearful'). The Stage 1 exhibit describes her putting her head in her hands and speaking quietly but does not state that she cries. Minor drift between exhibit and derived items.",
+      "severity": "minor"
+    },
+    {
+      "affectsStandaloneItem": false,
+      "location": "caseStudy.questions[0].rationale.byChoice for q1_s5",
+      "observation": "Albumin 3.1 g/dL and prealbumin 14 mg/dL are framed as 'low nutrition markers' reinforcing inadequate intake. Current nutrition literature treats both primarily as negative acute-phase reactants rather than reliable standalone nutritional indices. Within an NCLEX-style item this framing is conventional and defensible, but it is a known simplification worth noting.",
+      "severity": "minor"
+    },
+    {
+      "affectsStandaloneItem": false,
+      "location": "caseStudy.exhibits[0] versus exhibits[1]",
+      "observation": "Diane reports Margaret 'lost about 8 lb over 3 months' while the measured comparison is 61.6 kg nine months ago to 58 kg today (3.6 kg, about 7.9 lb, over nine months). The two are reconcilable if the loss concentrated in the last three months, and the case never asserts otherwise, but the differing intervals are not explicitly bridged for the learner.",
+      "severity": "cosmetic"
+    },
+    {
+      "affectsStandaloneItem": false,
+      "location": "caseStudy.stages[1] and questions[3] option q4_d",
+      "observation": "Crushing amlodipine and lisinopril is presented as Diane's workaround and is later validated by pharmacist confirmation that lisinopril is crushable, with amlodipine switched to oral liquid. This is clinically sound and correctly routes formulation decisions through the pharmacist rather than having the nurse decide unilaterally.",
+      "severity": "none"
+    },
+    {
+      "affectsStandaloneItem": true,
+      "location": "Standalone item, A3 and rationale",
+      "observation": "The standalone A3 and its rationale are clinically accurate: diphenhydramine is a strongly anticholinergic first-generation antihistamine, is Beers-criteria inappropriate in older adults, and worsens confusion, fall risk, urinary retention, and sleep architecture in dementia. The sibling reaches the identical conclusion at q3_a, q4_d, and q4_f.",
+      "severity": "none"
+    }
+  ],
+  "defectSummary": "",
+  "missingFactProvenance": [
+    {
+      "affectsCanonicalKey": false,
+      "explanation": "The absence in both artifacts confirms this fact was never load-bearing. Narrative strain indicators alone suffice to select P2 over P3 and P4, and the sibling keys q6_r4 (support-group attendance, own PCP appointment) as an improvement marker using the same narrative-outcome logic rather than any instrument score.",
+      "missingFact": "Validated baseline caregiver burden score (Zarit or Modified Caregiver Strain Index) and a depression screen for Diane",
+      "provenance": "NOT_IN_SIBLING_EITHER",
+      "siblingEvidence": "No formal burden instrument or depression screen appears anywhere in the sibling case. The closest content is narrative: daily headaches, concentration difficulty at work, anger-then-guilt cycling, tearfulness, and explicit denial of thoughts of harming herself or Margaret.",
+      "siblingRelationship": "NEITHER_NECESSARY_NOR_CORROBORATIVE"
+    },
+    {
+      "affectsCanonicalKey": false,
+      "explanation": "A3 is selectable from the bare fact of bedtime diphenhydramine use in a person with dementia; the anticholinergic risk is general pharmacology and does not turn on dose, duration, or prescriber. The sibling's 25 mg for 3 weeks with emerging morning confusion strengthens the same conclusion the standalone record already reached, and the sibling's own q3_a keys provider notification about diphenhydramine as part of the pre-departure priority, mirroring canonical A3.",
+      "missingFact": "Dose, duration, prescriber, and prescription-versus-OTC status of the bedtime diphenhydramine",
+      "provenance": "SIBLING_ONLY",
+      "siblingEvidence": "Stage 2: 'diphenhydramine 25 mg at bedtime for 3 weeks to help Margaret sleep; it worked at first but now Margaret seems more confused in the morning.' Q4 rationale for q4_d refers to 'OTC diphenhydramine use.' Stage 3: 'The provider discontinued diphenhydramine.'",
+      "siblingRelationship": "CORROBORATIVE_ONLY"
+    },
+    {
+      "affectsCanonicalKey": false,
+      "explanation": "Falls are one of the four hazard domains P1 enumerates, and P1 was selectable from the stem's bare mention of 'a recent unreported fall.' The sibling adds mechanism and the fear-of-judgment motive, which reinforces the role-strain reading over the abuse reading but was not required to eliminate C3.",
+      "missingFact": "Details of the unreported fall — mechanism, injury sustained, and whether a provider has evaluated Margaret since",
+      "provenance": "SIBLING_ONLY",
+      "siblingEvidence": "Stage 2: 'Margaret fell in the bathroom 3 days ago, with no visible injury; Diane helped her up but did not report the fall because she feared being judged.' Baseline exam: 'Skin intact with no bruising, lacerations, or pressure areas.' Stage 3: provider was contacted about the unreported fall and referred Margaret to physical therapy; 'No new falls.'",
+      "siblingRelationship": "CORROBORATIVE_ONLY"
+    },
+    {
+      "affectsCanonicalKey": false,
+      "explanation": "This is the fact the standalone record flagged as most relevant to the A1-versus-A3 comparison, and it is the only entry rated LOW rather than NONE there. The sibling confirms respite is genuinely indicated and genuinely absent, but it does not rescue A1, whose defect is sequencing ('without first validating Diane's distress'), not resource availability. The sibling independently rejects the same sequencing in q5_d for the same stated reason, so the standalone treatment of A1 is vindicated rather than overturned.",
+      "missingFact": "Availability of other family, paid aides, respite programs, insurance coverage, and Diane's willingness to accept them",
+      "provenance": "SIBLING_ONLY",
+      "siblingEvidence": "Baseline: an informal neighbor covers noon until Diane returns. Assessment: Diane 'has not attended a caregiver support group and does not know what respite care is.' Stage 2: her brother told her she 'just needs to try harder.' Stage 3: an adult day program 3 miles away, Monday-Friday 8 AM-4 PM, enrollment under consideration; 'still has no formal respite in place.' Q6 keys q6_r7 (no day-program enrollment, Diane still the only reliable daily caregiver) as a remaining gap.",
+      "siblingRelationship": "CORROBORATIVE_ONLY"
+    },
+    {
+      "affectsCanonicalKey": false,
+      "explanation": "The sibling supplies the episode the standalone stem summarizes and repeats the identical negation clause, which is precisely why the standalone stem could eliminate C3 and A4 on its own text. Corroborative, not necessary.",
+      "missingFact": "Frequency, triggers, and escalation trajectory of Margaret's agitation episodes and whether the raised voice was isolated or recurrent",
+      "provenance": "SIBLING_ONLY",
+      "siblingEvidence": "Stage 1 exhibit narrates a full episode: Margaret turns on a burner believing she is making coffee, pulls her arm away, shouts; Diane raises her voice, then sits with her head in her hands saying 'I can't do this anymore. I'm failing her.' The exhibit states explicitly that 'Diane does not strike, shove, or physically restrain Margaret; her frustration is verbal and self-directed.' Vitals rise during agitation (HR 92, BP 156/94, RR 20) and normalize after calm redirection.",
+      "siblingRelationship": "CORROBORATIVE_ONLY"
+    },
+    {
+      "affectsCanonicalKey": false,
+      "explanation": "These populate the content of the P1 and P2 measurements and would drive real-world care planning, but they bear on execution rather than token selection. The stem's qualitative statements of the same domains were sufficient to rank P1 and P2 above P3 and P4.",
+      "missingFact": "Objective quantification of both weight losses, home-safety walkthrough findings, skin-irritation staging, and the full medication list",
+      "provenance": "SIBLING_ONLY",
+      "siblingEvidence": "Margaret 58 kg today versus 61.6 kg nine months ago, albumin 3.1 g/dL, prealbumin 14 mg/dL, dry oral mucosa, specific gravity 1.028; Diane down 12 lb in 2 months. Home: unlocked deadbolt Margaret can open, uncovered stove knobs, throw rugs in kitchen and hallway, unlocked cleaning supplies under the sink, grab bars and night-lights already present. 'Perineal skin intact but mildly erythematous from urine contact,' incontinence 2-3 times daily, pull-ups, no fecal incontinence. Medications: amlodipine 5 mg daily, lisinopril 10 mg daily, plus the diphenhydramine.",
+      "siblingRelationship": "CORROBORATIVE_ONLY"
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "The standalone item is fully solvable from its own stem, and the sibling case — revealed only now — corroborates every keyed token without being necessary to reach any of them. Blind Stage 2 selected C2, A2, A3, P1, P2 from the stem and opaque pools alone and matched the canonical key exactly; blind Stage 1, with no pools visible at all, free-generated caregiver role strain as the condition and independently flagged bedtime diphenhydramine as an anticholinergic warranting provider review, which is the substance of canonical A3. That two-stage result establishes recoverability without hidden-case access. Testing each missing client fact from the standalone-unblinding record against the sibling confirms the same conclusion: every one is now answered by the exhibits (Diane's tremor, daily headaches, concentration difficulty, denial of harm ideation, no PCP visit in over a year, no knowledge of respite; diphenhydramine 25 mg nightly for 3 weeks; the bathroom fall 3 days ago with no visible injury; the adult day program 3 miles away and the informal neighbor arrangement; the chair barricade and the escalation pattern; the 61.6-to-58 kg trajectory, albumin 3.1, prealbumin 14, the home-safety walkthrough, and the amlodipine/lisinopril list), yet none of these facts flips a token. They deepen the clinical picture and would enrich the P1 and P2 measurements in practice, but the discriminations that decide the key were already closed by explicit stem text. C1 was contradicted by the stem's own report of missed work, weight loss, and severe sleep deprivation; C3 and A4 were contradicted by the stem's preemptive negation of striking, shoving, threatening, and restraint plus voluntary help-seeking; A1 failed on its internal sequencing clause against the stem's 'fear of being judged'; P3 had no client premise; P4 failed on outcome-measure framing given documented moderate dementia. The sibling reproduces each of these judgments rather than supplying them — q2_a keys the same non-accusatory role-strain interpretation, q5_d is the same premature-resource-listing distractor rejected for the same reason, q6_r9 classifies normal SpO2 as non-decisive exactly as P3 was ranked last, and q6_r8 treats short-interval weight as monitor-only in the same spirit that P4 was rejected as a short-interval main outcome. One sibling detail is worth naming precisely because it does not change the verdict: the chair propped under the bedroom doorknob is a restraint-like containment strategy absent from the standalone stem. Had it appeared there, it would have strained the stem's clean assertion that Diane 'did not ... physically restrain Margaret.' Its omission is what keeps the standalone stem internally consistent and the C3/A4 elimination clean, so the standalone item is not merely solvable but correctly insulated. No sibling fact is necessary; all are corroborative. Verdict precedence is therefore not triggered at any failing level, and PASS_STANDALONE is the correct terminal value.",
+  "scopeCollateral": [
+    {
+      "affectsStandaloneItem": false,
+      "location": "caseStudy.questions[1] option q2_a and glossary",
+      "observation": "The keyed option appropriately hedges mandatory reporting as 'follow agency/state APS policy if neglect is suspected or safety cannot be maintained,' and the glossary defines APS as operating '根据当地法律和政策'. Reporting thresholds and mandated-reporter status vary by jurisdiction, so deferring to agency and state policy rather than asserting a universal rule is the correct scope handling.",
+      "severity": "none"
+    },
+    {
+      "affectsStandaloneItem": false,
+      "location": "caseStudy.questions[2] option q3_a",
+      "observation": "The keyed action includes orienting the neighbor to safety monitoring and emergency contacts. Disclosing client information to an informal, unpaid neighbor implicates privacy and consent, and would in practice require the client's or the responsible family member's authorization. The case does not surface that consent step. This is a realistic omission rather than an error, since Diane is present and arranging the coverage herself, but the consent element is worth an explicit mention in a teaching item.",
+      "severity": "minor"
+    },
+    {
+      "affectsStandaloneItem": false,
+      "location": "caseStudy.questions[3] options q4_a, q4_b, q4_c, q4_d, q4_e",
+      "observation": "All keyed interventions sit within independent or collaborative RN scope: environmental modification, door alarms, knob covers or stove disconnection, prompted toileting, moisture barrier, and referrals to social work, dietitian, PT, and community agencies. Medication formulation changes and the diphenhydramine decision are routed to provider and pharmacist rather than executed by the nurse, which is correct.",
+      "severity": "none"
+    },
+    {
+      "affectsStandaloneItem": true,
+      "location": "Standalone item, A3",
+      "observation": "A3 is scoped as 'contact the primary care provider to review' rather than as the nurse discontinuing the medication, which correctly keeps the prescribing decision with the provider while placing the identification and notification duty with the nurse.",
+      "severity": "none"
+    },
+    {
+      "affectsStandaloneItem": true,
+      "location": "Standalone item, A2",
+      "observation": "A2's 'nonrestrictive' qualifier keeps the action inside safe practice and implicitly excludes restraint-like containment. The sibling demonstrates why this qualifier carries weight: q4_f (keep the chair barricade) is a keyed-wrong option there for exactly this reason.",
+      "severity": "none"
+    }
+  ],
+  "secondaryFlags": [
+    "Blind Stage 2 matched the canonical key exactly (C2, A2, A3, P1, P2) with no substitutions in any pool.",
+    "Blind Stage 1, generated with no pools visible, independently produced the canonical condition and the substance of canonical A3, demonstrating stem-level recoverability rather than pool-shape guessing.",
+    "The sibling case's own keyed answers converge on the standalone key across four independent items: q2_a (role strain with unsafe compensatory strategies, non-accusatory response), q3_a (pre-departure hazard control plus provider notification about diphenhydramine), q4_a/q4_b/q4_d (nonrestrictive door alerts, stove control, medication and diphenhydramine review), and q6 (safety-change completion and caregiver-sustainability markers as the meaningful outcomes).",
+    "The A1 distractor is reproduced almost verbatim in the sibling as q5_d and rejected there on the identical sequencing rationale, confirming the standalone record's LOW-impact near-miss classification was the intended design.",
+    "P3's rejection is mirrored by sibling q6_r9, which classifies normal room-air SpO2 as a non-decisive finding for this caregiver-safety plan.",
+    "P4's rejection is thematically mirrored by sibling q6_r8, which treats a short-interval weight change as monitor-only and explicitly warns the trend is 'too short to interpret definitively.'",
+    "The chair-under-the-doorknob barricade is a substantive sibling fact absent from the standalone stem. Its omission is protective rather than harmful: including it would have created tension with the stem's assertion that Diane did not physically restrain Margaret, since a nightly barricade is restraint-like containment. The standalone item remains internally consistent as written.",
+    "Standalone C2 reads 'Caregiver role strain' unqualified, while the sibling's keyed q2_a reads 'caregiver role strain with unsafe compensatory strategies.' The added qualifier reflects the barricade disclosure and is a difference in specificity, not in clinical direction."
+  ]
+}

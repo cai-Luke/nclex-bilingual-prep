@@ -1,0 +1,183 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSetExplanation": "The canonical set C2 + {A3, A1} + {P1, P2} is uniquely defensible from the standalone stem alone. The stem states an active 11:00 discharge order alongside four unresolved barriers documented at 09:15 — exertional desaturation to 89% after 40 feet requiring oxygen to recover, failed teach-back on new medications and warning signs, inability to afford the prescribed diuretic, and no home scale with the client living alone in a second-floor walk-up — while simultaneously reporting improving BNP and weight. That combination excludes C1 (written instructions cannot resolve a documented comprehension failure, an unaffordable medication, or exertional hypoxemia) and excludes C3 (improving biomarkers contradict continued acute decompensation requiring indefinite inpatient care), leaving C2 as the only condition that explains the whole pattern. For actions, A3 is the only token that stops the time-critical unsafe process before 11:00, and A1 is the only token that addresses the affordability, home-equipment, isolation, and stair barriers; A2 is contradicted by the safety findings and rests on a bed-availability premise the stem never supplies, and A4 repeats the modality that already failed while leaving three of four barriers untouched. For parameters, P1 directly re-tests the failed teach-back and P2 directly re-tests the desaturation against the actual stair demand of a second-floor walk-up; P3 and P4 are each restricted by the word 'alone' to measures the stem already reports as improving and neither evaluates whether the discharge barriers have been resolved. No competing 1/2/2 combination survives the stem text.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "None required; the imminent discharge and every barrier are explicit, and the improving biomarkers explicitly rule out the competing condition",
+      "opaqueTokenLabel": "C2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'has an active 11:00 discharge order' combined with 'desaturates to 89% after walking 40 feet, requires oxygen to recover, fails teach-back about her new medications and warning signs, cannot afford the prescribed diuretic, lives alone in a second-floor walk-up apartment, and has no home scale' and 'BNP and weight are improving'"
+    },
+    {
+      "missingClientFact": "None required for selection; the escalation chain and the provider's anticipated response are unspecified but do not affect whether advocating to hold is indicated",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'At 09:15 ... an active 11:00 discharge order' and 'She desaturates to 89% after walking 40 feet, requires oxygen to recover'"
+    },
+    {
+      "missingClientFact": "None required; the token is deliberately worded to assess and arrange support rather than to assume any specific resource, insurance status, or family support already exists",
+      "opaqueTokenLabel": "A1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'cannot afford the prescribed diuretic, lives alone in a second-floor walk-up apartment, and has no home scale' plus 'fails teach-back about her new medications and warning signs'"
+    },
+    {
+      "missingClientFact": "None required for selection; the cause of the teach-back failure (cognition, health literacy, sensory, or language) is unstated but repeat teach-back is indicated regardless",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'fails teach-back about her new medications and warning signs'"
+    },
+    {
+      "missingClientFact": "None required for selection; resting room-air saturation, baseline activity tolerance, and prior recovery time are unstated but the desaturation event and the stair demand are both explicit",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'desaturates to 89% after walking 40 feet, requires oxygen to recover' and 'lives alone in a second-floor walk-up apartment'"
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "Routine discharge with standard written instructions presupposes demonstrated understanding and the ability to obtain and use the regimen at home. The stem explicitly contradicts both with failed teach-back, an unaffordable diuretic, and no home scale, so this token is eliminated without ambiguity.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Continued acute decompensation requiring indefinite inpatient treatment is contradicted by 'BNP and weight are improving.' The stem describes a client responding to treatment whose problem is the transition plan, not ongoing acute failure, so this token is cleanly excluded.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "This token requires premises the stem contradicts (physiologic and self-care readiness) and one it never supplies at all (a telemetry bed shortage). Documented exertional desaturation requiring oxygen and failed teach-back make proceeding with discharge indefensible, and the unstated bed-pressure rationale cannot outweigh explicit safety findings.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Additional education is genuinely part of the correct plan, which gives this token surface appeal, but the qualifier 'only' confines it to written instructions and a follow-up appointment. That repeats the modality that already failed and leaves the affordability, home-scale, and exertional desaturation barriers unaddressed, ranking it clearly below A1 and A3 rather than making the item ambiguous.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "BNP is already reported as improving, and the qualifier 'alone' isolates it from any measure of comprehension, medication access, or functional tolerance. It evaluates treatment response rather than discharge-barrier resolution, so it ranks unambiguously below P1 and P2.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Daily weight monitoring is central to heart-failure self-management, giving this token mild attractiveness, but 'inpatient ... alone' restricts it to a trend the stem already reports as improving, and the client has no home scale to extend that monitoring after discharge. It therefore measures neither barrier and does not create genuine competition with P1 or P2.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "LOW"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "affectedLabels": [
+        "P2",
+        "A3"
+      ],
+      "explanation": "Would refine the target for reassessment but does not change that a documented 89% desaturation requiring oxygen warrants holding the discharge and repeat functional testing",
+      "fact": "Resting room-air oxygen saturation and any baseline or prior home oxygen requirement",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "affectedLabels": [
+        "P2"
+      ],
+      "explanation": "Adds specificity to the monitoring plan; the indication for ambulation and stair testing is already explicit",
+      "fact": "Vital signs, symptoms, oxygen flow rate, and recovery time associated with the 40-foot walk",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "affectedLabels": [
+        "P2",
+        "A1"
+      ],
+      "explanation": "This is precisely what P2 is selected to determine, so its absence supports rather than undermines the keyed parameter",
+      "fact": "Whether the client can physically climb stairs to her second-floor apartment",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "affectedLabels": [
+        "P3",
+        "P4"
+      ],
+      "explanation": "The stem gives the direction of change, which is sufficient to rule out C3 and to rank P3 and P4 below the keyed parameters",
+      "fact": "Specific BNP values, serial weights, renal function, and electrolytes",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "affectedLabels": [
+        "A1"
+      ],
+      "explanation": "A1 is worded as assess-and-arrange rather than assuming a specific resource, so the absent detail is the reason the referral is needed, not a gap in its selectability",
+      "fact": "Insurance and prescription coverage, drug cost, and availability of assistance programs or formulary alternatives",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "affectedLabels": [
+        "P1",
+        "A1"
+      ],
+      "explanation": "Repeat teach-back and interdisciplinary assessment are indicated regardless of the underlying cause",
+      "fact": "Cause of the failed teach-back (cognition, health literacy, vision, hearing, or language)",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "affectedLabels": [
+        "A1"
+      ],
+      "explanation": "'Lives alone' is stated; further social detail would shape the plan A1 produces but not whether A1 is selected",
+      "fact": "Availability of family, neighbors, or caregivers for support and transportation",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "affectedLabels": [
+        "A1",
+        "A4"
+      ],
+      "explanation": "Nothing in the stem indicates these were initiated, and A4's 'only' framing fails independently of this fact",
+      "fact": "Whether case management, social work, pharmacy, or home health has already been consulted",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "affectedLabels": [
+        "A2"
+      ],
+      "explanation": "Never stated in the stem; even if present it could not override explicit patient-safety findings, so A2 remains excluded",
+      "fact": "Telemetry bed availability or unit census pressure",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "affectedLabels": [
+        "C2",
+        "P1"
+      ],
+      "explanation": "Not needed to establish that a discharge-readiness deficit exists or that teach-back must be repeated",
+      "fact": "Ejection fraction, heart-failure type, and the specific new medication regimen",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "affectedLabels": [
+        "C2",
+        "P2"
+      ],
+      "explanation": "Would strengthen the readmission-risk narrative but the four documented barriers already establish the condition",
+      "fact": "Prior heart-failure admission history and formal fall-risk or functional mobility assessment",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "notes": [
+    "The blind Stage 2 record selected C2, actions [A3, A1], and parameters [P2, P1]; the canonical key lists parameters as [P1, P2]. The parameter arrays are identical as unordered sets, and the bow-tie parameter slots are not rank-ordered, so this is an exact match rather than a discrepancy. The blind record's internal ordering simply reflected that the exertional desaturation was treated as the more time-critical of the two barriers.",
+    "The two functioning distractors, A4 and P4, are the ones with partial clinical truth: education and daily weights both belong in a real heart-failure discharge plan. Each is defeated by a single restrictive qualifier ('only', 'alone'), which is a clean and defensible distractor design, though it means careless readers may miss the qualifier rather than the clinical reasoning.",
+    "C1, C3, A2, and P3 are all contradicted outright by explicit stem text, so the item's discrimination rests almost entirely on the A4 and P4 qualifiers and on recognizing that improving biomarkers do not equal discharge readiness.",
+    "The canonical rationale for A1 explicitly avoids assuming any specific resource is already available, which is consistent with the stem never stating insurance status, family support, or prior consults. This wording is what keeps A1 free of an absent-fact dependency.",
+    "The stem's temporal framing (09:15 assessment against an 11:00 order) is what makes A3 the time-critical action rather than merely one of two coequal interventions; without the clock, A3 and A1 would be harder to separate from a generic pause-and-plan response."
+  ],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "The Stage 1 free-generated record, produced before any token pool was revealed, matches the canonical key on all five elements. Its condition — unsafe/premature discharge with impaired discharge readiness in a client whose biomarkers are improving — maps directly onto C2. Its first priority action, hold the 11:00 discharge and notify the provider of the exertional desaturation with escalation implied, maps onto A3. Its second priority action, consult case management, social work, and pharmacy for medication affordability, a home scale, home health given she lives alone in a walk-up, and repeat teach-back, maps onto A1. Its first evaluation parameter, repeat ambulation with SpO2 at or above 90% on room air and no oxygen needed for recovery, maps onto P2. Its second evaluation parameter, successful teach-back of medications, daily weights, and warning signs with confirmed access to the diuretic and a scale, maps onto P1. Stage 1 also independently reached the same discriminating insight the canonical rationale states — that improving BNP and weight indicate treatment response rather than discharge readiness — and assigned high confidence, which the key confirms. There is no element on which the free-generated answer diverges from the canonical selection.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

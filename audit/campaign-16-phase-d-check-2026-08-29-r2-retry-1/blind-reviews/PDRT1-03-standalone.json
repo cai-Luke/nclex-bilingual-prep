@@ -1,0 +1,100 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSetExplanation": "The canonical set C1 + A2/A4 + P3/P4 is uniquely defensible on the standalone stem alone. C1 is fixed by the time-linked onset (12 minutes into a red blood cell transfusion) plus the intravascular hemolysis signature of hemoglobinuria, port-wine urine, LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL; C2 is excluded because no airway, wheezing, angioedema, or urticaria findings are stated and hemolysis labs are not an anaphylaxis pattern, and C3 is excluded as the primary explanation because sepsis alone does not produce that hemolysis triad and no contamination or culture data is given. Among the four action tokens, only two are safe: the transfusion is already stopped, so A2 (returning the unit, attached tubing, and required post-reaction sample to the transfusion service) is the mandatory investigative step, and A4 is compelled by explicitly stated shock (worsening hypotension), DIC (platelets 104, fibrinogen 140, INR 1.8, aPTT 52, oozing from puncture sites), and oliguric AKI (oliguria with port-wine urine). A1 and A3 are affirmatively unsafe rather than merely inferior — removing vascular access from a client in progressive shock and slowing rather than discontinuing an implicated transfusion both cause harm — so the two-action slate has no competing pair. Among parameters, P3 and P4 are the only tokens anchored to stem-quantified organ failure; P1 is self-limited by the word 'alone' and cannot track renal or coagulation deterioration, and P2 has no stem premise about site appearance. No distinct alternative 1/2/2 combination is defensible.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "None required; the stem states both the temporal trigger and the confirmatory hemolysis panel.",
+      "opaqueTokenLabel": "C1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'fever, rigors, bilateral flank pain, hypotension, hemoglobinuria, and a sense of impending doom within 12 minutes of starting a red blood cell transfusion' together with 'LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL' and 'oliguria with port-wine urine'"
+    },
+    {
+      "missingClientFact": "None required for selection; the clerical recheck result, ABO/Rh of client and unit, and DAT are outputs of this action rather than prerequisites for choosing it.",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'Thirty minutes after the transfusion is stopped' establishes that the unit and tubing exist and are available to be returned, and the suspected hemolytic reaction is the trigger for the transfusion-service investigation."
+    },
+    {
+      "missingClientFact": "None required; numeric blood pressure and weight would refine resuscitation targets but are not needed to establish that escalation is indicated.",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'worsening hypotension, oliguria with port-wine urine, oozing from puncture sites, platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds' — each of the three conditions named in the token (shock, DIC, oliguric acute kidney injury) is explicitly evidenced."
+    },
+    {
+      "missingClientFact": "None required for selection; client weight would be needed only to express a numeric mL/kg/hr target.",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'oliguria with port-wine urine' plus 'hemoglobinuria' — urine volume and color are the stem's own markers of renal perfusion and ongoing hemoglobin burden."
+    },
+    {
+      "missingClientFact": "None required for selection; pre-transfusion baseline coagulation values and D-dimer would sharpen trend interpretation but are not needed to select the parameter.",
+      "opaqueTokenLabel": "P4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "'platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds' with 'oozing from puncture sites' — the token names exactly the studies the stem quantifies."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "Anaphylactic transfusion reaction requires mucocutaneous or airway involvement (urticaria, angioedema, bronchospasm, stridor); none is stated, and the stated hemoglobinuria with LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL is an intravascular hemolysis pattern that points away from anaphylaxis. Excludable on stem evidence alone.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Fever, rigors, and hypotension are shared features, so the token is superficially plausible, but the stem provides no cultures, no evidence of unit contamination, and no other infectious source. The absent infection data does not impair ranking: the explicit hemolysis panel already makes C1 the better primary explanation, and the token's own qualifier 'isolated ... as the primary explanation' is what fails. Contamination assessment nonetheless remains part of the reaction workup.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "Removing peripheral access would require a site-specific problem such as infiltration or local infection; instead the stem documents worsening hypotension and progressive DIC, meaning vascular access is needed for fluids, vasopressors, and component therapy. The token is affirmatively unsafe, not merely lower-yield.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Slowing the transfusion presupposes an infusion still running and a benign febrile nonhemolytic reaction. The stem states the transfusion is already stopped and documents hemolysis with DIC, so slowing is both factually impossible as written and unsafe; acetaminophen addresses neither hemolysis nor shock.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Temperature is a genuine stem finding and helped identify the reaction, but the qualifier 'alone' is refuted by the multi-system deterioration stated: temperature trend in isolation cannot detect worsening hypotension, oliguria, or the falling fibrinogen and platelet count. It therefore ranks unambiguously below P3 and P4.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem offers no IV site assessment — no redness, swelling, infiltration, or phlebitis. Routine site checks remain appropriate nursing care, but with no premise in the stem and no relationship to the systemic hemolytic crisis, the token cannot compete with the directly evidenced P3 and P4. The absent site data does not affect ranking.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "LOW"
+    }
+  ],
+  "missingClientFacts": [
+    "Numeric vital signs (actual blood pressure, MAP, heart rate, respiratory rate, SpO2) and pre-transfusion baseline values",
+    "Client weight, needed for mL/kg/hr urine output targets and weight-based fluid and component dosing",
+    "Volume of red blood cells actually infused before the transfusion was stopped",
+    "Clerical/bedside identification recheck result and the ABO/Rh type of both the client and the implicated unit",
+    "Direct antiglobulin test, repeat type and crossmatch, and plasma-free hemoglobin results",
+    "Baseline renal function (prior BUN/creatinine, eGFR) and pre-transfusion CBC and coagulation values",
+    "Serum potassium, ionized calcium, and D-dimer",
+    "Current IV access status, number of patent sites, and availability of central access",
+    "Available provider orders and institutional transfusion-reaction and DIC protocols, including vasopressor and component orders",
+    "Prior transfusion history, previous reactions, allergies, and code status or goals of care"
+  ],
+  "notes": [
+    "The blind Stage 2 selection (C1; A2, A4; P3, P4) matches the canonical key exactly across all five slots, including both unordered pairs.",
+    "Every canonical target is classified DIRECT: each is anchored to explicitly stated stem text, so the keyed set stands without importing any absent client fact.",
+    "The distractor field is unusually clean for adjudication: A1, A3, C2, and P1 are CONTRADICTED by stem content rather than merely weaker, and A1/A3 are affirmatively unsafe, which removes any competing action pair.",
+    "The two LOW-impact tokens (C3 and P2) are unsupported for opposite reasons — C3 lacks infection data that would be needed to promote it, P2 lacks any site premise at all — but neither gap disturbs the ranking, because C1, P3, and P4 are explicitly evidenced.",
+    "The canonical action pair pairs an investigative/system step (A2) with a clinical escalation step (A4) rather than two clinical interventions; the Stage 1 free-generation instead emphasized bedside resuscitation, which is the sole divergence between the blind records and the key.",
+    "The published rationale for C3 preserves contamination evaluation as part of the reaction workup, consistent with the Stage 2 blind reasoning that C3 fails as the primary explanation rather than being wholly irrelevant.",
+    "No sibling case material was consulted, referenced, or assumed; this adjudication rests only on the two immutable blind records, the canonical key, and the standalone item."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "The Stage 1 free-generated condition — acute hemolytic transfusion reaction from ABO incompatibility with intravascular hemolysis complicated by DIC and hemolysis-induced AKI — aligns fully with canonical C1, and both free-generated monitoring parameters align fully: hourly urine output and color with hemodynamics and renal labs maps to P3, and serial coagulation/hemolysis panels with fibrinogen, platelets, INR/aPTT, D-dimer plus bleeding assessment maps to P4. The divergence is in the actions. Stage 1 named (a) maintaining IV access with new tubing and infusing 0.9% sodium chloride for perfusion and renal support with vasopressors as needed, and (b) notifying the provider and blood bank, returning the unit and tubing, sending post-reaction specimens, and giving ordered component replacement for DIC. Canonical A2 is squarely contained in the second Stage 1 action. Canonical A4, escalation to higher-level care for shock, DIC, and oliguric AKI, is not a discrete Stage 1 action: its substance was distributed across both Stage 1 actions (vasopressor escalation, provider notification, DIC component therapy) but was never framed as an escalation-of-care decision. Alignment is therefore PARTIAL at the level of free-generated action framing while being exact at the level of blind token selection, where Stage 2 chose A2 and A4 and matched the key.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

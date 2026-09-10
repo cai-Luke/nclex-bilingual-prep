@@ -1,0 +1,151 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSetExplanation": "The canonical set (C2; A2 + A4; P3 + P1) is uniquely defensible on the standalone stem alone. The condition is pinned by an explicit finding — a uterus that is intermittently boggy and relaxes within seconds after massage — while the two structural competitors are eliminated by the stated bedside exploration (no retained fragments, no cervical or vaginal lacerations beyond the repaired second-degree tear), leaving C3 contradicted and C1 unsupported by any coagulation datum or bleeding-from-other-sites finding. Among actions, A3 is self-defeating during active hemorrhage with HR 132 and BP 80/52, and A1 is excluded by the explicitly stated pregnancy-induced hypertension, so A2 (continuous mechanical hemostasis, indicated precisely because tone is lost within seconds) and A4 (the only pool uterotonic compatible with both the stated hypertension and asthma, after first-line oxytocin failure) are the sole remaining pair. Among parameters, P2 concerns the neonate rather than the maternal hemorrhage and P4 lags acute hypoperfusion by hours to days with no baseline value provided, so P3 and P1 are the only two that directly track the response to the selected actions. Every exclusion rests on stem text or standard obstetric pharmacology, not on any assumed client fact, so no alternative 1/2/2 combination is defensible.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "\"The uterus is intermittently boggy and relaxes within seconds after massage\"; \"persistent heavy bleeding despite oxytocin and fundal massage\"; \"G5P5 ... vaginal birth of a 4.2 kg infant\"; \"Bedside exploration shows no retained placental fragments and no cervical or vaginal lacerations beyond the repaired second-degree perineal tear\"."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "\"The uterus is intermittently boggy and relaxes within seconds after massage\" — loss of tone within seconds is the explicit indication for uninterrupted rather than intermittent compression, and \"persistent heavy bleeding despite oxytocin and fundal massage\" establishes that source control is not yet achieved."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "\"persistent heavy bleeding despite oxytocin\" establishes first-line uterotonic failure; \"She has pregnancy-induced hypertension treated with labetalol and mild intermittent asthma\" makes misoprostol the safe choice among the listed drugs. The drug-comorbidity link (ergot alkaloids contraindicated in hypertension; misoprostol acceptable in hypertension and asthma) is standard pharmacology applied to explicitly stated client facts."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "\"The uterus is intermittently boggy and relaxes within seconds after massage\" — fundal tone is the stem's stated abnormality and the direct bedside measure of whether the selected uterotonic and compression are working."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "\"QBL is 1,200 mL\" provides an explicit quantified baseline, making a serial blood-loss trend measurable and directly interpretable as escalating versus plateauing hemorrhage."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "No coagulation studies (fibrinogen, PT/INR/aPTT, platelets) and no clinical coagulopathy signs such as oozing from puncture sites, mucosal bleeding, or non-clotting blood are provided, so primary obstetric coagulopathy has no affirmative premise. The impact is only LOW because the explicit boggy-uterus finding independently establishes atony as the primary process; a dilutional or consumptive coagulopathy would be a downstream consequence of a 1,200 mL loss, not a competing primary diagnosis on these facts.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "The stem explicitly negates this token: \"no cervical or vaginal lacerations beyond the repaired second-degree perineal tear.\" The perineal tear is stated as already repaired, so it cannot be the bleeding source. Exclusion requires no additional facts.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Pregnancy-induced hypertension is stated explicitly, and methylergonovine is contraindicated in hypertensive clients. The current hemorrhagic hypotension (BP 80/52) does not rehabilitate the option, since the contraindication attaches to the underlying hypertensive disorder and ergot-induced vasoconstriction is hazardous in this population. This is the item's intended pharmacologic trap and is resolvable from stem text alone.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Stopping fundal massage during active hemorrhage with HR 132, BP 80/52, and altered mentation removes the only mechanical hemostasis in place. Labs and documentation are never prioritized over source control in class III shock, and both can proceed with additional personnel without interrupting compression.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Apgar scores are assigned at 1 and 5 minutes of neonatal life and pertain to the newborn, not to the maternal hemorrhage being managed at 90 minutes postpartum. The token has no bearing on the client whose management is asked about, so it is excludable without any further client data.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "No baseline or current serum creatinine is provided. Even if it were, creatinine rises hours to days after acute hypoperfusion and would not measure the immediate uterine response or the ongoing blood-loss trajectory, which is what the token explicitly claims to do. The exclusion is therefore secure on general knowledge despite the missing value.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "affectedTokens": [
+        "A4"
+      ],
+      "explanation": "The stem states that bleeding persists despite oxytocin, which is sufficient to establish first-line failure and justify escalation to a second-line uterotonic regardless of the exact dosing history.",
+      "fact": "Doses, routes, and timing of the oxytocin already administered and the response to each dose",
+      "impact": "NONE"
+    },
+    {
+      "affectedTokens": [
+        "C1"
+      ],
+      "explanation": "Their absence prevents affirmative support for C1 but does not create a rival diagnosis, because the boggy uterus explicitly identifies the bleeding mechanism.",
+      "fact": "Coagulation studies (fibrinogen, PT/INR/aPTT, platelets) and hemoglobin/hematocrit",
+      "impact": "LOW"
+    },
+    {
+      "affectedTokens": [],
+      "explanation": "Resuscitation logistics are clinically essential in real management but are not represented by any token in the pools, so they cannot alter the ranking of the offered options.",
+      "fact": "IV access status, type and crossmatch, blood product availability, and whether a hemorrhage protocol or massive transfusion protocol has been activated",
+      "impact": "NONE"
+    },
+    {
+      "affectedTokens": [],
+      "explanation": "Not offered in the action pool; its status does not change the relative ranking of A1–A4.",
+      "fact": "Whether tranexamic acid has been administered",
+      "impact": "NONE"
+    },
+    {
+      "affectedTokens": [
+        "A2"
+      ],
+      "explanation": "A distended bladder can impair uterine contraction, but catheterization is not an offered token, and its absence does not weaken the indication for continuous compression.",
+      "fact": "Bladder distention status",
+      "impact": "NONE"
+    },
+    {
+      "affectedTokens": [
+        "C1",
+        "C3"
+      ],
+      "explanation": "Neither entity appears in the condition pool, and the stated intermittently boggy fundus that responds transiently to massage is inconsistent with inversion, so this gap does not disturb the ranking among C1–C3.",
+      "fact": "Assessment for uterine inversion or an expanding vulvar/vaginal/retroperitoneal hematoma",
+      "impact": "NONE"
+    },
+    {
+      "affectedTokens": [
+        "A4"
+      ],
+      "explanation": "This would matter for deciding whether carboprost could be used if misoprostol fails, but carboprost is not in the pool; misoprostol is safe in asthma regardless of asthma severity.",
+      "fact": "Severity and current control of the mild intermittent asthma",
+      "impact": "NONE"
+    },
+    {
+      "affectedTokens": [
+        "A4",
+        "C1"
+      ],
+      "explanation": "Misoprostol 800 mcg rectally is a fixed dose not weight-adjusted, and no allergy or hematologic history is needed to rank the offered tokens.",
+      "fact": "Client weight, allergy history, and any preexisting anemia or bleeding disorder",
+      "impact": "NONE"
+    }
+  ],
+  "notes": [
+    "Both blind records selected C2, A2 + A4, and P1 + P3, matching the canonical keyed set exactly; parameter order differs (canonical P3 then P1) but the tasks specify parameter sets rather than ordered sequences, so this is not a mismatch.",
+    "The item's discriminating feature is comorbidity-driven drug selection: A1 versus A4 is decided entirely by the explicitly stated pregnancy-induced hypertension. Both blind records identified this as the pivotal exclusion, and the published rationale for A1 confirms it.",
+    "Two distractors (C1, P4) are excluded on absence of supporting data rather than on contradiction. In both cases the absence is itself informative — the stem affirmatively supplies a competing mechanism for C1 and, for P4, general knowledge that creatinine lags acute hypoperfusion defeats the token's own claim to be an 'immediate trajectory marker' even if a value were supplied. Neither exclusion required assuming an absent client fact.",
+    "The Stage 1 free-generation record additionally recommended tranexamic acid, volume/blood resuscitation, oxygen, catheterization, and balloon tamponade preparation, and proposed a perfusion parameter (HR/BP/mentation/urine output). None of these are represented in the token pools; the pools narrow the answer to mechanical hemostasis plus a safe uterotonic and to the two direct source-control parameters, which is consistent with, not contrary to, the Stage 1 clinical reasoning.",
+    "Stage 1 characterized the condition as atonic postpartum hemorrhage with class III hypovolemic shock; the canonical C2 token names the atony without the shock qualifier. The shock severity is captured by the stem's HR 132, BP 80/52, confusion, and pallor and does not represent a divergence in diagnosis.",
+    "No sibling case material was provided, consulted, or assumed; all findings above rest solely on the standalone stem, the token pools, and the revealed canonical key and rationale."
+  ],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "The Stage 1 free-generated answer, produced before any token pools were revealed, independently named uterine atony causing postpartum hemorrhage as the condition and independently identified the same two therapeutic levers that the canonical actions encode: a safe second-line uterotonic (naming misoprostol 800–1000 mcg rectally and explicitly withholding methylergonovine for the pregnancy-induced hypertension and carboprost for the asthma) together with continuous bimanual uterine compression. It also named uterine fundal tone and cumulative quantitative blood loss as an evaluation parameter, matching both canonical parameters. Stage 2 then selected exactly the canonical labels, so both blind records align fully with the canonical key. The only differences are ones of scope rather than substance: Stage 1's free-form actions bundled compression inside a broader resuscitation package (volume, blood products, tranexamic acid, oxygen, catheterization, tamponade readiness) and paired the fundal-tone/QBL parameter with a perfusion parameter, reflecting the wider latitude of unconstrained generation. Nothing in Stage 1 contradicts the canonical selection.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}
