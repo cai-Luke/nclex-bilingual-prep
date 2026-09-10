@@ -1,0 +1,217 @@
+{
+  "phase": "Campaign 16 Phase B",
+  "stage": 2,
+  "role": "checker",
+  "seat": "Claude Opus 5",
+  "date": "2026-08-27",
+  "workOrder": {
+    "path": "scratch/CAMPAIGN-16-PHASE-B-QUARANTINED-FIX-RECOVERY-WORK-ORDER-2026-08-27.md",
+    "fileByteSha256": "756ba6c10206bc2a197bb9cd577f1a2789829e3e73127145254858a7649b8b51",
+    "digestSource": "OWNER_COMPUTED_AT_FREEZE_TRANSCRIBED"
+  },
+  "stage2Status": "CLOSED_ON_COMPLETION_OF_SECTION_92_ITEM_3",
+  "substantiveReviewComplete": true,
+  "section92": {
+    "item1PayloadHashesConfirmed": true,
+    "item2RawDraftFileByteHashRecorded": true,
+    "item3ArtifactDigests": "OWNER_COMPUTES_SHASUM_256_ON_review.md_AND_review.json_IMMEDIATELY_AFTER_THIS_WRITE. Those digests cannot live inside the files they describe; they are held in the session transcript and carried by the owner. No modification of either file is authorized thereafter.",
+    "allDigestsComputedBy": "OWNER",
+    "checkerComputedNoDigest": true,
+    "reasonCheckerComputedNoDigest": "Only one filesystem connector presented tools in this session and it exposes UTF-8 text reads, not byte-level access or a hashing primitive. Per the standing rule that this seat never claims digests, nothing here is asserted as checker-derived.",
+    "substitutionOnRecord": "Section 9.2 assigns the hashing to Stage 2; here the owner performed it. This satisfies the purpose of 9.2 (binding this review pass to the exact draft state reviewed, and freezing the artifacts) but not its literal text. Same owner-performed pattern as the work-order SHA-256 freeze. Recorded as a substitution rather than glossed as compliance. Owner's call, made on the record, not the checker's.",
+    "item1Method": "Owner recomputed each candidate payload hash from the current raw draft using the repository's own stableJson and sha256, and compared each to Stage 1 manifest.json. All 13 PASS. This is the anti-self-report check: an independent recomputation reaching the producer's declared digests, not a restatement of them.",
+    "whyClosedBeforeRelaunch": "Section 10.4 requires the iteration program to prove every non-relaunched row unchanged from the immediately preceding reviewed draft state. The 13 payload hashes below are that baseline. banks/banks-raw/ is gitignored, so once the nine blocked rows are patched there is no recoverable prior state; without these values the four affirmed rows would become unverifiable."
+  },
+  "reviewedDraft": {
+    "path": "banks/banks-raw/gpt-campaign16-phase-b-recovery-2026-08-27.json",
+    "fileByteSha256": "64a8333d37e17d6daf06e1b8a3553b394ea9892fcf83ec1e5beb21f0991800fd",
+    "digestSource": "OWNER_COMPUTED",
+    "observedSizeBytes": 87574,
+    "observedQuestionCount": 13,
+    "observedMetaCount": 13
+  },
+  "hashConventions": {
+    "campaign": "sha256(stableJson(q, 0)); recursively sorted keys; JSON indent 0; trailing newline",
+    "fileByte": "sha256 over the file's bytes; comparable only to other file-byte hashes"
+  },
+  "summary": {
+    "rowsSubmitted": 13,
+    "rowsReviewed": 13,
+    "affirm": 4,
+    "block": 9,
+    "ownerAdjudicationRequired": 0
+  },
+  "dominantFailureMode": {
+    "name": "ORPHANED_INTERNAL_REFERENCE_AFTER_STEM_DELETION",
+    "affectedRows": 8,
+    "description": "Answer-bearing text was correctly deleted from stem.en and stem.zh, but dependent fields in the same payload continued to reference the deleted text. Affected fields include rationale.correct, rationale.byChoice entries, testTakingStrategy, meta.source, meta.stem_disambiguators, and in three rows the scored content itself: a matrix row, a keyed bowtie action token, and a keyed dropdown option.",
+    "whyGatesPassed": "Section 8 verifies structural validity, ID uniqueness and namespace shape, absence proofs, routing, envelope shape, bilingual edit pairing, and topic language. Section 4.5 proves no unauthorized field mutated. Neither asks whether every surviving field still refers to something that exists in the payload. The non-mutation proof rewards the failure: leaving dependent fields untouched is what produces unauthorizedChangedLeafPaths of zero.",
+    "attribution": "Omission in the work order authored by the architect seat, not a Codex execution failure. Per section 10.4 the work order is immutable and is not amended; the per-row blockerReason values become the repair requirements for the iteration."
+  },
+  "rows": [
+    {
+      "originalId": "gpt_balance2_2026_07_15_dc_client_advocacy_02",
+      "mintedId": "gpt_balance2_2026_07_15_dc_client_advocacy_02_r2",
+      "stage1Disposition": "RETURN_CANDIDATE",
+      "checkerDisposition": "AFFIRM",
+      "candidatePayloadHashCampaignConvention": "0e211d6eee964f939d8ad72da8332ddfca66f59019a445f8d86a7a6551f0976e",
+      "hashConfirmedAgainstManifest": true,
+      "hashDigestSource": "OWNER_COMPUTED",
+      "blockerReason": null,
+      "advisory": "Unchanged glossary defZh for personal privacy defines the right against observation during examination, which is close to a giveaway for the key. Pre-existing, not the recorded defect, out of bounded scope. Flag for a future pass."
+    },
+    {
+      "originalId": "gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08",
+      "mintedId": "gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08_r2",
+      "stage1Disposition": "RETURN_CANDIDATE",
+      "checkerDisposition": "BLOCK",
+      "candidatePayloadHashCampaignConvention": "9bbe67218947b1108d99ecbdb004e722ee8782f2b9252ab6f030e564dbbe9301",
+      "hashConfirmedAgainstManifest": true,
+      "hashDigestSource": "OWNER_COMPUTED",
+      "blockerReason": "The repair reintroduces the recorded MECHANICAL_CLOZE_DEPENDENCY class. New d2/o2 is 'the date of the last injection', but the d1 key already reads 'the exact last product, dose, route, and administration date'. Resolving d1 eliminates d2/o2 as redundant by structure rather than by handoff judgment.",
+      "repairRequirement": "Replace d2/o2 with a date plausible for the receiving program and not already carried by the d1 key. d1/o2 and d1/o3 are sound and should be left alone."
+    },
+    {
+      "originalId": "gpt_balance3_2026_07_16_dc_psychotropic_medications_11",
+      "mintedId": "gpt_balance3_2026_07_16_dc_psychotropic_medications_11_r2",
+      "stage1Disposition": "RETURN_CANDIDATE",
+      "checkerDisposition": "AFFIRM",
+      "candidatePayloadHashCampaignConvention": "1cb1b4bc7aca712bf5aab8f252b32cdf538fdff2a7ef27d8a6afcc662741a5aa",
+      "hashConfirmedAgainstManifest": true,
+      "hashDigestSource": "OWNER_COMPUTED",
+      "blockerReason": null,
+      "advisory": "d3 was the close call. 'waist circumference' is a standard antipsychotic metabolic-monitoring parameter in general practice. It clears only because the stem scopes the task to the prescribing information and the olanzapine label names fasting glucose, lipids, and weight gain but not waist circumference. Verified against the FDA label rather than accepted from the manifest. Narrowest margin in the batch; if a future pass loosens the stem's scoping to the PI, d3 breaks."
+    },
+    {
+      "originalId": "gpt_balance3_2026_07_16_hl_disaster_emergency_preparedness_13",
+      "mintedId": "gpt_balance3_2026_07_16_hl_disaster_emergency_preparedness_13_r2",
+      "stage1Disposition": "RETURN_CANDIDATE",
+      "checkerDisposition": "BLOCK",
+      "candidatePayloadHashCampaignConvention": "73abbcf2d7e2cfb443ceb27922a5c5c9a11de804057cb91260e0c027fcd7efd4",
+      "hashConfirmedAgainstManifest": true,
+      "hashDigestSource": "OWNER_COMPUTED",
+      "blockerReason": "Two orphaned references, one actively harmful. rationale.correct still says the response follows the downtime plan 'stated in the case'; the plan is no longer stated. testTakingStrategy still reads 'Use every operational control explicitly named in the activated plan'. With the stem enumeration deleted, the only remaining enumeration is the highlight passage itself, so the strategy now instructs selecting all seven selectable segments including distractors s7 and s8. This is misleading guidance, not merely stale text.",
+      "repairRequirement": "Rewrite testTakingStrategy in both languages so it discriminates rather than instructing selection of the whole passage. Remove the 'stated in the case' claim from rationale.correct."
+    },
+    {
+      "originalId": "gpt_mocsic_2026_07_15_dc_disaster_emergency_preparedness_18",
+      "mintedId": "gpt_mocsic_2026_07_15_dc_disaster_emergency_preparedness_18_r2",
+      "stage1Disposition": "RETURN_CANDIDATE",
+      "checkerDisposition": "BLOCK",
+      "candidatePayloadHashCampaignConvention": "e62e88406b257090f8afa67f897a71045d04f2a981a9c7eff73e9a27f7967bf9",
+      "hashConfirmedAgainstManifest": true,
+      "hashDigestSource": "OWNER_COMPUTED",
+      "blockerReason": "Most serious of the set because it is a sourcing failure and not only a coherence one. byChoice refIds 1 and 2 assert what 'the plan' explicitly requires and directs; no plan is described. The d2 key 'begin triage in the designated safe area' references an entity the stem never introduces. meta.source still closes with 'the authenticated all-clear and post-event sequence are supplied by the facility plan in the item', which was the item's stated basis for the keyed post-event sequence. Deleting the plan removed that basis while the source field continues to assert it, leaving a keyed operational claim unsourced and the source field affirmatively false.",
+      "repairRequirement": "Either restore a minimal non-telegraphing plan premise sufficient to introduce the designated safe area, or resource the keyed sequence to the cited CISA guidance and correct meta.source. Both byChoice entries need rewriting in both languages. Recommend routing this row back first."
+    },
+    {
+      "originalId": "gpt_balance5_2026_07_16_mx_client_advocacy_02",
+      "mintedId": "gpt_balance5_2026_07_16_mx_client_advocacy_02_r2",
+      "stage1Disposition": "RETURN_CANDIDATE",
+      "checkerDisposition": "BLOCK",
+      "candidatePayloadHashCampaignConvention": "34fbecfe2a2f14238544e67400dfcff0a39546987bb34a9eb2ab567c133af018",
+      "hashConfirmedAgainstManifest": true,
+      "hashDigestSource": "OWNER_COMPUTED",
+      "blockerReason": "Orphaned reference in scored content. Matrix row q02_r2 reads 'If the task is not obvious, ask the two permitted questions described in the stem'. The ADA recital was deleted and the stem no longer describes them. The learner is asked to classify a row pointing at text that does not exist. Unanswerable as written by anyone who does not already know the ADA's two permitted questions from outside the item.",
+      "repairRequirement": "q02_r2 must name the two permitted questions, or the stem must reintroduce them without reciting the classifications. meta.stem_disambiguators entries 'two permitted questions' and 'specific exclusion reason' also no longer correspond to stem content."
+    },
+    {
+      "originalId": "gpt_balance5_2026_07_16_hl_disaster_emergency_preparedness_13",
+      "mintedId": "gpt_balance5_2026_07_16_hl_disaster_emergency_preparedness_13_r2",
+      "stage1Disposition": "RETURN_CANDIDATE",
+      "checkerDisposition": "BLOCK",
+      "candidatePayloadHashCampaignConvention": "5ba15a5e22cc996a8d0103ca794bcd087d944c64ab5f3be50cbbe0896216cd8e",
+      "hashConfirmedAgainstManifest": true,
+      "hashDigestSource": "OWNER_COMPUTED",
+      "blockerReason": "Weakest block in the set. testTakingStrategy directs routing information through 'the named tracking, family, and media functions', which are no longer named anywhere. meta.stem_disambiguators still asserts 'temporary unique identifiers' and 'activated closed-world plan'; the closed world was deleted, so the item now silently requires outside MCI knowledge while its metadata claims self-containment. The segments themselves remain answerable.",
+      "repairRequirement": "Correct testTakingStrategy in both languages and reconcile meta.stem_disambiguators with the actual stem."
+    },
+    {
+      "originalId": "gpt_balance5_2026_07_16_mx_standard_precautions_hygiene_15",
+      "mintedId": "gpt_balance5_2026_07_16_mx_standard_precautions_hygiene_15_r2",
+      "stage1Disposition": "RETURN_CANDIDATE",
+      "checkerDisposition": "AFFIRM",
+      "candidatePayloadHashCampaignConvention": "df213b7da5eb41a37d83caa199e4f9edc027f9d8afaf3dc493447bd82829a8b7",
+      "hashConfirmedAgainstManifest": true,
+      "hashDigestSource": "OWNER_COMPUTED",
+      "blockerReason": null,
+      "advisory": "The deleted cleanup-sequence recital was genuinely self-contained. No surviving field references it. q15_r5's 'the product's stated contact time' refers to the disinfectant label, not to deleted stem text, and remains valid. This row is the model of a correct recital deletion."
+    },
+    {
+      "originalId": "gpt_balance6a_2026_07_16_bt_perioperative_care_13",
+      "mintedId": "gpt_balance6a_2026_07_16_bt_perioperative_care_13_r2",
+      "stage1Disposition": "RETURN_CANDIDATE",
+      "checkerDisposition": "BLOCK",
+      "candidatePayloadHashCampaignConvention": "1837a316611d1488e0b1c0b2a2fba0c4067d51a47c81e2a84a57d797e1342738",
+      "hashConfirmedAgainstManifest": true,
+      "hashDigestSource": "OWNER_COMPUTED",
+      "blockerReason": "Orphaned reference inside a keyed token. Action token q13_a_support, one of the two correct actions, reads 'begin 20% lipid emulsion per the supplied protocol'. The LAST protocol recital was deleted from the stem; no protocol is supplied. Clinical content is otherwise sound and correctly sourced to the ASRA checklist, and the item remains answerable from the LAST prodrome, so this is narrower than the client_advocacy_02 defect, but it sits in scored text.",
+      "repairRequirement": "Reword q13_a_support in both languages so the keyed action does not depend on an unsupplied protocol, without introducing a lipid-emulsion dose or rate not carried by the ASRA citation."
+    },
+    {
+      "originalId": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_05",
+      "mintedId": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_05_r2",
+      "stage1Disposition": "RETURN_CANDIDATE",
+      "checkerDisposition": "BLOCK",
+      "candidatePayloadHashCampaignConvention": "54ffbaed80defb0a68d78cfd8ab2b1a004ff752dccdcbd188d7aa3c035f63604",
+      "hashConfirmedAgainstManifest": true,
+      "hashDigestSource": "OWNER_COMPUTED",
+      "blockerReason": "The recorded WEAK_OR_NONCOMPETING_DIFFERENTIAL defect is not removed for q05_d02. The two replacement purposes are the conceptually right TPO competitor set, but the stem fixes the requester as a consulting psychiatrist, so both are eliminated by narrative fit rather than by the psychotherapy-notes rule the item tests. q05_d02 remains close to free. q05_d01 is fine and carries the construct.",
+      "repairRequirement": "Make q05_d02 turn on the rule rather than on who is asking, without changing the key."
+    },
+    {
+      "originalId": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_07",
+      "mintedId": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_07_r2",
+      "stage1Disposition": "RETURN_CANDIDATE",
+      "checkerDisposition": "AFFIRM",
+      "candidatePayloadHashCampaignConvention": "476755b6be798b4b8164dc72e9a6ec91e6bd1ef508f55613c3797784ed1a7c95",
+      "hashConfirmedAgainstManifest": true,
+      "hashDigestSource": "OWNER_COMPUTED",
+      "blockerReason": null,
+      "advisory": "The fictional one-page rule was correctly replaced. q07_d02_o02 is plausible and clearly wrong: the minimum-necessary standard does not apply to provider-to-provider treatment disclosures and no authorization toggles that. Rationale correctly realigned in both languages. HHS FAQ 208 and the TPO FAQs support the change."
+    },
+    {
+      "originalId": "gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14",
+      "mintedId": "gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14_r2",
+      "stage1Disposition": "RETURN_CANDIDATE",
+      "checkerDisposition": "BLOCK",
+      "candidatePayloadHashCampaignConvention": "710dc5976f92f17e9982ddfe2dfb5f3b38afcf1099acc6da51f94c5161f6716b",
+      "hashConfirmedAgainstManifest": true,
+      "hashDigestSource": "OWNER_COMPUTED",
+      "blockerReason": "Orphaned references including two keyed tokens. byChoice q14_c01 says the event meets 'the stem's definition of wet contamination' and testTakingStrategy says to use 'the stated open-versus-closed pathway definition'; neither is stated anymore. Keyed tokens q14_a02 and q14_p02 reference the program's prescribed prophylaxis pathway and the PD program's transfer-set, prophylaxis, and follow-up plan, an entity the stem no longer introduces. byChoice q14_a05 and q14_p05 compound it.",
+      "repairRequirement": "The stem must reintroduce the program pathway as a premise without reciting the keyed actions, or the keyed tokens and their rationales must be reworded to stand without it.",
+      "advisory": "The glossary defines wet contamination only in defZh; there is no defEn. An English-reading learner has neither the stem definition nor a glossary definition while the rationale tells them the stem supplied one. The missing defEn is a pre-existing schema pattern and is not itself in scope."
+    },
+    {
+      "originalId": "gpt_balance6b_2026_07_16_hl_standard_precautions_hygiene_17",
+      "mintedId": "gpt_balance6b_2026_07_16_hl_standard_precautions_hygiene_17_r2",
+      "stage1Disposition": "RETURN_CANDIDATE",
+      "checkerDisposition": "BLOCK",
+      "candidatePayloadHashCampaignConvention": "9d5bda8db1e614ab7b8b1505401f745431ad1b0980cfc5efbd06ea9a803edbb5",
+      "hashConfirmedAgainstManifest": true,
+      "hashDigestSource": "OWNER_COMPUTED",
+      "blockerReason": "Orphaned reference plus incomplete removal of the recorded defect. Keyed segment q17_s04 reads 'Maintain natural nail tips at or below the stated 1/4-inch limit' and its byChoice asserts 'The stem supplies the accepted natural-nail length limit'. The stem no longer supplies it, so the rationale is affirmatively false. Separately the 1/4-inch figure now appears only inside a keyed segment, so the telegraph was relocated rather than removed and the ANSWER_TELEGRAPHING defect is not discharged. testTakingStrategy and meta.stem_disambiguators are also orphaned, and rationale.correct and byChoice q17_s08 both reference 'the cited rule' that was the deleted facility policy.",
+      "repairRequirement": "Needs the most work of the nine. Either the stem reintroduces the policy scope without the length figure, or q17_s04 and four dependent fields are reworked together."
+    }
+  ],
+  "iterationGuidance": {
+    "section101": "None of the nine blocks authorizes anyone to edit anything. The repairRequirement values are inputs to a relaunch, not permission to patch.",
+    "section103": "No owner instruction alone makes a blocked row publishable. A directed repair re-enters Stage 1 and returns through Stage 2.",
+    "section104": "An owner relaunch on the blocked subset runs under this same immutable work order and writes manifest-iteration-1.json, report-iteration-1.md, and a correspondingly named sibling patch program. Stage 1 evidence is append-only and is not amended.",
+    "section104MintingRule": "All nine blocked rows are already present in the raw draft under their _r2 IDs, so section 10.4's second bullet governs: patched in place under _r2 with exact preconditions, and NOT reminted. _r3 is reserved for a repair after _r2 has actually been published.",
+    "section104UnchangedRowBaseline": "The four AFFIRM rows must be proved unchanged by the iteration program against their campaign-convention payload hashes recorded above.",
+    "section106": "The four affirmed rows are not yet publishable. All 13 must reach a final state before the section 10.7 freeze may be written, and Stage 3 takes its roster only from that freeze."
+  },
+  "scopeCloseout": {
+    "contentEdited": false,
+    "canonicalBanksModified": false,
+    "promotionOrConsolidation": false,
+    "censusRun": false,
+    "ledgerOrStatusMapWrite": false,
+    "decisionsMdWrite": false,
+    "commit": false,
+    "push": false,
+    "publicationFreezeWritten": false,
+    "stage3Entered": false
+  }
+}

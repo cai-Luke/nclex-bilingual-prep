@@ -52,6 +52,27 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Campaign 16 Phase B Quarantined FIX Recovery Published (Aug 27)
+
+Stage 3 mechanically published the 13-row final roster from the immutable publication freeze. All 13
+rows were `RETURN_CANDIDATE + AFFIRM`; 0 were retired, held, or blocked. The complete old→`_r2` ID
+mapping and source/resulting bank hashes are recorded in the
+[`BANK-REVIEW-LEDGER.md`](BANK-REVIEW-LEDGER.md) entry for this campaign.
+
+The frozen raw draft passed the 13/13 campaign payload-identity check and the 13/13 Phase A
+canonical-bank baseline identity check. The required promotion, pre-consolidation integrity audit,
+consolidation dry run, consolidation, all-bank validation, global audit, topic-license audit,
+`derivePopulation` proof, original-ID absence proof with the HIPAA positive control, and final census
+check passed. `gpt-canonical.json` increased from 760 to 773 questions; all other canonical banks
+remained byte-identical to the Phase A baseline.
+
+The census was regenerated after the expected stale check: session units moved 1,930 → 1,943 and
+scored leaves 2,516 → 2,529. The pre-promotion→post-census movement for both `census.json` and
+`BANK-CENSUS.md` is preserved in the Stage 3 status log. Producer-independent confirmation of that
+movement remains pending with the Stage 2 seat or owner. Stage 3 made no content revision and did not
+commit or push. The task-owned raw draft was deleted only after this history entry and the ledger
+entry were written.
+
 ### June 13 Matrix Swap Regression Repair Accepted (Aug 25)
 
 A false June 13 `c1`/`c2` inversion diagnosis broke eight already-correct GPT matrix leaves. Accepted

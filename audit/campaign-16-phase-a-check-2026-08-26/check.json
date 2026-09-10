@@ -1,0 +1,1534 @@
+{
+  "artifact": "Campaign 16 Phase A — independent checker derivation (BLINDED)",
+  "role": "Independent checker required by charter section A.8",
+  "date": "2026-08-27",
+  "charterSha256": "c3cd80bd38474794a70861119bdc42d3f977b1393c32421c052e05fb34d522f6",
+  "blindingStatement": "Derived entirely from live disk and the frozen 2026-08-23 census artifacts. No file under audit/campaign-16-phase-a-baseline-2026-08-26/ was opened before this file was written and hashed.",
+  "scope": [
+    "A.2",
+    "A.3",
+    "A.4.1",
+    "A.4.2",
+    "A.4.3",
+    "A.4.4",
+    "A.4.5",
+    "A.5"
+  ],
+  "notInScope": [
+    "A.1 (census baseline) — not named by the A.8 exit gate"
+  ],
+  "preconditions": {
+    "repositoryPath": "/Users/holemini/Desktop/Project Shrimp",
+    "branch": "main",
+    "head": "3286024bcab90c1a114811a7202d956c3e586bf4",
+    "upstream": "origin/main",
+    "aheadBehind": {
+      "ahead": 0,
+      "behind": 0
+    },
+    "dirtyPaths": [
+      "M BANK-CENSUS.md",
+      "M CLAUDE.md",
+      "M STAGE-REFERENCE-SEMANTIC-CENSUS-GEMINI-CALIBRATION-SPEC-2026-07-23.md",
+      "M census.json",
+      "?? audit/campaign-16-phase-a-baseline-2026-08-26/"
+    ],
+    "dirtyBankFiles": [],
+    "bankFilesClean": true
+  },
+  "toolReach": {
+    "shell": true,
+    "node": "v25.9.0",
+    "tsx": true,
+    "mcpSearchUsedForAbsenceProof": false
+  },
+  "a2": {
+    "method": "Two independent shell methods. (1) recursive fixed-string grep -rF over ALL files under banks/ including .DS_Store, banks-raw/ and case_sources/. (2) Node JSON parse of all 13 bundled banks plus a full recursive walk of every string value (144679 scanned) matched against the 13 target IDs. MCP repository search NOT used (Trap 1).",
+    "positiveControl": "The same grep located gpt_case_hipaa_disclosure_breach_01_bowtie and gpt_format15_vasa_previa_bleeding_bowtie in banks/gpt-canonical.json (6.8 MB) and gpt_case_gbs_respiratory_compromise_01_bowtie in banks/hard-cases-canonical.json, so the method demonstrably reads the large file and absence is a real negative rather than a silent skip.",
+    "result": "ALL 13 ABSENT",
+    "perId": [
+      {
+        "id": "gpt_balance2_2026_07_15_dc_client_advocacy_02",
+        "found": false,
+        "grepHits": 0,
+        "structuralWalkHits": 0,
+        "file": null,
+        "jsonPath": null
+      },
+      {
+        "id": "gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08",
+        "found": false,
+        "grepHits": 0,
+        "structuralWalkHits": 0,
+        "file": null,
+        "jsonPath": null
+      },
+      {
+        "id": "gpt_balance3_2026_07_16_dc_psychotropic_medications_11",
+        "found": false,
+        "grepHits": 0,
+        "structuralWalkHits": 0,
+        "file": null,
+        "jsonPath": null
+      },
+      {
+        "id": "gpt_balance3_2026_07_16_hl_disaster_emergency_preparedness_13",
+        "found": false,
+        "grepHits": 0,
+        "structuralWalkHits": 0,
+        "file": null,
+        "jsonPath": null
+      },
+      {
+        "id": "gpt_mocsic_2026_07_15_dc_disaster_emergency_preparedness_18",
+        "found": false,
+        "grepHits": 0,
+        "structuralWalkHits": 0,
+        "file": null,
+        "jsonPath": null
+      },
+      {
+        "id": "gpt_balance5_2026_07_16_mx_client_advocacy_02",
+        "found": false,
+        "grepHits": 0,
+        "structuralWalkHits": 0,
+        "file": null,
+        "jsonPath": null
+      },
+      {
+        "id": "gpt_balance5_2026_07_16_hl_disaster_emergency_preparedness_13",
+        "found": false,
+        "grepHits": 0,
+        "structuralWalkHits": 0,
+        "file": null,
+        "jsonPath": null
+      },
+      {
+        "id": "gpt_balance5_2026_07_16_mx_standard_precautions_hygiene_15",
+        "found": false,
+        "grepHits": 0,
+        "structuralWalkHits": 0,
+        "file": null,
+        "jsonPath": null
+      },
+      {
+        "id": "gpt_balance6a_2026_07_16_bt_perioperative_care_13",
+        "found": false,
+        "grepHits": 0,
+        "structuralWalkHits": 0,
+        "file": null,
+        "jsonPath": null
+      },
+      {
+        "id": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_05",
+        "found": false,
+        "grepHits": 0,
+        "structuralWalkHits": 0,
+        "file": null,
+        "jsonPath": null
+      },
+      {
+        "id": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_07",
+        "found": false,
+        "grepHits": 0,
+        "structuralWalkHits": 0,
+        "file": null,
+        "jsonPath": null
+      },
+      {
+        "id": "gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14",
+        "found": false,
+        "grepHits": 0,
+        "structuralWalkHits": 0,
+        "file": null,
+        "jsonPath": null
+      },
+      {
+        "id": "gpt_balance6b_2026_07_16_hl_standard_precautions_hygiene_17",
+        "found": false,
+        "grepHits": 0,
+        "structuralWalkHits": 0,
+        "file": null,
+        "jsonPath": null
+      }
+    ],
+    "materialFinding": false
+  },
+  "a3": {
+    "trap4Mitigation": "BOTH named mitigations were used. (a) validate-bank across all 13 bundled banks: 13/13 OK, exit 0. (b) explicit-file path: the audit was invoked with --file once per bundled bank (26 argv tokens), routing to runExplicitFiles, which fails loud on any unloadable or schema-invalid file. Reported figures are taken from the explicit-file runs.",
+    "banksIndependentlyEstablishedValid": 13,
+    "banksIndependentlyEstablishedMethod": "Separate script replicating loadBank semantics (parseBankText + validateBankObject rejectUnknownKeys:true) over readdir(banks) .json entries: 13 entries, 13 loaded and schema-valid, 0 failures. Established independently of the audit-reported file count (Trap 4).",
+    "runs": [
+      {
+        "command": "npx tsx scripts/audit/audit-stage-refs.ts",
+        "mode": "canonical sweep, non-strict",
+        "emittedStatus": "WARN",
+        "processExit": 0
+      },
+      {
+        "command": "npx tsx scripts/audit/audit-stage-refs.ts --strict",
+        "mode": "canonical sweep, strict",
+        "emittedStatus": "FAIL",
+        "processExit": 1
+      },
+      {
+        "command": "npx tsx scripts/audit/audit-stage-refs.ts --file <each of 13>",
+        "mode": "explicit files, non-strict",
+        "emittedStatus": "WARN",
+        "processExit": 0
+      },
+      {
+        "command": "npx tsx scripts/audit/audit-stage-refs.ts --file <each of 13> --strict",
+        "mode": "explicit files, strict",
+        "emittedStatus": "FAIL",
+        "processExit": 1
+      }
+    ],
+    "trap3Note": "A strict exit status of 1 with revealsAllStages > 0 is the expected result per Trap 3, not a Phase A failure. Output was captured before inspecting exit status; no set -e abort occurred.",
+    "sweepVsExplicitAgreement": "identical figures in both paths",
+    "coincidenceNote": "The rederived revealsAllStages total is 451 and the distinct parent-case count is 93. These equal the 2026-07-19 / 2026-07-23 figures. Reported as a coincidence of measurement per A.3, NOT as confirmation of the historical population.",
+    "revealsAllStages": {
+      "total": 451,
+      "perFile": {
+        "claude-canonical.json": 58,
+        "gemini-canonical.json": 46,
+        "gpt-canonical.json": 243,
+        "hard-cases-canonical.json": 104
+      }
+    },
+    "distinctParentCasesWithRevealsAllStages": {
+      "total": 93,
+      "perFile": {
+        "claude-canonical.json": 10,
+        "gemini-canonical.json": 11,
+        "gpt-canonical.json": 52,
+        "hard-cases-canonical.json": 20
+      }
+    },
+    "unresolved": {
+      "total": 0,
+      "perFile": {}
+    },
+    "missingRequiredAnchorStrict": {
+      "total": 75,
+      "perFile": {
+        "claude-canonical.json": 6,
+        "gpt-canonical.json": 34,
+        "hard-cases-canonical.json": 35
+      }
+    },
+    "nonStrictRevealsAllStages": 451,
+    "nonStrictMissingRequiredAnchor": 0,
+    "parentCaseIds": [
+      {
+        "file": "claude-canonical.json",
+        "parentId": "opus_case_lithium_toxicity_01"
+      },
+      {
+        "file": "claude-canonical.json",
+        "parentId": "opus_case_warfarin_bridge_01"
+      },
+      {
+        "file": "claude-canonical.json",
+        "parentId": "opus_vanco_case_01"
+      },
+      {
+        "file": "claude-canonical.json",
+        "parentId": "opus1_case_tha_discharge_lep_01"
+      },
+      {
+        "file": "claude-canonical.json",
+        "parentId": "opus2_case_code_status_01"
+      },
+      {
+        "file": "claude-canonical.json",
+        "parentId": "opus20_case_cdiff_01"
+      },
+      {
+        "file": "claude-canonical.json",
+        "parentId": "opus22_case_postpartum_intrusive_thoughts_01"
+      },
+      {
+        "file": "claude-canonical.json",
+        "parentId": "opus24_case_elder_neglect_med_mismanagement_01"
+      },
+      {
+        "file": "claude-canonical.json",
+        "parentId": "opus26_case_refeeding_syndrome_01"
+      },
+      {
+        "file": "claude-canonical.json",
+        "parentId": "opus27_case_ipv_prenatal_care_01"
+      },
+      {
+        "file": "gemini-canonical.json",
+        "parentId": "gemini_gap_case_chronic_hf_05"
+      },
+      {
+        "file": "gemini-canonical.json",
+        "parentId": "gemini_gap_case_cirrhosis_homecare_04"
+      },
+      {
+        "file": "gemini-canonical.json",
+        "parentId": "gemini_gap_case_disaster_triage_05"
+      },
+      {
+        "file": "gemini-canonical.json",
+        "parentId": "gemini_gap_case_hypertension_lifestyle_02"
+      },
+      {
+        "file": "gemini-canonical.json",
+        "parentId": "gemini_gap_case_lead_poisoning_01"
+      },
+      {
+        "file": "gemini-canonical.json",
+        "parentId": "gemini_gap_case_palliative_care_03"
+      },
+      {
+        "file": "gemini-canonical.json",
+        "parentId": "gemini_gap_case_pediatric_croup_02"
+      },
+      {
+        "file": "gemini-canonical.json",
+        "parentId": "gemini_gap_case_pediatric_diabetes_03"
+      },
+      {
+        "file": "gemini-canonical.json",
+        "parentId": "gemini_gap_case_postpartum_depression_04"
+      },
+      {
+        "file": "gemini-canonical.json",
+        "parentId": "gemini_gap_case_pyloric_stenosis_01"
+      },
+      {
+        "file": "gemini-canonical.json",
+        "parentId": "opus_agvd_case_agvhd_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_2026_06_13_case_delirium_uti_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_2026_06_19_case_ici_pneumonitis_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_acute_hemolytic_transfusion_reaction_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_caregiver_role_strain_dementia_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_client_advocacy_refusal_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_clozapine_toxicity_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_gap_2026_06_11_case_adhf_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_gap_2026_06_11_case_adrenal_crisis_04"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_gap_2026_06_11_case_aki_02"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_gap_2026_06_11_case_anticoag_bleeding_06"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_gap_2026_06_11_case_pancreatitis_03"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_gap_2026_06_11_case_tls_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_gap_2026_06_11_case_urosepsis_05"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_hipaa_disclosure_breach_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_infection_control_clustered_care_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_lateral_incivility_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_mass_casualty_start_triage_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_neutropenic_fever_nadir_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_nine_month_well_child_safety_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_nurse_provider_conflict_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_opioid_recovery_relapse_risk_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_opus23_nat_toddler_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_opus5_cdi_immunocompromised_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_premium_2026_06_10_case01_preventive_screening"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_premium_2026_06_10_case02_caregiver_burden"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_premium_2026_06_10_case03_chronic_self_management"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_premium_2026_06_10_case04_pressure_injury_rehab"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_premium_2026_06_10_case05_health_literacy_adherence"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_premium_next_case_caregiver_adaptation_dementia_03"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_premium_next_case_health_literacy_diabetes_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_premium_next_case_ipv_safety_planning_06"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_premium_next_case_occupational_exposure_vaccine_04"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_premium_next_case_preventive_screening_vaccine_05"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_premium_next_case_rehab_pressure_bowel_02"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_pressure_injury_prevention_mobility_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_refeeding_syndrome_tpn_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_svc_syndrome_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_taco_vs_trali_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_unsafe_assignment_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_unsafe_premature_discharge_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_case_warfarin_mvr_2026_06_11_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_gap_2026_06_12_nonmcq_balanced_case_delirium_family_04"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03"
+      },
+      {
+        "file": "gpt-canonical.json",
+        "parentId": "gpt_opus21_case_colostomy_lep_discharge_01"
+      },
+      {
+        "file": "hard-cases-canonical.json",
+        "parentId": "case_ami_01"
+      },
+      {
+        "file": "hard-cases-canonical.json",
+        "parentId": "case_preeclampsia_magnesium_01"
+      },
+      {
+        "file": "hard-cases-canonical.json",
+        "parentId": "case_sepsis_pneumonia_01"
+      },
+      {
+        "file": "hard-cases-canonical.json",
+        "parentId": "claude_cs_jun06_cdiff_sic_01"
+      },
+      {
+        "file": "hard-cases-canonical.json",
+        "parentId": "claude_cs_jun06_chest_tube_rrp_01"
+      },
+      {
+        "file": "hard-cases-canonical.json",
+        "parentId": "cs_sepsis_shock_01"
+      },
+      {
+        "file": "hard-cases-canonical.json",
+        "parentId": "cs_stemi_vfib_04"
+      },
+      {
+        "file": "hard-cases-canonical.json",
+        "parentId": "cs_thyroid_storm_main"
+      },
+      {
+        "file": "hard-cases-canonical.json",
+        "parentId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01"
+      },
+      {
+        "file": "hard-cases-canonical.json",
+        "parentId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01"
+      },
+      {
+        "file": "hard-cases-canonical.json",
+        "parentId": "opus_case_se_01"
+      },
+      {
+        "file": "hard-cases-canonical.json",
+        "parentId": "opus_icit_case_01"
+      },
+      {
+        "file": "hard-cases-canonical.json",
+        "parentId": "opus_scc_case_01"
+      },
+      {
+        "file": "hard-cases-canonical.json",
+        "parentId": "opus_tpn_case_mucositis_01"
+      },
+      {
+        "file": "hard-cases-canonical.json",
+        "parentId": "opus1_case_discharge_med_rec_anticoag_01"
+      },
+      {
+        "file": "hard-cases-canonical.json",
+        "parentId": "opus12_case_inpatient_suicide_risk_01"
+      },
+      {
+        "file": "hard-cases-canonical.json",
+        "parentId": "opus2_case_postop_opioid_respiratory_depression_01"
+      },
+      {
+        "file": "hard-cases-canonical.json",
+        "parentId": "opus3_iv_potassium_safety_case_01"
+      },
+      {
+        "file": "hard-cases-canonical.json",
+        "parentId": "opus4_case_postop_sbar_01"
+      },
+      {
+        "file": "hard-cases-canonical.json",
+        "parentId": "opus5_case_consent_interpreter_01"
+      }
+    ]
+  },
+  "a4": {
+    "hashConvention": "sha256(stableJson(q, 0))",
+    "baselineCommit": "c2ff546",
+    "bankPathsLoaded": [
+      "banks/burn-canonical.json",
+      "banks/capnography-canonical.json",
+      "banks/claude-canonical.json",
+      "banks/device-canonical.json",
+      "banks/gemini-canonical.json",
+      "banks/gpt-canonical.json",
+      "banks/hard-cases-canonical.json",
+      "banks/io-canonical.json",
+      "banks/lab-canonical.json",
+      "banks/mar-canonical.json",
+      "banks/medlabel-canonical.json",
+      "banks/visual-canonical.json",
+      "banks/vitals-canonical.json"
+    ],
+    "a4_1": {
+      "suffixBowtieTotal": 50,
+      "pairedCount": 31,
+      "exact": 30,
+      "ordinalSuffix": 1,
+      "unpairedCount": 19,
+      "unpairedReasons": [
+        "NO_ELIGIBLE_SIBLING_CASE"
+      ],
+      "pairedRoster": [
+        {
+          "candidateId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_bowtie",
+          "candidateBankPath": "banks/gpt-canonical.json",
+          "candidateJsonPath": "$.questions[279]",
+          "companionCaseId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01",
+          "companionBankPath": "banks/gpt-canonical.json",
+          "companionJsonPath": "$.questions[278]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_2026_06_19_case_ici_pneumonitis_01_bowtie",
+          "candidateBankPath": "banks/gpt-canonical.json",
+          "candidateJsonPath": "$.questions[285]",
+          "companionCaseId": "gpt_2026_06_19_case_ici_pneumonitis_01",
+          "companionBankPath": "banks/gpt-canonical.json",
+          "companionJsonPath": "$.questions[284]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_acute_hemolytic_transfusion_reaction_01_bowtie",
+          "candidateBankPath": "banks/gpt-canonical.json",
+          "candidateJsonPath": "$.questions[281]",
+          "companionCaseId": "gpt_case_acute_hemolytic_transfusion_reaction_01",
+          "companionBankPath": "banks/gpt-canonical.json",
+          "companionJsonPath": "$.questions[280]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_bowtie",
+          "candidateBankPath": "banks/hard-cases-canonical.json",
+          "candidateJsonPath": "$.questions[65]",
+          "companionCaseId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01",
+          "companionBankPath": "banks/hard-cases-canonical.json",
+          "companionJsonPath": "$.questions[64]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_caregiver_role_strain_dementia_01_bowtie",
+          "candidateBankPath": "banks/gpt-canonical.json",
+          "candidateJsonPath": "$.questions[345]",
+          "companionCaseId": "gpt_case_caregiver_role_strain_dementia_01",
+          "companionBankPath": "banks/gpt-canonical.json",
+          "companionJsonPath": "$.questions[344]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_client_advocacy_refusal_01_bowtie",
+          "candidateBankPath": "banks/gpt-canonical.json",
+          "candidateJsonPath": "$.questions[301]",
+          "companionCaseId": "gpt_case_client_advocacy_refusal_01",
+          "companionBankPath": "banks/gpt-canonical.json",
+          "companionJsonPath": "$.questions[300]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_clozapine_toxicity_01_bowtie",
+          "candidateBankPath": "banks/gpt-canonical.json",
+          "candidateJsonPath": "$.questions[305]",
+          "companionCaseId": "gpt_case_clozapine_toxicity_01",
+          "companionBankPath": "banks/gpt-canonical.json",
+          "companionJsonPath": "$.questions[304]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_gallstone_pancreatitis_01_bowtie",
+          "candidateBankPath": "banks/hard-cases-canonical.json",
+          "candidateJsonPath": "$.questions[51]",
+          "companionCaseId": "gpt_case_gallstone_pancreatitis_01",
+          "companionBankPath": "banks/hard-cases-canonical.json",
+          "companionJsonPath": "$.questions[50]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_gbs_respiratory_compromise_01_bowtie",
+          "candidateBankPath": "banks/hard-cases-canonical.json",
+          "candidateJsonPath": "$.questions[53]",
+          "companionCaseId": "gpt_case_gbs_respiratory_compromise_01",
+          "companionBankPath": "banks/hard-cases-canonical.json",
+          "companionJsonPath": "$.questions[52]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_hipaa_disclosure_breach_01_bowtie",
+          "candidateBankPath": "banks/gpt-canonical.json",
+          "candidateJsonPath": "$.questions[293]",
+          "companionCaseId": "gpt_case_hipaa_disclosure_breach_01",
+          "companionBankPath": "banks/gpt-canonical.json",
+          "companionJsonPath": "$.questions[292]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_infection_control_clustered_care_01_bowtie",
+          "candidateBankPath": "banks/gpt-canonical.json",
+          "candidateJsonPath": "$.questions[347]",
+          "companionCaseId": "gpt_case_infection_control_clustered_care_01",
+          "companionBankPath": "banks/gpt-canonical.json",
+          "companionJsonPath": "$.questions[346]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_lateral_incivility_01_bowtie",
+          "candidateBankPath": "banks/gpt-canonical.json",
+          "candidateJsonPath": "$.questions[303]",
+          "companionCaseId": "gpt_case_lateral_incivility_01",
+          "companionBankPath": "banks/gpt-canonical.json",
+          "companionJsonPath": "$.questions[302]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_major_burn_inhalation_fluid_creep_01_bowtie",
+          "candidateBankPath": "banks/hard-cases-canonical.json",
+          "candidateJsonPath": "$.questions[49]",
+          "companionCaseId": "gpt_case_major_burn_inhalation_fluid_creep_01",
+          "companionBankPath": "banks/hard-cases-canonical.json",
+          "companionJsonPath": "$.questions[48]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_mass_casualty_start_triage_01_bowtie",
+          "candidateBankPath": "banks/gpt-canonical.json",
+          "candidateJsonPath": "$.questions[295]",
+          "companionCaseId": "gpt_case_mass_casualty_start_triage_01",
+          "companionBankPath": "banks/gpt-canonical.json",
+          "companionJsonPath": "$.questions[294]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_neutropenic_fever_nadir_01_bowtie",
+          "candidateBankPath": "banks/gpt-canonical.json",
+          "candidateJsonPath": "$.questions[287]",
+          "companionCaseId": "gpt_case_neutropenic_fever_nadir_01",
+          "companionBankPath": "banks/gpt-canonical.json",
+          "companionJsonPath": "$.questions[286]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_nine_month_well_child_safety_01_bowtie",
+          "candidateBankPath": "banks/gpt-canonical.json",
+          "candidateJsonPath": "$.questions[349]",
+          "companionCaseId": "gpt_case_nine_month_well_child_safety_01",
+          "companionBankPath": "banks/gpt-canonical.json",
+          "companionJsonPath": "$.questions[348]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_nurse_provider_conflict_01_bowtie",
+          "candidateBankPath": "banks/gpt-canonical.json",
+          "candidateJsonPath": "$.questions[299]",
+          "companionCaseId": "gpt_case_nurse_provider_conflict_01",
+          "companionBankPath": "banks/gpt-canonical.json",
+          "companionJsonPath": "$.questions[298]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_opioid_recovery_relapse_risk_01_bowtie",
+          "candidateBankPath": "banks/gpt-canonical.json",
+          "candidateJsonPath": "$.questions[351]",
+          "companionCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+          "companionBankPath": "banks/gpt-canonical.json",
+          "companionJsonPath": "$.questions[350]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_overdue_preventive_screening_01_bowtie",
+          "candidateBankPath": "banks/gpt-canonical.json",
+          "candidateJsonPath": "$.questions[353]",
+          "companionCaseId": "gpt_case_overdue_preventive_screening_01",
+          "companionBankPath": "banks/gpt-canonical.json",
+          "companionJsonPath": "$.questions[352]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_bowtie",
+          "candidateBankPath": "banks/hard-cases-canonical.json",
+          "candidateJsonPath": "$.questions[55]",
+          "companionCaseId": "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01",
+          "companionBankPath": "banks/hard-cases-canonical.json",
+          "companionJsonPath": "$.questions[54]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_pressure_injury_prevention_mobility_01_bowtie",
+          "candidateBankPath": "banks/gpt-canonical.json",
+          "candidateJsonPath": "$.questions[355]",
+          "companionCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+          "companionBankPath": "banks/gpt-canonical.json",
+          "companionJsonPath": "$.questions[354]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_refeeding_syndrome_tpn_01_bowtie",
+          "candidateBankPath": "banks/gpt-canonical.json",
+          "candidateJsonPath": "$.questions[307]",
+          "companionCaseId": "gpt_case_refeeding_syndrome_tpn_01",
+          "companionBankPath": "banks/gpt-canonical.json",
+          "companionJsonPath": "$.questions[306]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_svc_syndrome_01_bowtie",
+          "candidateBankPath": "banks/gpt-canonical.json",
+          "candidateJsonPath": "$.questions[283]",
+          "companionCaseId": "gpt_case_svc_syndrome_01",
+          "companionBankPath": "banks/gpt-canonical.json",
+          "companionJsonPath": "$.questions[282]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_taco_vs_trali_01_bowtie",
+          "candidateBankPath": "banks/gpt-canonical.json",
+          "candidateJsonPath": "$.questions[289]",
+          "companionCaseId": "gpt_case_taco_vs_trali_01",
+          "companionBankPath": "banks/gpt-canonical.json",
+          "companionJsonPath": "$.questions[288]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_unsafe_assignment_01_bowtie",
+          "candidateBankPath": "banks/gpt-canonical.json",
+          "candidateJsonPath": "$.questions[291]",
+          "companionCaseId": "gpt_case_unsafe_assignment_01",
+          "companionBankPath": "banks/gpt-canonical.json",
+          "companionJsonPath": "$.questions[290]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_unsafe_premature_discharge_01_bowtie",
+          "candidateBankPath": "banks/gpt-canonical.json",
+          "candidateJsonPath": "$.questions[297]",
+          "companionCaseId": "gpt_case_unsafe_premature_discharge_01",
+          "companionBankPath": "banks/gpt-canonical.json",
+          "companionJsonPath": "$.questions[296]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_bowtie",
+          "candidateBankPath": "banks/hard-cases-canonical.json",
+          "candidateJsonPath": "$.questions[57]",
+          "companionCaseId": "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01",
+          "companionBankPath": "banks/hard-cases-canonical.json",
+          "companionJsonPath": "$.questions[56]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_pph_2026_06_16_case_01_bowtie",
+          "candidateBankPath": "banks/hard-cases-canonical.json",
+          "candidateJsonPath": "$.questions[59]",
+          "companionCaseId": "gpt_pph_2026_06_16_case_01",
+          "companionBankPath": "banks/hard-cases-canonical.json",
+          "companionJsonPath": "$.questions[58]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_r1_regen_case_celiac_01_bowtie",
+          "candidateBankPath": "banks/hard-cases-canonical.json",
+          "candidateJsonPath": "$.questions[61]",
+          "companionCaseId": "gpt_r1_regen_case_celiac_01",
+          "companionBankPath": "banks/hard-cases-canonical.json",
+          "companionJsonPath": "$.questions[60]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_bowtie",
+          "candidateBankPath": "banks/hard-cases-canonical.json",
+          "candidateJsonPath": "$.questions[63]",
+          "companionCaseId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01",
+          "companionBankPath": "banks/hard-cases-canonical.json",
+          "companionJsonPath": "$.questions[62]",
+          "pairingRule": "EXACT"
+        },
+        {
+          "candidateId": "opus_case_lithium_toxicity_bowtie",
+          "candidateBankPath": "banks/claude-canonical.json",
+          "candidateJsonPath": "$.questions[68]",
+          "companionCaseId": "opus_case_lithium_toxicity_01",
+          "companionBankPath": "banks/claude-canonical.json",
+          "companionJsonPath": "$.questions[67]",
+          "pairingRule": "ORDINAL_SUFFIX"
+        }
+      ],
+      "unpairedRoster": [
+        {
+          "candidateId": "gpt_2026_07_03_2114_t1_01_co_exposure_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "jsonPath": "$.questions[539]",
+          "topLevelIndex": 539,
+          "topLevelOrdinal": 540,
+          "exclusionReason": "NO_ELIGIBLE_SIBLING_CASE"
+        },
+        {
+          "candidateId": "gpt_2026_07_03_2114_t2_01_cdiff_spores_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "jsonPath": "$.questions[545]",
+          "topLevelIndex": 545,
+          "topLevelOrdinal": 546,
+          "exclusionReason": "NO_ELIGIBLE_SIBLING_CASE"
+        },
+        {
+          "candidateId": "gpt_2026_07_03_2114_t2_02_imminent_suicide_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "jsonPath": "$.questions[546]",
+          "topLevelIndex": 546,
+          "topLevelOrdinal": 547,
+          "exclusionReason": "NO_ELIGIBLE_SIBLING_CASE"
+        },
+        {
+          "candidateId": "gpt_format13_last_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "jsonPath": "$.questions[721]",
+          "topLevelIndex": 721,
+          "topLevelOrdinal": 722,
+          "exclusionReason": "NO_ELIGIBLE_SIBLING_CASE"
+        },
+        {
+          "candidateId": "gpt_format13_mh_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "jsonPath": "$.questions[722]",
+          "topLevelIndex": 722,
+          "topLevelOrdinal": 723,
+          "exclusionReason": "NO_ELIGIBLE_SIBLING_CASE"
+        },
+        {
+          "candidateId": "gpt_format13_pd_peritonitis_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "jsonPath": "$.questions[723]",
+          "topLevelIndex": 723,
+          "topLevelOrdinal": 724,
+          "exclusionReason": "NO_ELIGIBLE_SIBLING_CASE"
+        },
+        {
+          "candidateId": "gpt_format14_hcm_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "jsonPath": "$.questions[731]",
+          "topLevelIndex": 731,
+          "topLevelOrdinal": 732,
+          "exclusionReason": "NO_ELIGIBLE_SIBLING_CASE"
+        },
+        {
+          "candidateId": "gpt_format15_acquired_methemoglobinemia_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "jsonPath": "$.questions[748]",
+          "topLevelIndex": 748,
+          "topLevelOrdinal": 749,
+          "exclusionReason": "NO_ELIGIBLE_SIBLING_CASE"
+        },
+        {
+          "candidateId": "gpt_format15_cardiac_tamponade_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "jsonPath": "$.questions[750]",
+          "topLevelIndex": 750,
+          "topLevelOrdinal": 751,
+          "exclusionReason": "NO_ELIGIBLE_SIBLING_CASE"
+        },
+        {
+          "candidateId": "gpt_format15_ect_prolonged_seizure_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "jsonPath": "$.questions[736]",
+          "topLevelIndex": 736,
+          "topLevelOrdinal": 737,
+          "exclusionReason": "NO_ELIGIBLE_SIBLING_CASE"
+        },
+        {
+          "candidateId": "gpt_format15_meningococcemia_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "jsonPath": "$.questions[737]",
+          "topLevelIndex": 737,
+          "topLevelOrdinal": 738,
+          "exclusionReason": "NO_ELIGIBLE_SIBLING_CASE"
+        },
+        {
+          "candidateId": "gpt_format15_palliative_malignant_bowel_obstruction_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "jsonPath": "$.questions[743]",
+          "topLevelIndex": 743,
+          "topLevelOrdinal": 744,
+          "exclusionReason": "NO_ELIGIBLE_SIBLING_CASE"
+        },
+        {
+          "candidateId": "gpt_format15_severe_asthma_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "jsonPath": "$.questions[756]",
+          "topLevelIndex": 756,
+          "topLevelOrdinal": 757,
+          "exclusionReason": "NO_ELIGIBLE_SIBLING_CASE"
+        },
+        {
+          "candidateId": "gpt_format15_sickle_acute_chest_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "jsonPath": "$.questions[754]",
+          "topLevelIndex": 754,
+          "topLevelOrdinal": 755,
+          "exclusionReason": "NO_ELIGIBLE_SIBLING_CASE"
+        },
+        {
+          "candidateId": "gpt_format15_splenic_sequestration_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "jsonPath": "$.questions[755]",
+          "topLevelIndex": 755,
+          "topLevelOrdinal": 756,
+          "exclusionReason": "NO_ELIGIBLE_SIBLING_CASE"
+        },
+        {
+          "candidateId": "gpt_format15_transfusion_anaphylaxis_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "jsonPath": "$.questions[742]",
+          "topLevelIndex": 742,
+          "topLevelOrdinal": 743,
+          "exclusionReason": "NO_ELIGIBLE_SIBLING_CASE"
+        },
+        {
+          "candidateId": "gpt_format15_vasa_previa_bleeding_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "jsonPath": "$.questions[749]",
+          "topLevelIndex": 749,
+          "topLevelOrdinal": 750,
+          "exclusionReason": "NO_ELIGIBLE_SIBLING_CASE"
+        },
+        {
+          "candidateId": "gpt_format7c_exercise_hypoglycemia_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "jsonPath": "$.questions[642]",
+          "topLevelIndex": 642,
+          "topLevelOrdinal": 643,
+          "exclusionReason": "NO_ELIGIBLE_SIBLING_CASE"
+        },
+        {
+          "candidateId": "gpt_format7c_heart_failure_action_plan_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "jsonPath": "$.questions[643]",
+          "topLevelIndex": 643,
+          "topLevelOrdinal": 644,
+          "exclusionReason": "NO_ELIGIBLE_SIBLING_CASE"
+        }
+      ],
+      "driftVsFrozen": {
+        "frozenPairedCount": 31,
+        "frozenUnpairedCount": 19,
+        "pairedOnlyLive": [],
+        "pairedOnlyFrozen": [],
+        "unpairedOnlyLive": [],
+        "unpairedOnlyFrozen": [],
+        "pairingRuleChanges": [],
+        "companionChanges": [],
+        "jsonPathChangesPaired": [],
+        "jsonPathChangesUnpaired": []
+      }
+    },
+    "a4_3": {
+      "count": 11,
+      "rows": [
+        {
+          "candidateId": "gpt_case_acute_hemolytic_transfusion_reaction_01_bowtie",
+          "verdict": "FAIL_HIDDEN_CASE_DEPENDENCY",
+          "currentBankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[281]",
+          "frozenBankPath": "banks/gpt-canonical.json",
+          "frozenJsonPath": "$.questions[281]",
+          "jsonPathDrift": false,
+          "currentPayloadSha256": "789d52ef3191509f938526bdd66cbfb6fc32d6ee1bbb45b4a14b2c2b33f0da65",
+          "frozenCandidatePayloadSha256": "789d52ef3191509f938526bdd66cbfb6fc32d6ee1bbb45b4a14b2c2b33f0da65",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_case_caregiver_role_strain_dementia_01_bowtie",
+          "verdict": "FAIL_HIDDEN_CASE_DEPENDENCY",
+          "currentBankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[345]",
+          "frozenBankPath": "banks/gpt-canonical.json",
+          "frozenJsonPath": "$.questions[345]",
+          "jsonPathDrift": false,
+          "currentPayloadSha256": "7b2d554215d8a3c2249aaa9bd595721793b4f3a439663e74e76efabe5a3ff6e1",
+          "frozenCandidatePayloadSha256": "7b2d554215d8a3c2249aaa9bd595721793b4f3a439663e74e76efabe5a3ff6e1",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_case_client_advocacy_refusal_01_bowtie",
+          "verdict": "FAIL_HIDDEN_CASE_DEPENDENCY",
+          "currentBankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[301]",
+          "frozenBankPath": "banks/gpt-canonical.json",
+          "frozenJsonPath": "$.questions[301]",
+          "jsonPathDrift": false,
+          "currentPayloadSha256": "d601c32d131bb984399cbb131b98f3c995e4fe1ef2512ddb1d30c61757172521",
+          "frozenCandidatePayloadSha256": "d601c32d131bb984399cbb131b98f3c995e4fe1ef2512ddb1d30c61757172521",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_case_gbs_respiratory_compromise_01_bowtie",
+          "verdict": "FAIL_HIDDEN_CASE_DEPENDENCY",
+          "currentBankPath": "banks/hard-cases-canonical.json",
+          "currentJsonPath": "$.questions[53]",
+          "frozenBankPath": "banks/hard-cases-canonical.json",
+          "frozenJsonPath": "$.questions[53]",
+          "jsonPathDrift": false,
+          "currentPayloadSha256": "74e4fc43567f17a8eed82ce10fd440372afe4bfde7da0878bda51fb30aa34804",
+          "frozenCandidatePayloadSha256": "74e4fc43567f17a8eed82ce10fd440372afe4bfde7da0878bda51fb30aa34804",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_case_hipaa_disclosure_breach_01_bowtie",
+          "verdict": "FAIL_UNSUPPORTED_TOKEN_PREMISE",
+          "currentBankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[293]",
+          "frozenBankPath": "banks/gpt-canonical.json",
+          "frozenJsonPath": "$.questions[293]",
+          "jsonPathDrift": false,
+          "currentPayloadSha256": "9ba8faa3ec3cea8e1668c0460b2888686f1600d52186d7f5b8297dc6ae332984",
+          "frozenCandidatePayloadSha256": "9ba8faa3ec3cea8e1668c0460b2888686f1600d52186d7f5b8297dc6ae332984",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_case_infection_control_clustered_care_01_bowtie",
+          "verdict": "FAIL_HIDDEN_CASE_DEPENDENCY",
+          "currentBankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[347]",
+          "frozenBankPath": "banks/gpt-canonical.json",
+          "frozenJsonPath": "$.questions[347]",
+          "jsonPathDrift": false,
+          "currentPayloadSha256": "9257f536a25485a9761d3f004f6deb2679177570b83a6937f1e65ef880d45daf",
+          "frozenCandidatePayloadSha256": "9257f536a25485a9761d3f004f6deb2679177570b83a6937f1e65ef880d45daf",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_case_lateral_incivility_01_bowtie",
+          "verdict": "FAIL_HIDDEN_CASE_DEPENDENCY",
+          "currentBankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[303]",
+          "frozenBankPath": "banks/gpt-canonical.json",
+          "frozenJsonPath": "$.questions[303]",
+          "jsonPathDrift": false,
+          "currentPayloadSha256": "fea2d76c8716a73087600efe5fd026a33cb36e5b19f28dde067b940ff57e9563",
+          "frozenCandidatePayloadSha256": "fea2d76c8716a73087600efe5fd026a33cb36e5b19f28dde067b940ff57e9563",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_case_mass_casualty_start_triage_01_bowtie",
+          "verdict": "FAIL_HIDDEN_CASE_DEPENDENCY",
+          "currentBankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[295]",
+          "frozenBankPath": "banks/gpt-canonical.json",
+          "frozenJsonPath": "$.questions[295]",
+          "jsonPathDrift": false,
+          "currentPayloadSha256": "7cdf149aff899a7cd171c9395ec6ab23b93b571c15cb779dc169d605e1dbd4d6",
+          "frozenCandidatePayloadSha256": "7cdf149aff899a7cd171c9395ec6ab23b93b571c15cb779dc169d605e1dbd4d6",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_case_neutropenic_fever_nadir_01_bowtie",
+          "verdict": "FAIL_UNSUPPORTED_TOKEN_PREMISE",
+          "currentBankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[287]",
+          "frozenBankPath": "banks/gpt-canonical.json",
+          "frozenJsonPath": "$.questions[287]",
+          "jsonPathDrift": false,
+          "currentPayloadSha256": "f8e8ca6eddd5f48cf67ef7ea5a51d9eb5bcfea2c67def6b50eafcbf0818ac00b",
+          "frozenCandidatePayloadSha256": "f8e8ca6eddd5f48cf67ef7ea5a51d9eb5bcfea2c67def6b50eafcbf0818ac00b",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_case_unsafe_premature_discharge_01_bowtie",
+          "verdict": "FAIL_UNSUPPORTED_TOKEN_PREMISE",
+          "currentBankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[297]",
+          "frozenBankPath": "banks/gpt-canonical.json",
+          "frozenJsonPath": "$.questions[297]",
+          "jsonPathDrift": false,
+          "currentPayloadSha256": "d9462741c338b5041762f5f4a4c51cffd17bd54d34d17839c381b02cbd59bf5e",
+          "frozenCandidatePayloadSha256": "d9462741c338b5041762f5f4a4c51cffd17bd54d34d17839c381b02cbd59bf5e",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_pph_2026_06_16_case_01_bowtie",
+          "verdict": "FAIL_UNSUPPORTED_TOKEN_PREMISE",
+          "currentBankPath": "banks/hard-cases-canonical.json",
+          "currentJsonPath": "$.questions[59]",
+          "frozenBankPath": "banks/hard-cases-canonical.json",
+          "frozenJsonPath": "$.questions[59]",
+          "jsonPathDrift": false,
+          "currentPayloadSha256": "efcc3588cf2750744fb89be66529904081f6953d6158505dfc694e48086fed39",
+          "frozenCandidatePayloadSha256": "efcc3588cf2750744fb89be66529904081f6953d6158505dfc694e48086fed39",
+          "payloadDrift": false
+        }
+      ]
+    },
+    "a4_4": {
+      "count": 7,
+      "rows": [
+        {
+          "candidateId": "gpt_case_acute_hemolytic_transfusion_reaction_01_bowtie",
+          "companionCaseId": "gpt_case_acute_hemolytic_transfusion_reaction_01",
+          "frozenCompanionBankPath": "banks/gpt-canonical.json",
+          "frozenCompanionJsonPath": "$.questions[280]",
+          "currentCompanionBankPath": "banks/gpt-canonical.json",
+          "currentCompanionJsonPath": "$.questions[280]",
+          "baselineCompanionJsonPath": "$.questions[280]",
+          "companionPayloadSha256_current": "bcfcc790be6233200ab06313261491e64498a34a19ea591fd9401d732ee957c8",
+          "companionPayloadSha256_baseline_c2ff546": "bcfcc790be6233200ab06313261491e64498a34a19ea591fd9401d732ee957c8",
+          "companionPayloadDrift": false
+        },
+        {
+          "candidateId": "gpt_case_caregiver_role_strain_dementia_01_bowtie",
+          "companionCaseId": "gpt_case_caregiver_role_strain_dementia_01",
+          "frozenCompanionBankPath": "banks/gpt-canonical.json",
+          "frozenCompanionJsonPath": "$.questions[344]",
+          "currentCompanionBankPath": "banks/gpt-canonical.json",
+          "currentCompanionJsonPath": "$.questions[344]",
+          "baselineCompanionJsonPath": "$.questions[344]",
+          "companionPayloadSha256_current": "cea0cb8c7a2e680cddd6acc98d8b92b5c579c4c6f461000b68de54e132dea094",
+          "companionPayloadSha256_baseline_c2ff546": "cea0cb8c7a2e680cddd6acc98d8b92b5c579c4c6f461000b68de54e132dea094",
+          "companionPayloadDrift": false
+        },
+        {
+          "candidateId": "gpt_case_client_advocacy_refusal_01_bowtie",
+          "companionCaseId": "gpt_case_client_advocacy_refusal_01",
+          "frozenCompanionBankPath": "banks/gpt-canonical.json",
+          "frozenCompanionJsonPath": "$.questions[300]",
+          "currentCompanionBankPath": "banks/gpt-canonical.json",
+          "currentCompanionJsonPath": "$.questions[300]",
+          "baselineCompanionJsonPath": "$.questions[300]",
+          "companionPayloadSha256_current": "c496073c994e10b31b80663f3d15c406e3614973f7fcb7701c3fed97e0ebfabd",
+          "companionPayloadSha256_baseline_c2ff546": "c496073c994e10b31b80663f3d15c406e3614973f7fcb7701c3fed97e0ebfabd",
+          "companionPayloadDrift": false
+        },
+        {
+          "candidateId": "gpt_case_gbs_respiratory_compromise_01_bowtie",
+          "companionCaseId": "gpt_case_gbs_respiratory_compromise_01",
+          "frozenCompanionBankPath": "banks/hard-cases-canonical.json",
+          "frozenCompanionJsonPath": "$.questions[52]",
+          "currentCompanionBankPath": "banks/hard-cases-canonical.json",
+          "currentCompanionJsonPath": "$.questions[52]",
+          "baselineCompanionJsonPath": "$.questions[52]",
+          "companionPayloadSha256_current": "adb56be57dfb15252c6dd54f6046452f691634fc588b786f45236e8a140a6b86",
+          "companionPayloadSha256_baseline_c2ff546": "adb56be57dfb15252c6dd54f6046452f691634fc588b786f45236e8a140a6b86",
+          "companionPayloadDrift": false
+        },
+        {
+          "candidateId": "gpt_case_infection_control_clustered_care_01_bowtie",
+          "companionCaseId": "gpt_case_infection_control_clustered_care_01",
+          "frozenCompanionBankPath": "banks/gpt-canonical.json",
+          "frozenCompanionJsonPath": "$.questions[346]",
+          "currentCompanionBankPath": "banks/gpt-canonical.json",
+          "currentCompanionJsonPath": "$.questions[346]",
+          "baselineCompanionJsonPath": "$.questions[346]",
+          "companionPayloadSha256_current": "e7d80f5c5f577144b24c0b077a39bb361d84a948f7cbdc74c7c63f257efe938b",
+          "companionPayloadSha256_baseline_c2ff546": "e7d80f5c5f577144b24c0b077a39bb361d84a948f7cbdc74c7c63f257efe938b",
+          "companionPayloadDrift": false
+        },
+        {
+          "candidateId": "gpt_case_lateral_incivility_01_bowtie",
+          "companionCaseId": "gpt_case_lateral_incivility_01",
+          "frozenCompanionBankPath": "banks/gpt-canonical.json",
+          "frozenCompanionJsonPath": "$.questions[302]",
+          "currentCompanionBankPath": "banks/gpt-canonical.json",
+          "currentCompanionJsonPath": "$.questions[302]",
+          "baselineCompanionJsonPath": "$.questions[302]",
+          "companionPayloadSha256_current": "ac9ad4bd169f9065a85b1216abd4091b1eec3b0c378c5259d7548dc351f8414b",
+          "companionPayloadSha256_baseline_c2ff546": "ac9ad4bd169f9065a85b1216abd4091b1eec3b0c378c5259d7548dc351f8414b",
+          "companionPayloadDrift": false
+        },
+        {
+          "candidateId": "gpt_case_mass_casualty_start_triage_01_bowtie",
+          "companionCaseId": "gpt_case_mass_casualty_start_triage_01",
+          "frozenCompanionBankPath": "banks/gpt-canonical.json",
+          "frozenCompanionJsonPath": "$.questions[294]",
+          "currentCompanionBankPath": "banks/gpt-canonical.json",
+          "currentCompanionJsonPath": "$.questions[294]",
+          "baselineCompanionJsonPath": "$.questions[294]",
+          "companionPayloadSha256_current": "4462fe97c8ce38a9bfa029b4df5795783b4864df2a7143dea649e6a0d8d819aa",
+          "companionPayloadSha256_baseline_c2ff546": "4462fe97c8ce38a9bfa029b4df5795783b4864df2a7143dea649e6a0d8d819aa",
+          "companionPayloadDrift": false
+        }
+      ]
+    },
+    "a4_5": {
+      "count": 19,
+      "rows": [
+        {
+          "candidateId": "gpt_2026_07_03_2114_t1_01_co_exposure_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[539]",
+          "baselineJsonPath": "$.questions[539]",
+          "presentInBaseline": true,
+          "payloadSha256_current": "d52f20663ce537cee595d9e46dee04c69b4de4a78f63ab885679101f797b5bd3",
+          "payloadSha256_baseline_c2ff546": "d52f20663ce537cee595d9e46dee04c69b4de4a78f63ab885679101f797b5bd3",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_2026_07_03_2114_t2_01_cdiff_spores_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[545]",
+          "baselineJsonPath": "$.questions[545]",
+          "presentInBaseline": true,
+          "payloadSha256_current": "156c37fb872d72e4dcc1c03422222699e844d6c07c46c28c3a3646e612575949",
+          "payloadSha256_baseline_c2ff546": "156c37fb872d72e4dcc1c03422222699e844d6c07c46c28c3a3646e612575949",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_2026_07_03_2114_t2_02_imminent_suicide_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[546]",
+          "baselineJsonPath": "$.questions[546]",
+          "presentInBaseline": true,
+          "payloadSha256_current": "db0f561af76d4e1cb5de422662fad579f58e81a0ef068d8d68500fa29668e4cb",
+          "payloadSha256_baseline_c2ff546": "db0f561af76d4e1cb5de422662fad579f58e81a0ef068d8d68500fa29668e4cb",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_format13_last_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[721]",
+          "baselineJsonPath": "$.questions[721]",
+          "presentInBaseline": true,
+          "payloadSha256_current": "ab06ae7bf9bae8cf39c3ab315030d14b88c077c149343fe1c0b9f590262924fc",
+          "payloadSha256_baseline_c2ff546": "ab06ae7bf9bae8cf39c3ab315030d14b88c077c149343fe1c0b9f590262924fc",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_format13_mh_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[722]",
+          "baselineJsonPath": "$.questions[722]",
+          "presentInBaseline": true,
+          "payloadSha256_current": "b84e2dfc09ca8a6b46501e792bae2261fab64c1f46ffabc559a1ba0aa126bccb",
+          "payloadSha256_baseline_c2ff546": "b84e2dfc09ca8a6b46501e792bae2261fab64c1f46ffabc559a1ba0aa126bccb",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_format13_pd_peritonitis_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[723]",
+          "baselineJsonPath": "$.questions[723]",
+          "presentInBaseline": true,
+          "payloadSha256_current": "1917fc5c2d0bf9e47dc370fe0c3e761f68ac155fde9c4ae290b87096e46a6095",
+          "payloadSha256_baseline_c2ff546": "1917fc5c2d0bf9e47dc370fe0c3e761f68ac155fde9c4ae290b87096e46a6095",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_format14_hcm_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[731]",
+          "baselineJsonPath": "$.questions[731]",
+          "presentInBaseline": true,
+          "payloadSha256_current": "b88ed0482d9d7f6d8d39b143b457657ad9243bc138f2b9e7d4622c2dfa07d75f",
+          "payloadSha256_baseline_c2ff546": "b88ed0482d9d7f6d8d39b143b457657ad9243bc138f2b9e7d4622c2dfa07d75f",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_format15_acquired_methemoglobinemia_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[748]",
+          "baselineJsonPath": "$.questions[748]",
+          "presentInBaseline": true,
+          "payloadSha256_current": "48f90bfa36cb3f7e0b65f637a8ae9de80c35257eac4f812b3373018d4a727777",
+          "payloadSha256_baseline_c2ff546": "48f90bfa36cb3f7e0b65f637a8ae9de80c35257eac4f812b3373018d4a727777",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_format15_cardiac_tamponade_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[750]",
+          "baselineJsonPath": "$.questions[750]",
+          "presentInBaseline": true,
+          "payloadSha256_current": "14b942965319b128382b879025356dbac3d13561d392c5ece80ef5e21244fb14",
+          "payloadSha256_baseline_c2ff546": "14b942965319b128382b879025356dbac3d13561d392c5ece80ef5e21244fb14",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_format15_ect_prolonged_seizure_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[736]",
+          "baselineJsonPath": "$.questions[736]",
+          "presentInBaseline": true,
+          "payloadSha256_current": "c0d8638519d80fc1b6bd8a23ae0ec2a5cd5ec094611d15c83d26632f9306367a",
+          "payloadSha256_baseline_c2ff546": "c0d8638519d80fc1b6bd8a23ae0ec2a5cd5ec094611d15c83d26632f9306367a",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_format15_meningococcemia_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[737]",
+          "baselineJsonPath": "$.questions[737]",
+          "presentInBaseline": true,
+          "payloadSha256_current": "6ecd999b61f1b17d953b1e54820b3047afabd1e88392e09fb4e8d4163e65cd2b",
+          "payloadSha256_baseline_c2ff546": "6ecd999b61f1b17d953b1e54820b3047afabd1e88392e09fb4e8d4163e65cd2b",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_format15_palliative_malignant_bowel_obstruction_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[743]",
+          "baselineJsonPath": "$.questions[743]",
+          "presentInBaseline": true,
+          "payloadSha256_current": "238dd73803862f44c357109bde8cced485f0479c27667466b24b5e9c336e036d",
+          "payloadSha256_baseline_c2ff546": "238dd73803862f44c357109bde8cced485f0479c27667466b24b5e9c336e036d",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_format15_severe_asthma_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[756]",
+          "baselineJsonPath": "$.questions[756]",
+          "presentInBaseline": true,
+          "payloadSha256_current": "b5000b34fcdead37f242f2294f6c95246011d7635b757bb03e0c0618c627159d",
+          "payloadSha256_baseline_c2ff546": "b5000b34fcdead37f242f2294f6c95246011d7635b757bb03e0c0618c627159d",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_format15_sickle_acute_chest_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[754]",
+          "baselineJsonPath": "$.questions[754]",
+          "presentInBaseline": true,
+          "payloadSha256_current": "124a53eb198eb035ac98b83ef256ad7e2bd8c72424af90e8a783f951229af698",
+          "payloadSha256_baseline_c2ff546": "124a53eb198eb035ac98b83ef256ad7e2bd8c72424af90e8a783f951229af698",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_format15_splenic_sequestration_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[755]",
+          "baselineJsonPath": "$.questions[755]",
+          "presentInBaseline": true,
+          "payloadSha256_current": "cad98e7f2d181e8141bee5db89a7142dc8f2ddfbb09f6937ee53312b44779423",
+          "payloadSha256_baseline_c2ff546": "cad98e7f2d181e8141bee5db89a7142dc8f2ddfbb09f6937ee53312b44779423",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_format15_transfusion_anaphylaxis_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[742]",
+          "baselineJsonPath": "$.questions[742]",
+          "presentInBaseline": true,
+          "payloadSha256_current": "1157de9021406a663da1d8649f6654de20f4e6322fa73f7c8ad4354a46a6188b",
+          "payloadSha256_baseline_c2ff546": "1157de9021406a663da1d8649f6654de20f4e6322fa73f7c8ad4354a46a6188b",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_format15_vasa_previa_bleeding_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[749]",
+          "baselineJsonPath": "$.questions[749]",
+          "presentInBaseline": true,
+          "payloadSha256_current": "1f9dbd06dd65e1c2f010b94372f32d6a23420264b5651663d770ac55edd77920",
+          "payloadSha256_baseline_c2ff546": "1f9dbd06dd65e1c2f010b94372f32d6a23420264b5651663d770ac55edd77920",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_format7c_exercise_hypoglycemia_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[642]",
+          "baselineJsonPath": "$.questions[642]",
+          "presentInBaseline": true,
+          "payloadSha256_current": "df41a515bafd2325afb0a63fa1b3050ae5d6c6165213af41314d8e3e8dc8ad81",
+          "payloadSha256_baseline_c2ff546": "df41a515bafd2325afb0a63fa1b3050ae5d6c6165213af41314d8e3e8dc8ad81",
+          "payloadDrift": false
+        },
+        {
+          "candidateId": "gpt_format7c_heart_failure_action_plan_bowtie",
+          "bankPath": "banks/gpt-canonical.json",
+          "currentJsonPath": "$.questions[643]",
+          "baselineJsonPath": "$.questions[643]",
+          "presentInBaseline": true,
+          "payloadSha256_current": "20cdfd9a06862487c399ca4e36c2de9e76ebf1d16d5267721e47fb4df8db877f",
+          "payloadSha256_baseline_c2ff546": "20cdfd9a06862487c399ca4e36c2de9e76ebf1d16d5267721e47fb4df8db877f",
+          "payloadDrift": false
+        }
+      ]
+    }
+  },
+  "a5": {
+    "convention": "raw file-byte SHA-256 (distinct from the A.4.2 stable-payload convention)",
+    "crossCheck": "node crypto digests equal shasum -a 256 banks/*.json for all 13 files",
+    "fileByteSha256": {
+      "banks/burn-canonical.json": "5244b8d37daa49adbd1fbed7991f4ede52ded8ce710e26821841ef5e2ce3719f",
+      "banks/capnography-canonical.json": "36d72a89405fe4400f27b3b8969cdbe1c51f3217151f8b2592b7f877d636f20c",
+      "banks/claude-canonical.json": "25f53ded1ac21da4ca9d211040c3f6110ebee38d72ba41d0fc64fe358ba73b71",
+      "banks/device-canonical.json": "83d5a6ac7219524f4c528265291cbee2ed5b2f17c13fbeb3649342bae2e4aac5",
+      "banks/gemini-canonical.json": "3dc416a4652f5f5712219dde7de87b92f0697fac953750b8abb8fc0dbb976bb6",
+      "banks/gpt-canonical.json": "be83c943bbe6e50297de94d25b596069767b8fee876426ec798dc66ca8d5a76d",
+      "banks/hard-cases-canonical.json": "8068c6917e53257a31c7299454c213f61bea62e61d7cf185cb1a09386f4e4862",
+      "banks/io-canonical.json": "2ce6488e65049ba00cd9dccf889a042e0a624f224387382d564d282e147b2645",
+      "banks/lab-canonical.json": "1038cb68f6b91f6a2c981562d97ad9e16179db9b1332c75725fd538595c44b05",
+      "banks/mar-canonical.json": "f12c03a28ff5b52411843f84bc942b4ca5667e989194357ed2d60a394f17641e",
+      "banks/medlabel-canonical.json": "cc3bd0053516fc7ea4b23e814e46f186e6d2dbf40888fa713a862c07ea2b3993",
+      "banks/visual-canonical.json": "e42e2a3fa6aa349a61279e6988e250e65c2b752a6f36d33806a2671e0af0f9e4",
+      "banks/vitals-canonical.json": "5154e25492bced8e4a49d763f04e25e154389c31e085bf37669651e13d411b9d"
+    },
+    "baselineC2ff546FileByteSha256": {
+      "banks/burn-canonical.json": "5244b8d37daa49adbd1fbed7991f4ede52ded8ce710e26821841ef5e2ce3719f",
+      "banks/capnography-canonical.json": "36d72a89405fe4400f27b3b8969cdbe1c51f3217151f8b2592b7f877d636f20c",
+      "banks/claude-canonical.json": "25f53ded1ac21da4ca9d211040c3f6110ebee38d72ba41d0fc64fe358ba73b71",
+      "banks/device-canonical.json": "83d5a6ac7219524f4c528265291cbee2ed5b2f17c13fbeb3649342bae2e4aac5",
+      "banks/gemini-canonical.json": "3dc416a4652f5f5712219dde7de87b92f0697fac953750b8abb8fc0dbb976bb6",
+      "banks/gpt-canonical.json": "fe7fdc516f922a4acb6fe589311e8c852dc4ab3fe5dba7e5a780fa1aba32cb0b",
+      "banks/hard-cases-canonical.json": "8068c6917e53257a31c7299454c213f61bea62e61d7cf185cb1a09386f4e4862",
+      "banks/io-canonical.json": "2ce6488e65049ba00cd9dccf889a042e0a624f224387382d564d282e147b2645",
+      "banks/lab-canonical.json": "1038cb68f6b91f6a2c981562d97ad9e16179db9b1332c75725fd538595c44b05",
+      "banks/mar-canonical.json": "f12c03a28ff5b52411843f84bc942b4ca5667e989194357ed2d60a394f17641e",
+      "banks/medlabel-canonical.json": "cc3bd0053516fc7ea4b23e814e46f186e6d2dbf40888fa713a862c07ea2b3993",
+      "banks/visual-canonical.json": "e42e2a3fa6aa349a61279e6988e250e65c2b752a6f36d33806a2671e0af0f9e4",
+      "banks/vitals-canonical.json": "5154e25492bced8e4a49d763f04e25e154389c31e085bf37669651e13d411b9d"
+    },
+    "driftVsBaselineC2ff546": [
+      "banks/gpt-canonical.json"
+    ]
+  },
+  "corroboration": {
+    "gptCanonicalDriftDecomposition": "Exactly 7 question payloads in banks/gpt-canonical.json differ from c2ff546 (5 case_study and 2 matrix, all gpt_gap_2026_06_12_* / gpt_2026_06_13_*); question count unchanged at 760; meta unchanged; 0 added; 0 removed; and 0 of the changed IDs carry the _bowtie suffix. This is the June 13 matrix answer-mapping restoration and independently explains why the sole A.5 bank drift coexists with zero A.4.3 / A.4.4 / A.4.5 payload drift."
+  }
+}

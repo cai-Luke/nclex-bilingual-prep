@@ -1,0 +1,1550 @@
+{
+  "phase": "Campaign 16 Phase B",
+  "stage": 1,
+  "role": "producer",
+  "status": "CAMPAIGN16_PHASE_B_CANDIDATES_COMPLETE",
+  "workOrder": {
+    "path": "scratch/CAMPAIGN-16-PHASE-B-QUARANTINED-FIX-RECOVERY-WORK-ORDER-2026-08-27.md",
+    "fileByteSha256": "756ba6c10206bc2a197bb9cd577f1a2789829e3e73127145254858a7649b8b51"
+  },
+  "hashConventions": {
+    "archive": "archive: sha256(JSON.stringify(question, null, 2)); original key insertion order; indent 2; no trailing newline",
+    "campaign": "campaign: sha256(stableJson(question, 0)); recursively sorted keys; JSON indent 0; trailing newline"
+  },
+  "archiveReconciliation": {
+    "status": "PASS",
+    "wrapperCount": 13,
+    "actualItemCount": 13,
+    "manifestCount": 13,
+    "manifestPayloadRows": 13,
+    "allArchiveConventionPayloadHashesMatch": true
+  },
+  "rawCandidateFile": "banks/banks-raw/gpt-campaign16-phase-b-recovery-2026-08-27.json",
+  "patchProgram": "scripts/patches/2026-08-27-campaign16-phase-b-recovery.ts",
+  "summary": {
+    "rosterCount": 13,
+    "returnCandidateCount": 13,
+    "retireCandidateCount": 0,
+    "heldForOwnerAdjudicationCount": 0,
+    "patchOpCount": 63
+  },
+  "rows": [
+    {
+      "originalId": "gpt_balance2_2026_07_15_dc_client_advocacy_02",
+      "mintedId": "gpt_balance2_2026_07_15_dc_client_advocacy_02_r2",
+      "disposition": "RETURN_CANDIDATE",
+      "holdReason": null,
+      "archivedPayloadHash": {
+        "convention": "archive: sha256(JSON.stringify(question, null, 2)); original key insertion order; indent 2; no trailing newline",
+        "value": "34bd5f54481e39f845a8bfbc1607ec4f0f789ffd946b9693ffb2a6745b954721"
+      },
+      "rederivedDefect": "The second blank can be solved by rejecting two plainly non-right administrative phrases, so it does not discriminate among credible patient-rights concepts.",
+      "recordedOwnerClass": "MECHANICAL_CLOZE_DEPENDENCY",
+      "recordedOwnerDisposition": "BOUNDED_TEXT_REPAIR",
+      "ownerDecisionSource": "CHECKER_ADDITION_ACCEPTED",
+      "derivationAgreement": true,
+      "derivationReconciliation": "AGREEMENT",
+      "patchOps": [
+        {
+          "kind": "setValue",
+          "id": "gpt_balance2_2026_07_15_dc_client_advocacy_02",
+          "path": [
+            "dropdowns",
+            {
+              "id": "right"
+            },
+            "options",
+            {
+              "id": "p3"
+            },
+            "en"
+          ],
+          "before": "public access to the clinical encounter",
+          "after": "informed consent for the examination",
+          "note": "Replace an absurd rights distractor with a plausible but scenario-inapposite patient-rights concept."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance2_2026_07_15_dc_client_advocacy_02",
+          "path": [
+            "dropdowns",
+            {
+              "id": "right"
+            },
+            "options",
+            {
+              "id": "p3"
+            },
+            "zh"
+          ],
+          "before": "公众接触临床过程",
+          "after": "对检查作出知情同意",
+          "note": "Chinese parity for the p3 rights distractor."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance2_2026_07_15_dc_client_advocacy_02",
+          "path": [
+            "dropdowns",
+            {
+              "id": "right"
+            },
+            "options",
+            {
+              "id": "p2"
+            },
+            "en"
+          ],
+          "before": "staff convenience during scheduling",
+          "after": "refusal of the examination itself",
+          "note": "Replace an absurd rights distractor with a plausible but scenario-inapposite patient-rights concept."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance2_2026_07_15_dc_client_advocacy_02",
+          "path": [
+            "dropdowns",
+            {
+              "id": "right"
+            },
+            "options",
+            {
+              "id": "p2"
+            },
+            "zh"
+          ],
+          "before": "工作人员排班便利",
+          "after": "拒绝检查本身",
+          "note": "Chinese parity for the p2 rights distractor."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance2_2026_07_15_dc_client_advocacy_02",
+          "path": [
+            "rationale",
+            "byChoice",
+            {
+              "refId": "right"
+            },
+            "en"
+          ],
+          "before": "The governing rights are personal privacy and participation in care, not staff convenience or public reporting.",
+          "after": "The governing rights in this scenario are personal privacy and participation in care. The client is not refusing the examination itself, and the issue is not whether the examination was explained for informed consent.",
+          "note": "Align the rationale with the repaired rights distractors without changing the key."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance2_2026_07_15_dc_client_advocacy_02",
+          "path": [
+            "rationale",
+            "byChoice",
+            {
+              "refId": "right"
+            },
+            "zh"
+          ],
+          "before": "适用的权利是个人隐私和参与护理，而不是工作人员便利或公开报告。",
+          "after": "本情境中适用的权利是个人隐私和参与护理。患者并未拒绝检查本身，问题也不在于是否已就检查进行知情同意说明。",
+          "note": "Chinese parity for the repaired rights rationale."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance2_2026_07_15_dc_client_advocacy_02",
+          "path": [
+            "id"
+          ],
+          "before": "gpt_balance2_2026_07_15_dc_client_advocacy_02",
+          "after": "gpt_balance2_2026_07_15_dc_client_advocacy_02_r2",
+          "note": "Mint revision lineage after every semantic edit for this row."
+        }
+      ],
+      "clinicalFactsAdded": [
+        {
+          "fact": "Personal privacy, participation in care, informed decisions, and refusal of treatment are distinct patient-rights concepts; the scenario continues to key privacy and participation.",
+          "source": "42 CFR 482.13(b)(1)-(2), (c)(1): https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-482/subpart-B/section-482.13",
+          "use": "Source-grounded concepts used to replace two absurd rights distractors; no keyed claim changed."
+        }
+      ],
+      "fieldLevelNonMutationProof": {
+        "status": "PASS",
+        "method": "Independent ordered replay plus recursive leaf diff from archived payload to candidate payload.",
+        "authorizedMutationPaths": [
+          "$.dropdowns[1].options[0].en",
+          "$.dropdowns[1].options[0].zh",
+          "$.dropdowns[1].options[2].en",
+          "$.dropdowns[1].options[2].zh",
+          "$.id",
+          "$.rationale.byChoice[1].en",
+          "$.rationale.byChoice[1].zh"
+        ],
+        "observedChangedLeafPaths": [
+          "$.dropdowns[1].options[0].en",
+          "$.dropdowns[1].options[0].zh",
+          "$.dropdowns[1].options[2].en",
+          "$.dropdowns[1].options[2].zh",
+          "$.id",
+          "$.rationale.byChoice[1].en",
+          "$.rationale.byChoice[1].zh"
+        ],
+        "unauthorizedChangedLeafPaths": [],
+        "authorizedPathsMissingFromDiff": [],
+        "independentReplayMatchesCandidate": true,
+        "allFieldsOutsideAuthorizedMutationPathsUnchanged": true
+      },
+      "candidatePayloadHash": {
+        "convention": "campaign: sha256(stableJson(question, 0)); recursively sorted keys; JSON indent 0; trailing newline",
+        "value": "0e211d6eee964f939d8ad72da8332ddfca66f59019a445f8d86a7a6551f0976e"
+      }
+    },
+    {
+      "originalId": "gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08",
+      "mintedId": "gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08_r2",
+      "disposition": "RETURN_CANDIDATE",
+      "holdReason": null,
+      "archivedPayloadHash": {
+        "convention": "archive: sha256(JSON.stringify(question, null, 2)); original key insertion order; indent 2; no trailing newline",
+        "value": "67a4ee96afd2928a4fb2c8184e33c8a31f977f250ef60f9ea1baccecf96c19ea"
+      },
+      "rederivedDefect": "Both blanks surround the continuity-critical information with obviously irrelevant or crudely incomplete alternatives, reducing the task to mechanical elimination rather than handoff judgment.",
+      "recordedOwnerClass": "MECHANICAL_CLOZE_DEPENDENCY",
+      "recordedOwnerDisposition": "BOUNDED_TEXT_REPAIR",
+      "ownerDecisionSource": "CHECKER_ADDITION_ACCEPTED",
+      "derivationAgreement": true,
+      "derivationReconciliation": "AGREEMENT",
+      "patchOps": [
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08",
+          "path": [
+            "dropdowns",
+            {
+              "id": "d1"
+            },
+            "options",
+            {
+              "id": "o3"
+            },
+            "en"
+          ],
+          "before": "the client’s preferred injection site only",
+          "after": "the last injection site, needle length, and administration technique",
+          "note": "Replace a crude incomplete option with a plausible but nonessential documentation cluster."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08",
+          "path": [
+            "dropdowns",
+            {
+              "id": "d1"
+            },
+            "options",
+            {
+              "id": "o3"
+            },
+            "zh"
+          ],
+          "before": "仅患者偏好的注射部位",
+          "after": "末次注射部位、针头长度及给药技术",
+          "note": "Chinese parity for the d1/o3 distractor."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08",
+          "path": [
+            "dropdowns",
+            {
+              "id": "d1"
+            },
+            "options",
+            {
+              "id": "o2"
+            },
+            "en"
+          ],
+          "before": "only the medication class",
+          "after": "the medication class, indication, and prescribing service",
+          "note": "Replace a crude incomplete option with plausible but insufficient handoff information."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08",
+          "path": [
+            "dropdowns",
+            {
+              "id": "d1"
+            },
+            "options",
+            {
+              "id": "o2"
+            },
+            "zh"
+          ],
+          "before": "仅药物类别",
+          "after": "药物类别、适应证及开立处方的科室",
+          "note": "Chinese parity for the d1/o2 distractor."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08",
+          "path": [
+            "dropdowns",
+            {
+              "id": "d2"
+            },
+            "options",
+            {
+              "id": "o2"
+            },
+            "en"
+          ],
+          "before": "the date of the next routine physical examination",
+          "after": "the date of the last injection",
+          "note": "Replace an unrelated visit date with a clinically relevant but redundant medication date."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08",
+          "path": [
+            "dropdowns",
+            {
+              "id": "d2"
+            },
+            "options",
+            {
+              "id": "o2"
+            },
+            "zh"
+          ],
+          "before": "下次常规体检日期",
+          "after": "末次注射日期",
+          "note": "Chinese parity for the d2/o2 distractor."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08",
+          "path": [
+            "dropdowns",
+            {
+              "id": "d2"
+            },
+            "options",
+            {
+              "id": "o3"
+            },
+            "en"
+          ],
+          "before": "the pharmacy’s monthly inventory date",
+          "after": "the date of the next medication-review visit",
+          "note": "Replace an absurd administrative date with a plausible but non-dose-continuity date."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08",
+          "path": [
+            "dropdowns",
+            {
+              "id": "d2"
+            },
+            "options",
+            {
+              "id": "o3"
+            },
+            "zh"
+          ],
+          "before": "药房每月盘点日期",
+          "after": "下次药物复诊日期",
+          "note": "Chinese parity for the d2/o3 distractor."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08",
+          "path": [
+            "id"
+          ],
+          "before": "gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08",
+          "after": "gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08_r2",
+          "note": "Mint revision lineage after every semantic edit for this row."
+        }
+      ],
+      "clinicalFactsAdded": [
+        {
+          "fact": "A handoff transfers recent treatment information and the ongoing plan; the replacement choices are plausible medication-context details but only the unchanged key fully protects dose continuity in this scenario.",
+          "source": "AHRQ TeamSTEPPS 3.0, Tool: Handoff: https://www.ahrq.gov/teamstepps-program/curriculum/communication/tools/handoff.html",
+          "use": "Source support for the handoff context of replacement distractors; no medication schedule or dose was added."
+        }
+      ],
+      "fieldLevelNonMutationProof": {
+        "status": "PASS",
+        "method": "Independent ordered replay plus recursive leaf diff from archived payload to candidate payload.",
+        "authorizedMutationPaths": [
+          "$.dropdowns[0].options[0].en",
+          "$.dropdowns[0].options[0].zh",
+          "$.dropdowns[0].options[1].en",
+          "$.dropdowns[0].options[1].zh",
+          "$.dropdowns[1].options[0].en",
+          "$.dropdowns[1].options[0].zh",
+          "$.dropdowns[1].options[1].en",
+          "$.dropdowns[1].options[1].zh",
+          "$.id"
+        ],
+        "observedChangedLeafPaths": [
+          "$.dropdowns[0].options[0].en",
+          "$.dropdowns[0].options[0].zh",
+          "$.dropdowns[0].options[1].en",
+          "$.dropdowns[0].options[1].zh",
+          "$.dropdowns[1].options[0].en",
+          "$.dropdowns[1].options[0].zh",
+          "$.dropdowns[1].options[1].en",
+          "$.dropdowns[1].options[1].zh",
+          "$.id"
+        ],
+        "unauthorizedChangedLeafPaths": [],
+        "authorizedPathsMissingFromDiff": [],
+        "independentReplayMatchesCandidate": true,
+        "allFieldsOutsideAuthorizedMutationPathsUnchanged": true
+      },
+      "candidatePayloadHash": {
+        "convention": "campaign: sha256(stableJson(question, 0)); recursively sorted keys; JSON indent 0; trailing newline",
+        "value": "9bbe67218947b1108d99ecbdb004e722ee8782f2b9252ab6f030e564dbbe9301"
+      }
+    },
+    {
+      "originalId": "gpt_balance3_2026_07_16_dc_psychotropic_medications_11",
+      "mintedId": "gpt_balance3_2026_07_16_dc_psychotropic_medications_11_r2",
+      "disposition": "RETURN_CANDIDATE",
+      "holdReason": null,
+      "archivedPayloadHash": {
+        "convention": "archive: sha256(JSON.stringify(question, null, 2)); original key insertion order; indent 2; no trailing newline",
+        "value": "23305ceea0b9ca263fd609583ca1b2e810a68d65944194127a1b897683c2fad2"
+      },
+      "rederivedDefect": "All three keyed metabolic-monitoring choices are paired with unrelated tests or sensory checks, making the cloze an obvious elimination exercise rather than interpretation of olanzapine monitoring guidance.",
+      "recordedOwnerClass": "MECHANICAL_CLOZE_DEPENDENCY",
+      "recordedOwnerDisposition": "BOUNDED_TEXT_REPAIR",
+      "ownerDecisionSource": "CHECKER_ADDITION_ACCEPTED",
+      "derivationAgreement": true,
+      "derivationReconciliation": "AGREEMENT",
+      "patchOps": [
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_dc_psychotropic_medications_11",
+          "path": [
+            "dropdowns",
+            {
+              "id": "d1"
+            },
+            "options",
+            {
+              "id": "o3"
+            },
+            "en"
+          ],
+          "before": "bleeding time",
+          "after": "orthostatic vital signs",
+          "note": "Use a medication-relevant monitoring concept as a plausible distractor."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_dc_psychotropic_medications_11",
+          "path": [
+            "dropdowns",
+            {
+              "id": "d1"
+            },
+            "options",
+            {
+              "id": "o3"
+            },
+            "zh"
+          ],
+          "before": "出血时间",
+          "after": "体位性生命体征",
+          "note": "Chinese parity for the d1/o3 distractor."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_dc_psychotropic_medications_11",
+          "path": [
+            "dropdowns",
+            {
+              "id": "d1"
+            },
+            "options",
+            {
+              "id": "o2"
+            },
+            "en"
+          ],
+          "before": "serum amylase",
+          "after": "white blood cell count",
+          "note": "Use a medication-relevant monitoring concept as a plausible distractor."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_dc_psychotropic_medications_11",
+          "path": [
+            "dropdowns",
+            {
+              "id": "d1"
+            },
+            "options",
+            {
+              "id": "o2"
+            },
+            "zh"
+          ],
+          "before": "血清淀粉酶",
+          "after": "白细胞计数",
+          "note": "Chinese parity for the d1/o2 distractor."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_dc_psychotropic_medications_11",
+          "path": [
+            "dropdowns",
+            {
+              "id": "d2"
+            },
+            "options",
+            {
+              "id": "o2"
+            },
+            "en"
+          ],
+          "before": "serum copper",
+          "after": "serum prolactin level",
+          "note": "Use a medication-relevant monitoring concept as a plausible distractor."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_dc_psychotropic_medications_11",
+          "path": [
+            "dropdowns",
+            {
+              "id": "d2"
+            },
+            "options",
+            {
+              "id": "o2"
+            },
+            "zh"
+          ],
+          "before": "血清铜",
+          "after": "血清催乳素水平",
+          "note": "Chinese parity for the d2/o2 distractor."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_dc_psychotropic_medications_11",
+          "path": [
+            "dropdowns",
+            {
+              "id": "d2"
+            },
+            "options",
+            {
+              "id": "o3"
+            },
+            "en"
+          ],
+          "before": "arterial blood gases",
+          "after": "liver transaminase panel",
+          "note": "Use a medication-relevant laboratory concept as a plausible distractor."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_dc_psychotropic_medications_11",
+          "path": [
+            "dropdowns",
+            {
+              "id": "d2"
+            },
+            "options",
+            {
+              "id": "o3"
+            },
+            "zh"
+          ],
+          "before": "动脉血气",
+          "after": "肝转氨酶检查",
+          "note": "Chinese parity for the d2/o3 distractor."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_dc_psychotropic_medications_11",
+          "path": [
+            "dropdowns",
+            {
+              "id": "d3"
+            },
+            "options",
+            {
+              "id": "o2"
+            },
+            "en"
+          ],
+          "before": "pupil size",
+          "after": "waist circumference",
+          "note": "Use a metabolic-monitoring concept as a plausible distractor."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_dc_psychotropic_medications_11",
+          "path": [
+            "dropdowns",
+            {
+              "id": "d3"
+            },
+            "options",
+            {
+              "id": "o2"
+            },
+            "zh"
+          ],
+          "before": "瞳孔大小",
+          "after": "腰围",
+          "note": "Chinese parity for the d3/o2 distractor."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_dc_psychotropic_medications_11",
+          "path": [
+            "dropdowns",
+            {
+              "id": "d3"
+            },
+            "options",
+            {
+              "id": "o3"
+            },
+            "en"
+          ],
+          "before": "hearing acuity",
+          "after": "standing blood pressure",
+          "note": "Use a medication-relevant monitoring concept as a plausible distractor."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_dc_psychotropic_medications_11",
+          "path": [
+            "dropdowns",
+            {
+              "id": "d3"
+            },
+            "options",
+            {
+              "id": "o3"
+            },
+            "zh"
+          ],
+          "before": "听力",
+          "after": "站立位血压",
+          "note": "Chinese parity for the d3/o3 distractor."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_dc_psychotropic_medications_11",
+          "path": [
+            "id"
+          ],
+          "before": "gpt_balance3_2026_07_16_dc_psychotropic_medications_11",
+          "after": "gpt_balance3_2026_07_16_dc_psychotropic_medications_11_r2",
+          "note": "Mint revision lineage after every semantic edit for this row."
+        }
+      ],
+      "clinicalFactsAdded": [
+        {
+          "fact": "Olanzapine labeling discusses orthostatic hypotension, conditional WBC monitoring, prolactin elevation, liver-enzyme changes, and metabolic effects; these concepts are used only as plausible distractors, while the unchanged key remains fasting glucose, fasting lipids, and weight.",
+          "source": "DailyMed olanzapine prescribing information, sections 5.5, 5.7, 5.9, 5.15, 5.17, and 6.1: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e8626e68-088d-47ff-bf06-489a778815aa",
+          "use": "Source-grounded medication-relevant distractor concepts; no dose, threshold, or new keyed monitoring requirement was added."
+        }
+      ],
+      "fieldLevelNonMutationProof": {
+        "status": "PASS",
+        "method": "Independent ordered replay plus recursive leaf diff from archived payload to candidate payload.",
+        "authorizedMutationPaths": [
+          "$.dropdowns[0].options[0].en",
+          "$.dropdowns[0].options[0].zh",
+          "$.dropdowns[0].options[1].en",
+          "$.dropdowns[0].options[1].zh",
+          "$.dropdowns[1].options[1].en",
+          "$.dropdowns[1].options[1].zh",
+          "$.dropdowns[1].options[2].en",
+          "$.dropdowns[1].options[2].zh",
+          "$.dropdowns[2].options[1].en",
+          "$.dropdowns[2].options[1].zh",
+          "$.dropdowns[2].options[2].en",
+          "$.dropdowns[2].options[2].zh",
+          "$.id"
+        ],
+        "observedChangedLeafPaths": [
+          "$.dropdowns[0].options[0].en",
+          "$.dropdowns[0].options[0].zh",
+          "$.dropdowns[0].options[1].en",
+          "$.dropdowns[0].options[1].zh",
+          "$.dropdowns[1].options[1].en",
+          "$.dropdowns[1].options[1].zh",
+          "$.dropdowns[1].options[2].en",
+          "$.dropdowns[1].options[2].zh",
+          "$.dropdowns[2].options[1].en",
+          "$.dropdowns[2].options[1].zh",
+          "$.dropdowns[2].options[2].en",
+          "$.dropdowns[2].options[2].zh",
+          "$.id"
+        ],
+        "unauthorizedChangedLeafPaths": [],
+        "authorizedPathsMissingFromDiff": [],
+        "independentReplayMatchesCandidate": true,
+        "allFieldsOutsideAuthorizedMutationPathsUnchanged": true
+      },
+      "candidatePayloadHash": {
+        "convention": "campaign: sha256(stableJson(question, 0)); recursively sorted keys; JSON indent 0; trailing newline",
+        "value": "1cb1b4bc7aca712bf5aab8f252b32cdf538fdff2a7ef27d8a6afcc662741a5aa"
+      }
+    },
+    {
+      "originalId": "gpt_balance3_2026_07_16_hl_disaster_emergency_preparedness_13",
+      "mintedId": "gpt_balance3_2026_07_16_hl_disaster_emergency_preparedness_13_r2",
+      "disposition": "RETURN_CANDIDATE",
+      "holdReason": null,
+      "archivedPayloadHash": {
+        "convention": "archive: sha256(JSON.stringify(question, null, 2)); original key insertion order; indent 2; no trailing newline",
+        "value": "a044a1cf340af41f1d0164cc4a7b780255a679e778307b8d0ea7eb8e7d417cb9"
+      },
+      "rederivedDefect": "The stem enumerates all five downtime controls and the selectable record immediately repeats those same five actions, so the answer is copied from the prompt.",
+      "recordedOwnerClass": "ANSWER_TELEGRAPHING_OR_AUTHORIAL_COMPENSATION",
+      "recordedOwnerDisposition": "BOUNDED_TEXT_REPAIR",
+      "ownerDecisionSource": "PRIMARY_RECOMMENDATION_ACCEPTED",
+      "derivationAgreement": true,
+      "derivationReconciliation": "AGREEMENT",
+      "patchOps": [
+        {
+          "kind": "replaceText",
+          "id": "gpt_balance3_2026_07_16_hl_disaster_emergency_preparedness_13",
+          "path": [
+            "stem",
+            "en"
+          ],
+          "before": "The plan requires pre-numbered paper records, two patient identifiers, read-back of critical verbal results, contemporaneous paper medication documentation, and reconciliation before data are entered after recovery. Highlight the actions consistent with the activated plan.",
+          "after": "Highlight the actions that support safe care during downtime and recovery.",
+          "note": "Remove the answer-bearing downtime-plan recital while retaining the scenario and task."
+        },
+        {
+          "kind": "replaceText",
+          "id": "gpt_balance3_2026_07_16_hl_disaster_emergency_preparedness_13",
+          "path": [
+            "stem",
+            "zh"
+          ],
+          "before": "计划要求使用预编号纸质记录、核对两项患者身份、对危急口头结果进行复诵确认、实时记录纸质用药信息，并在系统恢复后录入前先完成核对。请标出符合该计划的措施。",
+          "after": "请标出在停机期间及恢复过程中支持安全护理的措施。",
+          "note": "Chinese parity for removal of the answer-bearing plan recital."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance3_2026_07_16_hl_disaster_emergency_preparedness_13",
+          "path": [
+            "id"
+          ],
+          "before": "gpt_balance3_2026_07_16_hl_disaster_emergency_preparedness_13",
+          "after": "gpt_balance3_2026_07_16_hl_disaster_emergency_preparedness_13_r2",
+          "note": "Mint revision lineage after every semantic edit for this row."
+        }
+      ],
+      "clinicalFactsAdded": [],
+      "fieldLevelNonMutationProof": {
+        "status": "PASS",
+        "method": "Independent ordered replay plus recursive leaf diff from archived payload to candidate payload.",
+        "authorizedMutationPaths": [
+          "$.id",
+          "$.stem.en",
+          "$.stem.zh"
+        ],
+        "observedChangedLeafPaths": [
+          "$.id",
+          "$.stem.en",
+          "$.stem.zh"
+        ],
+        "unauthorizedChangedLeafPaths": [],
+        "authorizedPathsMissingFromDiff": [],
+        "independentReplayMatchesCandidate": true,
+        "allFieldsOutsideAuthorizedMutationPathsUnchanged": true
+      },
+      "candidatePayloadHash": {
+        "convention": "campaign: sha256(stableJson(question, 0)); recursively sorted keys; JSON indent 0; trailing newline",
+        "value": "73abbcf2d7e2cfb443ceb27922a5c5c9a11de804057cb91260e0c027fcd7efd4"
+      }
+    },
+    {
+      "originalId": "gpt_mocsic_2026_07_15_dc_disaster_emergency_preparedness_18",
+      "mintedId": "gpt_mocsic_2026_07_15_dc_disaster_emergency_preparedness_18_r2",
+      "disposition": "RETURN_CANDIDATE",
+      "holdReason": null,
+      "archivedPayloadHash": {
+        "convention": "archive: sha256(JSON.stringify(question, null, 2)); original key insertion order; indent 2; no trailing newline",
+        "value": "bc9ee3f16c1ddbf70a8dc1f3060d3edeec088c61e0f1a7614124a3f00d87edff"
+      },
+      "rederivedDefect": "The stem states both the pre-clear and post-clear actions before asking the learner to select the same before/after response.",
+      "recordedOwnerClass": "ANSWER_TELEGRAPHING_OR_AUTHORIAL_COMPENSATION",
+      "recordedOwnerDisposition": "BOUNDED_TEXT_REPAIR",
+      "ownerDecisionSource": "PRIMARY_RECOMMENDATION_ACCEPTED",
+      "derivationAgreement": true,
+      "derivationReconciliation": "AGREEMENT",
+      "patchOps": [
+        {
+          "kind": "setValue",
+          "id": "gpt_mocsic_2026_07_15_dc_disaster_emergency_preparedness_18",
+          "path": [
+            "stem",
+            "en"
+          ],
+          "before": "During an active-shooter event, the hospital's emergency plan directs staff in unaffected locked units to secure in place, silence devices, stay away from doors and windows, and wait for an authenticated all-clear. After the all-clear, clinical teams begin triage in the designated safe area. Complete the response.",
+          "after": "During an active-shooter event, a nurse is in an unaffected locked hospital unit. An unverified voice in the corridor asks staff to open the door. Later, the hospital sends an authenticated all-clear. Complete the response.",
+          "note": "Replace the verbatim before/after answer recital with scenario cues only."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_mocsic_2026_07_15_dc_disaster_emergency_preparedness_18",
+          "path": [
+            "stem",
+            "zh"
+          ],
+          "before": "医院发生活跃枪手事件时，应急计划要求未受影响且已上锁的病区就地防护、将设备静音、远离门窗，并等待经验证的解除警报。解除警报后，临床团队在指定安全区域开始分诊。完成应对措施。",
+          "after": "医院发生活跃枪手事件时，一名护士位于未受影响且已上锁的病区。走廊里一个未经核实的声音要求工作人员开门。随后，医院发出经验证的解除警报。完成应对措施。",
+          "note": "Chinese parity for replacement of the answer-bearing recital with scenario cues."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_mocsic_2026_07_15_dc_disaster_emergency_preparedness_18",
+          "path": [
+            "id"
+          ],
+          "before": "gpt_mocsic_2026_07_15_dc_disaster_emergency_preparedness_18",
+          "after": "gpt_mocsic_2026_07_15_dc_disaster_emergency_preparedness_18_r2",
+          "note": "Mint revision lineage after every semantic edit for this row."
+        }
+      ],
+      "clinicalFactsAdded": [],
+      "fieldLevelNonMutationProof": {
+        "status": "PASS",
+        "method": "Independent ordered replay plus recursive leaf diff from archived payload to candidate payload.",
+        "authorizedMutationPaths": [
+          "$.id",
+          "$.stem.en",
+          "$.stem.zh"
+        ],
+        "observedChangedLeafPaths": [
+          "$.id",
+          "$.stem.en",
+          "$.stem.zh"
+        ],
+        "unauthorizedChangedLeafPaths": [],
+        "authorizedPathsMissingFromDiff": [],
+        "independentReplayMatchesCandidate": true,
+        "allFieldsOutsideAuthorizedMutationPathsUnchanged": true
+      },
+      "candidatePayloadHash": {
+        "convention": "campaign: sha256(stableJson(question, 0)); recursively sorted keys; JSON indent 0; trailing newline",
+        "value": "e62e88406b257090f8afa67f897a71045d04f2a981a9c7eff73e9a27f7967bf9"
+      }
+    },
+    {
+      "originalId": "gpt_balance5_2026_07_16_mx_client_advocacy_02",
+      "mintedId": "gpt_balance5_2026_07_16_mx_client_advocacy_02_r2",
+      "disposition": "RETURN_CANDIDATE",
+      "holdReason": null,
+      "archivedPayloadHash": {
+        "convention": "archive: sha256(JSON.stringify(question, null, 2)); original key insertion order; indent 2; no trailing newline",
+        "value": "9d3f7777d1a19a01878d7c11221cbbe1f69c6fa5458d9237b2241c9f4d487b65"
+      },
+      "rederivedDefect": "The stem supplies the complete ADA service-dog rule set and the matrix rows restate each permitted or prohibited behavior, making the task rule transcription.",
+      "recordedOwnerClass": "ANSWER_TELEGRAPHING_OR_AUTHORIAL_COMPENSATION",
+      "recordedOwnerDisposition": "BOUNDED_TEXT_REPAIR",
+      "ownerDecisionSource": "PRIMARY_RECOMMENDATION_ACCEPTED",
+      "derivationAgreement": true,
+      "derivationReconciliation": "AGREEMENT",
+      "patchOps": [
+        {
+          "kind": "setValue",
+          "id": "gpt_balance5_2026_07_16_mx_client_advocacy_02",
+          "path": [
+            "stem",
+            "en"
+          ],
+          "before": "A stable medical-surgical inpatient uses a trained service dog that alerts to impending seizures. Classify each proposed staff action. Under the ADA, when the dog's task is not obvious, staff may ask only whether the dog is required because of a disability and what work or task it has been trained to perform. Staff may not demand certification or a task demonstration. The handler is responsible for the animal's care. Exclusion is permitted only for a specific allowed reason, such as a dog being out of control and the handler not taking effective action.",
+          "after": "A stable medical-surgical inpatient uses a trained service dog that alerts to impending seizures. Classify each proposed staff action as supporting or not supporting client advocacy.",
+          "note": "Remove the complete ADA rule recital that duplicated the matrix rows."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance5_2026_07_16_mx_client_advocacy_02",
+          "path": [
+            "stem",
+            "zh"
+          ],
+          "before": "一名病情稳定的内外科住院患者使用一只经过训练、可预警即将发生癫痫发作的服务犬。请对每项拟议的工作人员行动进行分类。根据 ADA，当服务犬的任务并不明显时，工作人员只能询问该犬是否因残障而需要，以及它受过训练可执行什么工作或任务。工作人员不得要求出示认证或让犬现场演示任务。服务犬的照护由其引导者负责。只有在特定允许理由下，例如服务犬失控且引导者未采取有效纠正措施时，才可将其排除。",
+          "after": "一名病情稳定的内外科住院患者使用一只经过训练、可预警即将发生癫痫发作的服务犬。请将每项拟议的工作人员行动分类为支持或不支持患者权益维护。",
+          "note": "Chinese parity for removal of the complete ADA rule recital."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance5_2026_07_16_mx_client_advocacy_02",
+          "path": [
+            "id"
+          ],
+          "before": "gpt_balance5_2026_07_16_mx_client_advocacy_02",
+          "after": "gpt_balance5_2026_07_16_mx_client_advocacy_02_r2",
+          "note": "Mint revision lineage after every semantic edit for this row."
+        }
+      ],
+      "clinicalFactsAdded": [],
+      "fieldLevelNonMutationProof": {
+        "status": "PASS",
+        "method": "Independent ordered replay plus recursive leaf diff from archived payload to candidate payload.",
+        "authorizedMutationPaths": [
+          "$.id",
+          "$.stem.en",
+          "$.stem.zh"
+        ],
+        "observedChangedLeafPaths": [
+          "$.id",
+          "$.stem.en",
+          "$.stem.zh"
+        ],
+        "unauthorizedChangedLeafPaths": [],
+        "authorizedPathsMissingFromDiff": [],
+        "independentReplayMatchesCandidate": true,
+        "allFieldsOutsideAuthorizedMutationPathsUnchanged": true
+      },
+      "candidatePayloadHash": {
+        "convention": "campaign: sha256(stableJson(question, 0)); recursively sorted keys; JSON indent 0; trailing newline",
+        "value": "34fbecfe2a2f14238544e67400dfcff0a39546987bb34a9eb2ab567c133af018"
+      }
+    },
+    {
+      "originalId": "gpt_balance5_2026_07_16_hl_disaster_emergency_preparedness_13",
+      "mintedId": "gpt_balance5_2026_07_16_hl_disaster_emergency_preparedness_13_r2",
+      "disposition": "RETURN_CANDIDATE",
+      "holdReason": null,
+      "archivedPayloadHash": {
+        "convention": "archive: sha256(JSON.stringify(question, null, 2)); original key insertion order; indent 2; no trailing newline",
+        "value": "df7e2203e2cb9fef6222f8d56d98b8cf4fcbb4556a69e7b656fbd3120232cb80"
+      },
+      "rederivedDefect": "The plan sentence names all four keyed identity, tracking, family, and media actions nearly verbatim before the highlight task.",
+      "recordedOwnerClass": "ANSWER_TELEGRAPHING_OR_AUTHORIAL_COMPENSATION",
+      "recordedOwnerDisposition": "BOUNDED_TEXT_REPAIR",
+      "ownerDecisionSource": "PRIMARY_RECOMMENDATION_ACCEPTED",
+      "derivationAgreement": true,
+      "derivationReconciliation": "AGREEMENT",
+      "patchOps": [
+        {
+          "kind": "setValue",
+          "id": "gpt_balance5_2026_07_16_hl_disaster_emergency_preparedness_13",
+          "path": [
+            "stem",
+            "en"
+          ],
+          "before": "After a mass-casualty incident, several unidentified clients arrive while families and media crowd the entrance. The activated hospital plan requires temporary unique identifiers, a continuously updated patient-tracking list, a designated family-reunification channel, and media release only through the public-information function. Highlight the actions consistent with this plan.",
+          "after": "After a mass-casualty incident, several unidentified clients arrive while families and media crowd the entrance. The hospital activates its mass-casualty plan. Highlight the actions that support safe identity management and coordinated family and public communication.",
+          "note": "Remove the four-answer plan recital while retaining the emergency-management domains."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance5_2026_07_16_hl_disaster_emergency_preparedness_13",
+          "path": [
+            "stem",
+            "zh"
+          ],
+          "before": "大规模伤亡事件后，多名身份不明的患者到达医院，家属和媒体挤在入口处。已启动的医院计划要求使用临时唯一标识、持续更新患者追踪清单、设立指定的家属团聚渠道，并且只能通过公共信息职能发布媒体信息。请标出符合该计划的行动。",
+          "after": "大规模伤亡事件后，多名身份不明的患者到达医院，家属和媒体挤在入口处。医院启动大规模伤亡事件计划。请标出支持安全身份管理以及协调家属和公共信息沟通的行动。",
+          "note": "Chinese parity for removal of the four-answer plan recital."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance5_2026_07_16_hl_disaster_emergency_preparedness_13",
+          "path": [
+            "id"
+          ],
+          "before": "gpt_balance5_2026_07_16_hl_disaster_emergency_preparedness_13",
+          "after": "gpt_balance5_2026_07_16_hl_disaster_emergency_preparedness_13_r2",
+          "note": "Mint revision lineage after every semantic edit for this row."
+        }
+      ],
+      "clinicalFactsAdded": [],
+      "fieldLevelNonMutationProof": {
+        "status": "PASS",
+        "method": "Independent ordered replay plus recursive leaf diff from archived payload to candidate payload.",
+        "authorizedMutationPaths": [
+          "$.id",
+          "$.stem.en",
+          "$.stem.zh"
+        ],
+        "observedChangedLeafPaths": [
+          "$.id",
+          "$.stem.en",
+          "$.stem.zh"
+        ],
+        "unauthorizedChangedLeafPaths": [],
+        "authorizedPathsMissingFromDiff": [],
+        "independentReplayMatchesCandidate": true,
+        "allFieldsOutsideAuthorizedMutationPathsUnchanged": true
+      },
+      "candidatePayloadHash": {
+        "convention": "campaign: sha256(stableJson(question, 0)); recursively sorted keys; JSON indent 0; trailing newline",
+        "value": "5ba15a5e22cc996a8d0103ca794bcd087d944c64ab5f3be50cbbe0896216cd8e"
+      }
+    },
+    {
+      "originalId": "gpt_balance5_2026_07_16_mx_standard_precautions_hygiene_15",
+      "mintedId": "gpt_balance5_2026_07_16_mx_standard_precautions_hygiene_15_r2",
+      "disposition": "RETURN_CANDIDATE",
+      "holdReason": null,
+      "archivedPayloadHash": {
+        "convention": "archive: sha256(JSON.stringify(question, null, 2)); original key insertion order; indent 2; no trailing newline",
+        "value": "197d7be8194f0d36526f3efde17246e7c448a790aab5da6f9c339626fc2c12d9"
+      },
+      "rederivedDefect": "The stem recites the entire keyed broken-glass cleanup sequence before the matrix asks the learner to classify those same steps.",
+      "recordedOwnerClass": "ANSWER_TELEGRAPHING_OR_AUTHORIAL_COMPENSATION",
+      "recordedOwnerDisposition": "BOUNDED_TEXT_REPAIR",
+      "ownerDecisionSource": "PRIMARY_RECOMMENDATION_ACCEPTED",
+      "derivationAgreement": true,
+      "derivationReconciliation": "AGREEMENT",
+      "patchOps": [
+        {
+          "kind": "setValue",
+          "id": "gpt_balance5_2026_07_16_mx_standard_precautions_hygiene_15",
+          "path": [
+            "stem",
+            "en"
+          ],
+          "before": "A blood-containing specimen tube breaks on the floor. The cleanup plan requires suitable PPE, mechanical collection of glass, sharps disposal, cleaning before disinfection, use of the disinfectant for its stated contact time, and hand hygiene. Classify each action.",
+          "after": "A blood-containing specimen tube breaks on the floor. Classify each proposed cleanup action as appropriate or unsafe.",
+          "note": "Remove the complete answer-bearing cleanup sequence from the stem."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance5_2026_07_16_mx_standard_precautions_hygiene_15",
+          "path": [
+            "stem",
+            "zh"
+          ],
+          "before": "一支含血液的标本管在地面破裂。清理计划要求使用合适的 PPE、用机械方法收集玻璃、放入锐器容器、先清洁后消毒、按消毒剂规定的接触时间使用，并进行手卫生。请对每项行动进行分类。",
+          "after": "一支含血液的标本管在地面破裂。请将每项拟议的清理行动分类为适当或不安全。",
+          "note": "Chinese parity for removal of the complete cleanup sequence."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance5_2026_07_16_mx_standard_precautions_hygiene_15",
+          "path": [
+            "id"
+          ],
+          "before": "gpt_balance5_2026_07_16_mx_standard_precautions_hygiene_15",
+          "after": "gpt_balance5_2026_07_16_mx_standard_precautions_hygiene_15_r2",
+          "note": "Mint revision lineage after every semantic edit for this row."
+        }
+      ],
+      "clinicalFactsAdded": [],
+      "fieldLevelNonMutationProof": {
+        "status": "PASS",
+        "method": "Independent ordered replay plus recursive leaf diff from archived payload to candidate payload.",
+        "authorizedMutationPaths": [
+          "$.id",
+          "$.stem.en",
+          "$.stem.zh"
+        ],
+        "observedChangedLeafPaths": [
+          "$.id",
+          "$.stem.en",
+          "$.stem.zh"
+        ],
+        "unauthorizedChangedLeafPaths": [],
+        "authorizedPathsMissingFromDiff": [],
+        "independentReplayMatchesCandidate": true,
+        "allFieldsOutsideAuthorizedMutationPathsUnchanged": true
+      },
+      "candidatePayloadHash": {
+        "convention": "campaign: sha256(stableJson(question, 0)); recursively sorted keys; JSON indent 0; trailing newline",
+        "value": "df213b7da5eb41a37d83caa199e4f9edc027f9d8afaf3dc493447bd82829a8b7"
+      }
+    },
+    {
+      "originalId": "gpt_balance6a_2026_07_16_bt_perioperative_care_13",
+      "mintedId": "gpt_balance6a_2026_07_16_bt_perioperative_care_13_r2",
+      "disposition": "RETURN_CANDIDATE",
+      "holdReason": null,
+      "archivedPayloadHash": {
+        "convention": "archive: sha256(JSON.stringify(question, null, 2)); original key insertion order; indent 2; no trailing newline",
+        "value": "d9ef64e66090a6a6915215c8d160fe3e2f4453aebff338bed150ed1ce07ffc1d"
+      },
+      "rederivedDefect": "After sufficient clinical cues for LAST, the stem names the LAST pathway and states both keyed immediate actions, directly revealing the bowtie response.",
+      "recordedOwnerClass": "ANSWER_TELEGRAPHING_OR_AUTHORIAL_COMPENSATION",
+      "recordedOwnerDisposition": "BOUNDED_TEXT_REPAIR",
+      "ownerDecisionSource": "PRIMARY_RECOMMENDATION_ACCEPTED",
+      "derivationAgreement": true,
+      "derivationReconciliation": "AGREEMENT",
+      "patchOps": [
+        {
+          "kind": "setValue",
+          "id": "gpt_balance6a_2026_07_16_bt_perioperative_care_13",
+          "path": [
+            "stem",
+            "en"
+          ],
+          "before": "Minutes after a peripheral nerve block, a client reports metallic taste and tinnitus, becomes agitated, has a seizure, and then develops hypotension with a wide-complex dysrhythmia. The facility LAST protocol directs staff to stop local-anesthetic administration, activate the LAST rescue pathway, support the airway, treat the seizure, and administer 20% lipid emulsion according to the protocol. Complete the bowtie.",
+          "after": "Minutes after a peripheral nerve block, a client reports metallic taste and tinnitus, becomes agitated, has a seizure, and then develops hypotension with a wide-complex dysrhythmia. Complete the bowtie.",
+          "note": "Remove the named protocol and both keyed actions from the stem."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance6a_2026_07_16_bt_perioperative_care_13",
+          "path": [
+            "stem",
+            "zh"
+          ],
+          "before": "周围神经阻滞后数分钟，患者报告金属味和耳鸣，随后躁动、癫痫发作，并出现低血压和宽QRS心律失常。机构的LAST流程要求停止局麻药给药、启动LAST救援流程、支持气道、处理癫痫，并按流程给予20%脂肪乳。完成蝴蝶结题。",
+          "after": "周围神经阻滞后数分钟，患者报告金属味和耳鸣，随后躁动、癫痫发作，并出现低血压和宽QRS心律失常。完成蝴蝶结题。",
+          "note": "Chinese parity for removal of the named protocol and keyed actions."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance6a_2026_07_16_bt_perioperative_care_13",
+          "path": [
+            "id"
+          ],
+          "before": "gpt_balance6a_2026_07_16_bt_perioperative_care_13",
+          "after": "gpt_balance6a_2026_07_16_bt_perioperative_care_13_r2",
+          "note": "Mint revision lineage after every semantic edit for this row."
+        }
+      ],
+      "clinicalFactsAdded": [],
+      "fieldLevelNonMutationProof": {
+        "status": "PASS",
+        "method": "Independent ordered replay plus recursive leaf diff from archived payload to candidate payload.",
+        "authorizedMutationPaths": [
+          "$.id",
+          "$.stem.en",
+          "$.stem.zh"
+        ],
+        "observedChangedLeafPaths": [
+          "$.id",
+          "$.stem.en",
+          "$.stem.zh"
+        ],
+        "unauthorizedChangedLeafPaths": [],
+        "authorizedPathsMissingFromDiff": [],
+        "independentReplayMatchesCandidate": true,
+        "allFieldsOutsideAuthorizedMutationPathsUnchanged": true
+      },
+      "candidatePayloadHash": {
+        "convention": "campaign: sha256(stableJson(question, 0)); recursively sorted keys; JSON indent 0; trailing newline",
+        "value": "1837a316611d1488e0b1c0b2a2fba0c4067d51a47c81e2a84a57d797e1342738"
+      }
+    },
+    {
+      "originalId": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_05",
+      "mintedId": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_05_r2",
+      "disposition": "RETURN_CANDIDATE",
+      "holdReason": null,
+      "archivedPayloadHash": {
+        "convention": "archive: sha256(JSON.stringify(question, null, 2)); original key insertion order; indent 2; no trailing newline",
+        "value": "250125129b5d745dd172b90d7da5b11f67d799ad92b634f93b7f8ce1e39676f1"
+      },
+      "rederivedDefect": "The purpose blank places treatment against appointment scheduling and directory management, neither of which credibly competes as the psychiatrist's HIPAA disclosure purpose.",
+      "recordedOwnerClass": "WEAK_OR_NONCOMPETING_DIFFERENTIAL",
+      "recordedOwnerDisposition": "BOUNDED_TEXT_REPAIR",
+      "ownerDecisionSource": "CHECKER_ADDITION_ACCEPTED",
+      "derivationAgreement": true,
+      "derivationReconciliation": "AGREEMENT",
+      "patchOps": [
+        {
+          "kind": "setValue",
+          "id": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_05",
+          "path": [
+            "dropdowns",
+            {
+              "id": "q05_d02"
+            },
+            "options",
+            {
+              "id": "q05_d02_o03"
+            },
+            "en"
+          ],
+          "before": "facility directory management",
+          "after": "payment review by the client's health plan",
+          "note": "Replace a noncompeting administrative distractor with a plausible HIPAA TPO purpose."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_05",
+          "path": [
+            "dropdowns",
+            {
+              "id": "q05_d02"
+            },
+            "options",
+            {
+              "id": "q05_d02_o03"
+            },
+            "zh"
+          ],
+          "before": "机构名录管理",
+          "after": "患者健康计划的付款审核",
+          "note": "Chinese parity for the q05_d02_o03 distractor."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_05",
+          "path": [
+            "dropdowns",
+            {
+              "id": "q05_d02"
+            },
+            "options",
+            {
+              "id": "q05_d02_o02"
+            },
+            "en"
+          ],
+          "before": "appointment scheduling",
+          "after": "the hospital's quality-assessment health care operations",
+          "note": "Replace a noncompeting administrative distractor with a plausible HIPAA TPO purpose."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_05",
+          "path": [
+            "dropdowns",
+            {
+              "id": "q05_d02"
+            },
+            "options",
+            {
+              "id": "q05_d02_o02"
+            },
+            "zh"
+          ],
+          "before": "预约安排",
+          "after": "医院的质量评估医疗运营",
+          "note": "Chinese parity for the q05_d02_o02 distractor."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_05",
+          "path": [
+            "id"
+          ],
+          "before": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_05",
+          "after": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_05_r2",
+          "note": "Mint revision lineage after every semantic edit for this row."
+        }
+      ],
+      "clinicalFactsAdded": [
+        {
+          "fact": "Treatment, payment, and health care operations are recognized HIPAA disclosure-purpose categories, while psychotherapy notes generally require authorization even for treatment disclosures unless an exception applies.",
+          "source": "HHS OCR TPO FAQs and FAQ 558: https://www.hhs.gov/hipaa/for-professionals/faq/treatment-payment-and-health-care-operations-disclosures/index.html ; https://www.hhs.gov/hipaa/for-professionals/faq/558/does-hipaa-permit-a-covered-entity-to-disclose-psychotherapy-notes-to-an-hio/index.html",
+          "use": "Payment and health-care-operations concepts replace noncompeting administrative distractors; the treatment key is unchanged."
+        }
+      ],
+      "fieldLevelNonMutationProof": {
+        "status": "PASS",
+        "method": "Independent ordered replay plus recursive leaf diff from archived payload to candidate payload.",
+        "authorizedMutationPaths": [
+          "$.dropdowns[1].options[1].en",
+          "$.dropdowns[1].options[1].zh",
+          "$.dropdowns[1].options[2].en",
+          "$.dropdowns[1].options[2].zh",
+          "$.id"
+        ],
+        "observedChangedLeafPaths": [
+          "$.dropdowns[1].options[1].en",
+          "$.dropdowns[1].options[1].zh",
+          "$.dropdowns[1].options[2].en",
+          "$.dropdowns[1].options[2].zh",
+          "$.id"
+        ],
+        "unauthorizedChangedLeafPaths": [],
+        "authorizedPathsMissingFromDiff": [],
+        "independentReplayMatchesCandidate": true,
+        "allFieldsOutsideAuthorizedMutationPathsUnchanged": true
+      },
+      "candidatePayloadHash": {
+        "convention": "campaign: sha256(stableJson(question, 0)); recursively sorted keys; JSON indent 0; trailing newline",
+        "value": "54ffbaed80defb0a68d78cfd8ab2b1a004ff752dccdcbd188d7aa3c035f63604"
+      }
+    },
+    {
+      "originalId": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_07",
+      "mintedId": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_07_r2",
+      "disposition": "RETURN_CANDIDATE",
+      "holdReason": null,
+      "archivedPayloadHash": {
+        "convention": "archive: sha256(JSON.stringify(question, null, 2)); original key insertion order; indent 2; no trailing newline",
+        "value": "8d7c59c5e0fa0fdf091219d8e610ca0d59b6212494273747418fa06862419d60"
+      },
+      "rederivedDefect": "The fictional one-page minimum-necessary rule is immediately dismissible and leaves the correct exception as a mechanical selection.",
+      "recordedOwnerClass": "WEAK_OR_NONCOMPETING_DIFFERENTIAL",
+      "recordedOwnerDisposition": "BOUNDED_TEXT_REPAIR",
+      "ownerDecisionSource": "CHECKER_ADDITION_ACCEPTED",
+      "derivationAgreement": true,
+      "derivationReconciliation": "AGREEMENT",
+      "patchOps": [
+        {
+          "kind": "setValue",
+          "id": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_07",
+          "path": [
+            "dropdowns",
+            {
+              "id": "q07_d02"
+            },
+            "options",
+            {
+              "id": "q07_d02_o02"
+            },
+            "en"
+          ],
+          "before": "requires limiting every disclosure to one page",
+          "after": "applies unless the client signs a separate authorization",
+          "note": "Replace the fictional one-page rule with a plausible but incorrect HIPAA condition."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_07",
+          "path": [
+            "dropdowns",
+            {
+              "id": "q07_d02"
+            },
+            "options",
+            {
+              "id": "q07_d02_o02"
+            },
+            "zh"
+          ],
+          "before": "要求每次披露限制为一页",
+          "after": "除非患者另行签署授权，否则适用",
+          "note": "Chinese parity for the q07_d02_o02 distractor."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_07",
+          "path": [
+            "rationale",
+            "byChoice",
+            {
+              "refId": "q07_d02"
+            },
+            "en"
+          ],
+          "before": "The correct completion is does not apply. The treatment exception concerns provider-to-provider disclosures and requests, not an arbitrary page limit or the specialist's organizational location.",
+          "after": "The correct completion is does not apply. The treatment exception concerns provider-to-provider disclosures and requests; it is not conditioned on the specialist's organizational location or on a separate client authorization.",
+          "note": "Align the rationale with the repaired minimum-necessary distractor."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_07",
+          "path": [
+            "rationale",
+            "byChoice",
+            {
+              "refId": "q07_d02"
+            },
+            "zh"
+          ],
+          "before": "正确填空是“不适用”。治疗例外适用于医护提供者之间的披露和请求，与任意页数限制或专科医生是否属于同一机构无关。",
+          "after": "正确填空是“不适用”。治疗例外适用于医护提供者之间的披露和请求；其适用不取决于专科医生是否属于同一机构，也不以患者另行授权为条件。",
+          "note": "Chinese parity for the repaired minimum-necessary rationale."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_07",
+          "path": [
+            "id"
+          ],
+          "before": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_07",
+          "after": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_07_r2",
+          "note": "Mint revision lineage after every semantic edit for this row."
+        }
+      ],
+      "clinicalFactsAdded": [
+        {
+          "fact": "Provider-to-provider treatment disclosures and requests are exempt from the HIPAA minimum-necessary requirement and may occur without separate patient authorization.",
+          "source": "HHS OCR FAQ 208 and TPO FAQs: https://www.hhs.gov/hipaa/for-professionals/faq/208/wont-minium-necessary-restriction-impede-delivery/index.html ; https://www.hhs.gov/hipaa/for-professionals/faq/treatment-payment-and-health-care-operations-disclosures/index.html",
+          "use": "Source support for the repaired plausible-but-wrong authorization condition and matching rationale; the key is unchanged."
+        }
+      ],
+      "fieldLevelNonMutationProof": {
+        "status": "PASS",
+        "method": "Independent ordered replay plus recursive leaf diff from archived payload to candidate payload.",
+        "authorizedMutationPaths": [
+          "$.dropdowns[1].options[1].en",
+          "$.dropdowns[1].options[1].zh",
+          "$.id",
+          "$.rationale.byChoice[1].en",
+          "$.rationale.byChoice[1].zh"
+        ],
+        "observedChangedLeafPaths": [
+          "$.dropdowns[1].options[1].en",
+          "$.dropdowns[1].options[1].zh",
+          "$.id",
+          "$.rationale.byChoice[1].en",
+          "$.rationale.byChoice[1].zh"
+        ],
+        "unauthorizedChangedLeafPaths": [],
+        "authorizedPathsMissingFromDiff": [],
+        "independentReplayMatchesCandidate": true,
+        "allFieldsOutsideAuthorizedMutationPathsUnchanged": true
+      },
+      "candidatePayloadHash": {
+        "convention": "campaign: sha256(stableJson(question, 0)); recursively sorted keys; JSON indent 0; trailing newline",
+        "value": "476755b6be798b4b8164dc72e9a6ec91e6bd1ef508f55613c3797784ed1a7c95"
+      }
+    },
+    {
+      "originalId": "gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14",
+      "mintedId": "gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14_r2",
+      "disposition": "RETURN_CANDIDATE",
+      "holdReason": null,
+      "archivedPayloadHash": {
+        "convention": "archive: sha256(JSON.stringify(question, null, 2)); original key insertion order; indent 2; no trailing newline",
+        "value": "b2a46670274133faf196cac80d6a5096b0a867b9955d4e3245ce5b48044daba7"
+      },
+      "rederivedDefect": "The stem declares wet contamination, supplies both keyed actions, and names the keyed follow-up domain before the bowtie.",
+      "recordedOwnerClass": "ANSWER_TELEGRAPHING_OR_AUTHORIAL_COMPENSATION",
+      "recordedOwnerDisposition": "BOUNDED_TEXT_REPAIR",
+      "ownerDecisionSource": "PRIMARY_RECOMMENDATION_ACCEPTED",
+      "derivationAgreement": true,
+      "derivationReconciliation": "AGREEMENT",
+      "patchOps": [
+        {
+          "kind": "setValue",
+          "id": "gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14",
+          "path": [
+            "stem",
+            "en"
+          ],
+          "before": "During a home peritoneal-dialysis exchange, the transfer set disconnects proximal to an open clamp and the open system is exposed. The client reconnects it and calls immediately; there is no abdominal pain and the effluent is currently clear. The PD program defines this event as wet contamination and directs the client to stop further use and close the system, contact the PD team for transfer-set management and prescribed prophylaxis, and complete the program's symptom and follow-up checks. Complete the bow-tie.",
+          "after": "During a home peritoneal-dialysis exchange, the transfer set disconnects proximal to an open clamp and the open system is exposed. The client reconnects it and calls immediately; there is no abdominal pain and the effluent is currently clear. Complete the bow-tie.",
+          "note": "Remove the keyed condition, both keyed actions, and follow-up recital from the stem."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14",
+          "path": [
+            "stem",
+            "zh"
+          ],
+          "before": "在居家腹膜透析换液过程中，转接管在开放夹的近端脱开，开放系统暴露。患者重新连接后立即来电；目前没有腹痛，流出液清澈。腹膜透析项目将此事件定义为湿性污染，并指示患者停止继续使用并关闭系统，联系腹膜透析团队处理转接管和实施规定的预防措施，同时完成项目规定的症状监测和随访。请完成蝴蝶结题。",
+          "after": "在居家腹膜透析换液过程中，转接管在开放夹的近端脱开，开放系统暴露。患者重新连接后立即来电；目前没有腹痛，流出液清澈。请完成蝴蝶结题。",
+          "note": "Chinese parity for removal of the answer-bearing PD program recital."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14",
+          "path": [
+            "id"
+          ],
+          "before": "gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14",
+          "after": "gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14_r2",
+          "note": "Mint revision lineage after every semantic edit for this row."
+        }
+      ],
+      "clinicalFactsAdded": [],
+      "fieldLevelNonMutationProof": {
+        "status": "PASS",
+        "method": "Independent ordered replay plus recursive leaf diff from archived payload to candidate payload.",
+        "authorizedMutationPaths": [
+          "$.id",
+          "$.stem.en",
+          "$.stem.zh"
+        ],
+        "observedChangedLeafPaths": [
+          "$.id",
+          "$.stem.en",
+          "$.stem.zh"
+        ],
+        "unauthorizedChangedLeafPaths": [],
+        "authorizedPathsMissingFromDiff": [],
+        "independentReplayMatchesCandidate": true,
+        "allFieldsOutsideAuthorizedMutationPathsUnchanged": true
+      },
+      "candidatePayloadHash": {
+        "convention": "campaign: sha256(stableJson(question, 0)); recursively sorted keys; JSON indent 0; trailing newline",
+        "value": "710dc5976f92f17e9982ddfe2dfb5f3b38afcf1099acc6da51f94c5161f6716b"
+      }
+    },
+    {
+      "originalId": "gpt_balance6b_2026_07_16_hl_standard_precautions_hygiene_17",
+      "mintedId": "gpt_balance6b_2026_07_16_hl_standard_precautions_hygiene_17_r2",
+      "disposition": "RETURN_CANDIDATE",
+      "holdReason": null,
+      "archivedPayloadHash": {
+        "convention": "archive: sha256(JSON.stringify(question, null, 2)); original key insertion order; indent 2; no trailing newline",
+        "value": "22f56ec6a532fc625c61c0711c61314befa43df2eaee9b4325ba1122514d1f37"
+      },
+      "rederivedDefect": "The stem states the artificial-extension violation and exact nail-length correction, which the keyed highlight segments then repeat.",
+      "recordedOwnerClass": "ANSWER_TELEGRAPHING_OR_AUTHORIAL_COMPENSATION",
+      "recordedOwnerDisposition": "BOUNDED_TEXT_REPAIR",
+      "ownerDecisionSource": "PRIMARY_RECOMMENDATION_ACCEPTED",
+      "derivationAgreement": true,
+      "derivationReconciliation": "AGREEMENT",
+      "patchOps": [
+        {
+          "kind": "setValue",
+          "id": "gpt_balance6b_2026_07_16_hl_standard_precautions_hygiene_17",
+          "path": [
+            "stem",
+            "en"
+          ],
+          "before": "A nurse wearing artificial fingernail extensions is assigned direct care in the ICU. The facility policy states that artificial extensions are not worn for direct contact with high-risk ICU or operating-room patients and that natural nail tips are kept no longer than 1/4 inch (0.64 cm). Highlight the finding and corrective actions supported by the policy and CDC guidance.",
+          "after": "A nurse wearing artificial fingernail extensions is assigned direct care in the ICU. Highlight the finding and corrective actions supported by facility policy and CDC guidance.",
+          "note": "Remove the exact restriction and length limit that duplicated keyed highlight segments."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance6b_2026_07_16_hl_standard_precautions_hygiene_17",
+          "path": [
+            "stem",
+            "zh"
+          ],
+          "before": "一名戴有人工指甲延长物的护士被安排在ICU直接照护患者。机构政策规定：与高风险ICU或手术室患者直接接触时不得佩戴人工指甲延长物，自然指甲尖端不得超过1/4英寸（0.64厘米）。请标出符合该政策和CDC指南的发现及纠正行动。",
+          "after": "一名戴有人工指甲延长物的护士被安排在ICU直接照护患者。请标出符合机构政策和CDC指南的发现及纠正行动。",
+          "note": "Chinese parity for removal of the exact restriction and length limit."
+        },
+        {
+          "kind": "setValue",
+          "id": "gpt_balance6b_2026_07_16_hl_standard_precautions_hygiene_17",
+          "path": [
+            "id"
+          ],
+          "before": "gpt_balance6b_2026_07_16_hl_standard_precautions_hygiene_17",
+          "after": "gpt_balance6b_2026_07_16_hl_standard_precautions_hygiene_17_r2",
+          "note": "Mint revision lineage after every semantic edit for this row."
+        }
+      ],
+      "clinicalFactsAdded": [],
+      "fieldLevelNonMutationProof": {
+        "status": "PASS",
+        "method": "Independent ordered replay plus recursive leaf diff from archived payload to candidate payload.",
+        "authorizedMutationPaths": [
+          "$.id",
+          "$.stem.en",
+          "$.stem.zh"
+        ],
+        "observedChangedLeafPaths": [
+          "$.id",
+          "$.stem.en",
+          "$.stem.zh"
+        ],
+        "unauthorizedChangedLeafPaths": [],
+        "authorizedPathsMissingFromDiff": [],
+        "independentReplayMatchesCandidate": true,
+        "allFieldsOutsideAuthorizedMutationPathsUnchanged": true
+      },
+      "candidatePayloadHash": {
+        "convention": "campaign: sha256(stableJson(question, 0)); recursively sorted keys; JSON indent 0; trailing newline",
+        "value": "9d5bda8db1e614ab7b8b1505401f745431ad1b0980cfc5efbd06ea9a803edbb5"
+      }
+    }
+  ]
+}

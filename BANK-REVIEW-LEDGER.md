@@ -68,6 +68,61 @@ Canonical source banks (see [BANK-CENSUS.md](BANK-CENSUS.md) for current counts;
 - `banks/visual-canonical.json` (rhythm_strip visual items; formerly `banks/rhythm-canonical`)
 - `banks/vitals-canonical.json` (vitals_trend visual items)
 
+### 2026-08-27 — Campaign 16 Phase B quarantined FIX recovery publication
+
+Status: `REVIEWED` and `fixed-and-validated`; mechanically published from the frozen Stage 2
+roster. The sole publication authority was
+`audit/campaign-16-phase-b-recovery-2026-08-27/publication-freeze.json`, whose final roster contained
+13 `RETURN_CANDIDATE + AFFIRM` rows. Returned: **13**. Retired: **0**. Held: **0**. Blocked:
+**0**. No surviving BLOCK, owner-left-out, retirement, or held row remained in the freeze.
+
+Complete old → minted-ID mapping:
+
+1. `gpt_balance2_2026_07_15_dc_client_advocacy_02` → `gpt_balance2_2026_07_15_dc_client_advocacy_02_r2`
+2. `gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08` → `gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08_r2`
+3. `gpt_balance3_2026_07_16_dc_psychotropic_medications_11` → `gpt_balance3_2026_07_16_dc_psychotropic_medications_11_r2`
+4. `gpt_balance3_2026_07_16_hl_disaster_emergency_preparedness_13` → `gpt_balance3_2026_07_16_hl_disaster_emergency_preparedness_13_r2`
+5. `gpt_mocsic_2026_07_15_dc_disaster_emergency_preparedness_18` → `gpt_mocsic_2026_07_15_dc_disaster_emergency_preparedness_18_r2`
+6. `gpt_balance5_2026_07_16_mx_client_advocacy_02` → `gpt_balance5_2026_07_16_mx_client_advocacy_02_r2`
+7. `gpt_balance5_2026_07_16_hl_disaster_emergency_preparedness_13` → `gpt_balance5_2026_07_16_hl_disaster_emergency_preparedness_13_r2`
+8. `gpt_balance5_2026_07_16_mx_standard_precautions_hygiene_15` → `gpt_balance5_2026_07_16_mx_standard_precautions_hygiene_15_r2`
+9. `gpt_balance6a_2026_07_16_bt_perioperative_care_13` → `gpt_balance6a_2026_07_16_bt_perioperative_care_13_r2`
+10. `gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_05` → `gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_05_r2`
+11. `gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_07` → `gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_07_r2`
+12. `gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14` → `gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14_r2`
+13. `gpt_balance6b_2026_07_16_hl_standard_precautions_hygiene_17` → `gpt_balance6b_2026_07_16_hl_standard_precautions_hygiene_17_r2`
+
+The reviewed raw source was `banks/banks-raw/gpt-campaign16-phase-b-recovery-2026-08-27.json`
+(`fileByteSha256` `4e515f2adb7043d4e99e8210e4958c30728ce68c419844c3b562ad3255b3e192`). The
+pre-publication source canonical bank `banks/gpt-canonical.json` was
+`be83c943bbe6e50297de94d25b596069767b8fee876426ec798dc66ca8d5a76d`; the resulting canonical bank
+after deterministic promotion/consolidation is
+`e4955f7b8c54e4880bd9ddb0f2f7c35881169f53051b5ed3ce21757f86287b3b` (760 → 773 questions).
+All other 12 canonical-bank file-byte hashes remained unchanged against the Campaign 16 Phase A
+baseline.
+
+Verification: the work order, both freeze artifacts, raw draft, 13/13 frozen campaign payload hashes,
+and 13/13 Phase A canonical-bank baseline hashes matched before promotion. The raw/roster sets were
+13/13 equal with zero filtering removals, and the raw draft validated. The only raw JSON present was
+the task-owned draft; no pre-existing staged JSON files were present. `npm run promote` passed;
+pre-consolidation `npm run audit` passed with `Integrity verified for 1 draft file(s). 0 not yet
+promoted.` The required consolidation dry run and real consolidation passed. Post-consolidation
+validation, `npm run audit` (`GATE PASSED` with global ID uniqueness), and `audit:topic-license` all
+passed. The live `derivePopulation` proof returned 31 paired (30 `EXACT`, 1 `ORDINAL_SUFFIX`) and
+19 `NO_ELIGIBLE_SIBLING_CASE` exclusions; all 13 original IDs were absent and the required HIPAA
+positive control was found.
+
+The census was regenerated after the expected stale pre-check. Session units moved 1,930 → 1,943,
+scored leaves 2,516 → 2,529, and the GPT canonical bank moved 760 → 773; the generated census
+artifacts passed the final `census:check`. The producer-independent confirmation of this census
+movement remains pending with the Stage 2 seat or owner. The task-owned raw draft was retained until
+this ledger entry and the corresponding history entry were written; it is deleted immediately after
+those records are verified. No content, keys, rationales, translations, metadata, citations, IDs, or
+constructs were revised by Stage 3.
+
+Chain: original GPT producer → Claude Opus 5 independent Stage 2 checker and freeze → Codex/GPT-5.6
+Luna Stage 3 mechanical promotion, audit, consolidation, and ledger publication.
+
 ### 2026-08-25 — June 13 matrix answer-mapping regression repair
 
 Status: `REVIEWED` and `fixed-and-validated`.

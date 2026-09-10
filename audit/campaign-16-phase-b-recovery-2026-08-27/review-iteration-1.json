@@ -1,0 +1,274 @@
+{
+  "phase": "Campaign 16 Phase B",
+  "stage": 2,
+  "iteration": 1,
+  "role": "checker",
+  "seat": "Claude Opus 5",
+  "date": "2026-08-27",
+  "scope": "Section 10.5 iteration review of exactly the nine rows carrying BLOCK in the frozen review.json. The four frozen AFFIRM rows were not substantively re-reviewed. No content was edited.",
+  "workOrder": {
+    "path": "scratch/CAMPAIGN-16-PHASE-B-QUARANTINED-FIX-RECOVERY-WORK-ORDER-2026-08-27.md",
+    "declaredFileByteSha256": "756ba6c10206bc2a197bb9cd577f1a2789829e3e73127145254858a7649b8b51",
+    "digestSource": "OWNER_COMPUTED_AT_FREEZE_TRANSCRIBED",
+    "checkerVerifiedDigest": false,
+    "checkerVerifiedContent": true,
+    "contentVerificationNote": "This seat read the work order in full from live disk this session and reviewed against its actual text, not against a summary of it."
+  },
+  "priorReview": {
+    "path": "audit/campaign-16-phase-b-recovery-2026-08-27/review.json",
+    "declaredFileByteSha256": "f94fe88950d1aa8550609065cbfbb44f14db527693d05ba3319a84abb614576d",
+    "digestSource": "PRODUCER_REPORTED_AND_OWNER_TRANSCRIBED",
+    "checkerVerifiedDigest": false,
+    "checkerVerifiedContent": true,
+    "contentVerificationNote": "This seat read review.json in full from live disk this session. Its nine BLOCK rows and their blockerReason/repairRequirement values are the governing repair requirements used below."
+  },
+  "reviewedDraft": {
+    "path": "banks/banks-raw/gpt-campaign16-phase-b-recovery-2026-08-27.json",
+    "declaredFileByteSha256": "4e515f2adb7043d4e99e8210e4958c30728ce68c419844c3b562ad3255b3e192",
+    "digestSource": "PRODUCER_REPORTED",
+    "checkerVerifiedDigest": false,
+    "observedSizeBytes": 88948,
+    "observedQuestionCount": 13,
+    "observedMetaCount": 13,
+    "contentVerificationNote": "This seat read the entire current raw draft from live disk this session and reviewed the actual payloads, not the manifest's description of them."
+  },
+  "digestCapability": {
+    "checkerComputedAnyDigest": false,
+    "reason": "Only one filesystem connector presented tools in this session. It exposes UTF-8 text reads and writes, not byte-level access or a hashing primitive. The bash sandbox available to this seat is a separate container with no path to the repository; the raw draft is gitignored and the audit artifacts are untracked, so the GitHub connector cannot serve their bytes either. Reproducing 88,948 bytes of mixed-script JSON by retyping it into the sandbox would be a reconstruction, not a recomputation, and a mismatch would be uninterpretable.",
+    "consequence": "Every SHA-256 value appearing in this artifact is transcribed from a producer report and is explicitly labelled as such. This seat asserts no digest as checker-derived.",
+    "standingRule": "The architect/checker seat never claims digests. Same position recorded in the frozen review.json for the first pass."
+  },
+  "independentlyVerifiedByThisSeat": {
+    "startStateBinding": {
+      "result": "PASS",
+      "method": "The nine reviewed-start campaign hashes in report-iteration-1.md were compared against the nine BLOCK-row candidatePayloadHashCampaignConvention values in the frozen review.json, which this seat read directly.",
+      "finding": "All nine agree exactly. The iteration began from the draft state this seat previously reviewed. This is cross-artifact agreement, not recomputation, and does not bind the resulting payloads.",
+      "caveat": "Both artifacts were read through the same connector. This corroborates internal consistency; it is not independent byte evidence."
+    },
+    "fourAffirmNonMutation": {
+      "result": "PASS",
+      "method": "Content-level, not hash-level. This seat re-read all four frozen AFFIRM payloads in the current draft and compared them against the specific distinguishing details recorded in the frozen review.json advisories.",
+      "checkedDetails": [
+        "gpt_balance2_2026_07_15_dc_client_advocacy_02_r2: the 'personal privacy' glossary defZh still carries the observation-during-examination wording flagged as a near-giveaway, and key p1 is unchanged.",
+        "gpt_balance3_2026_07_16_dc_psychotropic_medications_11_r2: d3 still offers body weight (keyed), waist circumference, standing blood pressure; the stem still scopes the task to the prescribing information.",
+        "gpt_balance5_2026_07_16_mx_standard_precautions_hygiene_15_r2: q15_r5 still reads 'the product's stated contact time'.",
+        "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_07_r2: q07_d02_o02 still reads 'applies unless the client signs a separate authorization'."
+      ],
+      "finding": "All four are field-for-field as affirmed. No iteration operation touched an affirmed row, so far as content inspection can show."
+    },
+    "constructPreservation": {
+      "result": "PASS",
+      "method": "Direct inspection of every keyed element in the nine revised rows.",
+      "finding": "No keyed option id, matrix row/column key, highlight correct-set, or bowtie token key changed identity or count. Every repair is text-internal to an already-keyed element or to an unscored field. No _r3 exists; all nine retain their _r2 ids. No section 4.1 construct proposal was made."
+    },
+    "bilingualParity": {
+      "result": "PASS",
+      "method": "Field-by-field en/zh comparison across every changed learner-facing field in the nine rows.",
+      "finding": "No en edit landed without its zh counterpart. Spot-checked semantic equivalence, not merely presence, on every repaired field."
+    }
+  },
+  "sourceVerification": {
+    "note": "Performed independently by this seat against the live cited sources. A producer coherence PASS is not checker evidence and was not treated as such.",
+    "results": [
+      {
+        "row": "gpt_mocsic_2026_07_15_dc_disaster_emergency_preparedness_18_r2",
+        "claim": "Post-threat behaviour: render first aid when safe, and follow instructions given by law enforcement and first responders.",
+        "citedSource": "CISA Active Shooter Preparedness Action Guide (June 2025), https://www.cisa.gov/sites/default/files/2025-06/Active-Shooter-Preparedness-Action-Guide_508_20250611.pdf",
+        "result": "VERIFIED",
+        "evidence": "URL resolves. Document text carries 'Render first aid when safe to do so.' and 'When help arrives, follow instructions given by law enforcement and first responders.' It also carries 'If unable to safely evacuate, hide in a secure area where access or entryways can be locked', which supports the pre-all-clear keyed action.",
+        "advisory": "The second citation in the same meta.source, the 2019 CISA hospitals action guide at the legacy /publications/19_0515_cisa_action-guide-hospitals-and-healthcare.pdf path, did not surface in search. CISA has since republished that resource as 'Physical Security Considerations for Healthcare and Public Health Facilities'. The legacy URL may be stale. This citation is pre-existing, not introduced by this iteration, and every keyed proposition in the row is independently carried by the verified 2025 guide, so this is advisory rather than blocking. Worth a link-freshness pass later."
+      },
+      {
+        "row": "gpt_balance5_2026_07_16_mx_client_advocacy_02_r2",
+        "claim": "The two ADA-permitted questions, no certification/documentation requirement, no demonstration requirement, handler responsible for the animal's care, removal permitted only when the animal is out of control and the handler does not take effective action, with services still offered.",
+        "citedSource": "DOJ, Frequently Asked Questions about Service Animals and the ADA, https://www.ada.gov/resources/service-animals-faqs/",
+        "result": "VERIFIED",
+        "evidence": "FAQ Q7 states that where it is not obvious the dog is a service animal, staff may ask only whether the dog is a service animal required because of a disability and what work or task it has been trained to perform, and that staff may not request documentation, require a demonstration, or inquire about the disability. The out-of-control/no-effective-action removal rule and the hospital access rule (service animals allowed wherever patients and the public may go) were also confirmed.",
+        "advisory": "meta.source cites Q7, Q9, Q14-Q15, Q17, Q25, Q28. Q7 is confirmed as the two-questions answer. The remaining Q-number mapping was not individually confirmed; every substantive proposition was confirmed to be in that FAQ. Citation precision, not factual accuracy.",
+        "constructNote": "q02_r2 is correctly framed as a counterfactual ('If the dog's task were not apparent'). This matters: the stem states the seizure-alert task, so in the scenario as written the two questions would not in fact be permitted. The conditional framing keeps the row accurate rather than contradicting the stem."
+      },
+      {
+        "row": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_05_r2",
+        "claim": "Disclosure of separately maintained psychotherapy notes requires valid written authorization; the originator's own treatment use and the covered entity's supervised mental-health training programme are listed exceptions; treatment by a clinician who did not create the notes is not.",
+        "citedSource": "45 CFR 164.508(a)(2), https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-E/section-164.508; HHS OCR FAQ 558",
+        "result": "VERIFIED",
+        "evidence": "Regulation text confirmed verbatim: a covered entity must obtain an authorization for any use or disclosure of psychotherapy notes except, at (a)(2)(i)(A), 'Use by the originator of the psychotherapy notes for treatment', and at (a)(2)(i)(B), 'Use or disclosure by the covered entity for its own training programs in which students, trainees, or practitioners in mental health learn under supervision...'. Non-originator treatment disclosure appears in no exception, so authorization is required. Both distractors map exactly onto the two cited listed exceptions and the key maps onto the residual case.",
+        "advisory": "FAQ 558 was not separately opened. The governing regulation is the primary source and was verified verbatim, which is the stronger check; the FAQ is corroborative only."
+      },
+      {
+        "row": "gpt_balance6b_2026_07_16_hl_standard_precautions_hygiene_17_r2",
+        "claim": "CDC recommends not wearing artificial fingernails/extenders during direct contact with high-risk patients (ICU, OR), and keeping natural nail tips under 1/4 inch; CDC does not impose a universal ban on intact nail polish.",
+        "citedSource": "CDC Clinical Safety: Hand Hygiene for Healthcare Workers, https://www.cdc.gov/clean-hands/hcp/clinical-safety/index.html; CDC Guideline for Hand Hygiene in Health-Care Settings, Recommendations 6.A-6.B",
+        "result": "VERIFIED",
+        "evidence": "Recommendation 6.A confirmed: 'Do not wear artificial fingernails or extenders when having direct contact with patients at high risk (e.g., those in intensive-care units or operating rooms) (IA).' Recommendation 6.B confirmed: 'Keep natural nail tips less than 1/4-inch long (II).' The CDC clean-hands clinical safety page carries the same artificial-nail restriction. No universal intact-polish prohibition appears in the cited guidance, so q17_s08 is correctly keyed as unsupported.",
+        "thresholdNote": "The 1/4-inch figure is a threshold. It is sourced, not authored from model memory, and it now appears only in post-answer rationale, not in scored text."
+      }
+    ]
+  },
+  "summary": {
+    "rowsInScope": 9,
+    "rowsReviewed": 9,
+    "affirm": 9,
+    "block": 0,
+    "ownerAdjudicationRequired": 0,
+    "priorDominantFailureMode": "ORPHANED_INTERNAL_REFERENCE_AFTER_STEM_DELETION",
+    "priorFailureModeStatus": "DISCHARGED on all nine. Every field named in the frozen blockerReason values was re-read directly and no surviving reference points at deleted stem content."
+  },
+  "reviewMethod": {
+    "note": "Per the iteration instruction, the check was not limited to the field Codex changed. For each of the nine rows this seat re-read, in the current draft: the stem, all scored content (dropdown options, matrix rows and correct map, highlight segments and correct set, bowtie tokens and correct sets), rationale.correct, every rationale.byChoice entry, testTakingStrategy, glossary, meta.source, and meta.stem_disambiguators where present. Every surviving definite-article reference to stem/case/plan/protocol/programme/stated/supplied/named content was traced to an actual antecedent in the payload or to a general real-world entity."
+  },
+  "rows": [
+    {
+      "originalId": "gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08",
+      "mintedId": "gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08_r2",
+      "priorBlockerReason": "Repair reintroduced MECHANICAL_CLOZE_DEPENDENCY: d2/o2 read 'the date of the last injection' while the d1 key already read 'the exact last product, dose, route, and administration date', so resolving d1 eliminated d2/o2 by structure rather than by handoff judgment.",
+      "priorRepairRequirement": "Replace d2/o2 with a date plausible for the receiving program and not already carried by the d1 key. Leave d1/o2 and d1/o3 alone.",
+      "checkerFinding": "Defect removed. d2/o2 now reads 'the date of the next treatment-plan review', which is plausible for a residential treatment programme and is not carried anywhere in the d1 key. Resolving d1 no longer disposes of d2/o2. Discrimination is now by handoff judgment: the stem asks what prevents a duplicate or missed dose, which selects the next-injection due date over either review date. d1/o2 and d1/o3 are unchanged as required.",
+      "newDefectScan": "rationale.correct, both byChoice entries, and testTakingStrategy all speak to 'what was already given and when the next dose is due', which matches the current option set with no orphaned reference. Glossary 'next due date' is consistent. No new defect.",
+      "checkerDisposition": "AFFIRM",
+      "candidatePayloadHashCampaignConvention": "0616cc2ecc7abc4e8e00691fedd5786b623e6d8f772fa654183b31780e4e3d98",
+      "hashDigestSource": "PRODUCER_REPORTED",
+      "hashVerifiedByChecker": false,
+      "advisory": "meta.source cites 42 CFR 482.43(b)(1) for transfer of necessary medical information. This citation is pre-existing and was not touched by the iteration, so it was not re-verified here. The 2019 discharge-planning CoP restructured 482.43; a subsection-level check is worth folding into a future citation pass."
+    },
+    {
+      "originalId": "gpt_balance3_2026_07_16_hl_disaster_emergency_preparedness_13",
+      "mintedId": "gpt_balance3_2026_07_16_hl_disaster_emergency_preparedness_13_r2",
+      "priorBlockerReason": "rationale.correct claimed the response follows the downtime plan 'stated in the case' when no plan is stated; testTakingStrategy read 'Use every operational control explicitly named in the activated plan', which after the stem deletion instructed selecting all seven selectable segments including distractors s7 and s8.",
+      "priorRepairRequirement": "Rewrite testTakingStrategy in both languages so it discriminates rather than instructing selection of the whole passage. Remove the 'stated in the case' claim from rationale.correct.",
+      "checkerFinding": "Both defects removed. rationale.correct now describes the safe practices directly and carries no 'stated in the case' claim. testTakingStrategy now reads 'Evaluate each action for traceability, patient identification, closed-loop communication, and contemporaneous medication documentation; reject insecure or memory-based shortcuts', which supplies discriminating criteria and explicitly excludes s7 (personal texting, insecure) and s8 (memory reconstruction). The actively harmful select-everything instruction is gone.",
+      "newDefectScan": "Segments s2-s8 selectable, s1 a non-selectable lead-in, correct set s2-s6. Every byChoice entry maps to an existing segment. No field references deleted stem content. zh strategy matches en criterion-for-criterion. No new defect.",
+      "checkerDisposition": "AFFIRM",
+      "candidatePayloadHashCampaignConvention": "4b72ddec9b12e58016ffc94ed822f713b8bd8ce1d8f96743af1d835bf1192f2a",
+      "hashDigestSource": "PRODUCER_REPORTED",
+      "hashVerifiedByChecker": false,
+      "advisory": "meta.source cites 45 CFR 164.308(a)(7), the HIPAA Security Rule contingency-plan standard. That standard supports the existence of an emergency-mode operation plan but is a loose fit for the keyed bedside practices (two identifiers, read-back, contemporaneous MAR). Not false, and pre-existing; flagged for a future sourcing pass."
+    },
+    {
+      "originalId": "gpt_mocsic_2026_07_15_dc_disaster_emergency_preparedness_18",
+      "mintedId": "gpt_mocsic_2026_07_15_dc_disaster_emergency_preparedness_18_r2",
+      "priorBlockerReason": "Sourcing failure, not only coherence. byChoice 1 and 2 asserted what 'the plan' explicitly requires and directs with no plan described; the d2 key 'begin triage in the designated safe area' referenced an entity the stem never introduced; meta.source asserted the all-clear and post-event sequence were 'supplied by the facility plan in the item', leaving a keyed operational claim unsourced and the source field affirmatively false.",
+      "priorRepairRequirement": "Either restore a minimal non-telegraphing plan premise sufficient to introduce the designated safe area, or resource the keyed sequence to the cited CISA guidance and correct meta.source. Both byChoice entries need rewriting in both languages.",
+      "checkerFinding": "Repaired along the second authorised route. The designated-safe-area triage key is gone; d2/o1 now reads 'follow the authenticated instructions and render clinical aid when safe', keyed on the same option id o1, so no construct or key change occurred. Both byChoice entries were rewritten in both languages and no longer assert what any plan requires. meta.source no longer claims the item supplies the sequence and now resources it to CISA. The keyed proposition is independently verified against the June 2025 CISA guide, which carries both 'render first aid when safe to do so' and 'follow instructions given by law enforcement and first responders'. The formerly false source field is now true.",
+      "newDefectScan": "All three d2 options reference 'instructions', so the item is internally consistent in treating the authenticated all-clear as carrying them, and the proposition is sourced to general guidance rather than to item-supplied text. Distractors remain discriminable: indefinite lockdown without checking, and resuming routine operations without following post-event instructions, are both clearly wrong. Glossary 'all-clear' matches the stem. No new defect.",
+      "checkerDisposition": "AFFIRM",
+      "candidatePayloadHashCampaignConvention": "37593d97ef8dd7f747851b26f01ff5e8aa1b1072e23554e12aff1ef02bfaca48",
+      "hashDigestSource": "PRODUCER_REPORTED",
+      "hashVerifiedByChecker": false,
+      "advisory": "Softest point in the batch, recorded as advice rather than a block. The stem introduces an 'authenticated all-clear' and the options then speak of 'the authenticated instructions'. That is a short inference rather than a stated antecedent. It is materially weaker than the orphan class that produced the original block, the item remains answerable, and the underlying behaviour is sourced. Separately, see sourceVerification for the possibly stale legacy CISA hospitals-guide URL in the same meta.source."
+    },
+    {
+      "originalId": "gpt_balance5_2026_07_16_mx_client_advocacy_02",
+      "mintedId": "gpt_balance5_2026_07_16_mx_client_advocacy_02_r2",
+      "priorBlockerReason": "Orphaned reference in scored content. Matrix row q02_r2 read 'If the task is not obvious, ask the two permitted questions described in the stem' after the ADA recital was deleted, making the row unanswerable for anyone without outside ADA knowledge. meta.stem_disambiguators entries 'two permitted questions' and 'specific exclusion reason' no longer corresponded to stem content.",
+      "priorRepairRequirement": "q02_r2 must name the two permitted questions, or the stem must reintroduce them without reciting the classifications. Reconcile meta.stem_disambiguators.",
+      "checkerFinding": "Repaired along the first authorised route. q02_r2 now names both questions inline: whether the dog is required because of a disability, and what work or task it has been trained to perform. The row is self-contained and no longer points at absent text. meta.stem_disambiguators is now ['trained seizure-alert service dog', 'stable inpatient', 'seizure-alert task stated', 'client-advocacy classification task'], each of which corresponds to actual current stem content. Both offending entries are gone.",
+      "newDefectScan": "Naming the questions does not make the row self-answering: it states what is asked, not whether asking it supports advocacy, so the classification judgment is preserved. The counterfactual framing 'If the dog's task were not apparent' is necessary and correct, because the stem states the seizure-alert task. byChoice q02_r2 matches. All six rows verified against the DOJ FAQ. rationale.correct and testTakingStrategy carry no orphaned reference. No new defect.",
+      "checkerDisposition": "AFFIRM",
+      "candidatePayloadHashCampaignConvention": "81f0d590379a9f46e1289444feab0561a745cc9975fe29d592e892827d08d94c",
+      "hashDigestSource": "PRODUCER_REPORTED",
+      "hashVerifiedByChecker": false,
+      "advisory": null
+    },
+    {
+      "originalId": "gpt_balance5_2026_07_16_hl_disaster_emergency_preparedness_13",
+      "mintedId": "gpt_balance5_2026_07_16_hl_disaster_emergency_preparedness_13_r2",
+      "priorBlockerReason": "testTakingStrategy directed routing through 'the named tracking, family, and media functions', which were no longer named anywhere; meta.stem_disambiguators still asserted 'temporary unique identifiers' and 'activated closed-world plan' after the closed world was deleted, so the item silently required outside MCI knowledge while its metadata claimed self-containment.",
+      "priorRepairRequirement": "Correct testTakingStrategy in both languages and reconcile meta.stem_disambiguators with the actual stem.",
+      "checkerFinding": "Both defects removed. testTakingStrategy now reads 'preserve one identity per client, maintain traceable location information, and route family and media inquiries through coordinated channels; reject shared identifiers and uncontrolled disclosure', which names no absent entity and discriminates correctly against q13_s5-s8. meta.stem_disambiguators is now ['unidentified clients', 'families and media crowding', 'mass-casualty plan activated', 'identity and communication task'], all four present in the current stem.",
+      "newDefectScan": "Segments q13_s3 and q13_s4 use definite articles for the reunification channel and public-information function. Both are defined in the glossary, which is why the segments were judged answerable in the first pass and remain so; the strategy field no longer compounds it by pointing at 'named' functions. Correct set q13_s1-s4 with byChoice coverage of all eight. No new defect.",
+      "checkerDisposition": "AFFIRM",
+      "candidatePayloadHashCampaignConvention": "5c70caa385a7923f2814835bf80fbb00ecf98b1c06010b8036e52eec150f8fa1",
+      "hashDigestSource": "PRODUCER_REPORTED",
+      "hashVerifiedByChecker": false,
+      "advisory": "The glossary entries carrying those two entities supply defZh only, with no defEn. An English-reading learner gets the definite article without the definition. This is the pre-existing schema-wide missing-defEn pattern, not in scope here, and it is the second row in this batch where it does real work. Worth its own pass."
+    },
+    {
+      "originalId": "gpt_balance6a_2026_07_16_bt_perioperative_care_13",
+      "mintedId": "gpt_balance6a_2026_07_16_bt_perioperative_care_13_r2",
+      "priorBlockerReason": "Orphaned reference inside a keyed token: action token q13_a_support read 'begin 20% lipid emulsion per the supplied protocol' after the LAST protocol recital was deleted from the stem.",
+      "priorRepairRequirement": "Reword q13_a_support in both languages so the keyed action does not depend on an unsupplied protocol, without introducing a lipid-emulsion dose or rate not carried by the ASRA citation.",
+      "checkerFinding": "Defect removed. q13_a_support now reads 'Provide airway/seizure support and begin 20% lipid emulsion' in both languages. The protocol dependency is gone. No dose, rate, volume, or infusion parameter was introduced; only the 20% concentration remains, which the ASRA checklist carries. The keyed token now stands on its own.",
+      "newDefectScan": "byChoice q13_a_support matches the new token wording with no residual protocol reference. rationale.correct, testTakingStrategy, and the lipid-emulsion glossary entry are all consistent. q13_a_stop's 'the LAST rescue pathway' refers to a general standard-of-care entity rather than item-supplied text and is unchanged from the affirmed baseline pattern. Condition, action, and parameter key sets are identical in identity and count. No new defect.",
+      "checkerDisposition": "AFFIRM",
+      "candidatePayloadHashCampaignConvention": "cf18ca30ea70a47e5d4de874569b668936b77dc2aeadee2abe525fa2e008ecea",
+      "hashDigestSource": "PRODUCER_REPORTED",
+      "hashVerifiedByChecker": false,
+      "advisory": null
+    },
+    {
+      "originalId": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_05",
+      "mintedId": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_05_r2",
+      "priorBlockerReason": "The recorded WEAK_OR_NONCOMPETING_DIFFERENTIAL defect was not removed for q05_d02: the two replacement purposes were eliminated by narrative fit, because the stem fixes the requester as a consulting psychiatrist, rather than by the psychotherapy-notes rule the item tests.",
+      "priorRepairRequirement": "Make q05_d02 turn on the rule rather than on who is asking, without changing the key.",
+      "checkerFinding": "Defect removed, and removed in the strongest available way. The two distractors are now the two listed regulatory exceptions themselves: 'use by the clinician who created the notes for treatment' is 45 CFR 164.508(a)(2)(i)(A), and 'use by the covered entity in its supervised mental-health training program' is (a)(2)(i)(B). Each is now eliminated because it IS an exception, which is a rule-based elimination that holds regardless of who is asking. The key q05_d02_o01 is unchanged, so the construct is preserved. Both exception texts were verified verbatim against the eCFR.",
+      "newDefectScan": "The clozeStem clause 'when no listed exception applies' makes each distractor self-contradictory when substituted, which is the intended discrimination rather than a flaw. rationale.correct and byChoice q05_d02 both explain the two distractors as listed exceptions and are accurate. meta.stem_disambiguators entries all correspond to current stem content. meta.source now cites the governing regulation. No new defect.",
+      "checkerDisposition": "AFFIRM",
+      "candidatePayloadHashCampaignConvention": "c511e99c0eccafc8706655789f824b933a89d1c2a77dc2193374d13aa1e8ec4e",
+      "hashDigestSource": "PRODUCER_REPORTED",
+      "hashVerifiedByChecker": false,
+      "advisory": "Minor redundancy: the stem already states that no listed exception applies and the clozeStem restates it. Harmless, and arguably needed to scope the blank. Not a defect."
+    },
+    {
+      "originalId": "gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14",
+      "mintedId": "gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14_r2",
+      "priorBlockerReason": "Orphaned references including two keyed tokens. byChoice q14_c01 cited 'the stem's definition of wet contamination' and testTakingStrategy cited 'the stated open-versus-closed pathway definition', neither stated; keyed tokens q14_a02 and q14_p02 referenced the programme's prescribed prophylaxis pathway and the PD programme's transfer-set/prophylaxis/follow-up plan, an entity the stem no longer introduced; byChoice q14_a05 and q14_p05 compounded it.",
+      "priorRepairRequirement": "The stem must reintroduce the programme pathway as a premise without reciting the keyed actions, or the keyed tokens and their rationales must be reworded to stand without it.",
+      "checkerFinding": "Repaired along the second authorised route, and this row needed the most work. q14_a02 now reads 'Contact the PD team immediately for evaluation and further management' and q14_p02 'Completion of the PD team's directed evaluation and follow-up'; neither depends on an unsupplied programme plan. byChoice q14_c01 now derives wet contamination from the stem's own stated mechanism rather than from a claimed definition. testTakingStrategy now asks whether contamination reached an open PD fluid pathway instead of invoking a stated definition. q14_a05 and q14_p05 rationales were reworked and now attribute management to the PD team as a real-world entity. All keyed identities and counts unchanged.",
+      "newDefectScan": "The stem states the mechanism (transfer set disconnects proximal to an open clamp, open system exposed), and the condition tokens themselves carry the dry-versus-wet distinction, so the item is answerable without a supplied definition. meta.stem_disambiguators all correspond to current stem content. No surviving reference to a programme pathway anywhere in the payload. No new defect.",
+      "checkerDisposition": "AFFIRM",
+      "candidatePayloadHashCampaignConvention": "9d5cf90af1aa9dea490b6e6fd3d4e850d148f344bf9112a0955a6ae13eba579b",
+      "hashDigestSource": "PRODUCER_REPORTED",
+      "hashVerifiedByChecker": false,
+      "advisory": "The prior-pass advisory is partly resolved: the rationale no longer tells the learner the stem supplied a wet-contamination definition, so the English-reading learner is no longer actively misinformed. The glossary still carries defZh only for 'wet contamination'. Same pre-existing missing-defEn pattern flagged on the MCI row; not in scope."
+    },
+    {
+      "originalId": "gpt_balance6b_2026_07_16_hl_standard_precautions_hygiene_17",
+      "mintedId": "gpt_balance6b_2026_07_16_hl_standard_precautions_hygiene_17_r2",
+      "priorBlockerReason": "Orphaned reference plus incomplete removal of the recorded defect. Keyed segment q17_s04 read 'Maintain natural nail tips at or below the stated 1/4-inch limit' with a byChoice asserting 'The stem supplies the accepted natural-nail length limit', which was affirmatively false; and because the 1/4-inch figure then appeared only inside a keyed segment, the ANSWER_TELEGRAPHING defect was relocated rather than discharged. testTakingStrategy and meta.stem_disambiguators were orphaned, and rationale.correct and byChoice q17_s08 referenced 'the cited rule' that was the deleted facility policy.",
+      "priorRepairRequirement": "Either the stem reintroduces the policy scope without the length figure, or q17_s04 and four dependent fields are reworked together.",
+      "checkerFinding": "Repaired along the second authorised route, and both halves of the defect are discharged. q17_s04 now reads 'Keep natural nail tips short and well maintained', so the numeric cue is out of scored content and the telegraph is removed rather than relocated. Its byChoice no longer claims the stem supplies the limit; it attributes the under-1/4-inch figure to CDC guidance, which was verified against Recommendation 6.B. rationale.correct no longer references 'the cited rule'. byChoice q17_s08 now says 'the cited guidance', which has a real antecedent because the stem itself names 'facility policy and CDC guidance'. testTakingStrategy is rewritten and orphan-free. meta.stem_disambiguators is now ['artificial fingernail extensions', 'direct ICU care', 'facility policy and CDC guidance'], all three present in the stem.",
+      "newDefectScan": "Correct set q17_s01-s05, distractors q17_s06-s08, byChoice covers all eight. The sourced threshold now lives only in post-answer rationale, which is the right home for it. Both cited CDC sources verified. No new defect.",
+      "checkerDisposition": "AFFIRM",
+      "candidatePayloadHashCampaignConvention": "dbdedbe42565307c506fd19f27829e1c1694863af42638c54ff2a3e2eeaadf4a",
+      "hashDigestSource": "PRODUCER_REPORTED",
+      "hashVerifiedByChecker": false,
+      "advisory": "q17_s08 remains detectable as a distractor on absolute-language heuristics ('all ... universally ... every'). Pre-existing, not the recorded defect, out of bounded scope. Flag for a future pass."
+    }
+  ],
+  "section92": {
+    "item1PayloadHashesConfirmed": false,
+    "item1Status": "NOT_DISCHARGED_BY_THIS_SEAT",
+    "item1Note": "Section 9.2 item 1 requires the checker to record each candidate's campaign-convention payload hash and confirm equality with the Stage 1 manifest. This seat cannot compute digests, so no such confirmation exists. The nine values above are the producer's own reported outputs and confirming them against the producer's own manifest would be circular. Section 9.2 makes a mismatch a BLOCK; it does not make an uncomputable hash a BLOCK, and the nine content dispositions above stand independently of it.",
+    "item2RawDraftFileByteHashRecorded": true,
+    "item2Note": "Recorded as producer-reported and labelled as such.",
+    "item3ArtifactDigests": "OWNER_TO_COMPUTE. The owner computes shasum -a 256 on review-iteration-1.md and review-iteration-1.json immediately after this write. Those digests cannot live inside the files they describe. No modification of either file is authorised thereafter.",
+    "allDigestsComputedBy": "OWNER",
+    "checkerComputedNoDigest": true,
+    "substitutionOnRecord": "Same substitution as the first pass, and recorded rather than glossed as compliance. Section 9.2 assigns the hashing to Stage 2; here the owner performs it. This is the owner's call, made on the record. What is materially different from the first pass: on that pass the owner independently recomputed the payload hashes, which discharged the anti-self-report purpose of item 1. On this pass every hash supplied to this seat is producer-reported, so that purpose is currently undischarged."
+  },
+  "section106": {
+    "holds": true,
+    "reason": "All 13 rows have reached a final content state: four RETURN_CANDIDATE + AFFIRM from the frozen review, and nine RETURN_CANDIDATE + AFFIRM from this iteration. No retirement candidates, no held rows, no blocks. Every row is RETURN_CANDIDATE + AFFIRM, which section 10.6 defines as final and publishable, so section 10.6 is satisfied.",
+    "outstanding": "The outstanding independent hash recomputation is a section 9.2 / section 10.7 identity prerequisite, not a section 10.6 condition; it does not bear on whether section 10.6 holds. See section107Status."
+  },
+  "section107Status": {
+    "publicationFreezeWritten": false,
+    "decision": "WITHHELD_PENDING_OWNER_RECOMPUTATION",
+    "rationale": "Section 10.7 requires Stage 2 to recompute every current publishable payload hash and require equality with the latest governing AFFIRM, and section 11.1 makes publication-freeze.json Stage 3's sole publication authority. This seat cannot recompute any hash. Writing the freeze now would populate Stage 3's sole authority with thirteen digests transcribed from the producer's own report; Stage 3's pre-flight would then compare the current draft against numbers derived from that same draft by that same seat, so the check would agree by construction and detect nothing. That is precisely the self-certification the work order forecloses at section 0.5, and it would convert a capability gap into a false attestation carried on an immutable artifact. The nine AFFIRMs are content dispositions and are not weakened by this; the freeze is a distinct artifact with a precondition this seat cannot meet.",
+    "unblockPath": "Owner recomputes, from the current raw draft using the repository's own stableJson and sha256 under the campaign convention: the nine revised payload hashes, the four AFFIRM payload hashes, and the raw draft's file-byte SHA-256. If those thirteen plus one agree with the producer-reported values recorded here, the anti-self-report purpose of section 9.2 item 1 is discharged and this seat can write the section 10.7 freeze on owner-computed values in the same Stage 2 seat. If any disagree, the disagreement itself is the finding and the affected rows return to section 10."
+  },
+  "scopeCloseout": {
+    "contentEdited": false,
+    "fourAffirmRowsSubstantivelyReReviewed": false,
+    "canonicalBanksModified": false,
+    "promotionOrConsolidation": false,
+    "censusRun": false,
+    "ledgerOrStatusMapWrite": false,
+    "decisionsMdWrite": false,
+    "commit": false,
+    "push": false,
+    "publicationFreezeWritten": false,
+    "stage3Entered": false
+  }
+}
