@@ -1,0 +1,117 @@
+{
+  "actionLabels": [
+    "A2",
+    "A3"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C2",
+  "missingInformation": [
+    "Client weight for methylene-blue dosing",
+    "Current serotonergic medications",
+    "Baseline hemoglobin and hemolysis laboratory values"
+  ],
+  "parameterLabels": [
+    "P2",
+    "P3"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "C2 is directly established by benzocaine exposure, cyanosis, a saturation gap, and methemoglobin of 28%. A2 and A3 address the dyshemoglobinemia and its oxidant trigger. P2 is the most direct efficacy measure. P3 is the only remaining clinically relevant monitoring option because it assesses oxygenation and potential hemolysis; P1 and P4 target toxicities unsupported by the stem.",
+  "selectionEvidence": [
+    "Topical benzocaine is an oxidant associated with acquired methemoglobinemia.",
+    "Blue-gray lips, persistent SpO₂ of 84% despite oxygen, and PaO₂ of 118 mm Hg demonstrate a saturation gap.",
+    "Co-oximetry directly documents methemoglobin at 28%.",
+    "Normal G6PD activity supports use of ordered IV methylene blue.",
+    "The remaining monitoring bundle, P3, provides oxygen assessment and surveillance for hemolysis during antidotal treatment."
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The client is symptomatic with confirmed methemoglobin of 28%, so waiting for pulse oximetry alone would delay indicated treatment.",
+      "supportingStemText": "The client has dyspnea, blue-gray lips, and SpO₂ of 84% despite supplemental oxygen."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem supplies both symptomatic significant methemoglobinemia and exclusion of the specified contraindicating deficiency.",
+      "supportingStemText": "Co-oximetry shows methemoglobin 28%, and the record documents normal glucose-6-phosphate dehydrogenase activity."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Stopping the identified oxidant and continuing supportive oxygen directly addresses the exposure and immediate supportive need.",
+      "supportingStemText": "Symptoms began minutes after topical benzocaine, and supplemental oxygen is already being provided."
+    },
+    {
+      "missingPremise": "No fluid-overload state, diuretic-responsive mechanism, or indication for oxidant removal by diuresis is provided.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Diuresis does not address benzocaine-induced methemoglobinemia in the presented scenario.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "No carbon-monoxide exposure or elevated carboxyhemoglobin is provided.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The direct methemoglobin measurement and oxidant exposure identify a different dyshemoglobinemia.",
+      "supportingStemText": "Symptoms immediately followed topical benzocaine, and co-oximetry shows methemoglobin 28%."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The exposure, saturation gap, cyanosis, and co-oximetry result directly establish acquired methemoglobinemia.",
+      "supportingStemText": "After topical benzocaine, the client develops dyspnea and blue-gray lips; SpO₂ is 84% despite oxygen, PaO₂ is 118 mm Hg, and methemoglobin is 28%."
+    },
+    {
+      "missingPremise": "No wheezing or documented reversible airflow obstruction is provided.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Bronchospasm does not explain the documented methemoglobinemia and saturation gap.",
+      "supportingStemText": "Co-oximetry shows methemoglobin 28%, with blue-gray lips and preserved PaO₂."
+    },
+    {
+      "missingPremise": "No carbon-monoxide exposure or elevated carboxyhemoglobin is documented.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Carbon-monoxide-specific monitoring is not relevant to the identified benzocaine-induced methemoglobinemia.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Serial co-oximetry and symptom response directly evaluate correction of the measured abnormality and clinical toxicity.",
+      "supportingStemText": "Co-oximetry shows methemoglobin 28%, and the client has dyspnea and blue-gray lips."
+    },
+    {
+      "missingPremise": "Baseline hemoglobin, bilirubin, and haptoglobin values are not supplied.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Oxygen assessment and hemolysis surveillance are clinically relevant during treatment, and this option is preferable to monitoring for unrelated toxic syndromes.",
+      "supportingStemText": "The client has oxygenation symptoms and is eligible for IV methylene blue because G6PD deficiency is excluded."
+    },
+    {
+      "missingPremise": "No organophosphate exposure, cholinergic secretions, or cholinergic toxidrome is documented.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Cholinesterase and secretion monitoring targets an unrelated toxic mechanism.",
+      "supportingStemText": ""
+    }
+  ]
+}

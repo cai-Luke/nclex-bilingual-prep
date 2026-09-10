@@ -1,0 +1,109 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A2",
+      "A4"
+    ],
+    "conditionLabel": "C3",
+    "parameterLabels": [
+      "P1",
+      "P4"
+    ]
+  },
+  "canonicalSetExplanation": "The five canonical targets are supported by explicit stem facts or ordinary clinical knowledge and remain uniquely preferable to all six distractors.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Blood pressure is 78/42 mm Hg, capillary refill is 5 seconds, and an IV fluid order is available."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "A sickle cell specialist is directing care, and a red-cell transfusion order is available."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The child has sickle cell disease, sudden tender splenomegaly, an acute hemoglobin decline, elevated reticulocytes, and shock without another bleeding source."
+    },
+    {
+      "missingClientFact": "No baseline spleen measurement or abdominal circumference is supplied.",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The spleen is suddenly enlarged and tender."
+    },
+    {
+      "missingClientFact": "The initial mental-status finding is not stated.",
+      "opaqueTokenLabel": "P4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Hemoglobin is 6.2 g/dL, blood pressure is 78/42 mm Hg, and capillary refill is 5 seconds."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "No premise supports rapidly transfusing to a normal age-based hemoglobin target.",
+      "opaqueTokenLabel": "A1",
+      "reviewerRankabilityImpact": "MATERIAL",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "Baseline hemoglobin is 8.6 g/dL, and a sickle cell specialist is directing transfusion care."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "No premise indicates clinical stability appropriate for observation alone.",
+      "opaqueTokenLabel": "A3",
+      "reviewerRankabilityImpact": "MATERIAL",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "Heart rate is 142/min, blood pressure is 78/42 mm Hg, capillary refill is 5 seconds, and hemoglobin has fallen to 6.2 g/dL."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "No bleeding source is present to support acute blood-loss anemia as the primary condition.",
+      "opaqueTokenLabel": "C1",
+      "reviewerRankabilityImpact": "MATERIAL",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "There is no external or internal bleeding source, while the spleen is suddenly enlarged and tender."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "Transient aplastic crisis would require evidence of suppressed erythropoiesis, particularly reticulocytopenia.",
+      "opaqueTokenLabel": "C2",
+      "reviewerRankabilityImpact": "MATERIAL",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "The reticulocyte count is elevated, and the spleen is suddenly enlarged and tender."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "No wheezing, airflow limitation, asthma history, or other respiratory-obstruction finding is provided.",
+      "opaqueTokenLabel": "P2",
+      "reviewerRankabilityImpact": "MATERIAL",
+      "supportClassification": "NOT_APPLICABLE",
+      "supportingStandaloneEvidence": ""
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "No hyperglycemia, diabetes history, ketosis symptoms, or metabolic decompensation is provided.",
+      "opaqueTokenLabel": "P3",
+      "reviewerRankabilityImpact": "MATERIAL",
+      "supportClassification": "NOT_APPLICABLE",
+      "supportingStandaloneEvidence": ""
+    }
+  ],
+  "missingClientFacts": [],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "Stage 1 independently identified the same condition and the same clinical action and evaluation domains as the canonical construct.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

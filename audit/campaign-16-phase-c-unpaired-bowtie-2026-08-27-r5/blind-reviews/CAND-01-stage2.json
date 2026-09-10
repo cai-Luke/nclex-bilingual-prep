@@ -1,0 +1,132 @@
+{
+  "actionLabels": [
+    "A1",
+    "A4"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C3",
+  "missingInformation": [
+    "Duration of exposure",
+    "Initial carboxyhemoglobin level",
+    "Whether either client had loss of consciousness, chest pain, pregnancy, or cardiopulmonary disease"
+  ],
+  "parameterLabels": [
+    "P3",
+    "P4"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The enclosed-space use of a gas-powered device, shared compatible symptoms, confusion, and sounding carbon monoxide alarm uniquely support C3. Immediate removal from exposure and high-flow oxygen are the two priority actions, while carboxyhemoglobin and neurologic status are the most relevant monitoring parameters.",
+  "selectionEvidence": [
+    {
+      "label": "C3",
+      "supportingStemFact": "The wall carbon monoxide alarm is sounding while a gas-powered floor buffer is being used in a closed room, and both staff members have headache, nausea, and dizziness."
+    },
+    {
+      "label": "A1",
+      "supportingStemFact": "The active carbon monoxide alarm and neurologic symptoms indicate an inhalational emergency requiring high-concentration oxygen despite the 99% pulse oximeter reading."
+    },
+    {
+      "label": "A4",
+      "supportingStemFact": "Both clients remain in a closed room containing a running combustion-powered device, and one client is confused."
+    },
+    {
+      "label": "P3",
+      "supportingStemFact": "The pulse oximeter reads 99% despite explicit evidence of carbon monoxide exposure, making a carbon-monoxide-specific measurement necessary."
+    },
+    {
+      "label": "P4",
+      "supportingStemFact": "One staff member is confused, and both report headache and dizziness."
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicit shared toxic-exposure evidence makes panic attack noncompetitive.",
+      "supportingStemText": "Two staff members developed symptoms while using a gas-powered floor buffer in a closed room, and a wall carbon monoxide alarm is sounding."
+    },
+    {
+      "missingPremise": "Opioid exposure with findings such as respiratory depression and miosis",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The absent opioid-specific facts and explicit carbon monoxide alarm prevent meaningful competition with C3.",
+      "supportingStemText": "The stem reports headache, nausea, dizziness, and confusion but no opioid history or characteristic opioid findings."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly supplies the exposure source, setting, alarm, and clinical syndrome needed to select C3.",
+      "supportingStemText": "A gas-powered floor buffer was used in a closed maintenance room, both staff members developed compatible symptoms, and the wall carbon monoxide alarm is sounding."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "High-flow oxygen is a standard immediate intervention for suspected symptomatic carbon monoxide poisoning even when conventional pulse oximetry appears normal.",
+      "supportingStemText": "A wall carbon monoxide alarm is sounding, one client is confused, and the pulse oximeter reads 99%."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Keeping symptomatic clients at the exposure site conflicts with immediate hazard removal.",
+      "supportingStemText": "The clients are in a closed maintenance room with a gas-powered device and an active carbon monoxide alarm."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Paper-bag breathing does not treat carbon monoxide poisoning and could worsen hypoxic injury.",
+      "supportingStemText": "The stem identifies an environmental carbon monoxide hazard rather than isolated hyperventilation."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Immediate movement to fresh air and emergency activation are standard priorities for an ongoing toxic inhalation exposure with altered mental status.",
+      "supportingStemText": "The clients are symptomatic in a closed room where a gas-powered floor buffer was used, and one client is confused."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Conventional pulse oximetry cannot serve as the main oxygenation indicator in carbon monoxide poisoning because it does not distinguish oxyhemoglobin from carboxyhemoglobin.",
+      "supportingStemText": "The pulse oximeter reads 99% while a wall carbon monoxide alarm is sounding and the clients are symptomatic."
+    },
+    {
+      "missingPremise": "A client-specific reason to suspect or intensively monitor a glucose abnormality",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "No stem fact makes frequent capillary glucose monitoring a priority over carbon-monoxide-specific assessment.",
+      "supportingStemText": "The stem contains no diabetes history, glucose value, insulin exposure, or other indication for glucose checks every 15 minutes."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Carboxyhemoglobin directly evaluates the suspected exposure and resolves the limitation of conventional pulse oximetry.",
+      "supportingStemText": "A carbon monoxide alarm is sounding after combustion-device use in a closed room, while symptomatic clients have a normal pulse oximeter reading."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicit neurologic manifestations make serial level-of-consciousness and neurologic assessment a priority.",
+      "supportingStemText": "One staff member is confused, and both report headache and dizziness."
+    }
+  ]
+}

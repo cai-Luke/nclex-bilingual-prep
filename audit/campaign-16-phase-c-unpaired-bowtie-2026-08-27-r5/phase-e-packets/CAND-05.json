@@ -1,0 +1,326 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A3"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P1",
+      "P4"
+    ]
+  },
+  "instruction": "The two blind records are immutable. Compare them with the current canonical five-target selection and complete standalone item. Do not inspect or infer sibling/corpus material. Return the required Phase-E standalone-adjudication record without revising either blind stage.",
+  "stage1": {
+    "condition": "Malignant hyperthermia",
+    "evaluationParameters": [
+      "Continuous end-tidal carbon dioxide trend and adequacy of ventilation",
+      "Continuous core temperature trend"
+    ],
+    "missingInformation": [
+      "Identity and dose of the volatile anesthetic and whether succinylcholine was administered",
+      "Arterial blood gas, serum potassium, creatine kinase, acid-base status, and urine findings for complications and severity"
+    ],
+    "priorityActions": [
+      "Immediately discontinue the volatile anesthetic and ventilate with 100% oxygen using a clean anesthesia circuit or activated charcoal filters.",
+      "Administer intravenous dantrolene promptly according to the malignant hyperthermia protocol."
+    ],
+    "reasoning": "The combination of unexplained rapidly increasing carbon dioxide production, tachycardia, generalized rigidity, and rapidly rising core temperature after exposure to a volatile anesthetic is the classic perioperative presentation of malignant hyperthermia. Immediate trigger removal, maximal oxygenation and ventilation, and dantrolene are time-critical; falling end-tidal carbon dioxide and core temperature help demonstrate treatment response.",
+    "stage1Confidence": "high",
+    "stemEvidence": [
+      "Rapid, marked rise in end-tidal carbon dioxide despite increased minute ventilation",
+      "Tachycardia at 142/min",
+      "Generalized muscle rigidity",
+      "Rapid increase in core temperature during volatile-anesthetic exposure"
+    ]
+  },
+  "stage1Sha256": "aaa401498ba68f8a6b0ed8a5392634232be70dedbaddfe182ff08495a29e955e",
+  "stage2": {
+    "actionLabels": [
+      "A1",
+      "A3"
+    ],
+    "ambiguousAlternatives": [],
+    "conditionLabel": "C1",
+    "missingInformation": [
+      "Whether succinylcholine was also administered",
+      "Arterial blood gas, serum potassium, creatine kinase, and urine findings to assess severity and complications"
+    ],
+    "parameterLabels": [
+      "P1",
+      "P4"
+    ],
+    "poolAnswerability": "ANSWERABLE",
+    "reasoning": "The volatile-anesthetic exposure followed by otherwise unexplained rapidly rising end-tidal carbon dioxide, generalized rigidity, tachycardia, and a rapid core-temperature increase uniquely supports C1 within the condition pool. A1 and A3 are the time-critical interventions for this hypermetabolic anesthetic emergency. P1 and P4 directly track two prominent abnormalities and the response to treatment.",
+    "selectionEvidence": [
+      "Exposure to a volatile anesthetic is an established trigger for malignant hyperthermia.",
+      "End-tidal carbon dioxide rose rapidly from 38 to 72 mm Hg despite increased minute ventilation, indicating excessive carbon dioxide production rather than inadequate ventilation alone.",
+      "Generalized muscle rigidity strongly supports malignant hyperthermia.",
+      "Tachycardia at 142/min is consistent with the developing hypermetabolic crisis.",
+      "Core temperature increased rapidly by 3.1 °F (1.7 °C) within 20 minutes."
+    ],
+    "stage2Confidence": "high",
+    "tokenPremiseTable": [
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A1",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Trigger discontinuation and 100% oxygen hyperventilation are standard immediate responses to the strongly supported malignant-hyperthermia presentation.",
+        "supportingStemText": "During general anesthesia with a volatile anesthetic, an adult client's end-tidal carbon dioxide rises rapidly from 38 to 72 mm Hg despite increased minute ventilation."
+      },
+      {
+        "missingPremise": "Evidence of infection or sepsis requiring cultures and empiric antibiotics as the primary response",
+        "opaqueTokenLabel": "A2",
+        "premiseStatus": "MISSING_CLIENT_FACT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The stem instead presents an acute anesthetic-triggered hypermetabolic syndrome, so the missing infection premise makes this action clearly inferior.",
+        "supportingStemText": ""
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A3",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "This constellation supports malignant hyperthermia, for which rapid protocol-directed IV dantrolene is the specific treatment.",
+        "supportingStemText": "Volatile anesthetic exposure, rapidly rising end-tidal carbon dioxide, tachycardia, generalized muscle rigidity, and rapidly rising core temperature"
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A4",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Ventilation escalation has not corrected the rise, and continuing the suspected volatile trigger would worsen the crisis.",
+        "supportingStemText": "End-tidal carbon dioxide rises rapidly from 38 to 72 mm Hg despite increased minute ventilation."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "C1",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The full perioperative hypermetabolic pattern is characteristic of acute malignant hyperthermia.",
+        "supportingStemText": "During general anesthesia with a volatile anesthetic...end-tidal carbon dioxide rises rapidly...heart rate is 142/min, generalized muscle rigidity is present, and the core temperature has risen...in 20 minutes."
+      },
+      {
+        "missingPremise": "Hypotension, bronchospasm, urticaria, angioedema, or another acute hypersensitivity manifestation",
+        "opaqueTokenLabel": "C2",
+        "premiseStatus": "MISSING_CLIENT_FACT",
+        "rankabilityImpact": "LOW",
+        "rankabilityJustification": "Anaphylaxis is possible during anesthesia in general, but the stem lacks its defining manifestations and instead supplies rigidity and hypercapnia favoring C1.",
+        "supportingStemText": "During general anesthesia with a volatile anesthetic"
+      },
+      {
+        "missingPremise": "Known thyrotoxicosis or compatible thyroid history and supporting manifestations such as goiter, tremor, gastrointestinal symptoms, or preoperative hyperthyroid findings",
+        "opaqueTokenLabel": "C3",
+        "premiseStatus": "MISSING_CLIENT_FACT",
+        "rankabilityImpact": "LOW",
+        "rankabilityJustification": "Tachycardia and hyperthermia are nonspecific, while anesthetic-triggered rapid hypercapnia and generalized rigidity make C1 substantially more specific.",
+        "supportingStemText": "The heart rate is 142/min...and the core temperature has risen."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "P1",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "This parameter is explicitly abnormal and can directly track treatment response.",
+        "supportingStemText": "End-tidal carbon dioxide rises rapidly from 38 to 72 mm Hg despite increased minute ventilation."
+      },
+      {
+        "missingPremise": "A suspected perioperative anaphylactic reaction for which serum tryptase would provide diagnostic support",
+        "opaqueTokenLabel": "P2",
+        "premiseStatus": "MISSING_CLIENT_FACT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The selected syndrome is malignant hyperthermia, and the stem provides no hypersensitivity findings making tryptase a priority parameter.",
+        "supportingStemText": ""
+      },
+      {
+        "missingPremise": "Suspected bacteremia, sepsis, or another infectious process warranting blood cultures",
+        "opaqueTokenLabel": "P3",
+        "premiseStatus": "MISSING_CLIENT_FACT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "No infectious premise is present, so culture results do not monitor the acute anesthetic-triggered crisis.",
+        "supportingStemText": ""
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "P4",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The rapid temperature rise is explicitly documented and its trend directly evaluates progression and treatment response.",
+        "supportingStemText": "The core temperature has risen from 98.6 °F (37.0 °C) to 101.7 °F (38.7 °C) in 20 minutes."
+      }
+    ]
+  },
+  "stage2Sha256": "3a77cffeeb02c9fc608a4257e5587347445ec7c1256f34961803d7fc7fa8d99b",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Actions to take",
+          "zh": "应采取的措施"
+        },
+        "tokens": [
+          {
+            "en": "Discontinue triggering agents and hyperventilate with 100% oxygen",
+            "opaqueTokenLabel": "A1",
+            "zh": "停止诱发药物并用 100% 氧气过度通气"
+          },
+          {
+            "en": "Obtain cultures and begin empiric antibiotics as the primary response",
+            "opaqueTokenLabel": "A2",
+            "zh": "将采集培养并开始经验性抗菌治疗作为首要处理"
+          },
+          {
+            "en": "Administer protocol-directed IV dantrolene rapidly",
+            "opaqueTokenLabel": "A3",
+            "zh": "按方案迅速静脉给予丹曲林"
+          },
+          {
+            "en": "Continue the volatile anesthetic while increasing minute ventilation",
+            "opaqueTokenLabel": "A4",
+            "zh": "继续使用挥发性麻醉药，同时增加每分钟通气量"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的病情"
+        },
+        "tokens": [
+          {
+            "en": "Acute malignant hyperthermia",
+            "opaqueTokenLabel": "C1",
+            "zh": "急性恶性高热"
+          },
+          {
+            "en": "Perioperative anaphylaxis",
+            "opaqueTokenLabel": "C2",
+            "zh": "围术期过敏性休克"
+          },
+          {
+            "en": "Thyroid storm",
+            "opaqueTokenLabel": "C3",
+            "zh": "甲状腺危象"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "应监测的指标"
+        },
+        "tokens": [
+          {
+            "en": "End-tidal carbon dioxide trend",
+            "opaqueTokenLabel": "P1",
+            "zh": "呼气末二氧化碳趋势"
+          },
+          {
+            "en": "Serum tryptase",
+            "opaqueTokenLabel": "P2",
+            "zh": "血清类胰蛋白酶"
+          },
+          {
+            "en": "Blood-culture results",
+            "opaqueTokenLabel": "P3",
+            "zh": "血培养结果"
+          },
+          {
+            "en": "Core temperature trend",
+            "opaqueTokenLabel": "P4",
+            "zh": "核心体温趋势"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "易感者接触特定麻醉诱发药物后发生的急性高代谢危象",
+        "termEn": "malignant hyperthermia",
+        "termZh": "恶性高热"
+      },
+      {
+        "defZh": "呼气结束时测得的二氧化碳水平，可反映通气和代谢变化",
+        "termEn": "end-tidal carbon dioxide",
+        "termZh": "呼气末二氧化碳"
+      },
+      {
+        "defZh": "用于治疗恶性高热的骨骼肌松弛药",
+        "termEn": "dantrolene",
+        "termZh": "丹曲林"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Keyed: the trigger exposure and combined hypermetabolic findings strongly support acute malignant hyperthermia.",
+          "opaqueTokenLabel": "C1",
+          "zh": "正确：诱发药物暴露与一组高代谢表现强烈支持急性恶性高热。"
+        },
+        {
+          "en": "Not keyed: perioperative anaphylaxis is more likely to include hypotension, bronchospasm, or skin findings rather than marked rigidity and a rapidly rising ETCO2.",
+          "opaqueTokenLabel": "C2",
+          "zh": "不选：围术期过敏性休克更常见低血压、支气管痉挛或皮肤表现，而不是明显肌强直和呼气末二氧化碳快速升高。"
+        },
+        {
+          "en": "Not keyed: thyroid storm is not tightly linked to a volatile-anesthetic trigger and does not typically cause this abrupt ETCO2 and rigidity pattern.",
+          "opaqueTokenLabel": "C3",
+          "zh": "不选：甲状腺危象与挥发性麻醉药诱发关系不密切，也通常不会出现这种突发的呼气末二氧化碳升高和肌强直模式。"
+        },
+        {
+          "en": "Keyed: stopping triggers and hyperventilating with 100% oxygen remove the precipitant and increase oxygen delivery and carbon dioxide elimination.",
+          "opaqueTokenLabel": "A1",
+          "zh": "正确：停止诱发药物并用 100% 氧气过度通气，可去除诱因并增加供氧和二氧化碳排出。"
+        },
+        {
+          "en": "Keyed: rapid protocol-directed IV dantrolene is the syndrome-specific medication treatment.",
+          "opaqueTokenLabel": "A3",
+          "zh": "正确：按方案迅速静脉给予丹曲林是该综合征的特异性药物治疗。"
+        },
+        {
+          "en": "Not keyed: cultures and empiric antibiotics do not address the immediate anesthetic-triggered hypermetabolic crisis.",
+          "opaqueTokenLabel": "A2",
+          "zh": "不选：培养和经验性抗菌药物不能处理由麻醉诱发的即时高代谢危象。"
+        },
+        {
+          "en": "Not keyed: continuing the volatile anesthetic would maintain the trigger despite increased ventilation.",
+          "opaqueTokenLabel": "A4",
+          "zh": "不选：即使增加通气，继续使用挥发性麻醉药仍会维持诱因。"
+        },
+        {
+          "en": "Keyed: a falling end-tidal carbon dioxide level is an early measure of reduced hypermetabolism and response.",
+          "opaqueTokenLabel": "P1",
+          "zh": "正确：呼气末二氧化碳下降是高代谢减轻和治疗有效的早期指标。"
+        },
+        {
+          "en": "Keyed: core temperature trend measures thermal progression and the response to treatment and cooling.",
+          "opaqueTokenLabel": "P4",
+          "zh": "正确：核心体温趋势可反映热损伤进展以及治疗和降温的效果。"
+        },
+        {
+          "en": "Not keyed: serum tryptase is used to investigate anaphylaxis and does not track resolution of the MH hypermetabolic response.",
+          "opaqueTokenLabel": "P2",
+          "zh": "不选：血清类胰蛋白酶用于评估过敏性反应，不能反映恶性高热高代谢状态是否缓解。"
+        },
+        {
+          "en": "Not keyed: blood-culture results evaluate infection and do not provide an immediate measure of the trigger-linked MH response.",
+          "opaqueTokenLabel": "P3",
+          "zh": "不选：血培养结果用于评估感染，不能即时反映由诱发药物引起的恶性高热是否改善。"
+        }
+      ],
+      "correct": {
+        "en": "Trigger exposure with an unexplained rapid rise in end-tidal carbon dioxide, tachycardia, rigidity, and rising core temperature is the classic acute malignant-hyperthermia pattern. Triggering agents should be stopped and the client hyperventilated with 100% oxygen while protocol-directed IV dantrolene is given rapidly. End-tidal carbon dioxide and core temperature measure different aspects of response.",
+        "zh": "在接触诱发药物后，出现无法解释的呼气末二氧化碳快速升高、心动过速、肌强直和核心体温上升，是急性恶性高热的典型模式。应停止诱发药物并用 100% 氧气过度通气，同时按方案迅速静脉给予丹曲林。呼气末二氧化碳和核心体温分别反映不同方面的治疗反应。"
+      }
+    },
+    "stem": {
+      "en": "During general anesthesia with a volatile anesthetic, an adult client's end-tidal carbon dioxide rises rapidly from 38 to 72 mm Hg despite increased minute ventilation. The heart rate is 142/min, generalized muscle rigidity is present, and the core temperature has risen from 98.6 °F (37.0 °C) to 101.7 °F (38.7 °C) in 20 minutes. Complete the bow-tie.",
+      "zh": "一名成人在使用挥发性麻醉药进行全身麻醉期间，尽管已增加每分钟通气量，呼气末二氧化碳仍从 38 mmHg 快速升至 72 mmHg。心率 142 次/分，出现全身肌强直，核心体温在 20 分钟内由 98.6 °F（37.0 °C）升至 101.7 °F（38.7 °C）。请完成蝴蝶结题。"
+    },
+    "testTakingStrategy": {
+      "en": "Prioritize the trigger-linked rise in carbon dioxide and rigidity, then choose one trigger-removal/support action, one specific treatment, and two different response trends.",
+      "zh": "优先识别与诱发药物相关的二氧化碳升高和肌强直，再选择一项去除诱因/支持措施、一项特异治疗及两个不同的疗效趋势。"
+    }
+  }
+}

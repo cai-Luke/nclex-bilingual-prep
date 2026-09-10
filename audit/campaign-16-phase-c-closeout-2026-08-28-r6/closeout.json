@@ -1,0 +1,83 @@
+{
+  "campaign": 16,
+  "phase": "C",
+  "revision": 6,
+  "date": "2026-08-28",
+  "adjudicatedRow": {
+    "surrogateId": "CAND-18",
+    "candidateId": "gpt_format7c_exercise_hypoglycemia_bowtie",
+    "primaryVerdict": "FAIL_UNSUPPORTED_TOKEN_PREMISE",
+    "secondaryFlags": [
+      "RATIONALE_ADDS_MISSING_FACT"
+    ],
+    "missingFactProvenance": [
+      "RATIONALE_ONLY"
+    ],
+    "advisoryPriority": "P1",
+    "authority": "OWNER_ADJUDICATION",
+    "checkerDissent": "PASS_STANDALONE",
+    "checkerDissentPreservedAsLegitimate": true
+  },
+  "unpairedAccounting": {
+    "PASS_STANDALONE": 18,
+    "FAIL_HIDDEN_CASE_DEPENDENCY": 0,
+    "FAIL_UNSUPPORTED_TOKEN_PREMISE": 1,
+    "allOtherPrimaryVerdicts": 0,
+    "total": 19
+  },
+  "combinedAccounting": {
+    "warrant": "Revision-5 paired-disposition preservation 31/31",
+    "paired": {
+      "PASS_STANDALONE": 20,
+      "FAIL_HIDDEN_CASE_DEPENDENCY": 7,
+      "FAIL_UNSUPPORTED_TOKEN_PREMISE": 4,
+      "allOtherPrimaryVerdicts": 0,
+      "total": 31
+    },
+    "unpaired": {
+      "PASS_STANDALONE": 18,
+      "FAIL_HIDDEN_CASE_DEPENDENCY": 0,
+      "FAIL_UNSUPPORTED_TOKEN_PREMISE": 1,
+      "allOtherPrimaryVerdicts": 0,
+      "total": 19
+    },
+    "combined": {
+      "PASS_STANDALONE": 38,
+      "FAIL_HIDDEN_CASE_DEPENDENCY": 7,
+      "FAIL_UNSUPPORTED_TOKEN_PREMISE": 5,
+      "allOtherPrimaryVerdicts": 0,
+      "total": 50
+    }
+  },
+  "descriptiveRatesCarriedForward": {
+    "unpairedUnsupportedPremise": "1/19",
+    "pairedUnsupportedPremise": "4/31",
+    "descriptiveOnly": true,
+    "inferentialStatisticsComputed": false,
+    "generativeVersusHarvestConclusion": false
+  },
+  "preservedFindings": [
+    "work-order SHA exact",
+    "bank identity 13/13",
+    "population 50 / 31 / 19, delta 0",
+    "unpaired payload preservation 19/19",
+    "corrected _r2 falsification PASS",
+    "sibling-absence probe 0 hits",
+    "paired-disposition preservation 31/31",
+    "structural precondition 19/19 at 3/4/4 tokens and 1/2/2 key cardinality",
+    "19 isolated Sol/high contexts and 38 sealed semantic turns completed, 76 locks present",
+    "deterministic tooling, tests, TypeScript, leakage regression, repeatability, and git diff --check passed",
+    "bank, worktree, and governance preservation passed",
+    "historical calibration NOT_RERUN — OWNER DECISION F1"
+  ],
+  "revision5GateFinding": {
+    "requiredCompleteRederivationCount": 19,
+    "requiredProducerCheckerUnanimity": false,
+    "completeRederivationRequirementMet": true,
+    "revision5BlockedTerminalSupersededByOwnerAdjudication": true,
+    "revision5ArtifactsEditedInPlace": false
+  },
+  "executorTerminalStatus": "CAMPAIGN16_PHASE_C_CLOSEOUT_READY",
+  "independentCheckStillRequired": true,
+  "ownerDeclarationStillRequired": true
+}

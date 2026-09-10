@@ -1,0 +1,109 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A4",
+      "A3"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P2",
+      "P1"
+    ]
+  },
+  "canonicalSetExplanation": "The five canonical targets are supported by explicit stem facts or ordinary clinical knowledge and remain uniquely preferable to all six distractors.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Completed a 10-day course of clindamycin; 8 watery stools in 12 hours; abdominal cramping; temperature 100.6 °F (38.1 °C); stool assay positive for C. difficile toxin."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The stool assay is positive for C. difficile toxin and the client has frequent watery stools."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The stool assay is positive for C. difficile toxin."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The client has had 8 watery stools in 12 hours and is weak."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The client has had 8 watery stools in the past 12 hours."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "Evidence supporting a viral cause instead of confirmed C. difficile infection.",
+      "opaqueTokenLabel": "C2",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "The stool assay is positive for C. difficile toxin following clindamycin exposure."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "Urinary symptoms, urinalysis findings, or urine culture evidence supporting a urinary tract infection.",
+      "opaqueTokenLabel": "C3",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "The client has watery diarrhea and abdominal cramping with a positive C. difficile toxin assay, not a urinary presentation."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "A pathogen reliably removed or inactivated by alcohol-based hand sanitizer alone.",
+      "opaqueTokenLabel": "A1",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "The stool assay is positive for C. difficile toxin."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "A suspected or confirmed airborne-transmitted infection requiring an N95 respirator.",
+      "opaqueTokenLabel": "A2",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "The identified pathogen is C. difficile in stool."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "A suspected urinary infection for which urine culture colony count would evaluate diagnosis or response.",
+      "opaqueTokenLabel": "P3",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "NOT_APPLICABLE",
+      "supportingStandaloneEvidence": "No urinary symptoms, urinalysis, or urine culture information is provided."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "A respiratory condition for which serial peak expiratory flow measurements are clinically relevant.",
+      "opaqueTokenLabel": "P4",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "NOT_APPLICABLE",
+      "supportingStandaloneEvidence": "No respiratory symptoms, obstructive airway disease, or bronchodilator-related context is provided."
+    }
+  ],
+  "missingClientFacts": [],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 identified the same condition and most canonical clinical domains, but at least one action or evaluation domain differed from the canonical five-target construct.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

@@ -1,0 +1,109 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A4",
+      "A3"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P3",
+      "P4"
+    ]
+  },
+  "canonicalSetExplanation": "The five canonical targets are supported by explicit stem facts or ordinary clinical knowledge and remain uniquely preferable to all six distractors.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Continuous local anesthetic infusion is followed within minutes by metallic taste, ringing in the ears, generalized seizure, frequent ventricular ectopy, and blood pressure of 78/42 mm Hg."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The client develops generalized seizure, frequent ventricular ectopy, and blood pressure of 78/42 mm Hg after local anesthetic administration."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "An active continuous local anesthetic infusion is temporally associated with rapidly progressive neurologic and cardiovascular toxicity in a monitored recovery area."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The client reports neurologic prodromes and then has a generalized seizure."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The cardiac monitor shows frequent ventricular ectopy, and the blood pressure falls to 78/42 mm Hg."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "A focal neurologic syndrome or other client-specific evidence of acute cerebral ischemia.",
+      "opaqueTokenLabel": "C1",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "Symptoms follow local anesthetic infusion within minutes and include metallic taste, tinnitus, generalized seizure, ventricular ectopy, and hypotension; no focal neurologic deficit is described."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "Client-specific allergic manifestations or a plausible perioperative allergen exposure pattern supporting anaphylaxis.",
+      "opaqueTokenLabel": "C3",
+      "reviewerRankabilityImpact": "LOW",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "No rash or wheezing is present, while metallic taste and tinnitus precede seizure and ventricular ectopy during local anesthetic infusion."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A1",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "The client has a generalized seizure, frequent ventricular ectopy, and blood pressure of 78/42 mm Hg."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A2",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "Severe manifestations develop during continuous local anesthetic delivery, including seizure, ventricular ectopy, and profound hypotension."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "Client-specific sensory or motor block findings whose regression would affect immediate evaluation.",
+      "opaqueTokenLabel": "P1",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "NOT_APPLICABLE",
+      "supportingStandaloneEvidence": "A peripheral nerve catheter is present, but the stem gives no baseline or changing sensory or motor block findings."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "A clinically relevant reason that serum concentration would guide immediate management or serial response assessment.",
+      "opaqueTokenLabel": "P2",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "NOT_APPLICABLE",
+      "supportingStandaloneEvidence": "No serum local-anesthetic measurement, sampling plan, or laboratory-dependent decision is described."
+    }
+  ],
+  "missingClientFacts": [],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "Stage 1 independently identified the same condition and the same clinical action and evaluation domains as the canonical construct.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

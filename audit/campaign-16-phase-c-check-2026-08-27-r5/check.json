@@ -1,0 +1,161 @@
+{
+  "pass": 2,
+  "role": "independent Claude checker — post-unblinding comparison and final checker record",
+  "date": "2026-08-28",
+  "repositoryState": {
+    "branch": "main",
+    "head": "3286024bcab90c1a114811a7202d956c3e586bf4",
+    "upstream": "origin/main",
+    "ahead": 0,
+    "behind": 0
+  },
+  "workOrder": {
+    "path": "scratch/CAMPAIGN-16-PHASE-C-UNPAIRED-BOWTIE-ANSWERABILITY-WORK-ORDER-2026-08-27.md",
+    "expectedSha256": "74fb97e70ca5820a4e95acc62e2b0f3f54790d0eea766d2be58e8a427f924248",
+    "observedSha256": "74fb97e70ca5820a4e95acc62e2b0f3f54790d0eea766d2be58e8a427f924248",
+    "match": true
+  },
+  "frozenSpec": {
+    "path": "STANDALONE-BOWTIE-ANSWERABILITY-AUDIT-SPEC-2026-08-23.md",
+    "sectionsAppliedInPass2": ["10", "11", "12", "5.3 (work-order)"]
+  },
+  "pass1Frozen": {
+    "independentDerivationJsonPath": "audit/campaign-16-phase-c-check-2026-08-27-r5/independent-derivation.json",
+    "independentDerivationMdPath": "audit/campaign-16-phase-c-check-2026-08-27-r5/independent-derivation.md",
+    "blindingProvenanceJsonPath": "audit/campaign-16-phase-c-check-2026-08-27-r5/blinding-provenance.json",
+    "revisedInPass2": false,
+    "note": "Pass-1 files were re-read only; not modified, replaced, renamed, or reinterpreted."
+  },
+  "producerArtifactRoot": "audit/campaign-16-phase-c-unpaired-bowtie-2026-08-27-r5/",
+  "mechanicalGateResults": {
+    "s3_2_identityGate": {
+      "status": "PASS",
+      "banksMatched": 13,
+      "banksTotal": 13,
+      "gptBankExpected": "e4955f7b8c54e4880bd9ddb0f2f7c35881169f53051b5ed3ce21757f86287b3b",
+      "gptBankObserved": "e4955f7b8c54e4880bd9ddb0f2f7c35881169f53051b5ed3ce21757f86287b3b",
+      "producerMatchesLive": true,
+      "pass1Agreement": true
+    },
+    "s4_1_population": {
+      "suffixRosterSize": 50,
+      "pairedCount": 31,
+      "pairedEXACT": 30,
+      "pairedORDINAL_SUFFIX": 1,
+      "unpairedCount": 19,
+      "additionsById": 0,
+      "removalsById": 0,
+      "producerMatchesLive": true,
+      "pass1Agreement": true
+    },
+    "s4_2_unpairedPayloadDrift": {
+      "unpairedCount": 19,
+      "matches": 19,
+      "drifted": 0,
+      "producerMatchesLive": true,
+      "pass1Agreement": true
+    },
+    "s4_3_btFalsification": {
+      "liveR2IdsPresent": ["gpt_balance6a_2026_07_16_bt_perioperative_care_13_r2", "gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14_r2"],
+      "liveR2AbsentFromBowtieRoster": true,
+      "historicalPreRepairIdsAbsent": true,
+      "producerMatchesLive": true,
+      "pass1Agreement": true
+    },
+    "s4_4_structuralPrecondition": {
+      "deviations": 0,
+      "rowsChecked": 19,
+      "tokenShape": "3/4/4",
+      "keyCardinality": "1/2/2",
+      "producerMatchesLive": true,
+      "pass1Agreement": true
+    },
+    "s4_5_siblingAbsenceProbe": {
+      "exactHits": 0,
+      "ordinalHits": 0,
+      "substringHits": 0,
+      "totalHits": 0,
+      "producerMatchesLive": true,
+      "pass1Agreement": true
+    },
+    "s4_6_pairedPreservation": {
+      "matches": 31,
+      "total": 31,
+      "producerMatchesLive": true,
+      "pass1Agreement": true
+    }
+  },
+  "rowComparisons": [
+    {"n":  1, "surrogateId": "CAND-01", "candidateId": "gpt_2026_07_03_2114_t1_01_co_exposure_bowtie",              "independentVerdict": "PASS_STANDALONE",             "producerVerdict": "PASS_STANDALONE",             "exactAgreement": true,  "checkerAssessment": "AGREE — five keyed tokens directly supported by stem (CO alarm + closed room + gas-powered equipment + shared symptoms + SpO2 99%)."},
+    {"n":  2, "surrogateId": "CAND-02", "candidateId": "gpt_2026_07_03_2114_t2_01_cdiff_spores_bowtie",             "independentVerdict": "PASS_STANDALONE",             "producerVerdict": "PASS_STANDALONE",             "exactAgreement": true,  "checkerAssessment": "AGREE — positive C. difficile toxin plus stem findings supply keyed tokens directly."},
+    {"n":  3, "surrogateId": "CAND-03", "candidateId": "gpt_2026_07_03_2114_t2_02_imminent_suicide_bowtie",         "independentVerdict": "PASS_STANDALONE",             "producerVerdict": "PASS_STANDALONE",             "exactAgreement": true,  "checkerAssessment": "AGREE — plan + means + timing + secrecy request establish keyed condition and safety actions."},
+    {"n":  4, "surrogateId": "CAND-04", "candidateId": "gpt_format13_last_bowtie",                                    "independentVerdict": "PASS_STANDALONE",             "producerVerdict": "PASS_STANDALONE",             "exactAgreement": true,  "checkerAssessment": "AGREE — LA infusion with prodrome then seizure then V-ectopy + hypotension anchors LAST."},
+    {"n":  5, "surrogateId": "CAND-05", "candidateId": "gpt_format13_mh_bowtie",                                      "independentVerdict": "PASS_STANDALONE",             "producerVerdict": "PASS_STANDALONE",             "exactAgreement": true,  "checkerAssessment": "AGREE — volatile anesthetic + rapid ETCO2 rise + rigidity + fever supports MH; producer's UNSUPPORTED_ANYWHERE_CHECKED non-keyed provenance items are consistent."},
+    {"n":  6, "surrogateId": "CAND-06", "candidateId": "gpt_format13_pd_peritonitis_bowtie",                          "independentVerdict": "PASS_STANDALONE",             "producerVerdict": "PASS_STANDALONE",             "exactAgreement": true,  "checkerAssessment": "AGREE — cloudy effluent with new pain during maintenance PD supports keyed set."},
+    {"n":  7, "surrogateId": "CAND-07", "candidateId": "gpt_format14_hcm_bowtie",                                     "independentVerdict": "PASS_STANDALONE",             "producerVerdict": "PASS_STANDALONE",             "exactAgreement": true,  "checkerAssessment": "AGREE — Ca 15.2 mg/dL with malignancy and dehydration supports HCM; ordered protocol authorizes A."},
+    {"n":  8, "surrogateId": "CAND-08", "candidateId": "gpt_format15_acquired_methemoglobinemia_bowtie",              "independentVerdict": "PASS_STANDALONE",             "producerVerdict": "PASS_STANDALONE",             "exactAgreement": true,  "checkerAssessment": "AGREE — benzocaine + saturation-gap + MetHb 28% + normal G6PD supports acquired methemoglobinemia."},
+    {"n":  9, "surrogateId": "CAND-09", "candidateId": "gpt_format15_cardiac_tamponade_bowtie",                       "independentVerdict": "PASS_STANDALONE",             "producerVerdict": "PASS_STANDALONE",             "exactAgreement": true,  "checkerAssessment": "AGREE — enlarging PE + hypotension + tachycardia + RA/RV diastolic collapse anchors unstable tamponade."},
+    {"n": 10, "surrogateId": "CAND-10", "candidateId": "gpt_format15_ect_prolonged_seizure_bowtie",                   "independentVerdict": "PASS_STANDALONE",             "producerVerdict": "PASS_STANDALONE",             "exactAgreement": true,  "checkerAssessment": "AGREE — ECT under GA + 185 s motor + ictal EEG supports prolonged ECT-induced seizure; protocol authorizes A."},
+    {"n": 11, "surrogateId": "CAND-11", "candidateId": "gpt_format15_meningococcemia_bowtie",                         "independentVerdict": "PASS_STANDALONE",             "producerVerdict": "PASS_STANDALONE",             "exactAgreement": true,  "checkerAssessment": "AGREE — fever + hypotension + new confusion + purpura + culture drawn + ceftriaxone order supports meningococcemia."},
+    {"n": 12, "surrogateId": "CAND-12", "candidateId": "gpt_format15_palliative_malignant_bowel_obstruction_bowtie", "independentVerdict": "PASS_STANDALONE",             "producerVerdict": "PASS_STANDALONE",             "exactAgreement": true,  "checkerAssessment": "AGREE on primary. Producer records DISTRACTOR_PATIENT_FACT_INVENTION / P2 on non-keyed A4 (unnecessary octreotide sequencing premise). §12 explicitly permits a P2 secondary flag on a PASS row; primary verdict is unaffected."},
+    {"n": 13, "surrogateId": "CAND-13", "candidateId": "gpt_format15_severe_asthma_bowtie",                            "independentVerdict": "PASS_STANDALONE",             "producerVerdict": "PASS_STANDALONE",             "exactAgreement": true,  "checkerAssessment": "AGREE — RR 34 + 1–2 word speech + SpO2 88% RA + PEF 42% + protocol availability supports severe exacerbation."},
+    {"n": 14, "surrogateId": "CAND-14", "candidateId": "gpt_format15_sickle_acute_chest_bowtie",                       "independentVerdict": "PASS_STANDALONE",             "producerVerdict": "PASS_STANDALONE",             "exactAgreement": true,  "checkerAssessment": "AGREE — SCD + new cough + tachypnea + SpO2 91% + new RLL infiltrate + orders anchors ACS."},
+    {"n": 15, "surrogateId": "CAND-15", "candidateId": "gpt_format15_splenic_sequestration_bowtie",                    "independentVerdict": "PASS_STANDALONE",             "producerVerdict": "PASS_STANDALONE",             "exactAgreement": true,  "checkerAssessment": "AGREE — SCD child + sudden splenomegaly + Hb 8.6→6.2 + shock physiology + no bleeding source supports splenic sequestration."},
+    {"n": 16, "surrogateId": "CAND-16", "candidateId": "gpt_format15_transfusion_anaphylaxis_bowtie",                  "independentVerdict": "PASS_STANDALONE",             "producerVerdict": "PASS_STANDALONE",             "exactAgreement": true,  "checkerAssessment": "AGREE — angioedema + stridor + wheeze + hypotension 5 min into plasma component supports anaphylactic transfusion reaction."},
+    {"n": 17, "surrogateId": "CAND-17", "candidateId": "gpt_format15_vasa_previa_bleeding_bowtie",                     "independentVerdict": "PASS_STANDALONE",             "producerVerdict": "PASS_STANDALONE",             "exactAgreement": true,  "checkerAssessment": "AGREE — antenatal diagnosis + membrane rupture with immediate painless bleeding + sustained fetal bradycardia supports ruptured vasa previa."},
+    {"n": 18, "surrogateId": "CAND-18", "candidateId": "gpt_format7c_exercise_hypoglycemia_bowtie",                    "independentVerdict": "PASS_STANDALONE",             "producerVerdict": "FAIL_UNSUPPORTED_TOKEN_PREMISE", "exactAgreement": false, "checkerAssessment": "DISAGREE. Producer classifies keyed A3 support as MISSING_CLIENT_FACT because the stem asserts a preexisting meal/insulin plan but does not assert an existing client-specific hypoglycemia treatment plan or rapid-carbohydrate access, while rationale.byChoice[A3], rationale.correct, and testTakingStrategy all reference 'the existing hypoglycemia plan.' Phase-F provenance is RATIONALE_ONLY. Under §11–§12 fixed precedence with sibling inspection unreachable, FAIL_UNSUPPORTED_TOKEN_PREMISE follows correctly from that Phase-E classification. Pass-1 treated the same element as GENERAL_KNOWLEDGE_LINK (standard T1DM self-management education). Both readings are internally defensible under §10; the divergence is upstream at the classification choice. Pass 1 is not revised per pass-2 instructions."},
+    {"n": 19, "surrogateId": "CAND-19", "candidateId": "gpt_format7c_heart_failure_action_plan_bowtie",                "independentVerdict": "PASS_STANDALONE",             "producerVerdict": "PASS_STANDALONE",             "exactAgreement": true,  "checkerAssessment": "AGREE — individualized yellow-zone plan is defined inside the stem; today +3 lb + new bilateral edema + exertional dyspnea + no red-zone signs supports the keyed set."}
+  ],
+  "verdictAgreementCounts": {
+    "exactAgreements": 18,
+    "disagreements": 1,
+    "totalRows": 19,
+    "requiredForExitGate": 19,
+    "exitGateMet": false
+  },
+  "cand18Focus": {
+    "candidateId": "gpt_format7c_exercise_hypoglycemia_bowtie",
+    "producerPrimaryVerdict": "FAIL_UNSUPPORTED_TOKEN_PREMISE",
+    "producerSecondaryFlags": ["RATIONALE_ADDS_MISSING_FACT"],
+    "producerAdvisoryPriority": "P1",
+    "producerAffectedToken": "A3",
+    "producerMissingFact": "Confirmation that the client already has an established hypoglycemia plan and access to rapid carbohydrate.",
+    "producerProvenance": "RATIONALE_ONLY",
+    "producerProvenanceSurfacesQuoted": ["rationale.byChoice[A3]", "rationale.correct", "testTakingStrategy"],
+    "phaseESha256": "57af275beb9b4bdafb73775c73d26ebd31a032f471acb9314f8fac30f548879e",
+    "phaseFSha256": "021112323879082c0a8f0308fba6b3b9a4f732be32a2c7401b3a6deb1e75fded",
+    "liveContentReconfirmed": true,
+    "checkerConclusion": "Producer's Phase-E classification of A3 as MISSING_CLIENT_FACT and Phase-F provenance of RATIONALE_ONLY are supported by the actual candidate content (stem asserts a preexisting meal/insulin plan only; the three named surfaces do assert an 'existing hypoglycemia plan' that the stem does not). Under §12 fixed precedence and the §4.5 zero-hit probe that leaves sibling inspection unreachable, FAIL_UNSUPPORTED_TOKEN_PREMISE follows correctly from that classification. The pass-1 independent verdict PASS_STANDALONE relied on treating the same element as GENERAL_KNOWLEDGE_LINK (universal T1DM DSMES content). Both readings are internally coherent under §10; the divergence is at the §10 support-classification choice for a keyed action whose wording contains a definite article. Pass 1 stands as written; no reinterpretation of pass 1 has been performed."
+  },
+  "producerInternalConsistency": {
+    "adjudicationRowCount": 19,
+    "surrogatesEnumerated": "CAND-01 through CAND-19",
+    "phaseELocksPresent": 19,
+    "phaseFLocksPresent": 19,
+    "stage1LocksPresent": 19,
+    "stage2LocksPresent": 19,
+    "sealedSemanticTurns": 38,
+    "isolatedSolContexts": 19,
+    "combinedTotalsArithmetic": "18 PASS_STANDALONE + 20 preserved paired PASS_STANDALONE = 38; 0 + 7 = 7 FAIL_HIDDEN_CASE_DEPENDENCY; 1 + 4 = 5 FAIL_UNSUPPORTED_TOKEN_PREMISE; totals sum to 50",
+    "arithmeticCorrect": true,
+    "trapDisposition": {"trap1": "handled (Node walk, not MCP file search)", "trap2": "N/A", "trap3": "N/A", "trap4": "N/A", "trap5": "handled (only pure derivePopulation/stableJson/sha256)", "trap6": "handled (working-tree filesystem reads only)"},
+    "result": "CONSISTENT"
+  },
+  "preservation": {
+    "banksUnchanged": true,
+    "banksVerifiedByReHash": true,
+    "revision4TreePreserved": true,
+    "revision4TreeFileCount": 8,
+    "revision4OpeningEqualsClosing": true,
+    "revision4ClosingEqualsLive": true,
+    "repositoryHeadUnchanged": true,
+    "upstreamState": {"branch": "main", "upstream": "origin/main", "ahead": 0, "behind": 0},
+    "unrelatedDirtyPathsUnchanged": true,
+    "pass1FilesUnmodified": true,
+    "producerArtifactsUnmodified": true,
+    "result": "PASS"
+  },
+  "exitGateSatisfied": false,
+  "failedExitGate": "Work-order §12 checker exit-gate item — 'exact primary-verdict agreement on all 19 unpaired candidates between the independent Claude derivation and the producer disposition table' (equivalently the pass-2 requirement that verdictAgreementCounts.exactAgreements equal 19). Observed 18 of 19. Disagreement is confined to CAND-18 (gpt_format7c_exercise_hypoglycemia_bowtie). Neither record has been converted; both stand as written for the architect to adjudicate.",
+  "checkerFinalOutcome": "BLOCKED_ON_VERDICT_DISAGREEMENT"
+}

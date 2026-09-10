@@ -1,0 +1,348 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A4",
+      "A3"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P2",
+      "P3"
+    ]
+  },
+  "instruction": "The two blind records are immutable. Compare them with the current canonical five-target selection and complete standalone item. Do not inspect or infer sibling/corpus material. Return the required Phase-E standalone-adjudication record without revising either blind stage.",
+  "stage1": {
+    "condition": "Yellow-zone worsening heart failure with fluid-volume excess",
+    "evaluationParameters": [
+      "Morning weight trend after implementation of the yellow-zone plan.",
+      "Changes in bilateral ankle edema and exertional dyspnea, including development of dyspnea at rest."
+    ],
+    "missingInformation": [
+      "Current vital signs and oxygen saturation",
+      "Whether the heart-failure team confirms the extra diuretic dose",
+      "Response after following the yellow-zone instructions"
+    ],
+    "priorityActions": [
+      "Contact the heart-failure team the same day to report the 3-lb weight gain, new bilateral ankle edema, and increased exertional dyspnea.",
+      "Follow the agreed sodium and fluid limits and administer the prescribed one-time extra diuretic dose only if the heart-failure team confirms it."
+    ],
+    "reasoning": "The client meets the individualized yellow-zone definition because a 3-lb overnight gain occurs with both new edema and increased exertional dyspnea. The safest priorities are to activate the prescribed same-day escalation pathway and follow the existing diet, fluid, and conditional-diuretic instructions. Weight and congestion symptoms directly evaluate response or deterioration.",
+    "stage1Confidence": "high",
+    "stemEvidence": [
+      {
+        "evidence": "Morning weight is 3 lb above yesterday after 3 weeks of less than 1-lb variation.",
+        "target": "Yellow-zone worsening heart failure with fluid-volume excess"
+      },
+      {
+        "evidence": "New bilateral ankle edema and shortness of breath with minimal walking are present.",
+        "target": "Yellow-zone worsening heart failure with fluid-volume excess"
+      },
+      {
+        "evidence": "The individualized plan requires a same-day call when weight gain occurs with swelling or increased exertional dyspnea.",
+        "target": "Contact the heart-failure team the same day to report the 3-lb weight gain, new bilateral ankle edema, and increased exertional dyspnea."
+      },
+      {
+        "evidence": "The plan directs adherence to agreed sodium/fluid limits and permits the one-time extra diuretic only after team confirmation.",
+        "target": "Follow the agreed sodium and fluid limits and administer the prescribed one-time extra diuretic dose only if the heart-failure team confirms it."
+      },
+      {
+        "evidence": "Weight gain is the plan's quantified indicator of worsening congestion.",
+        "target": "Morning weight trend after implementation of the yellow-zone plan."
+      },
+      {
+        "evidence": "Edema and exertional dyspnea are the client's new congestion symptoms; dyspnea at rest is currently absent.",
+        "target": "Changes in bilateral ankle edema and exertional dyspnea, including development of dyspnea at rest."
+      }
+    ]
+  },
+  "stage1Sha256": "69c0c6086f5dfc6dd75bd470b740b782dbdf7a6928e91c72557670a40b54a120",
+  "stage2": {
+    "actionLabels": [
+      "A4",
+      "A3"
+    ],
+    "ambiguousAlternatives": [],
+    "conditionLabel": "C2",
+    "missingInformation": [
+      "Current vital signs and oxygen saturation",
+      "Whether the heart-failure team confirms the one-time extra diuretic dose",
+      "Clinical response after the yellow-zone plan is implemented"
+    ],
+    "parameterLabels": [
+      "P2",
+      "P3"
+    ],
+    "poolAnswerability": "ANSWERABLE",
+    "reasoning": "The client meets the individualized yellow-zone definition exactly: a 3-lb morning weight gain is accompanied by new bilateral ankle edema and increased exertional dyspnea. The plan explicitly prioritizes same-day team contact and makes the prescribed extra diuretic conditional on team confirmation. Standardized morning weight and subsequent congestion and urine-response findings are the most relevant evaluation parameters.",
+    "selectionEvidence": [
+      "C2: The 3-lb morning weight gain plus new edema and increased exertional dyspnea exactly crosses the individualized yellow-zone threshold.",
+      "A4: The action plan explicitly instructs the client to call the heart-failure team the same day when yellow-zone findings occur.",
+      "A3: The plan explicitly permits the already prescribed one-time extra diuretic dose only after team confirmation.",
+      "P2: Morning weight is the plan's quantified congestion indicator and provides a standardized measure of response.",
+      "P3: Dyspnea, edema, and diuretic-associated urine response directly indicate improvement or progression of fluid retention after the plan is implemented."
+    ],
+    "stage2Confidence": "high",
+    "tokenPremiseTable": [
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A1",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The explicit same-day instruction rules out waiting one week.",
+        "supportingStemText": "Yellow-zone instructions are to call the heart-failure team the same day."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A2",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The stem prohibits unconfirmed medication escalation and specifies only one prescribed extra dose.",
+        "supportingStemText": "Take the already prescribed one-time extra diuretic dose only after the team confirms it."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A3",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "This action reproduces the medication instruction in the individualized plan.",
+        "supportingStemText": "Take the already prescribed one-time extra diuretic dose only after the team confirms it."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A4",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The threshold findings and required same-day report are explicit.",
+        "supportingStemText": "Yellow-zone instructions are to call the heart-failure team the same day; today there is a 3-lb gain, new bilateral ankle edema, and increased exertional dyspnea."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "C1",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The change exceeds prior variation and is accompanied by new congestion symptoms.",
+        "supportingStemText": "Today weight is 3 lb above yesterday, with new bilateral ankle edema and shortness of breath walking bedroom to kitchen."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "C2",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The client's findings exactly satisfy the individualized yellow-zone definition.",
+        "supportingStemText": "The yellow zone is a morning weight gain of at least 2 lb in 24 hours together with new swelling or increased exertional dyspnea; today weight is 3 lb higher with both findings."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "C3",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Objective congestion findings make isolated deconditioning inconsistent with the stem.",
+        "supportingStemText": "New bilateral ankle edema accompanies the increased exertional dyspnea and 3-lb weight gain."
+      },
+      {
+        "missingPremise": "No bowel symptoms, bowel intervention, or constipation risk is described.",
+        "opaqueTokenLabel": "P1",
+        "premiseStatus": "NO_CLIENT_PREMISE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Bowel movement does not evaluate the identified yellow-zone fluid-retention problem.",
+        "supportingStemText": ""
+      },
+      {
+        "missingPremise": "The stem does not explicitly state same-scale and post-urination measurement technique.",
+        "opaqueTokenLabel": "P2",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "LOW",
+        "rankabilityJustification": "Standardized morning weighing is the most comparable way to trend the explicitly identified weight signal.",
+        "supportingStemText": "The action plan uses morning weight change as its quantified yellow-zone indicator."
+      },
+      {
+        "missingPremise": "Post-plan symptom, edema, and urine-response findings have not yet been observed.",
+        "opaqueTokenLabel": "P3",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "LOW",
+        "rankabilityJustification": "These findings directly assess congestion and response after the prescribed plan is implemented.",
+        "supportingStemText": "The presenting changes are exertional dyspnea and bilateral ankle edema, and the plan may include a confirmed extra diuretic dose."
+      },
+      {
+        "missingPremise": "No diabetes diagnosis, glucose concern, or glycemic intervention is described.",
+        "opaqueTokenLabel": "P4",
+        "premiseStatus": "NO_CLIENT_PREMISE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "A1c does not evaluate the acute yellow-zone heart-failure findings.",
+        "supportingStemText": ""
+      }
+    ]
+  },
+  "stage2Sha256": "25a893526118256d42e9e6ba72eb09832a4809d6dc2d7a7d8ec811ab2f892716",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions — select 2",
+          "zh": "优先措施——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Wait one week to see whether the weight returns to baseline.",
+            "opaqueTokenLabel": "A1",
+            "zh": "等待一周，观察体重是否自行恢复到基线。"
+          },
+          {
+            "en": "Double all diuretic doses immediately without contacting the team.",
+            "opaqueTokenLabel": "A2",
+            "zh": "不联系团队，立即把所有利尿剂剂量加倍。"
+          },
+          {
+            "en": "After the heart-failure team confirms the yellow-zone instruction, take the already prescribed one-time extra diuretic dose.",
+            "opaqueTokenLabel": "A3",
+            "zh": "心衰团队确认黄色区域指示后，服用医嘱中已预先规定的一次额外利尿剂。"
+          },
+          {
+            "en": "Call the heart-failure team today and report the weight change, edema, and exertional dyspnea.",
+            "opaqueTokenLabel": "A4",
+            "zh": "今天联系心衰团队，报告体重变化、水肿和活动后呼吸困难。"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的状况"
+        },
+        "tokens": [
+          {
+            "en": "Stable day-to-day weight fluctuation",
+            "opaqueTokenLabel": "C1",
+            "zh": "稳定的日常体重波动"
+          },
+          {
+            "en": "Worsening fluid retention crossing the client’s yellow-zone threshold",
+            "opaqueTokenLabel": "C2",
+            "zh": "液体潴留恶化并超过患者的黄色区域阈值"
+          },
+          {
+            "en": "Isolated physical deconditioning without congestion",
+            "opaqueTokenLabel": "C3",
+            "zh": "无充血的单纯体能下降"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor — select 2",
+          "zh": "需要监测的指标——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Daily bowel-movement frequency",
+            "opaqueTokenLabel": "P1",
+            "zh": "每日排便次数"
+          },
+          {
+            "en": "Morning weight on the same scale after urination",
+            "opaqueTokenLabel": "P2",
+            "zh": "排尿后使用同一台体重秤测得的晨起体重"
+          },
+          {
+            "en": "Dyspnea, ankle edema, and urine response after the plan is implemented",
+            "opaqueTokenLabel": "P3",
+            "zh": "执行计划后的呼吸困难、踝部水肿和尿量反应"
+          },
+          {
+            "en": "Hemoglobin A1c",
+            "opaqueTokenLabel": "P4",
+            "zh": "糖化血红蛋白"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "体内钠和水积聚，可表现为体重上升、水肿和呼吸困难。",
+        "termEn": "fluid retention",
+        "termZh": "液体潴留"
+      },
+      {
+        "defZh": "根据个人症状和监测阈值规定何时自我处理、联系团队或紧急就医的计划。",
+        "termEn": "heart-failure action plan",
+        "termZh": "心力衰竭行动计划"
+      },
+      {
+        "defZh": "利尿剂后尿量、体重和充血症状的变化。",
+        "termEn": "diuretic response",
+        "termZh": "利尿反应"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct: the supplied threshold is crossed and is supported by new edema and exertional dyspnea.",
+          "opaqueTokenLabel": "C2",
+          "zh": "正确：患者超过题干给出的阈值，并有新发水肿和活动后呼吸困难支持。"
+        },
+        {
+          "en": "Incorrect: prior variation was under 1 lb; the current 3-lb change plus symptoms exceeds the client’s normal pattern.",
+          "opaqueTokenLabel": "C1",
+          "zh": "错误：过去波动小于 1 磅；本次增加 3 磅并伴症状，超出患者平常模式。"
+        },
+        {
+          "en": "Incorrect: new edema and rapid weight gain indicate congestion rather than isolated conditioning.",
+          "opaqueTokenLabel": "C3",
+          "zh": "错误：新发水肿和快速增重提示充血，而不是单纯体能下降。"
+        },
+        {
+          "en": "Correct: the individualized yellow-zone plan directs same-day contact.",
+          "opaqueTokenLabel": "A4",
+          "zh": "正确：个体化黄色区域计划要求当天联系团队。"
+        },
+        {
+          "en": "Correct: the dose is already prescribed and is taken only after the team confirms the plan condition.",
+          "opaqueTokenLabel": "A3",
+          "zh": "正确：该剂量已在医嘱中预先规定，并且只有团队确认计划条件后才服用。"
+        },
+        {
+          "en": "Incorrect: unapproved dose escalation can cause hypotension, kidney injury, and electrolyte imbalance.",
+          "opaqueTokenLabel": "A2",
+          "zh": "错误：未经批准加量可能导致低血压、肾损伤和电解质紊乱。"
+        },
+        {
+          "en": "Incorrect: the client has already crossed the plan’s same-day action threshold.",
+          "opaqueTokenLabel": "A1",
+          "zh": "错误：患者已达到计划规定的当天行动阈值。"
+        },
+        {
+          "en": "Correct: standardized daily weight directly tracks short-term fluid change.",
+          "opaqueTokenLabel": "P2",
+          "zh": "正确：标准化每日体重可直接反映短期液体变化。"
+        },
+        {
+          "en": "Correct: edema, dyspnea, and urine response show improvement or worsening congestion.",
+          "opaqueTokenLabel": "P3",
+          "zh": "正确：水肿、呼吸困难和尿量反应可显示充血改善或恶化。"
+        },
+        {
+          "en": "Incorrect: A1c does not measure short-term heart-failure fluid response.",
+          "opaqueTokenLabel": "P4",
+          "zh": "错误：糖化血红蛋白不能评价短期心衰液体反应。"
+        },
+        {
+          "en": "Incorrect: bowel frequency is not a direct response parameter for this congestion plan.",
+          "opaqueTokenLabel": "P1",
+          "zh": "错误：排便次数不是该充血计划的直接反应指标。"
+        }
+      ],
+      "correct": {
+        "en": "The client has crossed the supplied yellow-zone threshold and has corroborating edema and worsening exertional dyspnea, making worsening fluid retention more likely than ordinary day-to-day weight fluctuation. The priority is to contact the heart-failure team and, after confirmation, take the already prescribed one-time extra diuretic dose while continuing the agreed sodium/fluid limits. Morning weight and congestion symptoms/diuretic response are the most direct outcome measures.",
+        "zh": "患者已超过题干规定的黄色区域阈值，并同时出现水肿和活动后呼吸困难加重，因此比普通日常体重波动更符合液体潴留恶化。优先措施是联系心衰团队，并在团队确认后服用医嘱中已预先规定的一次额外利尿剂，同时继续遵守已商定的钠和液体限制。晨起体重以及充血症状和利尿反应，是最直接的结局指标。"
+      }
+    },
+    "stem": {
+      "en": "A client with chronic heart failure uses an individualized home action plan. The plan defines the yellow zone as a morning weight gain of at least 2 lb in 24 hours together with new swelling or increased exertional dyspnea. Yellow-zone instructions are to call the heart-failure team the same day, follow the agreed sodium/fluid limits, and take the already prescribed one-time extra diuretic dose only after the team confirms it.\n\nFor the past 3 weeks, the client’s morning weight has varied by less than 1 lb. Today the weight is 3 lb above yesterday’s value. The client has new bilateral ankle edema and becomes short of breath walking from the bedroom to the kitchen. There is no chest pain, syncope, or dyspnea at rest.\n\nComplete the bowtie by selecting the most likely condition, the 2 priority actions, and the 2 parameters to monitor.",
+      "zh": "一名慢性心力衰竭患者使用个体化家庭行动计划。计划规定：若晨起体重在 24 小时内增加至少 2 磅，并伴有新出现的水肿或活动后呼吸困难加重，则属于黄色区域。黄色区域指示为：当天联系心衰团队，遵守已经商定的钠和液体限制，并且只有在团队确认后才服用医嘱中预先规定的一次额外利尿剂。\n\n过去 3 周，患者晨起体重波动均小于 1 磅。今天体重比昨天增加 3 磅，出现新的双侧踝部水肿，并且从卧室走到厨房就会气短。无胸痛、晕厥或静息时呼吸困难。\n\n完成蝴蝶结题：选择最可能的状况、2 项优先措施和 2 项需要监测的指标。"
+    },
+    "testTakingStrategy": {
+      "en": "Use the client-specific threshold in the stem, not a universal cutoff. Choose only actions already authorized by that plan.",
+      "zh": "使用题干中的患者个体化阈值，不要套用通用界值。只选择该行动计划中已经授权的措施。"
+    }
+  }
+}

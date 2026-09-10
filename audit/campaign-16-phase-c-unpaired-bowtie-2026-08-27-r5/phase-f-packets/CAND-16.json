@@ -1,0 +1,285 @@
+{
+  "candidateSurfaces": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions — select 2",
+          "zh": "优先措施——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Administer an ordered diuretic for presumed volume overload",
+            "opaqueTokenLabel": "A1",
+            "zh": "按医嘱给予利尿剂以处理推定的容量超负荷"
+          },
+          {
+            "en": "Administer ordered epinephrine and provide airway and oxygen support",
+            "opaqueTokenLabel": "A2",
+            "zh": "按医嘱给予肾上腺素并提供气道和氧疗支持"
+          },
+          {
+            "en": "Slow the transfusion and give an antihistamine only",
+            "opaqueTokenLabel": "A3",
+            "zh": "减慢输血并仅给予抗组胺药"
+          },
+          {
+            "en": "Stop the transfusion and activate the emergency/transfusion-reaction response",
+            "opaqueTokenLabel": "A4",
+            "zh": "停止输血并启动紧急/输血反应处理流程"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的状况"
+        },
+        "tokens": [
+          {
+            "en": "Transfusion-associated circulatory overload",
+            "opaqueTokenLabel": "C1",
+            "zh": "输血相关循环超负荷"
+          },
+          {
+            "en": "Acute hemolytic transfusion reaction",
+            "opaqueTokenLabel": "C2",
+            "zh": "急性溶血性输血反应"
+          },
+          {
+            "en": "Anaphylactic transfusion reaction",
+            "opaqueTokenLabel": "C3",
+            "zh": "输血相关过敏性休克反应"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor — select 2",
+          "zh": "需要监测的指标——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Airway patency, work of breathing, and oxygen saturation",
+            "opaqueTokenLabel": "P1",
+            "zh": "气道通畅、呼吸功和血氧饱和度"
+          },
+          {
+            "en": "Daily weight and jugular venous pressure",
+            "opaqueTokenLabel": "P2",
+            "zh": "每日体重和颈静脉压"
+          },
+          {
+            "en": "Blood pressure, mental status, and peripheral perfusion",
+            "opaqueTokenLabel": "P3",
+            "zh": "血压、意识状态和外周灌注"
+          },
+          {
+            "en": "Urine hemoglobin and flank pain",
+            "opaqueTokenLabel": "P4",
+            "zh": "尿血红蛋白和腰痛"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "皮下或黏膜深层迅速肿胀，可累及唇、舌和气道。",
+        "termEn": "angioedema",
+        "termZh": "血管性水肿"
+      },
+      {
+        "defZh": "上气道狭窄时出现的高调呼吸音。",
+        "termEn": "stridor",
+        "termZh": "喘鸣"
+      },
+      {
+        "defZh": "血液向组织输送氧和营养物质的过程。",
+        "termEn": "perfusion",
+        "termZh": "灌注"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct: hypotension, angioedema, stridor, and bronchospasm within minutes of a plasma-containing component fit an anaphylactic transfusion reaction.",
+          "opaqueTokenLabel": "C3",
+          "zh": "正确：输注含血浆成分后数分钟内出现低血压、血管性水肿、喘鸣和支气管痉挛，符合输血相关过敏性休克反应。"
+        },
+        {
+          "en": "Incorrect: acute hemolysis is more consistent with fever, flank or back pain, and hemoglobinuria, which are absent.",
+          "opaqueTokenLabel": "C2",
+          "zh": "错误：急性溶血更常见发热、腰背痛和血红蛋白尿，而本例均不存在。"
+        },
+        {
+          "en": "Incorrect: circulatory overload more often produces hypertension, jugular venous distention, and pulmonary congestion rather than angioedema and stridor.",
+          "opaqueTokenLabel": "C1",
+          "zh": "错误：循环超负荷更常见高血压、颈静脉怒张和肺淤血，而不是血管性水肿和喘鸣。"
+        },
+        {
+          "en": "Correct: a suspected transfusion reaction requires immediate discontinuation and activation of the emergency/transfusion-reaction response.",
+          "opaqueTokenLabel": "A4",
+          "zh": "正确：疑似输血反应时必须立即停止输血并启动紧急/输血反应处理流程。"
+        },
+        {
+          "en": "Correct: anaphylactic respiratory and cardiovascular involvement requires immediate ordered epinephrine and supportive airway/oxygen care.",
+          "opaqueTokenLabel": "A2",
+          "zh": "正确：过敏性反应累及呼吸和心血管系统时，需要立即按医嘱给予肾上腺素，并提供气道和氧疗支持。"
+        },
+        {
+          "en": "Incorrect: slowing the transfusion and relying on an antihistamine does not treat anaphylaxis and leaves exposure continuing.",
+          "opaqueTokenLabel": "A3",
+          "zh": "错误：减慢输血并仅依赖抗组胺药不能治疗过敏性休克，还会继续暴露于致敏成分。"
+        },
+        {
+          "en": "Incorrect: an ordered diuretic is a volume-overload branch and does not address this hypotensive airway emergency.",
+          "opaqueTokenLabel": "A1",
+          "zh": "错误：按医嘱使用利尿剂属于容量超负荷的处理分支，不能处理本例低血压伴气道受累的急症。"
+        },
+        {
+          "en": "Correct: stridor, work of breathing, and oxygen saturation track airway patency and oxygenation.",
+          "opaqueTokenLabel": "P1",
+          "zh": "正确：喘鸣、呼吸功和血氧饱和度用于追踪气道通畅与氧合。"
+        },
+        {
+          "en": "Correct: blood pressure, mental status, and peripheral perfusion track cardiovascular response.",
+          "opaqueTokenLabel": "P3",
+          "zh": "正确：血压、意识状态和外周灌注用于追踪心血管反应。"
+        },
+        {
+          "en": "Incorrect: urine hemoglobin and flank pain target a hemolytic pattern rather than the two immediate response domains in this presentation.",
+          "opaqueTokenLabel": "P4",
+          "zh": "错误：尿血红蛋白和腰痛针对溶血模式，而不是本例需要即时追踪的两个反应领域。"
+        },
+        {
+          "en": "Incorrect: daily weight and jugular venous pressure target volume overload and do not directly follow this reaction's airway and hypotensive response.",
+          "opaqueTokenLabel": "P2",
+          "zh": "错误：每日体重和颈静脉压针对容量超负荷，不能直接追踪本反应的气道和低血压变化。"
+        }
+      ],
+      "correct": {
+        "en": "The rapid onset of hypotension plus upper- and lower-airway involvement after a plasma-containing component supports an anaphylactic transfusion reaction rather than a mild allergic reaction, hemolysis, or circulatory overload. The transfusion must be stopped and the emergency/transfusion-reaction response activated. Ordered epinephrine and airway/oxygen support treat the immediate reaction. Airway patency and oxygenation form one monitoring domain; blood pressure and perfusion response form a separate domain.",
+        "zh": "输注含血浆成分后迅速出现低血压并累及上、下气道，支持输血相关过敏性休克反应，而不是轻度过敏反应、溶血反应或循环超负荷。必须停止输血并启动紧急/输血反应处理流程。按医嘱给予肾上腺素以及气道和氧疗支持，用于处理即时反应。气道通畅和氧合属于一个监测领域；血压和灌注反应属于另一个独立领域。"
+      }
+    },
+    "stem": {
+      "en": "Five minutes after a plasma-containing blood component is started, an adult develops generalized hives, swelling of the lips and tongue, stridor with wheezing, heart rate 132/min, and blood pressure 76/40 mm Hg. The client has no fever, flank pain, hemoglobinuria, jugular venous distention, or hypertension. The emergency transfusion-reaction protocol and prescribed emergency medications are available.\n\nComplete the bowtie by selecting the most likely condition, the 2 priority actions, and the 2 parameters to monitor.",
+      "zh": "一名成人开始输注含血浆的血液成分 5 分钟后，出现全身荨麻疹、唇舌肿胀、喘鸣伴哮鸣音，心率 132 次/分，血压 76/40 mm Hg。患者无发热、腰痛、血红蛋白尿、颈静脉怒张或高血压。输血反应紧急处理流程和已开立的急救药物均可立即使用。\n\n完成蝴蝶结题：选择最可能的状况、2 项优先措施和 2 项需要监测的指标。"
+    },
+    "testTakingStrategy": {
+      "en": "Anchor on the combination of timing, hypotension, and airway swelling. Then separate stopping exposure and activating help from treating anaphylaxis, and keep respiratory and perfusion monitoring distinct.",
+      "zh": "抓住发生时间、低血压和气道肿胀这一组合，再把停止暴露/启动救援与治疗过敏性休克区分开，并分别监测呼吸和灌注。"
+    }
+  },
+  "explicitlyLinkedHistoricalSources": [],
+  "instruction": "Phase E is immutable. For every missing client fact inspect only this candidate's rationale/byChoice, strategy, glossary, Chinese counterpart, and an explicitly linked historical source if one exists. Do not search the corpus. Classify bounded provenance, apply fixed verdict precedence, and record narrow bilingual/clinical/scope findings. Hidden-case dependency is unreachable and is a blocker if asserted.",
+  "phaseE": {
+    "anyCanonicalTargetDependsOnAbsentFact": false,
+    "blindExactMatch": true,
+    "canonicalSelection": {
+      "actionLabels": [
+        "A4",
+        "A2"
+      ],
+      "conditionLabel": "C3",
+      "parameterLabels": [
+        "P1",
+        "P3"
+      ]
+    },
+    "canonicalSetExplanation": "The five canonical targets are supported by explicit stem facts or ordinary clinical knowledge and remain uniquely preferable to all six distractors.",
+    "canonicalSetUniquelyDefensible": true,
+    "canonicalTargetSupport": [
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A2",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "Lip and tongue swelling, stridor, wheezing, and blood pressure 76/40 mm Hg; prescribed emergency medications are available."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A4",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "A severe reaction began five minutes after the blood component was started, and the emergency transfusion-reaction protocol is available."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C3",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "Five minutes after plasma exposure, the client develops generalized hives, angioedema, stridor, wheezing, tachycardia, and profound hypotension."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P1",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "Swelling of the lips and tongue, stridor, and wheezing are present."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P3",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "Heart rate is 132/min and blood pressure is 76/40 mm Hg."
+      }
+    ],
+    "distractorPremiseFindings": [
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A1",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "No jugular venous distention or hypertension; blood pressure is 76/40 mm Hg."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A3",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Stridor, wheezing, and blood pressure 76/40 mm Hg developed within five minutes."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C1",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Generalized hives, lip and tongue swelling, and stridor are present; jugular venous distention and hypertension are absent."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C2",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "There is no fever, flank pain, or hemoglobinuria."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P2",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "There is no jugular venous distention, and the client is profoundly hypotensive."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P4",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "The client has no hemoglobinuria or flank pain."
+      }
+    ],
+    "missingClientFacts": [],
+    "stage1Alignment": "FULL",
+    "stage1AlignmentExplanation": "Stage 1 independently identified the same condition and the same clinical action and evaluation domains as the canonical construct.",
+    "unstatedClientFactMateriallyChangesRankability": false
+  },
+  "phaseESha256": "bc0d9ff36d9633caea29c072707a11618ba759272c40a48a92d6b75f1209ccd9"
+}

@@ -1,0 +1,116 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A2"
+    ],
+    "conditionLabel": "C3",
+    "parameterLabels": [
+      "P3",
+      "P1"
+    ]
+  },
+  "canonicalSetExplanation": "The five canonical targets are supported by explicit stem facts or ordinary clinical knowledge and remain uniquely preferable to all six distractors.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Mucous membranes are dry, urine output has decreased, there are no heart failure findings, the renal assessment requires no treatment change, and IV-fluid orders are available."
+    },
+    {
+      "missingClientFact": "The stem does not list the medication names, doses, or timing.",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Serum calcium is 15.2 mg/dL with confusion and other symptoms; the oncology emergency protocol and medication orders are available."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The client has active lung cancer, calcium of 15.2 mg/dL, weakness, constipation, thirst, confusion, dry mucous membranes, and decreased urine output."
+    },
+    {
+      "missingClientFact": "Baseline creatinine and other quantitative renal values are not stated.",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Mucous membranes are dry, urine output has decreased, and IV hydration is ordered; renal assessment is specifically addressed."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Serum calcium is 15.2 mg/dL and calcium-lowering treatment is indicated."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "Mucous membranes are dry and urine output has decreased from usual."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A4",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "Serum calcium is 15.2 mg/dL with confusion, and emergency medication orders are available."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "No recent cytotoxic treatment, hyperkalemia, hyperphosphatemia, hyperuricemia, or acute kidney injury pattern is provided.",
+      "opaqueTokenLabel": "C1",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "Serum calcium is elevated to 15.2 mg/dL."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "No hyponatremia, low serum osmolality, or inappropriately concentrated urine is provided.",
+      "opaqueTokenLabel": "C2",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "Serum calcium is 15.2 mg/dL, with thirst, dry mucous membranes, and reduced urine output."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "The stem reports no pain complaint, pain-producing finding, or analgesic intervention.",
+      "opaqueTokenLabel": "P2",
+      "reviewerRankabilityImpact": "MATERIAL",
+      "supportClassification": "NOT_APPLICABLE",
+      "supportingStandaloneEvidence": ""
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "No ionized calcium result, major albumin abnormality, acid-base concern, or other need for separate ionized-calcium tracking is provided.",
+      "opaqueTokenLabel": "P4",
+      "reviewerRankabilityImpact": "MATERIAL",
+      "supportClassification": "MISSING_CLIENT_FACT",
+      "supportingStandaloneEvidence": "A total serum calcium of 15.2 mg/dL is provided."
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "missingFact": "No ionized calcium result, major albumin abnormality, acid-base concern, or other need for separate ionized-calcium tracking is provided.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P4",
+      "reviewerRankabilityImpact": "MATERIAL"
+    }
+  ],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "Stage 1 independently identified the same condition and the same clinical action and evaluation domains as the canonical construct.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

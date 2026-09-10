@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Priority actions — select 2",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor — select 2"
+  },
+  "stem": "A 24-year-old client with asthma presents to a clinic with rapidly worsening breathlessness. The client speaks only one or two words at a time, sits hunched forward, uses accessory muscles, and has a respiratory rate of 34/min, heart rate of 128/min, SpO₂ 88% on room air, and PEF 42% of personal best. The client is alert, with no urticaria, facial swelling, stridor, or choking event. Emergency transfer is available, and the clinic's acute-asthma protocol and medication orders are active. Complete the bow-tie by choosing the condition, 2 actions, and 2 parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Continue routine outpatient treatment and schedule follow-up next week"
+      },
+      {
+        "label": "A2",
+        "text": "Arrange immediate transfer to an acute-care facility"
+      },
+      {
+        "label": "A3",
+        "text": "Administer a sedative to reduce respiratory distress"
+      },
+      {
+        "label": "A4",
+        "text": "Give protocol-directed inhaled SABA plus ipratropium, controlled oxygen, and the ordered systemic corticosteroid"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Mild asthma exacerbation"
+      },
+      {
+        "label": "C2",
+        "text": "Anaphylaxis with upper-airway edema"
+      },
+      {
+        "label": "C3",
+        "text": "Severe asthma exacerbation"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Symptoms and PEF or lung-function response at 1 hour or earlier"
+      },
+      {
+        "label": "P2",
+        "text": "Routine chest radiograph and arterial blood gas results"
+      },
+      {
+        "label": "P3",
+        "text": "Eosinophil count and total IgE"
+      },
+      {
+        "label": "P4",
+        "text": "SpO₂, respiratory rate, accessory-muscle use, and mental status"
+      }
+    ]
+  }
+}

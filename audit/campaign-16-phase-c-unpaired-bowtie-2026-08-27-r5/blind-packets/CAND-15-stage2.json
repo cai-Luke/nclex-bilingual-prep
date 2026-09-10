@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Priority actions — select 2",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor — select 2"
+  },
+  "stem": "A 6-year-old child with sickle cell disease becomes weak and pale. The spleen is suddenly enlarged and tender, hemoglobin has fallen from a baseline of 8.6 g/dL to 6.2 g/dL, and the reticulocyte count is elevated. Heart rate is 142/min, blood pressure is 78/42 mm Hg, and capillary refill is 5 seconds. There is no external or internal bleeding source. A sickle cell specialist is directing care, and IV fluid and red-cell transfusion orders are available. Complete the bow-tie by choosing the condition, 2 actions, and 2 parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Transfuse rapidly until hemoglobin reaches the normal age-based range"
+      },
+      {
+        "label": "A2",
+        "text": "Begin the ordered IV fluid resuscitation immediately for hypovolemia"
+      },
+      {
+        "label": "A3",
+        "text": "Observe without intervention until the spleen returns to baseline"
+      },
+      {
+        "label": "A4",
+        "text": "Prepare and administer expert-directed red-cell transfusion without over-transfusion"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Acute blood-loss anemia"
+      },
+      {
+        "label": "C2",
+        "text": "Transient aplastic crisis"
+      },
+      {
+        "label": "C3",
+        "text": "Acute splenic sequestration crisis"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Serial spleen size and abdominal examination"
+      },
+      {
+        "label": "P2",
+        "text": "Peak expiratory flow and wheeze intensity"
+      },
+      {
+        "label": "P3",
+        "text": "Serum glucose and urine ketones"
+      },
+      {
+        "label": "P4",
+        "text": "Hemoglobin, blood pressure, mental status, and capillary refill"
+      }
+    ]
+  }
+}

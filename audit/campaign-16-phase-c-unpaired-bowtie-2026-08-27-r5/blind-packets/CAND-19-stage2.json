@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Priority actions — select 2",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor — select 2"
+  },
+  "stem": "A client with chronic heart failure uses an individualized home action plan. The plan defines the yellow zone as a morning weight gain of at least 2 lb in 24 hours together with new swelling or increased exertional dyspnea. Yellow-zone instructions are to call the heart-failure team the same day, follow the agreed sodium/fluid limits, and take the already prescribed one-time extra diuretic dose only after the team confirms it.\n\nFor the past 3 weeks, the client’s morning weight has varied by less than 1 lb. Today the weight is 3 lb above yesterday’s value. The client has new bilateral ankle edema and becomes short of breath walking from the bedroom to the kitchen. There is no chest pain, syncope, or dyspnea at rest.\n\nComplete the bowtie by selecting the most likely condition, the 2 priority actions, and the 2 parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Wait one week to see whether the weight returns to baseline."
+      },
+      {
+        "label": "A2",
+        "text": "Double all diuretic doses immediately without contacting the team."
+      },
+      {
+        "label": "A3",
+        "text": "After the heart-failure team confirms the yellow-zone instruction, take the already prescribed one-time extra diuretic dose."
+      },
+      {
+        "label": "A4",
+        "text": "Call the heart-failure team today and report the weight change, edema, and exertional dyspnea."
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Stable day-to-day weight fluctuation"
+      },
+      {
+        "label": "C2",
+        "text": "Worsening fluid retention crossing the client’s yellow-zone threshold"
+      },
+      {
+        "label": "C3",
+        "text": "Isolated physical deconditioning without congestion"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Daily bowel-movement frequency"
+      },
+      {
+        "label": "P2",
+        "text": "Morning weight on the same scale after urination"
+      },
+      {
+        "label": "P3",
+        "text": "Dyspnea, ankle edema, and urine response after the plan is implemented"
+      },
+      {
+        "label": "P4",
+        "text": "Hemoglobin A1c"
+      }
+    ]
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A4",
+      "A3"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P2",
+      "P3"
+    ]
+  },
+  "canonicalSetExplanation": "The five canonical targets are supported by explicit stem facts or ordinary clinical knowledge and remain uniquely preferable to all six distractors.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Take the already prescribed one-time extra diuretic dose only after the team confirms it."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Yellow-zone instructions are to call the heart-failure team the same day; today there is a 3-lb gain, new bilateral ankle edema, and increased exertional dyspnea."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The yellow zone is a morning weight gain of at least 2 lb in 24 hours together with new swelling or increased exertional dyspnea; today weight is 3 lb higher with both findings."
+    },
+    {
+      "missingClientFact": "The stem does not explicitly state same-scale and post-urination measurement technique.",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The action plan uses morning weight change as its quantified yellow-zone indicator."
+    },
+    {
+      "missingClientFact": "Post-plan symptom, edema, and urine-response findings have not yet been observed.",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The presenting changes are exertional dyspnea and bilateral ankle edema, and the plan may include a confirmed extra diuretic dose."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A1",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "Yellow-zone instructions are to call the heart-failure team the same day."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A2",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "Take the already prescribed one-time extra diuretic dose only after the team confirms it."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C1",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "Today weight is 3 lb above yesterday, with new bilateral ankle edema and shortness of breath walking bedroom to kitchen."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C3",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "New bilateral ankle edema accompanies the increased exertional dyspnea and 3-lb weight gain."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "No bowel symptoms, bowel intervention, or constipation risk is described.",
+      "opaqueTokenLabel": "P1",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "NOT_APPLICABLE",
+      "supportingStandaloneEvidence": ""
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "No diabetes diagnosis, glucose concern, or glycemic intervention is described.",
+      "opaqueTokenLabel": "P4",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "NOT_APPLICABLE",
+      "supportingStandaloneEvidence": ""
+    }
+  ],
+  "missingClientFacts": [],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "Stage 1 independently identified the same condition and the same clinical action and evaluation domains as the canonical construct.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

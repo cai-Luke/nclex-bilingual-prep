@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Priority actions — select 2",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor — select 2"
+  },
+  "stem": "Five minutes after a plasma-containing blood component is started, an adult develops generalized hives, swelling of the lips and tongue, stridor with wheezing, heart rate 132/min, and blood pressure 76/40 mm Hg. The client has no fever, flank pain, hemoglobinuria, jugular venous distention, or hypertension. The emergency transfusion-reaction protocol and prescribed emergency medications are available.\n\nComplete the bowtie by selecting the most likely condition, the 2 priority actions, and the 2 parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Administer an ordered diuretic for presumed volume overload"
+      },
+      {
+        "label": "A2",
+        "text": "Administer ordered epinephrine and provide airway and oxygen support"
+      },
+      {
+        "label": "A3",
+        "text": "Slow the transfusion and give an antihistamine only"
+      },
+      {
+        "label": "A4",
+        "text": "Stop the transfusion and activate the emergency/transfusion-reaction response"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Transfusion-associated circulatory overload"
+      },
+      {
+        "label": "C2",
+        "text": "Acute hemolytic transfusion reaction"
+      },
+      {
+        "label": "C3",
+        "text": "Anaphylactic transfusion reaction"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Airway patency, work of breathing, and oxygen saturation"
+      },
+      {
+        "label": "P2",
+        "text": "Daily weight and jugular venous pressure"
+      },
+      {
+        "label": "P3",
+        "text": "Blood pressure, mental status, and peripheral perfusion"
+      },
+      {
+        "label": "P4",
+        "text": "Urine hemoglobin and flank pain"
+      }
+    ]
+  }
+}

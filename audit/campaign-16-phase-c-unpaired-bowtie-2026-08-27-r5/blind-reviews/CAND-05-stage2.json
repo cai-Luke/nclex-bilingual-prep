@@ -1,0 +1,116 @@
+{
+  "actionLabels": [
+    "A1",
+    "A3"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C1",
+  "missingInformation": [
+    "Whether succinylcholine was also administered",
+    "Arterial blood gas, serum potassium, creatine kinase, and urine findings to assess severity and complications"
+  ],
+  "parameterLabels": [
+    "P1",
+    "P4"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The volatile-anesthetic exposure followed by otherwise unexplained rapidly rising end-tidal carbon dioxide, generalized rigidity, tachycardia, and a rapid core-temperature increase uniquely supports C1 within the condition pool. A1 and A3 are the time-critical interventions for this hypermetabolic anesthetic emergency. P1 and P4 directly track two prominent abnormalities and the response to treatment.",
+  "selectionEvidence": [
+    "Exposure to a volatile anesthetic is an established trigger for malignant hyperthermia.",
+    "End-tidal carbon dioxide rose rapidly from 38 to 72 mm Hg despite increased minute ventilation, indicating excessive carbon dioxide production rather than inadequate ventilation alone.",
+    "Generalized muscle rigidity strongly supports malignant hyperthermia.",
+    "Tachycardia at 142/min is consistent with the developing hypermetabolic crisis.",
+    "Core temperature increased rapidly by 3.1 °F (1.7 °C) within 20 minutes."
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Trigger discontinuation and 100% oxygen hyperventilation are standard immediate responses to the strongly supported malignant-hyperthermia presentation.",
+      "supportingStemText": "During general anesthesia with a volatile anesthetic, an adult client's end-tidal carbon dioxide rises rapidly from 38 to 72 mm Hg despite increased minute ventilation."
+    },
+    {
+      "missingPremise": "Evidence of infection or sepsis requiring cultures and empiric antibiotics as the primary response",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem instead presents an acute anesthetic-triggered hypermetabolic syndrome, so the missing infection premise makes this action clearly inferior.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "This constellation supports malignant hyperthermia, for which rapid protocol-directed IV dantrolene is the specific treatment.",
+      "supportingStemText": "Volatile anesthetic exposure, rapidly rising end-tidal carbon dioxide, tachycardia, generalized muscle rigidity, and rapidly rising core temperature"
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Ventilation escalation has not corrected the rise, and continuing the suspected volatile trigger would worsen the crisis.",
+      "supportingStemText": "End-tidal carbon dioxide rises rapidly from 38 to 72 mm Hg despite increased minute ventilation."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The full perioperative hypermetabolic pattern is characteristic of acute malignant hyperthermia.",
+      "supportingStemText": "During general anesthesia with a volatile anesthetic...end-tidal carbon dioxide rises rapidly...heart rate is 142/min, generalized muscle rigidity is present, and the core temperature has risen...in 20 minutes."
+    },
+    {
+      "missingPremise": "Hypotension, bronchospasm, urticaria, angioedema, or another acute hypersensitivity manifestation",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Anaphylaxis is possible during anesthesia in general, but the stem lacks its defining manifestations and instead supplies rigidity and hypercapnia favoring C1.",
+      "supportingStemText": "During general anesthesia with a volatile anesthetic"
+    },
+    {
+      "missingPremise": "Known thyrotoxicosis or compatible thyroid history and supporting manifestations such as goiter, tremor, gastrointestinal symptoms, or preoperative hyperthyroid findings",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Tachycardia and hyperthermia are nonspecific, while anesthetic-triggered rapid hypercapnia and generalized rigidity make C1 substantially more specific.",
+      "supportingStemText": "The heart rate is 142/min...and the core temperature has risen."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "This parameter is explicitly abnormal and can directly track treatment response.",
+      "supportingStemText": "End-tidal carbon dioxide rises rapidly from 38 to 72 mm Hg despite increased minute ventilation."
+    },
+    {
+      "missingPremise": "A suspected perioperative anaphylactic reaction for which serum tryptase would provide diagnostic support",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The selected syndrome is malignant hyperthermia, and the stem provides no hypersensitivity findings making tryptase a priority parameter.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "Suspected bacteremia, sepsis, or another infectious process warranting blood cultures",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "No infectious premise is present, so culture results do not monitor the acute anesthetic-triggered crisis.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The rapid temperature rise is explicitly documented and its trend directly evaluates progression and treatment response.",
+      "supportingStemText": "The core temperature has risen from 98.6 °F (37.0 °C) to 101.7 °F (38.7 °C) in 20 minutes."
+    }
+  ]
+}

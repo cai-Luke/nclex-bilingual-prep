@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Priority actions — select 2",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor — select 2"
+  },
+  "stem": "An adult in the last days of life has known intra-abdominal cancer, intermittent colicky abdominal pain, increasing distention, feculent vomiting, and no stool or flatus for 3 days. The prescriber has confirmed an obstructive bowel disorder. The goals are comfort, and no curative surgical pathway is planned. Comfort measures and symptom-control medication orders are available.\n\nComplete the bowtie by selecting the most likely condition, the 2 priority actions, and the 2 parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Administer the prescribed hyoscine butylbromide and ordered antiemetic regimen"
+      },
+      {
+        "label": "A2",
+        "text": "Review reversible or mechanical contributors and use goal-concordant nonpharmacologic comfort measures"
+      },
+      {
+        "label": "A3",
+        "text": "Start a stimulant laxative and high-fiber oral intake"
+      },
+      {
+        "label": "A4",
+        "text": "Begin prescribed octreotide immediately before a trial of hyoscine butylbromide"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Malignant ascites without bowel obstruction"
+      },
+      {
+        "label": "C2",
+        "text": "Malignant bowel obstruction"
+      },
+      {
+        "label": "C3",
+        "text": "Uncomplicated opioid-related constipation"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Tumor markers and lesion size"
+      },
+      {
+        "label": "P2",
+        "text": "Comfort, sedation, mouth dryness, and hydration burden"
+      },
+      {
+        "label": "P3",
+        "text": "Bowel sounds alone"
+      },
+      {
+        "label": "P4",
+        "text": "Vomiting frequency, abdominal distention, and colicky pain"
+      }
+    ]
+  }
+}

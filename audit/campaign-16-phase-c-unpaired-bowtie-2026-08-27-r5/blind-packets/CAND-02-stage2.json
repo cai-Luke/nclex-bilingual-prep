@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Actions to take",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor"
+  },
+  "stem": "A client who completed a 10-day course of clindamycin has had 8 watery stools in the past 12 hours with abdominal cramping and a temperature of 100.6 °F (38.1 °C). The client is alert but weak. A stool assay is positive for C. difficile toxin. Complete the bow-tie diagram for the nurse's priority focus.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Rely on alcohol-based hand sanitizer after all client contact"
+      },
+      {
+        "label": "A2",
+        "text": "Place the client in airborne isolation with an N95 respirator"
+      },
+      {
+        "label": "A3",
+        "text": "Clean shared equipment with a facility-approved sporicidal disinfectant"
+      },
+      {
+        "label": "A4",
+        "text": "Use contact precautions with gown and gloves before room entry"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "C. difficile infection with spore contamination risk"
+      },
+      {
+        "label": "C2",
+        "text": "Uncomplicated viral gastroenteritis"
+      },
+      {
+        "label": "C3",
+        "text": "Uncomplicated urinary tract infection"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Hydration status and electrolyte imbalance cues"
+      },
+      {
+        "label": "P2",
+        "text": "Stool frequency and volume"
+      },
+      {
+        "label": "P3",
+        "text": "Urine culture colony count"
+      },
+      {
+        "label": "P4",
+        "text": "Peak expiratory flow before meals"
+      }
+    ]
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "actionLabels": [
+    "A3",
+    "A4"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C1",
+  "missingInformation": [
+    "Blood pressure, heart rate, orthostatic findings, intake and output, and urine output",
+    "Serum electrolyte and renal function results",
+    "Abdominal distention, severe tenderness, ileus, or other cues of fulminant colitis"
+  ],
+  "parameterLabels": [
+    "P1",
+    "P2"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The symptoms, recent clindamycin exposure, and positive toxin assay uniquely support C1. C. difficile spores require contact precautions and sporicidal equipment cleaning, while stool output and hydration or electrolyte status are the two clinically relevant monitoring choices in the pool.",
+  "selectionEvidence": [
+    {
+      "opaqueTokenLabel": "C1",
+      "supportingStemFact": "The stool assay is positive for C. difficile toxin after a 10-day clindamycin course, with frequent watery diarrhea and cramping."
+    },
+    {
+      "opaqueTokenLabel": "A3",
+      "supportingStemFact": "Confirmed C. difficile with frequent watery stools creates a spore-contamination risk for shared equipment."
+    },
+    {
+      "opaqueTokenLabel": "A4",
+      "supportingStemFact": "The positive C. difficile toxin assay identifies an enteric infection requiring contact transmission precautions."
+    },
+    {
+      "opaqueTokenLabel": "P1",
+      "supportingStemFact": "Eight watery stools in 12 hours and weakness indicate risk for dehydration and electrolyte loss."
+    },
+    {
+      "opaqueTokenLabel": "P2",
+      "supportingStemFact": "The stem provides a baseline of eight watery stools in 12 hours, making stool frequency and volume a direct response parameter."
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly establishes symptomatic C. difficile infection and its contamination risk.",
+      "supportingStemText": "Completed a 10-day course of clindamycin; 8 watery stools in 12 hours; abdominal cramping; temperature 100.6 °F (38.1 °C); stool assay positive for C. difficile toxin."
+    },
+    {
+      "missingPremise": "Evidence supporting a viral cause instead of confirmed C. difficile infection.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The confirmed toxin-positive antibiotic-associated presentation rules against uncomplicated viral gastroenteritis as the most likely condition.",
+      "supportingStemText": "The stool assay is positive for C. difficile toxin following clindamycin exposure."
+    },
+    {
+      "missingPremise": "Urinary symptoms, urinalysis findings, or urine culture evidence supporting a urinary tract infection.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicit enteric diagnosis and absence of a urinary syndrome make C3 noncompetitive.",
+      "supportingStemText": "The client has watery diarrhea and abdominal cramping with a positive C. difficile toxin assay, not a urinary presentation."
+    },
+    {
+      "missingPremise": "A pathogen reliably removed or inactivated by alcohol-based hand sanitizer alone.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Ordinary infection-control knowledge establishes that alcohol sanitizer alone is inadequate for C. difficile spores.",
+      "supportingStemText": "The stool assay is positive for C. difficile toxin."
+    },
+    {
+      "missingPremise": "A suspected or confirmed airborne-transmitted infection requiring an N95 respirator.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "C. difficile requires enteric contact precautions rather than airborne isolation.",
+      "supportingStemText": "The identified pathogen is C. difficile in stool."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Confirmed symptomatic C. difficile creates environmental spore contamination risk addressed by sporicidal disinfection.",
+      "supportingStemText": "The stool assay is positive for C. difficile toxin and the client has frequent watery stools."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Contact precautions with gown and gloves are standard for symptomatic C. difficile infection.",
+      "supportingStemText": "The stool assay is positive for C. difficile toxin."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Frequent watery losses and weakness directly support monitoring hydration and electrolyte imbalance cues.",
+      "supportingStemText": "The client has had 8 watery stools in 12 hours and is weak."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem supplies a quantitative diarrhea baseline that should be trended.",
+      "supportingStemText": "The client has had 8 watery stools in the past 12 hours."
+    },
+    {
+      "missingPremise": "A suspected urinary infection for which urine culture colony count would evaluate diagnosis or response.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Urine culture monitoring is unrelated to the explicitly established enteric infection.",
+      "supportingStemText": "No urinary symptoms, urinalysis, or urine culture information is provided."
+    },
+    {
+      "missingPremise": "A respiratory condition for which serial peak expiratory flow measurements are clinically relevant.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Peak expiratory flow has no clinical connection to the presented C. difficile infection.",
+      "supportingStemText": "No respiratory symptoms, obstructive airway disease, or bronchodilator-related context is provided."
+    }
+  ]
+}

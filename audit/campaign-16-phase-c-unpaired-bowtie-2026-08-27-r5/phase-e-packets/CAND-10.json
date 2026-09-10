@@ -1,0 +1,340 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A3"
+    ],
+    "conditionLabel": "C3",
+    "parameterLabels": [
+      "P4",
+      "P3"
+    ]
+  },
+  "instruction": "The two blind records are immutable. Compare them with the current canonical five-target selection and complete standalone item. Do not inspect or infer sibling/corpus material. Return the required Phase-E standalone-adjudication record without revising either blind stage.",
+  "stage1": {
+    "condition": "Prolonged ECT-induced seizure",
+    "evaluationParameters": [
+      "Continuous EEG and isolated-limb motor activity for prompt termination of ictal activity and total seizure duration.",
+      "Oxygen saturation, ventilation, cardiac rhythm, and blood pressure for cardiopulmonary stability during and after termination."
+    ],
+    "missingInformation": [
+      "Current oxygen saturation, ventilation measurements, cardiac rhythm, and blood pressure",
+      "The specific protocol-ordered seizure-termination medication and dose",
+      "Whether seizure activity stops after the first termination intervention"
+    ],
+    "priorityActions": [
+      "Administer the protocol-ordered intravenous seizure-termination medication immediately in coordination with the anesthesia professional and ECT physician.",
+      "Maintain the airway and provide 100% oxygen with assisted ventilation until seizure activity ends and adequate spontaneous ventilation returns."
+    ],
+    "reasoning": "Persistent electrographic and isolated-limb motor seizure activity beyond 180 seconds after an ECT stimulus most strongly indicates a prolonged ECT-induced seizure. Immediate priorities are pharmacologic seizure termination under the active protocol and protection of oxygenation and ventilation, followed by confirmation of electrographic and motor cessation and surveillance for cardiopulmonary instability.",
+    "stage1Confidence": "high",
+    "stemEvidence": [
+      {
+        "evidence": "Rhythmic motor activity continues in the isolated limb 185 seconds after the stimulus.",
+        "target": "Prolonged ECT-induced seizure"
+      },
+      {
+        "evidence": "The EEG continues to show ictal activity at 185 seconds.",
+        "target": "Prolonged ECT-induced seizure"
+      },
+      {
+        "evidence": "Protocol orders for seizure termination are active, with the anesthesia professional and ECT physician present.",
+        "target": "Immediate administration of ordered seizure-termination medication"
+      },
+      {
+        "evidence": "The client remains unconscious under general anesthesia.",
+        "target": "Airway support, oxygenation, and assisted ventilation"
+      }
+    ]
+  },
+  "stage1Sha256": "7000a0407b4244c50bca27e29455f1f2c5766dd77e48efc76035fc19b720e692",
+  "stage2": {
+    "actionLabels": [
+      "A1",
+      "A3"
+    ],
+    "ambiguousAlternatives": [],
+    "conditionLabel": "C3",
+    "missingInformation": [
+      "Current oxygen saturation, ventilation, pulse, blood pressure, and cardiac rhythm",
+      "The specific protocol-directed seizure-termination medication and dose",
+      "Response to the first seizure-termination intervention"
+    ],
+    "parameterLabels": [
+      "P3",
+      "P4"
+    ],
+    "poolAnswerability": "ANSWERABLE",
+    "reasoning": "Persistent motor and electrographic ictal activity at 185 seconds most strongly supports a prolonged ECT-induced seizure. Active termination orders and the risks of an ongoing anesthetized seizure prioritize protocol-directed medication and airway/ventilatory support. Acute evaluation should confirm motor and EEG seizure cessation or recurrence and track cardiopulmonary stability.",
+    "selectionEvidence": [
+      "Rhythmic isolated-limb motor activity and EEG-confirmed ictal activity persist 185 seconds after the ECT stimulus.",
+      "Active protocol orders for seizure termination support immediate protocol-directed pharmacologic treatment.",
+      "Ongoing seizure activity under general anesthesia with persistent unconsciousness makes airway, ventilation, and oxygenation support a priority.",
+      "Motor and EEG activity directly measure seizure cessation or recurrence, while oxygen saturation, ventilation, pulse, and blood pressure assess cardiopulmonary stability.",
+      "The client has no new focal neurologic finding, while the stem explicitly documents continuing motor and EEG seizure activity."
+    ],
+    "stage2Confidence": "high",
+    "tokenPremiseTable": [
+      {
+        "missingPremise": "Evidence that the initial seizure ended and a new seizure began during recovery.",
+        "opaqueTokenLabel": "C1",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "MATERIAL",
+        "rankabilityJustification": "The described activity is continuous rather than a delayed recurrence during recovery.",
+        "supportingStemText": "Ictal activity is continuing 185 seconds after the stimulus, and the client has not regained consciousness."
+      },
+      {
+        "missingPremise": "Cessation within the expected brief post-stimulus interval.",
+        "opaqueTokenLabel": "C2",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "MATERIAL",
+        "rankabilityJustification": "Persistence to 185 seconds distinguishes this event from an expected brief therapeutic seizure.",
+        "supportingStemText": "Rhythmic motor activity and EEG ictal activity continue at 185 seconds."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "C3",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The sustained electrographic and motor seizure duration supports the prolonged-seizure label.",
+        "supportingStemText": "At 185 seconds after the stimulus, rhythmic motor activity continues in the isolated limb, and the EEG continues to show ictal activity."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A1",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The stem explicitly establishes active protocol authority for immediate seizure termination.",
+        "supportingStemText": "The anesthesia professional and ECT physician are at the bedside, and protocol orders for seizure termination are active."
+      },
+      {
+        "missingPremise": "A clinical indication for inducing another seizure after the current seizure has ended.",
+        "opaqueTokenLabel": "A2",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "MATERIAL",
+        "rankabilityJustification": "Another stimulus would not address the ongoing ictal activity and conflicts with the immediate termination objective.",
+        "supportingStemText": "Motor and EEG ictal activity are already continuing from the administered stimulus."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A3",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "An unconscious anesthetized client with a continuing seizure requires airway protection, oxygenation, and ventilatory support.",
+        "supportingStemText": "The client is under general anesthesia, remains unconscious, and has ongoing seizure activity."
+      },
+      {
+        "missingPremise": "Evidence that observation alone is appropriate despite the prolonged activity and active termination protocol.",
+        "opaqueTokenLabel": "A4",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "MATERIAL",
+        "rankabilityJustification": "The duration and explicit termination protocol support intervention rather than untreated observation.",
+        "supportingStemText": "Ictal activity persists at 185 seconds, and protocol orders for seizure termination are active."
+      },
+      {
+        "missingPremise": "A need to assess longitudinal depression response during the acute seizure event.",
+        "opaqueTokenLabel": "P1",
+        "premiseStatus": "NO_CLIENT_PREMISE",
+        "rankabilityImpact": "MATERIAL",
+        "rankabilityJustification": "A depression score does not evaluate immediate seizure termination or physiologic stability.",
+        "supportingStemText": ""
+      },
+      {
+        "missingPremise": "Completion of seizure termination and recovery to a state in which orientation can be assessed.",
+        "opaqueTokenLabel": "P2",
+        "premiseStatus": "NO_CLIENT_PREMISE",
+        "rankabilityImpact": "MATERIAL",
+        "rankabilityJustification": "Orientation is a later recovery assessment, not one of the two priority parameters during ongoing ictal activity.",
+        "supportingStemText": "The client has not regained consciousness."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "P3",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Oxygen saturation, ventilation, pulse, and blood pressure directly evaluate immediate cardiopulmonary stability.",
+        "supportingStemText": "The client is receiving ECT under general anesthesia and remains unconscious during continuing seizure activity."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "P4",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The same motor and EEG modalities identifying the ongoing seizure directly evaluate cessation and recurrence after treatment.",
+        "supportingStemText": "Rhythmic motor activity continues in the isolated limb, and the EEG continues to show ictal activity; seizure-termination orders are active."
+      }
+    ]
+  },
+  "stage2Sha256": "c22f12e28ad451cc99b8116b649a10d304b5485828e4a0ce3783d0c0f83e758f",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions — select 2",
+          "zh": "优先措施——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Administer the protocol-directed anesthetic or anticonvulsant to terminate the seizure",
+            "opaqueTokenLabel": "A1",
+            "zh": "按流程给予麻醉药或抗惊厥药以终止发作"
+          },
+          {
+            "en": "Deliver another electrical stimulus immediately",
+            "opaqueTokenLabel": "A2",
+            "zh": "立即再次给予电刺激"
+          },
+          {
+            "en": "Maintain the airway and provide assisted ventilation and oxygenation",
+            "opaqueTokenLabel": "A3",
+            "zh": "维持气道并提供辅助通气和给氧"
+          },
+          {
+            "en": "Continue observation without treatment while waiting for the seizure to stop on its own",
+            "opaqueTokenLabel": "A4",
+            "zh": "继续观察而不采取处理，等待发作自行停止"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的状况"
+        },
+        "tokens": [
+          {
+            "en": "Tardive seizure during recovery",
+            "opaqueTokenLabel": "C1",
+            "zh": "恢复期迟发性发作"
+          },
+          {
+            "en": "Expected brief ECT-induced seizure",
+            "opaqueTokenLabel": "C2",
+            "zh": "预期的短暂 ECT 诱发发作"
+          },
+          {
+            "en": "Prolonged ECT-induced seizure",
+            "opaqueTokenLabel": "C3",
+            "zh": "ECT 诱发的延长性发作"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor — select 2",
+          "zh": "需要监测的指标——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Depression symptom score during the event",
+            "opaqueTokenLabel": "P1",
+            "zh": "事件发生期间的抑郁症状评分"
+          },
+          {
+            "en": "Orientation only after full recovery",
+            "opaqueTokenLabel": "P2",
+            "zh": "仅在完全恢复后评估定向力"
+          },
+          {
+            "en": "Oxygen saturation, ventilation, pulse, and blood pressure",
+            "opaqueTokenLabel": "P3",
+            "zh": "血氧饱和度、通气、脉搏和血压"
+          },
+          {
+            "en": "Motor and EEG seizure cessation and recurrence",
+            "opaqueTokenLabel": "P4",
+            "zh": "运动性和脑电图发作终止及有无复发"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "脑电图上提示癫痫样发作正在进行的活动。",
+        "termEn": "ictal activity",
+        "termZh": "发作期活动"
+      },
+      {
+        "defZh": "通过人工方式帮助患者维持有效气体交换。",
+        "termEn": "assisted ventilation",
+        "termZh": "辅助通气"
+      },
+      {
+        "defZh": "ECT 后患者已恢复意识，随后才出现的发作。",
+        "termEn": "tardive seizure",
+        "termZh": "迟发性发作"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct: ongoing motor and EEG activity at 185 seconds is beyond the guideline's longer-than-180-second definition of a prolonged seizure; attempted termination is permitted after 120 seconds.",
+          "opaqueTokenLabel": "C3",
+          "zh": "正确：运动性和脑电图活动持续到 185 秒，已超过指南对延长性发作所定义的 180 秒；发作超过 120 秒后即可尝试终止。"
+        },
+        {
+          "en": "Incorrect: a seizure still continuing at 185 seconds is not treated as an expected brief ECT seizure.",
+          "opaqueTokenLabel": "C2",
+          "zh": "错误：发作持续至 185 秒时，不能再按预期的短暂 ECT 发作处理。"
+        },
+        {
+          "en": "Incorrect: a tardive seizure occurs after recovery; this client has never regained consciousness after the stimulus.",
+          "opaqueTokenLabel": "C1",
+          "zh": "错误：迟发性发作发生在恢复之后；本患者刺激后尚未恢复意识。"
+        },
+        {
+          "en": "Correct: the guideline permits protocol-directed pharmacologic termination when ECT seizure activity extends beyond 120 seconds.",
+          "opaqueTokenLabel": "A1",
+          "zh": "正确：指南允许在 ECT 发作活动超过 120 秒时按流程使用药物终止发作。"
+        },
+        {
+          "en": "Correct: airway and respiration require close support and monitoring until seizure activity has completely stopped.",
+          "opaqueTokenLabel": "A3",
+          "zh": "正确：在发作活动完全停止前，应持续严密支持和监测气道及呼吸。"
+        },
+        {
+          "en": "Incorrect: continued observation without treatment delays the protocol-directed response after the seizure has passed both the 120-second intervention threshold and the longer-than-180-second prolonged-seizure definition.",
+          "opaqueTokenLabel": "A4",
+          "zh": "错误：发作已经超过 120 秒的干预界限以及 180 秒的延长性发作定义，此时继续观察而不处理会延误按流程采取的措施。"
+        },
+        {
+          "en": "Incorrect: another electrical stimulus is not the response to an ongoing prolonged seizure.",
+          "opaqueTokenLabel": "A2",
+          "zh": "错误：对仍在持续的延长性发作，再次给予电刺激并非正确处理。"
+        },
+        {
+          "en": "Correct: motor and EEG activity directly establish cessation and can detect renewed seizure activity.",
+          "opaqueTokenLabel": "P4",
+          "zh": "正确：运动性和脑电图活动可直接确认发作是否终止，并可发现再次出现的发作活动。"
+        },
+        {
+          "en": "Correct: oxygen saturation, ventilation, blood pressure, and pulse assess cardiorespiratory recovery.",
+          "opaqueTokenLabel": "P3",
+          "zh": "正确：血氧饱和度、通气、血压和脉搏用于评估心肺恢复。"
+        },
+        {
+          "en": "Incorrect: orientation after full recovery does not replace immediate seizure and cardiorespiratory monitoring.",
+          "opaqueTokenLabel": "P2",
+          "zh": "错误：完全恢复后的定向力评估不能替代当下的发作和心肺监测。"
+        },
+        {
+          "en": "Incorrect: a depression symptom score does not evaluate resolution or immediate safety of the prolonged seizure.",
+          "opaqueTokenLabel": "P1",
+          "zh": "错误：抑郁症状评分不能评估延长性发作是否终止或其即时安全性。"
+        }
+      ],
+      "correct": {
+        "en": "Continued motor and EEG seizure activity beyond 180 seconds meets the guideline's definition of a prolonged ECT-induced seizure; the guideline permits attempted termination once seizure activity extends beyond 120 seconds. The team should administer the protocol-directed anesthetic or anticonvulsant and maintain the airway with assisted ventilation and oxygenation. Monitoring must separately confirm motor/EEG cessation and detect recurrence, while following oxygen saturation, ventilation, and hemodynamic recovery.",
+        "zh": "ECT 期间运动性和脑电图发作活动持续超过 180 秒，符合指南对 ECT 诱发延长性发作的定义；指南允许在发作活动超过 120 秒后尝试终止发作。团队应按流程给予麻醉药或抗惊厥药，并维持气道、辅助通气和给氧。监测应分别确认运动性/脑电图发作终止及有无复发，同时观察血氧饱和度、通气和血流动力学恢复。"
+      }
+    },
+    "stem": {
+      "en": "An adult is receiving electroconvulsive therapy (ECT) under general anesthesia. At 185 seconds after the stimulus, rhythmic motor activity continues in the isolated limb, and the EEG continues to show ictal activity. The anesthesia professional and ECT physician are at the bedside, and protocol orders for seizure termination are active. The client has not regained consciousness and has no new focal neurologic finding.\n\nComplete the bowtie by selecting the most likely condition, the 2 priority actions, and the 2 parameters to monitor.",
+      "zh": "一名成人正在全身麻醉下接受电休克治疗（ECT）。刺激后 185 秒时，隔离肢体仍有节律性运动，脑电图仍显示发作期活动。麻醉专业人员和 ECT 医师均在床旁，终止发作的流程医嘱已生效。患者尚未恢复意识，也没有新的局灶性神经系统表现。\n\n完成蝴蝶结题：选择最可能的状况、2 项优先措施和 2 项需要监测的指标。"
+    },
+    "testTakingStrategy": {
+      "en": "Use the raw duration and concurrent motor/EEG evidence, then separate seizure termination from airway support and separate neurologic from cardiorespiratory monitoring.",
+      "zh": "先利用原始持续时间以及同步的运动性/脑电图证据，再把终止发作与气道支持区分开，并把神经监测与心肺监测区分开。"
+    }
+  }
+}

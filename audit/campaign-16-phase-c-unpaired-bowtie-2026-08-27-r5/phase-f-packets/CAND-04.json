@@ -1,0 +1,285 @@
+{
+  "candidateSurfaces": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Actions to take",
+          "zh": "应采取的措施"
+        },
+        "tokens": [
+          {
+            "en": "Wait for a serum local-anesthetic level before activating the emergency response",
+            "opaqueTokenLabel": "A1",
+            "zh": "等待血清局部麻醉药浓度结果后再启动急救流程"
+          },
+          {
+            "en": "Restart the local anesthetic at a lower rate after the seizure stops",
+            "opaqueTokenLabel": "A2",
+            "zh": "癫痫停止后以较低速度重新输注局部麻醉药"
+          },
+          {
+            "en": "Initiate protocol-directed 20% lipid emulsion early",
+            "opaqueTokenLabel": "A3",
+            "zh": "按方案尽早开始给予 20% 脂肪乳"
+          },
+          {
+            "en": "Stop local anesthetic delivery and activate the LAST emergency response with the rescue kit",
+            "opaqueTokenLabel": "A4",
+            "zh": "停止局部麻醉药输注并启动 LAST 急救流程，取得救援包"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的病情"
+        },
+        "tokens": [
+          {
+            "en": "Acute ischemic stroke",
+            "opaqueTokenLabel": "C1",
+            "zh": "急性缺血性卒中"
+          },
+          {
+            "en": "Local anesthetic systemic toxicity",
+            "opaqueTokenLabel": "C2",
+            "zh": "局部麻醉药全身毒性"
+          },
+          {
+            "en": "Perioperative anaphylaxis",
+            "opaqueTokenLabel": "C3",
+            "zh": "围术期过敏性休克"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "应监测的指标"
+        },
+        "tokens": [
+          {
+            "en": "Regression of the peripheral sensory and motor block",
+            "opaqueTokenLabel": "P1",
+            "zh": "外周感觉和运动阻滞的消退"
+          },
+          {
+            "en": "Serum local-anesthetic concentration",
+            "opaqueTokenLabel": "P2",
+            "zh": "血清局部麻醉药浓度"
+          },
+          {
+            "en": "Neurologic status and seizure recurrence",
+            "opaqueTokenLabel": "P3",
+            "zh": "神经状态和癫痫是否复发"
+          },
+          {
+            "en": "Cardiac rhythm, blood pressure, and hemodynamic stability",
+            "opaqueTokenLabel": "P4",
+            "zh": "心律、血压和血流动力学稳定性"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "局部麻醉药进入全身循环后引起的中枢神经和心血管毒性反应",
+        "termEn": "local anesthetic systemic toxicity",
+        "termZh": "局部麻醉药全身毒性"
+      },
+      {
+        "defZh": "可按急救方案用于局部麻醉药全身毒性的静脉脂质制剂",
+        "termEn": "lipid emulsion",
+        "termZh": "脂肪乳"
+      },
+      {
+        "defZh": "起源于心室的提前或异常心搏",
+        "termEn": "ventricular ectopy",
+        "termZh": "室性异位搏动"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Keyed: the exposure timing and progression from sensory symptoms to seizure and cardiovascular instability fit local anesthetic systemic toxicity.",
+          "opaqueTokenLabel": "C2",
+          "zh": "正确：暴露时间关系以及从感觉异常进展到癫痫和心血管不稳定，符合局部麻醉药全身毒性。"
+        },
+        {
+          "en": "Not keyed: anaphylaxis would be better supported by findings such as urticaria, bronchospasm, or angioedema, which are absent.",
+          "opaqueTokenLabel": "C3",
+          "zh": "不选：过敏性休克通常有荨麻疹、支气管痉挛或血管性水肿等表现，本例均无。"
+        },
+        {
+          "en": "Not keyed: an acute ischemic stroke does not explain the immediate local-anesthetic exposure relationship and combined seizure, ventricular ectopy, and hypotension pattern.",
+          "opaqueTokenLabel": "C1",
+          "zh": "不选：急性缺血性卒中不能解释症状与局部麻醉药暴露的即时关系，也不能完整解释癫痫、室性早搏和低血压的组合。"
+        },
+        {
+          "en": "Keyed: stopping the local anesthetic prevents further exposure, while activating the LAST response mobilizes specialized resuscitation resources.",
+          "opaqueTokenLabel": "A4",
+          "zh": "正确：停止局部麻醉药可防止继续暴露，启动 LAST 急救流程可迅速调动专门的复苏资源。"
+        },
+        {
+          "en": "Keyed: early protocol-directed 20% lipid emulsion is the syndrome-specific rescue treatment in suspected LAST.",
+          "opaqueTokenLabel": "A3",
+          "zh": "正确：怀疑 LAST 时，按方案尽早给予 20% 脂肪乳是特异性救援治疗。"
+        },
+        {
+          "en": "Not keyed: delaying emergency activation for a serum drug level would postpone treatment of a time-critical toxicity.",
+          "opaqueTokenLabel": "A1",
+          "zh": "不选：为等待血清药物浓度而延迟启动急救，会推迟对时间敏感性毒性的治疗。"
+        },
+        {
+          "en": "Not keyed: the local anesthetic must not be restarted at a lower rate after this toxicity pattern appears.",
+          "opaqueTokenLabel": "A2",
+          "zh": "不选：出现这种毒性表现后，不应以较低速度重新开始局部麻醉药输注。"
+        },
+        {
+          "en": "Keyed: level of consciousness and seizure recurrence track central nervous system toxicity and recovery.",
+          "opaqueTokenLabel": "P3",
+          "zh": "正确：意识水平和癫痫是否复发可反映中枢神经系统毒性及恢复情况。"
+        },
+        {
+          "en": "Keyed: rhythm, blood pressure, and hemodynamic status track the cardiovascular toxicity and response.",
+          "opaqueTokenLabel": "P4",
+          "zh": "正确：心律、血压和血流动力学状态可反映心血管毒性及治疗反应。"
+        },
+        {
+          "en": "Not keyed: a serum local-anesthetic concentration is not a rapid bedside measure of neurologic stabilization or recurrent seizure risk.",
+          "opaqueTokenLabel": "P2",
+          "zh": "不选：血清局部麻醉药浓度不能作为快速床旁指标来评估神经系统是否稳定或癫痫复发风险。"
+        },
+        {
+          "en": "Not keyed: regression of the peripheral sensory and motor block reflects the regional block, not recovery from systemic cardiovascular toxicity.",
+          "opaqueTokenLabel": "P1",
+          "zh": "不选：外周感觉和运动阻滞的消退反映局部神经阻滞，而不是全身性心血管毒性的恢复。"
+        }
+      ],
+      "correct": {
+        "en": "The immediate neurologic prodrome after local anesthetic delivery, followed by seizure, ventricular dysrhythmia, and hypotension, is most consistent with local anesthetic systemic toxicity. Further local anesthetic exposure must stop while the specialized emergency response and rescue kit are activated. Protocol-directed 20% lipid emulsion is the syndrome-specific rescue intervention. Neurologic recovery and cardiovascular stability are separate response dimensions.",
+        "zh": "局部麻醉药输注后立即出现神经系统前驱症状，随后发生癫痫、室性心律失常和低血压，最符合局部麻醉药全身毒性。应立即停止继续给予局部麻醉药，同时启动专门的急救流程并取得救援包。按方案尽早给予 20% 脂肪乳是该综合征的特异性救援措施。神经系统恢复和心血管稳定是两个不同的疗效评估方向。"
+      }
+    },
+    "stem": {
+      "en": "An awake adult is receiving a continuous local anesthetic infusion through a peripheral nerve catheter in a monitored post-anesthesia care area. Within minutes, the client reports a metallic taste and ringing in the ears, then has a generalized seizure. The cardiac monitor shows frequent ventricular ectopy, and the blood pressure falls to 78/42 mm Hg. No rash or wheezing is present. Complete the bow-tie.",
+      "zh": "一名清醒成人在麻醉后监护区通过外周神经导管持续输注局部麻醉药。数分钟内，患者先诉口中有金属味和耳鸣，随后出现全身性癫痫发作。心电监护显示频发室性早搏，血压降至 78/42 mmHg。无皮疹或喘鸣。请完成蝴蝶结题。"
+    },
+    "testTakingStrategy": {
+      "en": "Link the rapid sensory-to-seizure-to-cardiovascular progression to the recent drug exposure, then separate rescue actions from the two organ-system response measures.",
+      "zh": "把“感觉异常→癫痫→心血管恶化”的快速进展与近期药物暴露联系起来，再区分救援措施与两个器官系统的疗效指标。"
+    }
+  },
+  "explicitlyLinkedHistoricalSources": [],
+  "instruction": "Phase E is immutable. For every missing client fact inspect only this candidate's rationale/byChoice, strategy, glossary, Chinese counterpart, and an explicitly linked historical source if one exists. Do not search the corpus. Classify bounded provenance, apply fixed verdict precedence, and record narrow bilingual/clinical/scope findings. Hidden-case dependency is unreachable and is a blocker if asserted.",
+  "phaseE": {
+    "anyCanonicalTargetDependsOnAbsentFact": false,
+    "blindExactMatch": true,
+    "canonicalSelection": {
+      "actionLabels": [
+        "A4",
+        "A3"
+      ],
+      "conditionLabel": "C2",
+      "parameterLabels": [
+        "P3",
+        "P4"
+      ]
+    },
+    "canonicalSetExplanation": "The five canonical targets are supported by explicit stem facts or ordinary clinical knowledge and remain uniquely preferable to all six distractors.",
+    "canonicalSetUniquelyDefensible": true,
+    "canonicalTargetSupport": [
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C2",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "Continuous local anesthetic infusion is followed within minutes by metallic taste, ringing in the ears, generalized seizure, frequent ventricular ectopy, and blood pressure of 78/42 mm Hg."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A3",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "The client develops generalized seizure, frequent ventricular ectopy, and blood pressure of 78/42 mm Hg after local anesthetic administration."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A4",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "An active continuous local anesthetic infusion is temporally associated with rapidly progressive neurologic and cardiovascular toxicity in a monitored recovery area."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P3",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "The client reports neurologic prodromes and then has a generalized seizure."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P4",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "The cardiac monitor shows frequent ventricular ectopy, and the blood pressure falls to 78/42 mm Hg."
+      }
+    ],
+    "distractorPremiseFindings": [
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "A focal neurologic syndrome or other client-specific evidence of acute cerebral ischemia.",
+        "opaqueTokenLabel": "C1",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Symptoms follow local anesthetic infusion within minutes and include metallic taste, tinnitus, generalized seizure, ventricular ectopy, and hypotension; no focal neurologic deficit is described."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Client-specific allergic manifestations or a plausible perioperative allergen exposure pattern supporting anaphylaxis.",
+        "opaqueTokenLabel": "C3",
+        "reviewerRankabilityImpact": "LOW",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "No rash or wheezing is present, while metallic taste and tinnitus precede seizure and ventricular ectopy during local anesthetic infusion."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A1",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "The client has a generalized seizure, frequent ventricular ectopy, and blood pressure of 78/42 mm Hg."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A2",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Severe manifestations develop during continuous local anesthetic delivery, including seizure, ventricular ectopy, and profound hypotension."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Client-specific sensory or motor block findings whose regression would affect immediate evaluation.",
+        "opaqueTokenLabel": "P1",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "NOT_APPLICABLE",
+        "supportingStandaloneEvidence": "A peripheral nerve catheter is present, but the stem gives no baseline or changing sensory or motor block findings."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "A clinically relevant reason that serum concentration would guide immediate management or serial response assessment.",
+        "opaqueTokenLabel": "P2",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "NOT_APPLICABLE",
+        "supportingStandaloneEvidence": "No serum local-anesthetic measurement, sampling plan, or laboratory-dependent decision is described."
+      }
+    ],
+    "missingClientFacts": [],
+    "stage1Alignment": "FULL",
+    "stage1AlignmentExplanation": "Stage 1 independently identified the same condition and the same clinical action and evaluation domains as the canonical construct.",
+    "unstatedClientFactMateriallyChangesRankability": false
+  },
+  "phaseESha256": "edebb4425368054c06e149486117d795abe798552c9be81ac636a4e3ad826e13"
+}

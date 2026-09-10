@@ -1,0 +1,24 @@
+{
+  "failedGate": "§4.3 _bt_ infix falsification check",
+  "reason": "Neither frozen exact ID is present in the accepted Phase B working-tree GPT bank. The live published IDs append _r2. The work order requires the two exact frozen IDs to be present and makes any failure terminal.",
+  "evidenceTool": "rg plus Node JSON.parse over working-tree banks/gpt-canonical.json",
+  "rows": [
+    {
+      "requiredId": "gpt_balance6a_2026_07_16_bt_perioperative_care_13",
+      "exactMatches": 0,
+      "liveNearId": "gpt_balance6a_2026_07_16_bt_perioperative_care_13_r2",
+      "liveNearIdLine": 142176,
+      "absentFromLiveBowtieSuffixRoster": true
+    },
+    {
+      "requiredId": "gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14",
+      "exactMatches": 0,
+      "liveNearId": "gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14_r2",
+      "liveNearIdLine": 142623,
+      "absentFromLiveBowtieSuffixRoster": true
+    }
+  ],
+  "semanticReviewsDispatched": 0,
+  "phaseDStarted": false,
+  "terminalStatus": "CAMPAIGN16_PHASE_C_BLOCKED"
+}

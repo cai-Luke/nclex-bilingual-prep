@@ -1,0 +1,109 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A3",
+      "A4"
+    ],
+    "conditionLabel": "C3",
+    "parameterLabels": [
+      "P2",
+      "P4"
+    ]
+  },
+  "canonicalSetExplanation": "The five canonical targets are supported by explicit stem facts or ordinary clinical knowledge and remain uniquely preferable to all six distractors.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Orders are available for an IV cephalosporin, an oral macrolide, supplemental oxygen, and respiratory care."
+    },
+    {
+      "missingClientFact": "The exact respiratory-care protocol is not specified.",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Orders are available for respiratory care."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "A client with sickle cell disease has new cough, dyspnea, tachypnea, crackles, hypoxemia, and a new pulmonary infiltrate."
+    },
+    {
+      "missingClientFact": "Baseline respiratory rate and detailed work-of-breathing findings are not provided.",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "SpO₂ is 91% on room air, with dyspnea and tachypnea."
+    },
+    {
+      "missingClientFact": "No baseline hemoglobin value or follow-up imaging is provided.",
+      "opaqueTokenLabel": "P4",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The chest radiograph shows a new right-lower-lobe infiltrate in a client with sickle cell disease."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "No culture results or clinical reason to delay ordered empiric treatment is provided.",
+      "opaqueTokenLabel": "A1",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "NOT_APPLICABLE",
+      "supportingStandaloneEvidence": ""
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "No agitation, procedure, or other indication for sedation is described.",
+      "opaqueTokenLabel": "A2",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "The client is alert without recent sedative exposure."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "No isolated pain syndrome or vaso-occlusive pain findings are described.",
+      "opaqueTokenLabel": "C1",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "The client has new cough, dyspnea, tachypnea, right-sided crackles, SpO₂ of 91% on room air, and a new right-lower-lobe infiltrate."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "No cardiac history, diffuse pulmonary edema, or other evidence of volume overload is provided.",
+      "opaqueTokenLabel": "C2",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "The client has no jugular venous distention or peripheral edema and has a focal right-lower-lobe infiltrate."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "No joint swelling or chronic limb pain is described.",
+      "opaqueTokenLabel": "P1",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "NOT_APPLICABLE",
+      "supportingStandaloneEvidence": ""
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "No evidence of fluid overload is present.",
+      "opaqueTokenLabel": "P3",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "The client has no jugular venous distention or peripheral edema."
+    }
+  ],
+  "missingClientFacts": [],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 identified the same condition and most canonical clinical domains, but at least one action or evaluation domain differed from the canonical five-target construct.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

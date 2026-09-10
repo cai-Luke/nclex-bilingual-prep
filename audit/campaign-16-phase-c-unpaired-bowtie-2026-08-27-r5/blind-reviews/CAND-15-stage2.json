@@ -1,0 +1,118 @@
+{
+  "actionLabels": [
+    "A2",
+    "A4"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C3",
+  "missingInformation": [
+    "Current mental status",
+    "Urine output",
+    "Oxygen saturation and respiratory status",
+    "Transfusion compatibility status and history of transfusion reactions"
+  ],
+  "parameterLabels": [
+    "P1",
+    "P4"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The combination of sickle cell disease, abrupt tender splenomegaly, a substantial hemoglobin decline with preserved reticulocytosis, and shock without another bleeding source identifies acute splenic sequestration crisis. Ordered IV fluid resuscitation addresses hypovolemia, while expert-directed red-cell transfusion restores oxygen-carrying capacity without targeting a normal age-based hemoglobin. Serial splenic examination and combined laboratory-hemodynamic monitoring directly evaluate resolution and perfusion recovery.",
+  "selectionEvidence": [
+    "Sudden tender splenic enlargement strongly localizes acute red-cell pooling to the spleen.",
+    "Hemoglobin fell sharply from 8.6 g/dL to 6.2 g/dL while the reticulocyte count remained elevated, arguing against marrow aplasia.",
+    "Heart rate 142/min, blood pressure 78/42 mm Hg, and capillary refill of 5 seconds demonstrate hemodynamic compromise requiring immediate volume support.",
+    "The absence of an external or internal bleeding source makes acute blood-loss anemia less likely.",
+    "Specialist-directed care with available IV fluid and red-cell transfusion orders supports controlled resuscitation and transfusion with serial assessment of the spleen, hemoglobin, and perfusion."
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "No premise supports rapidly transfusing to a normal age-based hemoglobin target.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The normal-age target conflicts with controlled transfusion in sickle cell disease and distinguishes A1 from the safer expert-directed option.",
+      "supportingStemText": "Baseline hemoglobin is 8.6 g/dL, and a sickle cell specialist is directing transfusion care."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly supplies hypoperfusion findings and the corresponding ordered intervention.",
+      "supportingStemText": "Blood pressure is 78/42 mm Hg, capillary refill is 5 seconds, and an IV fluid order is available."
+    },
+    {
+      "missingPremise": "No premise indicates clinical stability appropriate for observation alone.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Active shock and severe acute anemia require intervention, making observation noncompetitive.",
+      "supportingStemText": "Heart rate is 142/min, blood pressure is 78/42 mm Hg, capillary refill is 5 seconds, and hemoglobin has fallen to 6.2 g/dL."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem explicitly establishes expert-directed transfusion, and avoidance of excessive correction fits that controlled approach.",
+      "supportingStemText": "A sickle cell specialist is directing care, and a red-cell transfusion order is available."
+    },
+    {
+      "missingPremise": "No bleeding source is present to support acute blood-loss anemia as the primary condition.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The explicit absence of bleeding and presence of acute splenomegaly redirect the diagnosis to splenic sequestration.",
+      "supportingStemText": "There is no external or internal bleeding source, while the spleen is suddenly enlarged and tender."
+    },
+    {
+      "missingPremise": "Transient aplastic crisis would require evidence of suppressed erythropoiesis, particularly reticulocytopenia.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Elevated reticulocytes and acute splenic enlargement sharply separate sequestration from aplasia.",
+      "supportingStemText": "The reticulocyte count is elevated, and the spleen is suddenly enlarged and tender."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The defining clinical pattern is directly present and uniquely supported within the condition pool.",
+      "supportingStemText": "The child has sickle cell disease, sudden tender splenomegaly, an acute hemoglobin decline, elevated reticulocytes, and shock without another bleeding source."
+    },
+    {
+      "missingPremise": "No baseline spleen measurement or abdominal circumference is supplied.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Despite lacking a numeric baseline, serial examination directly tracks the implicated sequestration site.",
+      "supportingStemText": "The spleen is suddenly enlarged and tender."
+    },
+    {
+      "missingPremise": "No wheezing, airflow limitation, asthma history, or other respiratory-obstruction finding is provided.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "PEF and wheeze do not evaluate the identified hematologic and circulatory emergency.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "No hyperglycemia, diabetes history, ketosis symptoms, or metabolic decompensation is provided.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Glucose and ketones are unrelated to the supplied sequestration and shock findings.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "The initial mental-status finding is not stated.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Most elements are explicit severity markers, and mental status is a standard additional indicator of perfusion response.",
+      "supportingStemText": "Hemoglobin is 6.2 g/dL, blood pressure is 78/42 mm Hg, and capillary refill is 5 seconds."
+    }
+  ]
+}

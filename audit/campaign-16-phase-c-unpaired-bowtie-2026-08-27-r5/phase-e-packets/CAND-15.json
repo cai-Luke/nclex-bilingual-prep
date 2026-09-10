@@ -1,0 +1,341 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A2",
+      "A4"
+    ],
+    "conditionLabel": "C3",
+    "parameterLabels": [
+      "P1",
+      "P4"
+    ]
+  },
+  "instruction": "The two blind records are immutable. Compare them with the current canonical five-target selection and complete standalone item. Do not inspect or infer sibling/corpus material. Return the required Phase-E standalone-adjudication record without revising either blind stage.",
+  "stage1": {
+    "condition": "Acute splenic sequestration crisis with hypovolemic shock",
+    "evaluationParameters": [
+      "Hemodynamic perfusion response, including heart rate, blood pressure, capillary refill, and urine output.",
+      "Serial spleen size and hemoglobin level to assess resolution of sequestration and anemia."
+    ],
+    "missingInformation": [
+      "Current oxygen saturation and respiratory status",
+      "Urine output",
+      "Transfusion compatibility status and prior transfusion reactions"
+    ],
+    "priorityActions": [
+      "Initiate the ordered rapid isotonic IV fluid resuscitation.",
+      "Administer the ordered red-cell transfusion promptly."
+    ],
+    "reasoning": "In a child with sickle cell disease, abrupt splenic enlargement accompanied by a major hemoglobin decline, reticulocytosis, and shock without another bleeding source most strongly indicates acute splenic sequestration. Immediate restoration of circulating volume and red-cell mass is prioritized, with response assessed through perfusion, hemoglobin recovery, and reduction in splenic enlargement.",
+    "stage1Confidence": "high",
+    "stemEvidence": [
+      {
+        "evidence": "Sudden tender splenomegaly",
+        "target": "Acute splenic sequestration"
+      },
+      {
+        "evidence": "Hemoglobin fell from 8.6 g/dL to 6.2 g/dL with an elevated reticulocyte count",
+        "target": "Acute blood pooling with compensatory erythropoiesis rather than aplastic crisis"
+      },
+      {
+        "evidence": "Heart rate 142/min, blood pressure 78/42 mm Hg, and capillary refill 5 seconds",
+        "target": "Hypovolemic shock and impaired tissue perfusion"
+      },
+      {
+        "evidence": "No external or internal bleeding source",
+        "target": "Splenic sequestration as the likely location of acute blood-volume loss"
+      }
+    ]
+  },
+  "stage1Sha256": "708f007320db947e495e06e90edb47fc49ee06b519b3ead902af183998c315d0",
+  "stage2": {
+    "actionLabels": [
+      "A2",
+      "A4"
+    ],
+    "ambiguousAlternatives": [],
+    "conditionLabel": "C3",
+    "missingInformation": [
+      "Current mental status",
+      "Urine output",
+      "Oxygen saturation and respiratory status",
+      "Transfusion compatibility status and history of transfusion reactions"
+    ],
+    "parameterLabels": [
+      "P1",
+      "P4"
+    ],
+    "poolAnswerability": "ANSWERABLE",
+    "reasoning": "The combination of sickle cell disease, abrupt tender splenomegaly, a substantial hemoglobin decline with preserved reticulocytosis, and shock without another bleeding source identifies acute splenic sequestration crisis. Ordered IV fluid resuscitation addresses hypovolemia, while expert-directed red-cell transfusion restores oxygen-carrying capacity without targeting a normal age-based hemoglobin. Serial splenic examination and combined laboratory-hemodynamic monitoring directly evaluate resolution and perfusion recovery.",
+    "selectionEvidence": [
+      "Sudden tender splenic enlargement strongly localizes acute red-cell pooling to the spleen.",
+      "Hemoglobin fell sharply from 8.6 g/dL to 6.2 g/dL while the reticulocyte count remained elevated, arguing against marrow aplasia.",
+      "Heart rate 142/min, blood pressure 78/42 mm Hg, and capillary refill of 5 seconds demonstrate hemodynamic compromise requiring immediate volume support.",
+      "The absence of an external or internal bleeding source makes acute blood-loss anemia less likely.",
+      "Specialist-directed care with available IV fluid and red-cell transfusion orders supports controlled resuscitation and transfusion with serial assessment of the spleen, hemoglobin, and perfusion."
+    ],
+    "stage2Confidence": "high",
+    "tokenPremiseTable": [
+      {
+        "missingPremise": "No premise supports rapidly transfusing to a normal age-based hemoglobin target.",
+        "opaqueTokenLabel": "A1",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "MATERIAL",
+        "rankabilityJustification": "The normal-age target conflicts with controlled transfusion in sickle cell disease and distinguishes A1 from the safer expert-directed option.",
+        "supportingStemText": "Baseline hemoglobin is 8.6 g/dL, and a sickle cell specialist is directing transfusion care."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A2",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The stem directly supplies hypoperfusion findings and the corresponding ordered intervention.",
+        "supportingStemText": "Blood pressure is 78/42 mm Hg, capillary refill is 5 seconds, and an IV fluid order is available."
+      },
+      {
+        "missingPremise": "No premise indicates clinical stability appropriate for observation alone.",
+        "opaqueTokenLabel": "A3",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "MATERIAL",
+        "rankabilityJustification": "Active shock and severe acute anemia require intervention, making observation noncompetitive.",
+        "supportingStemText": "Heart rate is 142/min, blood pressure is 78/42 mm Hg, capillary refill is 5 seconds, and hemoglobin has fallen to 6.2 g/dL."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A4",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The stem explicitly establishes expert-directed transfusion, and avoidance of excessive correction fits that controlled approach.",
+        "supportingStemText": "A sickle cell specialist is directing care, and a red-cell transfusion order is available."
+      },
+      {
+        "missingPremise": "No bleeding source is present to support acute blood-loss anemia as the primary condition.",
+        "opaqueTokenLabel": "C1",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "MATERIAL",
+        "rankabilityJustification": "The explicit absence of bleeding and presence of acute splenomegaly redirect the diagnosis to splenic sequestration.",
+        "supportingStemText": "There is no external or internal bleeding source, while the spleen is suddenly enlarged and tender."
+      },
+      {
+        "missingPremise": "Transient aplastic crisis would require evidence of suppressed erythropoiesis, particularly reticulocytopenia.",
+        "opaqueTokenLabel": "C2",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "MATERIAL",
+        "rankabilityJustification": "Elevated reticulocytes and acute splenic enlargement sharply separate sequestration from aplasia.",
+        "supportingStemText": "The reticulocyte count is elevated, and the spleen is suddenly enlarged and tender."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "C3",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The defining clinical pattern is directly present and uniquely supported within the condition pool.",
+        "supportingStemText": "The child has sickle cell disease, sudden tender splenomegaly, an acute hemoglobin decline, elevated reticulocytes, and shock without another bleeding source."
+      },
+      {
+        "missingPremise": "No baseline spleen measurement or abdominal circumference is supplied.",
+        "opaqueTokenLabel": "P1",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "LOW",
+        "rankabilityJustification": "Despite lacking a numeric baseline, serial examination directly tracks the implicated sequestration site.",
+        "supportingStemText": "The spleen is suddenly enlarged and tender."
+      },
+      {
+        "missingPremise": "No wheezing, airflow limitation, asthma history, or other respiratory-obstruction finding is provided.",
+        "opaqueTokenLabel": "P2",
+        "premiseStatus": "NO_CLIENT_PREMISE",
+        "rankabilityImpact": "MATERIAL",
+        "rankabilityJustification": "PEF and wheeze do not evaluate the identified hematologic and circulatory emergency.",
+        "supportingStemText": ""
+      },
+      {
+        "missingPremise": "No hyperglycemia, diabetes history, ketosis symptoms, or metabolic decompensation is provided.",
+        "opaqueTokenLabel": "P3",
+        "premiseStatus": "NO_CLIENT_PREMISE",
+        "rankabilityImpact": "MATERIAL",
+        "rankabilityJustification": "Glucose and ketones are unrelated to the supplied sequestration and shock findings.",
+        "supportingStemText": ""
+      },
+      {
+        "missingPremise": "The initial mental-status finding is not stated.",
+        "opaqueTokenLabel": "P4",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "LOW",
+        "rankabilityJustification": "Most elements are explicit severity markers, and mental status is a standard additional indicator of perfusion response.",
+        "supportingStemText": "Hemoglobin is 6.2 g/dL, blood pressure is 78/42 mm Hg, and capillary refill is 5 seconds."
+      }
+    ]
+  },
+  "stage2Sha256": "83dfc6254ccad57fd24c11436c84cffb45382b1cca1b51aab2c343fb690ab688",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions — select 2",
+          "zh": "优先措施——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Transfuse rapidly until hemoglobin reaches the normal age-based range",
+            "opaqueTokenLabel": "A1",
+            "zh": "快速输血直至血红蛋白达到年龄正常范围"
+          },
+          {
+            "en": "Begin the ordered IV fluid resuscitation immediately for hypovolemia",
+            "opaqueTokenLabel": "A2",
+            "zh": "针对低血容量立即开始按医嘱静脉补液复苏"
+          },
+          {
+            "en": "Observe without intervention until the spleen returns to baseline",
+            "opaqueTokenLabel": "A3",
+            "zh": "不进行干预，观察至脾脏恢复基线大小"
+          },
+          {
+            "en": "Prepare and administer expert-directed red-cell transfusion without over-transfusion",
+            "opaqueTokenLabel": "A4",
+            "zh": "准备并在专家指导下输注红细胞，同时避免过度输血"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的病情"
+        },
+        "tokens": [
+          {
+            "en": "Acute blood-loss anemia",
+            "opaqueTokenLabel": "C1",
+            "zh": "急性失血性贫血"
+          },
+          {
+            "en": "Transient aplastic crisis",
+            "opaqueTokenLabel": "C2",
+            "zh": "暂时性再生障碍危象"
+          },
+          {
+            "en": "Acute splenic sequestration crisis",
+            "opaqueTokenLabel": "C3",
+            "zh": "急性脾脏扣留危象"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor — select 2",
+          "zh": "需要监测的指标——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Serial spleen size and abdominal examination",
+            "opaqueTokenLabel": "P1",
+            "zh": "连续监测脾脏大小和腹部检查结果"
+          },
+          {
+            "en": "Peak expiratory flow and wheeze intensity",
+            "opaqueTokenLabel": "P2",
+            "zh": "呼气峰流量和哮鸣音程度"
+          },
+          {
+            "en": "Serum glucose and urine ketones",
+            "opaqueTokenLabel": "P3",
+            "zh": "血糖和尿酮体"
+          },
+          {
+            "en": "Hemoglobin, blood pressure, mental status, and capillary refill",
+            "opaqueTokenLabel": "P4",
+            "zh": "血红蛋白、血压、意识状态和毛细血管再充盈"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "大量血液突然滞留在脾脏内，导致脾脏增大、循环血容量下降和急性贫血。",
+        "termEn": "splenic sequestration",
+        "termZh": "脾脏扣留"
+      },
+      {
+        "defZh": "尚未完全成熟的红细胞，其数量可反映骨髓造血反应。",
+        "termEn": "reticulocyte",
+        "termZh": "网织红细胞"
+      },
+      {
+        "defZh": "血液黏度过高而影响血流，可因镰状细胞病患者过度输血而发生。",
+        "termEn": "hyperviscosity",
+        "termZh": "高黏滞状态"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct: sudden splenic enlargement, a hemoglobin drop greater than 2 g/dL, and hypovolemia define the acute sequestration pattern.",
+          "opaqueTokenLabel": "C3",
+          "zh": "正确：脾脏突然增大、血红蛋白下降超过 2 g/dL 并伴低血容量，构成急性脾脏扣留模式。"
+        },
+        {
+          "en": "Incorrect: aplastic crisis is characterized by reticulocytopenia rather than the elevated reticulocyte count and acutely enlarging spleen supplied here.",
+          "opaqueTokenLabel": "C2",
+          "zh": "错误：再生障碍危象的特征是网织红细胞减少，而本例网织红细胞升高且脾脏急剧增大。"
+        },
+        {
+          "en": "Incorrect: acute hemorrhage is not supported because no bleeding source is present and the spleen is rapidly enlarging.",
+          "opaqueTokenLabel": "C1",
+          "zh": "错误：本例没有出血来源且脾脏迅速增大，因此不支持急性失血。"
+        },
+        {
+          "en": "Correct: NHLBI recommends immediate IV fluid resuscitation when severe splenic sequestration causes hypovolemia.",
+          "opaqueTokenLabel": "A2",
+          "zh": "正确：NHLBI 建议严重脾脏扣留导致低血容量时立即静脉补液复苏。"
+        },
+        {
+          "en": "Correct: expert-directed transfusion raises hemoglobin to a stable level while avoiding over-transfusion.",
+          "opaqueTokenLabel": "A4",
+          "zh": "正确：在专家指导下输血可将血红蛋白提高到稳定水平，同时避免过度输血。"
+        },
+        {
+          "en": "Incorrect: observation alone does not treat the child's hypotension, poor perfusion, and severe anemia.",
+          "opaqueTokenLabel": "A3",
+          "zh": "错误：单纯观察不能处理患儿的低血压、灌注不良和重度贫血。"
+        },
+        {
+          "en": "Incorrect: transfusing to normalize hemoglobin without an expert-directed ceiling risks over-transfusion and hyperviscosity.",
+          "opaqueTokenLabel": "A1",
+          "zh": "错误：在没有专家设定目标上限的情况下输血至血红蛋白正常，会增加过度输血和高黏滞状态风险。"
+        },
+        {
+          "en": "Correct: serial spleen measurements directly follow the sequestration compartment.",
+          "opaqueTokenLabel": "P1",
+          "zh": "正确：连续测量脾脏大小可直接追踪红细胞扣留部位的变化。"
+        },
+        {
+          "en": "Correct: hemoglobin, blood pressure, mental status, and capillary refill follow anemia and perfusion response.",
+          "opaqueTokenLabel": "P4",
+          "zh": "正确：血红蛋白、血压、意识状态和毛细血管再充盈用于追踪贫血与灌注反应。"
+        },
+        {
+          "en": "Incorrect: glucose and urine ketones do not measure sequestration or the hemodynamic response.",
+          "opaqueTokenLabel": "P3",
+          "zh": "错误：血糖和尿酮体不能评估脾脏扣留或血流动力学反应。"
+        },
+        {
+          "en": "Incorrect: peak flow and wheeze target an obstructive respiratory pathway, not this acute anemia and splenic-volume problem.",
+          "opaqueTokenLabel": "P2",
+          "zh": "错误：呼气峰流量和哮鸣音针对阻塞性呼吸问题，而不是本例的急性贫血和脾脏容量问题。"
+        }
+      ],
+      "correct": {
+        "en": "Sudden splenic enlargement with a hemoglobin decrease of at least 2 g/dL below baseline and hypovolemic poor perfusion supports acute splenic sequestration. Immediate ordered IV fluid resuscitation addresses hypovolemia, and expert-directed red-cell transfusion treats severe anemia while avoiding over-transfusion. Serial spleen size and the combined hemoglobin/hemodynamic/perfusion response are distinct monitoring domains.",
+        "zh": "脾脏突然增大、血红蛋白较基线下降至少 2 g/dL，并出现低血容量性灌注不良，支持急性脾脏扣留危象。立即按医嘱静脉补液用于纠正低血容量；在专家指导下输注红细胞用于治疗重度贫血，同时避免过度输血。连续监测脾脏大小与血红蛋白/血流动力学/灌注反应属于两个不同的监测领域。"
+      }
+    },
+    "stem": {
+      "en": "A 6-year-old child with sickle cell disease becomes weak and pale. The spleen is suddenly enlarged and tender, hemoglobin has fallen from a baseline of 8.6 g/dL to 6.2 g/dL, and the reticulocyte count is elevated. Heart rate is 142/min, blood pressure is 78/42 mm Hg, and capillary refill is 5 seconds. There is no external or internal bleeding source. A sickle cell specialist is directing care, and IV fluid and red-cell transfusion orders are available. Complete the bow-tie by choosing the condition, 2 actions, and 2 parameters to monitor.",
+      "zh": "一名 6 岁镰状细胞病患儿出现乏力和面色苍白。脾脏突然增大并有压痛，血红蛋白从基线 8.6 g/dL 降至 6.2 g/dL，网织红细胞计数升高。心率 142 次/分，血压 78/42 mm Hg，毛细血管再充盈时间 5 秒。未发现外部或内部出血来源。镰状细胞病专科医师正在指导治疗，已有静脉补液和红细胞输注医嘱。请完成蝴蝶结题：选择病情、2 项措施和 2 项监测指标。"
+    },
+    "testTakingStrategy": {
+      "en": "Use the sudden spleen enlargement and hemoglobin drop to separate sequestration from aplasia or bleeding, then choose one hypovolemia action, one expert-directed anemia action, and two distinct response domains.",
+      "zh": "利用脾脏突然增大和血红蛋白下降来区分脾脏扣留、再生障碍和出血，再选择一项纠正低血容量的措施、一项专家指导的贫血治疗，并区分两个反应监测领域。"
+    }
+  }
+}

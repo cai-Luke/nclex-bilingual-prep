@@ -1,0 +1,292 @@
+{
+  "candidateSurfaces": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions — select 2",
+          "zh": "优先措施——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Administer the prescribed hyoscine butylbromide and ordered antiemetic regimen",
+            "opaqueTokenLabel": "A1",
+            "zh": "按医嘱给予丁溴东莨菪碱和已开立的止吐方案"
+          },
+          {
+            "en": "Review reversible or mechanical contributors and use goal-concordant nonpharmacologic comfort measures",
+            "opaqueTokenLabel": "A2",
+            "zh": "复核可逆性或机械性诱因，并采用符合照护目标的非药物舒适措施"
+          },
+          {
+            "en": "Start a stimulant laxative and high-fiber oral intake",
+            "opaqueTokenLabel": "A3",
+            "zh": "开始使用刺激性泻药并增加高纤维经口摄入"
+          },
+          {
+            "en": "Begin prescribed octreotide immediately before a trial of hyoscine butylbromide",
+            "opaqueTokenLabel": "A4",
+            "zh": "在试用丁溴东莨菪碱前立即按医嘱开始奥曲肽"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的状况"
+        },
+        "tokens": [
+          {
+            "en": "Malignant ascites without bowel obstruction",
+            "opaqueTokenLabel": "C1",
+            "zh": "不伴肠梗阻的恶性腹水"
+          },
+          {
+            "en": "Malignant bowel obstruction",
+            "opaqueTokenLabel": "C2",
+            "zh": "恶性肠梗阻"
+          },
+          {
+            "en": "Uncomplicated opioid-related constipation",
+            "opaqueTokenLabel": "C3",
+            "zh": "无并发症的阿片类药物相关便秘"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor — select 2",
+          "zh": "需要监测的指标——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Tumor markers and lesion size",
+            "opaqueTokenLabel": "P1",
+            "zh": "肿瘤标志物和病灶大小"
+          },
+          {
+            "en": "Comfort, sedation, mouth dryness, and hydration burden",
+            "opaqueTokenLabel": "P2",
+            "zh": "舒适度、镇静、口干和补液负担"
+          },
+          {
+            "en": "Bowel sounds alone",
+            "opaqueTokenLabel": "P3",
+            "zh": "仅监测肠鸣音"
+          },
+          {
+            "en": "Vomiting frequency, abdominal distention, and colicky pain",
+            "opaqueTokenLabel": "P4",
+            "zh": "呕吐频率、腹胀和绞痛"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "由恶性肿瘤直接或间接造成的肠内容物通过受阻。",
+        "termEn": "malignant bowel obstruction",
+        "termZh": "恶性肠梗阻"
+      },
+      {
+        "defZh": "呕吐物呈肠内容物样并带粪臭味，提示远端肠道梗阻。",
+        "termEn": "feculent vomiting",
+        "termZh": "粪臭性呕吐"
+      },
+      {
+        "defZh": "可减少胃肠道痉挛和分泌、用于缓解梗阻相关症状的药物。",
+        "termEn": "hyoscine butylbromide",
+        "termZh": "丁溴东莨菪碱"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct: the malignancy context plus colic, distention, feculent vomiting, and absent stool and flatus supports malignant bowel obstruction.",
+          "opaqueTokenLabel": "C2",
+          "zh": "正确：恶性肿瘤背景合并绞痛、腹胀、粪臭性呕吐以及无排便和排气，支持恶性肠梗阻。"
+        },
+        {
+          "en": "Incorrect: uncomplicated opioid-related constipation does not adequately explain feculent vomiting and the confirmed obstructive bowel disorder.",
+          "opaqueTokenLabel": "C3",
+          "zh": "错误：无并发症的阿片类药物相关便秘不能充分解释粪臭性呕吐和已确认的梗阻性肠道疾病。"
+        },
+        {
+          "en": "Incorrect: malignant ascites can cause distention but does not explain this complete obstructive symptom pattern.",
+          "opaqueTokenLabel": "C1",
+          "zh": "错误：恶性腹水可引起腹胀，但不能解释本例完整的梗阻症状模式。"
+        },
+        {
+          "en": "Correct: cause review and nonpharmacologic comfort measures preserve goal-concordant symptom assessment without introducing a curative pathway.",
+          "opaqueTokenLabel": "A2",
+          "zh": "正确：复核病因并采用非药物舒适措施，可在不引入根治性路径的情况下进行符合照护目标的症状评估。"
+        },
+        {
+          "en": "Correct: NG31 identifies hyoscine butylbromide as the first-line pharmacologic branch for nausea or vomiting with an obstructive bowel disorder.",
+          "opaqueTokenLabel": "A1",
+          "zh": "正确：NG31 将丁溴东莨菪碱列为梗阻性肠道疾病伴恶心或呕吐时的一线药物处理分支。"
+        },
+        {
+          "en": "Incorrect: NG31 considers octreotide if symptoms do not improve within 24 hours after hyoscine butylbromide, not before its initial trial.",
+          "opaqueTokenLabel": "A4",
+          "zh": "错误：NG31 在丁溴东莨菪碱使用 24 小时后症状仍未改善时才考虑奥曲肽，而不是在初始试用前使用。"
+        },
+        {
+          "en": "Incorrect: stimulant laxatives and high-fiber intake are not an appropriate routine response to a confirmed obstructive bowel disorder with feculent vomiting.",
+          "opaqueTokenLabel": "A3",
+          "zh": "错误：对于已确认的梗阻性肠道疾病并伴粪臭性呕吐，常规使用刺激性泻药和高纤维饮食并不合适。"
+        },
+        {
+          "en": "Correct: vomiting frequency, distention, and colicky pain directly track the obstructive symptom burden.",
+          "opaqueTokenLabel": "P4",
+          "zh": "正确：呕吐频率、腹胀和绞痛可直接追踪梗阻症状负担。"
+        },
+        {
+          "en": "Correct: comfort, sedation, mouth dryness, and hydration burden evaluate a distinct treatment-tolerance domain.",
+          "opaqueTokenLabel": "P2",
+          "zh": "正确：舒适度、镇静、口干和补液负担用于评估独立的治疗耐受性领域。"
+        },
+        {
+          "en": "Incorrect: tumor markers and lesion size do not measure immediate symptom relief or treatment burden in the last days of life.",
+          "opaqueTokenLabel": "P1",
+          "zh": "错误：肿瘤标志物和病灶大小不能评估生命最后数日的即时症状缓解或治疗负担。"
+        },
+        {
+          "en": "Incorrect: bowel sounds alone do not capture vomiting/distention trends or the client's comfort and treatment burden.",
+          "opaqueTokenLabel": "P3",
+          "zh": "错误：仅监测肠鸣音不能反映呕吐和腹胀趋势，也不能评估患者舒适度及治疗负担。"
+        }
+      ],
+      "correct": {
+        "en": "Known intra-abdominal malignancy with colicky pain, distention, feculent vomiting, and absent stool or flatus supports malignant bowel obstruction. Within comfort goals, care includes reviewing reversible or mechanical contributors and using nonpharmacologic comfort measures, plus administering the prescribed hyoscine butylbromide and antiemetic regimen. Vomiting/distention/colic track obstructive symptoms, while comfort, sedation, mouth dryness, and hydration burden track treatment burden and overall comfort separately.",
+        "zh": "已知腹腔内恶性肿瘤合并绞痛、腹胀、粪臭性呕吐以及无排便或排气，支持恶性肠梗阻。在舒适照护目标内，应复核可逆性或机械性诱因并采用非药物舒适措施，同时按医嘱给予丁溴东莨菪碱和止吐方案。呕吐、腹胀和绞痛用于追踪梗阻症状；舒适度、镇静、口干和补液负担则分别追踪治疗负担和整体舒适状况。"
+      }
+    },
+    "stem": {
+      "en": "An adult in the last days of life has known intra-abdominal cancer, intermittent colicky abdominal pain, increasing distention, feculent vomiting, and no stool or flatus for 3 days. The prescriber has confirmed an obstructive bowel disorder. The goals are comfort, and no curative surgical pathway is planned. Comfort measures and symptom-control medication orders are available.\n\nComplete the bowtie by selecting the most likely condition, the 2 priority actions, and the 2 parameters to monitor.",
+      "zh": "一名处于生命最后数日的成人患有已知腹腔内癌症，出现间歇性腹部绞痛、腹胀加重、粪臭性呕吐，并已 3 天无排便或排气。开立医嘱者已确认存在梗阻性肠道疾病。照护目标为舒适，不计划采取根治性手术路径。舒适措施和症状控制药物医嘱均已具备。\n\n完成蝴蝶结题：选择最可能的状况、2 项优先措施和 2 项需要监测的指标。"
+    },
+    "testTakingStrategy": {
+      "en": "Use the full obstructive pattern rather than distention alone. Choose one goal-concordant assessment/comfort action and one prescribed medication action, then separate symptom progression from treatment burden.",
+      "zh": "利用完整的梗阻模式，而不是只看腹胀。选择一项符合照护目标的评估/舒适措施和一项按医嘱的药物措施，再把症状进展与治疗负担分开监测。"
+    }
+  },
+  "explicitlyLinkedHistoricalSources": [],
+  "instruction": "Phase E is immutable. For every missing client fact inspect only this candidate's rationale/byChoice, strategy, glossary, Chinese counterpart, and an explicitly linked historical source if one exists. Do not search the corpus. Classify bounded provenance, apply fixed verdict precedence, and record narrow bilingual/clinical/scope findings. Hidden-case dependency is unreachable and is a blocker if asserted.",
+  "phaseE": {
+    "anyCanonicalTargetDependsOnAbsentFact": false,
+    "blindExactMatch": true,
+    "canonicalSelection": {
+      "actionLabels": [
+        "A2",
+        "A1"
+      ],
+      "conditionLabel": "C2",
+      "parameterLabels": [
+        "P4",
+        "P2"
+      ]
+    },
+    "canonicalSetExplanation": "The five canonical targets are supported by explicit stem facts or ordinary clinical knowledge and remain uniquely preferable to all six distractors.",
+    "canonicalSetUniquelyDefensible": true,
+    "canonicalTargetSupport": [
+      {
+        "missingClientFact": "The stem does not name hyoscine butylbromide or the specific antiemetic regimen among the available orders.",
+        "opaqueTokenLabel": "A1",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "The goals are comfort, and comfort measures and symptom-control medication orders are available."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A2",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "The goals are comfort, and no curative surgical pathway is planned. Comfort measures are available."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C2",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "Known intra-abdominal cancer, confirmed obstructive bowel disorder, increasing distention, feculent vomiting, and no stool or flatus for 3 days."
+      },
+      {
+        "missingClientFact": "Baseline comfort, sedation, mouth dryness, and hydration burden are not reported.",
+        "opaqueTokenLabel": "P2",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "The goals are comfort, and symptom-control medication orders are available."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P4",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "Intermittent colicky abdominal pain, increasing distention, and feculent vomiting are present."
+      }
+    ],
+    "distractorPremiseFindings": [
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A3",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "The prescriber has confirmed an obstructive bowel disorder; the patient has feculent vomiting and no stool or flatus for 3 days."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "No octreotide order, hyoscine trial history, or requirement to administer octreotide immediately before hyoscine is provided.",
+        "opaqueTokenLabel": "A4",
+        "reviewerRankabilityImpact": "MATERIAL",
+        "supportClassification": "MISSING_CLIENT_FACT",
+        "supportingStandaloneEvidence": "Symptom-control medication orders are available."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C1",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "The prescriber has confirmed an obstructive bowel disorder, with feculent vomiting and absent stool and flatus."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C3",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Intermittent colicky pain, increasing distention, feculent vomiting, absent stool and flatus, and a confirmed obstructive bowel disorder."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "No tumor-marker surveillance or lesion-response objective is present.",
+        "opaqueTokenLabel": "P1",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "NOT_APPLICABLE",
+        "supportingStandaloneEvidence": "The goals are comfort, and no curative surgical pathway is planned."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "No bowel-sound baseline is given, and bowel sounds alone do not establish symptom relief or comfort.",
+        "opaqueTokenLabel": "P3",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "NOT_APPLICABLE",
+        "supportingStandaloneEvidence": "The stem provides symptom findings but no bowel-sound findings."
+      }
+    ],
+    "missingClientFacts": [
+      {
+        "missingFact": "No octreotide order, hyoscine trial history, or requirement to administer octreotide immediately before hyoscine is provided.",
+        "necessaryForRankability": false,
+        "opaqueTokenLabel": "A4",
+        "reviewerRankabilityImpact": "MATERIAL"
+      }
+    ],
+    "stage1Alignment": "PARTIAL",
+    "stage1AlignmentExplanation": "Stage 1 identified the same condition and most canonical clinical domains, but at least one action or evaluation domain differed from the canonical five-target construct.",
+    "unstatedClientFactMateriallyChangesRankability": false
+  },
+  "phaseESha256": "d01ba5d66dfa2567b5394c342c12e9db6494b431630b3476a3f785d79a53d3ad"
+}

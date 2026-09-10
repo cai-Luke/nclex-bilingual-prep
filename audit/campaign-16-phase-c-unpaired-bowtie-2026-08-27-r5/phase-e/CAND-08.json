@@ -1,0 +1,109 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A3",
+      "A2"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P2",
+      "P3"
+    ]
+  },
+  "canonicalSetExplanation": "The five canonical targets are supported by explicit stem facts or ordinary clinical knowledge and remain uniquely preferable to all six distractors.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Co-oximetry shows methemoglobin 28%, and the record documents normal glucose-6-phosphate dehydrogenase activity."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Symptoms began minutes after topical benzocaine, and supplemental oxygen is already being provided."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "After topical benzocaine, the client develops dyspnea and blue-gray lips; SpO₂ is 84% despite oxygen, PaO₂ is 118 mm Hg, and methemoglobin is 28%."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Co-oximetry shows methemoglobin 28%, and the client has dyspnea and blue-gray lips."
+    },
+    {
+      "missingClientFact": "Baseline hemoglobin, bilirubin, and haptoglobin values are not supplied.",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The client has oxygenation symptoms and is eligible for IV methylene blue because G6PD deficiency is excluded."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A1",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "The client has dyspnea, blue-gray lips, and SpO₂ of 84% despite supplemental oxygen."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "No fluid-overload state, diuretic-responsive mechanism, or indication for oxidant removal by diuresis is provided.",
+      "opaqueTokenLabel": "A4",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "NOT_APPLICABLE",
+      "supportingStandaloneEvidence": ""
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "No carbon-monoxide exposure or elevated carboxyhemoglobin is provided.",
+      "opaqueTokenLabel": "C1",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "Symptoms immediately followed topical benzocaine, and co-oximetry shows methemoglobin 28%."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "No wheezing or documented reversible airflow obstruction is provided.",
+      "opaqueTokenLabel": "C3",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "Co-oximetry shows methemoglobin 28%, with blue-gray lips and preserved PaO₂."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "No carbon-monoxide exposure or elevated carboxyhemoglobin is documented.",
+      "opaqueTokenLabel": "P1",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "NOT_APPLICABLE",
+      "supportingStandaloneEvidence": ""
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "No organophosphate exposure, cholinergic secretions, or cholinergic toxidrome is documented.",
+      "opaqueTokenLabel": "P4",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "NOT_APPLICABLE",
+      "supportingStandaloneEvidence": ""
+    }
+  ],
+  "missingClientFacts": [],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 identified the same condition and most canonical clinical domains, but at least one action or evaluation domain differed from the canonical five-target construct.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

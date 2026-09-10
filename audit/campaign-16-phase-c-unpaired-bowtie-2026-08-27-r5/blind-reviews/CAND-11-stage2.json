@@ -1,0 +1,118 @@
+{
+  "actionLabels": [
+    "A2",
+    "A3"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C2",
+  "missingInformation": [
+    "Microbiologic confirmation of Neisseria meningitidis",
+    "Platelet count and coagulation studies",
+    "Serum lactate and renal function",
+    "Urine output trend"
+  ],
+  "parameterLabels": [
+    "P3",
+    "P4"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The presentation is classic for fulminant meningococcemia rather than urticaria or an uncomplicated viral exanthem. Ceftriaxone should be administered promptly, and droplet precautions are indicated during the first day of effective therapy. Rash progression and hemodynamic-organ perfusion measures are the two most relevant monitoring choices in the supplied pool.",
+  "selectionEvidence": [
+    "C2: High fever, profound hypotension, tachycardia, new confusion, and a rapidly spreading nonblanching petechial-purpuric rash strongly support meningococcemia with septic shock.",
+    "A2: An IV ceftriaxone order is available, cultures were already drawn without delaying treatment, and prompt antimicrobial administration is required.",
+    "A3: Standard plus Droplet Precautions are appropriate during the first 24 hours of effective therapy for suspected meningococcal disease.",
+    "P3: The rash is already rapidly spreading, so its extent and progression directly track worsening purpura and possible coagulopathy.",
+    "P4: Severe hypotension and new confusion make blood pressure, urine output, and mental status essential measures of resuscitation response and organ perfusion."
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "Evidence of an infection requiring Airborne Precautions, such as measles, varicella, or pulmonary tuberculosis.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem and condition pool support meningococcal disease, for which Droplet rather than Airborne Precautions are appropriate.",
+      "supportingStemText": "Neck stiffness is absent, while the presentation is dominated by septic shock and a petechial-purpuric rash."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly establishes that ceftriaxone is ordered and ready for prompt administration.",
+      "supportingStemText": "Blood cultures have been drawn without delaying treatment, and an order for IV ceftriaxone is available."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Suspected meningococcal disease requires Standard plus Droplet Precautions until at least 24 hours after effective antimicrobial therapy begins.",
+      "supportingStemText": "This is the first day of effective therapy."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem explicitly frames treatment as urgent and cultures as already obtained without delaying antibiotics.",
+      "supportingStemText": "Blood cultures have been drawn without delaying treatment, and an order for IV ceftriaxone is available."
+    },
+    {
+      "missingPremise": "Blanching, raised, pruritic wheals or another typical urticarial morphology.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The rash morphology and fulminant septic physiology are inconsistent with uncomplicated acute allergic urticaria.",
+      "supportingStemText": "The rash is nonblanching, petechial, and purpuric, with temperature 103.1 °F (39.5 °C), blood pressure 82/48 mm Hg, and new confusion."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "This combination is strongly characteristic of meningococcemia with septic shock, even without neck stiffness.",
+      "supportingStemText": "Temperature 103.1 °F (39.5 °C), blood pressure 82/48 mm Hg, heart rate 128/min, new confusion, and a rapidly spreading nonblanching petechial and purpuric rash."
+    },
+    {
+      "missingPremise": "A stable client with a benign blanching exanthem and no shock or organ dysfunction.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "An uncomplicated viral exanthem does not explain profound shock, altered mentation, and rapidly progressive purpura.",
+      "supportingStemText": "Blood pressure is 82/48 mm Hg with new confusion and a rapidly spreading nonblanching petechial-purpuric rash."
+    },
+    {
+      "missingPremise": "Present or evolving meningeal signs and additional measures of neurologic and systemic response.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The parameter is explicitly absent and, even if present, monitoring it alone would not evaluate the life-threatening shock syndrome.",
+      "supportingStemText": "Neck stiffness is absent."
+    },
+    {
+      "missingPremise": "A clinical problem in which isolated daily weight is a timely primary response measure.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Daily weight alone does not provide sufficiently immediate evaluation of antimicrobial or hemodynamic response in fulminant septic shock.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly makes rash extent and progression an active, observable marker of deterioration.",
+      "supportingStemText": "The client has a rapidly spreading nonblanching petechial and purpuric rash."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Blood pressure, urine output, and mental status directly evaluate perfusion and response to ongoing shock resuscitation.",
+      "supportingStemText": "Blood pressure is 82/48 mm Hg with new confusion, and hemodynamic resuscitation is underway."
+    }
+  ]
+}

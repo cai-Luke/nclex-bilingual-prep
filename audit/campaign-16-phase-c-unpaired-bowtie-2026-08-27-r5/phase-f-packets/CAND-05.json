@@ -1,0 +1,316 @@
+{
+  "candidateSurfaces": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Actions to take",
+          "zh": "应采取的措施"
+        },
+        "tokens": [
+          {
+            "en": "Discontinue triggering agents and hyperventilate with 100% oxygen",
+            "opaqueTokenLabel": "A1",
+            "zh": "停止诱发药物并用 100% 氧气过度通气"
+          },
+          {
+            "en": "Obtain cultures and begin empiric antibiotics as the primary response",
+            "opaqueTokenLabel": "A2",
+            "zh": "将采集培养并开始经验性抗菌治疗作为首要处理"
+          },
+          {
+            "en": "Administer protocol-directed IV dantrolene rapidly",
+            "opaqueTokenLabel": "A3",
+            "zh": "按方案迅速静脉给予丹曲林"
+          },
+          {
+            "en": "Continue the volatile anesthetic while increasing minute ventilation",
+            "opaqueTokenLabel": "A4",
+            "zh": "继续使用挥发性麻醉药，同时增加每分钟通气量"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的病情"
+        },
+        "tokens": [
+          {
+            "en": "Acute malignant hyperthermia",
+            "opaqueTokenLabel": "C1",
+            "zh": "急性恶性高热"
+          },
+          {
+            "en": "Perioperative anaphylaxis",
+            "opaqueTokenLabel": "C2",
+            "zh": "围术期过敏性休克"
+          },
+          {
+            "en": "Thyroid storm",
+            "opaqueTokenLabel": "C3",
+            "zh": "甲状腺危象"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "应监测的指标"
+        },
+        "tokens": [
+          {
+            "en": "End-tidal carbon dioxide trend",
+            "opaqueTokenLabel": "P1",
+            "zh": "呼气末二氧化碳趋势"
+          },
+          {
+            "en": "Serum tryptase",
+            "opaqueTokenLabel": "P2",
+            "zh": "血清类胰蛋白酶"
+          },
+          {
+            "en": "Blood-culture results",
+            "opaqueTokenLabel": "P3",
+            "zh": "血培养结果"
+          },
+          {
+            "en": "Core temperature trend",
+            "opaqueTokenLabel": "P4",
+            "zh": "核心体温趋势"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "易感者接触特定麻醉诱发药物后发生的急性高代谢危象",
+        "termEn": "malignant hyperthermia",
+        "termZh": "恶性高热"
+      },
+      {
+        "defZh": "呼气结束时测得的二氧化碳水平，可反映通气和代谢变化",
+        "termEn": "end-tidal carbon dioxide",
+        "termZh": "呼气末二氧化碳"
+      },
+      {
+        "defZh": "用于治疗恶性高热的骨骼肌松弛药",
+        "termEn": "dantrolene",
+        "termZh": "丹曲林"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Keyed: the trigger exposure and combined hypermetabolic findings strongly support acute malignant hyperthermia.",
+          "opaqueTokenLabel": "C1",
+          "zh": "正确：诱发药物暴露与一组高代谢表现强烈支持急性恶性高热。"
+        },
+        {
+          "en": "Not keyed: perioperative anaphylaxis is more likely to include hypotension, bronchospasm, or skin findings rather than marked rigidity and a rapidly rising ETCO2.",
+          "opaqueTokenLabel": "C2",
+          "zh": "不选：围术期过敏性休克更常见低血压、支气管痉挛或皮肤表现，而不是明显肌强直和呼气末二氧化碳快速升高。"
+        },
+        {
+          "en": "Not keyed: thyroid storm is not tightly linked to a volatile-anesthetic trigger and does not typically cause this abrupt ETCO2 and rigidity pattern.",
+          "opaqueTokenLabel": "C3",
+          "zh": "不选：甲状腺危象与挥发性麻醉药诱发关系不密切，也通常不会出现这种突发的呼气末二氧化碳升高和肌强直模式。"
+        },
+        {
+          "en": "Keyed: stopping triggers and hyperventilating with 100% oxygen remove the precipitant and increase oxygen delivery and carbon dioxide elimination.",
+          "opaqueTokenLabel": "A1",
+          "zh": "正确：停止诱发药物并用 100% 氧气过度通气，可去除诱因并增加供氧和二氧化碳排出。"
+        },
+        {
+          "en": "Keyed: rapid protocol-directed IV dantrolene is the syndrome-specific medication treatment.",
+          "opaqueTokenLabel": "A3",
+          "zh": "正确：按方案迅速静脉给予丹曲林是该综合征的特异性药物治疗。"
+        },
+        {
+          "en": "Not keyed: cultures and empiric antibiotics do not address the immediate anesthetic-triggered hypermetabolic crisis.",
+          "opaqueTokenLabel": "A2",
+          "zh": "不选：培养和经验性抗菌药物不能处理由麻醉诱发的即时高代谢危象。"
+        },
+        {
+          "en": "Not keyed: continuing the volatile anesthetic would maintain the trigger despite increased ventilation.",
+          "opaqueTokenLabel": "A4",
+          "zh": "不选：即使增加通气，继续使用挥发性麻醉药仍会维持诱因。"
+        },
+        {
+          "en": "Keyed: a falling end-tidal carbon dioxide level is an early measure of reduced hypermetabolism and response.",
+          "opaqueTokenLabel": "P1",
+          "zh": "正确：呼气末二氧化碳下降是高代谢减轻和治疗有效的早期指标。"
+        },
+        {
+          "en": "Keyed: core temperature trend measures thermal progression and the response to treatment and cooling.",
+          "opaqueTokenLabel": "P4",
+          "zh": "正确：核心体温趋势可反映热损伤进展以及治疗和降温的效果。"
+        },
+        {
+          "en": "Not keyed: serum tryptase is used to investigate anaphylaxis and does not track resolution of the MH hypermetabolic response.",
+          "opaqueTokenLabel": "P2",
+          "zh": "不选：血清类胰蛋白酶用于评估过敏性反应，不能反映恶性高热高代谢状态是否缓解。"
+        },
+        {
+          "en": "Not keyed: blood-culture results evaluate infection and do not provide an immediate measure of the trigger-linked MH response.",
+          "opaqueTokenLabel": "P3",
+          "zh": "不选：血培养结果用于评估感染，不能即时反映由诱发药物引起的恶性高热是否改善。"
+        }
+      ],
+      "correct": {
+        "en": "Trigger exposure with an unexplained rapid rise in end-tidal carbon dioxide, tachycardia, rigidity, and rising core temperature is the classic acute malignant-hyperthermia pattern. Triggering agents should be stopped and the client hyperventilated with 100% oxygen while protocol-directed IV dantrolene is given rapidly. End-tidal carbon dioxide and core temperature measure different aspects of response.",
+        "zh": "在接触诱发药物后，出现无法解释的呼气末二氧化碳快速升高、心动过速、肌强直和核心体温上升，是急性恶性高热的典型模式。应停止诱发药物并用 100% 氧气过度通气，同时按方案迅速静脉给予丹曲林。呼气末二氧化碳和核心体温分别反映不同方面的治疗反应。"
+      }
+    },
+    "stem": {
+      "en": "During general anesthesia with a volatile anesthetic, an adult client's end-tidal carbon dioxide rises rapidly from 38 to 72 mm Hg despite increased minute ventilation. The heart rate is 142/min, generalized muscle rigidity is present, and the core temperature has risen from 98.6 °F (37.0 °C) to 101.7 °F (38.7 °C) in 20 minutes. Complete the bow-tie.",
+      "zh": "一名成人在使用挥发性麻醉药进行全身麻醉期间，尽管已增加每分钟通气量，呼气末二氧化碳仍从 38 mmHg 快速升至 72 mmHg。心率 142 次/分，出现全身肌强直，核心体温在 20 分钟内由 98.6 °F（37.0 °C）升至 101.7 °F（38.7 °C）。请完成蝴蝶结题。"
+    },
+    "testTakingStrategy": {
+      "en": "Prioritize the trigger-linked rise in carbon dioxide and rigidity, then choose one trigger-removal/support action, one specific treatment, and two different response trends.",
+      "zh": "优先识别与诱发药物相关的二氧化碳升高和肌强直，再选择一项去除诱因/支持措施、一项特异治疗及两个不同的疗效趋势。"
+    }
+  },
+  "explicitlyLinkedHistoricalSources": [],
+  "instruction": "Phase E is immutable. For every missing client fact inspect only this candidate's rationale/byChoice, strategy, glossary, Chinese counterpart, and an explicitly linked historical source if one exists. Do not search the corpus. Classify bounded provenance, apply fixed verdict precedence, and record narrow bilingual/clinical/scope findings. Hidden-case dependency is unreachable and is a blocker if asserted.",
+  "phaseE": {
+    "anyCanonicalTargetDependsOnAbsentFact": false,
+    "blindExactMatch": true,
+    "canonicalSelection": {
+      "actionLabels": [
+        "A1",
+        "A3"
+      ],
+      "conditionLabel": "C1",
+      "parameterLabels": [
+        "P1",
+        "P4"
+      ]
+    },
+    "canonicalSetExplanation": "The five canonical targets are supported by explicit stem facts or ordinary clinical knowledge and remain uniquely preferable to all six distractors.",
+    "canonicalSetUniquelyDefensible": true,
+    "canonicalTargetSupport": [
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A1",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "During general anesthesia with a volatile anesthetic, an adult client's end-tidal carbon dioxide rises rapidly from 38 to 72 mm Hg despite increased minute ventilation."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A3",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "Volatile anesthetic exposure, rapidly rising end-tidal carbon dioxide, tachycardia, generalized muscle rigidity, and rapidly rising core temperature"
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C1",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "During general anesthesia with a volatile anesthetic...end-tidal carbon dioxide rises rapidly...heart rate is 142/min, generalized muscle rigidity is present, and the core temperature has risen...in 20 minutes."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P1",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "End-tidal carbon dioxide rises rapidly from 38 to 72 mm Hg despite increased minute ventilation."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P4",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "The core temperature has risen from 98.6 °F (37.0 °C) to 101.7 °F (38.7 °C) in 20 minutes."
+      }
+    ],
+    "distractorPremiseFindings": [
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Evidence of infection or sepsis requiring cultures and empiric antibiotics as the primary response",
+        "opaqueTokenLabel": "A2",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "MISSING_CLIENT_FACT",
+        "supportingStandaloneEvidence": ""
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A4",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "End-tidal carbon dioxide rises rapidly from 38 to 72 mm Hg despite increased minute ventilation."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Hypotension, bronchospasm, urticaria, angioedema, or another acute hypersensitivity manifestation",
+        "opaqueTokenLabel": "C2",
+        "reviewerRankabilityImpact": "LOW",
+        "supportClassification": "MISSING_CLIENT_FACT",
+        "supportingStandaloneEvidence": "During general anesthesia with a volatile anesthetic"
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Known thyrotoxicosis or compatible thyroid history and supporting manifestations such as goiter, tremor, gastrointestinal symptoms, or preoperative hyperthyroid findings",
+        "opaqueTokenLabel": "C3",
+        "reviewerRankabilityImpact": "LOW",
+        "supportClassification": "MISSING_CLIENT_FACT",
+        "supportingStandaloneEvidence": "The heart rate is 142/min...and the core temperature has risen."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "A suspected perioperative anaphylactic reaction for which serum tryptase would provide diagnostic support",
+        "opaqueTokenLabel": "P2",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "MISSING_CLIENT_FACT",
+        "supportingStandaloneEvidence": ""
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Suspected bacteremia, sepsis, or another infectious process warranting blood cultures",
+        "opaqueTokenLabel": "P3",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "MISSING_CLIENT_FACT",
+        "supportingStandaloneEvidence": ""
+      }
+    ],
+    "missingClientFacts": [
+      {
+        "missingFact": "Evidence of infection or sepsis requiring cultures and empiric antibiotics as the primary response",
+        "necessaryForRankability": false,
+        "opaqueTokenLabel": "A2",
+        "reviewerRankabilityImpact": "NONE"
+      },
+      {
+        "missingFact": "Hypotension, bronchospasm, urticaria, angioedema, or another acute hypersensitivity manifestation",
+        "necessaryForRankability": false,
+        "opaqueTokenLabel": "C2",
+        "reviewerRankabilityImpact": "LOW"
+      },
+      {
+        "missingFact": "Known thyrotoxicosis or compatible thyroid history and supporting manifestations such as goiter, tremor, gastrointestinal symptoms, or preoperative hyperthyroid findings",
+        "necessaryForRankability": false,
+        "opaqueTokenLabel": "C3",
+        "reviewerRankabilityImpact": "LOW"
+      },
+      {
+        "missingFact": "A suspected perioperative anaphylactic reaction for which serum tryptase would provide diagnostic support",
+        "necessaryForRankability": false,
+        "opaqueTokenLabel": "P2",
+        "reviewerRankabilityImpact": "NONE"
+      },
+      {
+        "missingFact": "Suspected bacteremia, sepsis, or another infectious process warranting blood cultures",
+        "necessaryForRankability": false,
+        "opaqueTokenLabel": "P3",
+        "reviewerRankabilityImpact": "NONE"
+      }
+    ],
+    "stage1Alignment": "FULL",
+    "stage1AlignmentExplanation": "Stage 1 independently identified the same condition and the same clinical action and evaluation domains as the canonical construct.",
+    "unstatedClientFactMateriallyChangesRankability": false
+  },
+  "phaseESha256": "688f308d5b55496da2834d8208edbf8b431836ef949578068b11fe6a2370aa7f"
+}

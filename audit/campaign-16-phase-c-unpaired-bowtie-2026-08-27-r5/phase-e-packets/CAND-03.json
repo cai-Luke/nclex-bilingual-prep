@@ -1,0 +1,370 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A4",
+      "A3"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P3",
+      "P1"
+    ]
+  },
+  "instruction": "The two blind records are immutable. Compare them with the current canonical five-target selection and complete standalone item. Do not inspect or infer sibling/corpus material. Return the required Phase-E standalone-adjudication record without revising either blind stage.",
+  "stage1": {
+    "condition": "Imminent risk for suicide with active suicidal intent, a specific plan, available lethal means, and a stated timeframe",
+    "evaluationParameters": [
+      "Presence and intensity of suicidal ideation, intent, and plan on repeated direct assessment.",
+      "Maintenance of safety, including no medication ingestion, alcohol use, suicide attempt, or other self-harm during observation and transfer."
+    ],
+    "missingInformation": [
+      "Whether any oxycodone or alcohol has already been consumed",
+      "Quantity and strength of the available oxycodone tablets and current access to alcohol",
+      "History of suicide attempts, psychiatric illness, substance use, or recent precipitating events",
+      "Current mental status, intoxication, medical stability, protective factors, and available support persons"
+    ],
+    "priorityActions": [
+      "Stay with the client, initiate continuous one-to-one observation, and prevent access to the oxycodone and alcohol.",
+      "Activate the emergency response process for immediate suicide-risk evaluation and safe transfer to an emergency or psychiatric setting."
+    ],
+    "reasoning": "The stem directly establishes suicidal intent, a specific lethal method, access to means, and an imminent timeframe; immediate safety supervision and emergency evaluation take priority over confidentiality preferences or routine outpatient assessment.",
+    "stage1Confidence": "high",
+    "stemEvidence": [
+      {
+        "facts": [
+          "The client says, \"I cannot keep doing this,\" expresses an intention not to wake up, names oxycodone plus alcohol as the method, identifies tonight as the timeframe, and reports the tablets are in the backpack."
+        ],
+        "target": "Imminent risk for suicide"
+      },
+      {
+        "facts": [
+          "The client reports immediate possession of old oxycodone tablets and intent to combine them with alcohol tonight."
+        ],
+        "target": "Continuous observation and means restriction"
+      },
+      {
+        "facts": [
+          "The client describes current intent, a specific potentially lethal plan, access to the means, and a near-term timeframe."
+        ],
+        "target": "Emergency evaluation and safe transfer"
+      },
+      {
+        "facts": [
+          "The client explicitly states suicidal intent and plan but asks the nurse not to call anyone, so persistence or escalation requires direct reassessment."
+        ],
+        "target": "Repeated assessment of suicidal ideation, intent, and plan"
+      },
+      {
+        "facts": [
+          "The threatened method involves possible medication overdose with alcohol, creating an immediate risk of ingestion and self-harm."
+        ],
+        "target": "Maintenance of safety"
+      }
+    ]
+  },
+  "stage1Sha256": "8afd5dc06399261212793ee2c3427d4dd6108693c610caeac2ba8e00a4f62d3b",
+  "stage2": {
+    "actionLabels": [
+      "A3",
+      "A4"
+    ],
+    "ambiguousAlternatives": [],
+    "conditionLabel": "C2",
+    "missingInformation": [
+      "Whether the client has already consumed any oxycodone or alcohol",
+      "The quantity and strength of the oxycodone tablets and immediate availability of alcohol",
+      "The client's current mental status, intoxication status, medical stability, prior suicide attempts, and protective factors"
+    ],
+    "parameterLabels": [
+      "P1",
+      "P3"
+    ],
+    "poolAnswerability": "ANSWERABLE",
+    "reasoning": "The stem explicitly establishes imminent suicide risk through current intent, a specific lethal plan, access to the pills, and a timeframe of tonight. Immediate protocol activation, means restriction, direct observation, reassessment of intent and safety, and monitoring access to lethal means are uniquely prioritized by the available tokens.",
+    "selectionEvidence": [
+      {
+        "opaqueLabel": "C2",
+        "supportingStemFact": "The client states an intention to die tonight using oxycodone with alcohol and has the tablets in a backpack."
+      },
+      {
+        "opaqueLabel": "A3",
+        "supportingStemFact": "The client identifies an immediately available lethal means: old oxycodone tablets in the backpack."
+      },
+      {
+        "opaqueLabel": "A4",
+        "supportingStemFact": "The client reports a specific suicide plan, intent, accessible means, and a near-term timeframe of tonight."
+      },
+      {
+        "opaqueLabel": "P1",
+        "supportingStemFact": "The statement specifies current intent, a plan to combine oxycodone with alcohol, and an intended fatal outcome."
+      },
+      {
+        "opaqueLabel": "P3",
+        "supportingStemFact": "The client explicitly reports that the oxycodone tablets are currently in the backpack."
+      }
+    ],
+    "stage2Confidence": "high",
+    "tokenPremiseTable": [
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "C1",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The explicit suicide plan and imminent timeframe directly contradict the claim that no immediate safety threat exists.",
+        "supportingStemText": "\"Tonight I am going to take the old oxycodone tablets in my backpack with alcohol so I do not wake up.\""
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "C2",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Intent to die, a specific method, accessible means, and a timeframe of tonight explicitly support imminent suicide risk.",
+        "supportingStemText": "\"Tonight I am going to take the old oxycodone tablets in my backpack with alcohol so I do not wake up.\""
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "C3",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The expressed intent to die contradicts nonsuicidal self-injury without current intent.",
+        "supportingStemText": "The client says the purpose of taking oxycodone with alcohol is \"so I do not wake up.\""
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A1",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "An imminent threat requires immediate intervention, making a routine visit next week unsafe and nonresponsive to the stated risk.",
+        "supportingStemText": "The client plans to die \"Tonight\" and has the oxycodone tablets in a backpack."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A2",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Returning the client home conflicts with the explicit imminent plan and access to lethal means, regardless of a signed contract.",
+        "supportingStemText": "The client reports a suicide plan for tonight with currently accessible oxycodone tablets."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A3",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The explicit imminent plan and accessible pills support activating emergency suicide precautions and restricting the means.",
+        "supportingStemText": "The client states that the old oxycodone tablets are \"in my backpack\" and plans to use them tonight with alcohol."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A4",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The immediate danger and resistance to involving others support staying with the client and maintaining direct observation.",
+        "supportingStemText": "The client states an intention to die tonight and asks, \"Do not call anyone.\""
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "P1",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The statement explicitly provides intent and plan while making ongoing assessment of the client's ability to remain safe essential.",
+        "supportingStemText": "\"Tonight I am going to take the old oxycodone tablets in my backpack with alcohol so I do not wake up.\""
+      },
+      {
+        "missingPremise": "The stem provides no bedtime concern or clinical reason for bedtime routine to be a priority safety parameter.",
+        "opaqueTokenLabel": "P2",
+        "premiseStatus": "NO_CLIENT_PREMISE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Absence of a bedtime-related problem does not impair ranking because the stem explicitly identifies suicide-related monitoring priorities.",
+        "supportingStemText": ""
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "P3",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Current possession of the planned overdose medication explicitly supports monitoring access to lethal means.",
+        "supportingStemText": "The client says the old oxycodone tablets are \"in my backpack.\""
+      },
+      {
+        "missingPremise": "The stem contains no concern about nutrition, weight, eating behavior, or calorie intake.",
+        "opaqueTokenLabel": "P4",
+        "premiseStatus": "NO_CLIENT_PREMISE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Absence of nutritional concerns does not impair ranking because calorie intake has no stated connection to the immediate suicide threat.",
+        "supportingStemText": ""
+      }
+    ]
+  },
+  "stage2Sha256": "4ef339dc3b38d5ba4726a7004fae6a1709adda4585cd7e98d0e01b7072c3507d",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Actions to take",
+          "zh": "应采取的措施"
+        },
+        "tokens": [
+          {
+            "en": "Schedule a routine counseling visit for next week",
+            "opaqueTokenLabel": "A1",
+            "zh": "安排下周常规心理咨询"
+          },
+          {
+            "en": "Ask the client to sign a no-suicide contract and return home",
+            "opaqueTokenLabel": "A2",
+            "zh": "要求患者签署不自杀协议后回家"
+          },
+          {
+            "en": "Activate the suicide safety protocol and remove access to the pills",
+            "opaqueTokenLabel": "A3",
+            "zh": "启动自杀安全流程并移除患者接触药片的机会"
+          },
+          {
+            "en": "Stay with the client and maintain direct observation",
+            "opaqueTokenLabel": "A4",
+            "zh": "留在患者身边并保持直接观察"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely priority problem",
+          "zh": "最可能的优先问题"
+        },
+        "tokens": [
+          {
+            "en": "Situational anxiety without immediate safety threat",
+            "opaqueTokenLabel": "C1",
+            "zh": "无立即安全威胁的情境性焦虑"
+          },
+          {
+            "en": "Imminent suicide risk",
+            "opaqueTokenLabel": "C2",
+            "zh": "迫在眉睫的自杀风险"
+          },
+          {
+            "en": "Nonsuicidal self-injury without current intent",
+            "opaqueTokenLabel": "C3",
+            "zh": "无当前自杀意图的非自杀性自伤"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "应监测的指标"
+        },
+        "tokens": [
+          {
+            "en": "Current intent, plan, and ability to maintain safety",
+            "opaqueTokenLabel": "P1",
+            "zh": "当前意图、计划以及维持安全的能力"
+          },
+          {
+            "en": "Usual bedtime routine before discharge",
+            "opaqueTokenLabel": "P2",
+            "zh": "出院前的日常睡前习惯"
+          },
+          {
+            "en": "Access to lethal means",
+            "opaqueTokenLabel": "P3",
+            "zh": "接触致命手段的可能性"
+          },
+          {
+            "en": "Daily calorie intake as the main safety marker",
+            "opaqueTokenLabel": "P4",
+            "zh": "将每日热量摄入作为主要安全指标"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "用于保护有自杀风险患者并启动紧急评估和监护的机构流程",
+        "termEn": "suicide safety protocol",
+        "termZh": "自杀安全流程"
+      },
+      {
+        "defZh": "可用于造成死亡的工具、药物或其他途径",
+        "termEn": "lethal means",
+        "termZh": "致命手段"
+      },
+      {
+        "defZh": "护理人员持续看护患者以维持安全",
+        "termEn": "direct observation",
+        "termZh": "直接观察"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "The client's stated plan, timing, and pills in the backpack make immediate suicide risk the priority problem.",
+          "opaqueTokenLabel": "C2",
+          "zh": "患者明确计划、时间和背包中的药片，使立即自杀风险成为优先问题。"
+        },
+        {
+          "en": "Nonsuicidal self-injury does not fit because the client describes intent to die using a potentially lethal method.",
+          "opaqueTokenLabel": "C3",
+          "zh": "非自杀性自伤不符合，因为患者描述了用潜在致命方式结束生命的意图。"
+        },
+        {
+          "en": "Anxiety may coexist, but the direct suicidal statement and lethal means create an immediate safety threat.",
+          "opaqueTokenLabel": "C1",
+          "zh": "焦虑可能同时存在，但直接自杀表述和致命手段构成了立即安全威胁。"
+        },
+        {
+          "en": "Direct observation prevents the client from acting on the plan while emergency safety steps are initiated.",
+          "opaqueTokenLabel": "A4",
+          "zh": "直接观察可在启动紧急安全措施时防止患者实施计划。"
+        },
+        {
+          "en": "Removing access to pills and activating the protocol addresses the immediate lethal means and mobilizes help.",
+          "opaqueTokenLabel": "A3",
+          "zh": "移除药片并启动流程可处理眼前的致命手段并调动帮助。"
+        },
+        {
+          "en": "A no-suicide contract is not a substitute for observation and emergency intervention when intent and means are present.",
+          "opaqueTokenLabel": "A2",
+          "zh": "当存在意图和手段时，不自杀协议不能替代观察和紧急干预。"
+        },
+        {
+          "en": "A routine future appointment delays care despite an immediate risk disclosed in the visit.",
+          "opaqueTokenLabel": "A1",
+          "zh": "常规未来预约会延误护理，因为患者在本次就诊中已经透露立即风险。"
+        },
+        {
+          "en": "Means access is a key safety parameter because the pills are already available to the client.",
+          "opaqueTokenLabel": "P3",
+          "zh": "接触手段是关键安全指标，因为药片已经在患者可及范围内。"
+        },
+        {
+          "en": "Intent, plan, and inability to maintain safety guide the level of emergency supervision and intervention.",
+          "opaqueTokenLabel": "P1",
+          "zh": "意图、计划和无法维持安全决定紧急监督和干预等级。"
+        },
+        {
+          "en": "Nutrition may matter later, but it is not the main safety marker when a lethal plan is active.",
+          "opaqueTokenLabel": "P4",
+          "zh": "营养状况以后可能重要，但在致命计划正在进行时不是主要安全指标。"
+        },
+        {
+          "en": "Bedtime routine does not address the immediate risk of using pills and alcohol tonight.",
+          "opaqueTokenLabel": "P2",
+          "zh": "睡前习惯不能处理今晚使用药片和酒的立即风险。"
+        }
+      ],
+      "correct": {
+        "en": "A specific plan, stated timing, lethal means already present, intent to die, and a request for secrecy indicate imminent suicide risk. The nurse must not leave the client alone and must activate emergency safety measures.",
+        "zh": "具体计划、明确时间、已经携带致命手段、表达死亡意图以及要求保密，都提示迫在眉睫的自杀风险。护士不能让患者独处，必须启动紧急安全措施。"
+      }
+    },
+    "stem": {
+      "en": "A client seen in the outpatient clinic says, \"I cannot keep doing this. Tonight I am going to take the old oxycodone tablets in my backpack with alcohol so I do not wake up.\" The client avoids eye contact and says, \"Do not call anyone. I just needed to tell somebody.\" Complete the bow-tie diagram for the nurse's priority focus.",
+      "zh": "一名门诊患者说：“我真的撑不下去了。今晚我要把背包里的旧 oxycodone 药片和酒一起吃，这样就不会醒来了。”患者回避目光并说：“不要叫任何人。我只是想告诉一个人。”完成图示，确定护士的优先关注点。"
+    },
+    "testTakingStrategy": {
+      "en": "Specific plan plus means plus timing means immediate safety. Do not choose reassurance, contracts, or delayed follow-up as the priority.",
+      "zh": "有具体计划、手段和时间，就是立即安全问题。不要把安慰、不自杀协议或延后随访作为优先答案。"
+    }
+  }
+}

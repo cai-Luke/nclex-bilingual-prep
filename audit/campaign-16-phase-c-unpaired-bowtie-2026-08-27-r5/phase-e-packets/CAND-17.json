@@ -1,0 +1,334 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A3",
+      "A4"
+    ],
+    "conditionLabel": "C3",
+    "parameterLabels": [
+      "P4",
+      "P1"
+    ]
+  },
+  "instruction": "The two blind records are immutable. Compare them with the current canonical five-target selection and complete standalone item. Do not inspect or infer sibling/corpus material. Return the required Phase-E standalone-adjudication record without revising either blind stage.",
+  "stage1": {
+    "condition": "Acute fetal hemorrhage from ruptured vasa previa vessels",
+    "evaluationParameters": [
+      "Fetal heart rate and rhythm until birth",
+      "Newborn perfusion and response to resuscitation, including heart rate, color, and capillary refill"
+    ],
+    "missingInformation": [
+      "Estimated fetal blood loss",
+      "Newborn hemoglobin or hematocrit and acid-base status after birth"
+    ],
+    "priorityActions": [
+      "Prepare the client for immediate emergency cesarean birth.",
+      "Coordinate immediate neonatal resuscitation with rapid access to blood-volume replacement."
+    ],
+    "reasoning": "The sequence of membrane rupture, painless bleeding, sinusoidal fetal tracing, and profound bradycardia in a client with known vasa previa indicates catastrophic fetal-vessel rupture. Immediate operative birth and neonatal blood-volume resuscitation are priorities, with fetal status before birth and newborn perfusion afterward used to evaluate response.",
+    "stage1Confidence": "high",
+    "stemEvidence": [
+      {
+        "evidence": "Known antenatal vasa previa with membrane rupture followed immediately by painless bright-red bleeding",
+        "target": "Rupture of exposed fetal vessels"
+      },
+      {
+        "evidence": "Sinusoidal tracing progressing to sustained fetal bradycardia at 70/min",
+        "target": "Severe fetal blood loss and hypoxia"
+      },
+      {
+        "evidence": "Maternal blood pressure remains 122/74 mm Hg with a soft, nontender abdomen",
+        "target": "Bleeding is more consistent with fetal-vessel hemorrhage than maternal shock or placental abruption"
+      }
+    ]
+  },
+  "stage1Sha256": "4443e4997781b1377a8f42f4a8eb72d47856bae765f71e50ec2e7e6e9c08b6b8",
+  "stage2": {
+    "actionLabels": [
+      "A3",
+      "A4"
+    ],
+    "ambiguousAlternatives": [],
+    "conditionLabel": "C3",
+    "missingInformation": [
+      "Newborn hemoglobin and acid-base status are not yet available.",
+      "The amount of fetal blood loss and the newborn's post-delivery response are not yet known."
+    ],
+    "parameterLabels": [
+      "P1",
+      "P4"
+    ],
+    "poolAnswerability": "ANSWERABLE",
+    "reasoning": "Known vasa previa followed by membrane rupture, painless bleeding, a sinusoidal tracing, and profound fetal bradycardia is diagnostic of ruptured fetal vessels with acute fetal hemorrhage. Immediate cesarean delivery and preparation for neonatal O-negative blood transfusion address the time-critical fetal threat. Continuous fetal heart-rate surveillance until delivery and newborn hematologic and perfusion assessment directly evaluate severity and response.",
+    "selectionEvidence": [
+      "The antenatal diagnosis explicitly establishes vasa previa.",
+      "Membrane rupture is followed immediately by painless bright-red vaginal bleeding, indicating rupture of exposed fetal vessels.",
+      "The sinusoidal fetal tracing progressing to sustained bradycardia at 70/min indicates severe fetal blood loss and hypoxia requiring immediate delivery.",
+      "Normal maternal blood pressure with a soft, nontender abdomen argues against placental abruption with maternal hemorrhagic shock.",
+      "The presence of operative and neonatal teams supports immediate cesarean birth with simultaneous preparation for neonatal transfusion and resuscitation."
+    ],
+    "stage2Confidence": "high",
+    "tokenPremiseTable": [
+      {
+        "missingPremise": "No stable fetal status or reversible preterm-labor scenario supports delaying delivery with a tocolytic.",
+        "opaqueTokenLabel": "A1",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Profound sustained fetal compromise directly excludes a delay strategy.",
+        "supportingStemText": "The fetal tracing becomes sinusoidal and then shows sustained bradycardia at 70/min."
+      },
+      {
+        "missingPremise": "No reassuring fetal status supports 30 minutes of expectant management.",
+        "opaqueTokenLabel": "A2",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Ongoing fetal hemorrhage with severe bradycardia makes expectant management unsafe.",
+        "supportingStemText": "The membranes rupture, followed immediately by painless bright-red vaginal bleeding; the fetal tracing then shows sustained bradycardia at 70/min."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A3",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Emergency cesarean birth is the indicated response to ruptured vasa previa with profound fetal compromise.",
+        "supportingStemText": "The fetal tracing becomes sinusoidal and then shows sustained bradycardia at 70/min. Operative teams are present."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A4",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The presentation supports major fetal blood loss, making immediate neonatal transfusion preparation appropriate.",
+        "supportingStemText": "Known vasa previa is followed by membrane rupture, bright-red bleeding, a sinusoidal tracing, and fetal bradycardia; the neonatal team is present."
+      },
+      {
+        "missingPremise": "Maternal hypotension, uterine pain or rigidity, and other evidence of maternal hemorrhagic shock are absent.",
+        "opaqueTokenLabel": "C1",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The maternal findings oppose the defining premises of this condition.",
+        "supportingStemText": "Maternal blood pressure is 122/74 mm Hg, the abdomen is soft, and there is no uterine tenderness."
+      },
+      {
+        "missingPremise": "No visible or palpable prolapsed cord is described, and the bleeding pattern indicates vessel rupture.",
+        "opaqueTokenLabel": "C2",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Cord prolapse could cause bradycardia but does not explain the characteristic fetal hemorrhage evidence.",
+        "supportingStemText": "The client has an antenatal diagnosis of vasa previa, followed by bleeding immediately after membrane rupture and a sinusoidal tracing."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "C3",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The stem explicitly supplies the diagnosis and classic rupture sequence.",
+        "supportingStemText": "A client at 34 weeks has an antenatal diagnosis of vasa previa. The membranes rupture, followed immediately by painless bright-red vaginal bleeding."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "P1",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Newborn hemoglobin, heart rate, color, and perfusion directly assess fetal blood-loss severity and response to resuscitation.",
+        "supportingStemText": "The fetal tracing becomes sinusoidal and then shows sustained bradycardia at 70/min."
+      },
+      {
+        "missingPremise": "There is no magnesium sulfate exposure, maternal renal compromise, or other indication making deep-tendon reflexes and urine output the priority evaluation pair.",
+        "opaqueTokenLabel": "P2",
+        "premiseStatus": "NO_CLIENT_PREMISE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "These maternal parameters do not evaluate the principal fetal hemorrhage emergency.",
+        "supportingStemText": "Maternal blood pressure is 122/74 mm Hg."
+      },
+      {
+        "missingPremise": "No stable expectant-labor context makes contractions and cervical findings sufficient as the only monitoring parameters.",
+        "opaqueTokenLabel": "P3",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Labor-progress monitoring alone is incompatible with the need to follow profound fetal compromise.",
+        "supportingStemText": "The fetal tracing becomes sinusoidal and then shows sustained bradycardia at 70/min. Operative and neonatal teams are present."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "P4",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Continuous fetal heart-rate monitoring is directly relevant until emergency delivery occurs.",
+        "supportingStemText": "The fetal tracing becomes sinusoidal and then shows sustained bradycardia at 70/min."
+      }
+    ]
+  },
+  "stage2Sha256": "0a3bc27a7b724fb712fdf02207c4838f89b8632169c54bbe484363f9d03a30f5",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions — select 2",
+          "zh": "优先措施——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Administer an ordered tocolytic and delay delivery until bleeding stops",
+            "opaqueTokenLabel": "A1",
+            "zh": "按医嘱给予宫缩抑制剂，并延迟分娩直至出血停止"
+          },
+          {
+            "en": "Continue expectant observation for 30 minutes before notifying the operative team",
+            "opaqueTokenLabel": "A2",
+            "zh": "继续期待观察 30 分钟后再通知手术团队"
+          },
+          {
+            "en": "Activate immediate cesarean delivery",
+            "opaqueTokenLabel": "A3",
+            "zh": "立即启动剖宫产"
+          },
+          {
+            "en": "Alert the neonatal team and prepare O-negative blood for immediate neonatal transfusion",
+            "opaqueTokenLabel": "A4",
+            "zh": "通知新生儿团队，并准备 O 型 Rh 阴性血以便立即为新生儿输血"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的病情"
+        },
+        "tokens": [
+          {
+            "en": "Placental abruption with maternal hemorrhagic shock",
+            "opaqueTokenLabel": "C1",
+            "zh": "胎盘早剥伴孕妇失血性休克"
+          },
+          {
+            "en": "Umbilical-cord prolapse without vessel rupture",
+            "opaqueTokenLabel": "C2",
+            "zh": "不伴血管破裂的脐带脱垂"
+          },
+          {
+            "en": "Ruptured vasa previa with fetal hemorrhage",
+            "opaqueTokenLabel": "C3",
+            "zh": "前置血管破裂伴胎儿失血"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor — select 2",
+          "zh": "需要监测的指标——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Newborn hemoglobin, heart rate, color, and perfusion",
+            "opaqueTokenLabel": "P1",
+            "zh": "新生儿血红蛋白、心率、肤色和灌注"
+          },
+          {
+            "en": "Maternal deep-tendon reflexes and urine output",
+            "opaqueTokenLabel": "P2",
+            "zh": "孕妇深腱反射和尿量"
+          },
+          {
+            "en": "Contraction frequency and cervical change only",
+            "opaqueTokenLabel": "P3",
+            "zh": "仅监测宫缩频率和宫颈变化"
+          },
+          {
+            "en": "Continuous fetal heart-rate pattern until delivery",
+            "opaqueTokenLabel": "P4",
+            "zh": "分娩前持续胎心率模式"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "未受脐带或胎盘组织保护的胎儿血管位于胎膜内并经过或接近宫颈内口。",
+        "termEn": "vasa previa",
+        "termZh": "前置血管"
+      },
+      {
+        "defZh": "胎心基线呈平滑、规则的波浪样振荡，可提示严重胎儿贫血。",
+        "termEn": "sinusoidal fetal heart-rate pattern",
+        "termZh": "正弦波形胎心率"
+      },
+      {
+        "defZh": "血液来自胎儿循环，少量绝对失血也可能造成严重胎儿或新生儿贫血。",
+        "termEn": "fetal hemorrhage",
+        "termZh": "胎儿失血"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct: membrane rupture with painless bleeding and a sinusoidal/bradycardic fetal pattern supports ruptured vasa previa with fetal hemorrhage.",
+          "opaqueTokenLabel": "C3",
+          "zh": "正确：胎膜破裂后出现无痛性出血及正弦波/胎心过缓，支持前置血管破裂并发生胎儿失血。"
+        },
+        {
+          "en": "Incorrect: placental abruption is more often associated with painful bleeding, uterine tenderness or rigidity, and possible maternal instability.",
+          "opaqueTokenLabel": "C1",
+          "zh": "错误：胎盘早剥更常见疼痛性出血、子宫压痛或板状硬，并可能出现孕妇不稳定。"
+        },
+        {
+          "en": "Incorrect: cord prolapse can cause bradycardia after membrane rupture but does not explain this painless fetal-vessel bleeding pattern.",
+          "opaqueTokenLabel": "C2",
+          "zh": "错误：脐带脱垂可在胎膜破裂后引起胎心过缓，但不能解释本例无痛性胎儿血管出血模式。"
+        },
+        {
+          "en": "Correct: sustained fetal compromise after rupture and bleeding requires immediate activation of cesarean delivery.",
+          "opaqueTokenLabel": "A3",
+          "zh": "正确：胎膜破裂并出血后出现持续胎儿受损，需要立即启动剖宫产。"
+        },
+        {
+          "en": "Correct: alert the neonatal team and prepare immediate neonatal transfusion capability with O-negative blood.",
+          "opaqueTokenLabel": "A4",
+          "zh": "正确：通知新生儿团队，并准备具备 O 型 Rh 阴性血的立即新生儿输血能力。"
+        },
+        {
+          "en": "Incorrect: expectant observation would delay delivery while fetal hemorrhage and bradycardia continue.",
+          "opaqueTokenLabel": "A2",
+          "zh": "错误：期待观察会在胎儿持续失血和心动过缓时延误分娩。"
+        },
+        {
+          "en": "Incorrect: a prescribed tocolytic does not control ruptured fetal-vessel hemorrhage or reverse the need for immediate delivery.",
+          "opaqueTokenLabel": "A1",
+          "zh": "错误：按医嘱给予宫缩抑制剂不能控制胎儿血管破裂出血，也不能改变立即分娩的需要。"
+        },
+        {
+          "en": "Correct: continuous fetal-heart-rate pattern tracks ongoing fetal compromise until delivery.",
+          "opaqueTokenLabel": "P4",
+          "zh": "正确：持续胎心监护可在分娩前追踪胎儿受损进展。"
+        },
+        {
+          "en": "Correct: newborn hemoglobin, heart rate, color, and perfusion evaluate anemia and response after birth.",
+          "opaqueTokenLabel": "P1",
+          "zh": "正确：新生儿血红蛋白、心率、肤色和灌注用于评估出生后的贫血及反应。"
+        },
+        {
+          "en": "Incorrect: deep-tendon reflexes and urine output are magnesium-toxicity monitoring, not the two fetal-hemorrhage response domains.",
+          "opaqueTokenLabel": "P2",
+          "zh": "错误：深腱反射和尿量用于监测硫酸镁毒性，不是本例胎儿失血的两个反应领域。"
+        },
+        {
+          "en": "Incorrect: contraction frequency and cervical change alone do not track the immediate fetal compromise or neonatal anemia.",
+          "opaqueTokenLabel": "P3",
+          "zh": "错误：仅监测宫缩频率和宫颈变化不能追踪即时胎儿受损或新生儿贫血。"
+        }
+      ],
+      "correct": {
+        "en": "Known vasa previa followed by membrane rupture, painless bleeding, and a sinusoidal/bradycardic fetal pattern indicates rupture of unprotected fetal vessels with fetal hemorrhage. Immediate cesarean-delivery activation is required. The neonatal team must be alerted and immediate transfusion capability with O-negative blood prepared because the newborn may be profoundly anemic. Continuous fetal-heart-rate assessment follows compromise until delivery; newborn hemoglobin, heart rate, color, and perfusion form a separate postbirth hemorrhage-response domain.",
+        "zh": "已知前置血管患者在胎膜破裂后出现无痛性出血以及正弦波/胎心过缓，提示未受保护的胎儿血管破裂并发生胎儿失血。必须立即启动剖宫产。应通知新生儿团队并准备立即输血能力和 O 型 Rh 阴性血，因为新生儿可能严重贫血。分娩前持续监测胎心以追踪胎儿受损；出生后监测新生儿血红蛋白、心率、肤色和灌注，构成独立的失血反应监测领域。"
+      }
+    },
+    "stem": {
+      "en": "A client at 34 weeks has an antenatal diagnosis of vasa previa. The membranes rupture, followed immediately by painless bright-red vaginal bleeding. The fetal tracing becomes sinusoidal and then shows sustained bradycardia at 70/min. Maternal blood pressure is 122/74 mm Hg, the abdomen is soft, and there is no uterine tenderness. Operative and neonatal teams are present. Complete the bow-tie by choosing the condition, 2 actions, and 2 parameters to monitor.",
+      "zh": "一名孕 34 周患者产前已诊断前置血管。胎膜破裂后立即出现无痛性鲜红色阴道流血。胎心监护先呈正弦波形，随后出现持续性心动过缓，胎心率为 70 次/分。孕妇血压 122/74 mm Hg，腹部柔软，无子宫压痛。手术团队和新生儿团队均已到场。请完成蝴蝶结题：选择病情、2 项措施和 2 项监测指标。"
+    },
+    "testTakingStrategy": {
+      "en": "After membrane rupture, prioritize the fetal source of painless bleeding and the abnormal tracing; separate the delivery response from newborn transfusion readiness and their two monitoring periods.",
+      "zh": "胎膜破裂后，应优先识别无痛性出血的胎儿来源和异常胎心；区分立即分娩与新生儿输血准备，并区分分娩前后的两个监测阶段。"
+    }
+  }
+}

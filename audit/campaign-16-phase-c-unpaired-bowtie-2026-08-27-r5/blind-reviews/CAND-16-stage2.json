@@ -1,0 +1,117 @@
+{
+  "actionLabels": [
+    "A4",
+    "A2"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C3",
+  "missingInformation": [
+    "Oxygen saturation and work-of-breathing trend",
+    "Mental status and peripheral perfusion trend",
+    "History of prior severe transfusion reactions or IgA deficiency"
+  ],
+  "parameterLabels": [
+    "P1",
+    "P3"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The immediate combination of urticaria, angioedema, stridor, wheezing, and profound hypotension after plasma exposure identifies an anaphylactic transfusion reaction. The transfusion must be stopped and the emergency response activated, followed by prescribed epinephrine and airway/oxygen support. Airway-respiratory and hemodynamic-perfusion measures directly evaluate response to these interventions.",
+  "selectionEvidence": [
+    "Symptoms began five minutes after initiation of a plasma-containing blood component.",
+    "Generalized hives with lip and tongue swelling indicate an immediate systemic allergic reaction.",
+    "Stridor and wheezing demonstrate severe airway and respiratory involvement.",
+    "Heart rate 132/min with blood pressure 76/40 mm Hg indicates shock.",
+    "Absence of fever, flank pain, hemoglobinuria, jugular venous distention, and hypertension argues against the competing hemolytic and circulatory-overload conditions."
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem contradicts presumed volume overload, so a diuretic is not a priority action.",
+      "supportingStemText": "No jugular venous distention or hypertension; blood pressure is 76/40 mm Hg."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Epinephrine with immediate airway and oxygen support is indicated for anaphylaxis with airway compromise and shock.",
+      "supportingStemText": "Lip and tongue swelling, stridor, wheezing, and blood pressure 76/40 mm Hg; prescribed emergency medications are available."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Continuing or merely slowing the transfusion and using only an antihistamine is inadequate during airway compromise and shock.",
+      "supportingStemText": "Stridor, wheezing, and blood pressure 76/40 mm Hg developed within five minutes."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Stopping antigen exposure and activating the emergency and transfusion-reaction response are immediate priorities for a severe transfusion reaction.",
+      "supportingStemText": "A severe reaction began five minutes after the blood component was started, and the emergency transfusion-reaction protocol is available."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The allergic-airway phenotype and absence of overload findings make TACO noncompetitive.",
+      "supportingStemText": "Generalized hives, lip and tongue swelling, and stridor are present; jugular venous distention and hypertension are absent."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem explicitly excludes key findings supplied to distinguish acute hemolysis from anaphylaxis.",
+      "supportingStemText": "There is no fever, flank pain, or hemoglobinuria."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "This explicit immediate allergic, airway, and shock pattern strongly identifies anaphylaxis.",
+      "supportingStemText": "Five minutes after plasma exposure, the client develops generalized hives, angioedema, stridor, wheezing, tachycardia, and profound hypotension."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Airway patency, work of breathing, and oxygen saturation directly track the active life-threatening respiratory problem.",
+      "supportingStemText": "Swelling of the lips and tongue, stridor, and wheezing are present."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Weight and jugular venous pressure principally evaluate overload, which the stem argues against.",
+      "supportingStemText": "There is no jugular venous distention, and the client is profoundly hypotensive."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Blood pressure, mental status, and perfusion directly measure severity and resolution of anaphylactic shock.",
+      "supportingStemText": "Heart rate is 132/min and blood pressure is 76/40 mm Hg."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "These hemolysis-focused parameters are explicitly absent and do not best evaluate the selected reaction.",
+      "supportingStemText": "The client has no hemoglobinuria or flank pain."
+    }
+  ]
+}

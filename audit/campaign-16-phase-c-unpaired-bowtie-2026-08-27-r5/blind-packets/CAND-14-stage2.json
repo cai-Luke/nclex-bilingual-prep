@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Priority actions — select 2",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor — select 2"
+  },
+  "stem": "A 19-year-old client with sickle cell disease develops new cough, dyspnea, tachypnea, and right-sided crackles. SpO₂ is 91% on room air, and the chest radiograph shows a new right-lower-lobe infiltrate. The client is alert without recent sedative exposure, jugular venous distention, or peripheral edema. Orders are available for an IV cephalosporin, an oral macrolide, supplemental oxygen, and respiratory care. Complete the bow-tie by choosing the condition, 2 actions, and 2 parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Wait for final culture results before starting respiratory treatment"
+      },
+      {
+        "label": "A2",
+        "text": "Administer a sedative to suppress cough and respiratory effort"
+      },
+      {
+        "label": "A3",
+        "text": "Administer the ordered cephalosporin and macrolide and provide supplemental oxygen"
+      },
+      {
+        "label": "A4",
+        "text": "Encourage incentive spirometry while awake and support pulmonary hygiene"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Isolated vaso-occlusive pain crisis"
+      },
+      {
+        "label": "C2",
+        "text": "Acute cardiogenic pulmonary edema"
+      },
+      {
+        "label": "C3",
+        "text": "Acute chest syndrome"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Joint swelling and chronic limb-pain score"
+      },
+      {
+        "label": "P2",
+        "text": "SpO₂, respiratory rate, work of breathing, and bronchospasm"
+      },
+      {
+        "label": "P3",
+        "text": "Daily weight and jugular venous pressure"
+      },
+      {
+        "label": "P4",
+        "text": "Hemoglobin trend and progression of pulmonary infiltrates on imaging"
+      }
+    ]
+  }
+}

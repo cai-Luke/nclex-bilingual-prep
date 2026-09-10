@@ -1,0 +1,116 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": true,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A2",
+      "A3"
+    ],
+    "conditionLabel": "C3",
+    "parameterLabels": [
+      "P2",
+      "P1"
+    ]
+  },
+  "canonicalSetExplanation": "The condition, consultation action, and both parameters are clear, but keyed A3 presupposes an existing client-specific hypoglycemia treatment plan that the stem does not establish.",
+  "canonicalSetUniquelyDefensible": false,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "The client's individualized prescriber-approved carbohydrate or medication adjustment.",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The client began a new cycling routine without an exercise-day meal or insulin adjustment."
+    },
+    {
+      "missingClientFact": "Confirmation that the client already has an established hypoglycemia plan and access to rapid carbohydrate.",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "MISSING_CLIENT_FACT",
+      "supportingStandaloneEvidence": "The client developed symptoms with CGM readings of 58–64 mg/dL during or shortly after cycling."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Symptoms and glucose readings of 58–64 mg/dL occurred on three cycling days after starting a new routine without an exercise-day adjustment."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Symptoms and readings below 70 mg/dL recurred on three cycling days during the ride or within one hour afterward."
+    },
+    {
+      "missingClientFact": "Client-specific glucose measurements before cycling and beyond the first post-exercise hour.",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Hypoglycemia occurred during cycling or within one hour afterward."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "Evidence that additional pre-exercise insulin is needed or has been prescribed.",
+      "opaqueTokenLabel": "A1",
+      "reviewerRankabilityImpact": "MATERIAL",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "Cycling-day CGM readings were 58–64 mg/dL while the client continued the preexisting insulin plan."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "A contraindication requiring permanent cessation of all physical activity.",
+      "opaqueTokenLabel": "A4",
+      "reviewerRankabilityImpact": "MATERIAL",
+      "supportClassification": "NOT_APPLICABLE",
+      "supportingStandaloneEvidence": "Episodes are associated with cycling while noncycling-day glucose readings remain 95–140 mg/dL."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "Evidence of an intercurrent illness causing unstable glucose.",
+      "opaqueTokenLabel": "C1",
+      "reviewerRankabilityImpact": "MATERIAL",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "The client has no fever, vomiting, ketones, or recent illness."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "Persistent hyperglycemia indicating insufficient insulin.",
+      "opaqueTokenLabel": "C2",
+      "reviewerRankabilityImpact": "MATERIAL",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "Noncycling fasting and premeal readings remain 95–140 mg/dL, while symptomatic cycling readings are 58–64 mg/dL."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "Hyperglycemia, illness, or another indication for routine ketone testing.",
+      "opaqueTokenLabel": "P3",
+      "reviewerRankabilityImpact": "MATERIAL",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "The client has no ketones or recent illness, and noncycling fasting and premeal glucose remains 95–140 mg/dL."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "A blood-pressure abnormality or cardiovascular issue relevant to the cycling-day hypoglycemia.",
+      "opaqueTokenLabel": "P4",
+      "reviewerRankabilityImpact": "MATERIAL",
+      "supportClassification": "NOT_APPLICABLE",
+      "supportingStandaloneEvidence": "The stem supplies glucose and exercise findings but no blood-pressure concern."
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "missingFact": "Confirmation that the client already has an established hypoglycemia plan and access to rapid carbohydrate.",
+      "necessaryForRankability": true,
+      "opaqueTokenLabel": "A3",
+      "reviewerRankabilityImpact": "LOW"
+    }
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 identified the same condition and most canonical clinical domains, but at least one action or evaluation domain differed from the canonical five-target construct.",
+  "unstatedClientFactMateriallyChangesRankability": true
+}

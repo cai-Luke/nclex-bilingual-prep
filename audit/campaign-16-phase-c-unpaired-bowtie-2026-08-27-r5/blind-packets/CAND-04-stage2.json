@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Actions to take",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor"
+  },
+  "stem": "An awake adult is receiving a continuous local anesthetic infusion through a peripheral nerve catheter in a monitored post-anesthesia care area. Within minutes, the client reports a metallic taste and ringing in the ears, then has a generalized seizure. The cardiac monitor shows frequent ventricular ectopy, and the blood pressure falls to 78/42 mm Hg. No rash or wheezing is present. Complete the bow-tie.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Wait for a serum local-anesthetic level before activating the emergency response"
+      },
+      {
+        "label": "A2",
+        "text": "Restart the local anesthetic at a lower rate after the seizure stops"
+      },
+      {
+        "label": "A3",
+        "text": "Initiate protocol-directed 20% lipid emulsion early"
+      },
+      {
+        "label": "A4",
+        "text": "Stop local anesthetic delivery and activate the LAST emergency response with the rescue kit"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Acute ischemic stroke"
+      },
+      {
+        "label": "C2",
+        "text": "Local anesthetic systemic toxicity"
+      },
+      {
+        "label": "C3",
+        "text": "Perioperative anaphylaxis"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Regression of the peripheral sensory and motor block"
+      },
+      {
+        "label": "P2",
+        "text": "Serum local-anesthetic concentration"
+      },
+      {
+        "label": "P3",
+        "text": "Neurologic status and seizure recurrence"
+      },
+      {
+        "label": "P4",
+        "text": "Cardiac rhythm, blood pressure, and hemodynamic stability"
+      }
+    ]
+  }
+}

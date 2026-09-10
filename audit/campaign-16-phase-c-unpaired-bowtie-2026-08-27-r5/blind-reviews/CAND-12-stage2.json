@@ -1,0 +1,120 @@
+{
+  "actionLabels": [
+    "A1",
+    "A2"
+  ],
+  "ambiguousAlternatives": [
+    "A4 contains a potentially relevant antisecretory medication, but the stem does not establish an octreotide order or support the required immediate-before-hyoscine sequence."
+  ],
+  "conditionLabel": "C2",
+  "missingInformation": [
+    "Names, doses, routes, and timing of the available symptom-control medication orders",
+    "Current comfort, sedation, mouth dryness, and hydration status",
+    "Patient preferences regarding oral intake and decompressive measures",
+    "Whether any reversible contributor can be addressed without adding burden"
+  ],
+  "parameterLabels": [
+    "P2",
+    "P4"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "C2 best integrates the malignancy, confirmed obstruction, obstipation, distention, colicky pain, and feculent vomiting. A1 and A2 are the two comfort-focused actions that do not impose an unsupported treatment sequence or obstruction-inappropriate fiber and stimulant laxatives. P2 captures comfort and adverse-treatment burden, while P4 directly tracks the dominant obstructive symptoms.",
+  "selectionEvidence": [
+    "Known intra-abdominal cancer plus a confirmed obstructive bowel disorder supports malignant bowel obstruction.",
+    "Three days without stool or flatus, progressive distention, colicky pain, and feculent vomiting indicate clinically significant mechanical obstruction rather than uncomplicated constipation or isolated ascites.",
+    "The comfort-only goal and absence of a surgical pathway favor prescribed antisecretory and antiemetic symptom control.",
+    "Reviewing reversible or mechanical contributors and applying goal-concordant nonpharmacologic comfort measures remains appropriate without implying curative intervention.",
+    "Symptom trajectory and treatment burden are best assessed through vomiting, distention, colicky pain, comfort, sedation, mouth dryness, and hydration burden."
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "The stem does not name hyoscine butylbromide or the specific antiemetic regimen among the available orders.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The exact agents are unstated, but this option is consistent with standard comfort-focused control of obstructive secretions, nausea, and vomiting and is stronger than the competing action options.",
+      "supportingStemText": "The goals are comfort, and comfort measures and symptom-control medication orders are available."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The option directly matches the stated goals and permits only goal-concordant assessment and supportive measures.",
+      "supportingStemText": "The goals are comfort, and no curative surgical pathway is planned. Comfort measures are available."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "High-fiber intake and routine stimulant-laxative treatment are inappropriate in the presented complete mechanical-obstruction pattern.",
+      "supportingStemText": "The prescriber has confirmed an obstructive bowel disorder; the patient has feculent vomiting and no stool or flatus for 3 days."
+    },
+    {
+      "missingPremise": "No octreotide order, hyoscine trial history, or requirement to administer octreotide immediately before hyoscine is provided.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The imposed drug sequence cannot be selected confidently without an order or clinical premise supporting that sequence.",
+      "supportingStemText": "Symptom-control medication orders are available."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem explicitly establishes obstruction, so ascites without bowel obstruction cannot explain the full presentation.",
+      "supportingStemText": "The prescriber has confirmed an obstructive bowel disorder, with feculent vomiting and absent stool and flatus."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The condition directly integrates the cancer context and the confirmed obstructive syndrome.",
+      "supportingStemText": "Known intra-abdominal cancer, confirmed obstructive bowel disorder, increasing distention, feculent vomiting, and no stool or flatus for 3 days."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "These findings indicate mechanical obstruction and are not compatible with uncomplicated opioid-related constipation as the most likely diagnosis.",
+      "supportingStemText": "Intermittent colicky pain, increasing distention, feculent vomiting, absent stool and flatus, and a confirmed obstructive bowel disorder."
+    },
+    {
+      "missingPremise": "No tumor-marker surveillance or lesion-response objective is present.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Tumor response measurements do not evaluate immediate comfort or symptom control in the stated end-of-life plan.",
+      "supportingStemText": "The goals are comfort, and no curative surgical pathway is planned."
+    },
+    {
+      "missingPremise": "Baseline comfort, sedation, mouth dryness, and hydration burden are not reported.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "These measures appropriately evaluate both palliation and treatment burden even though baseline values are absent.",
+      "supportingStemText": "The goals are comfort, and symptom-control medication orders are available."
+    },
+    {
+      "missingPremise": "No bowel-sound baseline is given, and bowel sounds alone do not establish symptom relief or comfort.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The word alone makes this substantially less informative than direct symptom and comfort monitoring.",
+      "supportingStemText": "The stem provides symptom findings but no bowel-sound findings."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The parameter set directly measures the dominant presenting symptoms and their response to comfort-focused management.",
+      "supportingStemText": "Intermittent colicky abdominal pain, increasing distention, and feculent vomiting are present."
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "actionLabels": [
+    "A1",
+    "A3"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C3",
+  "missingInformation": [
+    "Current oxygen saturation, ventilation, pulse, blood pressure, and cardiac rhythm",
+    "The specific protocol-directed seizure-termination medication and dose",
+    "Response to the first seizure-termination intervention"
+  ],
+  "parameterLabels": [
+    "P3",
+    "P4"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "Persistent motor and electrographic ictal activity at 185 seconds most strongly supports a prolonged ECT-induced seizure. Active termination orders and the risks of an ongoing anesthetized seizure prioritize protocol-directed medication and airway/ventilatory support. Acute evaluation should confirm motor and EEG seizure cessation or recurrence and track cardiopulmonary stability.",
+  "selectionEvidence": [
+    "Rhythmic isolated-limb motor activity and EEG-confirmed ictal activity persist 185 seconds after the ECT stimulus.",
+    "Active protocol orders for seizure termination support immediate protocol-directed pharmacologic treatment.",
+    "Ongoing seizure activity under general anesthesia with persistent unconsciousness makes airway, ventilation, and oxygenation support a priority.",
+    "Motor and EEG activity directly measure seizure cessation or recurrence, while oxygen saturation, ventilation, pulse, and blood pressure assess cardiopulmonary stability.",
+    "The client has no new focal neurologic finding, while the stem explicitly documents continuing motor and EEG seizure activity."
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "Evidence that the initial seizure ended and a new seizure began during recovery.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The described activity is continuous rather than a delayed recurrence during recovery.",
+      "supportingStemText": "Ictal activity is continuing 185 seconds after the stimulus, and the client has not regained consciousness."
+    },
+    {
+      "missingPremise": "Cessation within the expected brief post-stimulus interval.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Persistence to 185 seconds distinguishes this event from an expected brief therapeutic seizure.",
+      "supportingStemText": "Rhythmic motor activity and EEG ictal activity continue at 185 seconds."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The sustained electrographic and motor seizure duration supports the prolonged-seizure label.",
+      "supportingStemText": "At 185 seconds after the stimulus, rhythmic motor activity continues in the isolated limb, and the EEG continues to show ictal activity."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem explicitly establishes active protocol authority for immediate seizure termination.",
+      "supportingStemText": "The anesthesia professional and ECT physician are at the bedside, and protocol orders for seizure termination are active."
+    },
+    {
+      "missingPremise": "A clinical indication for inducing another seizure after the current seizure has ended.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Another stimulus would not address the ongoing ictal activity and conflicts with the immediate termination objective.",
+      "supportingStemText": "Motor and EEG ictal activity are already continuing from the administered stimulus."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "An unconscious anesthetized client with a continuing seizure requires airway protection, oxygenation, and ventilatory support.",
+      "supportingStemText": "The client is under general anesthesia, remains unconscious, and has ongoing seizure activity."
+    },
+    {
+      "missingPremise": "Evidence that observation alone is appropriate despite the prolonged activity and active termination protocol.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The duration and explicit termination protocol support intervention rather than untreated observation.",
+      "supportingStemText": "Ictal activity persists at 185 seconds, and protocol orders for seizure termination are active."
+    },
+    {
+      "missingPremise": "A need to assess longitudinal depression response during the acute seizure event.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "A depression score does not evaluate immediate seizure termination or physiologic stability.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "Completion of seizure termination and recovery to a state in which orientation can be assessed.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Orientation is a later recovery assessment, not one of the two priority parameters during ongoing ictal activity.",
+      "supportingStemText": "The client has not regained consciousness."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Oxygen saturation, ventilation, pulse, and blood pressure directly evaluate immediate cardiopulmonary stability.",
+      "supportingStemText": "The client is receiving ECT under general anesthesia and remains unconscious during continuing seizure activity."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The same motor and EEG modalities identifying the ongoing seizure directly evaluate cessation and recurrence after treatment.",
+      "supportingStemText": "Rhythmic motor activity continues in the isolated limb, and the EEG continues to show ictal activity; seizure-termination orders are active."
+    }
+  ]
+}

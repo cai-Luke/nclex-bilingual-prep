@@ -1,0 +1,29 @@
+{
+  "advisoryPriority": "P1",
+  "bilingualCollateral": [],
+  "clinicalCollateral": [],
+  "defectSummary": "Keyed action A3 presupposes an existing client-specific hypoglycemia treatment plan and access to rapid carbohydrate; the stem establishes neither, while the rationale introduces the missing plan.",
+  "missingFactProvenance": [
+    {
+      "checkedSurfaces": [
+        "candidate stem (English and Chinese)",
+        "candidate rationale.correct (English and Chinese)",
+        "candidate rationale.byChoice (English and Chinese)",
+        "candidate testTakingStrategy (English and Chinese)",
+        "candidate glossary",
+        "explicitly linked historical sources (none recorded)"
+      ],
+      "missingFact": "Confirmation that the client already has an established hypoglycemia plan and access to rapid carbohydrate.",
+      "necessaryForRankability": true,
+      "opaqueTokenLabel": "A3",
+      "provenance": "RATIONALE_ONLY",
+      "sourceEvidence": "rationale.byChoice[A3], rationale.correct, and testTakingStrategy introduce an existing hypoglycemia plan that the standalone stem never establishes."
+    }
+  ],
+  "primaryVerdict": "FAIL_UNSUPPORTED_TOKEN_PREMISE",
+  "reasoning": "Under the fixed precedence, FAIL_UNSUPPORTED_TOKEN_PREMISE governs because one keyed target requires a client-specific existing-plan premise absent from the stem. The rationale-only repetition cannot rescue standalone answerability. No sibling material exists or was inspected.",
+  "scopeCollateral": [],
+  "secondaryFlags": [
+    "RATIONALE_ADDS_MISSING_FACT"
+  ]
+}

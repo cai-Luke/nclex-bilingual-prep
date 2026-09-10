@@ -1,0 +1,116 @@
+{
+  "actionLabels": [
+    "A3",
+    "A4"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C3",
+  "missingInformation": [
+    "Newborn hemoglobin and acid-base status are not yet available.",
+    "The amount of fetal blood loss and the newborn's post-delivery response are not yet known."
+  ],
+  "parameterLabels": [
+    "P1",
+    "P4"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "Known vasa previa followed by membrane rupture, painless bleeding, a sinusoidal tracing, and profound fetal bradycardia is diagnostic of ruptured fetal vessels with acute fetal hemorrhage. Immediate cesarean delivery and preparation for neonatal O-negative blood transfusion address the time-critical fetal threat. Continuous fetal heart-rate surveillance until delivery and newborn hematologic and perfusion assessment directly evaluate severity and response.",
+  "selectionEvidence": [
+    "The antenatal diagnosis explicitly establishes vasa previa.",
+    "Membrane rupture is followed immediately by painless bright-red vaginal bleeding, indicating rupture of exposed fetal vessels.",
+    "The sinusoidal fetal tracing progressing to sustained bradycardia at 70/min indicates severe fetal blood loss and hypoxia requiring immediate delivery.",
+    "Normal maternal blood pressure with a soft, nontender abdomen argues against placental abruption with maternal hemorrhagic shock.",
+    "The presence of operative and neonatal teams supports immediate cesarean birth with simultaneous preparation for neonatal transfusion and resuscitation."
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "No stable fetal status or reversible preterm-labor scenario supports delaying delivery with a tocolytic.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Profound sustained fetal compromise directly excludes a delay strategy.",
+      "supportingStemText": "The fetal tracing becomes sinusoidal and then shows sustained bradycardia at 70/min."
+    },
+    {
+      "missingPremise": "No reassuring fetal status supports 30 minutes of expectant management.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Ongoing fetal hemorrhage with severe bradycardia makes expectant management unsafe.",
+      "supportingStemText": "The membranes rupture, followed immediately by painless bright-red vaginal bleeding; the fetal tracing then shows sustained bradycardia at 70/min."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Emergency cesarean birth is the indicated response to ruptured vasa previa with profound fetal compromise.",
+      "supportingStemText": "The fetal tracing becomes sinusoidal and then shows sustained bradycardia at 70/min. Operative teams are present."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The presentation supports major fetal blood loss, making immediate neonatal transfusion preparation appropriate.",
+      "supportingStemText": "Known vasa previa is followed by membrane rupture, bright-red bleeding, a sinusoidal tracing, and fetal bradycardia; the neonatal team is present."
+    },
+    {
+      "missingPremise": "Maternal hypotension, uterine pain or rigidity, and other evidence of maternal hemorrhagic shock are absent.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The maternal findings oppose the defining premises of this condition.",
+      "supportingStemText": "Maternal blood pressure is 122/74 mm Hg, the abdomen is soft, and there is no uterine tenderness."
+    },
+    {
+      "missingPremise": "No visible or palpable prolapsed cord is described, and the bleeding pattern indicates vessel rupture.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Cord prolapse could cause bradycardia but does not explain the characteristic fetal hemorrhage evidence.",
+      "supportingStemText": "The client has an antenatal diagnosis of vasa previa, followed by bleeding immediately after membrane rupture and a sinusoidal tracing."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem explicitly supplies the diagnosis and classic rupture sequence.",
+      "supportingStemText": "A client at 34 weeks has an antenatal diagnosis of vasa previa. The membranes rupture, followed immediately by painless bright-red vaginal bleeding."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Newborn hemoglobin, heart rate, color, and perfusion directly assess fetal blood-loss severity and response to resuscitation.",
+      "supportingStemText": "The fetal tracing becomes sinusoidal and then shows sustained bradycardia at 70/min."
+    },
+    {
+      "missingPremise": "There is no magnesium sulfate exposure, maternal renal compromise, or other indication making deep-tendon reflexes and urine output the priority evaluation pair.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "These maternal parameters do not evaluate the principal fetal hemorrhage emergency.",
+      "supportingStemText": "Maternal blood pressure is 122/74 mm Hg."
+    },
+    {
+      "missingPremise": "No stable expectant-labor context makes contractions and cervical findings sufficient as the only monitoring parameters.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Labor-progress monitoring alone is incompatible with the need to follow profound fetal compromise.",
+      "supportingStemText": "The fetal tracing becomes sinusoidal and then shows sustained bradycardia at 70/min. Operative and neonatal teams are present."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Continuous fetal heart-rate monitoring is directly relevant until emergency delivery occurs.",
+      "supportingStemText": "The fetal tracing becomes sinusoidal and then shows sustained bradycardia at 70/min."
+    }
+  ]
+}

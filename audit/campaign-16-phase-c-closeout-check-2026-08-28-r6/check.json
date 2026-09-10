@@ -1,0 +1,181 @@
+{
+  "campaign": 16,
+  "phase": "C",
+  "revision": 6,
+  "commission": "checker",
+  "date": "2026-08-28",
+  "seat": "Claude",
+  "scope": "work order Sec9 only, mechanical and transcriptional",
+  "freshnessAssertion": {
+    "checkerRootPath": "audit/campaign-16-phase-c-closeout-check-2026-08-28-r6",
+    "assertedAbsentBeforeCreate": true,
+    "passed": true
+  },
+  "workOrderSelfHash": {
+    "path": "scratch/CAMPAIGN-16-PHASE-C-REVISION-6-CLOSEOUT-WORK-ORDER-2026-08-28.md",
+    "expected": "2633ae59473b6087f00dd2f1cdebe00fdc93e847a6042387c099b040aa27a66c",
+    "liveSha256": "2633ae59473b6087f00dd2f1cdebe00fdc93e847a6042387c099b040aa27a66c",
+    "match": true
+  },
+  "executorTerminalStatusAssertion": {
+    "path": "audit/campaign-16-phase-c-closeout-2026-08-28-r6/status.log",
+    "liveContent": "CAMPAIGN16_PHASE_C_CLOSEOUT_READY",
+    "confirmedFromLiveDisk": true,
+    "notedInPorcelain": false,
+    "reasonNotInPorcelain": "status.log is gitignored, per executorClosingAllowedAdditions.gitIgnoredPaths in preservation.json; verified present on disk and in the frozen executor inventory instead"
+  },
+  "frozenExecutorInventory": {
+    "root": "audit/campaign-16-phase-c-closeout-2026-08-28-r6",
+    "fileCount": 7,
+    "files": [
+      { "path": "audit/campaign-16-phase-c-closeout-2026-08-28-r6/closeout.json", "sha256": "dbd55406136a7511e47ca68ad8058131a847f526ec29a39c02e9fa5a482b3b86" },
+      { "path": "audit/campaign-16-phase-c-closeout-2026-08-28-r6/closeout.md", "sha256": "e863b8456b222dc882a6080a9517715a094745f8bbc4396da547825d7270e782" },
+      { "path": "audit/campaign-16-phase-c-closeout-2026-08-28-r6/execution-plan.md", "sha256": "f132a3daea8ae329ed32b31474f6043c4222435450639393be2025480277595d" },
+      { "path": "audit/campaign-16-phase-c-closeout-2026-08-28-r6/owner-adjudication.md", "sha256": "4b658aefbda71eaef608255d9e6e14516cf4183aa208928258762757401be6df" },
+      { "path": "audit/campaign-16-phase-c-closeout-2026-08-28-r6/preservation.json", "sha256": "75ab62e98f4428ec6dab66eccf39f6ead393a3332a4a1525e7a5820cc6a63afc" },
+      { "path": "audit/campaign-16-phase-c-closeout-2026-08-28-r6/status.log", "sha256": "d844e8f5a2ede1eedf99f21ae28fd606d31d19c97911d91b79d0e9d9a94faa51" },
+      { "path": "audit/campaign-16-phase-c-closeout-2026-08-28-r6/verification.md", "sha256": "0a4c909e398ae9e32d6f2e706d542e43f7ca9defbe3d4ad7e869cb11204dd8ef" }
+    ],
+    "recordedBeforeSubstantiveComparison": true,
+    "reHashedAtEndOfCheck": true,
+    "unchangedAcrossCheck": true
+  },
+  "independentLiveReHash": {
+    "method": "Node fs + crypto.createHash('sha256') walk; git status --porcelain=v1 --untracked-files=all via child_process; no MCP search_repository_files used over banks/ (Trap 1); no git show HEAD:banks/... used (Trap 6)",
+    "preservedTrees": [
+      {
+        "treePath": "audit/campaign-16-phase-c-unpaired-bowtie-2026-08-27-r5",
+        "liveFileCount": 247,
+        "recordedClosingFileCount": 247,
+        "countsEqual": true,
+        "newFilesSinceExecutorRecorded": 0,
+        "missingFilesVsExecutorRecorded": 0,
+        "hashMismatchesVsExecutorRecorded": 0,
+        "pass": true
+      },
+      {
+        "treePath": "audit/campaign-16-phase-c-check-2026-08-27-r5",
+        "liveFileCount": 6,
+        "recordedClosingFileCount": 6,
+        "countsEqual": true,
+        "newFilesSinceExecutorRecorded": 0,
+        "missingFilesVsExecutorRecorded": 0,
+        "hashMismatchesVsExecutorRecorded": 0,
+        "pass": true
+      },
+      {
+        "treePath": "audit/campaign-16-phase-c-unpaired-bowtie-2026-08-27",
+        "liveFileCount": 8,
+        "recordedClosingFileCount": 8,
+        "countsEqual": true,
+        "newFilesSinceExecutorRecorded": 0,
+        "missingFilesVsExecutorRecorded": 0,
+        "hashMismatchesVsExecutorRecorded": 0,
+        "pass": true
+      }
+    ],
+    "banks": {
+      "expectedCount": 13,
+      "liveDirCount": 13,
+      "allRowsMatchExecutorRecordedClosing": true,
+      "allRowsMatchRevision5ExpectedClosing": true,
+      "gptCanonicalLiveSha256": "e4955f7b8c54e4880bd9ddb0f2f7c35881169f53051b5ed3ce21757f86287b3b",
+      "gptCanonicalMatchesWorkOrderCitedHash": true
+    },
+    "revision5WorkOrder": {
+      "path": "scratch/CAMPAIGN-16-PHASE-C-UNPAIRED-BOWTIE-ANSWERABILITY-WORK-ORDER-2026-08-27.md",
+      "liveSha256": "74fb97e70ca5820a4e95acc62e2b0f3f54790d0eea766d2be58e8a427f924248",
+      "matchesExecutorRecorded": true,
+      "matchesWorkOrderCitedHash": true
+    },
+    "dirtyPathSet": {
+      "command": "git status --porcelain=v1 --untracked-files=all",
+      "executorRecordedOpeningPathCount": 28,
+      "liveRecheckPathCount": 28,
+      "allOpeningPathsPresentWithSameStatusCodeAndDigest": true,
+      "noOpeningPathRemoved": true,
+      "unexpectedAdditionsOutsideAllowlist": [],
+      "allowlist": [
+        "the 28 opening dirty paths",
+        "audit/campaign-16-phase-c-unpaired-bowtie-2026-08-27-r5/** (preserved tree, untracked)",
+        "audit/campaign-16-phase-c-check-2026-08-27-r5/** (preserved tree, untracked)",
+        "audit/campaign-16-phase-c-unpaired-bowtie-2026-08-27/** (preserved tree, untracked)",
+        "audit/campaign-16-phase-c-closeout-2026-08-28-r6/** (executor Sec8 root)",
+        "audit/campaign-16-phase-c-closeout-check-2026-08-28-r6/** (this checker Sec9 root)"
+      ]
+    },
+    "repository": {
+      "headUnchangedFromExecutorRecorded": true,
+      "aheadBehindHeadVsUpstream": "0\t0",
+      "commitCreated": false,
+      "pushPerformed": false
+    },
+    "frozenCensusTree": {
+      "path": "audit/standalone-bowtie-answerability-census-2026-08-23",
+      "absentFromLiveGitStatus": true,
+      "interpretation": "not modified; no diff surfaced"
+    }
+  },
+  "contentVerification": {
+    "ownerAdjudicationVerbatim": {
+      "method": "line-by-line diff of the blockquote in work-order Sec2 against owner-adjudication.md",
+      "linesCompared": 14,
+      "exactMatch": true
+    },
+    "closeoutMdRequiredElements": {
+      "ownerDispositionAndAdoptedVerdict": true,
+      "sec3FindingStatedExplicitly": true,
+      "blockedTerminalSupersededStatement": true,
+      "dissentPreservedAsLegitimateWithEvidencePaths": true,
+      "sec5AccountingTablesWithWarrant": true,
+      "sec6PreservedFindingsList": true,
+      "noProhibitedSurfaceChangedStatement": true,
+      "executorTerminalStatusAndSec9OwnerRequirementStatement": true
+    },
+    "accountingReconciliation": {
+      "againstReportMd": {
+        "path": "audit/campaign-16-phase-c-unpaired-bowtie-2026-08-27-r5/report.md",
+        "unpaired": { "PASS_STANDALONE": 18, "FAIL_HIDDEN_CASE_DEPENDENCY": 0, "FAIL_UNSUPPORTED_TOKEN_PREMISE": 1, "total": 19 },
+        "paired": { "PASS_STANDALONE": 20, "FAIL_HIDDEN_CASE_DEPENDENCY": 7, "FAIL_UNSUPPORTED_TOKEN_PREMISE": 4, "total": 31 },
+        "combined": { "PASS_STANDALONE": 38, "FAIL_HIDDEN_CASE_DEPENDENCY": 7, "FAIL_UNSUPPORTED_TOKEN_PREMISE": 5, "total": 50 },
+        "matchesCloseout": true
+      },
+      "againstAdjudicationJsonl": {
+        "path": "audit/campaign-16-phase-c-unpaired-bowtie-2026-08-27-r5/adjudication.jsonl",
+        "rowCount": 19,
+        "verdictCounts": { "PASS_STANDALONE": 18, "FAIL_UNSUPPORTED_TOKEN_PREMISE": 1 },
+        "cand18RowMatchesCloseout": true,
+        "matchesCloseout": true
+      },
+      "arithmeticCloses": true,
+      "discrepancy": null
+    },
+    "trapDispositionsInVerificationMd": {
+      "trap1": "ACTIVE / HANDLED",
+      "trap2": "N/A",
+      "trap3": "N/A",
+      "trap4": "N/A",
+      "trap5": "HANDLED",
+      "trap6": "ACTIVE / HANDLED",
+      "allSixPresent": true
+    },
+    "prohibitedSurfaceScan": {
+      "canonicalBankMutation": false,
+      "answerKeyRationaleTokenTextMetadataSchemaRuntimeChanged": false,
+      "censusArtifactChanged": false,
+      "projectHistoryOrDecisionsChanged": false,
+      "commitCreated": false,
+      "pushPerformed": false
+    }
+  },
+  "outOfScopeCompliance": {
+    "noSemanticReviewPerformed": true,
+    "noNewSolContextOpened": true,
+    "noReReviewOfAny19Rows": true,
+    "noPhaseEOrPhaseFLockModified": true,
+    "noModificationToIndependentDerivation": true,
+    "cand18NotRelitigated": true
+  },
+  "limitationsEncountered": [],
+  "checkerTerminalStatus": "CAMPAIGN16_PHASE_C_CLOSEOUT_VERIFIED"
+}

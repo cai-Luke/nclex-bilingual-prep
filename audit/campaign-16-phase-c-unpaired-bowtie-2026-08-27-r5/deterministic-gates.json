@@ -1,0 +1,756 @@
+{
+  "btFalsification": {
+    "historicalIdRows": [
+      {
+        "candidateId": "gpt_balance6a_2026_07_16_bt_perioperative_care_13",
+        "liveQuestionIdCount": 0
+      },
+      {
+        "candidateId": "gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14",
+        "liveQuestionIdCount": 0
+      }
+    ],
+    "liveIdRows": [
+      {
+        "absentFromBowtieSuffixRoster": true,
+        "candidateId": "gpt_balance6a_2026_07_16_bt_perioperative_care_13_r2",
+        "liveQuestionIdCount": 1
+      },
+      {
+        "absentFromBowtieSuffixRoster": true,
+        "candidateId": "gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14_r2",
+        "liveQuestionIdCount": 1
+      }
+    ],
+    "status": "PASS",
+    "tool": "Node JSON.parse walk over working-tree banks/gpt-canonical.json"
+  },
+  "pairedPreservation": {
+    "matchCount": 31,
+    "rows": [
+      {
+        "candidateId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_bowtie",
+        "expectedPayloadSha256": "e96353844c4e1bf38c3b1cd7c75a7c0c227fc87db6b12bf3f409390e39e5b706",
+        "observedPayloadSha256": "e96353844c4e1bf38c3b1cd7c75a7c0c227fc87db6b12bf3f409390e39e5b706",
+        "preservedPrimaryVerdict": "PASS_STANDALONE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_2026_06_19_case_ici_pneumonitis_01_bowtie",
+        "expectedPayloadSha256": "b94738478ee58c78eeb17e18f192a8f9a3df3bed675a42a4c380920c81b6807a",
+        "observedPayloadSha256": "b94738478ee58c78eeb17e18f192a8f9a3df3bed675a42a4c380920c81b6807a",
+        "preservedPrimaryVerdict": "PASS_STANDALONE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_acute_hemolytic_transfusion_reaction_01_bowtie",
+        "expectedPayloadSha256": "789d52ef3191509f938526bdd66cbfb6fc32d6ee1bbb45b4a14b2c2b33f0da65",
+        "observedPayloadSha256": "789d52ef3191509f938526bdd66cbfb6fc32d6ee1bbb45b4a14b2c2b33f0da65",
+        "preservedPrimaryVerdict": "FAIL_HIDDEN_CASE_DEPENDENCY",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_bowtie",
+        "expectedPayloadSha256": "ed538b31b800dbb637dfe0a7164384a20dd781c9b9705752b7781559f10d5b06",
+        "observedPayloadSha256": "ed538b31b800dbb637dfe0a7164384a20dd781c9b9705752b7781559f10d5b06",
+        "preservedPrimaryVerdict": "PASS_STANDALONE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_caregiver_role_strain_dementia_01_bowtie",
+        "expectedPayloadSha256": "7b2d554215d8a3c2249aaa9bd595721793b4f3a439663e74e76efabe5a3ff6e1",
+        "observedPayloadSha256": "7b2d554215d8a3c2249aaa9bd595721793b4f3a439663e74e76efabe5a3ff6e1",
+        "preservedPrimaryVerdict": "FAIL_HIDDEN_CASE_DEPENDENCY",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_client_advocacy_refusal_01_bowtie",
+        "expectedPayloadSha256": "d601c32d131bb984399cbb131b98f3c995e4fe1ef2512ddb1d30c61757172521",
+        "observedPayloadSha256": "d601c32d131bb984399cbb131b98f3c995e4fe1ef2512ddb1d30c61757172521",
+        "preservedPrimaryVerdict": "FAIL_HIDDEN_CASE_DEPENDENCY",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_clozapine_toxicity_01_bowtie",
+        "expectedPayloadSha256": "fec1259dbd7068a25371322c56d6218fc47907698474d485b6ed1369d6db4b09",
+        "observedPayloadSha256": "fec1259dbd7068a25371322c56d6218fc47907698474d485b6ed1369d6db4b09",
+        "preservedPrimaryVerdict": "PASS_STANDALONE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_gallstone_pancreatitis_01_bowtie",
+        "expectedPayloadSha256": "ae4cce6547a9cedd16d7835eabcff1ea3b8aa918485e6df8fa6c6c8a66302b8d",
+        "observedPayloadSha256": "ae4cce6547a9cedd16d7835eabcff1ea3b8aa918485e6df8fa6c6c8a66302b8d",
+        "preservedPrimaryVerdict": "PASS_STANDALONE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_gbs_respiratory_compromise_01_bowtie",
+        "expectedPayloadSha256": "74e4fc43567f17a8eed82ce10fd440372afe4bfde7da0878bda51fb30aa34804",
+        "observedPayloadSha256": "74e4fc43567f17a8eed82ce10fd440372afe4bfde7da0878bda51fb30aa34804",
+        "preservedPrimaryVerdict": "FAIL_HIDDEN_CASE_DEPENDENCY",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_hipaa_disclosure_breach_01_bowtie",
+        "expectedPayloadSha256": "9ba8faa3ec3cea8e1668c0460b2888686f1600d52186d7f5b8297dc6ae332984",
+        "observedPayloadSha256": "9ba8faa3ec3cea8e1668c0460b2888686f1600d52186d7f5b8297dc6ae332984",
+        "preservedPrimaryVerdict": "FAIL_UNSUPPORTED_TOKEN_PREMISE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_infection_control_clustered_care_01_bowtie",
+        "expectedPayloadSha256": "9257f536a25485a9761d3f004f6deb2679177570b83a6937f1e65ef880d45daf",
+        "observedPayloadSha256": "9257f536a25485a9761d3f004f6deb2679177570b83a6937f1e65ef880d45daf",
+        "preservedPrimaryVerdict": "FAIL_HIDDEN_CASE_DEPENDENCY",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_lateral_incivility_01_bowtie",
+        "expectedPayloadSha256": "fea2d76c8716a73087600efe5fd026a33cb36e5b19f28dde067b940ff57e9563",
+        "observedPayloadSha256": "fea2d76c8716a73087600efe5fd026a33cb36e5b19f28dde067b940ff57e9563",
+        "preservedPrimaryVerdict": "FAIL_HIDDEN_CASE_DEPENDENCY",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_major_burn_inhalation_fluid_creep_01_bowtie",
+        "expectedPayloadSha256": "f65b918e40fe6b3947d468f29ee96a427c1ed0fa1886538541c7c046101975be",
+        "observedPayloadSha256": "f65b918e40fe6b3947d468f29ee96a427c1ed0fa1886538541c7c046101975be",
+        "preservedPrimaryVerdict": "PASS_STANDALONE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_mass_casualty_start_triage_01_bowtie",
+        "expectedPayloadSha256": "7cdf149aff899a7cd171c9395ec6ab23b93b571c15cb779dc169d605e1dbd4d6",
+        "observedPayloadSha256": "7cdf149aff899a7cd171c9395ec6ab23b93b571c15cb779dc169d605e1dbd4d6",
+        "preservedPrimaryVerdict": "FAIL_HIDDEN_CASE_DEPENDENCY",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_neutropenic_fever_nadir_01_bowtie",
+        "expectedPayloadSha256": "f8e8ca6eddd5f48cf67ef7ea5a51d9eb5bcfea2c67def6b50eafcbf0818ac00b",
+        "observedPayloadSha256": "f8e8ca6eddd5f48cf67ef7ea5a51d9eb5bcfea2c67def6b50eafcbf0818ac00b",
+        "preservedPrimaryVerdict": "FAIL_UNSUPPORTED_TOKEN_PREMISE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_nine_month_well_child_safety_01_bowtie",
+        "expectedPayloadSha256": "1f22167ff1f297bfd9b1b1c967117b81d7e833f5947429fe2ad652ad70a22bf1",
+        "observedPayloadSha256": "1f22167ff1f297bfd9b1b1c967117b81d7e833f5947429fe2ad652ad70a22bf1",
+        "preservedPrimaryVerdict": "PASS_STANDALONE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_nurse_provider_conflict_01_bowtie",
+        "expectedPayloadSha256": "d90aac319cfaa579a579d3fc30c9c0fec05aa33f6615c40f6996ae865fe0fc5b",
+        "observedPayloadSha256": "d90aac319cfaa579a579d3fc30c9c0fec05aa33f6615c40f6996ae865fe0fc5b",
+        "preservedPrimaryVerdict": "PASS_STANDALONE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_opioid_recovery_relapse_risk_01_bowtie",
+        "expectedPayloadSha256": "f1a5a9521bd0c6a45ac79f0a33a15a14602ccf2152059d82aa9c45ac77984248",
+        "observedPayloadSha256": "f1a5a9521bd0c6a45ac79f0a33a15a14602ccf2152059d82aa9c45ac77984248",
+        "preservedPrimaryVerdict": "PASS_STANDALONE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_overdue_preventive_screening_01_bowtie",
+        "expectedPayloadSha256": "32cf6af7aa1125b2e16e9da7b407980ce044b5669a8b3aaf8eebc4019e9e7a2f",
+        "observedPayloadSha256": "32cf6af7aa1125b2e16e9da7b407980ce044b5669a8b3aaf8eebc4019e9e7a2f",
+        "preservedPrimaryVerdict": "PASS_STANDALONE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_bowtie",
+        "expectedPayloadSha256": "57a014fc8cb736c6233befb4696b351c640da4b9e0da28ca0660e6be2baef0a4",
+        "observedPayloadSha256": "57a014fc8cb736c6233befb4696b351c640da4b9e0da28ca0660e6be2baef0a4",
+        "preservedPrimaryVerdict": "PASS_STANDALONE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_pressure_injury_prevention_mobility_01_bowtie",
+        "expectedPayloadSha256": "ef45f6bc0ee62e10a241ce9d8fcafe465de0bc8e807f4e50c08d64c3b1b5df49",
+        "observedPayloadSha256": "ef45f6bc0ee62e10a241ce9d8fcafe465de0bc8e807f4e50c08d64c3b1b5df49",
+        "preservedPrimaryVerdict": "PASS_STANDALONE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_refeeding_syndrome_tpn_01_bowtie",
+        "expectedPayloadSha256": "d42c84e4a76e8513af9c02d499d39a2585c0ba126a01dd50b94fb1a2331810d4",
+        "observedPayloadSha256": "d42c84e4a76e8513af9c02d499d39a2585c0ba126a01dd50b94fb1a2331810d4",
+        "preservedPrimaryVerdict": "PASS_STANDALONE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_svc_syndrome_01_bowtie",
+        "expectedPayloadSha256": "3a637875b951f4375765fffbb0ff5cd0f32af7d35a08367d2a5ec6a9d77dc2af",
+        "observedPayloadSha256": "3a637875b951f4375765fffbb0ff5cd0f32af7d35a08367d2a5ec6a9d77dc2af",
+        "preservedPrimaryVerdict": "PASS_STANDALONE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_taco_vs_trali_01_bowtie",
+        "expectedPayloadSha256": "b3e48dfb3a70913dbd48227c63f7fd36bb459a045fa22a439b7b7cdb06bdc4e9",
+        "observedPayloadSha256": "b3e48dfb3a70913dbd48227c63f7fd36bb459a045fa22a439b7b7cdb06bdc4e9",
+        "preservedPrimaryVerdict": "PASS_STANDALONE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_unsafe_assignment_01_bowtie",
+        "expectedPayloadSha256": "4242309e142b5b85d38f5553cd93194d4a6a7f78c2045571d51cddc86a5de543",
+        "observedPayloadSha256": "4242309e142b5b85d38f5553cd93194d4a6a7f78c2045571d51cddc86a5de543",
+        "preservedPrimaryVerdict": "PASS_STANDALONE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_unsafe_premature_discharge_01_bowtie",
+        "expectedPayloadSha256": "d9462741c338b5041762f5f4a4c51cffd17bd54d34d17839c381b02cbd59bf5e",
+        "observedPayloadSha256": "d9462741c338b5041762f5f4a4c51cffd17bd54d34d17839c381b02cbd59bf5e",
+        "preservedPrimaryVerdict": "FAIL_UNSUPPORTED_TOKEN_PREMISE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_bowtie",
+        "expectedPayloadSha256": "9bc71849f91e67a74afa1ad07214b16fc147988490ad1c02d60442f7675cd672",
+        "observedPayloadSha256": "9bc71849f91e67a74afa1ad07214b16fc147988490ad1c02d60442f7675cd672",
+        "preservedPrimaryVerdict": "PASS_STANDALONE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_pph_2026_06_16_case_01_bowtie",
+        "expectedPayloadSha256": "efcc3588cf2750744fb89be66529904081f6953d6158505dfc694e48086fed39",
+        "observedPayloadSha256": "efcc3588cf2750744fb89be66529904081f6953d6158505dfc694e48086fed39",
+        "preservedPrimaryVerdict": "FAIL_UNSUPPORTED_TOKEN_PREMISE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_r1_regen_case_celiac_01_bowtie",
+        "expectedPayloadSha256": "1aa1b09aa2ce8bde7a7ac569438867497466632c916b6b4a1e56b4146d631a90",
+        "observedPayloadSha256": "1aa1b09aa2ce8bde7a7ac569438867497466632c916b6b4a1e56b4146d631a90",
+        "preservedPrimaryVerdict": "PASS_STANDALONE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_bowtie",
+        "expectedPayloadSha256": "74fcaaa897d4c1dcd1f6cfec7ba0b8bcfe1daa11ed9340537522558a9c977bed",
+        "observedPayloadSha256": "74fcaaa897d4c1dcd1f6cfec7ba0b8bcfe1daa11ed9340537522558a9c977bed",
+        "preservedPrimaryVerdict": "PASS_STANDALONE",
+        "status": "MATCH"
+      },
+      {
+        "candidateId": "opus_case_lithium_toxicity_bowtie",
+        "expectedPayloadSha256": "25d4304766fee759c9ddedbc9d3bf971d26939538e88139e20d33ae4f7364758",
+        "observedPayloadSha256": "25d4304766fee759c9ddedbc9d3bf971d26939538e88139e20d33ae4f7364758",
+        "preservedPrimaryVerdict": "PASS_STANDALONE",
+        "status": "MATCH"
+      }
+    ],
+    "status": "PASS"
+  },
+  "payloadHashConvention": "sha256(stableJson(q, 0)); recursively sorted object keys; compact JSON.stringify; trailing newline",
+  "population": {
+    "additionsVsPhaseA": [],
+    "exactCount": 30,
+    "ordinalSuffixCount": 1,
+    "pairedCount": 31,
+    "pairedRoster": [
+      "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_bowtie",
+      "gpt_2026_06_19_case_ici_pneumonitis_01_bowtie",
+      "gpt_case_acute_hemolytic_transfusion_reaction_01_bowtie",
+      "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_bowtie",
+      "gpt_case_caregiver_role_strain_dementia_01_bowtie",
+      "gpt_case_client_advocacy_refusal_01_bowtie",
+      "gpt_case_clozapine_toxicity_01_bowtie",
+      "gpt_case_gallstone_pancreatitis_01_bowtie",
+      "gpt_case_gbs_respiratory_compromise_01_bowtie",
+      "gpt_case_hipaa_disclosure_breach_01_bowtie",
+      "gpt_case_infection_control_clustered_care_01_bowtie",
+      "gpt_case_lateral_incivility_01_bowtie",
+      "gpt_case_major_burn_inhalation_fluid_creep_01_bowtie",
+      "gpt_case_mass_casualty_start_triage_01_bowtie",
+      "gpt_case_neutropenic_fever_nadir_01_bowtie",
+      "gpt_case_nine_month_well_child_safety_01_bowtie",
+      "gpt_case_nurse_provider_conflict_01_bowtie",
+      "gpt_case_opioid_recovery_relapse_risk_01_bowtie",
+      "gpt_case_overdue_preventive_screening_01_bowtie",
+      "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_bowtie",
+      "gpt_case_pressure_injury_prevention_mobility_01_bowtie",
+      "gpt_case_refeeding_syndrome_tpn_01_bowtie",
+      "gpt_case_svc_syndrome_01_bowtie",
+      "gpt_case_taco_vs_trali_01_bowtie",
+      "gpt_case_unsafe_assignment_01_bowtie",
+      "gpt_case_unsafe_premature_discharge_01_bowtie",
+      "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_bowtie",
+      "gpt_pph_2026_06_16_case_01_bowtie",
+      "gpt_r1_regen_case_celiac_01_bowtie",
+      "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_bowtie",
+      "opus_case_lithium_toxicity_bowtie"
+    ],
+    "removalsVsPhaseA": [],
+    "suffixCount": 50,
+    "suffixRoster": [
+      "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_bowtie",
+      "gpt_2026_06_19_case_ici_pneumonitis_01_bowtie",
+      "gpt_2026_07_03_2114_t1_01_co_exposure_bowtie",
+      "gpt_2026_07_03_2114_t2_01_cdiff_spores_bowtie",
+      "gpt_2026_07_03_2114_t2_02_imminent_suicide_bowtie",
+      "gpt_case_acute_hemolytic_transfusion_reaction_01_bowtie",
+      "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_bowtie",
+      "gpt_case_caregiver_role_strain_dementia_01_bowtie",
+      "gpt_case_client_advocacy_refusal_01_bowtie",
+      "gpt_case_clozapine_toxicity_01_bowtie",
+      "gpt_case_gallstone_pancreatitis_01_bowtie",
+      "gpt_case_gbs_respiratory_compromise_01_bowtie",
+      "gpt_case_hipaa_disclosure_breach_01_bowtie",
+      "gpt_case_infection_control_clustered_care_01_bowtie",
+      "gpt_case_lateral_incivility_01_bowtie",
+      "gpt_case_major_burn_inhalation_fluid_creep_01_bowtie",
+      "gpt_case_mass_casualty_start_triage_01_bowtie",
+      "gpt_case_neutropenic_fever_nadir_01_bowtie",
+      "gpt_case_nine_month_well_child_safety_01_bowtie",
+      "gpt_case_nurse_provider_conflict_01_bowtie",
+      "gpt_case_opioid_recovery_relapse_risk_01_bowtie",
+      "gpt_case_overdue_preventive_screening_01_bowtie",
+      "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_bowtie",
+      "gpt_case_pressure_injury_prevention_mobility_01_bowtie",
+      "gpt_case_refeeding_syndrome_tpn_01_bowtie",
+      "gpt_case_svc_syndrome_01_bowtie",
+      "gpt_case_taco_vs_trali_01_bowtie",
+      "gpt_case_unsafe_assignment_01_bowtie",
+      "gpt_case_unsafe_premature_discharge_01_bowtie",
+      "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_bowtie",
+      "gpt_format13_last_bowtie",
+      "gpt_format13_mh_bowtie",
+      "gpt_format13_pd_peritonitis_bowtie",
+      "gpt_format14_hcm_bowtie",
+      "gpt_format15_acquired_methemoglobinemia_bowtie",
+      "gpt_format15_cardiac_tamponade_bowtie",
+      "gpt_format15_ect_prolonged_seizure_bowtie",
+      "gpt_format15_meningococcemia_bowtie",
+      "gpt_format15_palliative_malignant_bowel_obstruction_bowtie",
+      "gpt_format15_severe_asthma_bowtie",
+      "gpt_format15_sickle_acute_chest_bowtie",
+      "gpt_format15_splenic_sequestration_bowtie",
+      "gpt_format15_transfusion_anaphylaxis_bowtie",
+      "gpt_format15_vasa_previa_bleeding_bowtie",
+      "gpt_format7c_exercise_hypoglycemia_bowtie",
+      "gpt_format7c_heart_failure_action_plan_bowtie",
+      "gpt_pph_2026_06_16_case_01_bowtie",
+      "gpt_r1_regen_case_celiac_01_bowtie",
+      "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_bowtie",
+      "opus_case_lithium_toxicity_bowtie"
+    ],
+    "unpairedCount": 19,
+    "unpairedRoster": [
+      "gpt_2026_07_03_2114_t1_01_co_exposure_bowtie",
+      "gpt_2026_07_03_2114_t2_01_cdiff_spores_bowtie",
+      "gpt_2026_07_03_2114_t2_02_imminent_suicide_bowtie",
+      "gpt_format13_last_bowtie",
+      "gpt_format13_mh_bowtie",
+      "gpt_format13_pd_peritonitis_bowtie",
+      "gpt_format14_hcm_bowtie",
+      "gpt_format15_acquired_methemoglobinemia_bowtie",
+      "gpt_format15_cardiac_tamponade_bowtie",
+      "gpt_format15_ect_prolonged_seizure_bowtie",
+      "gpt_format15_meningococcemia_bowtie",
+      "gpt_format15_palliative_malignant_bowel_obstruction_bowtie",
+      "gpt_format15_severe_asthma_bowtie",
+      "gpt_format15_sickle_acute_chest_bowtie",
+      "gpt_format15_splenic_sequestration_bowtie",
+      "gpt_format15_transfusion_anaphylaxis_bowtie",
+      "gpt_format15_vasa_previa_bleeding_bowtie",
+      "gpt_format7c_exercise_hypoglycemia_bowtie",
+      "gpt_format7c_heart_failure_action_plan_bowtie"
+    ]
+  },
+  "siblingAbsence": {
+    "caseStudyIdsExamined": 145,
+    "hits": [],
+    "status": "PASS"
+  },
+  "structuralRows": [
+    {
+      "candidateId": "gpt_2026_07_03_2114_t1_01_co_exposure_bowtie",
+      "canonicalKeyCardinality": {
+        "actions": 2,
+        "condition": 1,
+        "parameters": 2
+      },
+      "status": "PASS",
+      "tokenCounts": {
+        "actions": 4,
+        "condition": 3,
+        "parameters": 4
+      }
+    },
+    {
+      "candidateId": "gpt_2026_07_03_2114_t2_01_cdiff_spores_bowtie",
+      "canonicalKeyCardinality": {
+        "actions": 2,
+        "condition": 1,
+        "parameters": 2
+      },
+      "status": "PASS",
+      "tokenCounts": {
+        "actions": 4,
+        "condition": 3,
+        "parameters": 4
+      }
+    },
+    {
+      "candidateId": "gpt_2026_07_03_2114_t2_02_imminent_suicide_bowtie",
+      "canonicalKeyCardinality": {
+        "actions": 2,
+        "condition": 1,
+        "parameters": 2
+      },
+      "status": "PASS",
+      "tokenCounts": {
+        "actions": 4,
+        "condition": 3,
+        "parameters": 4
+      }
+    },
+    {
+      "candidateId": "gpt_format13_last_bowtie",
+      "canonicalKeyCardinality": {
+        "actions": 2,
+        "condition": 1,
+        "parameters": 2
+      },
+      "status": "PASS",
+      "tokenCounts": {
+        "actions": 4,
+        "condition": 3,
+        "parameters": 4
+      }
+    },
+    {
+      "candidateId": "gpt_format13_mh_bowtie",
+      "canonicalKeyCardinality": {
+        "actions": 2,
+        "condition": 1,
+        "parameters": 2
+      },
+      "status": "PASS",
+      "tokenCounts": {
+        "actions": 4,
+        "condition": 3,
+        "parameters": 4
+      }
+    },
+    {
+      "candidateId": "gpt_format13_pd_peritonitis_bowtie",
+      "canonicalKeyCardinality": {
+        "actions": 2,
+        "condition": 1,
+        "parameters": 2
+      },
+      "status": "PASS",
+      "tokenCounts": {
+        "actions": 4,
+        "condition": 3,
+        "parameters": 4
+      }
+    },
+    {
+      "candidateId": "gpt_format14_hcm_bowtie",
+      "canonicalKeyCardinality": {
+        "actions": 2,
+        "condition": 1,
+        "parameters": 2
+      },
+      "status": "PASS",
+      "tokenCounts": {
+        "actions": 4,
+        "condition": 3,
+        "parameters": 4
+      }
+    },
+    {
+      "candidateId": "gpt_format15_acquired_methemoglobinemia_bowtie",
+      "canonicalKeyCardinality": {
+        "actions": 2,
+        "condition": 1,
+        "parameters": 2
+      },
+      "status": "PASS",
+      "tokenCounts": {
+        "actions": 4,
+        "condition": 3,
+        "parameters": 4
+      }
+    },
+    {
+      "candidateId": "gpt_format15_cardiac_tamponade_bowtie",
+      "canonicalKeyCardinality": {
+        "actions": 2,
+        "condition": 1,
+        "parameters": 2
+      },
+      "status": "PASS",
+      "tokenCounts": {
+        "actions": 4,
+        "condition": 3,
+        "parameters": 4
+      }
+    },
+    {
+      "candidateId": "gpt_format15_ect_prolonged_seizure_bowtie",
+      "canonicalKeyCardinality": {
+        "actions": 2,
+        "condition": 1,
+        "parameters": 2
+      },
+      "status": "PASS",
+      "tokenCounts": {
+        "actions": 4,
+        "condition": 3,
+        "parameters": 4
+      }
+    },
+    {
+      "candidateId": "gpt_format15_meningococcemia_bowtie",
+      "canonicalKeyCardinality": {
+        "actions": 2,
+        "condition": 1,
+        "parameters": 2
+      },
+      "status": "PASS",
+      "tokenCounts": {
+        "actions": 4,
+        "condition": 3,
+        "parameters": 4
+      }
+    },
+    {
+      "candidateId": "gpt_format15_palliative_malignant_bowel_obstruction_bowtie",
+      "canonicalKeyCardinality": {
+        "actions": 2,
+        "condition": 1,
+        "parameters": 2
+      },
+      "status": "PASS",
+      "tokenCounts": {
+        "actions": 4,
+        "condition": 3,
+        "parameters": 4
+      }
+    },
+    {
+      "candidateId": "gpt_format15_severe_asthma_bowtie",
+      "canonicalKeyCardinality": {
+        "actions": 2,
+        "condition": 1,
+        "parameters": 2
+      },
+      "status": "PASS",
+      "tokenCounts": {
+        "actions": 4,
+        "condition": 3,
+        "parameters": 4
+      }
+    },
+    {
+      "candidateId": "gpt_format15_sickle_acute_chest_bowtie",
+      "canonicalKeyCardinality": {
+        "actions": 2,
+        "condition": 1,
+        "parameters": 2
+      },
+      "status": "PASS",
+      "tokenCounts": {
+        "actions": 4,
+        "condition": 3,
+        "parameters": 4
+      }
+    },
+    {
+      "candidateId": "gpt_format15_splenic_sequestration_bowtie",
+      "canonicalKeyCardinality": {
+        "actions": 2,
+        "condition": 1,
+        "parameters": 2
+      },
+      "status": "PASS",
+      "tokenCounts": {
+        "actions": 4,
+        "condition": 3,
+        "parameters": 4
+      }
+    },
+    {
+      "candidateId": "gpt_format15_transfusion_anaphylaxis_bowtie",
+      "canonicalKeyCardinality": {
+        "actions": 2,
+        "condition": 1,
+        "parameters": 2
+      },
+      "status": "PASS",
+      "tokenCounts": {
+        "actions": 4,
+        "condition": 3,
+        "parameters": 4
+      }
+    },
+    {
+      "candidateId": "gpt_format15_vasa_previa_bleeding_bowtie",
+      "canonicalKeyCardinality": {
+        "actions": 2,
+        "condition": 1,
+        "parameters": 2
+      },
+      "status": "PASS",
+      "tokenCounts": {
+        "actions": 4,
+        "condition": 3,
+        "parameters": 4
+      }
+    },
+    {
+      "candidateId": "gpt_format7c_exercise_hypoglycemia_bowtie",
+      "canonicalKeyCardinality": {
+        "actions": 2,
+        "condition": 1,
+        "parameters": 2
+      },
+      "status": "PASS",
+      "tokenCounts": {
+        "actions": 4,
+        "condition": 3,
+        "parameters": 4
+      }
+    },
+    {
+      "candidateId": "gpt_format7c_heart_failure_action_plan_bowtie",
+      "canonicalKeyCardinality": {
+        "actions": 2,
+        "condition": 1,
+        "parameters": 2
+      },
+      "status": "PASS",
+      "tokenCounts": {
+        "actions": 4,
+        "condition": 3,
+        "parameters": 4
+      }
+    }
+  ],
+  "unpairedPayloads": [
+    {
+      "candidateId": "gpt_2026_07_03_2114_t1_01_co_exposure_bowtie",
+      "expectedPayloadSha256": "d52f20663ce537cee595d9e46dee04c69b4de4a78f63ab885679101f797b5bd3",
+      "observedPayloadSha256": "d52f20663ce537cee595d9e46dee04c69b4de4a78f63ab885679101f797b5bd3",
+      "status": "MATCH"
+    },
+    {
+      "candidateId": "gpt_2026_07_03_2114_t2_01_cdiff_spores_bowtie",
+      "expectedPayloadSha256": "156c37fb872d72e4dcc1c03422222699e844d6c07c46c28c3a3646e612575949",
+      "observedPayloadSha256": "156c37fb872d72e4dcc1c03422222699e844d6c07c46c28c3a3646e612575949",
+      "status": "MATCH"
+    },
+    {
+      "candidateId": "gpt_2026_07_03_2114_t2_02_imminent_suicide_bowtie",
+      "expectedPayloadSha256": "db0f561af76d4e1cb5de422662fad579f58e81a0ef068d8d68500fa29668e4cb",
+      "observedPayloadSha256": "db0f561af76d4e1cb5de422662fad579f58e81a0ef068d8d68500fa29668e4cb",
+      "status": "MATCH"
+    },
+    {
+      "candidateId": "gpt_format13_last_bowtie",
+      "expectedPayloadSha256": "ab06ae7bf9bae8cf39c3ab315030d14b88c077c149343fe1c0b9f590262924fc",
+      "observedPayloadSha256": "ab06ae7bf9bae8cf39c3ab315030d14b88c077c149343fe1c0b9f590262924fc",
+      "status": "MATCH"
+    },
+    {
+      "candidateId": "gpt_format13_mh_bowtie",
+      "expectedPayloadSha256": "b84e2dfc09ca8a6b46501e792bae2261fab64c1f46ffabc559a1ba0aa126bccb",
+      "observedPayloadSha256": "b84e2dfc09ca8a6b46501e792bae2261fab64c1f46ffabc559a1ba0aa126bccb",
+      "status": "MATCH"
+    },
+    {
+      "candidateId": "gpt_format13_pd_peritonitis_bowtie",
+      "expectedPayloadSha256": "1917fc5c2d0bf9e47dc370fe0c3e761f68ac155fde9c4ae290b87096e46a6095",
+      "observedPayloadSha256": "1917fc5c2d0bf9e47dc370fe0c3e761f68ac155fde9c4ae290b87096e46a6095",
+      "status": "MATCH"
+    },
+    {
+      "candidateId": "gpt_format14_hcm_bowtie",
+      "expectedPayloadSha256": "b88ed0482d9d7f6d8d39b143b457657ad9243bc138f2b9e7d4622c2dfa07d75f",
+      "observedPayloadSha256": "b88ed0482d9d7f6d8d39b143b457657ad9243bc138f2b9e7d4622c2dfa07d75f",
+      "status": "MATCH"
+    },
+    {
+      "candidateId": "gpt_format15_acquired_methemoglobinemia_bowtie",
+      "expectedPayloadSha256": "48f90bfa36cb3f7e0b65f637a8ae9de80c35257eac4f812b3373018d4a727777",
+      "observedPayloadSha256": "48f90bfa36cb3f7e0b65f637a8ae9de80c35257eac4f812b3373018d4a727777",
+      "status": "MATCH"
+    },
+    {
+      "candidateId": "gpt_format15_cardiac_tamponade_bowtie",
+      "expectedPayloadSha256": "14b942965319b128382b879025356dbac3d13561d392c5ece80ef5e21244fb14",
+      "observedPayloadSha256": "14b942965319b128382b879025356dbac3d13561d392c5ece80ef5e21244fb14",
+      "status": "MATCH"
+    },
+    {
+      "candidateId": "gpt_format15_ect_prolonged_seizure_bowtie",
+      "expectedPayloadSha256": "c0d8638519d80fc1b6bd8a23ae0ec2a5cd5ec094611d15c83d26632f9306367a",
+      "observedPayloadSha256": "c0d8638519d80fc1b6bd8a23ae0ec2a5cd5ec094611d15c83d26632f9306367a",
+      "status": "MATCH"
+    },
+    {
+      "candidateId": "gpt_format15_meningococcemia_bowtie",
+      "expectedPayloadSha256": "6ecd999b61f1b17d953b1e54820b3047afabd1e88392e09fb4e8d4163e65cd2b",
+      "observedPayloadSha256": "6ecd999b61f1b17d953b1e54820b3047afabd1e88392e09fb4e8d4163e65cd2b",
+      "status": "MATCH"
+    },
+    {
+      "candidateId": "gpt_format15_palliative_malignant_bowel_obstruction_bowtie",
+      "expectedPayloadSha256": "238dd73803862f44c357109bde8cced485f0479c27667466b24b5e9c336e036d",
+      "observedPayloadSha256": "238dd73803862f44c357109bde8cced485f0479c27667466b24b5e9c336e036d",
+      "status": "MATCH"
+    },
+    {
+      "candidateId": "gpt_format15_severe_asthma_bowtie",
+      "expectedPayloadSha256": "b5000b34fcdead37f242f2294f6c95246011d7635b757bb03e0c0618c627159d",
+      "observedPayloadSha256": "b5000b34fcdead37f242f2294f6c95246011d7635b757bb03e0c0618c627159d",
+      "status": "MATCH"
+    },
+    {
+      "candidateId": "gpt_format15_sickle_acute_chest_bowtie",
+      "expectedPayloadSha256": "124a53eb198eb035ac98b83ef256ad7e2bd8c72424af90e8a783f951229af698",
+      "observedPayloadSha256": "124a53eb198eb035ac98b83ef256ad7e2bd8c72424af90e8a783f951229af698",
+      "status": "MATCH"
+    },
+    {
+      "candidateId": "gpt_format15_splenic_sequestration_bowtie",
+      "expectedPayloadSha256": "cad98e7f2d181e8141bee5db89a7142dc8f2ddfbb09f6937ee53312b44779423",
+      "observedPayloadSha256": "cad98e7f2d181e8141bee5db89a7142dc8f2ddfbb09f6937ee53312b44779423",
+      "status": "MATCH"
+    },
+    {
+      "candidateId": "gpt_format15_transfusion_anaphylaxis_bowtie",
+      "expectedPayloadSha256": "1157de9021406a663da1d8649f6654de20f4e6322fa73f7c8ad4354a46a6188b",
+      "observedPayloadSha256": "1157de9021406a663da1d8649f6654de20f4e6322fa73f7c8ad4354a46a6188b",
+      "status": "MATCH"
+    },
+    {
+      "candidateId": "gpt_format15_vasa_previa_bleeding_bowtie",
+      "expectedPayloadSha256": "1f9dbd06dd65e1c2f010b94372f32d6a23420264b5651663d770ac55edd77920",
+      "observedPayloadSha256": "1f9dbd06dd65e1c2f010b94372f32d6a23420264b5651663d770ac55edd77920",
+      "status": "MATCH"
+    },
+    {
+      "candidateId": "gpt_format7c_exercise_hypoglycemia_bowtie",
+      "expectedPayloadSha256": "df41a515bafd2325afb0a63fa1b3050ae5d6c6165213af41314d8e3e8dc8ad81",
+      "observedPayloadSha256": "df41a515bafd2325afb0a63fa1b3050ae5d6c6165213af41314d8e3e8dc8ad81",
+      "status": "MATCH"
+    },
+    {
+      "candidateId": "gpt_format7c_heart_failure_action_plan_bowtie",
+      "expectedPayloadSha256": "20cdfd9a06862487c399ca4e36c2de9e76ebf1d16d5267721e47fb4df8db877f",
+      "observedPayloadSha256": "20cdfd9a06862487c399ca4e36c2de9e76ebf1d16d5267721e47fb4df8db877f",
+      "status": "MATCH"
+    }
+  ]
+}

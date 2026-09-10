@@ -1,0 +1,285 @@
+{
+  "candidateSurfaces": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Actions to take",
+          "zh": "应采取的措施"
+        },
+        "tokens": [
+          {
+            "en": "Rely on alcohol-based hand sanitizer after all client contact",
+            "opaqueTokenLabel": "A1",
+            "zh": "所有接触后只依赖含酒精免洗手消毒液"
+          },
+          {
+            "en": "Place the client in airborne isolation with an N95 respirator",
+            "opaqueTokenLabel": "A2",
+            "zh": "将患者置于空气隔离并使用 N95 呼吸器"
+          },
+          {
+            "en": "Clean shared equipment with a facility-approved sporicidal disinfectant",
+            "opaqueTokenLabel": "A3",
+            "zh": "使用机构批准的杀芽孢消毒剂清洁共用设备"
+          },
+          {
+            "en": "Use contact precautions with gown and gloves before room entry",
+            "opaqueTokenLabel": "A4",
+            "zh": "进房前执行接触隔离，穿隔离衣并戴手套"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的情况"
+        },
+        "tokens": [
+          {
+            "en": "C. difficile infection with spore contamination risk",
+            "opaqueTokenLabel": "C1",
+            "zh": "C. difficile 感染并有芽孢污染风险"
+          },
+          {
+            "en": "Uncomplicated viral gastroenteritis",
+            "opaqueTokenLabel": "C2",
+            "zh": "单纯病毒性胃肠炎"
+          },
+          {
+            "en": "Uncomplicated urinary tract infection",
+            "opaqueTokenLabel": "C3",
+            "zh": "单纯尿路感染"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "应监测的指标"
+        },
+        "tokens": [
+          {
+            "en": "Hydration status and electrolyte imbalance cues",
+            "opaqueTokenLabel": "P1",
+            "zh": "水合状态和电解质失衡线索"
+          },
+          {
+            "en": "Stool frequency and volume",
+            "opaqueTokenLabel": "P2",
+            "zh": "排便次数和粪便量"
+          },
+          {
+            "en": "Urine culture colony count",
+            "opaqueTokenLabel": "P3",
+            "zh": "尿培养菌落计数"
+          },
+          {
+            "en": "Peak expiratory flow before meals",
+            "opaqueTokenLabel": "P4",
+            "zh": "餐前峰值呼气流速"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "可在抗生素使用后引起腹泻和结肠炎的细菌",
+        "termEn": "C. difficile",
+        "termZh": "艰难梭菌"
+      },
+      {
+        "defZh": "能杀灭或灭活细菌芽孢的消毒剂",
+        "termEn": "sporicidal disinfectant",
+        "termZh": "杀芽孢消毒剂"
+      },
+      {
+        "defZh": "用于减少接触传播病原体扩散的隔离措施",
+        "termEn": "contact precautions",
+        "termZh": "接触隔离"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "This condition is supported by antibiotic exposure, watery diarrhea, fever, cramping, and the positive toxin result.",
+          "opaqueTokenLabel": "C1",
+          "zh": "抗生素暴露、水样便、发热、绞痛以及 toxin 阳性都支持这一诊断。"
+        },
+        {
+          "en": "Viral gastroenteritis can cause diarrhea, but the positive toxin result and antibiotic exposure make it less likely than C. difficile.",
+          "opaqueTokenLabel": "C2",
+          "zh": "病毒性胃肠炎也可导致腹泻，但 toxin 阳性和抗生素暴露使 C. difficile 更符合。"
+        },
+        {
+          "en": "A urinary tract infection does not explain toxin-positive watery diarrhea and abdominal cramping.",
+          "opaqueTokenLabel": "C3",
+          "zh": "尿路感染不能解释 toxin 阳性的水样便和腹部绞痛。"
+        },
+        {
+          "en": "Gown and gloves reduce environmental and hand contamination from stoolborne spores.",
+          "opaqueTokenLabel": "A4",
+          "zh": "隔离衣和手套可减少粪便中芽孢造成的环境和手部污染。"
+        },
+        {
+          "en": "Sporicidal cleaning is needed because C. difficile spores can persist on equipment and surfaces.",
+          "opaqueTokenLabel": "A3",
+          "zh": "需要杀芽孢清洁，因为 C. difficile 芽孢可在设备和表面存留。"
+        },
+        {
+          "en": "Alcohol sanitizer alone is an unsafe shortcut for spore contamination; soap-and-water hand hygiene is important when caring for this client.",
+          "opaqueTokenLabel": "A1",
+          "zh": "仅用含酒精免洗手液处理芽孢污染是不安全的捷径；照护此类患者时肥皂和清水洗手很重要。"
+        },
+        {
+          "en": "Airborne isolation and N95 respirators target airborne pathogens, not stoolborne C. difficile spores.",
+          "opaqueTokenLabel": "A2",
+          "zh": "空气隔离和 N95 主要针对空气传播病原体，不是粪便传播的 C. difficile 芽孢。"
+        },
+        {
+          "en": "Tracking stool frequency and volume helps evaluate ongoing fluid losses and treatment response.",
+          "opaqueTokenLabel": "P2",
+          "zh": "记录排便次数和粪便量有助于评估持续体液丢失和治疗反应。"
+        },
+        {
+          "en": "Weakness and frequent diarrhea make dehydration and electrolyte imbalance priority nursing concerns.",
+          "opaqueTokenLabel": "P1",
+          "zh": "虚弱和频繁腹泻使脱水和电解质失衡成为护理优先关注点。"
+        },
+        {
+          "en": "Peak flow is useful for obstructive airway assessment, not for this diarrheal infection problem.",
+          "opaqueTokenLabel": "P4",
+          "zh": "峰值呼气流速用于阻塞性气道评估，不适用于此腹泻感染问题。"
+        },
+        {
+          "en": "Urine culture results do not monitor the toxin-positive diarrheal illness or the immediate complication risk.",
+          "opaqueTokenLabel": "P3",
+          "zh": "尿培养结果不能监测 toxin 阳性腹泻疾病或其直接并发症风险。"
+        }
+      ],
+      "correct": {
+        "en": "Recent clindamycin use, profuse watery diarrhea, fever, abdominal cramping, and a positive toxin assay point to C. difficile. The nursing priority is preventing spore spread and monitoring for fluid and electrolyte complications.",
+        "zh": "近期使用 clindamycin、大量水样便、发热、腹部绞痛以及 toxin 检测阳性，均支持 C. difficile。护理优先事项是防止芽孢传播，并监测脱水和电解质并发症。"
+      }
+    },
+    "stem": {
+      "en": "A client who completed a 10-day course of clindamycin has had 8 watery stools in the past 12 hours with abdominal cramping and a temperature of 100.6 °F (38.1 °C). The client is alert but weak. A stool assay is positive for C. difficile toxin. Complete the bow-tie diagram for the nurse's priority focus.",
+      "zh": "一名患者完成 10 天 clindamycin 疗程后，过去 12 小时有 8 次水样便，伴腹部绞痛，体温 100.6 °F (38.1 °C)。患者清醒但虚弱。粪便检测 C. difficile toxin 阳性。完成图示，确定护士的优先关注点。"
+    },
+    "testTakingStrategy": {
+      "en": "When a question names C. difficile toxin, think stoolborne spores: contact precautions, soap-and-water hand hygiene, sporicidal cleaning, and dehydration monitoring.",
+      "zh": "题干明确 C. difficile toxin 时，要想到粪便传播的芽孢：接触隔离、肥皂和清水洗手、杀芽孢清洁，以及监测脱水。"
+    }
+  },
+  "explicitlyLinkedHistoricalSources": [],
+  "instruction": "Phase E is immutable. For every missing client fact inspect only this candidate's rationale/byChoice, strategy, glossary, Chinese counterpart, and an explicitly linked historical source if one exists. Do not search the corpus. Classify bounded provenance, apply fixed verdict precedence, and record narrow bilingual/clinical/scope findings. Hidden-case dependency is unreachable and is a blocker if asserted.",
+  "phaseE": {
+    "anyCanonicalTargetDependsOnAbsentFact": false,
+    "blindExactMatch": true,
+    "canonicalSelection": {
+      "actionLabels": [
+        "A4",
+        "A3"
+      ],
+      "conditionLabel": "C1",
+      "parameterLabels": [
+        "P2",
+        "P1"
+      ]
+    },
+    "canonicalSetExplanation": "The five canonical targets are supported by explicit stem facts or ordinary clinical knowledge and remain uniquely preferable to all six distractors.",
+    "canonicalSetUniquelyDefensible": true,
+    "canonicalTargetSupport": [
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C1",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "Completed a 10-day course of clindamycin; 8 watery stools in 12 hours; abdominal cramping; temperature 100.6 °F (38.1 °C); stool assay positive for C. difficile toxin."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A3",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "The stool assay is positive for C. difficile toxin and the client has frequent watery stools."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A4",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "The stool assay is positive for C. difficile toxin."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P1",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "The client has had 8 watery stools in 12 hours and is weak."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P2",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "The client has had 8 watery stools in the past 12 hours."
+      }
+    ],
+    "distractorPremiseFindings": [
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Evidence supporting a viral cause instead of confirmed C. difficile infection.",
+        "opaqueTokenLabel": "C2",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "The stool assay is positive for C. difficile toxin following clindamycin exposure."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Urinary symptoms, urinalysis findings, or urine culture evidence supporting a urinary tract infection.",
+        "opaqueTokenLabel": "C3",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "The client has watery diarrhea and abdominal cramping with a positive C. difficile toxin assay, not a urinary presentation."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "A pathogen reliably removed or inactivated by alcohol-based hand sanitizer alone.",
+        "opaqueTokenLabel": "A1",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "The stool assay is positive for C. difficile toxin."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "A suspected or confirmed airborne-transmitted infection requiring an N95 respirator.",
+        "opaqueTokenLabel": "A2",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "The identified pathogen is C. difficile in stool."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "A suspected urinary infection for which urine culture colony count would evaluate diagnosis or response.",
+        "opaqueTokenLabel": "P3",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "NOT_APPLICABLE",
+        "supportingStandaloneEvidence": "No urinary symptoms, urinalysis, or urine culture information is provided."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "A respiratory condition for which serial peak expiratory flow measurements are clinically relevant.",
+        "opaqueTokenLabel": "P4",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "NOT_APPLICABLE",
+        "supportingStandaloneEvidence": "No respiratory symptoms, obstructive airway disease, or bronchodilator-related context is provided."
+      }
+    ],
+    "missingClientFacts": [],
+    "stage1Alignment": "PARTIAL",
+    "stage1AlignmentExplanation": "Stage 1 identified the same condition and most canonical clinical domains, but at least one action or evaluation domain differed from the canonical five-target construct.",
+    "unstatedClientFactMateriallyChangesRankability": false
+  },
+  "phaseESha256": "7c46abe1b9ff69fc81d0b855f4ce8bc2a2afb5a9c4b319af2ebff62de5309edd"
+}

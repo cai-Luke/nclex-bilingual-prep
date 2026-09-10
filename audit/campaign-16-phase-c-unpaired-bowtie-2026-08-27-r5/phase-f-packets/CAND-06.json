@@ -1,0 +1,298 @@
+{
+  "candidateSurfaces": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Actions to take",
+          "zh": "应采取的措施"
+        },
+        "tokens": [
+          {
+            "en": "Give empiric antibiotics first and collect effluent only after the initial dose",
+            "opaqueTokenLabel": "A1",
+            "zh": "先给予经验性抗菌药物，首剂后再采集透析液"
+          },
+          {
+            "en": "Treat constipation alone and continue routine exchanges without infection evaluation",
+            "opaqueTokenLabel": "A2",
+            "zh": "仅治疗便秘，不评估感染并继续常规换液"
+          },
+          {
+            "en": "Collect effluent for cell count, differential, Gram stain, and culture before antibiotics",
+            "opaqueTokenLabel": "A3",
+            "zh": "在使用抗菌药物前采集透析液进行细胞计数、分类计数、革兰染色和培养"
+          },
+          {
+            "en": "Begin center-specific empiric antibiotics promptly after collection according to the prescribed protocol",
+            "opaqueTokenLabel": "A4",
+            "zh": "采集标本后按既定方案迅速开始本中心规定的经验性抗菌治疗"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的病情"
+        },
+        "tokens": [
+          {
+            "en": "Constipation-related catheter outflow dysfunction",
+            "opaqueTokenLabel": "C1",
+            "zh": "便秘相关导管流出障碍"
+          },
+          {
+            "en": "Isolated dialysis-catheter exit-site infection",
+            "opaqueTokenLabel": "C2",
+            "zh": "单纯透析导管出口处感染"
+          },
+          {
+            "en": "Suspected peritoneal-dialysis-related peritonitis",
+            "opaqueTokenLabel": "C3",
+            "zh": "疑似腹膜透析相关腹膜炎"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "应监测的指标"
+        },
+        "tokens": [
+          {
+            "en": "Abdominal pain and systemic clinical status",
+            "opaqueTokenLabel": "P1",
+            "zh": "腹痛和全身临床状态"
+          },
+          {
+            "en": "Bowel frequency and abdominal fullness",
+            "opaqueTokenLabel": "P2",
+            "zh": "排便频率和腹胀"
+          },
+          {
+            "en": "Effluent appearance and effluent white-cell-count trend",
+            "opaqueTokenLabel": "P3",
+            "zh": "透析液外观和透析液白细胞计数趋势"
+          },
+          {
+            "en": "Dialysate inflow time and total drain volume",
+            "opaqueTokenLabel": "P4",
+            "zh": "透析液灌入时间和总引流量"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "从腹腔引流出的腹膜透析液",
+        "termEn": "peritoneal dialysis effluent",
+        "termZh": "腹膜透析流出液"
+      },
+      {
+        "defZh": "在培养结果明确前依据常见病原体和当地方案选择的抗菌治疗",
+        "termEn": "empiric antibiotics",
+        "termZh": "经验性抗菌药物"
+      },
+      {
+        "defZh": "测定标本中不同类型白细胞比例的检查",
+        "termEn": "differential cell count",
+        "termZh": "白细胞分类计数"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Keyed: cloudy effluent plus new generalized abdominal pain supports suspected PD-related peritonitis.",
+          "opaqueTokenLabel": "C3",
+          "zh": "正确：混浊透析液加新发弥漫性腹痛支持疑似腹膜透析相关腹膜炎。"
+        },
+        {
+          "en": "Not keyed: constipation-related outflow dysfunction more often causes drainage problems without the inflammatory cloudy-effluent pattern.",
+          "opaqueTokenLabel": "C1",
+          "zh": "不选：便秘相关流出障碍更常见引流问题，而不伴这种炎性混浊透析液模式。"
+        },
+        {
+          "en": "Not keyed: isolated exit-site infection requires local exit-site findings, which are not described.",
+          "opaqueTokenLabel": "C2",
+          "zh": "不选：单纯出口处感染需要出口处局部表现，本例未描述。"
+        },
+        {
+          "en": "Keyed: collecting effluent studies before antibiotics preserves organism identification and diagnostic interpretation.",
+          "opaqueTokenLabel": "A3",
+          "zh": "正确：在抗菌治疗前采集透析液检查，可保留病原体识别和诊断解释的价值。"
+        },
+        {
+          "en": "Keyed: empiric gram-positive and gram-negative coverage should begin promptly after collection according to the center's prescribed protocol.",
+          "opaqueTokenLabel": "A4",
+          "zh": "正确：采集标本后，应按本中心既定方案迅速开始覆盖革兰阳性和阴性菌的经验性治疗。"
+        },
+        {
+          "en": "Not keyed: giving antibiotics before obtaining available effluent studies can reduce diagnostic yield.",
+          "opaqueTokenLabel": "A1",
+          "zh": "不选：在可采集透析液检查前先给予抗菌药物，可能降低诊断价值。"
+        },
+        {
+          "en": "Not keyed: treating only constipation does not address cloudy effluent with abdominal pain.",
+          "opaqueTokenLabel": "A2",
+          "zh": "不选：仅治疗便秘不能处理混浊透析液伴腹痛的情况。"
+        },
+        {
+          "en": "Keyed: clearing of the effluent and decline in effluent white-cell count reflect the local inflammatory response.",
+          "opaqueTokenLabel": "P3",
+          "zh": "正确：透析液变清和透析液白细胞计数下降可反映局部炎症改善。"
+        },
+        {
+          "en": "Keyed: abdominal pain and systemic clinical status show symptom response or deterioration beyond the peritoneum.",
+          "opaqueTokenLabel": "P1",
+          "zh": "正确：腹痛和全身临床状态可反映症状改善或腹膜以外的病情恶化。"
+        },
+        {
+          "en": "Not keyed: inflow time and total drain volume are useful for mechanical catheter dysfunction, not for measuring the inflammatory response to peritonitis.",
+          "opaqueTokenLabel": "P4",
+          "zh": "不选：灌入时间和总引流量适用于评估机械性导管功能障碍，不能衡量腹膜炎的炎症反应。"
+        },
+        {
+          "en": "Not keyed: bowel frequency and abdominal fullness may support constipation-related outflow dysfunction but do not track treatment of the infectious process.",
+          "opaqueTokenLabel": "P2",
+          "zh": "不选：排便频率和腹胀可支持便秘相关流出障碍，但不能反映感染过程的治疗效果。"
+        }
+      ],
+      "correct": {
+        "en": "Cloudy peritoneal-dialysis effluent with new abdominal pain should be treated as suspected PD-related peritonitis until excluded. Effluent specimens are collected before antibiotics to preserve diagnostic yield. Center-specific empiric coverage should then begin promptly according to the center's prescribed protocol. Local effluent inflammation and the client's symptoms/systemic status are different response dimensions.",
+        "zh": "腹膜透析患者出现混浊透析液和新发腹痛，应在排除前按疑似腹膜透析相关腹膜炎处理。应在给予抗菌药物前采集透析液标本，以保留诊断价值；随后按本中心既定方案迅速开始本中心规定的经验性抗菌治疗。透析液局部炎症变化与患者症状/全身状态是两个不同的疗效评估方向。"
+      }
+    },
+    "stem": {
+      "en": "A hemodynamically stable adult receiving maintenance peritoneal dialysis reports new generalized abdominal pain. The drained dialysate is newly cloudy. No effluent cell count, differential, Gram stain, or culture has been collected, and no antibiotic has been given. Complete the bow-tie.",
+      "zh": "一名接受维持性腹膜透析且血流动力学稳定的成人出现新发弥漫性腹痛。引流出的透析液新近变得混浊。目前尚未采集透析液细胞计数、分类计数、革兰染色或培养，也尚未给予抗菌药物。请完成蝴蝶结题。"
+    },
+    "testTakingStrategy": {
+      "en": "Use the cloudy-effluent and pain combination to distinguish infection from a mechanical flow problem, then preserve the specimen-before-treatment boundary.",
+      "zh": "利用“混浊透析液＋腹痛”的组合区分感染与机械性流动问题，再把握“先留取标本、后治疗”的界限。"
+    }
+  },
+  "explicitlyLinkedHistoricalSources": [],
+  "instruction": "Phase E is immutable. For every missing client fact inspect only this candidate's rationale/byChoice, strategy, glossary, Chinese counterpart, and an explicitly linked historical source if one exists. Do not search the corpus. Classify bounded provenance, apply fixed verdict precedence, and record narrow bilingual/clinical/scope findings. Hidden-case dependency is unreachable and is a blocker if asserted.",
+  "phaseE": {
+    "anyCanonicalTargetDependsOnAbsentFact": false,
+    "blindExactMatch": true,
+    "canonicalSelection": {
+      "actionLabels": [
+        "A3",
+        "A4"
+      ],
+      "conditionLabel": "C3",
+      "parameterLabels": [
+        "P3",
+        "P1"
+      ]
+    },
+    "canonicalSetExplanation": "The five canonical targets are supported by explicit stem facts or ordinary clinical knowledge and remain uniquely preferable to all six distractors.",
+    "canonicalSetUniquelyDefensible": true,
+    "canonicalTargetSupport": [
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A3",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "No effluent cell count, differential, Gram stain, or culture has been collected, and no antibiotic has been given."
+      },
+      {
+        "missingClientFact": "The actual prescribed center-specific antibiotic protocol",
+        "opaqueTokenLabel": "A4",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "The drained dialysate is newly cloudy. No antibiotic has been given."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C3",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "A hemodynamically stable adult receiving maintenance peritoneal dialysis reports new generalized abdominal pain. The drained dialysate is newly cloudy."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P1",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "Reports new generalized abdominal pain. A hemodynamically stable adult."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P3",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "The drained dialysate is newly cloudy. No effluent cell count or differential has been collected."
+      }
+    ],
+    "distractorPremiseFindings": [
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A1",
+        "reviewerRankabilityImpact": "MATERIAL",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "No effluent cell count, differential, Gram stain, or culture has been collected, and no antibiotic has been given."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Evidence that constipation alone explains the presentation and that infection has been excluded",
+        "opaqueTokenLabel": "A2",
+        "reviewerRankabilityImpact": "MATERIAL",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "New generalized abdominal pain. The drained dialysate is newly cloudy."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Constipation, reduced drain volume, or catheter outflow dysfunction",
+        "opaqueTokenLabel": "C1",
+        "reviewerRankabilityImpact": "MATERIAL",
+        "supportClassification": "MISSING_CLIENT_FACT",
+        "supportingStandaloneEvidence": ""
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Exit-site erythema, tenderness, swelling, or purulent drainage",
+        "opaqueTokenLabel": "C2",
+        "reviewerRankabilityImpact": "MATERIAL",
+        "supportClassification": "MISSING_CLIENT_FACT",
+        "supportingStandaloneEvidence": ""
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Constipation symptoms, bowel-frequency change, or abdominal fullness",
+        "opaqueTokenLabel": "P2",
+        "reviewerRankabilityImpact": "MATERIAL",
+        "supportClassification": "NOT_APPLICABLE",
+        "supportingStandaloneEvidence": ""
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Prolonged inflow, incomplete drainage, reduced drain volume, or suspected mechanical catheter dysfunction",
+        "opaqueTokenLabel": "P4",
+        "reviewerRankabilityImpact": "MATERIAL",
+        "supportClassification": "NOT_APPLICABLE",
+        "supportingStandaloneEvidence": ""
+      }
+    ],
+    "missingClientFacts": [
+      {
+        "missingFact": "Constipation, reduced drain volume, or catheter outflow dysfunction",
+        "necessaryForRankability": false,
+        "opaqueTokenLabel": "C1",
+        "reviewerRankabilityImpact": "MATERIAL"
+      },
+      {
+        "missingFact": "Exit-site erythema, tenderness, swelling, or purulent drainage",
+        "necessaryForRankability": false,
+        "opaqueTokenLabel": "C2",
+        "reviewerRankabilityImpact": "MATERIAL"
+      }
+    ],
+    "stage1Alignment": "FULL",
+    "stage1AlignmentExplanation": "Stage 1 independently identified the same condition and the same clinical action and evaluation domains as the canonical construct.",
+    "unstatedClientFactMateriallyChangesRankability": false
+  },
+  "phaseESha256": "7655e12c7fb70a02ac21624bc6dd9b7cdcf82007001c83e48ca7b21ae2e9ede0"
+}

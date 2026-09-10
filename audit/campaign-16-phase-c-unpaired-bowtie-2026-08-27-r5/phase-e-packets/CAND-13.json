@@ -1,0 +1,346 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A2",
+      "A4"
+    ],
+    "conditionLabel": "C3",
+    "parameterLabels": [
+      "P4",
+      "P1"
+    ]
+  },
+  "instruction": "The two blind records are immutable. Compare them with the current canonical five-target selection and complete standalone item. Do not inspect or infer sibling/corpus material. Return the required Phase-E standalone-adjudication record without revising either blind stage.",
+  "stage1": {
+    "condition": "Life-threatening acute asthma exacerbation",
+    "evaluationParameters": [
+      "Continuous SpO₂ response to oxygen and bronchodilator treatment.",
+      "Serial PEF as a percentage of personal best, when the client can perform the maneuver safely."
+    ],
+    "missingInformation": [
+      "Breath-sound intensity and presence of a silent chest",
+      "Recent rescue-inhaler use and response",
+      "History of prior ICU admission or intubation for asthma",
+      "Mental-status trend, fatigue, or rising carbon dioxide"
+    ],
+    "priorityActions": [
+      "Apply supplemental oxygen immediately and titrate to improve oxygenation per the active acute-asthma protocol.",
+      "Administer the ordered rapid-acting inhaled bronchodilator therapy promptly, including repeated albuterol with ipratropium per protocol."
+    ],
+    "reasoning": "The combination of marked work of breathing, inability to speak in full sentences, hypoxemia, tachypnea, tachycardia, and PEF below 50% of personal best indicates a life-threatening acute asthma exacerbation. Immediate priorities are correction of hypoxemia and rapid reversal of bronchospasm while emergency escalation proceeds; oxygen saturation and serial airflow measurements assess response.",
+    "stage1Confidence": "high",
+    "stemEvidence": [
+      {
+        "evidence": "Speaks only one or two words at a time, sits hunched forward, and uses accessory muscles",
+        "target": "Severe respiratory distress from airflow obstruction"
+      },
+      {
+        "evidence": "Respiratory rate 34/min and heart rate 128/min",
+        "target": "Physiologic severity of the acute exacerbation"
+      },
+      {
+        "evidence": "SpO₂ 88% on room air",
+        "target": "Clinically significant hypoxemia requiring immediate oxygen"
+      },
+      {
+        "evidence": "PEF 42% of personal best",
+        "target": "Severe expiratory airflow limitation"
+      },
+      {
+        "evidence": "No urticaria, facial swelling, stridor, or choking event",
+        "target": "Makes anaphylaxis and upper-airway obstruction less likely"
+      }
+    ]
+  },
+  "stage1Sha256": "b9d6e0ebdf6195e00caa222bdb64057127a2bff65b76d59cb2a31374a9baa173",
+  "stage2": {
+    "actionLabels": [
+      "A2",
+      "A4"
+    ],
+    "ambiguousAlternatives": [],
+    "conditionLabel": "C3",
+    "missingInformation": [
+      "Breath-sound intensity or presence of a silent chest",
+      "Recent rescue-inhaler doses and response",
+      "History of prior ICU admission or intubation for asthma",
+      "Trend in fatigue, mental status, and ventilation after initial treatment"
+    ],
+    "parameterLabels": [
+      "P1",
+      "P4"
+    ],
+    "poolAnswerability": "ANSWERABLE",
+    "reasoning": "C3 best matches the marked respiratory distress, hypoxemia, and PEF below 50% of personal best. A2 and A4 provide the necessary escalation and immediate protocol-directed treatment. P1 measures early symptomatic and airflow response, while P4 tracks ongoing respiratory severity and deterioration. The other condition and routine follow-up choices conflict with the presentation, and the remaining parameters do not directly assess immediate treatment response.",
+    "selectionEvidence": [
+      "Speech limited to one or two words with tripod positioning and accessory-muscle use indicates severe respiratory distress.",
+      "SpO₂ 88% on room air demonstrates significant hypoxemia.",
+      "PEF 42% of personal best demonstrates severe airflow limitation.",
+      "Respiratory rate 34/min and heart rate 128/min support a high-acuity exacerbation requiring immediate treatment and transfer.",
+      "Absence of urticaria, facial swelling, stridor, and choking evidence makes anaphylaxis with upper-airway edema less likely."
+    ],
+    "stage2Confidence": "high",
+    "tokenPremiseTable": [
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "C1",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Multiple explicit high-severity findings rule against a mild exacerbation.",
+        "supportingStemText": "Speaks only one or two words at a time, uses accessory muscles, SpO₂ 88%, and PEF 42% of personal best."
+      },
+      {
+        "missingPremise": "Evidence of a systemic allergic reaction or upper-airway edema.",
+        "opaqueTokenLabel": "C2",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "LOW",
+        "rankabilityJustification": "Anaphylaxis can occasionally lack skin findings, but the stated absence of upper-airway and allergic features plus known asthma makes C2 substantially less likely.",
+        "supportingStemText": "No urticaria, facial swelling, stridor, or choking event."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "C3",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The stem directly supplies several convergent markers of a severe asthma exacerbation.",
+        "supportingStemText": "Rapidly worsening breathlessness, one- or two-word speech, tripod posture, accessory-muscle use, RR 34/min, HR 128/min, SpO₂ 88%, and PEF 42% of personal best."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A1",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Routine follow-up next week is incompatible with the immediate respiratory threat.",
+        "supportingStemText": "Rapidly worsening breathlessness with SpO₂ 88% and severe work of breathing."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A2",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Severe hypoxemic asthma requires immediate acute-care escalation rather than routine clinic disposition.",
+        "supportingStemText": "Emergency transfer is available; the client has one- or two-word speech, SpO₂ 88%, and PEF 42% of personal best."
+      },
+      {
+        "missingPremise": "A separate indication for sedation with a safely supported airway and ventilation plan.",
+        "opaqueTokenLabel": "A3",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Sedation does not reverse bronchospasm and may worsen ventilatory compromise in this presentation.",
+        "supportingStemText": "The client has severe respiratory distress and hypoxemia."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A4",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The option contains standard immediate therapies for a severe acute asthma exacerbation and is executable under the stated orders.",
+        "supportingStemText": "The clinic's acute-asthma protocol and medication orders are active; SpO₂ is 88% and PEF is 42% of personal best."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "P1",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Early symptom and lung-function reassessment directly evaluates response to acute therapy.",
+        "supportingStemText": "The client has acute symptoms and a baseline PEF of 42% of personal best."
+      },
+      {
+        "missingPremise": "A complication, alternative diagnosis, severe ventilatory failure, or inadequate treatment response warranting chest imaging or blood-gas testing.",
+        "opaqueTokenLabel": "P2",
+        "premiseStatus": "NO_CLIENT_PREMISE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Routine chest radiography and ABG are not the most direct paired monitoring parameters for immediate response when no such indication is provided.",
+        "supportingStemText": ""
+      },
+      {
+        "missingPremise": "A need for nonurgent allergic or eosinophilic phenotype evaluation.",
+        "opaqueTokenLabel": "P3",
+        "premiseStatus": "NO_CLIENT_PREMISE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Eosinophil count and total IgE do not assess immediate stabilization or treatment response.",
+        "supportingStemText": ""
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "P4",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "These stated severity variables can be trended directly for improvement or deterioration.",
+        "supportingStemText": "SpO₂ 88%, RR 34/min, accessory-muscle use, and alert mental status are explicitly reported."
+      }
+    ]
+  },
+  "stage2Sha256": "e57f7f3be976afcdf7085dd531c19c5aa15d64e864510e14cebb53b27afdbdbc",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions — select 2",
+          "zh": "优先措施——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Continue routine outpatient treatment and schedule follow-up next week",
+            "opaqueTokenLabel": "A1",
+            "zh": "继续常规门诊治疗并安排下周随访"
+          },
+          {
+            "en": "Arrange immediate transfer to an acute-care facility",
+            "opaqueTokenLabel": "A2",
+            "zh": "立即安排转送急性医疗机构"
+          },
+          {
+            "en": "Administer a sedative to reduce respiratory distress",
+            "opaqueTokenLabel": "A3",
+            "zh": "给予镇静药以减轻呼吸窘迫"
+          },
+          {
+            "en": "Give protocol-directed inhaled SABA plus ipratropium, controlled oxygen, and the ordered systemic corticosteroid",
+            "opaqueTokenLabel": "A4",
+            "zh": "按流程给予吸入 SABA 加异丙托溴铵、控制性氧疗和医嘱的全身糖皮质激素"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的病情"
+        },
+        "tokens": [
+          {
+            "en": "Mild asthma exacerbation",
+            "opaqueTokenLabel": "C1",
+            "zh": "轻度哮喘急性发作"
+          },
+          {
+            "en": "Anaphylaxis with upper-airway edema",
+            "opaqueTokenLabel": "C2",
+            "zh": "伴上气道水肿的过敏性休克"
+          },
+          {
+            "en": "Severe asthma exacerbation",
+            "opaqueTokenLabel": "C3",
+            "zh": "重度哮喘急性发作"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor — select 2",
+          "zh": "需要监测的指标——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Symptoms and PEF or lung-function response at 1 hour or earlier",
+            "opaqueTokenLabel": "P1",
+            "zh": "1 小时或更早时的症状以及 PEF 或肺功能反应"
+          },
+          {
+            "en": "Routine chest radiograph and arterial blood gas results",
+            "opaqueTokenLabel": "P2",
+            "zh": "常规胸片和动脉血气结果"
+          },
+          {
+            "en": "Eosinophil count and total IgE",
+            "opaqueTokenLabel": "P3",
+            "zh": "嗜酸性粒细胞计数和总 IgE"
+          },
+          {
+            "en": "SpO₂, respiratory rate, accessory-muscle use, and mental status",
+            "opaqueTokenLabel": "P4",
+            "zh": "SpO₂、呼吸频率、辅助呼吸肌使用情况和意识状态"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "用力呼气时达到的最大气流速度，可与预计值或个人最佳值比较。",
+        "termEn": "PEF",
+        "termZh": "呼气峰流量"
+      },
+      {
+        "defZh": "用于快速缓解支气管痉挛的吸入性支气管扩张药。",
+        "termEn": "SABA",
+        "termZh": "短效 β₂ 受体激动剂"
+      },
+      {
+        "defZh": "用于急性气流受限的吸入性短效抗胆碱能支气管扩张药。",
+        "termEn": "ipratropium",
+        "termZh": "异丙托溴铵"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct: respiratory rate 34/min is above 30/min, room-air SpO₂ 88% is below 92%, and PEF 42% is below 50%; each meets a current severe or life-threatening criterion.",
+          "opaqueTokenLabel": "C3",
+          "zh": "正确：呼吸频率 34 次/分高于 30 次/分，室内空气下 SpO₂ 88% 低于 92%，且 PEF 42% 低于 50%；每项均符合当前的重度或危及生命性标准。"
+        },
+        {
+          "en": "Incorrect: a mild exacerbation does not produce this marked distress, hypoxemia, and severe PEF reduction.",
+          "opaqueTokenLabel": "C1",
+          "zh": "错误：轻度急性发作不会造成如此明显的呼吸窘迫、低氧血症和 PEF 严重下降。"
+        },
+        {
+          "en": "Incorrect: anaphylaxis is not supported because airway swelling, urticaria, stridor, and an exposure trigger are absent.",
+          "opaqueTokenLabel": "C2",
+          "zh": "错误：本例无气道肿胀、荨麻疹、喘鸣或暴露诱因，因此不支持过敏性休克。"
+        },
+        {
+          "en": "Correct: GINA directs immediate transfer to acute care when severe-exacerbation signs are present.",
+          "opaqueTokenLabel": "A2",
+          "zh": "正确：出现重度急性发作体征时，GINA 要求立即转送急性医疗机构。"
+        },
+        {
+          "en": "Correct: protocol-directed SABA, ipratropium, controlled oxygen, and ordered systemic corticosteroid treatment begin while transfer is arranged.",
+          "opaqueTokenLabel": "A4",
+          "zh": "正确：安排转运期间，应按流程立即给予 SABA、异丙托溴铵、控制性氧疗和医嘱的全身糖皮质激素。"
+        },
+        {
+          "en": "Incorrect: routine outpatient follow-up is unsafe with respiratory rate 34/min, room-air SpO₂ 88%, and PEF 42%, which meet current severe or life-threatening criteria.",
+          "opaqueTokenLabel": "A1",
+          "zh": "错误：患者呼吸频率 34 次/分、室内空气下 SpO₂ 88% 且 PEF 42%，符合当前的重度或危及生命性标准，安排常规门诊随访并不安全。"
+        },
+        {
+          "en": "Incorrect: sedatives can suppress respiratory drive and are not recommended in acute exacerbation management.",
+          "opaqueTokenLabel": "A3",
+          "zh": "错误：镇静药可抑制呼吸驱动，不属于哮喘急性发作的推荐处理。"
+        },
+        {
+          "en": "Correct: SpO₂, respiratory rate, accessory-muscle use, and mental status follow oxygenation and breathing effort.",
+          "opaqueTokenLabel": "P4",
+          "zh": "正确：SpO₂、呼吸频率、辅助呼吸肌使用情况和意识状态用于追踪氧合与呼吸功。"
+        },
+        {
+          "en": "Correct: symptoms and PEF or other lung-function response are reassessed at one hour or earlier.",
+          "opaqueTokenLabel": "P1",
+          "zh": "正确：应在 1 小时或更早时复评症状以及 PEF 或其他肺功能反应。"
+        },
+        {
+          "en": "Incorrect: eosinophil count and total IgE do not provide the immediate response measures required in this severe episode.",
+          "opaqueTokenLabel": "P3",
+          "zh": "错误：嗜酸性粒细胞计数和总 IgE 不能提供本次重度发作所需的即时反应指标。"
+        },
+        {
+          "en": "Incorrect: routine chest imaging and blood gases are not the two primary bedside response domains when no alternative cause is supplied.",
+          "opaqueTokenLabel": "P2",
+          "zh": "错误：在没有其他病因线索时，常规胸部影像和血气分析不是两个主要床旁反应监测领域。"
+        }
+      ],
+      "correct": {
+        "en": "The respiratory rate of 34/min is above 30/min, room-air SpO₂ of 88% is below 92%, and PEF of 42% is below 50% of personal best; each objective finding meets a current GINA 2026 severe or life-threatening criterion. GINA directs immediate transfer to acute care and, while transfer is arranged, immediate inhaled SABA, ipratropium, oxygen targeting 92–95%, and systemic corticosteroid treatment. Oxygenation/work of breathing and symptoms/lung-function response at one hour or earlier are separate monitoring domains.",
+        "zh": "呼吸频率 34 次/分高于 30 次/分，室内空气下 SpO₂ 88% 低于 92%，且 PEF 为个人最佳值的 42%、低于 50%；每项客观发现均符合 GINA 2026 当前的重度或危及生命性标准。GINA 要求立即转送急性医疗机构；在安排转运的同时，立即给予吸入短效 β₂ 受体激动剂、异丙托溴铵、以 92%–95% 为目标的氧疗和全身糖皮质激素。氧合/呼吸功与 1 小时或更早时的症状/肺功能反应属于两个不同的监测领域。"
+      }
+    },
+    "stem": {
+      "en": "A 24-year-old client with asthma presents to a clinic with rapidly worsening breathlessness. The client speaks only one or two words at a time, sits hunched forward, uses accessory muscles, and has a respiratory rate of 34/min, heart rate of 128/min, SpO₂ 88% on room air, and PEF 42% of personal best. The client is alert, with no urticaria, facial swelling, stridor, or choking event. Emergency transfer is available, and the clinic's acute-asthma protocol and medication orders are active. Complete the bow-tie by choosing the condition, 2 actions, and 2 parameters to monitor.",
+      "zh": "一名 24 岁哮喘患者因呼吸困难迅速加重到门诊就诊。患者每次只能说一两个词，身体前倾坐位，使用辅助呼吸肌；呼吸频率 34 次/分，心率 128 次/分，室内空气下 SpO₂ 为 88%，PEF 为个人最佳值的 42%。患者神志清醒，无荨麻疹、面部肿胀、喘鸣或呛噎事件。可立即安排急救转运，门诊急性哮喘流程和药物医嘱均已启动。请完成蝴蝶结题：选择病情、2 项措施和 2 项监测指标。"
+    },
+    "testTakingStrategy": {
+      "en": "Use the worst current feature to classify severity. Choose transfer and protocol treatment as different actions, then separate continuous oxygenation/effort assessment from timed symptom and lung-function reassessment.",
+      "zh": "按当前最严重的特征判断严重程度。把转运与按流程治疗视为不同措施，再区分持续的氧合/呼吸功评估和定时的症状/肺功能复评。"
+    }
+  }
+}

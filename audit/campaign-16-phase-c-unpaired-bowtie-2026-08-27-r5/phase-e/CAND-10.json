@@ -1,0 +1,109 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A3"
+    ],
+    "conditionLabel": "C3",
+    "parameterLabels": [
+      "P4",
+      "P3"
+    ]
+  },
+  "canonicalSetExplanation": "The five canonical targets are supported by explicit stem facts or ordinary clinical knowledge and remain uniquely preferable to all six distractors.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "At 185 seconds after the stimulus, rhythmic motor activity continues in the isolated limb, and the EEG continues to show ictal activity."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The anesthesia professional and ECT physician are at the bedside, and protocol orders for seizure termination are active."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The client is under general anesthesia, remains unconscious, and has ongoing seizure activity."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The client is receiving ECT under general anesthesia and remains unconscious during continuing seizure activity."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Rhythmic motor activity continues in the isolated limb, and the EEG continues to show ictal activity; seizure-termination orders are active."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "Evidence that the initial seizure ended and a new seizure began during recovery.",
+      "opaqueTokenLabel": "C1",
+      "reviewerRankabilityImpact": "MATERIAL",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "Ictal activity is continuing 185 seconds after the stimulus, and the client has not regained consciousness."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "Cessation within the expected brief post-stimulus interval.",
+      "opaqueTokenLabel": "C2",
+      "reviewerRankabilityImpact": "MATERIAL",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "Rhythmic motor activity and EEG ictal activity continue at 185 seconds."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "A clinical indication for inducing another seizure after the current seizure has ended.",
+      "opaqueTokenLabel": "A2",
+      "reviewerRankabilityImpact": "MATERIAL",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "Motor and EEG ictal activity are already continuing from the administered stimulus."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "Evidence that observation alone is appropriate despite the prolonged activity and active termination protocol.",
+      "opaqueTokenLabel": "A4",
+      "reviewerRankabilityImpact": "MATERIAL",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "Ictal activity persists at 185 seconds, and protocol orders for seizure termination are active."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "A need to assess longitudinal depression response during the acute seizure event.",
+      "opaqueTokenLabel": "P1",
+      "reviewerRankabilityImpact": "MATERIAL",
+      "supportClassification": "NOT_APPLICABLE",
+      "supportingStandaloneEvidence": ""
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "Completion of seizure termination and recovery to a state in which orientation can be assessed.",
+      "opaqueTokenLabel": "P2",
+      "reviewerRankabilityImpact": "MATERIAL",
+      "supportClassification": "NOT_APPLICABLE",
+      "supportingStandaloneEvidence": "The client has not regained consciousness."
+    }
+  ],
+  "missingClientFacts": [],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "Stage 1 independently identified the same condition and the same clinical action and evaluation domains as the canonical construct.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

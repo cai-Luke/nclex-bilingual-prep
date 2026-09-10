@@ -1,0 +1,285 @@
+{
+  "candidateSurfaces": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions — select 2",
+          "zh": "优先措施——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Place the client in a negative-pressure room with Airborne Precautions",
+            "opaqueTokenLabel": "A1",
+            "zh": "将患者安置在负压病房并实施空气预防"
+          },
+          {
+            "en": "Administer the ordered IV ceftriaxone promptly",
+            "opaqueTokenLabel": "A2",
+            "zh": "迅速按医嘱静脉给予头孢曲松"
+          },
+          {
+            "en": "Initiate Standard plus Droplet Precautions",
+            "opaqueTokenLabel": "A3",
+            "zh": "实施标准预防加飞沫预防"
+          },
+          {
+            "en": "Wait for final culture confirmation before giving antibiotics",
+            "opaqueTokenLabel": "A4",
+            "zh": "等待最终培养确认后再给予抗菌药"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的状况"
+        },
+        "tokens": [
+          {
+            "en": "Acute allergic urticaria",
+            "opaqueTokenLabel": "C1",
+            "zh": "急性过敏性荨麻疹"
+          },
+          {
+            "en": "Meningococcemia",
+            "opaqueTokenLabel": "C2",
+            "zh": "脑膜炎球菌血症"
+          },
+          {
+            "en": "Uncomplicated viral exanthem",
+            "opaqueTokenLabel": "C3",
+            "zh": "无并发症的病毒性皮疹"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor — select 2",
+          "zh": "需要监测的指标——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Neck stiffness alone",
+            "opaqueTokenLabel": "P1",
+            "zh": "仅监测颈项强直"
+          },
+          {
+            "en": "Daily weight alone",
+            "opaqueTokenLabel": "P2",
+            "zh": "仅监测每日体重"
+          },
+          {
+            "en": "Extent and progression of the petechial-purpuric rash",
+            "opaqueTokenLabel": "P3",
+            "zh": "瘀点-紫癜性皮疹的范围和进展"
+          },
+          {
+            "en": "Blood pressure, urine output, and mental status",
+            "opaqueTokenLabel": "P4",
+            "zh": "血压、尿量和意识状态"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "脑膜炎奈瑟菌侵入血流后引起的严重全身性感染。",
+        "termEn": "meningococcemia",
+        "termZh": "脑膜炎球菌血症"
+      },
+      {
+        "defZh": "因皮下出血形成、按压通常不褪色的紫红色皮损。",
+        "termEn": "purpuric rash",
+        "termZh": "紫癜性皮疹"
+      },
+      {
+        "defZh": "用于减少呼吸道飞沫传播的隔离措施。",
+        "termEn": "Droplet Precautions",
+        "termZh": "飞沫预防"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct: the sepsis syndrome plus rapidly spreading petechial-purpuric rash is characteristic of meningococcemia.",
+          "opaqueTokenLabel": "C2",
+          "zh": "正确：脓毒症表现合并迅速扩展的瘀点-紫癜性皮疹，是脑膜炎球菌血症的典型模式。"
+        },
+        {
+          "en": "Incorrect: an uncomplicated viral exanthem does not explain shock, confusion, and rapidly progressive nonblanching purpura.",
+          "opaqueTokenLabel": "C3",
+          "zh": "错误：无并发症的病毒性皮疹不能解释休克、意识混乱和迅速进展且按压不褪色的紫癜。"
+        },
+        {
+          "en": "Incorrect: an allergic urticarial reaction does not fit the nonblanching petechial-purpuric rash with septic shock.",
+          "opaqueTokenLabel": "C1",
+          "zh": "错误：过敏性荨麻疹与伴脓毒性休克的按压不褪色瘀点-紫癜性皮疹不符。"
+        },
+        {
+          "en": "Correct: CDC guidance calls for prompt empiric extended-spectrum cephalosporin therapy without waiting for final confirmation.",
+          "opaqueTokenLabel": "A2",
+          "zh": "正确：CDC 指南要求迅速经验性使用广谱头孢菌素，不等待最终确诊。"
+        },
+        {
+          "en": "Correct: suspected meningococcal disease requires Standard plus Droplet Precautions during the first 24 hours of effective therapy.",
+          "opaqueTokenLabel": "A3",
+          "zh": "正确：疑似脑膜炎球菌病在有效治疗最初 24 小时内需要实施标准预防加飞沫预防。"
+        },
+        {
+          "en": "Incorrect: delaying treatment for final culture results risks rapid clinical deterioration.",
+          "opaqueTokenLabel": "A4",
+          "zh": "错误：等待最终培养结果会延误治疗，并增加病情迅速恶化的风险。"
+        },
+        {
+          "en": "Incorrect: routine Airborne Precautions and negative-pressure placement are not the CDC isolation route for meningococcal disease.",
+          "opaqueTokenLabel": "A1",
+          "zh": "错误：常规空气预防和负压病房并不是 CDC 对脑膜炎球菌病规定的隔离方式。"
+        },
+        {
+          "en": "Correct: blood pressure, urine output, and mental status track perfusion and organ dysfunction.",
+          "opaqueTokenLabel": "P4",
+          "zh": "正确：血压、尿量和意识状态用于追踪灌注和器官功能障碍。"
+        },
+        {
+          "en": "Correct: mapping the petechial-purpuric rash follows a separate disease-progression dimension.",
+          "opaqueTokenLabel": "P3",
+          "zh": "正确：记录瘀点-紫癜性皮疹的范围可追踪另一个独立的疾病进展维度。"
+        },
+        {
+          "en": "Incorrect: neck stiffness alone does not monitor the shock and rash progression supplied in this meningococcemia presentation.",
+          "opaqueTokenLabel": "P1",
+          "zh": "错误：仅监测颈项强直不能评估本例脑膜炎球菌血症的休克和皮疹进展。"
+        },
+        {
+          "en": "Incorrect: daily weight alone is too indirect for immediate perfusion or rash-progression monitoring.",
+          "opaqueTokenLabel": "P2",
+          "zh": "错误：仅测每日体重过于间接，不能用于即时监测灌注或皮疹进展。"
+        }
+      ],
+      "correct": {
+        "en": "Fever, shock, confusion, and a rapidly progressive petechial-purpuric rash support meningococcemia; meningismus is not required. Suspected meningococcal disease requires prompt ordered empiric ceftriaxone or cefotaxime and Standard plus Droplet Precautions. Perfusion and organ dysfunction must be followed separately from the extent and progression of the rash.",
+        "zh": "发热、休克、意识混乱以及迅速进展的瘀点-紫癜性皮疹支持脑膜炎球菌血症；并不要求必须有脑膜刺激征。疑似脑膜炎球菌病需要迅速按医嘱经验性给予头孢曲松或头孢噻肟，并实施标准预防加飞沫预防。应把灌注/器官功能障碍与皮疹范围和进展分别监测。"
+      }
+    },
+    "stem": {
+      "en": "An adult arrives with a temperature of 103.1 °F (39.5 °C), blood pressure 82/48 mm Hg, heart rate 128/min, new confusion, and a rapidly spreading nonblanching petechial and purpuric rash. Neck stiffness is absent. Initial sepsis and hemodynamic resuscitation with isotonic IV crystalloid is already underway. Blood cultures have been drawn without delaying treatment, and an order for IV ceftriaxone is available. This is the first day of effective therapy.\n\nComplete the bowtie by selecting the most likely condition, the 2 priority actions, and the 2 parameters to monitor.",
+      "zh": "一名成人就诊时体温为 103.1 °F（39.5 °C）、血压 82/48 mm Hg、心率 128 次/分，并出现新发意识混乱以及迅速扩展、按压不褪色的瘀点和紫癜性皮疹。患者无颈项强直。使用等渗静脉晶体液的初始脓毒症和血流动力学复苏已经开始。已在不延误治疗的前提下采集血培养，并有静脉注射头孢曲松的医嘱。这是有效治疗的第 1 天。\n\n完成蝴蝶结题：选择最可能的状况、2 项优先措施和 2 项需要监测的指标。"
+    },
+    "testTakingStrategy": {
+      "en": "Treat the shock-plus-purpura pattern as the diagnostic anchor. Then choose one therapy action, one transmission-control action, and two nonduplicative monitoring domains.",
+      "zh": "把休克合并紫癜的模式作为诊断锚点，再选择一项治疗措施、一项传播控制措施和两个互不重复的监测领域。"
+    }
+  },
+  "explicitlyLinkedHistoricalSources": [],
+  "instruction": "Phase E is immutable. For every missing client fact inspect only this candidate's rationale/byChoice, strategy, glossary, Chinese counterpart, and an explicitly linked historical source if one exists. Do not search the corpus. Classify bounded provenance, apply fixed verdict precedence, and record narrow bilingual/clinical/scope findings. Hidden-case dependency is unreachable and is a blocker if asserted.",
+  "phaseE": {
+    "anyCanonicalTargetDependsOnAbsentFact": false,
+    "blindExactMatch": true,
+    "canonicalSelection": {
+      "actionLabels": [
+        "A2",
+        "A3"
+      ],
+      "conditionLabel": "C2",
+      "parameterLabels": [
+        "P4",
+        "P3"
+      ]
+    },
+    "canonicalSetExplanation": "The five canonical targets are supported by explicit stem facts or ordinary clinical knowledge and remain uniquely preferable to all six distractors.",
+    "canonicalSetUniquelyDefensible": true,
+    "canonicalTargetSupport": [
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A2",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "Blood cultures have been drawn without delaying treatment, and an order for IV ceftriaxone is available."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A3",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "This is the first day of effective therapy."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C2",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "Temperature 103.1 °F (39.5 °C), blood pressure 82/48 mm Hg, heart rate 128/min, new confusion, and a rapidly spreading nonblanching petechial and purpuric rash."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P3",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "The client has a rapidly spreading nonblanching petechial and purpuric rash."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P4",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "Blood pressure is 82/48 mm Hg with new confusion, and hemodynamic resuscitation is underway."
+      }
+    ],
+    "distractorPremiseFindings": [
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Evidence of an infection requiring Airborne Precautions, such as measles, varicella, or pulmonary tuberculosis.",
+        "opaqueTokenLabel": "A1",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Neck stiffness is absent, while the presentation is dominated by septic shock and a petechial-purpuric rash."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A4",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Blood cultures have been drawn without delaying treatment, and an order for IV ceftriaxone is available."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Blanching, raised, pruritic wheals or another typical urticarial morphology.",
+        "opaqueTokenLabel": "C1",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "The rash is nonblanching, petechial, and purpuric, with temperature 103.1 °F (39.5 °C), blood pressure 82/48 mm Hg, and new confusion."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "A stable client with a benign blanching exanthem and no shock or organ dysfunction.",
+        "opaqueTokenLabel": "C3",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Blood pressure is 82/48 mm Hg with new confusion and a rapidly spreading nonblanching petechial-purpuric rash."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Present or evolving meningeal signs and additional measures of neurologic and systemic response.",
+        "opaqueTokenLabel": "P1",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Neck stiffness is absent."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "A clinical problem in which isolated daily weight is a timely primary response measure.",
+        "opaqueTokenLabel": "P2",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "NOT_APPLICABLE",
+        "supportingStandaloneEvidence": ""
+      }
+    ],
+    "missingClientFacts": [],
+    "stage1Alignment": "PARTIAL",
+    "stage1AlignmentExplanation": "Stage 1 identified the same condition and most canonical clinical domains, but at least one action or evaluation domain differed from the canonical five-target construct.",
+    "unstatedClientFactMateriallyChangesRankability": false
+  },
+  "phaseESha256": "ea665bfb732379f1b60d36a367c745ecde66b545acd2e2b83a7e1bc13997c516"
+}

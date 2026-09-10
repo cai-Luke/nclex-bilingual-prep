@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Priority actions — select 2",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor — select 2"
+  },
+  "stem": "An adult is receiving electroconvulsive therapy (ECT) under general anesthesia. At 185 seconds after the stimulus, rhythmic motor activity continues in the isolated limb, and the EEG continues to show ictal activity. The anesthesia professional and ECT physician are at the bedside, and protocol orders for seizure termination are active. The client has not regained consciousness and has no new focal neurologic finding.\n\nComplete the bowtie by selecting the most likely condition, the 2 priority actions, and the 2 parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Administer the protocol-directed anesthetic or anticonvulsant to terminate the seizure"
+      },
+      {
+        "label": "A2",
+        "text": "Deliver another electrical stimulus immediately"
+      },
+      {
+        "label": "A3",
+        "text": "Maintain the airway and provide assisted ventilation and oxygenation"
+      },
+      {
+        "label": "A4",
+        "text": "Continue observation without treatment while waiting for the seizure to stop on its own"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Tardive seizure during recovery"
+      },
+      {
+        "label": "C2",
+        "text": "Expected brief ECT-induced seizure"
+      },
+      {
+        "label": "C3",
+        "text": "Prolonged ECT-induced seizure"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Depression symptom score during the event"
+      },
+      {
+        "label": "P2",
+        "text": "Orientation only after full recovery"
+      },
+      {
+        "label": "P3",
+        "text": "Oxygen saturation, ventilation, pulse, and blood pressure"
+      },
+      {
+        "label": "P4",
+        "text": "Motor and EEG seizure cessation and recurrence"
+      }
+    ]
+  }
+}

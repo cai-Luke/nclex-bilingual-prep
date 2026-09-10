@@ -1,0 +1,285 @@
+{
+  "candidateSurfaces": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Actions to take",
+          "zh": "应采取的措施"
+        },
+        "tokens": [
+          {
+            "en": "Schedule a routine counseling visit for next week",
+            "opaqueTokenLabel": "A1",
+            "zh": "安排下周常规心理咨询"
+          },
+          {
+            "en": "Ask the client to sign a no-suicide contract and return home",
+            "opaqueTokenLabel": "A2",
+            "zh": "要求患者签署不自杀协议后回家"
+          },
+          {
+            "en": "Activate the suicide safety protocol and remove access to the pills",
+            "opaqueTokenLabel": "A3",
+            "zh": "启动自杀安全流程并移除患者接触药片的机会"
+          },
+          {
+            "en": "Stay with the client and maintain direct observation",
+            "opaqueTokenLabel": "A4",
+            "zh": "留在患者身边并保持直接观察"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely priority problem",
+          "zh": "最可能的优先问题"
+        },
+        "tokens": [
+          {
+            "en": "Situational anxiety without immediate safety threat",
+            "opaqueTokenLabel": "C1",
+            "zh": "无立即安全威胁的情境性焦虑"
+          },
+          {
+            "en": "Imminent suicide risk",
+            "opaqueTokenLabel": "C2",
+            "zh": "迫在眉睫的自杀风险"
+          },
+          {
+            "en": "Nonsuicidal self-injury without current intent",
+            "opaqueTokenLabel": "C3",
+            "zh": "无当前自杀意图的非自杀性自伤"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "应监测的指标"
+        },
+        "tokens": [
+          {
+            "en": "Current intent, plan, and ability to maintain safety",
+            "opaqueTokenLabel": "P1",
+            "zh": "当前意图、计划以及维持安全的能力"
+          },
+          {
+            "en": "Usual bedtime routine before discharge",
+            "opaqueTokenLabel": "P2",
+            "zh": "出院前的日常睡前习惯"
+          },
+          {
+            "en": "Access to lethal means",
+            "opaqueTokenLabel": "P3",
+            "zh": "接触致命手段的可能性"
+          },
+          {
+            "en": "Daily calorie intake as the main safety marker",
+            "opaqueTokenLabel": "P4",
+            "zh": "将每日热量摄入作为主要安全指标"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "用于保护有自杀风险患者并启动紧急评估和监护的机构流程",
+        "termEn": "suicide safety protocol",
+        "termZh": "自杀安全流程"
+      },
+      {
+        "defZh": "可用于造成死亡的工具、药物或其他途径",
+        "termEn": "lethal means",
+        "termZh": "致命手段"
+      },
+      {
+        "defZh": "护理人员持续看护患者以维持安全",
+        "termEn": "direct observation",
+        "termZh": "直接观察"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "The client's stated plan, timing, and pills in the backpack make immediate suicide risk the priority problem.",
+          "opaqueTokenLabel": "C2",
+          "zh": "患者明确计划、时间和背包中的药片，使立即自杀风险成为优先问题。"
+        },
+        {
+          "en": "Nonsuicidal self-injury does not fit because the client describes intent to die using a potentially lethal method.",
+          "opaqueTokenLabel": "C3",
+          "zh": "非自杀性自伤不符合，因为患者描述了用潜在致命方式结束生命的意图。"
+        },
+        {
+          "en": "Anxiety may coexist, but the direct suicidal statement and lethal means create an immediate safety threat.",
+          "opaqueTokenLabel": "C1",
+          "zh": "焦虑可能同时存在，但直接自杀表述和致命手段构成了立即安全威胁。"
+        },
+        {
+          "en": "Direct observation prevents the client from acting on the plan while emergency safety steps are initiated.",
+          "opaqueTokenLabel": "A4",
+          "zh": "直接观察可在启动紧急安全措施时防止患者实施计划。"
+        },
+        {
+          "en": "Removing access to pills and activating the protocol addresses the immediate lethal means and mobilizes help.",
+          "opaqueTokenLabel": "A3",
+          "zh": "移除药片并启动流程可处理眼前的致命手段并调动帮助。"
+        },
+        {
+          "en": "A no-suicide contract is not a substitute for observation and emergency intervention when intent and means are present.",
+          "opaqueTokenLabel": "A2",
+          "zh": "当存在意图和手段时，不自杀协议不能替代观察和紧急干预。"
+        },
+        {
+          "en": "A routine future appointment delays care despite an immediate risk disclosed in the visit.",
+          "opaqueTokenLabel": "A1",
+          "zh": "常规未来预约会延误护理，因为患者在本次就诊中已经透露立即风险。"
+        },
+        {
+          "en": "Means access is a key safety parameter because the pills are already available to the client.",
+          "opaqueTokenLabel": "P3",
+          "zh": "接触手段是关键安全指标，因为药片已经在患者可及范围内。"
+        },
+        {
+          "en": "Intent, plan, and inability to maintain safety guide the level of emergency supervision and intervention.",
+          "opaqueTokenLabel": "P1",
+          "zh": "意图、计划和无法维持安全决定紧急监督和干预等级。"
+        },
+        {
+          "en": "Nutrition may matter later, but it is not the main safety marker when a lethal plan is active.",
+          "opaqueTokenLabel": "P4",
+          "zh": "营养状况以后可能重要，但在致命计划正在进行时不是主要安全指标。"
+        },
+        {
+          "en": "Bedtime routine does not address the immediate risk of using pills and alcohol tonight.",
+          "opaqueTokenLabel": "P2",
+          "zh": "睡前习惯不能处理今晚使用药片和酒的立即风险。"
+        }
+      ],
+      "correct": {
+        "en": "A specific plan, stated timing, lethal means already present, intent to die, and a request for secrecy indicate imminent suicide risk. The nurse must not leave the client alone and must activate emergency safety measures.",
+        "zh": "具体计划、明确时间、已经携带致命手段、表达死亡意图以及要求保密，都提示迫在眉睫的自杀风险。护士不能让患者独处，必须启动紧急安全措施。"
+      }
+    },
+    "stem": {
+      "en": "A client seen in the outpatient clinic says, \"I cannot keep doing this. Tonight I am going to take the old oxycodone tablets in my backpack with alcohol so I do not wake up.\" The client avoids eye contact and says, \"Do not call anyone. I just needed to tell somebody.\" Complete the bow-tie diagram for the nurse's priority focus.",
+      "zh": "一名门诊患者说：“我真的撑不下去了。今晚我要把背包里的旧 oxycodone 药片和酒一起吃，这样就不会醒来了。”患者回避目光并说：“不要叫任何人。我只是想告诉一个人。”完成图示，确定护士的优先关注点。"
+    },
+    "testTakingStrategy": {
+      "en": "Specific plan plus means plus timing means immediate safety. Do not choose reassurance, contracts, or delayed follow-up as the priority.",
+      "zh": "有具体计划、手段和时间，就是立即安全问题。不要把安慰、不自杀协议或延后随访作为优先答案。"
+    }
+  },
+  "explicitlyLinkedHistoricalSources": [],
+  "instruction": "Phase E is immutable. For every missing client fact inspect only this candidate's rationale/byChoice, strategy, glossary, Chinese counterpart, and an explicitly linked historical source if one exists. Do not search the corpus. Classify bounded provenance, apply fixed verdict precedence, and record narrow bilingual/clinical/scope findings. Hidden-case dependency is unreachable and is a blocker if asserted.",
+  "phaseE": {
+    "anyCanonicalTargetDependsOnAbsentFact": false,
+    "blindExactMatch": true,
+    "canonicalSelection": {
+      "actionLabels": [
+        "A4",
+        "A3"
+      ],
+      "conditionLabel": "C2",
+      "parameterLabels": [
+        "P3",
+        "P1"
+      ]
+    },
+    "canonicalSetExplanation": "The five canonical targets are supported by explicit stem facts or ordinary clinical knowledge and remain uniquely preferable to all six distractors.",
+    "canonicalSetUniquelyDefensible": true,
+    "canonicalTargetSupport": [
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C2",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "\"Tonight I am going to take the old oxycodone tablets in my backpack with alcohol so I do not wake up.\""
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A3",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "The client states that the old oxycodone tablets are \"in my backpack\" and plans to use them tonight with alcohol."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A4",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "The client states an intention to die tonight and asks, \"Do not call anyone.\""
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P1",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "\"Tonight I am going to take the old oxycodone tablets in my backpack with alcohol so I do not wake up.\""
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P3",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "The client says the old oxycodone tablets are \"in my backpack.\""
+      }
+    ],
+    "distractorPremiseFindings": [
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C1",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "\"Tonight I am going to take the old oxycodone tablets in my backpack with alcohol so I do not wake up.\""
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C3",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "The client says the purpose of taking oxycodone with alcohol is \"so I do not wake up.\""
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A1",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "The client plans to die \"Tonight\" and has the oxycodone tablets in a backpack."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A2",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "The client reports a suicide plan for tonight with currently accessible oxycodone tablets."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "The stem provides no bedtime concern or clinical reason for bedtime routine to be a priority safety parameter.",
+        "opaqueTokenLabel": "P2",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "NOT_APPLICABLE",
+        "supportingStandaloneEvidence": ""
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "The stem contains no concern about nutrition, weight, eating behavior, or calorie intake.",
+        "opaqueTokenLabel": "P4",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "NOT_APPLICABLE",
+        "supportingStandaloneEvidence": ""
+      }
+    ],
+    "missingClientFacts": [],
+    "stage1Alignment": "FULL",
+    "stage1AlignmentExplanation": "Stage 1 independently identified the same condition and the same clinical action and evaluation domains as the canonical construct.",
+    "unstatedClientFactMateriallyChangesRankability": false
+  },
+  "phaseESha256": "09a91afbd31da5315411243ab5c65649f33f788e365fdd34040791b2aa9a826d"
+}

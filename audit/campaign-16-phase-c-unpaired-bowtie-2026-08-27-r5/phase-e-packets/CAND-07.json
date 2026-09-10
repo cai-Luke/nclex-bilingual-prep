@@ -1,0 +1,329 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A2"
+    ],
+    "conditionLabel": "C3",
+    "parameterLabels": [
+      "P3",
+      "P1"
+    ]
+  },
+  "instruction": "The two blind records are immutable. Compare them with the current canonical five-target selection and complete standalone item. Do not inspect or infer sibling/corpus material. Return the required Phase-E standalone-adjudication record without revising either blind stage.",
+  "stage1": {
+    "condition": "Severe hypercalcemia of malignancy (hypercalcemic crisis)",
+    "evaluationParameters": [
+      "Serial serum calcium level.",
+      "Urine output and overall fluid balance."
+    ],
+    "missingInformation": [
+      "Electrocardiographic findings and current cardiac rhythm",
+      "Specific prescribed medications, doses, and timing"
+    ],
+    "priorityActions": [
+      "Initiate the prescribed aggressive IV isotonic fluid hydration.",
+      "Administer the prescribed calcium-lowering medications, such as calcitonin and an IV bisphosphonate."
+    ],
+    "reasoning": "Markedly elevated calcium with characteristic gastrointestinal, neurologic, and dehydration findings in a client with active malignancy supports severe hypercalcemia of malignancy. With no stated cardiac or renal contraindication, rapid isotonic fluid replacement and ordered calcium-lowering therapy are the immediate priorities; serum calcium and urine output show treatment response and hydration adequacy.",
+    "stage1Confidence": "high",
+    "stemEvidence": [
+      "Active lung cancer",
+      "Serum calcium 15.2 mg/dL",
+      "Increasing weakness, constipation, thirst, and confusion",
+      "Dry mucous membranes and decreased urine output indicate volume depletion",
+      "No heart failure findings or renal limitation requiring modification of ordered treatment"
+    ]
+  },
+  "stage1Sha256": "73726432d3fe3509e3e3d2a13d9497c145f418403be4a7d6bfe1148e7db05caf",
+  "stage2": {
+    "actionLabels": [
+      "A1",
+      "A2"
+    ],
+    "ambiguousAlternatives": [
+      "P4 overlaps with P3 because both concern calcium measurement, but total and ionized calcium are not two independent clinical outcome domains and no ionized calcium result or protein-binding concern is provided."
+    ],
+    "conditionLabel": "C3",
+    "missingInformation": [
+      "The exact prescribed calcium-lowering medications and dosing schedule are not stated.",
+      "Baseline creatinine, electrolyte values, electrocardiographic findings, and ionized calcium are not provided."
+    ],
+    "parameterLabels": [
+      "P1",
+      "P3"
+    ],
+    "poolAnswerability": "ANSWERABLE",
+    "reasoning": "The marked calcium elevation, classic neurologic and gastrointestinal manifestations, dehydration, and active cancer identify severe hypercalcemia of malignancy. Ordered isotonic hydration corrects the volume deficit and promotes renal calcium clearance, while ordered calcitonin and antiresorptive therapy reduce calcium through complementary immediate and sustained mechanisms. Volume and renal status plus serial serum calcium directly evaluate safety and response.",
+    "selectionEvidence": [
+      "Serum calcium is critically elevated at 15.2 mg/dL.",
+      "Weakness, constipation, thirst, and confusion are characteristic manifestations of severe hypercalcemia.",
+      "Active lung cancer provides a strong malignant cause for the hypercalcemia.",
+      "Dry mucous membranes and decreased urine output indicate clinically important volume depletion requiring isotonic hydration.",
+      "The absence of heart failure findings or a renal limitation supports proceeding with ordered hydration while tracking volume, renal, and calcium response."
+    ],
+    "stage2Confidence": "high",
+    "tokenPremiseTable": [
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A1",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The stem directly establishes volume depletion, treatment availability, and absence of stated hydration-limiting findings.",
+        "supportingStemText": "Mucous membranes are dry, urine output has decreased, there are no heart failure findings, the renal assessment requires no treatment change, and IV-fluid orders are available."
+      },
+      {
+        "missingPremise": "The stem does not list the medication names, doses, or timing.",
+        "opaqueTokenLabel": "A2",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "LOW",
+        "rankabilityJustification": "Calcitonin plus antiresorptive therapy is standard calcium-lowering treatment for severe symptomatic hypercalcemia, and the stem indicates ordered emergency medications are available.",
+        "supportingStemText": "Serum calcium is 15.2 mg/dL with confusion and other symptoms; the oncology emergency protocol and medication orders are available."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A3",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The client is already volume depleted; routine loop diuresis before volume correction can worsen dehydration and is not the priority.",
+        "supportingStemText": "Mucous membranes are dry and urine output has decreased from usual."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A4",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Severe symptomatic hypercalcemia requires prompt calcium-lowering treatment; hydration alone is not a reason to delay sustained antiresorptive therapy.",
+        "supportingStemText": "Serum calcium is 15.2 mg/dL with confusion, and emergency medication orders are available."
+      },
+      {
+        "missingPremise": "No recent cytotoxic treatment, hyperkalemia, hyperphosphatemia, hyperuricemia, or acute kidney injury pattern is provided.",
+        "opaqueTokenLabel": "C1",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Tumor lysis syndrome typically produces hypocalcemia rather than marked hypercalcemia and lacks its defining metabolic evidence here.",
+        "supportingStemText": "Serum calcium is elevated to 15.2 mg/dL."
+      },
+      {
+        "missingPremise": "No hyponatremia, low serum osmolality, or inappropriately concentrated urine is provided.",
+        "opaqueTokenLabel": "C2",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The explicit hypercalcemic and volume-depletion pattern does not support SIADH.",
+        "supportingStemText": "Serum calcium is 15.2 mg/dL, with thirst, dry mucous membranes, and reduced urine output."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "C3",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The stem directly supplies the malignant context, severe biochemical abnormality, and characteristic manifestations.",
+        "supportingStemText": "The client has active lung cancer, calcium of 15.2 mg/dL, weakness, constipation, thirst, confusion, dry mucous membranes, and decreased urine output."
+      },
+      {
+        "missingPremise": "Baseline creatinine and other quantitative renal values are not stated.",
+        "opaqueTokenLabel": "P1",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Volume and renal monitoring directly assess hydration safety, perfusion, urine response, and calcium clearance.",
+        "supportingStemText": "Mucous membranes are dry, urine output has decreased, and IV hydration is ordered; renal assessment is specifically addressed."
+      },
+      {
+        "missingPremise": "The stem reports no pain complaint, pain-producing finding, or analgesic intervention.",
+        "opaqueTokenLabel": "P2",
+        "premiseStatus": "NO_CLIENT_PREMISE",
+        "rankabilityImpact": "MATERIAL",
+        "rankabilityJustification": "Pain score alone cannot evaluate the principal disorder or the effectiveness and safety of its priority treatments.",
+        "supportingStemText": ""
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "P3",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Serial serum calcium directly measures resolution of the defining abnormality.",
+        "supportingStemText": "Serum calcium is 15.2 mg/dL and calcium-lowering treatment is indicated."
+      },
+      {
+        "missingPremise": "No ionized calcium result, major albumin abnormality, acid-base concern, or other need for separate ionized-calcium tracking is provided.",
+        "opaqueTokenLabel": "P4",
+        "premiseStatus": "MISSING_CLIENT_FACT",
+        "rankabilityImpact": "MATERIAL",
+        "rankabilityJustification": "Both measurements represent the same calcium outcome rather than two distinct monitoring domains, and the stem does not establish a client-specific need to elevate ionized calcium as a separate parameter.",
+        "supportingStemText": "A total serum calcium of 15.2 mg/dL is provided."
+      }
+    ]
+  },
+  "stage2Sha256": "dc22eae0afff69dbe3d17c9a6b9f49d0e95dab08038abd2315beec29bbb9ffd7",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions — select 2",
+          "zh": "优先措施——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Begin ordered isotonic IV hydration",
+            "opaqueTokenLabel": "A1",
+            "zh": "开始按医嘱进行等渗静脉补液"
+          },
+          {
+            "en": "Administer ordered calcitonin plus antiresorptive therapy",
+            "opaqueTokenLabel": "A2",
+            "zh": "按医嘱给予降钙素并联合抗骨吸收治疗"
+          },
+          {
+            "en": "Give a loop diuretic routinely before correcting the volume deficit",
+            "opaqueTokenLabel": "A3",
+            "zh": "在纠正容量不足前常规先给予袢利尿剂"
+          },
+          {
+            "en": "Delay antiresorptive therapy until hydration alone normalizes the calcium",
+            "opaqueTokenLabel": "A4",
+            "zh": "等仅靠补液使血清钙恢复正常后再开始抗骨吸收治疗"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的状况"
+        },
+        "tokens": [
+          {
+            "en": "Tumor lysis syndrome",
+            "opaqueTokenLabel": "C1",
+            "zh": "肿瘤溶解综合征"
+          },
+          {
+            "en": "Syndrome of inappropriate antidiuretic hormone secretion (SIADH)",
+            "opaqueTokenLabel": "C2",
+            "zh": "抗利尿激素分泌不当综合征（SIADH）"
+          },
+          {
+            "en": "Severe hypercalcemia of malignancy",
+            "opaqueTokenLabel": "C3",
+            "zh": "严重恶性肿瘤相关高钙血症"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor — select 2",
+          "zh": "需要监测的指标——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Volume status and renal function",
+            "opaqueTokenLabel": "P1",
+            "zh": "容量状态和肾功能"
+          },
+          {
+            "en": "Pain score alone",
+            "opaqueTokenLabel": "P2",
+            "zh": "仅监测疼痛评分"
+          },
+          {
+            "en": "Serial serum calcium",
+            "opaqueTokenLabel": "P3",
+            "zh": "连续血清钙"
+          },
+          {
+            "en": "Total calcium and ionized calcium as two separate outcome domains",
+            "opaqueTokenLabel": "P4",
+            "zh": "把总钙和离子钙作为两个独立结局领域分别监测"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "通过抑制骨吸收来降低骨钙释放的治疗，例如双膦酸盐或地舒单抗。",
+        "termEn": "antiresorptive therapy",
+        "termZh": "抗骨吸收治疗"
+      },
+      {
+        "defZh": "使用与血浆渗透浓度相近的静脉液体补充循环容量。",
+        "termEn": "isotonic hydration",
+        "termZh": "等渗补液"
+      },
+      {
+        "defZh": "反映体内有效循环血容量及补液耐受情况的临床状态。",
+        "termEn": "volume status",
+        "termZh": "容量状态"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct: active malignancy plus symptoms and calcium above 14 mg/dL fits severe hypercalcemia of malignancy.",
+          "opaqueTokenLabel": "C3",
+          "zh": "正确：活动性恶性肿瘤、相关症状以及血清钙高于 14 mg/dL 符合严重恶性肿瘤相关高钙血症。"
+        },
+        {
+          "en": "Incorrect: the supplied pattern is dominated by marked hypercalcemia and dehydration, not the electrolyte pattern expected with tumor lysis syndrome.",
+          "opaqueTokenLabel": "C1",
+          "zh": "错误：题干主要表现为明显高钙血症和脱水，而不是肿瘤溶解综合征所预期的电解质模式。"
+        },
+        {
+          "en": "Incorrect: SIADH is a water-balance disorder and does not explain this markedly elevated calcium pattern.",
+          "opaqueTokenLabel": "C2",
+          "zh": "错误：抗利尿激素分泌不当综合征属于水代谢紊乱，不能解释本题明显升高的血清钙模式。"
+        },
+        {
+          "en": "Correct: ordered isotonic IV hydration is first-line supportive therapy for the volume depletion while antiresorptive therapy takes effect.",
+          "opaqueTokenLabel": "A1",
+          "zh": "正确：在抗骨吸收治疗起效前，按医嘱进行等渗静脉补液是纠正容量不足的一线支持治疗。"
+        },
+        {
+          "en": "Correct: severe hypercalcemia of malignancy supports ordered calcitonin plus an IV bisphosphonate or denosumab.",
+          "opaqueTokenLabel": "A2",
+          "zh": "正确：严重恶性肿瘤相关高钙血症支持按医嘱使用降钙素并联合静脉双膦酸盐或地舒单抗。"
+        },
+        {
+          "en": "Incorrect: a loop diuretic is not routine first-line therapy before correction of volume depletion.",
+          "opaqueTokenLabel": "A3",
+          "zh": "错误：在纠正容量不足之前，袢利尿剂并不是常规一线处理。"
+        },
+        {
+          "en": "Incorrect: antiresorptive treatment should not be deferred until hydration alone normalizes the calcium.",
+          "opaqueTokenLabel": "A4",
+          "zh": "错误：不应等待仅靠补液使血清钙恢复正常后才开始抗骨吸收治疗。"
+        },
+        {
+          "en": "Correct: serial serum calcium directly measures biochemical response and helps detect overshoot hypocalcemia.",
+          "opaqueTokenLabel": "P3",
+          "zh": "正确：连续血清钙可直接评估生化反应，并帮助发现治疗后出现的低钙血症。"
+        },
+        {
+          "en": "Correct: volume status and renal function assess hydration tolerance and treatment safety.",
+          "opaqueTokenLabel": "P1",
+          "zh": "正确：容量状态和肾功能可评估补液耐受性及治疗安全性。"
+        },
+        {
+          "en": "Incorrect: adding a second calcium measure duplicates the same biochemical dimension rather than supplying a distinct monitoring domain.",
+          "opaqueTokenLabel": "P4",
+          "zh": "错误：再增加一种钙测定只是重复同一生化维度，并未提供独立的监测领域。"
+        },
+        {
+          "en": "Incorrect: pain score alone does not measure correction of the calcium abnormality or the safety of hydration and antiresorptive treatment.",
+          "opaqueTokenLabel": "P2",
+          "zh": "错误：单独疼痛评分不能反映血清钙异常是否纠正，也不能评估补液和抗骨吸收治疗的安全性。"
+        }
+      ],
+      "correct": {
+        "en": "A symptomatic calcium level above 14 mg/dL in an adult with active malignancy supports severe hypercalcemia of malignancy. Guideline-directed management includes ordered IV hydration while antiresorptive therapy takes effect and, for severe disease, ordered calcitonin plus an IV bisphosphonate or denosumab. Serial calcium tracks biochemical response, while volume status and renal function assess hydration tolerance and antiresorptive safety.",
+        "zh": "活动性恶性肿瘤成人出现症状且血清钙高于 14 mg/dL，符合严重恶性肿瘤相关高钙血症。指南支持在抗骨吸收治疗起效前按医嘱进行静脉补液；对于严重病例，按医嘱使用降钙素并联合静脉双膦酸盐或地舒单抗。连续监测血清钙用于判断生化反应；容量状态和肾功能用于评估补液耐受性及抗骨吸收治疗安全性。"
+      }
+    },
+    "stem": {
+      "en": "An adult with active lung cancer is admitted for increasing weakness, constipation, thirst, and confusion. Serum calcium is 15.2 mg/dL. Mucous membranes are dry, and urine output has decreased from the client's usual amount. The client has no history or findings of heart failure, and the current renal assessment does not require a treatment change. The oncology emergency protocol and prescriber orders for IV fluids and medications are available.\n\nComplete the bowtie by selecting the most likely condition, the 2 priority actions, and the 2 parameters to monitor.",
+      "zh": "一名患活动性肺癌的成人因逐渐加重的乏力、便秘、口渴和意识混乱入院。血清钙为 15.2 mg/dL。患者黏膜干燥，尿量较平时减少。患者无心力衰竭病史或相关表现，目前肾功能评估也不需要改变治疗方案。肿瘤急症处理流程以及静脉补液和药物的开立医嘱均已具备。\n\n完成蝴蝶结题：选择最可能的状况、2 项优先措施和 2 项需要监测的指标。"
+    },
+    "testTakingStrategy": {
+      "en": "Link the malignant context to the raw calcium value and symptoms, then separate treatment actions from monitoring outcomes. Keep medication and fluid actions within the supplied order/protocol authority.",
+      "zh": "把恶性肿瘤背景与原始血清钙数值和症状联系起来，再区分治疗措施与监测结局。药物和补液措施必须限定在题干提供的医嘱/流程授权范围内。"
+    }
+  }
+}

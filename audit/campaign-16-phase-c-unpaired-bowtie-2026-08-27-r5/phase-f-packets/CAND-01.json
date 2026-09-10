@@ -1,0 +1,292 @@
+{
+  "candidateSurfaces": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Actions to take",
+          "zh": "应采取的措施"
+        },
+        "tokens": [
+          {
+            "en": "Administer high-flow oxygen by nonrebreather mask per emergency protocol",
+            "opaqueTokenLabel": "A1",
+            "zh": "按紧急预案使用非再呼吸面罩给予高流量氧气"
+          },
+          {
+            "en": "Keep the clients in the room until the incident report is completed",
+            "opaqueTokenLabel": "A2",
+            "zh": "让患者留在房间内直到事件报告完成"
+          },
+          {
+            "en": "Coach the clients to breathe into a paper bag",
+            "opaqueTokenLabel": "A3",
+            "zh": "指导患者对着纸袋呼吸"
+          },
+          {
+            "en": "Move the clients to fresh air and activate emergency response",
+            "opaqueTokenLabel": "A4",
+            "zh": "将患者转移到新鲜空气处并启动紧急应急流程"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的情况"
+        },
+        "tokens": [
+          {
+            "en": "Panic attack",
+            "opaqueTokenLabel": "C1",
+            "zh": "惊恐发作"
+          },
+          {
+            "en": "Opioid toxicity",
+            "opaqueTokenLabel": "C2",
+            "zh": "阿片类药物中毒"
+          },
+          {
+            "en": "Carbon monoxide exposure",
+            "opaqueTokenLabel": "C3",
+            "zh": "一氧化碳暴露"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "应监测的指标"
+        },
+        "tokens": [
+          {
+            "en": "Pulse oximeter saturation as the main indicator of oxygenation",
+            "opaqueTokenLabel": "P1",
+            "zh": "将脉搏血氧饱和度作为氧合的主要指标"
+          },
+          {
+            "en": "Capillary blood glucose every 15 minutes",
+            "opaqueTokenLabel": "P2",
+            "zh": "每 15 分钟测一次毛细血糖"
+          },
+          {
+            "en": "Carboxyhemoglobin level",
+            "opaqueTokenLabel": "P3",
+            "zh": "碳氧血红蛋白水平"
+          },
+          {
+            "en": "Level of consciousness and neurologic status",
+            "opaqueTokenLabel": "P4",
+            "zh": "意识水平和神经系统状态"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "一种无色无味气体，可与血红蛋白结合并影响氧气输送",
+        "termEn": "carbon monoxide",
+        "termZh": "一氧化碳"
+      },
+      {
+        "defZh": "一氧化碳与血红蛋白结合形成的复合物",
+        "termEn": "carboxyhemoglobin",
+        "termZh": "碳氧血红蛋白"
+      },
+      {
+        "defZh": "用于给予高浓度氧气的面罩",
+        "termEn": "nonrebreather mask",
+        "termZh": "非再呼吸面罩"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Carbon monoxide exposure matches the environmental cue and the cluster of nonspecific neurologic and gastrointestinal symptoms.",
+          "opaqueTokenLabel": "C3",
+          "zh": "一氧化碳暴露与环境线索以及非特异性的神经和胃肠症状组合相符。"
+        },
+        {
+          "en": "Panic attack can cause dizziness and distress, but it does not explain the gas equipment, alarm, and simultaneous symptoms in two people.",
+          "opaqueTokenLabel": "C1",
+          "zh": "惊恐发作可导致头晕和不适，但不能解释燃气设备、报警器以及两人同时出现症状。"
+        },
+        {
+          "en": "Opioid toxicity would more strongly suggest respiratory depression and decreased responsiveness without the environmental alarm cue.",
+          "opaqueTokenLabel": "C2",
+          "zh": "阿片类药物中毒更常提示呼吸抑制和反应下降，且缺少环境报警线索。"
+        },
+        {
+          "en": "Removing the clients from the contaminated room stops ongoing exposure and is an immediate safety action.",
+          "opaqueTokenLabel": "A4",
+          "zh": "将患者移出污染房间可以停止继续暴露，是立即的安全措施。"
+        },
+        {
+          "en": "High-flow oxygen helps displace carbon monoxide from hemoglobin and is appropriate when the emergency protocol authorizes it.",
+          "opaqueTokenLabel": "A1",
+          "zh": "高流量氧气有助于使一氧化碳从血红蛋白上解离；在紧急预案授权时是合适措施。"
+        },
+        {
+          "en": "Paper-bag breathing treats a presumed anxiety episode and would delay treatment of a hazardous exposure.",
+          "opaqueTokenLabel": "A3",
+          "zh": "纸袋呼吸是假设为焦虑发作的处理，会延误危险暴露的治疗。"
+        },
+        {
+          "en": "Documentation is important after safety is addressed, but keeping clients in the exposure area is unsafe.",
+          "opaqueTokenLabel": "A2",
+          "zh": "安全处理后需要记录，但让患者继续留在暴露区域是不安全的。"
+        },
+        {
+          "en": "Carboxyhemoglobin directly supports the diagnosis and helps guide severity assessment.",
+          "opaqueTokenLabel": "P3",
+          "zh": "碳氧血红蛋白能直接支持诊断，并帮助评估严重程度。"
+        },
+        {
+          "en": "Neurologic status tracks severity because confusion can indicate significant tissue hypoxia despite a normal pulse oximeter number.",
+          "opaqueTokenLabel": "P4",
+          "zh": "神经系统状态可反映严重程度，因为即使脉搏血氧数字正常，意识混乱也可能提示组织缺氧明显。"
+        },
+        {
+          "en": "Pulse oximetry can appear falsely reassuring in carbon monoxide exposure and should not be the main indicator.",
+          "opaqueTokenLabel": "P1",
+          "zh": "一氧化碳暴露时脉搏血氧可能呈现假性正常，不能作为主要判断指标。"
+        },
+        {
+          "en": "Frequent glucose checks are not the priority parameter for this exposure unless a separate diabetic emergency is suspected.",
+          "opaqueTokenLabel": "P2",
+          "zh": "除非另有糖尿病急症疑虑，频繁测血糖不是此类暴露的优先监测指标。"
+        }
+      ],
+      "correct": {
+        "en": "The shared headache, nausea, dizziness, confusion, closed room, gas-powered equipment, and sounding carbon monoxide alarm point to carbon monoxide exposure. The nurse should remove the clients from the exposure, activate emergency response, give high-flow oxygen per protocol, and monitor carboxyhemoglobin and neurologic status. A normal pulse oximeter reading does not rule out this exposure.",
+        "zh": "两人同时出现头痛、恶心、头晕，一人意识混乱，加上关闭空间、燃气设备和一氧化碳报警器响，最符合一氧化碳暴露。护士应立即脱离暴露环境、启动紧急应急流程、按预案给予高流量氧气，并监测碳氧血红蛋白和神经系统状态。脉搏血氧仪读数正常不能排除此类暴露。"
+      }
+    },
+    "stem": {
+      "en": "A school nurse is called to a closed maintenance room where two staff members who were using a gas-powered floor buffer report headache, nausea, and dizziness. One staff member is confused. The pulse oximeter reads 99%. A wall carbon monoxide alarm is sounding. Complete the diagram.",
+      "zh": "学校护士被叫到一间关闭的维修室。两名工作人员刚使用燃气地板打磨机后出现头痛、恶心和头晕，其中一人意识混乱。脉搏血氧仪显示 99%。墙上的一氧化碳报警器正在响。请完成图示。"
+    },
+    "testTakingStrategy": {
+      "en": "When several people become ill in the same enclosed space, prioritize an environmental exposure before assuming a primary psychiatric cause.",
+      "zh": "多人在同一密闭空间同时不适时，先考虑环境暴露，而不要先假设为单纯心理原因。"
+    }
+  },
+  "explicitlyLinkedHistoricalSources": [],
+  "instruction": "Phase E is immutable. For every missing client fact inspect only this candidate's rationale/byChoice, strategy, glossary, Chinese counterpart, and an explicitly linked historical source if one exists. Do not search the corpus. Classify bounded provenance, apply fixed verdict precedence, and record narrow bilingual/clinical/scope findings. Hidden-case dependency is unreachable and is a blocker if asserted.",
+  "phaseE": {
+    "anyCanonicalTargetDependsOnAbsentFact": false,
+    "blindExactMatch": true,
+    "canonicalSelection": {
+      "actionLabels": [
+        "A4",
+        "A1"
+      ],
+      "conditionLabel": "C3",
+      "parameterLabels": [
+        "P3",
+        "P4"
+      ]
+    },
+    "canonicalSetExplanation": "The five canonical targets are supported by explicit stem facts or ordinary clinical knowledge and remain uniquely preferable to all six distractors.",
+    "canonicalSetUniquelyDefensible": true,
+    "canonicalTargetSupport": [
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C3",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "A gas-powered floor buffer was used in a closed maintenance room, both staff members developed compatible symptoms, and the wall carbon monoxide alarm is sounding."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A1",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "A wall carbon monoxide alarm is sounding, one client is confused, and the pulse oximeter reads 99%."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A4",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "The clients are symptomatic in a closed room where a gas-powered floor buffer was used, and one client is confused."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P3",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "A carbon monoxide alarm is sounding after combustion-device use in a closed room, while symptomatic clients have a normal pulse oximeter reading."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P4",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "One staff member is confused, and both report headache and dizziness."
+      }
+    ],
+    "distractorPremiseFindings": [
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C1",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Two staff members developed symptoms while using a gas-powered floor buffer in a closed room, and a wall carbon monoxide alarm is sounding."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Opioid exposure with findings such as respiratory depression and miosis",
+        "opaqueTokenLabel": "C2",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "MISSING_CLIENT_FACT",
+        "supportingStandaloneEvidence": "The stem reports headache, nausea, dizziness, and confusion but no opioid history or characteristic opioid findings."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A2",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "The clients are in a closed maintenance room with a gas-powered device and an active carbon monoxide alarm."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A3",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "The stem identifies an environmental carbon monoxide hazard rather than isolated hyperventilation."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P1",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "The pulse oximeter reads 99% while a wall carbon monoxide alarm is sounding and the clients are symptomatic."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "A client-specific reason to suspect or intensively monitor a glucose abnormality",
+        "opaqueTokenLabel": "P2",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "NOT_APPLICABLE",
+        "supportingStandaloneEvidence": "The stem contains no diabetes history, glucose value, insulin exposure, or other indication for glucose checks every 15 minutes."
+      }
+    ],
+    "missingClientFacts": [
+      {
+        "missingFact": "Opioid exposure with findings such as respiratory depression and miosis",
+        "necessaryForRankability": false,
+        "opaqueTokenLabel": "C2",
+        "reviewerRankabilityImpact": "NONE"
+      }
+    ],
+    "stage1Alignment": "FULL",
+    "stage1AlignmentExplanation": "Stage 1 independently identified the same condition and the same clinical action and evaluation domains as the canonical construct.",
+    "unstatedClientFactMateriallyChangesRankability": false
+  },
+  "phaseESha256": "a5cd40f2a8302bd90b7f197ce205c890a0d4f88a8a0a36b6a690c537de78a80b"
+}

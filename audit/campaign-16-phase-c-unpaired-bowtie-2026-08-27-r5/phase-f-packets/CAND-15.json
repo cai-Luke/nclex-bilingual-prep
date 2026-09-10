@@ -1,0 +1,285 @@
+{
+  "candidateSurfaces": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions — select 2",
+          "zh": "优先措施——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Transfuse rapidly until hemoglobin reaches the normal age-based range",
+            "opaqueTokenLabel": "A1",
+            "zh": "快速输血直至血红蛋白达到年龄正常范围"
+          },
+          {
+            "en": "Begin the ordered IV fluid resuscitation immediately for hypovolemia",
+            "opaqueTokenLabel": "A2",
+            "zh": "针对低血容量立即开始按医嘱静脉补液复苏"
+          },
+          {
+            "en": "Observe without intervention until the spleen returns to baseline",
+            "opaqueTokenLabel": "A3",
+            "zh": "不进行干预，观察至脾脏恢复基线大小"
+          },
+          {
+            "en": "Prepare and administer expert-directed red-cell transfusion without over-transfusion",
+            "opaqueTokenLabel": "A4",
+            "zh": "准备并在专家指导下输注红细胞，同时避免过度输血"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的病情"
+        },
+        "tokens": [
+          {
+            "en": "Acute blood-loss anemia",
+            "opaqueTokenLabel": "C1",
+            "zh": "急性失血性贫血"
+          },
+          {
+            "en": "Transient aplastic crisis",
+            "opaqueTokenLabel": "C2",
+            "zh": "暂时性再生障碍危象"
+          },
+          {
+            "en": "Acute splenic sequestration crisis",
+            "opaqueTokenLabel": "C3",
+            "zh": "急性脾脏扣留危象"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor — select 2",
+          "zh": "需要监测的指标——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Serial spleen size and abdominal examination",
+            "opaqueTokenLabel": "P1",
+            "zh": "连续监测脾脏大小和腹部检查结果"
+          },
+          {
+            "en": "Peak expiratory flow and wheeze intensity",
+            "opaqueTokenLabel": "P2",
+            "zh": "呼气峰流量和哮鸣音程度"
+          },
+          {
+            "en": "Serum glucose and urine ketones",
+            "opaqueTokenLabel": "P3",
+            "zh": "血糖和尿酮体"
+          },
+          {
+            "en": "Hemoglobin, blood pressure, mental status, and capillary refill",
+            "opaqueTokenLabel": "P4",
+            "zh": "血红蛋白、血压、意识状态和毛细血管再充盈"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "大量血液突然滞留在脾脏内，导致脾脏增大、循环血容量下降和急性贫血。",
+        "termEn": "splenic sequestration",
+        "termZh": "脾脏扣留"
+      },
+      {
+        "defZh": "尚未完全成熟的红细胞，其数量可反映骨髓造血反应。",
+        "termEn": "reticulocyte",
+        "termZh": "网织红细胞"
+      },
+      {
+        "defZh": "血液黏度过高而影响血流，可因镰状细胞病患者过度输血而发生。",
+        "termEn": "hyperviscosity",
+        "termZh": "高黏滞状态"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct: sudden splenic enlargement, a hemoglobin drop greater than 2 g/dL, and hypovolemia define the acute sequestration pattern.",
+          "opaqueTokenLabel": "C3",
+          "zh": "正确：脾脏突然增大、血红蛋白下降超过 2 g/dL 并伴低血容量，构成急性脾脏扣留模式。"
+        },
+        {
+          "en": "Incorrect: aplastic crisis is characterized by reticulocytopenia rather than the elevated reticulocyte count and acutely enlarging spleen supplied here.",
+          "opaqueTokenLabel": "C2",
+          "zh": "错误：再生障碍危象的特征是网织红细胞减少，而本例网织红细胞升高且脾脏急剧增大。"
+        },
+        {
+          "en": "Incorrect: acute hemorrhage is not supported because no bleeding source is present and the spleen is rapidly enlarging.",
+          "opaqueTokenLabel": "C1",
+          "zh": "错误：本例没有出血来源且脾脏迅速增大，因此不支持急性失血。"
+        },
+        {
+          "en": "Correct: NHLBI recommends immediate IV fluid resuscitation when severe splenic sequestration causes hypovolemia.",
+          "opaqueTokenLabel": "A2",
+          "zh": "正确：NHLBI 建议严重脾脏扣留导致低血容量时立即静脉补液复苏。"
+        },
+        {
+          "en": "Correct: expert-directed transfusion raises hemoglobin to a stable level while avoiding over-transfusion.",
+          "opaqueTokenLabel": "A4",
+          "zh": "正确：在专家指导下输血可将血红蛋白提高到稳定水平，同时避免过度输血。"
+        },
+        {
+          "en": "Incorrect: observation alone does not treat the child's hypotension, poor perfusion, and severe anemia.",
+          "opaqueTokenLabel": "A3",
+          "zh": "错误：单纯观察不能处理患儿的低血压、灌注不良和重度贫血。"
+        },
+        {
+          "en": "Incorrect: transfusing to normalize hemoglobin without an expert-directed ceiling risks over-transfusion and hyperviscosity.",
+          "opaqueTokenLabel": "A1",
+          "zh": "错误：在没有专家设定目标上限的情况下输血至血红蛋白正常，会增加过度输血和高黏滞状态风险。"
+        },
+        {
+          "en": "Correct: serial spleen measurements directly follow the sequestration compartment.",
+          "opaqueTokenLabel": "P1",
+          "zh": "正确：连续测量脾脏大小可直接追踪红细胞扣留部位的变化。"
+        },
+        {
+          "en": "Correct: hemoglobin, blood pressure, mental status, and capillary refill follow anemia and perfusion response.",
+          "opaqueTokenLabel": "P4",
+          "zh": "正确：血红蛋白、血压、意识状态和毛细血管再充盈用于追踪贫血与灌注反应。"
+        },
+        {
+          "en": "Incorrect: glucose and urine ketones do not measure sequestration or the hemodynamic response.",
+          "opaqueTokenLabel": "P3",
+          "zh": "错误：血糖和尿酮体不能评估脾脏扣留或血流动力学反应。"
+        },
+        {
+          "en": "Incorrect: peak flow and wheeze target an obstructive respiratory pathway, not this acute anemia and splenic-volume problem.",
+          "opaqueTokenLabel": "P2",
+          "zh": "错误：呼气峰流量和哮鸣音针对阻塞性呼吸问题，而不是本例的急性贫血和脾脏容量问题。"
+        }
+      ],
+      "correct": {
+        "en": "Sudden splenic enlargement with a hemoglobin decrease of at least 2 g/dL below baseline and hypovolemic poor perfusion supports acute splenic sequestration. Immediate ordered IV fluid resuscitation addresses hypovolemia, and expert-directed red-cell transfusion treats severe anemia while avoiding over-transfusion. Serial spleen size and the combined hemoglobin/hemodynamic/perfusion response are distinct monitoring domains.",
+        "zh": "脾脏突然增大、血红蛋白较基线下降至少 2 g/dL，并出现低血容量性灌注不良，支持急性脾脏扣留危象。立即按医嘱静脉补液用于纠正低血容量；在专家指导下输注红细胞用于治疗重度贫血，同时避免过度输血。连续监测脾脏大小与血红蛋白/血流动力学/灌注反应属于两个不同的监测领域。"
+      }
+    },
+    "stem": {
+      "en": "A 6-year-old child with sickle cell disease becomes weak and pale. The spleen is suddenly enlarged and tender, hemoglobin has fallen from a baseline of 8.6 g/dL to 6.2 g/dL, and the reticulocyte count is elevated. Heart rate is 142/min, blood pressure is 78/42 mm Hg, and capillary refill is 5 seconds. There is no external or internal bleeding source. A sickle cell specialist is directing care, and IV fluid and red-cell transfusion orders are available. Complete the bow-tie by choosing the condition, 2 actions, and 2 parameters to monitor.",
+      "zh": "一名 6 岁镰状细胞病患儿出现乏力和面色苍白。脾脏突然增大并有压痛，血红蛋白从基线 8.6 g/dL 降至 6.2 g/dL，网织红细胞计数升高。心率 142 次/分，血压 78/42 mm Hg，毛细血管再充盈时间 5 秒。未发现外部或内部出血来源。镰状细胞病专科医师正在指导治疗，已有静脉补液和红细胞输注医嘱。请完成蝴蝶结题：选择病情、2 项措施和 2 项监测指标。"
+    },
+    "testTakingStrategy": {
+      "en": "Use the sudden spleen enlargement and hemoglobin drop to separate sequestration from aplasia or bleeding, then choose one hypovolemia action, one expert-directed anemia action, and two distinct response domains.",
+      "zh": "利用脾脏突然增大和血红蛋白下降来区分脾脏扣留、再生障碍和出血，再选择一项纠正低血容量的措施、一项专家指导的贫血治疗，并区分两个反应监测领域。"
+    }
+  },
+  "explicitlyLinkedHistoricalSources": [],
+  "instruction": "Phase E is immutable. For every missing client fact inspect only this candidate's rationale/byChoice, strategy, glossary, Chinese counterpart, and an explicitly linked historical source if one exists. Do not search the corpus. Classify bounded provenance, apply fixed verdict precedence, and record narrow bilingual/clinical/scope findings. Hidden-case dependency is unreachable and is a blocker if asserted.",
+  "phaseE": {
+    "anyCanonicalTargetDependsOnAbsentFact": false,
+    "blindExactMatch": true,
+    "canonicalSelection": {
+      "actionLabels": [
+        "A2",
+        "A4"
+      ],
+      "conditionLabel": "C3",
+      "parameterLabels": [
+        "P1",
+        "P4"
+      ]
+    },
+    "canonicalSetExplanation": "The five canonical targets are supported by explicit stem facts or ordinary clinical knowledge and remain uniquely preferable to all six distractors.",
+    "canonicalSetUniquelyDefensible": true,
+    "canonicalTargetSupport": [
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A2",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "Blood pressure is 78/42 mm Hg, capillary refill is 5 seconds, and an IV fluid order is available."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A4",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "A sickle cell specialist is directing care, and a red-cell transfusion order is available."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C3",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "The child has sickle cell disease, sudden tender splenomegaly, an acute hemoglobin decline, elevated reticulocytes, and shock without another bleeding source."
+      },
+      {
+        "missingClientFact": "No baseline spleen measurement or abdominal circumference is supplied.",
+        "opaqueTokenLabel": "P1",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "The spleen is suddenly enlarged and tender."
+      },
+      {
+        "missingClientFact": "The initial mental-status finding is not stated.",
+        "opaqueTokenLabel": "P4",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "Hemoglobin is 6.2 g/dL, blood pressure is 78/42 mm Hg, and capillary refill is 5 seconds."
+      }
+    ],
+    "distractorPremiseFindings": [
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "No premise supports rapidly transfusing to a normal age-based hemoglobin target.",
+        "opaqueTokenLabel": "A1",
+        "reviewerRankabilityImpact": "MATERIAL",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Baseline hemoglobin is 8.6 g/dL, and a sickle cell specialist is directing transfusion care."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "No premise indicates clinical stability appropriate for observation alone.",
+        "opaqueTokenLabel": "A3",
+        "reviewerRankabilityImpact": "MATERIAL",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Heart rate is 142/min, blood pressure is 78/42 mm Hg, capillary refill is 5 seconds, and hemoglobin has fallen to 6.2 g/dL."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "No bleeding source is present to support acute blood-loss anemia as the primary condition.",
+        "opaqueTokenLabel": "C1",
+        "reviewerRankabilityImpact": "MATERIAL",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "There is no external or internal bleeding source, while the spleen is suddenly enlarged and tender."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Transient aplastic crisis would require evidence of suppressed erythropoiesis, particularly reticulocytopenia.",
+        "opaqueTokenLabel": "C2",
+        "reviewerRankabilityImpact": "MATERIAL",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "The reticulocyte count is elevated, and the spleen is suddenly enlarged and tender."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "No wheezing, airflow limitation, asthma history, or other respiratory-obstruction finding is provided.",
+        "opaqueTokenLabel": "P2",
+        "reviewerRankabilityImpact": "MATERIAL",
+        "supportClassification": "NOT_APPLICABLE",
+        "supportingStandaloneEvidence": ""
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "No hyperglycemia, diabetes history, ketosis symptoms, or metabolic decompensation is provided.",
+        "opaqueTokenLabel": "P3",
+        "reviewerRankabilityImpact": "MATERIAL",
+        "supportClassification": "NOT_APPLICABLE",
+        "supportingStandaloneEvidence": ""
+      }
+    ],
+    "missingClientFacts": [],
+    "stage1Alignment": "FULL",
+    "stage1AlignmentExplanation": "Stage 1 independently identified the same condition and the same clinical action and evaluation domains as the canonical construct.",
+    "unstatedClientFactMateriallyChangesRankability": false
+  },
+  "phaseESha256": "eec86b22739dd4b502008fb9b4ce8733727555756ca926f91ddd4facdfcf08c4"
+}

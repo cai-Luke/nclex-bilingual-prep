@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Actions to take",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor"
+  },
+  "stem": "A hemodynamically stable adult receiving maintenance peritoneal dialysis reports new generalized abdominal pain. The drained dialysate is newly cloudy. No effluent cell count, differential, Gram stain, or culture has been collected, and no antibiotic has been given. Complete the bow-tie.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Give empiric antibiotics first and collect effluent only after the initial dose"
+      },
+      {
+        "label": "A2",
+        "text": "Treat constipation alone and continue routine exchanges without infection evaluation"
+      },
+      {
+        "label": "A3",
+        "text": "Collect effluent for cell count, differential, Gram stain, and culture before antibiotics"
+      },
+      {
+        "label": "A4",
+        "text": "Begin center-specific empiric antibiotics promptly after collection according to the prescribed protocol"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Constipation-related catheter outflow dysfunction"
+      },
+      {
+        "label": "C2",
+        "text": "Isolated dialysis-catheter exit-site infection"
+      },
+      {
+        "label": "C3",
+        "text": "Suspected peritoneal-dialysis-related peritonitis"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Abdominal pain and systemic clinical status"
+      },
+      {
+        "label": "P2",
+        "text": "Bowel frequency and abdominal fullness"
+      },
+      {
+        "label": "P3",
+        "text": "Effluent appearance and effluent white-cell-count trend"
+      },
+      {
+        "label": "P4",
+        "text": "Dialysate inflow time and total drain volume"
+      }
+    ]
+  }
+}

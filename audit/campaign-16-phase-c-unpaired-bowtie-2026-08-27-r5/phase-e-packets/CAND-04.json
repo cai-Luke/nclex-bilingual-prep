@@ -1,0 +1,378 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A4",
+      "A3"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P3",
+      "P4"
+    ]
+  },
+  "instruction": "The two blind records are immutable. Compare them with the current canonical five-target selection and complete standalone item. Do not inspect or infer sibling/corpus material. Return the required Phase-E standalone-adjudication record without revising either blind stage.",
+  "stage1": {
+    "condition": "Local anesthetic systemic toxicity (LAST) with neurologic and cardiovascular toxicity",
+    "evaluationParameters": [
+      "Continuous cardiac rhythm and hemodynamic response, including ventricular ectopy and blood pressure.",
+      "Neurologic and respiratory status, including seizure cessation, level of consciousness, oxygenation, and ventilation."
+    ],
+    "missingInformation": [
+      "Specific local anesthetic, concentration, infusion rate, total dose, and whether an inadvertent bolus or intravascular administration occurred",
+      "Client weight for weight-based lipid emulsion dosing",
+      "Current oxygen saturation, respiratory effort, airway patency, and end-tidal carbon dioxide",
+      "Whether the seizure is ongoing and whether pulses remain present"
+    ],
+    "priorityActions": [
+      "Stop the local anesthetic infusion immediately and disconnect the peripheral nerve catheter from the infusion source.",
+      "Initiate the local anesthetic systemic toxicity emergency protocol, including prompt administration of 20% lipid emulsion while supporting airway, ventilation, and circulation."
+    ],
+    "reasoning": "The rapid progression from classic neurologic prodromes during local anesthetic administration to seizure, ventricular dysrhythmia, and hypotension is characteristic of severe LAST. Immediate removal of the anesthetic source, lipid-emulsion-based resuscitation, and close cardiovascular and neurologic-respiratory evaluation are priorities.",
+    "stage1Confidence": "high",
+    "stemEvidence": [
+      {
+        "evidence": [
+          "Continuous local anesthetic infusion through a peripheral nerve catheter",
+          "Metallic taste and ringing in the ears within minutes",
+          "Generalized seizure",
+          "Frequent ventricular ectopy",
+          "Blood pressure of 78/42 mm Hg",
+          "Absence of rash or wheezing makes anaphylaxis less likely"
+        ],
+        "target": "Local anesthetic systemic toxicity (LAST) with neurologic and cardiovascular toxicity"
+      },
+      {
+        "evidence": [
+          "Toxic manifestations began during a continuous local anesthetic infusion."
+        ],
+        "target": "Stop the local anesthetic infusion immediately and disconnect the peripheral nerve catheter from the infusion source."
+      },
+      {
+        "evidence": [
+          "Generalized seizure indicates severe neurologic toxicity.",
+          "Ventricular ectopy and profound hypotension indicate life-threatening cardiovascular toxicity."
+        ],
+        "target": "Initiate the local anesthetic systemic toxicity emergency protocol, including prompt administration of 20% lipid emulsion while supporting airway, ventilation, and circulation."
+      },
+      {
+        "evidence": [
+          "Cardiac monitor shows frequent ventricular ectopy.",
+          "Blood pressure falls to 78/42 mm Hg."
+        ],
+        "target": "Continuous cardiac rhythm and hemodynamic response, including ventricular ectopy and blood pressure."
+      },
+      {
+        "evidence": [
+          "The client progresses from being awake with prodromal neurologic symptoms to a generalized seizure."
+        ],
+        "target": "Neurologic and respiratory status, including seizure cessation, level of consciousness, oxygenation, and ventilation."
+      }
+    ]
+  },
+  "stage1Sha256": "b0d0067ad7d084fd788e291808e59bc13efafb084dcb6de58ab654f1a7119425",
+  "stage2": {
+    "actionLabels": [
+      "A3",
+      "A4"
+    ],
+    "ambiguousAlternatives": [],
+    "conditionLabel": "C2",
+    "missingInformation": [
+      "Specific local anesthetic, concentration, infusion rate, and cumulative dose",
+      "Client weight for protocol-directed lipid emulsion dosing",
+      "Current oxygen saturation, ventilation, airway status, and whether seizure activity continues",
+      "Presence or absence of a palpable pulse"
+    ],
+    "parameterLabels": [
+      "P3",
+      "P4"
+    ],
+    "poolAnswerability": "ANSWERABLE",
+    "reasoning": "The stem provides a highly characteristic temporal and clinical pattern of local anesthetic systemic toxicity. A3 and A4 directly address the toxin and emergency treatment, while P3 and P4 monitor the two organ systems already showing severe toxicity. The alternatives either delay treatment, re-expose the client, focus on a nonurgent effect, or rely on a laboratory value that should not determine immediate management.",
+    "selectionEvidence": [
+      {
+        "evidence": "Symptoms begin within minutes of continuous local anesthetic delivery and progress from metallic taste and tinnitus to seizure, ventricular ectopy, and profound hypotension, a classic pattern of local anesthetic systemic toxicity.",
+        "opaqueTokenLabel": "C2"
+      },
+      {
+        "evidence": "The generalized seizure plus ventricular ectopy and blood pressure of 78/42 mm Hg indicate severe neurologic and cardiovascular toxicity warranting early protocol-directed 20% lipid emulsion.",
+        "opaqueTokenLabel": "A3"
+      },
+      {
+        "evidence": "The suspected toxic source is an active continuous local anesthetic infusion, and the client has life-threatening manifestations requiring immediate cessation and emergency-response activation.",
+        "opaqueTokenLabel": "A4"
+      },
+      {
+        "evidence": "The client has had a generalized seizure, making neurologic recovery and seizure recurrence directly relevant.",
+        "opaqueTokenLabel": "P3"
+      },
+      {
+        "evidence": "Frequent ventricular ectopy and blood pressure of 78/42 mm Hg require continuous assessment of rhythm and hemodynamic response.",
+        "opaqueTokenLabel": "P4"
+      }
+    ],
+    "stage2Confidence": "high",
+    "tokenPremiseTable": [
+      {
+        "missingPremise": "A focal neurologic syndrome or other client-specific evidence of acute cerebral ischemia.",
+        "opaqueTokenLabel": "C1",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The exposure-linked systemic neurocardiac toxidrome strongly favors C2 over stroke.",
+        "supportingStemText": "Symptoms follow local anesthetic infusion within minutes and include metallic taste, tinnitus, generalized seizure, ventricular ectopy, and hypotension; no focal neurologic deficit is described."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "C2",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The stem explicitly supplies the exposure, timing, neurologic prodrome, seizure, and cardiovascular toxicity needed to identify LAST.",
+        "supportingStemText": "Continuous local anesthetic infusion is followed within minutes by metallic taste, ringing in the ears, generalized seizure, frequent ventricular ectopy, and blood pressure of 78/42 mm Hg."
+      },
+      {
+        "missingPremise": "Client-specific allergic manifestations or a plausible perioperative allergen exposure pattern supporting anaphylaxis.",
+        "opaqueTokenLabel": "C3",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "LOW",
+        "rankabilityJustification": "Anaphylaxis can rarely lack cutaneous findings, but the stated neurocardiac prodrome is substantially more specific for C2.",
+        "supportingStemText": "No rash or wheezing is present, while metallic taste and tinnitus precede seizure and ventricular ectopy during local anesthetic infusion."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A1",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Life-threatening instability requires immediate emergency treatment; waiting for a serum level is incompatible with the urgency established by the stem.",
+        "supportingStemText": "The client has a generalized seizure, frequent ventricular ectopy, and blood pressure of 78/42 mm Hg."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A2",
+        "premiseStatus": "CONTRADICTED",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Restarting the suspected causative infusion would re-expose the client after severe toxicity.",
+        "supportingStemText": "Severe manifestations develop during continuous local anesthetic delivery, including seizure, ventricular ectopy, and profound hypotension."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A3",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Early 20% lipid emulsion is established protocol-directed treatment for severe LAST and is supported by the stem's neurologic and cardiovascular toxicity.",
+        "supportingStemText": "The client develops generalized seizure, frequent ventricular ectopy, and blood pressure of 78/42 mm Hg after local anesthetic administration."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "A4",
+        "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Stopping toxin delivery and activating the LAST response are immediate priorities supported by the identified exposure and instability.",
+        "supportingStemText": "An active continuous local anesthetic infusion is temporally associated with rapidly progressive neurologic and cardiovascular toxicity in a monitored recovery area."
+      },
+      {
+        "missingPremise": "Client-specific sensory or motor block findings whose regression would affect immediate evaluation.",
+        "opaqueTokenLabel": "P1",
+        "premiseStatus": "NO_CLIENT_PREMISE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Block regression is less urgent than monitoring the active seizure and cardiovascular instability explicitly described.",
+        "supportingStemText": "A peripheral nerve catheter is present, but the stem gives no baseline or changing sensory or motor block findings."
+      },
+      {
+        "missingPremise": "A clinically relevant reason that serum concentration would guide immediate management or serial response assessment.",
+        "opaqueTokenLabel": "P2",
+        "premiseStatus": "NO_CLIENT_PREMISE",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "The emergency diagnosis and treatment are clinical, and a serum level should not displace direct neurologic and hemodynamic monitoring.",
+        "supportingStemText": "No serum local-anesthetic measurement, sampling plan, or laboratory-dependent decision is described."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "P3",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Neurologic status and seizure recurrence directly track an explicitly affected system.",
+        "supportingStemText": "The client reports neurologic prodromes and then has a generalized seizure."
+      },
+      {
+        "missingPremise": "",
+        "opaqueTokenLabel": "P4",
+        "premiseStatus": "SUPPORTED_EXPLICIT",
+        "rankabilityImpact": "NONE",
+        "rankabilityJustification": "Rhythm, blood pressure, and hemodynamic stability directly track the stem's life-threatening cardiovascular manifestations.",
+        "supportingStemText": "The cardiac monitor shows frequent ventricular ectopy, and the blood pressure falls to 78/42 mm Hg."
+      }
+    ]
+  },
+  "stage2Sha256": "497e0e2fe479f613216936e92277efaf605c40e7cff985c8b318f75ff32201f8",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Actions to take",
+          "zh": "应采取的措施"
+        },
+        "tokens": [
+          {
+            "en": "Wait for a serum local-anesthetic level before activating the emergency response",
+            "opaqueTokenLabel": "A1",
+            "zh": "等待血清局部麻醉药浓度结果后再启动急救流程"
+          },
+          {
+            "en": "Restart the local anesthetic at a lower rate after the seizure stops",
+            "opaqueTokenLabel": "A2",
+            "zh": "癫痫停止后以较低速度重新输注局部麻醉药"
+          },
+          {
+            "en": "Initiate protocol-directed 20% lipid emulsion early",
+            "opaqueTokenLabel": "A3",
+            "zh": "按方案尽早开始给予 20% 脂肪乳"
+          },
+          {
+            "en": "Stop local anesthetic delivery and activate the LAST emergency response with the rescue kit",
+            "opaqueTokenLabel": "A4",
+            "zh": "停止局部麻醉药输注并启动 LAST 急救流程，取得救援包"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的病情"
+        },
+        "tokens": [
+          {
+            "en": "Acute ischemic stroke",
+            "opaqueTokenLabel": "C1",
+            "zh": "急性缺血性卒中"
+          },
+          {
+            "en": "Local anesthetic systemic toxicity",
+            "opaqueTokenLabel": "C2",
+            "zh": "局部麻醉药全身毒性"
+          },
+          {
+            "en": "Perioperative anaphylaxis",
+            "opaqueTokenLabel": "C3",
+            "zh": "围术期过敏性休克"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "应监测的指标"
+        },
+        "tokens": [
+          {
+            "en": "Regression of the peripheral sensory and motor block",
+            "opaqueTokenLabel": "P1",
+            "zh": "外周感觉和运动阻滞的消退"
+          },
+          {
+            "en": "Serum local-anesthetic concentration",
+            "opaqueTokenLabel": "P2",
+            "zh": "血清局部麻醉药浓度"
+          },
+          {
+            "en": "Neurologic status and seizure recurrence",
+            "opaqueTokenLabel": "P3",
+            "zh": "神经状态和癫痫是否复发"
+          },
+          {
+            "en": "Cardiac rhythm, blood pressure, and hemodynamic stability",
+            "opaqueTokenLabel": "P4",
+            "zh": "心律、血压和血流动力学稳定性"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "局部麻醉药进入全身循环后引起的中枢神经和心血管毒性反应",
+        "termEn": "local anesthetic systemic toxicity",
+        "termZh": "局部麻醉药全身毒性"
+      },
+      {
+        "defZh": "可按急救方案用于局部麻醉药全身毒性的静脉脂质制剂",
+        "termEn": "lipid emulsion",
+        "termZh": "脂肪乳"
+      },
+      {
+        "defZh": "起源于心室的提前或异常心搏",
+        "termEn": "ventricular ectopy",
+        "termZh": "室性异位搏动"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Keyed: the exposure timing and progression from sensory symptoms to seizure and cardiovascular instability fit local anesthetic systemic toxicity.",
+          "opaqueTokenLabel": "C2",
+          "zh": "正确：暴露时间关系以及从感觉异常进展到癫痫和心血管不稳定，符合局部麻醉药全身毒性。"
+        },
+        {
+          "en": "Not keyed: anaphylaxis would be better supported by findings such as urticaria, bronchospasm, or angioedema, which are absent.",
+          "opaqueTokenLabel": "C3",
+          "zh": "不选：过敏性休克通常有荨麻疹、支气管痉挛或血管性水肿等表现，本例均无。"
+        },
+        {
+          "en": "Not keyed: an acute ischemic stroke does not explain the immediate local-anesthetic exposure relationship and combined seizure, ventricular ectopy, and hypotension pattern.",
+          "opaqueTokenLabel": "C1",
+          "zh": "不选：急性缺血性卒中不能解释症状与局部麻醉药暴露的即时关系，也不能完整解释癫痫、室性早搏和低血压的组合。"
+        },
+        {
+          "en": "Keyed: stopping the local anesthetic prevents further exposure, while activating the LAST response mobilizes specialized resuscitation resources.",
+          "opaqueTokenLabel": "A4",
+          "zh": "正确：停止局部麻醉药可防止继续暴露，启动 LAST 急救流程可迅速调动专门的复苏资源。"
+        },
+        {
+          "en": "Keyed: early protocol-directed 20% lipid emulsion is the syndrome-specific rescue treatment in suspected LAST.",
+          "opaqueTokenLabel": "A3",
+          "zh": "正确：怀疑 LAST 时，按方案尽早给予 20% 脂肪乳是特异性救援治疗。"
+        },
+        {
+          "en": "Not keyed: delaying emergency activation for a serum drug level would postpone treatment of a time-critical toxicity.",
+          "opaqueTokenLabel": "A1",
+          "zh": "不选：为等待血清药物浓度而延迟启动急救，会推迟对时间敏感性毒性的治疗。"
+        },
+        {
+          "en": "Not keyed: the local anesthetic must not be restarted at a lower rate after this toxicity pattern appears.",
+          "opaqueTokenLabel": "A2",
+          "zh": "不选：出现这种毒性表现后，不应以较低速度重新开始局部麻醉药输注。"
+        },
+        {
+          "en": "Keyed: level of consciousness and seizure recurrence track central nervous system toxicity and recovery.",
+          "opaqueTokenLabel": "P3",
+          "zh": "正确：意识水平和癫痫是否复发可反映中枢神经系统毒性及恢复情况。"
+        },
+        {
+          "en": "Keyed: rhythm, blood pressure, and hemodynamic status track the cardiovascular toxicity and response.",
+          "opaqueTokenLabel": "P4",
+          "zh": "正确：心律、血压和血流动力学状态可反映心血管毒性及治疗反应。"
+        },
+        {
+          "en": "Not keyed: a serum local-anesthetic concentration is not a rapid bedside measure of neurologic stabilization or recurrent seizure risk.",
+          "opaqueTokenLabel": "P2",
+          "zh": "不选：血清局部麻醉药浓度不能作为快速床旁指标来评估神经系统是否稳定或癫痫复发风险。"
+        },
+        {
+          "en": "Not keyed: regression of the peripheral sensory and motor block reflects the regional block, not recovery from systemic cardiovascular toxicity.",
+          "opaqueTokenLabel": "P1",
+          "zh": "不选：外周感觉和运动阻滞的消退反映局部神经阻滞，而不是全身性心血管毒性的恢复。"
+        }
+      ],
+      "correct": {
+        "en": "The immediate neurologic prodrome after local anesthetic delivery, followed by seizure, ventricular dysrhythmia, and hypotension, is most consistent with local anesthetic systemic toxicity. Further local anesthetic exposure must stop while the specialized emergency response and rescue kit are activated. Protocol-directed 20% lipid emulsion is the syndrome-specific rescue intervention. Neurologic recovery and cardiovascular stability are separate response dimensions.",
+        "zh": "局部麻醉药输注后立即出现神经系统前驱症状，随后发生癫痫、室性心律失常和低血压，最符合局部麻醉药全身毒性。应立即停止继续给予局部麻醉药，同时启动专门的急救流程并取得救援包。按方案尽早给予 20% 脂肪乳是该综合征的特异性救援措施。神经系统恢复和心血管稳定是两个不同的疗效评估方向。"
+      }
+    },
+    "stem": {
+      "en": "An awake adult is receiving a continuous local anesthetic infusion through a peripheral nerve catheter in a monitored post-anesthesia care area. Within minutes, the client reports a metallic taste and ringing in the ears, then has a generalized seizure. The cardiac monitor shows frequent ventricular ectopy, and the blood pressure falls to 78/42 mm Hg. No rash or wheezing is present. Complete the bow-tie.",
+      "zh": "一名清醒成人在麻醉后监护区通过外周神经导管持续输注局部麻醉药。数分钟内，患者先诉口中有金属味和耳鸣，随后出现全身性癫痫发作。心电监护显示频发室性早搏，血压降至 78/42 mmHg。无皮疹或喘鸣。请完成蝴蝶结题。"
+    },
+    "testTakingStrategy": {
+      "en": "Link the rapid sensory-to-seizure-to-cardiovascular progression to the recent drug exposure, then separate rescue actions from the two organ-system response measures.",
+      "zh": "把“感觉异常→癫痫→心血管恶化”的快速进展与近期药物暴露联系起来，再区分救援措施与两个器官系统的疗效指标。"
+    }
+  }
+}

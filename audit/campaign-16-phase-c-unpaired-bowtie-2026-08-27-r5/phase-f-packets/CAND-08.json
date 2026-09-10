@@ -1,0 +1,285 @@
+{
+  "candidateSurfaces": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions — select 2",
+          "zh": "优先措施——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Wait for pulse oximetry alone to normalize before intervening",
+            "opaqueTokenLabel": "A1",
+            "zh": "仅等待脉搏血氧读数恢复正常后再干预"
+          },
+          {
+            "en": "Administer ordered IV methylene blue because G6PD deficiency is excluded",
+            "opaqueTokenLabel": "A2",
+            "zh": "因已排除 G6PD 缺乏，按医嘱静脉给予亚甲蓝"
+          },
+          {
+            "en": "Stop further oxidant exposure and continue supportive oxygen",
+            "opaqueTokenLabel": "A3",
+            "zh": "停止进一步接触氧化剂并继续支持性供氧"
+          },
+          {
+            "en": "Administer an ordered IV diuretic to remove the oxidant",
+            "opaqueTokenLabel": "A4",
+            "zh": "按医嘱静脉给予利尿剂以清除氧化剂"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的病情"
+        },
+        "tokens": [
+          {
+            "en": "Carbon-monoxide poisoning",
+            "opaqueTokenLabel": "C1",
+            "zh": "一氧化碳中毒"
+          },
+          {
+            "en": "Acquired methemoglobinemia",
+            "opaqueTokenLabel": "C2",
+            "zh": "获得性高铁血红蛋白血症"
+          },
+          {
+            "en": "Isolated acute bronchospasm",
+            "opaqueTokenLabel": "C3",
+            "zh": "单纯急性支气管痉挛"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor — select 2",
+          "zh": "需要监测的指标——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Serial carboxyhemoglobin and ambient carbon-monoxide levels",
+            "opaqueTokenLabel": "P1",
+            "zh": "连续碳氧血红蛋白和环境一氧化碳水平"
+          },
+          {
+            "en": "Serial methemoglobin by co-oximetry and clinical symptom response",
+            "opaqueTokenLabel": "P2",
+            "zh": "连续共氧测定高铁血红蛋白及临床症状反应"
+          },
+          {
+            "en": "Hemoglobin, indirect bilirubin, haptoglobin, and arterial oxygen assessment",
+            "opaqueTokenLabel": "P3",
+            "zh": "血红蛋白、间接胆红素、结合珠蛋白和动脉氧评估"
+          },
+          {
+            "en": "Serum cholinesterase activity and secretion volume",
+            "opaqueTokenLabel": "P4",
+            "zh": "血清胆碱酯酶活性和分泌物量"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "血红素中的铁被氧化后形成的血红蛋白，不能正常携带氧。",
+        "termEn": "methemoglobin",
+        "termZh": "高铁血红蛋白"
+      },
+      {
+        "defZh": "可分别测量氧合血红蛋白、碳氧血红蛋白和高铁血红蛋白等组分的方法。",
+        "termEn": "co-oximetry",
+        "termZh": "共氧测定"
+      },
+      {
+        "defZh": "葡萄糖-6-磷酸脱氢酶缺乏，可增加某些氧化性药物引起严重溶血的风险。",
+        "termEn": "G6PD deficiency",
+        "termZh": "G6PD 缺乏"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct: the oxidant exposure, cyanosis, saturation discrepancy, and elevated methemoglobin by co-oximetry form the acquired-methemoglobinemia pattern.",
+          "opaqueTokenLabel": "C2",
+          "zh": "正确：氧化剂暴露、发绀、血氧读数不一致以及共氧测定显示高铁血红蛋白升高，共同构成获得性高铁血红蛋白血症的模式。"
+        },
+        {
+          "en": "Incorrect: carbon-monoxide poisoning is evaluated with carboxyhemoglobin and does not explain the elevated methemoglobin result.",
+          "opaqueTokenLabel": "C1",
+          "zh": "错误：一氧化碳中毒需评估碳氧血红蛋白，不能解释高铁血红蛋白升高。"
+        },
+        {
+          "en": "Incorrect: isolated bronchospasm does not produce this preserved PaO₂/low SpO₂ discrepancy with elevated methemoglobin.",
+          "opaqueTokenLabel": "C3",
+          "zh": "错误：单纯支气管痉挛不会造成动脉氧分压保留而 SpO₂ 偏低并伴高铁血红蛋白升高的模式。"
+        },
+        {
+          "en": "Correct: stop further benzocaine exposure and continue supportive oxygen while definitive treatment is prepared.",
+          "opaqueTokenLabel": "A3",
+          "zh": "正确：停止进一步接触苯佐卡因，并在准备针对性治疗时继续支持性供氧。"
+        },
+        {
+          "en": "Correct: ordered IV methylene blue treats acquired methemoglobinemia, and the documented normal G6PD activity removes the label contraindication in this scenario.",
+          "opaqueTokenLabel": "A2",
+          "zh": "正确：按医嘱静脉给予亚甲蓝可治疗获得性高铁血红蛋白血症；本例已记录 G6PD 活性正常，因此不存在标签所列的该项禁忌。"
+        },
+        {
+          "en": "Incorrect: waiting for pulse oximetry alone to normalize delays treatment and relies on a measurement that may be misleading.",
+          "opaqueTokenLabel": "A1",
+          "zh": "错误：仅等待脉搏血氧读数恢复会延误治疗，而且该测量可能产生误导。"
+        },
+        {
+          "en": "Incorrect: a diuretic does not reverse oxidized hemoglobin and does not address the defining abnormality.",
+          "opaqueTokenLabel": "A4",
+          "zh": "错误：利尿剂不能还原被氧化的血红蛋白，也不能处理本例的核心异常。"
+        },
+        {
+          "en": "Correct: serial co-oximetry methemoglobin levels plus clinical symptoms directly track response and possible rebound.",
+          "opaqueTokenLabel": "P2",
+          "zh": "正确：连续共氧测定高铁血红蛋白水平并结合临床症状，可直接追踪治疗反应和可能的反跳。"
+        },
+        {
+          "en": "Correct: hemolysis markers and arterial oxygen assessment track a separate treatment-safety and oxygenation domain without relying on pulse oximetry alone.",
+          "opaqueTokenLabel": "P3",
+          "zh": "正确：溶血指标和动脉氧评估可追踪独立的治疗安全与氧合领域，而不只依赖脉搏血氧测定。"
+        },
+        {
+          "en": "Incorrect: serial carboxyhemoglobin and ambient carbon-monoxide levels target a different dyshemoglobinemia exposure.",
+          "opaqueTokenLabel": "P1",
+          "zh": "错误：连续监测碳氧血红蛋白和环境一氧化碳水平针对的是另一种异常血红蛋白暴露。"
+        },
+        {
+          "en": "Incorrect: serum cholinesterase and secretions are used for organophosphate toxicity, not this oxidant-related pattern.",
+          "opaqueTokenLabel": "P4",
+          "zh": "错误：血清胆碱酯酶和分泌物用于评估有机磷中毒，不适用于本例的氧化剂相关模式。"
+        }
+      ],
+      "correct": {
+        "en": "An oxidant exposure followed by cyanosis, dyspnea, a marked discrepancy between low pulse-oximeter saturation and preserved arterial oxygen tension, and elevated methemoglobin by co-oximetry supports acquired methemoglobinemia. Further oxidant exposure is stopped while supportive oxygen continues, and ordered IV methylene blue is administered because G6PD deficiency has been excluded. Serial methemoglobin and symptoms track treatment response. Hemoglobin, indirect bilirubin, haptoglobin, and an arterial oxygen assessment form a separate safety domain because hemolysis can occur and pulse oximetry alone can be misleading during or shortly after methylene-blue treatment.",
+        "zh": "接触氧化剂后出现发绀、呼吸困难、脉搏血氧饱和度明显偏低但动脉氧分压仍保留，并且共氧测定显示高铁血红蛋白升高，支持获得性高铁血红蛋白血症。应停止进一步接触氧化剂并继续支持性供氧；由于已排除 G6PD 缺乏，按医嘱静脉给予亚甲蓝。连续监测高铁血红蛋白和临床症状可评估治疗反应。血红蛋白、间接胆红素、结合珠蛋白和动脉氧评估构成独立的安全监测领域，因为可能发生溶血，而且在亚甲蓝治疗期间或治疗后不久，仅依靠脉搏血氧测定可能产生误导。"
+      }
+    },
+    "stem": {
+      "en": "During an endoscopic procedure, a 46-year-old adult received topical benzocaine. Minutes later, the client develops dyspnea and blue-gray lips. SpO₂ remains 84% despite supplemental oxygen; arterial PaO₂ is 118 mm Hg, and co-oximetry shows methemoglobin 28%. The record documents normal glucose-6-phosphate dehydrogenase activity. The rapid-response team and prescriber are at the bedside. Complete the bow-tie by choosing the condition, 2 actions, and 2 parameters to monitor.",
+      "zh": "一名 46 岁成人在内镜检查中使用了局部苯佐卡因。数分钟后，患者出现呼吸困难和口唇蓝灰色。给予补充氧后 SpO₂ 仍为 84%；动脉血 PaO₂ 为 118 mm Hg，共氧测定显示高铁血红蛋白为 28%。病历记录葡萄糖-6-磷酸脱氢酶活性正常。快速反应团队和处方医师已在床旁。请完成蝴蝶结题：选择病情、2 项措施和 2 项监测指标。"
+    },
+    "testTakingStrategy": {
+      "en": "Link the exposure to the saturation discrepancy and co-oximetry result, then separate treatment-response monitoring from hemolysis and oxygen-assessment safety monitoring.",
+      "zh": "先把暴露与血氧读数不一致及共氧测定结果联系起来，再区分治疗反应监测与溶血/氧评估安全监测。"
+    }
+  },
+  "explicitlyLinkedHistoricalSources": [],
+  "instruction": "Phase E is immutable. For every missing client fact inspect only this candidate's rationale/byChoice, strategy, glossary, Chinese counterpart, and an explicitly linked historical source if one exists. Do not search the corpus. Classify bounded provenance, apply fixed verdict precedence, and record narrow bilingual/clinical/scope findings. Hidden-case dependency is unreachable and is a blocker if asserted.",
+  "phaseE": {
+    "anyCanonicalTargetDependsOnAbsentFact": false,
+    "blindExactMatch": true,
+    "canonicalSelection": {
+      "actionLabels": [
+        "A3",
+        "A2"
+      ],
+      "conditionLabel": "C2",
+      "parameterLabels": [
+        "P2",
+        "P3"
+      ]
+    },
+    "canonicalSetExplanation": "The five canonical targets are supported by explicit stem facts or ordinary clinical knowledge and remain uniquely preferable to all six distractors.",
+    "canonicalSetUniquelyDefensible": true,
+    "canonicalTargetSupport": [
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A2",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "Co-oximetry shows methemoglobin 28%, and the record documents normal glucose-6-phosphate dehydrogenase activity."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A3",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "Symptoms began minutes after topical benzocaine, and supplemental oxygen is already being provided."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C2",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "After topical benzocaine, the client develops dyspnea and blue-gray lips; SpO₂ is 84% despite oxygen, PaO₂ is 118 mm Hg, and methemoglobin is 28%."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P2",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "Co-oximetry shows methemoglobin 28%, and the client has dyspnea and blue-gray lips."
+      },
+      {
+        "missingClientFact": "Baseline hemoglobin, bilirubin, and haptoglobin values are not supplied.",
+        "opaqueTokenLabel": "P3",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "The client has oxygenation symptoms and is eligible for IV methylene blue because G6PD deficiency is excluded."
+      }
+    ],
+    "distractorPremiseFindings": [
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A1",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "The client has dyspnea, blue-gray lips, and SpO₂ of 84% despite supplemental oxygen."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "No fluid-overload state, diuretic-responsive mechanism, or indication for oxidant removal by diuresis is provided.",
+        "opaqueTokenLabel": "A4",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "NOT_APPLICABLE",
+        "supportingStandaloneEvidence": ""
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "No carbon-monoxide exposure or elevated carboxyhemoglobin is provided.",
+        "opaqueTokenLabel": "C1",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Symptoms immediately followed topical benzocaine, and co-oximetry shows methemoglobin 28%."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "No wheezing or documented reversible airflow obstruction is provided.",
+        "opaqueTokenLabel": "C3",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Co-oximetry shows methemoglobin 28%, with blue-gray lips and preserved PaO₂."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "No carbon-monoxide exposure or elevated carboxyhemoglobin is documented.",
+        "opaqueTokenLabel": "P1",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "NOT_APPLICABLE",
+        "supportingStandaloneEvidence": ""
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "No organophosphate exposure, cholinergic secretions, or cholinergic toxidrome is documented.",
+        "opaqueTokenLabel": "P4",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "NOT_APPLICABLE",
+        "supportingStandaloneEvidence": ""
+      }
+    ],
+    "missingClientFacts": [],
+    "stage1Alignment": "PARTIAL",
+    "stage1AlignmentExplanation": "Stage 1 identified the same condition and most canonical clinical domains, but at least one action or evaluation domain differed from the canonical five-target construct.",
+    "unstatedClientFactMateriallyChangesRankability": false
+  },
+  "phaseESha256": "a8be9f82a1a89004bb86eb10dcb67e4cd2d1b78d60a6cbbd7a3a7a117e672cac"
+}

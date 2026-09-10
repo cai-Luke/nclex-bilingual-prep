@@ -1,0 +1,118 @@
+{
+  "actionLabels": [
+    "A1",
+    "A2"
+  ],
+  "ambiguousAlternatives": [
+    "P4 overlaps with P3 because both concern calcium measurement, but total and ionized calcium are not two independent clinical outcome domains and no ionized calcium result or protein-binding concern is provided."
+  ],
+  "conditionLabel": "C3",
+  "missingInformation": [
+    "The exact prescribed calcium-lowering medications and dosing schedule are not stated.",
+    "Baseline creatinine, electrolyte values, electrocardiographic findings, and ionized calcium are not provided."
+  ],
+  "parameterLabels": [
+    "P1",
+    "P3"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The marked calcium elevation, classic neurologic and gastrointestinal manifestations, dehydration, and active cancer identify severe hypercalcemia of malignancy. Ordered isotonic hydration corrects the volume deficit and promotes renal calcium clearance, while ordered calcitonin and antiresorptive therapy reduce calcium through complementary immediate and sustained mechanisms. Volume and renal status plus serial serum calcium directly evaluate safety and response.",
+  "selectionEvidence": [
+    "Serum calcium is critically elevated at 15.2 mg/dL.",
+    "Weakness, constipation, thirst, and confusion are characteristic manifestations of severe hypercalcemia.",
+    "Active lung cancer provides a strong malignant cause for the hypercalcemia.",
+    "Dry mucous membranes and decreased urine output indicate clinically important volume depletion requiring isotonic hydration.",
+    "The absence of heart failure findings or a renal limitation supports proceeding with ordered hydration while tracking volume, renal, and calcium response."
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly establishes volume depletion, treatment availability, and absence of stated hydration-limiting findings.",
+      "supportingStemText": "Mucous membranes are dry, urine output has decreased, there are no heart failure findings, the renal assessment requires no treatment change, and IV-fluid orders are available."
+    },
+    {
+      "missingPremise": "The stem does not list the medication names, doses, or timing.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Calcitonin plus antiresorptive therapy is standard calcium-lowering treatment for severe symptomatic hypercalcemia, and the stem indicates ordered emergency medications are available.",
+      "supportingStemText": "Serum calcium is 15.2 mg/dL with confusion and other symptoms; the oncology emergency protocol and medication orders are available."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The client is already volume depleted; routine loop diuresis before volume correction can worsen dehydration and is not the priority.",
+      "supportingStemText": "Mucous membranes are dry and urine output has decreased from usual."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Severe symptomatic hypercalcemia requires prompt calcium-lowering treatment; hydration alone is not a reason to delay sustained antiresorptive therapy.",
+      "supportingStemText": "Serum calcium is 15.2 mg/dL with confusion, and emergency medication orders are available."
+    },
+    {
+      "missingPremise": "No recent cytotoxic treatment, hyperkalemia, hyperphosphatemia, hyperuricemia, or acute kidney injury pattern is provided.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Tumor lysis syndrome typically produces hypocalcemia rather than marked hypercalcemia and lacks its defining metabolic evidence here.",
+      "supportingStemText": "Serum calcium is elevated to 15.2 mg/dL."
+    },
+    {
+      "missingPremise": "No hyponatremia, low serum osmolality, or inappropriately concentrated urine is provided.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicit hypercalcemic and volume-depletion pattern does not support SIADH.",
+      "supportingStemText": "Serum calcium is 15.2 mg/dL, with thirst, dry mucous membranes, and reduced urine output."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly supplies the malignant context, severe biochemical abnormality, and characteristic manifestations.",
+      "supportingStemText": "The client has active lung cancer, calcium of 15.2 mg/dL, weakness, constipation, thirst, confusion, dry mucous membranes, and decreased urine output."
+    },
+    {
+      "missingPremise": "Baseline creatinine and other quantitative renal values are not stated.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Volume and renal monitoring directly assess hydration safety, perfusion, urine response, and calcium clearance.",
+      "supportingStemText": "Mucous membranes are dry, urine output has decreased, and IV hydration is ordered; renal assessment is specifically addressed."
+    },
+    {
+      "missingPremise": "The stem reports no pain complaint, pain-producing finding, or analgesic intervention.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Pain score alone cannot evaluate the principal disorder or the effectiveness and safety of its priority treatments.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Serial serum calcium directly measures resolution of the defining abnormality.",
+      "supportingStemText": "Serum calcium is 15.2 mg/dL and calcium-lowering treatment is indicated."
+    },
+    {
+      "missingPremise": "No ionized calcium result, major albumin abnormality, acid-base concern, or other need for separate ionized-calcium tracking is provided.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Both measurements represent the same calcium outcome rather than two distinct monitoring domains, and the stem does not establish a client-specific need to elevate ionized calcium as a separate parameter.",
+      "supportingStemText": "A total serum calcium of 15.2 mg/dL is provided."
+    }
+  ]
+}

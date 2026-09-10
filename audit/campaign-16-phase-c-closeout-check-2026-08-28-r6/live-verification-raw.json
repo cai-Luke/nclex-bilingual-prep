@@ -1,0 +1,578 @@
+{
+ "checks": [
+  {
+   "name": "preservedTreesUnchanged",
+   "pass": true,
+   "detail": "audit/campaign-16-phase-c-unpaired-bowtie-2026-08-27-r5: true; audit/campaign-16-phase-c-check-2026-08-27-r5: true; audit/campaign-16-phase-c-unpaired-bowtie-2026-08-27: true"
+  },
+  {
+   "name": "banks13Count",
+   "pass": true,
+   "detail": "count=13"
+  },
+  {
+   "name": "banksAllMatchRecordedAndR5Expected",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "gptCanonicalMatchesWorkOrderCitedHash",
+   "pass": true,
+   "detail": "e4955f7b8c54e4880bd9ddb0f2f7c35881169f53051b5ed3ce21757f86287b3b"
+  },
+  {
+   "name": "banksDirExactly13Files",
+   "pass": true,
+   "detail": "[\"burn-canonical.json\",\"capnography-canonical.json\",\"claude-canonical.json\",\"device-canonical.json\",\"gemini-canonical.json\",\"gpt-canonical.json\",\"hard-cases-canonical.json\",\"io-canonical.json\",\"lab-canonical.json\",\"mar-canonical.json\",\"medlabel-canonical.json\",\"visual-canonical.json\",\"vitals-canonical.json\"]"
+  },
+  {
+   "name": "revision5WorkOrderMatchesRecorded",
+   "pass": true,
+   "detail": "74fb97e70ca5820a4e95acc62e2b0f3f54790d0eea766d2be58e8a427f924248"
+  },
+  {
+   "name": "revision5WorkOrderMatchesWorkOrderCitedHash",
+   "pass": true,
+   "detail": "74fb97e70ca5820a4e95acc62e2b0f3f54790d0eea766d2be58e8a427f924248"
+  },
+  {
+   "name": "revision6WorkOrderMatchesLaunchDigest",
+   "pass": true,
+   "detail": "2633ae59473b6087f00dd2f1cdebe00fdc93e847a6042387c099b040aa27a66c"
+  },
+  {
+   "name": "dirtyPathSetCount28",
+   "pass": true,
+   "detail": "count=28"
+  },
+  {
+   "name": "allOpeningDirtyPathsStillPresentWithSameStatusAndDigest",
+   "pass": true,
+   "detail": "all match"
+  },
+  {
+   "name": "noUnexpectedPathsOutsideAllowlist",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "noOpeningPathRemoved",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "statusLogPresentOnDiskAndCorrectTerminal",
+   "pass": true,
+   "detail": "CAMPAIGN16_PHASE_C_CLOSEOUT_READY"
+  },
+  {
+   "name": "statusLogAbsentFromPorcelainAsExpected",
+   "pass": true,
+   "detail": "appearsInGitStatus=false"
+  },
+  {
+   "name": "statusLogInExecutorInventory",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "executorTerminalReady",
+   "pass": true,
+   "detail": "CAMPAIGN16_PHASE_C_CLOSEOUT_READY"
+  },
+  {
+   "name": "headUnchangedFromRecorded",
+   "pass": true,
+   "detail": "live=3286024bcab90c1a114811a7202d956c3e586bf4 recorded=3286024bcab90c1a114811a7202d956c3e586bf4"
+  },
+  {
+   "name": "aheadBehindZeroZero",
+   "pass": true,
+   "detail": "0\t0"
+  },
+  {
+   "name": "prohibitedSurfacesChangedFalse",
+   "pass": true,
+   "detail": ""
+  }
+ ],
+ "executorInventoryFirst": [
+  {
+   "path": "audit/campaign-16-phase-c-closeout-2026-08-28-r6/closeout.json",
+   "sha256": "dbd55406136a7511e47ca68ad8058131a847f526ec29a39c02e9fa5a482b3b86",
+   "bytes": 2766
+  },
+  {
+   "path": "audit/campaign-16-phase-c-closeout-2026-08-28-r6/closeout.md",
+   "sha256": "e863b8456b222dc882a6080a9517715a094745f8bbc4396da547825d7270e782",
+   "bytes": 3940
+  },
+  {
+   "path": "audit/campaign-16-phase-c-closeout-2026-08-28-r6/execution-plan.md",
+   "sha256": "f132a3daea8ae329ed32b31474f6043c4222435450639393be2025480277595d",
+   "bytes": 699
+  },
+  {
+   "path": "audit/campaign-16-phase-c-closeout-2026-08-28-r6/owner-adjudication.md",
+   "sha256": "4b658aefbda71eaef608255d9e6e14516cf4183aa208928258762757401be6df",
+   "bytes": 1004
+  },
+  {
+   "path": "audit/campaign-16-phase-c-closeout-2026-08-28-r6/preservation.json",
+   "sha256": "75ab62e98f4428ec6dab66eccf39f6ead393a3332a4a1525e7a5820cc6a63afc",
+   "bytes": 122121
+  },
+  {
+   "path": "audit/campaign-16-phase-c-closeout-2026-08-28-r6/status.log",
+   "sha256": "d844e8f5a2ede1eedf99f21ae28fd606d31d19c97911d91b79d0e9d9a94faa51",
+   "bytes": 34
+  },
+  {
+   "path": "audit/campaign-16-phase-c-closeout-2026-08-28-r6/verification.md",
+   "sha256": "0a4c909e398ae9e32d6f2e706d542e43f7ca9defbe3d4ad7e869cb11204dd8ef",
+   "bytes": 9760
+  }
+ ],
+ "preservedTrees": [
+  {
+   "tree": "audit/campaign-16-phase-c-unpaired-bowtie-2026-08-27-r5",
+   "liveFileCount": 247,
+   "recordedFileCount": 247,
+   "recordedClosingFileCountField": 247,
+   "countsEqual": true,
+   "newFilesSinceRecorded": [],
+   "missingFilesVsRecorded": [],
+   "hashMismatches": [],
+   "pass": true
+  },
+  {
+   "tree": "audit/campaign-16-phase-c-check-2026-08-27-r5",
+   "liveFileCount": 6,
+   "recordedFileCount": 6,
+   "recordedClosingFileCountField": 6,
+   "countsEqual": true,
+   "newFilesSinceRecorded": [],
+   "missingFilesVsRecorded": [],
+   "hashMismatches": [],
+   "pass": true
+  },
+  {
+   "tree": "audit/campaign-16-phase-c-unpaired-bowtie-2026-08-27",
+   "liveFileCount": 8,
+   "recordedFileCount": 8,
+   "recordedClosingFileCountField": 8,
+   "countsEqual": true,
+   "newFilesSinceRecorded": [],
+   "missingFilesVsRecorded": [],
+   "hashMismatches": [],
+   "pass": true
+  }
+ ],
+ "banks": [
+  {
+   "bankPath": "banks/burn-canonical.json",
+   "recordedClosingSha256": "5244b8d37daa49adbd1fbed7991f4ede52ded8ce710e26821841ef5e2ce3719f",
+   "revision5ExpectedClosingSha256": "5244b8d37daa49adbd1fbed7991f4ede52ded8ce710e26821841ef5e2ce3719f",
+   "liveSha256": "5244b8d37daa49adbd1fbed7991f4ede52ded8ce710e26821841ef5e2ce3719f",
+   "matchesRecorded": true,
+   "matchesRevision5Expected": true
+  },
+  {
+   "bankPath": "banks/capnography-canonical.json",
+   "recordedClosingSha256": "36d72a89405fe4400f27b3b8969cdbe1c51f3217151f8b2592b7f877d636f20c",
+   "revision5ExpectedClosingSha256": "36d72a89405fe4400f27b3b8969cdbe1c51f3217151f8b2592b7f877d636f20c",
+   "liveSha256": "36d72a89405fe4400f27b3b8969cdbe1c51f3217151f8b2592b7f877d636f20c",
+   "matchesRecorded": true,
+   "matchesRevision5Expected": true
+  },
+  {
+   "bankPath": "banks/claude-canonical.json",
+   "recordedClosingSha256": "25f53ded1ac21da4ca9d211040c3f6110ebee38d72ba41d0fc64fe358ba73b71",
+   "revision5ExpectedClosingSha256": "25f53ded1ac21da4ca9d211040c3f6110ebee38d72ba41d0fc64fe358ba73b71",
+   "liveSha256": "25f53ded1ac21da4ca9d211040c3f6110ebee38d72ba41d0fc64fe358ba73b71",
+   "matchesRecorded": true,
+   "matchesRevision5Expected": true
+  },
+  {
+   "bankPath": "banks/device-canonical.json",
+   "recordedClosingSha256": "83d5a6ac7219524f4c528265291cbee2ed5b2f17c13fbeb3649342bae2e4aac5",
+   "revision5ExpectedClosingSha256": "83d5a6ac7219524f4c528265291cbee2ed5b2f17c13fbeb3649342bae2e4aac5",
+   "liveSha256": "83d5a6ac7219524f4c528265291cbee2ed5b2f17c13fbeb3649342bae2e4aac5",
+   "matchesRecorded": true,
+   "matchesRevision5Expected": true
+  },
+  {
+   "bankPath": "banks/gemini-canonical.json",
+   "recordedClosingSha256": "3dc416a4652f5f5712219dde7de87b92f0697fac953750b8abb8fc0dbb976bb6",
+   "revision5ExpectedClosingSha256": "3dc416a4652f5f5712219dde7de87b92f0697fac953750b8abb8fc0dbb976bb6",
+   "liveSha256": "3dc416a4652f5f5712219dde7de87b92f0697fac953750b8abb8fc0dbb976bb6",
+   "matchesRecorded": true,
+   "matchesRevision5Expected": true
+  },
+  {
+   "bankPath": "banks/gpt-canonical.json",
+   "recordedClosingSha256": "e4955f7b8c54e4880bd9ddb0f2f7c35881169f53051b5ed3ce21757f86287b3b",
+   "revision5ExpectedClosingSha256": "e4955f7b8c54e4880bd9ddb0f2f7c35881169f53051b5ed3ce21757f86287b3b",
+   "liveSha256": "e4955f7b8c54e4880bd9ddb0f2f7c35881169f53051b5ed3ce21757f86287b3b",
+   "matchesRecorded": true,
+   "matchesRevision5Expected": true
+  },
+  {
+   "bankPath": "banks/hard-cases-canonical.json",
+   "recordedClosingSha256": "8068c6917e53257a31c7299454c213f61bea62e61d7cf185cb1a09386f4e4862",
+   "revision5ExpectedClosingSha256": "8068c6917e53257a31c7299454c213f61bea62e61d7cf185cb1a09386f4e4862",
+   "liveSha256": "8068c6917e53257a31c7299454c213f61bea62e61d7cf185cb1a09386f4e4862",
+   "matchesRecorded": true,
+   "matchesRevision5Expected": true
+  },
+  {
+   "bankPath": "banks/io-canonical.json",
+   "recordedClosingSha256": "2ce6488e65049ba00cd9dccf889a042e0a624f224387382d564d282e147b2645",
+   "revision5ExpectedClosingSha256": "2ce6488e65049ba00cd9dccf889a042e0a624f224387382d564d282e147b2645",
+   "liveSha256": "2ce6488e65049ba00cd9dccf889a042e0a624f224387382d564d282e147b2645",
+   "matchesRecorded": true,
+   "matchesRevision5Expected": true
+  },
+  {
+   "bankPath": "banks/lab-canonical.json",
+   "recordedClosingSha256": "1038cb68f6b91f6a2c981562d97ad9e16179db9b1332c75725fd538595c44b05",
+   "revision5ExpectedClosingSha256": "1038cb68f6b91f6a2c981562d97ad9e16179db9b1332c75725fd538595c44b05",
+   "liveSha256": "1038cb68f6b91f6a2c981562d97ad9e16179db9b1332c75725fd538595c44b05",
+   "matchesRecorded": true,
+   "matchesRevision5Expected": true
+  },
+  {
+   "bankPath": "banks/mar-canonical.json",
+   "recordedClosingSha256": "f12c03a28ff5b52411843f84bc942b4ca5667e989194357ed2d60a394f17641e",
+   "revision5ExpectedClosingSha256": "f12c03a28ff5b52411843f84bc942b4ca5667e989194357ed2d60a394f17641e",
+   "liveSha256": "f12c03a28ff5b52411843f84bc942b4ca5667e989194357ed2d60a394f17641e",
+   "matchesRecorded": true,
+   "matchesRevision5Expected": true
+  },
+  {
+   "bankPath": "banks/medlabel-canonical.json",
+   "recordedClosingSha256": "cc3bd0053516fc7ea4b23e814e46f186e6d2dbf40888fa713a862c07ea2b3993",
+   "revision5ExpectedClosingSha256": "cc3bd0053516fc7ea4b23e814e46f186e6d2dbf40888fa713a862c07ea2b3993",
+   "liveSha256": "cc3bd0053516fc7ea4b23e814e46f186e6d2dbf40888fa713a862c07ea2b3993",
+   "matchesRecorded": true,
+   "matchesRevision5Expected": true
+  },
+  {
+   "bankPath": "banks/visual-canonical.json",
+   "recordedClosingSha256": "e42e2a3fa6aa349a61279e6988e250e65c2b752a6f36d33806a2671e0af0f9e4",
+   "revision5ExpectedClosingSha256": "e42e2a3fa6aa349a61279e6988e250e65c2b752a6f36d33806a2671e0af0f9e4",
+   "liveSha256": "e42e2a3fa6aa349a61279e6988e250e65c2b752a6f36d33806a2671e0af0f9e4",
+   "matchesRecorded": true,
+   "matchesRevision5Expected": true
+  },
+  {
+   "bankPath": "banks/vitals-canonical.json",
+   "recordedClosingSha256": "5154e25492bced8e4a49d763f04e25e154389c31e085bf37669651e13d411b9d",
+   "revision5ExpectedClosingSha256": "5154e25492bced8e4a49d763f04e25e154389c31e085bf37669651e13d411b9d",
+   "liveSha256": "5154e25492bced8e4a49d763f04e25e154389c31e085bf37669651e13d411b9d",
+   "matchesRecorded": true,
+   "matchesRevision5Expected": true
+  }
+ ],
+ "dirtyPathSetCheck": [
+  {
+   "path": "BANK-CENSUS.md",
+   "recordedStatusCode": "M ",
+   "liveStatusCode": "M ",
+   "statusCodeMatches": true,
+   "recordedSha256": "2ce7646b53f8828ed9750bacc4e8a1436d6bc42120335d97fbe7ea1fb2345026",
+   "liveSha256": "2ce7646b53f8828ed9750bacc4e8a1436d6bc42120335d97fbe7ea1fb2345026",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "BANK-REVIEW-LEDGER.md",
+   "recordedStatusCode": "M ",
+   "liveStatusCode": "M ",
+   "statusCodeMatches": true,
+   "recordedSha256": "22e2ce90440506abc4f0863006ed06f3e4e26dd0564bb04450471ca7dd890ea5",
+   "liveSha256": "22e2ce90440506abc4f0863006ed06f3e4e26dd0564bb04450471ca7dd890ea5",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "CLAUDE.md",
+   "recordedStatusCode": " M",
+   "liveStatusCode": " M",
+   "statusCodeMatches": true,
+   "recordedSha256": "7e0301b4016b645db111bef02dcc610806e4dc5dea901a2e3a9661ad6a5f3627",
+   "liveSha256": "7e0301b4016b645db111bef02dcc610806e4dc5dea901a2e3a9661ad6a5f3627",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "PROJECT-HISTORY.md",
+   "recordedStatusCode": "M ",
+   "liveStatusCode": "M ",
+   "statusCodeMatches": true,
+   "recordedSha256": "393ce5572fab8e3c2991cc90a91d3ee936a1adeeb6a6189155757959e6a51551",
+   "liveSha256": "393ce5572fab8e3c2991cc90a91d3ee936a1adeeb6a6189155757959e6a51551",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "STAGE-REFERENCE-SEMANTIC-CENSUS-GEMINI-CALIBRATION-SPEC-2026-07-23.md",
+   "recordedStatusCode": " M",
+   "liveStatusCode": " M",
+   "statusCodeMatches": true,
+   "recordedSha256": "7f58390b710464e6ae88118681275b987c063ed6a3a5b2a64e97e9be252756d0",
+   "liveSha256": "7f58390b710464e6ae88118681275b987c063ed6a3a5b2a64e97e9be252756d0",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "audit/campaign-16-phase-a-baseline-2026-08-26/baseline.json",
+   "recordedStatusCode": "A ",
+   "liveStatusCode": "A ",
+   "statusCodeMatches": true,
+   "recordedSha256": "5aab2523591ee94ca453359be14c6a38f0beacd7c8dd94fe43c7d17383d66f8b",
+   "liveSha256": "5aab2523591ee94ca453359be14c6a38f0beacd7c8dd94fe43c7d17383d66f8b",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "audit/campaign-16-phase-a-baseline-2026-08-26/baseline.md",
+   "recordedStatusCode": "A ",
+   "liveStatusCode": "A ",
+   "statusCodeMatches": true,
+   "recordedSha256": "d5e5f7a4dcb2a81895088399247a2d048b43bb0a359103176095c9005da94e39",
+   "liveSha256": "d5e5f7a4dcb2a81895088399247a2d048b43bb0a359103176095c9005da94e39",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "audit/campaign-16-phase-a-baseline-2026-08-26/execution-plan.md",
+   "recordedStatusCode": "A ",
+   "liveStatusCode": "A ",
+   "statusCodeMatches": true,
+   "recordedSha256": "ef4083821ca7e18f457c8f51bdefb231973b77c88d08726da898cb06b1b5b4f3",
+   "liveSha256": "ef4083821ca7e18f457c8f51bdefb231973b77c88d08726da898cb06b1b5b4f3",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "audit/campaign-16-phase-a-check-2026-08-26/check.json",
+   "recordedStatusCode": "A ",
+   "liveStatusCode": "A ",
+   "statusCodeMatches": true,
+   "recordedSha256": "09e5e3d8becdada48f895bce95e799334ec9f2ad58094c939aab19f02bae7057",
+   "liveSha256": "09e5e3d8becdada48f895bce95e799334ec9f2ad58094c939aab19f02bae7057",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "audit/campaign-16-phase-a-check-2026-08-26/check.md",
+   "recordedStatusCode": "A ",
+   "liveStatusCode": "A ",
+   "statusCodeMatches": true,
+   "recordedSha256": "fcc3d0d3f488a69f6a5e76a617b84b3181c444097bb11b446b5d475e25459554",
+   "liveSha256": "fcc3d0d3f488a69f6a5e76a617b84b3181c444097bb11b446b5d475e25459554",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "audit/campaign-16-phase-a-check-2026-08-26/comparison.md",
+   "recordedStatusCode": "A ",
+   "liveStatusCode": "A ",
+   "statusCodeMatches": true,
+   "recordedSha256": "61c859046eaddf05e43b4ab3a0dc124b80034f8dfe77fca8a14d8c83d38bb449",
+   "liveSha256": "61c859046eaddf05e43b4ab3a0dc124b80034f8dfe77fca8a14d8c83d38bb449",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "audit/campaign-16-phase-b-recovery-2026-08-27/execution-plan-iteration-1.md",
+   "recordedStatusCode": "A ",
+   "liveStatusCode": "A ",
+   "statusCodeMatches": true,
+   "recordedSha256": "41408a66052371c08c5f3be9b1aea2228bce3e59f8dd73e11f04cda4b209b05c",
+   "liveSha256": "41408a66052371c08c5f3be9b1aea2228bce3e59f8dd73e11f04cda4b209b05c",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "audit/campaign-16-phase-b-recovery-2026-08-27/execution-plan-stage-3.md",
+   "recordedStatusCode": "A ",
+   "liveStatusCode": "A ",
+   "statusCodeMatches": true,
+   "recordedSha256": "8ae5e0f7d16b9558682827f5f522a3c50f7c133dff612278cb75d2c797a17f66",
+   "liveSha256": "8ae5e0f7d16b9558682827f5f522a3c50f7c133dff612278cb75d2c797a17f66",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "audit/campaign-16-phase-b-recovery-2026-08-27/execution-plan.md",
+   "recordedStatusCode": "A ",
+   "liveStatusCode": "A ",
+   "statusCodeMatches": true,
+   "recordedSha256": "cea51eeedb7e7abe7e72163f914532ca78ec15afebd18560dbf12da374a67ece",
+   "liveSha256": "cea51eeedb7e7abe7e72163f914532ca78ec15afebd18560dbf12da374a67ece",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "audit/campaign-16-phase-b-recovery-2026-08-27/manifest-iteration-1.json",
+   "recordedStatusCode": "A ",
+   "liveStatusCode": "A ",
+   "statusCodeMatches": true,
+   "recordedSha256": "546f863f5eca75a23dcde16f700b30769523100ed5f5b87760163593513f272c",
+   "liveSha256": "546f863f5eca75a23dcde16f700b30769523100ed5f5b87760163593513f272c",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "audit/campaign-16-phase-b-recovery-2026-08-27/manifest.json",
+   "recordedStatusCode": "A ",
+   "liveStatusCode": "A ",
+   "statusCodeMatches": true,
+   "recordedSha256": "6b7283fc6c887b410291ba24292295ffcc31599a1412286af87a89c37c2b2016",
+   "liveSha256": "6b7283fc6c887b410291ba24292295ffcc31599a1412286af87a89c37c2b2016",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "audit/campaign-16-phase-b-recovery-2026-08-27/publication-freeze.json",
+   "recordedStatusCode": "A ",
+   "liveStatusCode": "A ",
+   "statusCodeMatches": true,
+   "recordedSha256": "d209b3c7e64787189c78f0a8b4abf35041a70565557343647e3b4f770ac31ada",
+   "liveSha256": "d209b3c7e64787189c78f0a8b4abf35041a70565557343647e3b4f770ac31ada",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "audit/campaign-16-phase-b-recovery-2026-08-27/publication-freeze.md",
+   "recordedStatusCode": "A ",
+   "liveStatusCode": "A ",
+   "statusCodeMatches": true,
+   "recordedSha256": "1da79ed48018d75dc0a36e2d33ddbcfc17ce517d4b779a073628010aa7dc10ad",
+   "liveSha256": "1da79ed48018d75dc0a36e2d33ddbcfc17ce517d4b779a073628010aa7dc10ad",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "audit/campaign-16-phase-b-recovery-2026-08-27/report-iteration-1.md",
+   "recordedStatusCode": "A ",
+   "liveStatusCode": "A ",
+   "statusCodeMatches": true,
+   "recordedSha256": "ecb09d7a238333172143eee36c8fec5b67cb047a660bcc6d05812c5f0cb52205",
+   "liveSha256": "ecb09d7a238333172143eee36c8fec5b67cb047a660bcc6d05812c5f0cb52205",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "audit/campaign-16-phase-b-recovery-2026-08-27/report.md",
+   "recordedStatusCode": "A ",
+   "liveStatusCode": "A ",
+   "statusCodeMatches": true,
+   "recordedSha256": "97c55fe388c41bf584f64cdb0725f59a165d68891396ab83c5167a77cce1a2ec",
+   "liveSha256": "97c55fe388c41bf584f64cdb0725f59a165d68891396ab83c5167a77cce1a2ec",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "audit/campaign-16-phase-b-recovery-2026-08-27/review-iteration-1.json",
+   "recordedStatusCode": "A ",
+   "liveStatusCode": "A ",
+   "statusCodeMatches": true,
+   "recordedSha256": "7375d12992e34dd4c0ccb2f1c742a89fd1374e2fca13fcc782ee42c8cb42d234",
+   "liveSha256": "7375d12992e34dd4c0ccb2f1c742a89fd1374e2fca13fcc782ee42c8cb42d234",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "audit/campaign-16-phase-b-recovery-2026-08-27/review-iteration-1.md",
+   "recordedStatusCode": "A ",
+   "liveStatusCode": "A ",
+   "statusCodeMatches": true,
+   "recordedSha256": "3e1f47cb7fc5750b83692a67d0fd2639159a2a080a086fd3d2cc7e68e93ad8b4",
+   "liveSha256": "3e1f47cb7fc5750b83692a67d0fd2639159a2a080a086fd3d2cc7e68e93ad8b4",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "audit/campaign-16-phase-b-recovery-2026-08-27/review.json",
+   "recordedStatusCode": "A ",
+   "liveStatusCode": "A ",
+   "statusCodeMatches": true,
+   "recordedSha256": "f94fe88950d1aa8550609065cbfbb44f14db527693d05ba3319a84abb614576d",
+   "liveSha256": "f94fe88950d1aa8550609065cbfbb44f14db527693d05ba3319a84abb614576d",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "audit/campaign-16-phase-b-recovery-2026-08-27/review.md",
+   "recordedStatusCode": "A ",
+   "liveStatusCode": "A ",
+   "statusCodeMatches": true,
+   "recordedSha256": "d66bb682a50bd887e66319bef1c102debe0d1adb4cbd2c721acd55f7aa9b34a8",
+   "liveSha256": "d66bb682a50bd887e66319bef1c102debe0d1adb4cbd2c721acd55f7aa9b34a8",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "banks/gpt-canonical.json",
+   "recordedStatusCode": "M ",
+   "liveStatusCode": "M ",
+   "statusCodeMatches": true,
+   "recordedSha256": "e4955f7b8c54e4880bd9ddb0f2f7c35881169f53051b5ed3ce21757f86287b3b",
+   "liveSha256": "e4955f7b8c54e4880bd9ddb0f2f7c35881169f53051b5ed3ce21757f86287b3b",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "census.json",
+   "recordedStatusCode": "M ",
+   "liveStatusCode": "M ",
+   "statusCodeMatches": true,
+   "recordedSha256": "0a596c1dca3527599133ea905881ce9044e6998adab46f1f15fee5a722e676ed",
+   "liveSha256": "0a596c1dca3527599133ea905881ce9044e6998adab46f1f15fee5a722e676ed",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "scripts/patches/2026-08-27-campaign16-phase-b-recovery-iteration-1.ts",
+   "recordedStatusCode": "A ",
+   "liveStatusCode": "A ",
+   "statusCodeMatches": true,
+   "recordedSha256": "9fe90c784a9b51f7f224f5b9c0fa83feec1c6c3733a911b44ea0f0fdb2f42ef9",
+   "liveSha256": "9fe90c784a9b51f7f224f5b9c0fa83feec1c6c3733a911b44ea0f0fdb2f42ef9",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  },
+  {
+   "path": "scripts/patches/2026-08-27-campaign16-phase-b-recovery.ts",
+   "recordedStatusCode": "A ",
+   "liveStatusCode": "A ",
+   "statusCodeMatches": true,
+   "recordedSha256": "e0238552f78de0ce3529ba9eac1d2c7025a486a3f92a3ad2de8adcb22e3049a0",
+   "liveSha256": "e0238552f78de0ce3529ba9eac1d2c7025a486a3f92a3ad2de8adcb22e3049a0",
+   "shaMatches": true,
+   "presentInLiveStatus": true
+  }
+ ],
+ "liveStatusClassification": {
+  "totalLiveRows": 293,
+  "unexpected": [],
+  "missingOpening": []
+ },
+ "statusLog": {
+  "existsOnDisk": true,
+  "content": "CAMPAIGN16_PHASE_C_CLOSEOUT_READY",
+  "appearsInGitStatus": false,
+  "gitCheckIgnoreConfirmsIgnored": true,
+  "inExecutorInventory": true
+ },
+ "repository": {
+  "head": "3286024bcab90c1a114811a7202d956c3e586bf4",
+  "branch": "main",
+  "aheadBehind": "0\t0",
+  "recordedHead": "3286024bcab90c1a114811a7202d956c3e586bf4",
+  "recordedAheadBehind": "0\t0"
+ }
+}

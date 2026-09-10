@@ -1,0 +1,118 @@
+{
+  "actionLabels": [
+    "A2",
+    "A3"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C2",
+  "missingInformation": [
+    "Oxygen saturation and respiratory effort",
+    "Baseline pulsus paradoxus measurement",
+    "IV access status and any prescribed fluid order",
+    "Anticoagulant use or bleeding risk"
+  ],
+  "parameterLabels": [
+    "P1",
+    "P3"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The stem explicitly establishes hemodynamically unstable cardiac tamponade through a rapidly enlarging effusion, obstructive-shock findings, elevated jugular venous pressure, and right-sided diastolic chamber collapse. Immediate qualified drainage is definitive, while cautious prescribed IV fluid support is an appropriate temporary preload measure. Echocardiographic/drain assessment and systemic hemodynamic-perfusion assessment best evaluate treatment response. Equal breath sounds and the echocardiographic findings argue against tension pneumothorax, while elevated venous pressure and chamber collapse argue against isolated hypovolemia.",
+  "selectionEvidence": [
+    "Rapidly enlarging pericardial effusion with severe hypotension and tachycardia indicates hemodynamic instability.",
+    "Elevated jugular venous pressure and right-atrial and right-ventricular diastolic collapse directly support cardiac tamponade.",
+    "A qualified drainage team is available, making immediate pericardial drainage feasible.",
+    "Temporary cautious IV fluid support can maintain preload while definitive drainage is readied.",
+    "Serial echocardiographic/drain findings and systemic hemodynamic-perfusion findings directly evaluate decompression and recovery."
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "No respiratory failure or other indication requiring routine positive-pressure ventilation is provided.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Positive-pressure ventilation before decompression can further reduce venous return in unstable tamponade, so the absent respiratory indication does not create meaningful ambiguity.",
+      "supportingStemText": "Rapidly enlarging pericardial effusion, blood pressure 78/50 mm Hg, and right-sided diastolic collapse with a drainage team available"
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Urgent pericardial drainage is the definitive response to unstable tamponade and is feasible in the stated setting.",
+      "supportingStemText": "An experienced drainage team is available; echocardiography shows right-atrial and right-ventricular diastolic collapse."
+    },
+    {
+      "missingPremise": "The stem does not state that IV access or a fluid prescription is already in place.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The action is expressly contingent on being prescribed and is a temporary preload-support measure, so the omitted operational details do not prevent selection.",
+      "supportingStemText": "Blood pressure is 78/50 mm Hg, heart rate is 128/min, and jugular venous pressure is elevated while urgent drainage is available."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Lowering preload with a diuretic conflicts with the preload-dependent physiology and severe hypotension of tamponade.",
+      "supportingStemText": "Blood pressure is 78/50 mm Hg with right-atrial and right-ventricular diastolic collapse."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "These findings identify obstructed cardiac filling rather than isolated intravascular volume loss.",
+      "supportingStemText": "Jugular venous pressure is elevated, a rapidly enlarging pericardial effusion is present, and right-sided diastolic chamber collapse is seen."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly supplies both tamponade physiology and hemodynamic instability.",
+      "supportingStemText": "Rapidly enlarging pericardial effusion; blood pressure 78/50 mm Hg; heart rate 128/min; elevated jugular venous pressure; right-atrial and right-ventricular diastolic collapse"
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Equal breath sounds and direct echocardiographic evidence of tamponade make tension pneumothorax noncompetitive.",
+      "supportingStemText": "Breath sounds are equal, and echocardiography demonstrates a pericardial effusion with right-sided diastolic collapse."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Repeat chamber-filling assessment, residual effusion, and drain output directly evaluate the effectiveness and ongoing adequacy of pericardial decompression.",
+      "supportingStemText": "Echocardiography shows right-atrial and right-ventricular diastolic collapse, and immediate drainage is available."
+    },
+    {
+      "missingPremise": "Tracheal position is not reported.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The missing tracheal-position finding does not impair ranking because the stem supplies direct evidence for tamponade and against unilateral thoracic pressure physiology.",
+      "supportingStemText": "Breath sounds are equal."
+    },
+    {
+      "missingPremise": "A baseline pulsus paradoxus measurement is not provided.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The explicitly abnormal blood pressure, heart rate, and peripheral perfusion establish a usable baseline; pulsus assessment adds relevant follow-up without being required for selection.",
+      "supportingStemText": "Blood pressure is 78/50 mm Hg, heart rate is 128/min, and the client is restless and cool."
+    },
+    {
+      "missingPremise": "No diabetes, hyperglycemia, ketosis, or metabolic decompensation findings are provided.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The absence of a glucose-ketone syndrome does not create ambiguity because the stem clearly identifies an obstructive cardiac emergency.",
+      "supportingStemText": ""
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Actions to take",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor"
+  },
+  "stem": "A school nurse is called to a closed maintenance room where two staff members who were using a gas-powered floor buffer report headache, nausea, and dizziness. One staff member is confused. The pulse oximeter reads 99%. A wall carbon monoxide alarm is sounding. Complete the diagram.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Administer high-flow oxygen by nonrebreather mask per emergency protocol"
+      },
+      {
+        "label": "A2",
+        "text": "Keep the clients in the room until the incident report is completed"
+      },
+      {
+        "label": "A3",
+        "text": "Coach the clients to breathe into a paper bag"
+      },
+      {
+        "label": "A4",
+        "text": "Move the clients to fresh air and activate emergency response"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Panic attack"
+      },
+      {
+        "label": "C2",
+        "text": "Opioid toxicity"
+      },
+      {
+        "label": "C3",
+        "text": "Carbon monoxide exposure"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Pulse oximeter saturation as the main indicator of oxygenation"
+      },
+      {
+        "label": "P2",
+        "text": "Capillary blood glucose every 15 minutes"
+      },
+      {
+        "label": "P3",
+        "text": "Carboxyhemoglobin level"
+      },
+      {
+        "label": "P4",
+        "text": "Level of consciousness and neurologic status"
+      }
+    ]
+  }
+}

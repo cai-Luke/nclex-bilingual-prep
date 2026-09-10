@@ -1,0 +1,120 @@
+{
+  "actionLabels": [
+    "A2",
+    "A3"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C3",
+  "missingInformation": [
+    "Pre-exercise glucose values and trend arrows",
+    "Timing, type, and dose of insulin relative to cycling",
+    "Timing and carbohydrate content of meals or snacks before cycling",
+    "Whether an established hypoglycemia treatment plan exists",
+    "Whether CGM low readings were confirmed with capillary testing",
+    "Whether delayed or nocturnal hypoglycemia occurs after cycling"
+  ],
+  "parameterLabels": [
+    "P1",
+    "P2"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The stem describes recurrent symptomatic hypoglycemia temporally linked to a new exercise routine while the prior meal and insulin plan remains unchanged. C3 is therefore the best-supported condition. A3 addresses immediate preparedness and treatment, while A2 addresses individualized prevention without unsafe independent insulin changes. P1 and P2 directly evaluate recurrence and the exercise-associated glucose pattern.",
+  "selectionEvidence": [
+    "Symptoms and CGM readings of 58–64 mg/dL repeatedly occurred during cycling or within one hour afterward, supporting C3.",
+    "The client continued the preexisting insulin and meal plan without an exercise-day adjustment, supporting individualized planning through A2.",
+    "Documented symptomatic glucose below 70 mg/dL supports carrying rapid carbohydrate and immediately following the hypoglycemia plan in A3.",
+    "The repeated cycling-day episodes make symptom timing and recurrence below the glucose threshold in P1 directly relevant.",
+    "The temporal relationship to exercise supports monitoring glucose before, during, and for several hours after cycling as specified in P2."
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "Evidence that additional pre-exercise insulin is needed or has been prescribed.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Increasing insulin independently conflicts with the documented hypoglycemia and could worsen it.",
+      "supportingStemText": "Cycling-day CGM readings were 58–64 mg/dL while the client continued the preexisting insulin plan."
+    },
+    {
+      "missingPremise": "The client's individualized prescriber-approved carbohydrate or medication adjustment.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The missing individualized details are the reason consultation is appropriate and do not prevent selecting this action.",
+      "supportingStemText": "The client began a new cycling routine without an exercise-day meal or insulin adjustment."
+    },
+    {
+      "missingPremise": "Confirmation that the client already has an established hypoglycemia plan and access to rapid carbohydrate.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The undocumented existence of a current plan does not undermine the need for rapid-carbohydrate preparedness and prompt treatment.",
+      "supportingStemText": "The client developed symptoms with CGM readings of 58–64 mg/dL during or shortly after cycling."
+    },
+    {
+      "missingPremise": "A contraindication requiring permanent cessation of all physical activity.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Nothing in the stem supports permanent activity avoidance, and a modifiable exercise-day mismatch is identified.",
+      "supportingStemText": "Episodes are associated with cycling while noncycling-day glucose readings remain 95–140 mg/dL."
+    },
+    {
+      "missingPremise": "Evidence of an intercurrent illness causing unstable glucose.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The stem explicitly excludes the illness features required for this condition.",
+      "supportingStemText": "The client has no fever, vomiting, ketones, or recent illness."
+    },
+    {
+      "missingPremise": "Persistent hyperglycemia indicating insufficient insulin.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The observed problem is activity-linked hypoglycemia rather than persistent hyperglycemia.",
+      "supportingStemText": "Noncycling fasting and premeal readings remain 95–140 mg/dL, while symptomatic cycling readings are 58–64 mg/dL."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly supplies the activity association, hypoglycemia, and unadjusted plan.",
+      "supportingStemText": "Symptoms and glucose readings of 58–64 mg/dL occurred on three cycling days after starting a new routine without an exercise-day adjustment."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly identifies recurrence, timing, symptoms, and below-threshold readings as the central problem.",
+      "supportingStemText": "Symptoms and readings below 70 mg/dL recurred on three cycling days during the ride or within one hour afterward."
+    },
+    {
+      "missingPremise": "Client-specific glucose measurements before cycling and beyond the first post-exercise hour.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Those missing measurements are precisely what this monitoring parameter would collect and do not impair its selection.",
+      "supportingStemText": "Hypoglycemia occurred during cycling or within one hour afterward."
+    },
+    {
+      "missingPremise": "Hyperglycemia, illness, or another indication for routine ketone testing.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Daily urine ketone monitoring is poorly aligned with the documented isolated hypoglycemia pattern.",
+      "supportingStemText": "The client has no ketones or recent illness, and noncycling fasting and premeal glucose remains 95–140 mg/dL."
+    },
+    {
+      "missingPremise": "A blood-pressure abnormality or cardiovascular issue relevant to the cycling-day hypoglycemia.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Resting blood pressure does not evaluate the identified exercise-associated glucose problem.",
+      "supportingStemText": "The stem supplies glucose and exercise findings but no blood-pressure concern."
+    }
+  ]
+}

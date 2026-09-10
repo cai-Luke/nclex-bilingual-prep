@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Priority actions — select 2",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor — select 2"
+  },
+  "stem": "A client with type 1 diabetes began a new 45-minute cycling routine after work. On three cycling days, the client developed sweating, tremor, and difficulty concentrating during the ride or within one hour afterward; continuous glucose monitor readings were 58–64 mg/dL. On noncycling days, fasting and premeal glucose readings remain 95–140 mg/dL. The client has no fever, vomiting, ketones, or recent illness and has continued the preexisting meal and insulin plan without an exercise-day adjustment.\n\nComplete the bowtie by selecting the most likely condition, the 2 priority actions, and the 2 parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Increase the pre-exercise insulin dose independently."
+      },
+      {
+        "label": "A2",
+        "text": "Contact the diabetes prescriber or DSMES team to create an individualized exercise-day carbohydrate and medication plan before the next ride."
+      },
+      {
+        "label": "A3",
+        "text": "Carry rapid-acting carbohydrate and immediately follow the existing hypoglycemia treatment plan when symptoms or a low reading occurs."
+      },
+      {
+        "label": "A4",
+        "text": "Stop all physical activity permanently."
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Intercurrent illness causing unstable glucose"
+      },
+      {
+        "label": "C2",
+        "text": "Persistent hyperglycemia from insufficient insulin"
+      },
+      {
+        "label": "C3",
+        "text": "Activity-associated hypoglycemia from a plan not aligned with the new exercise routine"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Timing and recurrence of hypoglycemia symptoms or readings below the client’s action threshold"
+      },
+      {
+        "label": "P2",
+        "text": "Glucose immediately before, during, and for several hours after cycling"
+      },
+      {
+        "label": "P3",
+        "text": "Daily urine ketones despite normal glucose and no illness"
+      },
+      {
+        "label": "P4",
+        "text": "Resting blood pressure on nonexercise mornings"
+      }
+    ]
+  }
+}

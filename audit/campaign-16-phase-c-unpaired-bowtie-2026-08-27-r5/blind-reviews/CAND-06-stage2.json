@@ -1,0 +1,121 @@
+{
+  "actionLabels": [
+    "A3",
+    "A4"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C3",
+  "missingInformation": [
+    "Effluent white blood cell count and neutrophil percentage",
+    "Effluent Gram stain and culture results",
+    "Temperature and other systemic manifestations",
+    "Focused abdominal examination findings",
+    "Catheter exit-site and tunnel findings",
+    "Constipation, drain-volume, and inflow/outflow history",
+    "The prescribed center-specific empiric antibiotic regimen"
+  ],
+  "parameterLabels": [
+    "P1",
+    "P3"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "Peritoneal dialysis plus new generalized abdominal pain and cloudy effluent most strongly supports suspected peritoneal-dialysis-related peritonitis. Because diagnostic effluent has not been collected and antibiotics have not begun, the priority sequence is to collect effluent studies first and then promptly begin prescribed empiric therapy. Abdominal/systemic status and effluent appearance with white-cell-count trend directly evaluate clinical and inflammatory response.",
+  "selectionEvidence": [
+    "The client receives maintenance peritoneal dialysis.",
+    "New generalized abdominal pain is present.",
+    "The drained dialysate is newly cloudy.",
+    "The client is hemodynamically stable.",
+    "Effluent diagnostic studies have not been collected and no antibiotic has been given, preserving the appropriate collect-then-treat sequence."
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "When the client is stable and both sampling and treatment remain pending, collecting diagnostic effluent before the first antibiotic dose is preferred to preserve culture yield.",
+      "supportingStemText": "No effluent cell count, differential, Gram stain, or culture has been collected, and no antibiotic has been given."
+    },
+    {
+      "missingPremise": "Evidence that constipation alone explains the presentation and that infection has been excluded",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Treating constipation alone would fail to evaluate or promptly treat a presentation strongly suggestive of peritoneal infection.",
+      "supportingStemText": "New generalized abdominal pain. The drained dialysate is newly cloudy."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem explicitly establishes that the indicated diagnostic specimens can still be collected before antimicrobial exposure.",
+      "supportingStemText": "No effluent cell count, differential, Gram stain, or culture has been collected, and no antibiotic has been given."
+    },
+    {
+      "missingPremise": "The actual prescribed center-specific antibiotic protocol",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Prompt empiric treatment after specimen collection is appropriate for suspected peritoneal-dialysis-related peritonitis, while the exact regimen depends on an order or protocol not supplied.",
+      "supportingStemText": "The drained dialysate is newly cloudy. No antibiotic has been given."
+    },
+    {
+      "missingPremise": "Constipation, reduced drain volume, or catheter outflow dysfunction",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "No bowel or outflow findings support this diagnosis, while cloudy effluent and abdominal pain support infection.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "Exit-site erythema, tenderness, swelling, or purulent drainage",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The stem provides no localized exit-site findings and instead describes intraperitoneal manifestations.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The dialysis context, abdominal pain, and cloudy effluent form the strongest and most specific diagnostic pattern in the condition pool.",
+      "supportingStemText": "A hemodynamically stable adult receiving maintenance peritoneal dialysis reports new generalized abdominal pain. The drained dialysate is newly cloudy."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Pain and systemic status are already established clinical domains and are direct measures of deterioration or response.",
+      "supportingStemText": "Reports new generalized abdominal pain. A hemodynamically stable adult."
+    },
+    {
+      "missingPremise": "Constipation symptoms, bowel-frequency change, or abdominal fullness",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The stem supplies no bowel-related premise, so this parameter is less directly tied to the suspected condition.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Effluent appearance is abnormal at baseline, and obtaining then trending the effluent white-cell count directly evaluates the peritoneal inflammatory process.",
+      "supportingStemText": "The drained dialysate is newly cloudy. No effluent cell count or differential has been collected."
+    },
+    {
+      "missingPremise": "Prolonged inflow, incomplete drainage, reduced drain volume, or suspected mechanical catheter dysfunction",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "No mechanical flow problem is described, making these measures less relevant than clinical status and effluent inflammation.",
+      "supportingStemText": ""
+    }
+  ]
+}

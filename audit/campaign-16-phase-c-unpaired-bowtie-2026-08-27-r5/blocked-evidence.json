@@ -1,0 +1,49 @@
+{
+  "terminalStatus": "CAMPAIGN16_PHASE_C_BLOCKED",
+  "failedGate": "Revision-5 work-order §12 independent checker exit gate: exact primary-verdict agreement required 19/19; observed 18/19",
+  "expectedExactPrimaryVerdictAgreement": 19,
+  "observedExactPrimaryVerdictAgreement": 18,
+  "disagreement": {
+    "surrogateId": "CAND-18",
+    "candidateId": "gpt_format7c_exercise_hypoglycemia_bowtie",
+    "producerVerdict": "FAIL_UNSUPPORTED_TOKEN_PREMISE",
+    "independentClaudeVerdict": "PASS_STANDALONE",
+    "affectedOpaqueToken": "A3",
+    "producerSupportClassification": "MISSING_CLIENT_FACT",
+    "independentSupportClassification": "GENERAL_KNOWLEDGE_LINK",
+    "producerMissingFact": "Confirmation that the client already has an established hypoglycemia plan and access to rapid carbohydrate.",
+    "producerProvenance": "RATIONALE_ONLY"
+  },
+  "producerVerdictTotals": {
+    "PASS_STANDALONE": 18,
+    "FAIL_UNSUPPORTED_TOKEN_PREMISE": 1
+  },
+  "independentClaudeVerdictTotals": {
+    "PASS_STANDALONE": 19
+  },
+  "mechanicalGates": {
+    "bankIdentity": "13/13 PASS",
+    "population": "50 suffix / 31 paired / 19 unpaired PASS",
+    "unpairedPayloadPreservation": "19/19 MATCH",
+    "correctedBtFalsification": "PASS",
+    "structuralPrecondition": "19/19 PASS",
+    "siblingAbsence": "0 hits PASS",
+    "pairedDispositionPreservation": "31/31 MATCH",
+    "semanticExecution": "19 isolated Sol/high contexts / 38 sealed turns PASS",
+    "producerInternalConsistency": "PASS",
+    "bankAndWorktreePreservation": "PASS"
+  },
+  "evidencePaths": [
+    "audit/campaign-16-phase-c-check-2026-08-27-r5/independent-derivation.json",
+    "audit/campaign-16-phase-c-check-2026-08-27-r5/independent-derivation.md",
+    "audit/campaign-16-phase-c-check-2026-08-27-r5/blinding-provenance.json",
+    "audit/campaign-16-phase-c-check-2026-08-27-r5/comparison.md",
+    "audit/campaign-16-phase-c-check-2026-08-27-r5/check.json",
+    "audit/campaign-16-phase-c-check-2026-08-27-r5/check.md",
+    "audit/campaign-16-phase-c-unpaired-bowtie-2026-08-27-r5/adjudication.jsonl",
+    "audit/campaign-16-phase-c-unpaired-bowtie-2026-08-27-r5/report.md",
+    "audit/campaign-16-phase-c-unpaired-bowtie-2026-08-27-r5/verification.md",
+    "audit/campaign-16-phase-c-unpaired-bowtie-2026-08-27-r5/closeout-preservation.json"
+  ],
+  "scopeDisposition": "Stopped without repair, method amendment, bank mutation, commit, push, or Phase D work."
+}

@@ -1,0 +1,133 @@
+{
+  "actionLabels": [
+    "A3",
+    "A4"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C2",
+  "missingInformation": [
+    "Specific local anesthetic, concentration, infusion rate, and cumulative dose",
+    "Client weight for protocol-directed lipid emulsion dosing",
+    "Current oxygen saturation, ventilation, airway status, and whether seizure activity continues",
+    "Presence or absence of a palpable pulse"
+  ],
+  "parameterLabels": [
+    "P3",
+    "P4"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The stem provides a highly characteristic temporal and clinical pattern of local anesthetic systemic toxicity. A3 and A4 directly address the toxin and emergency treatment, while P3 and P4 monitor the two organ systems already showing severe toxicity. The alternatives either delay treatment, re-expose the client, focus on a nonurgent effect, or rely on a laboratory value that should not determine immediate management.",
+  "selectionEvidence": [
+    {
+      "evidence": "Symptoms begin within minutes of continuous local anesthetic delivery and progress from metallic taste and tinnitus to seizure, ventricular ectopy, and profound hypotension, a classic pattern of local anesthetic systemic toxicity.",
+      "opaqueTokenLabel": "C2"
+    },
+    {
+      "evidence": "The generalized seizure plus ventricular ectopy and blood pressure of 78/42 mm Hg indicate severe neurologic and cardiovascular toxicity warranting early protocol-directed 20% lipid emulsion.",
+      "opaqueTokenLabel": "A3"
+    },
+    {
+      "evidence": "The suspected toxic source is an active continuous local anesthetic infusion, and the client has life-threatening manifestations requiring immediate cessation and emergency-response activation.",
+      "opaqueTokenLabel": "A4"
+    },
+    {
+      "evidence": "The client has had a generalized seizure, making neurologic recovery and seizure recurrence directly relevant.",
+      "opaqueTokenLabel": "P3"
+    },
+    {
+      "evidence": "Frequent ventricular ectopy and blood pressure of 78/42 mm Hg require continuous assessment of rhythm and hemodynamic response.",
+      "opaqueTokenLabel": "P4"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "A focal neurologic syndrome or other client-specific evidence of acute cerebral ischemia.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The exposure-linked systemic neurocardiac toxidrome strongly favors C2 over stroke.",
+      "supportingStemText": "Symptoms follow local anesthetic infusion within minutes and include metallic taste, tinnitus, generalized seizure, ventricular ectopy, and hypotension; no focal neurologic deficit is described."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem explicitly supplies the exposure, timing, neurologic prodrome, seizure, and cardiovascular toxicity needed to identify LAST.",
+      "supportingStemText": "Continuous local anesthetic infusion is followed within minutes by metallic taste, ringing in the ears, generalized seizure, frequent ventricular ectopy, and blood pressure of 78/42 mm Hg."
+    },
+    {
+      "missingPremise": "Client-specific allergic manifestations or a plausible perioperative allergen exposure pattern supporting anaphylaxis.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Anaphylaxis can rarely lack cutaneous findings, but the stated neurocardiac prodrome is substantially more specific for C2.",
+      "supportingStemText": "No rash or wheezing is present, while metallic taste and tinnitus precede seizure and ventricular ectopy during local anesthetic infusion."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Life-threatening instability requires immediate emergency treatment; waiting for a serum level is incompatible with the urgency established by the stem.",
+      "supportingStemText": "The client has a generalized seizure, frequent ventricular ectopy, and blood pressure of 78/42 mm Hg."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Restarting the suspected causative infusion would re-expose the client after severe toxicity.",
+      "supportingStemText": "Severe manifestations develop during continuous local anesthetic delivery, including seizure, ventricular ectopy, and profound hypotension."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Early 20% lipid emulsion is established protocol-directed treatment for severe LAST and is supported by the stem's neurologic and cardiovascular toxicity.",
+      "supportingStemText": "The client develops generalized seizure, frequent ventricular ectopy, and blood pressure of 78/42 mm Hg after local anesthetic administration."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Stopping toxin delivery and activating the LAST response are immediate priorities supported by the identified exposure and instability.",
+      "supportingStemText": "An active continuous local anesthetic infusion is temporally associated with rapidly progressive neurologic and cardiovascular toxicity in a monitored recovery area."
+    },
+    {
+      "missingPremise": "Client-specific sensory or motor block findings whose regression would affect immediate evaluation.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Block regression is less urgent than monitoring the active seizure and cardiovascular instability explicitly described.",
+      "supportingStemText": "A peripheral nerve catheter is present, but the stem gives no baseline or changing sensory or motor block findings."
+    },
+    {
+      "missingPremise": "A clinically relevant reason that serum concentration would guide immediate management or serial response assessment.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The emergency diagnosis and treatment are clinical, and a serum level should not displace direct neurologic and hemodynamic monitoring.",
+      "supportingStemText": "No serum local-anesthetic measurement, sampling plan, or laboratory-dependent decision is described."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Neurologic status and seizure recurrence directly track an explicitly affected system.",
+      "supportingStemText": "The client reports neurologic prodromes and then has a generalized seizure."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Rhythm, blood pressure, and hemodynamic stability directly track the stem's life-threatening cardiovascular manifestations.",
+      "supportingStemText": "The cardiac monitor shows frequent ventricular ectopy, and the blood pressure falls to 78/42 mm Hg."
+    }
+  ]
+}

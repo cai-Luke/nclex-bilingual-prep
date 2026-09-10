@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Priority actions — select 2",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor — select 2"
+  },
+  "stem": "An adult with active lung cancer is admitted for increasing weakness, constipation, thirst, and confusion. Serum calcium is 15.2 mg/dL. Mucous membranes are dry, and urine output has decreased from the client's usual amount. The client has no history or findings of heart failure, and the current renal assessment does not require a treatment change. The oncology emergency protocol and prescriber orders for IV fluids and medications are available.\n\nComplete the bowtie by selecting the most likely condition, the 2 priority actions, and the 2 parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Begin ordered isotonic IV hydration"
+      },
+      {
+        "label": "A2",
+        "text": "Administer ordered calcitonin plus antiresorptive therapy"
+      },
+      {
+        "label": "A3",
+        "text": "Give a loop diuretic routinely before correcting the volume deficit"
+      },
+      {
+        "label": "A4",
+        "text": "Delay antiresorptive therapy until hydration alone normalizes the calcium"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Tumor lysis syndrome"
+      },
+      {
+        "label": "C2",
+        "text": "Syndrome of inappropriate antidiuretic hormone secretion (SIADH)"
+      },
+      {
+        "label": "C3",
+        "text": "Severe hypercalcemia of malignancy"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Volume status and renal function"
+      },
+      {
+        "label": "P2",
+        "text": "Pain score alone"
+      },
+      {
+        "label": "P3",
+        "text": "Serial serum calcium"
+      },
+      {
+        "label": "P4",
+        "text": "Total calcium and ionized calcium as two separate outcome domains"
+      }
+    ]
+  }
+}

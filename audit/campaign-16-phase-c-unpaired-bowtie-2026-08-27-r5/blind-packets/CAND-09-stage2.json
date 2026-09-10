@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Priority actions — select 2",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor — select 2"
+  },
+  "stem": "An adult with a rapidly enlarging pericardial effusion becomes restless and cool. Blood pressure is 78/50 mm Hg, heart rate is 128/min, and jugular venous pressure is elevated. Echocardiography shows right-atrial and right-ventricular diastolic collapse. The client has a pulse, breath sounds are equal, and an experienced drainage team is available. Complete the bow-tie by choosing the condition, 2 actions, and 2 parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Begin routine positive-pressure ventilation before drainage"
+      },
+      {
+        "label": "A2",
+        "text": "Activate immediate image-guided pericardial drainage by the qualified team"
+      },
+      {
+        "label": "A3",
+        "text": "Provide prescribed cautious temporary IV fluid support while urgent drainage is readied"
+      },
+      {
+        "label": "A4",
+        "text": "Administer an ordered IV diuretic to lower preload"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Isolated hypovolemic shock"
+      },
+      {
+        "label": "C2",
+        "text": "Hemodynamically unstable cardiac tamponade"
+      },
+      {
+        "label": "C3",
+        "text": "Tension pneumothorax"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Echocardiographic chamber collapse, residual effusion, and pericardial drain output"
+      },
+      {
+        "label": "P2",
+        "text": "Tracheal position and unilateral breath sounds"
+      },
+      {
+        "label": "P3",
+        "text": "Blood pressure, heart rate, pulsus findings, and peripheral perfusion"
+      },
+      {
+        "label": "P4",
+        "text": "Serum glucose and urine ketones"
+      }
+    ]
+  }
+}

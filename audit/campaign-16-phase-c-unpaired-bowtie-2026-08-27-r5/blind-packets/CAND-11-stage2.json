@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Priority actions — select 2",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor — select 2"
+  },
+  "stem": "An adult arrives with a temperature of 103.1 °F (39.5 °C), blood pressure 82/48 mm Hg, heart rate 128/min, new confusion, and a rapidly spreading nonblanching petechial and purpuric rash. Neck stiffness is absent. Initial sepsis and hemodynamic resuscitation with isotonic IV crystalloid is already underway. Blood cultures have been drawn without delaying treatment, and an order for IV ceftriaxone is available. This is the first day of effective therapy.\n\nComplete the bowtie by selecting the most likely condition, the 2 priority actions, and the 2 parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Place the client in a negative-pressure room with Airborne Precautions"
+      },
+      {
+        "label": "A2",
+        "text": "Administer the ordered IV ceftriaxone promptly"
+      },
+      {
+        "label": "A3",
+        "text": "Initiate Standard plus Droplet Precautions"
+      },
+      {
+        "label": "A4",
+        "text": "Wait for final culture confirmation before giving antibiotics"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Acute allergic urticaria"
+      },
+      {
+        "label": "C2",
+        "text": "Meningococcemia"
+      },
+      {
+        "label": "C3",
+        "text": "Uncomplicated viral exanthem"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Neck stiffness alone"
+      },
+      {
+        "label": "P2",
+        "text": "Daily weight alone"
+      },
+      {
+        "label": "P3",
+        "text": "Extent and progression of the petechial-purpuric rash"
+      },
+      {
+        "label": "P4",
+        "text": "Blood pressure, urine output, and mental status"
+      }
+    ]
+  }
+}

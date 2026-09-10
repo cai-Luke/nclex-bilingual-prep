@@ -1,0 +1,140 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A3"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P1",
+      "P4"
+    ]
+  },
+  "canonicalSetExplanation": "The five canonical targets are supported by explicit stem facts or ordinary clinical knowledge and remain uniquely preferable to all six distractors.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A1",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "During general anesthesia with a volatile anesthetic, an adult client's end-tidal carbon dioxide rises rapidly from 38 to 72 mm Hg despite increased minute ventilation."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Volatile anesthetic exposure, rapidly rising end-tidal carbon dioxide, tachycardia, generalized muscle rigidity, and rapidly rising core temperature"
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C1",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "During general anesthesia with a volatile anesthetic...end-tidal carbon dioxide rises rapidly...heart rate is 142/min, generalized muscle rigidity is present, and the core temperature has risen...in 20 minutes."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "End-tidal carbon dioxide rises rapidly from 38 to 72 mm Hg despite increased minute ventilation."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The core temperature has risen from 98.6 °F (37.0 °C) to 101.7 °F (38.7 °C) in 20 minutes."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "Evidence of infection or sepsis requiring cultures and empiric antibiotics as the primary response",
+      "opaqueTokenLabel": "A2",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "MISSING_CLIENT_FACT",
+      "supportingStandaloneEvidence": ""
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A4",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "CONTRADICTED",
+      "supportingStandaloneEvidence": "End-tidal carbon dioxide rises rapidly from 38 to 72 mm Hg despite increased minute ventilation."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "Hypotension, bronchospasm, urticaria, angioedema, or another acute hypersensitivity manifestation",
+      "opaqueTokenLabel": "C2",
+      "reviewerRankabilityImpact": "LOW",
+      "supportClassification": "MISSING_CLIENT_FACT",
+      "supportingStandaloneEvidence": "During general anesthesia with a volatile anesthetic"
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "Known thyrotoxicosis or compatible thyroid history and supporting manifestations such as goiter, tremor, gastrointestinal symptoms, or preoperative hyperthyroid findings",
+      "opaqueTokenLabel": "C3",
+      "reviewerRankabilityImpact": "LOW",
+      "supportClassification": "MISSING_CLIENT_FACT",
+      "supportingStandaloneEvidence": "The heart rate is 142/min...and the core temperature has risen."
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "A suspected perioperative anaphylactic reaction for which serum tryptase would provide diagnostic support",
+      "opaqueTokenLabel": "P2",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "MISSING_CLIENT_FACT",
+      "supportingStandaloneEvidence": ""
+    },
+    {
+      "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+      "materiallyAffectsRankability": false,
+      "missingClientFact": "Suspected bacteremia, sepsis, or another infectious process warranting blood cultures",
+      "opaqueTokenLabel": "P3",
+      "reviewerRankabilityImpact": "NONE",
+      "supportClassification": "MISSING_CLIENT_FACT",
+      "supportingStandaloneEvidence": ""
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "missingFact": "Evidence of infection or sepsis requiring cultures and empiric antibiotics as the primary response",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A2",
+      "reviewerRankabilityImpact": "NONE"
+    },
+    {
+      "missingFact": "Hypotension, bronchospasm, urticaria, angioedema, or another acute hypersensitivity manifestation",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C2",
+      "reviewerRankabilityImpact": "LOW"
+    },
+    {
+      "missingFact": "Known thyrotoxicosis or compatible thyroid history and supporting manifestations such as goiter, tremor, gastrointestinal symptoms, or preoperative hyperthyroid findings",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C3",
+      "reviewerRankabilityImpact": "LOW"
+    },
+    {
+      "missingFact": "A suspected perioperative anaphylactic reaction for which serum tryptase would provide diagnostic support",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P2",
+      "reviewerRankabilityImpact": "NONE"
+    },
+    {
+      "missingFact": "Suspected bacteremia, sepsis, or another infectious process warranting blood cultures",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P3",
+      "reviewerRankabilityImpact": "NONE"
+    }
+  ],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "Stage 1 independently identified the same condition and the same clinical action and evaluation domains as the canonical construct.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

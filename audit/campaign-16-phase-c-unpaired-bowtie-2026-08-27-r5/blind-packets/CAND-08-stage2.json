@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Priority actions — select 2",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor — select 2"
+  },
+  "stem": "During an endoscopic procedure, a 46-year-old adult received topical benzocaine. Minutes later, the client develops dyspnea and blue-gray lips. SpO₂ remains 84% despite supplemental oxygen; arterial PaO₂ is 118 mm Hg, and co-oximetry shows methemoglobin 28%. The record documents normal glucose-6-phosphate dehydrogenase activity. The rapid-response team and prescriber are at the bedside. Complete the bow-tie by choosing the condition, 2 actions, and 2 parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Wait for pulse oximetry alone to normalize before intervening"
+      },
+      {
+        "label": "A2",
+        "text": "Administer ordered IV methylene blue because G6PD deficiency is excluded"
+      },
+      {
+        "label": "A3",
+        "text": "Stop further oxidant exposure and continue supportive oxygen"
+      },
+      {
+        "label": "A4",
+        "text": "Administer an ordered IV diuretic to remove the oxidant"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Carbon-monoxide poisoning"
+      },
+      {
+        "label": "C2",
+        "text": "Acquired methemoglobinemia"
+      },
+      {
+        "label": "C3",
+        "text": "Isolated acute bronchospasm"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Serial carboxyhemoglobin and ambient carbon-monoxide levels"
+      },
+      {
+        "label": "P2",
+        "text": "Serial methemoglobin by co-oximetry and clinical symptom response"
+      },
+      {
+        "label": "P3",
+        "text": "Hemoglobin, indirect bilirubin, haptoglobin, and arterial oxygen assessment"
+      },
+      {
+        "label": "P4",
+        "text": "Serum cholinesterase activity and secretion volume"
+      }
+    ]
+  }
+}

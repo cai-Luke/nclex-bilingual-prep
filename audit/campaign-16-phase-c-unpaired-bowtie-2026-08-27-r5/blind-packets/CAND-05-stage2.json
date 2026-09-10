@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Actions to take",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor"
+  },
+  "stem": "During general anesthesia with a volatile anesthetic, an adult client's end-tidal carbon dioxide rises rapidly from 38 to 72 mm Hg despite increased minute ventilation. The heart rate is 142/min, generalized muscle rigidity is present, and the core temperature has risen from 98.6 °F (37.0 °C) to 101.7 °F (38.7 °C) in 20 minutes. Complete the bow-tie.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Discontinue triggering agents and hyperventilate with 100% oxygen"
+      },
+      {
+        "label": "A2",
+        "text": "Obtain cultures and begin empiric antibiotics as the primary response"
+      },
+      {
+        "label": "A3",
+        "text": "Administer protocol-directed IV dantrolene rapidly"
+      },
+      {
+        "label": "A4",
+        "text": "Continue the volatile anesthetic while increasing minute ventilation"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Acute malignant hyperthermia"
+      },
+      {
+        "label": "C2",
+        "text": "Perioperative anaphylaxis"
+      },
+      {
+        "label": "C3",
+        "text": "Thyroid storm"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "End-tidal carbon dioxide trend"
+      },
+      {
+        "label": "P2",
+        "text": "Serum tryptase"
+      },
+      {
+        "label": "P3",
+        "text": "Blood-culture results"
+      },
+      {
+        "label": "P4",
+        "text": "Core temperature trend"
+      }
+    ]
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "actionLabels": [
+    "A3",
+    "A4"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C2",
+  "missingInformation": [
+    "Whether the client has already consumed any oxycodone or alcohol",
+    "The quantity and strength of the oxycodone tablets and immediate availability of alcohol",
+    "The client's current mental status, intoxication status, medical stability, prior suicide attempts, and protective factors"
+  ],
+  "parameterLabels": [
+    "P1",
+    "P3"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The stem explicitly establishes imminent suicide risk through current intent, a specific lethal plan, access to the pills, and a timeframe of tonight. Immediate protocol activation, means restriction, direct observation, reassessment of intent and safety, and monitoring access to lethal means are uniquely prioritized by the available tokens.",
+  "selectionEvidence": [
+    {
+      "opaqueLabel": "C2",
+      "supportingStemFact": "The client states an intention to die tonight using oxycodone with alcohol and has the tablets in a backpack."
+    },
+    {
+      "opaqueLabel": "A3",
+      "supportingStemFact": "The client identifies an immediately available lethal means: old oxycodone tablets in the backpack."
+    },
+    {
+      "opaqueLabel": "A4",
+      "supportingStemFact": "The client reports a specific suicide plan, intent, accessible means, and a near-term timeframe of tonight."
+    },
+    {
+      "opaqueLabel": "P1",
+      "supportingStemFact": "The statement specifies current intent, a plan to combine oxycodone with alcohol, and an intended fatal outcome."
+    },
+    {
+      "opaqueLabel": "P3",
+      "supportingStemFact": "The client explicitly reports that the oxycodone tablets are currently in the backpack."
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicit suicide plan and imminent timeframe directly contradict the claim that no immediate safety threat exists.",
+      "supportingStemText": "\"Tonight I am going to take the old oxycodone tablets in my backpack with alcohol so I do not wake up.\""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Intent to die, a specific method, accessible means, and a timeframe of tonight explicitly support imminent suicide risk.",
+      "supportingStemText": "\"Tonight I am going to take the old oxycodone tablets in my backpack with alcohol so I do not wake up.\""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The expressed intent to die contradicts nonsuicidal self-injury without current intent.",
+      "supportingStemText": "The client says the purpose of taking oxycodone with alcohol is \"so I do not wake up.\""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "An imminent threat requires immediate intervention, making a routine visit next week unsafe and nonresponsive to the stated risk.",
+      "supportingStemText": "The client plans to die \"Tonight\" and has the oxycodone tablets in a backpack."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Returning the client home conflicts with the explicit imminent plan and access to lethal means, regardless of a signed contract.",
+      "supportingStemText": "The client reports a suicide plan for tonight with currently accessible oxycodone tablets."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicit imminent plan and accessible pills support activating emergency suicide precautions and restricting the means.",
+      "supportingStemText": "The client states that the old oxycodone tablets are \"in my backpack\" and plans to use them tonight with alcohol."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The immediate danger and resistance to involving others support staying with the client and maintaining direct observation.",
+      "supportingStemText": "The client states an intention to die tonight and asks, \"Do not call anyone.\""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The statement explicitly provides intent and plan while making ongoing assessment of the client's ability to remain safe essential.",
+      "supportingStemText": "\"Tonight I am going to take the old oxycodone tablets in my backpack with alcohol so I do not wake up.\""
+    },
+    {
+      "missingPremise": "The stem provides no bedtime concern or clinical reason for bedtime routine to be a priority safety parameter.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Absence of a bedtime-related problem does not impair ranking because the stem explicitly identifies suicide-related monitoring priorities.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Current possession of the planned overdose medication explicitly supports monitoring access to lethal means.",
+      "supportingStemText": "The client says the old oxycodone tablets are \"in my backpack.\""
+    },
+    {
+      "missingPremise": "The stem contains no concern about nutrition, weight, eating behavior, or calorie intake.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Absence of nutritional concerns does not impair ranking because calorie intake has no stated connection to the immediate suicide threat.",
+      "supportingStemText": ""
+    }
+  ]
+}

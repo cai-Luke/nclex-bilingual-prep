@@ -1,0 +1,285 @@
+{
+  "candidateSurfaces": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions — select 2",
+          "zh": "优先措施——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Administer the protocol-directed anesthetic or anticonvulsant to terminate the seizure",
+            "opaqueTokenLabel": "A1",
+            "zh": "按流程给予麻醉药或抗惊厥药以终止发作"
+          },
+          {
+            "en": "Deliver another electrical stimulus immediately",
+            "opaqueTokenLabel": "A2",
+            "zh": "立即再次给予电刺激"
+          },
+          {
+            "en": "Maintain the airway and provide assisted ventilation and oxygenation",
+            "opaqueTokenLabel": "A3",
+            "zh": "维持气道并提供辅助通气和给氧"
+          },
+          {
+            "en": "Continue observation without treatment while waiting for the seizure to stop on its own",
+            "opaqueTokenLabel": "A4",
+            "zh": "继续观察而不采取处理，等待发作自行停止"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的状况"
+        },
+        "tokens": [
+          {
+            "en": "Tardive seizure during recovery",
+            "opaqueTokenLabel": "C1",
+            "zh": "恢复期迟发性发作"
+          },
+          {
+            "en": "Expected brief ECT-induced seizure",
+            "opaqueTokenLabel": "C2",
+            "zh": "预期的短暂 ECT 诱发发作"
+          },
+          {
+            "en": "Prolonged ECT-induced seizure",
+            "opaqueTokenLabel": "C3",
+            "zh": "ECT 诱发的延长性发作"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor — select 2",
+          "zh": "需要监测的指标——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Depression symptom score during the event",
+            "opaqueTokenLabel": "P1",
+            "zh": "事件发生期间的抑郁症状评分"
+          },
+          {
+            "en": "Orientation only after full recovery",
+            "opaqueTokenLabel": "P2",
+            "zh": "仅在完全恢复后评估定向力"
+          },
+          {
+            "en": "Oxygen saturation, ventilation, pulse, and blood pressure",
+            "opaqueTokenLabel": "P3",
+            "zh": "血氧饱和度、通气、脉搏和血压"
+          },
+          {
+            "en": "Motor and EEG seizure cessation and recurrence",
+            "opaqueTokenLabel": "P4",
+            "zh": "运动性和脑电图发作终止及有无复发"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "脑电图上提示癫痫样发作正在进行的活动。",
+        "termEn": "ictal activity",
+        "termZh": "发作期活动"
+      },
+      {
+        "defZh": "通过人工方式帮助患者维持有效气体交换。",
+        "termEn": "assisted ventilation",
+        "termZh": "辅助通气"
+      },
+      {
+        "defZh": "ECT 后患者已恢复意识，随后才出现的发作。",
+        "termEn": "tardive seizure",
+        "termZh": "迟发性发作"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct: ongoing motor and EEG activity at 185 seconds is beyond the guideline's longer-than-180-second definition of a prolonged seizure; attempted termination is permitted after 120 seconds.",
+          "opaqueTokenLabel": "C3",
+          "zh": "正确：运动性和脑电图活动持续到 185 秒，已超过指南对延长性发作所定义的 180 秒；发作超过 120 秒后即可尝试终止。"
+        },
+        {
+          "en": "Incorrect: a seizure still continuing at 185 seconds is not treated as an expected brief ECT seizure.",
+          "opaqueTokenLabel": "C2",
+          "zh": "错误：发作持续至 185 秒时，不能再按预期的短暂 ECT 发作处理。"
+        },
+        {
+          "en": "Incorrect: a tardive seizure occurs after recovery; this client has never regained consciousness after the stimulus.",
+          "opaqueTokenLabel": "C1",
+          "zh": "错误：迟发性发作发生在恢复之后；本患者刺激后尚未恢复意识。"
+        },
+        {
+          "en": "Correct: the guideline permits protocol-directed pharmacologic termination when ECT seizure activity extends beyond 120 seconds.",
+          "opaqueTokenLabel": "A1",
+          "zh": "正确：指南允许在 ECT 发作活动超过 120 秒时按流程使用药物终止发作。"
+        },
+        {
+          "en": "Correct: airway and respiration require close support and monitoring until seizure activity has completely stopped.",
+          "opaqueTokenLabel": "A3",
+          "zh": "正确：在发作活动完全停止前，应持续严密支持和监测气道及呼吸。"
+        },
+        {
+          "en": "Incorrect: continued observation without treatment delays the protocol-directed response after the seizure has passed both the 120-second intervention threshold and the longer-than-180-second prolonged-seizure definition.",
+          "opaqueTokenLabel": "A4",
+          "zh": "错误：发作已经超过 120 秒的干预界限以及 180 秒的延长性发作定义，此时继续观察而不处理会延误按流程采取的措施。"
+        },
+        {
+          "en": "Incorrect: another electrical stimulus is not the response to an ongoing prolonged seizure.",
+          "opaqueTokenLabel": "A2",
+          "zh": "错误：对仍在持续的延长性发作，再次给予电刺激并非正确处理。"
+        },
+        {
+          "en": "Correct: motor and EEG activity directly establish cessation and can detect renewed seizure activity.",
+          "opaqueTokenLabel": "P4",
+          "zh": "正确：运动性和脑电图活动可直接确认发作是否终止，并可发现再次出现的发作活动。"
+        },
+        {
+          "en": "Correct: oxygen saturation, ventilation, blood pressure, and pulse assess cardiorespiratory recovery.",
+          "opaqueTokenLabel": "P3",
+          "zh": "正确：血氧饱和度、通气、血压和脉搏用于评估心肺恢复。"
+        },
+        {
+          "en": "Incorrect: orientation after full recovery does not replace immediate seizure and cardiorespiratory monitoring.",
+          "opaqueTokenLabel": "P2",
+          "zh": "错误：完全恢复后的定向力评估不能替代当下的发作和心肺监测。"
+        },
+        {
+          "en": "Incorrect: a depression symptom score does not evaluate resolution or immediate safety of the prolonged seizure.",
+          "opaqueTokenLabel": "P1",
+          "zh": "错误：抑郁症状评分不能评估延长性发作是否终止或其即时安全性。"
+        }
+      ],
+      "correct": {
+        "en": "Continued motor and EEG seizure activity beyond 180 seconds meets the guideline's definition of a prolonged ECT-induced seizure; the guideline permits attempted termination once seizure activity extends beyond 120 seconds. The team should administer the protocol-directed anesthetic or anticonvulsant and maintain the airway with assisted ventilation and oxygenation. Monitoring must separately confirm motor/EEG cessation and detect recurrence, while following oxygen saturation, ventilation, and hemodynamic recovery.",
+        "zh": "ECT 期间运动性和脑电图发作活动持续超过 180 秒，符合指南对 ECT 诱发延长性发作的定义；指南允许在发作活动超过 120 秒后尝试终止发作。团队应按流程给予麻醉药或抗惊厥药，并维持气道、辅助通气和给氧。监测应分别确认运动性/脑电图发作终止及有无复发，同时观察血氧饱和度、通气和血流动力学恢复。"
+      }
+    },
+    "stem": {
+      "en": "An adult is receiving electroconvulsive therapy (ECT) under general anesthesia. At 185 seconds after the stimulus, rhythmic motor activity continues in the isolated limb, and the EEG continues to show ictal activity. The anesthesia professional and ECT physician are at the bedside, and protocol orders for seizure termination are active. The client has not regained consciousness and has no new focal neurologic finding.\n\nComplete the bowtie by selecting the most likely condition, the 2 priority actions, and the 2 parameters to monitor.",
+      "zh": "一名成人正在全身麻醉下接受电休克治疗（ECT）。刺激后 185 秒时，隔离肢体仍有节律性运动，脑电图仍显示发作期活动。麻醉专业人员和 ECT 医师均在床旁，终止发作的流程医嘱已生效。患者尚未恢复意识，也没有新的局灶性神经系统表现。\n\n完成蝴蝶结题：选择最可能的状况、2 项优先措施和 2 项需要监测的指标。"
+    },
+    "testTakingStrategy": {
+      "en": "Use the raw duration and concurrent motor/EEG evidence, then separate seizure termination from airway support and separate neurologic from cardiorespiratory monitoring.",
+      "zh": "先利用原始持续时间以及同步的运动性/脑电图证据，再把终止发作与气道支持区分开，并把神经监测与心肺监测区分开。"
+    }
+  },
+  "explicitlyLinkedHistoricalSources": [],
+  "instruction": "Phase E is immutable. For every missing client fact inspect only this candidate's rationale/byChoice, strategy, glossary, Chinese counterpart, and an explicitly linked historical source if one exists. Do not search the corpus. Classify bounded provenance, apply fixed verdict precedence, and record narrow bilingual/clinical/scope findings. Hidden-case dependency is unreachable and is a blocker if asserted.",
+  "phaseE": {
+    "anyCanonicalTargetDependsOnAbsentFact": false,
+    "blindExactMatch": true,
+    "canonicalSelection": {
+      "actionLabels": [
+        "A1",
+        "A3"
+      ],
+      "conditionLabel": "C3",
+      "parameterLabels": [
+        "P4",
+        "P3"
+      ]
+    },
+    "canonicalSetExplanation": "The five canonical targets are supported by explicit stem facts or ordinary clinical knowledge and remain uniquely preferable to all six distractors.",
+    "canonicalSetUniquelyDefensible": true,
+    "canonicalTargetSupport": [
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C3",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "At 185 seconds after the stimulus, rhythmic motor activity continues in the isolated limb, and the EEG continues to show ictal activity."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A1",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "The anesthesia professional and ECT physician are at the bedside, and protocol orders for seizure termination are active."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A3",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "The client is under general anesthesia, remains unconscious, and has ongoing seizure activity."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P3",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "The client is receiving ECT under general anesthesia and remains unconscious during continuing seizure activity."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P4",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "Rhythmic motor activity continues in the isolated limb, and the EEG continues to show ictal activity; seizure-termination orders are active."
+      }
+    ],
+    "distractorPremiseFindings": [
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Evidence that the initial seizure ended and a new seizure began during recovery.",
+        "opaqueTokenLabel": "C1",
+        "reviewerRankabilityImpact": "MATERIAL",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Ictal activity is continuing 185 seconds after the stimulus, and the client has not regained consciousness."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Cessation within the expected brief post-stimulus interval.",
+        "opaqueTokenLabel": "C2",
+        "reviewerRankabilityImpact": "MATERIAL",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Rhythmic motor activity and EEG ictal activity continue at 185 seconds."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "A clinical indication for inducing another seizure after the current seizure has ended.",
+        "opaqueTokenLabel": "A2",
+        "reviewerRankabilityImpact": "MATERIAL",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Motor and EEG ictal activity are already continuing from the administered stimulus."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Evidence that observation alone is appropriate despite the prolonged activity and active termination protocol.",
+        "opaqueTokenLabel": "A4",
+        "reviewerRankabilityImpact": "MATERIAL",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Ictal activity persists at 185 seconds, and protocol orders for seizure termination are active."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "A need to assess longitudinal depression response during the acute seizure event.",
+        "opaqueTokenLabel": "P1",
+        "reviewerRankabilityImpact": "MATERIAL",
+        "supportClassification": "NOT_APPLICABLE",
+        "supportingStandaloneEvidence": ""
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Completion of seizure termination and recovery to a state in which orientation can be assessed.",
+        "opaqueTokenLabel": "P2",
+        "reviewerRankabilityImpact": "MATERIAL",
+        "supportClassification": "NOT_APPLICABLE",
+        "supportingStandaloneEvidence": "The client has not regained consciousness."
+      }
+    ],
+    "missingClientFacts": [],
+    "stage1Alignment": "FULL",
+    "stage1AlignmentExplanation": "Stage 1 independently identified the same condition and the same clinical action and evaluation domains as the canonical construct.",
+    "unstatedClientFactMateriallyChangesRankability": false
+  },
+  "phaseESha256": "65f316db1c268c15e38ca7f1db8c9159fead46940ac8f60028dc0a8dbe2b4dcb"
+}

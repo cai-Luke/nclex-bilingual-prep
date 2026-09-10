@@ -1,0 +1,118 @@
+{
+  "actionLabels": [
+    "A2",
+    "A4"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C3",
+  "missingInformation": [
+    "Breath-sound intensity or presence of a silent chest",
+    "Recent rescue-inhaler doses and response",
+    "History of prior ICU admission or intubation for asthma",
+    "Trend in fatigue, mental status, and ventilation after initial treatment"
+  ],
+  "parameterLabels": [
+    "P1",
+    "P4"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "C3 best matches the marked respiratory distress, hypoxemia, and PEF below 50% of personal best. A2 and A4 provide the necessary escalation and immediate protocol-directed treatment. P1 measures early symptomatic and airflow response, while P4 tracks ongoing respiratory severity and deterioration. The other condition and routine follow-up choices conflict with the presentation, and the remaining parameters do not directly assess immediate treatment response.",
+  "selectionEvidence": [
+    "Speech limited to one or two words with tripod positioning and accessory-muscle use indicates severe respiratory distress.",
+    "SpO₂ 88% on room air demonstrates significant hypoxemia.",
+    "PEF 42% of personal best demonstrates severe airflow limitation.",
+    "Respiratory rate 34/min and heart rate 128/min support a high-acuity exacerbation requiring immediate treatment and transfer.",
+    "Absence of urticaria, facial swelling, stridor, and choking evidence makes anaphylaxis with upper-airway edema less likely."
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Multiple explicit high-severity findings rule against a mild exacerbation.",
+      "supportingStemText": "Speaks only one or two words at a time, uses accessory muscles, SpO₂ 88%, and PEF 42% of personal best."
+    },
+    {
+      "missingPremise": "Evidence of a systemic allergic reaction or upper-airway edema.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Anaphylaxis can occasionally lack skin findings, but the stated absence of upper-airway and allergic features plus known asthma makes C2 substantially less likely.",
+      "supportingStemText": "No urticaria, facial swelling, stridor, or choking event."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly supplies several convergent markers of a severe asthma exacerbation.",
+      "supportingStemText": "Rapidly worsening breathlessness, one- or two-word speech, tripod posture, accessory-muscle use, RR 34/min, HR 128/min, SpO₂ 88%, and PEF 42% of personal best."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Routine follow-up next week is incompatible with the immediate respiratory threat.",
+      "supportingStemText": "Rapidly worsening breathlessness with SpO₂ 88% and severe work of breathing."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Severe hypoxemic asthma requires immediate acute-care escalation rather than routine clinic disposition.",
+      "supportingStemText": "Emergency transfer is available; the client has one- or two-word speech, SpO₂ 88%, and PEF 42% of personal best."
+    },
+    {
+      "missingPremise": "A separate indication for sedation with a safely supported airway and ventilation plan.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Sedation does not reverse bronchospasm and may worsen ventilatory compromise in this presentation.",
+      "supportingStemText": "The client has severe respiratory distress and hypoxemia."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The option contains standard immediate therapies for a severe acute asthma exacerbation and is executable under the stated orders.",
+      "supportingStemText": "The clinic's acute-asthma protocol and medication orders are active; SpO₂ is 88% and PEF is 42% of personal best."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Early symptom and lung-function reassessment directly evaluates response to acute therapy.",
+      "supportingStemText": "The client has acute symptoms and a baseline PEF of 42% of personal best."
+    },
+    {
+      "missingPremise": "A complication, alternative diagnosis, severe ventilatory failure, or inadequate treatment response warranting chest imaging or blood-gas testing.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Routine chest radiography and ABG are not the most direct paired monitoring parameters for immediate response when no such indication is provided.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "A need for nonurgent allergic or eosinophilic phenotype evaluation.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Eosinophil count and total IgE do not assess immediate stabilization or treatment response.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "These stated severity variables can be trended directly for improvement or deterioration.",
+      "supportingStemText": "SpO₂ 88%, RR 34/min, accessory-muscle use, and alert mental status are explicitly reported."
+    }
+  ]
+}

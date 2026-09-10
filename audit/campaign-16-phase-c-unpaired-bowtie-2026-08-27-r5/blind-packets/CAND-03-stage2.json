@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Actions to take",
+    "condition": "Most likely priority problem",
+    "parameters": "Parameters to monitor"
+  },
+  "stem": "A client seen in the outpatient clinic says, \"I cannot keep doing this. Tonight I am going to take the old oxycodone tablets in my backpack with alcohol so I do not wake up.\" The client avoids eye contact and says, \"Do not call anyone. I just needed to tell somebody.\" Complete the bow-tie diagram for the nurse's priority focus.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Schedule a routine counseling visit for next week"
+      },
+      {
+        "label": "A2",
+        "text": "Ask the client to sign a no-suicide contract and return home"
+      },
+      {
+        "label": "A3",
+        "text": "Activate the suicide safety protocol and remove access to the pills"
+      },
+      {
+        "label": "A4",
+        "text": "Stay with the client and maintain direct observation"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Situational anxiety without immediate safety threat"
+      },
+      {
+        "label": "C2",
+        "text": "Imminent suicide risk"
+      },
+      {
+        "label": "C3",
+        "text": "Nonsuicidal self-injury without current intent"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Current intent, plan, and ability to maintain safety"
+      },
+      {
+        "label": "P2",
+        "text": "Usual bedtime routine before discharge"
+      },
+      {
+        "label": "P3",
+        "text": "Access to lethal means"
+      },
+      {
+        "label": "P4",
+        "text": "Daily calorie intake as the main safety marker"
+      }
+    ]
+  }
+}

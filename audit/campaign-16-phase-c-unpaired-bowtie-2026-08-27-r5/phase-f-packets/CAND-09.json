@@ -1,0 +1,285 @@
+{
+  "candidateSurfaces": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions — select 2",
+          "zh": "优先措施——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Begin routine positive-pressure ventilation before drainage",
+            "opaqueTokenLabel": "A1",
+            "zh": "在引流前常规开始正压通气"
+          },
+          {
+            "en": "Activate immediate image-guided pericardial drainage by the qualified team",
+            "opaqueTokenLabel": "A2",
+            "zh": "启动由合格团队立即进行的影像引导下心包引流"
+          },
+          {
+            "en": "Provide prescribed cautious temporary IV fluid support while urgent drainage is readied",
+            "opaqueTokenLabel": "A3",
+            "zh": "在准备紧急引流时按医嘱谨慎给予暂时性静脉补液支持"
+          },
+          {
+            "en": "Administer an ordered IV diuretic to lower preload",
+            "opaqueTokenLabel": "A4",
+            "zh": "按医嘱静脉给予利尿剂以降低前负荷"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的病情"
+        },
+        "tokens": [
+          {
+            "en": "Isolated hypovolemic shock",
+            "opaqueTokenLabel": "C1",
+            "zh": "单纯低血容量性休克"
+          },
+          {
+            "en": "Hemodynamically unstable cardiac tamponade",
+            "opaqueTokenLabel": "C2",
+            "zh": "血流动力学不稳定的心脏压塞"
+          },
+          {
+            "en": "Tension pneumothorax",
+            "opaqueTokenLabel": "C3",
+            "zh": "张力性气胸"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor — select 2",
+          "zh": "需要监测的指标——选择 2 项"
+        },
+        "tokens": [
+          {
+            "en": "Echocardiographic chamber collapse, residual effusion, and pericardial drain output",
+            "opaqueTokenLabel": "P1",
+            "zh": "超声心动图心腔塌陷、残余积液和心包引流量"
+          },
+          {
+            "en": "Tracheal position and unilateral breath sounds",
+            "opaqueTokenLabel": "P2",
+            "zh": "气管位置和单侧呼吸音"
+          },
+          {
+            "en": "Blood pressure, heart rate, pulsus findings, and peripheral perfusion",
+            "opaqueTokenLabel": "P3",
+            "zh": "血压、心率、奇脉表现和外周灌注"
+          },
+          {
+            "en": "Serum glucose and urine ketones",
+            "opaqueTokenLabel": "P4",
+            "zh": "血糖和尿酮体"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "心包内压力升高压迫心脏，限制舒张期充盈并降低心排血量。",
+        "termEn": "cardiac tamponade",
+        "termZh": "心脏压塞"
+      },
+      {
+        "defZh": "在影像引导下用针和导管引流心包液体的操作。",
+        "termEn": "pericardiocentesis",
+        "termZh": "心包穿刺引流"
+      },
+      {
+        "defZh": "吸气时收缩压异常下降至少 10 mm Hg 的表现。",
+        "termEn": "pulsus paradoxus",
+        "termZh": "奇脉"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct: hypotension, elevated jugular venous pressure, tachycardia, and right-sided diastolic collapse indicate unstable cardiac tamponade.",
+          "opaqueTokenLabel": "C2",
+          "zh": "正确：低血压、颈静脉压升高、心动过速和右心舒张期塌陷提示不稳定的心脏压塞。"
+        },
+        {
+          "en": "Incorrect: tension pneumothorax is more consistent with unilateral absent breath sounds and thoracic pressure findings, which are absent.",
+          "opaqueTokenLabel": "C3",
+          "zh": "错误：张力性气胸更符合单侧呼吸音消失和胸腔压力征象，而本例不存在这些表现。"
+        },
+        {
+          "en": "Incorrect: isolated hypovolemic shock does not explain the rapidly enlarging pericardial effusion and right-sided diastolic collapse.",
+          "opaqueTokenLabel": "C1",
+          "zh": "错误：单纯低血容量性休克不能解释心包积液迅速增多和右心舒张期塌陷。"
+        },
+        {
+          "en": "Correct: unstable cardiac tamponade requires pericardial drainage without delay by an experienced qualified team.",
+          "opaqueTokenLabel": "A2",
+          "zh": "正确：不稳定的心脏压塞需要由有经验的合格团队立即进行心包引流。"
+        },
+        {
+          "en": "Correct: cautious prescribed temporary IV fluid can support filling while urgent drainage is being prepared.",
+          "opaqueTokenLabel": "A3",
+          "zh": "正确：在准备紧急引流期间，按医嘱谨慎给予暂时性静脉补液可支持心脏充盈。"
+        },
+        {
+          "en": "Incorrect: diuresis lowers preload and can worsen hemodynamics in tamponade.",
+          "opaqueTokenLabel": "A4",
+          "zh": "错误：利尿会降低前负荷，并可能使心脏压塞的血流动力学进一步恶化。"
+        },
+        {
+          "en": "Incorrect: routine positive-pressure ventilation can impair venous return and should be avoided unless unavoidable.",
+          "opaqueTokenLabel": "A1",
+          "zh": "错误：常规正压通气可减少静脉回流，除非无法避免，否则应避免。"
+        },
+        {
+          "en": "Correct: blood pressure, heart rate, pulsus findings, mental status, and peripheral perfusion track hemodynamic response.",
+          "opaqueTokenLabel": "P3",
+          "zh": "正确：血压、心率、奇脉表现、意识状态和外周灌注可追踪血流动力学反应。"
+        },
+        {
+          "en": "Correct: repeat echocardiographic collapse/effusion findings and pericardial drain output track the separate drainage-response domain.",
+          "opaqueTokenLabel": "P1",
+          "zh": "正确：复查超声心动图的心腔塌陷/积液以及心包引流量，可追踪独立的引流反应领域。"
+        },
+        {
+          "en": "Incorrect: tracheal position and unilateral breath sounds target a tension-pneumothorax branch.",
+          "opaqueTokenLabel": "P2",
+          "zh": "错误：气管位置和单侧呼吸音针对张力性气胸分支。"
+        },
+        {
+          "en": "Incorrect: serum glucose and urine ketones do not evaluate tamponade hemodynamics or drainage response.",
+          "opaqueTokenLabel": "P4",
+          "zh": "错误：血糖和尿酮体不能评估心脏压塞的血流动力学或引流反应。"
+        }
+      ],
+      "correct": {
+        "en": "Rapid pericardial-fluid accumulation with hypotension, tachycardia, elevated jugular venous pressure, and right-sided diastolic collapse indicates hemodynamically unstable cardiac tamponade. The definitive response is immediate image-guided drainage by a qualified team. Prescribed cautious temporary IV fluid can help stabilize the client while urgent drainage is readied; routine diuresis and positive-pressure ventilation can worsen filling. Blood pressure, heart rate, pulsus/perfusion form one response domain, while chamber-collapse resolution, residual effusion, and drain output form a separate procedural/imaging domain.",
+        "zh": "心包液体迅速积聚并伴低血压、心动过速、颈静脉压升高和右心舒张期塌陷，提示血流动力学不稳定的心脏压塞。明确处理是由合格团队立即进行影像引导下引流。在准备紧急引流期间，可按医嘱谨慎给予暂时性静脉补液以帮助稳定患者；常规利尿和正压通气可能进一步影响心脏充盈。血压、心率、奇脉/灌注构成一个反应领域；心腔塌陷是否缓解、残余积液和引流量构成独立的操作/影像反应领域。"
+      }
+    },
+    "stem": {
+      "en": "An adult with a rapidly enlarging pericardial effusion becomes restless and cool. Blood pressure is 78/50 mm Hg, heart rate is 128/min, and jugular venous pressure is elevated. Echocardiography shows right-atrial and right-ventricular diastolic collapse. The client has a pulse, breath sounds are equal, and an experienced drainage team is available. Complete the bow-tie by choosing the condition, 2 actions, and 2 parameters to monitor.",
+      "zh": "一名成人的心包积液迅速增多，患者变得烦躁且皮肤湿冷。血压为 78/50 mm Hg，心率为 128 次/分，颈静脉压升高。超声心动图显示右心房和右心室舒张期塌陷。患者仍有脉搏，双侧呼吸音对称，经验丰富的引流团队已到位。请完成蝴蝶结题：选择病情、2 项措施和 2 项监测指标。"
+    },
+    "testTakingStrategy": {
+      "en": "Pair the obstructive-shock findings with the urgent definitive action, then distinguish temporary preload support from the two response-monitoring domains.",
+      "zh": "把梗阻性休克表现与紧急明确处理联系起来，再区分暂时性前负荷支持和两个反应监测领域。"
+    }
+  },
+  "explicitlyLinkedHistoricalSources": [],
+  "instruction": "Phase E is immutable. For every missing client fact inspect only this candidate's rationale/byChoice, strategy, glossary, Chinese counterpart, and an explicitly linked historical source if one exists. Do not search the corpus. Classify bounded provenance, apply fixed verdict precedence, and record narrow bilingual/clinical/scope findings. Hidden-case dependency is unreachable and is a blocker if asserted.",
+  "phaseE": {
+    "anyCanonicalTargetDependsOnAbsentFact": false,
+    "blindExactMatch": true,
+    "canonicalSelection": {
+      "actionLabels": [
+        "A2",
+        "A3"
+      ],
+      "conditionLabel": "C2",
+      "parameterLabels": [
+        "P3",
+        "P1"
+      ]
+    },
+    "canonicalSetExplanation": "The five canonical targets are supported by explicit stem facts or ordinary clinical knowledge and remain uniquely preferable to all six distractors.",
+    "canonicalSetUniquelyDefensible": true,
+    "canonicalTargetSupport": [
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A2",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "An experienced drainage team is available; echocardiography shows right-atrial and right-ventricular diastolic collapse."
+      },
+      {
+        "missingClientFact": "The stem does not state that IV access or a fluid prescription is already in place.",
+        "opaqueTokenLabel": "A3",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "Blood pressure is 78/50 mm Hg, heart rate is 128/min, and jugular venous pressure is elevated while urgent drainage is available."
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C2",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "Rapidly enlarging pericardial effusion; blood pressure 78/50 mm Hg; heart rate 128/min; elevated jugular venous pressure; right-atrial and right-ventricular diastolic collapse"
+      },
+      {
+        "missingClientFact": "",
+        "opaqueTokenLabel": "P1",
+        "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+        "supportingStandaloneEvidence": "Echocardiography shows right-atrial and right-ventricular diastolic collapse, and immediate drainage is available."
+      },
+      {
+        "missingClientFact": "A baseline pulsus paradoxus measurement is not provided.",
+        "opaqueTokenLabel": "P3",
+        "supportClassification": "DIRECT",
+        "supportingStandaloneEvidence": "Blood pressure is 78/50 mm Hg, heart rate is 128/min, and the client is restless and cool."
+      }
+    ],
+    "distractorPremiseFindings": [
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "No respiratory failure or other indication requiring routine positive-pressure ventilation is provided.",
+        "opaqueTokenLabel": "A1",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Rapidly enlarging pericardial effusion, blood pressure 78/50 mm Hg, and right-sided diastolic collapse with a drainage team available"
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "A4",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Blood pressure is 78/50 mm Hg with right-atrial and right-ventricular diastolic collapse."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C1",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Jugular venous pressure is elevated, a rapidly enlarging pericardial effusion is present, and right-sided diastolic chamber collapse is seen."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "",
+        "opaqueTokenLabel": "C3",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Breath sounds are equal, and echocardiography demonstrates a pericardial effusion with right-sided diastolic collapse."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "Tracheal position is not reported.",
+        "opaqueTokenLabel": "P2",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "CONTRADICTED",
+        "supportingStandaloneEvidence": "Breath sounds are equal."
+      },
+      {
+        "adjudicationNote": "The distractor remains comprehensible and rejectable from the standalone stem plus ordinary clinical knowledge; any absent alternative-diagnosis detail is not necessary to rank the canonical set.",
+        "materiallyAffectsRankability": false,
+        "missingClientFact": "No diabetes, hyperglycemia, ketosis, or metabolic decompensation findings are provided.",
+        "opaqueTokenLabel": "P4",
+        "reviewerRankabilityImpact": "NONE",
+        "supportClassification": "NOT_APPLICABLE",
+        "supportingStandaloneEvidence": ""
+      }
+    ],
+    "missingClientFacts": [],
+    "stage1Alignment": "PARTIAL",
+    "stage1AlignmentExplanation": "Stage 1 identified the same condition and most canonical clinical domains, but at least one action or evaluation domain differed from the canonical five-target construct.",
+    "unstatedClientFactMateriallyChangesRankability": false
+  },
+  "phaseESha256": "06770833022059a51f60e5b6c8e3cf001cb5c3154f6aa35b07799b94c69e7d19"
+}
