@@ -400,6 +400,7 @@ export default function App() {
   const [session, setSession] = useState<SessionState | null>(null);
   const [rescueFocusIds, setRescueFocusIds] = useState<string[] | null>(null);
   const [sessionReturnView, setSessionReturnView] = useState<View>("home");
+  const [showStudyDataDelayNotice, setShowStudyDataDelayNotice] = useState(false);
   const [filters, setFilters] = useState<Filters>(blankFilters);
   const [builderFilters, setBuilderFilters] = useState<BuilderFilters>(blankBuilderFilters);
   const [sessionHydrated, setSessionHydrated] = useState(false);
@@ -454,10 +455,22 @@ export default function App() {
         setCaseAnswerPartEvents(nextCaseAnswerPartEvents);
         setTranslationRevealEvents(nextTranslationRevealEvents);
         setFlashcardProgress(nextFlashcardProgress);
+        // Keep this as the final learner-data state update. Session starts are only allowed after this barrier opens.
         setUploadedLoaded(true);
       },
     );
   }, []);
+
+  useEffect(() => {
+    if (uploadedLoaded) {
+      setShowStudyDataDelayNotice(false);
+      return;
+    }
+    const timer = window.setTimeout(() => {
+      setShowStudyDataDelayNotice(true);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, [uploadedLoaded]);
 
   const allRecords = useMemo(() => [...bundled.records, ...uploadedRecords], [bundled.records, uploadedRecords]);
   const recordsById = useMemo(
@@ -570,7 +583,7 @@ export default function App() {
     title: string,
     options: { count?: number; order?: SessionOrder; returnView?: View; weighting?: "nclex" } = {},
   ) => {
-    if (records.length === 0 || sessionStartGuard.status !== "idle") return;
+    if (!uploadedLoaded || records.length === 0 || sessionStartGuard.status !== "idle") return;
     const requestedRecords = [...records];
     const requestedOptions = { ...options };
     sessionStartControlRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
@@ -958,6 +971,13 @@ export default function App() {
       )}
 
       <main inert={sessionStartStatus === "starting"} aria-busy={sessionStartStatus === "waiting-hydration" || sessionStartStatus === "starting"}>
+        {!uploadedLoaded && (
+          <p className="session-start-status study-data-status" role="status">
+            {showStudyDataDelayNotice
+              ? "Study data is taking longer to load. If this continues, close other open copies of the app and refresh. / 学习数据加载时间较长。如果一直没有完成，请关闭其他已打开的本应用页面并刷新。"
+              : "Loading study data / 正在加载学习数据…"}
+          </p>
+        )}
         {updateAvailable && <AppUpdateBanner />}
 
         {bundled.errors.length > 0 && (
@@ -991,6 +1011,7 @@ export default function App() {
             onFlashcards={openVocab}
             onImport={() => setView("import")}
             onLibrary={() => setView("library")}
+            sessionStartDisabled={!uploadedLoaded}
           />
         )}
 
@@ -1008,6 +1029,7 @@ export default function App() {
                 builderFilters.mode === "adaptive" ? {} : { count: DEFAULT_SESSION_COUNT },
               );
             }}
+            sessionStartDisabled={!uploadedLoaded}
           />
         )}
 
@@ -1055,6 +1077,7 @@ export default function App() {
             onTest={() => requestSessionStart(filteredRecords, "test", "Filtered test set")}
             onToggleFlag={toggleFlag}
             onPracticeOne={practiceOne}
+            sessionStartDisabled={!uploadedLoaded}
           />
         )}
 
@@ -1221,6 +1244,7 @@ function HomeView({
   onFlashcards,
   onImport,
   onLibrary,
+  sessionStartDisabled,
 }: {
   total: number;
   missed: number;
@@ -1240,6 +1264,7 @@ function HomeView({
   onFlashcards: () => void;
   onImport: () => void;
   onLibrary: () => void;
+  sessionStartDisabled: boolean;
 }) {
   const [testCount, setTestCount] = useState(DEFAULT_SESSION_COUNT);
   const testCounts = [10, 25, 50];
@@ -1287,14 +1312,19 @@ function HomeView({
               ))}
             </div>
           </div>
-          <button className="primary-action test-start" type="button" onClick={() => onTest(testCount)} disabled={total === 0}>
+          <button
+            className="primary-action test-start"
+            type="button"
+            onClick={() => onTest(testCount)}
+            disabled={sessionStartDisabled || total === 0}
+          >
             <CheckCircle2 aria-hidden="true" />
             <span>Start practice · {testCount} questions</span>
           </button>
         </div>
 
         <div className="action-row secondary-actions">
-          <button className="secondary-action" type="button" onClick={onStudy} disabled={total === 0}>
+          <button className="secondary-action" type="button" onClick={onStudy} disabled={sessionStartDisabled || total === 0}>
             <BookOpen aria-hidden="true" />
             <span>Study all questions</span>
           </button>
@@ -1302,15 +1332,25 @@ function HomeView({
             <SlidersHorizontal aria-hidden="true" />
             <span>Custom session</span>
           </button>
-          <button className="secondary-action" type="button" onClick={onDue} disabled={due === 0}>
+          <button className="secondary-action" type="button" onClick={onDue} disabled={sessionStartDisabled || due === 0}>
             <RotateCcw aria-hidden="true" />
             <span>Spaced review</span>
           </button>
-          <button className="secondary-action" type="button" onClick={onMistakes} disabled={missed === 0}>
+          <button
+            className="secondary-action"
+            type="button"
+            onClick={onMistakes}
+            disabled={sessionStartDisabled || missed === 0}
+          >
             <RotateCcw aria-hidden="true" />
             <span>Review mistakes</span>
           </button>
-          <button className="secondary-action" type="button" onClick={onAnswered} disabled={answered === 0}>
+          <button
+            className="secondary-action"
+            type="button"
+            onClick={onAnswered}
+            disabled={sessionStartDisabled || answered === 0}
+          >
             <ListChecks aria-hidden="true" />
             <span>Review answered</span>
           </button>
@@ -1353,11 +1393,13 @@ function SessionBuilderView({
   filters,
   setFilters,
   onStart,
+  sessionStartDisabled,
 }: {
   records: QuestionRecord[];
   filters: BuilderFilters;
   setFilters: (filters: BuilderFilters) => void;
   onStart: () => void;
+  sessionStartDisabled: boolean;
 }) {
   const selectedCategoryCount = filters.categories.length + (filters.withVisuals ? 1 : 0);
   const toggleCategory = (category: string) => {
@@ -1375,7 +1417,12 @@ function SessionBuilderView({
           <p className="eyebrow">Session builder</p>
           <h2>{records.length} questions in pool</h2>
         </div>
-        <button className="primary-action" type="button" onClick={onStart} disabled={records.length === 0}>
+        <button
+          className="primary-action"
+          type="button"
+          onClick={onStart}
+          disabled={sessionStartDisabled || records.length === 0}
+        >
           <Play aria-hidden="true" />
           <span>{filters.mode === "adaptive" ? "Start adaptive exam" : "Start session"}</span>
         </button>
@@ -1481,6 +1528,7 @@ function LibraryView({
   onTest,
   onToggleFlag,
   onPracticeOne,
+  sessionStartDisabled,
 }: {
   records: QuestionRecord[];
   allRecords: QuestionRecord[];
@@ -1492,6 +1540,7 @@ function LibraryView({
   onTest: () => void;
   onToggleFlag: (questionId: string) => void;
   onPracticeOne: (record: QuestionRecord) => void;
+  sessionStartDisabled: boolean;
 }) {
   const topics = uniqueSorted(allRecords.map((record) => record.question.topic));
   const sources = uniqueSorted(allRecords.map((record) => record.sourceLabel));
@@ -1504,11 +1553,11 @@ function LibraryView({
           <h2>{records.length} matching questions</h2>
         </div>
         <div className="action-row compact">
-          <button type="button" onClick={onStudy} disabled={records.length === 0}>
+          <button type="button" onClick={onStudy} disabled={sessionStartDisabled || records.length === 0}>
             <BookOpen aria-hidden="true" />
             <span>Study</span>
           </button>
-          <button type="button" onClick={onTest} disabled={records.length === 0}>
+          <button type="button" onClick={onTest} disabled={sessionStartDisabled || records.length === 0}>
             <CheckCircle2 aria-hidden="true" />
             <span>Test</span>
           </button>
@@ -1548,12 +1597,16 @@ function LibraryView({
           const flagged = flags[record.question.id]?.flagged;
           return (
             <article
-              className="question-row interactive-row"
+              className={`question-row interactive-row ${sessionStartDisabled ? "interactive-row--disabled" : ""}`}
               key={record.question.id}
               role="button"
-              tabIndex={0}
-              onClick={() => onPracticeOne(record)}
+              aria-disabled={sessionStartDisabled}
+              tabIndex={sessionStartDisabled ? -1 : 0}
+              onClick={() => {
+                if (!sessionStartDisabled) onPracticeOne(record);
+              }}
               onKeyDown={(event) => {
+                if (sessionStartDisabled) return;
                 if (event.key === "Enter" || event.key === " ") {
                   event.preventDefault();
                   onPracticeOne(record);

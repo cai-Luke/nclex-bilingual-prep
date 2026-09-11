@@ -276,6 +276,11 @@ main {
   margin: 1rem auto;
 }
 
+.study-data-status {
+  width: 100%;
+  margin: 0 0 1rem;
+}
+
 .session-replacement-dialog {
   width: min(36rem, calc(100% - 2rem));
   max-height: calc(100dvh - 2rem);
@@ -728,6 +733,20 @@ h4 {
 .interactive-row:focus-visible {
   border-color: var(--control-hover-border);
   background: var(--control-hover-bg);
+  outline: none;
+}
+
+.interactive-row--disabled,
+.interactive-row[aria-disabled="true"] {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.interactive-row--disabled:hover,
+.interactive-row[aria-disabled="true"]:hover,
+.interactive-row[aria-disabled="true"]:focus-visible {
+  border-color: var(--border);
+  background: var(--surface);
   outline: none;
 }
 
