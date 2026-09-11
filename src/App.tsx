@@ -94,6 +94,7 @@ import {
 import { buildTargetedReviewPool, buildWeightedSession, seedFromString } from "./sessionSampler";
 import { buildSessionState, type SessionState } from "./sessionState";
 import { createOrderedSessionPersistence, createSessionStartGuard, type SessionStartStatus } from "./sessionStartGuard";
+import { advanceFlashcardPass, createFlashcardPass, currentFlashcardId, isFlashcardPassComplete, reconcileFlashcardPass, type FlashcardPass } from "./flashcardPass";
 import { formatItemType } from "./itemTypes";
 import { buildQuestionRescuePromptText } from "./reviewPrompt";
 import {
@@ -1025,7 +1026,11 @@ export default function App() {
           />
         )}
 
-        {view === "flashcards" && (
+        {view === "flashcards" && !uploadedLoaded && (
+          <p role="status">Loading cards / 正在加载卡片…</p>
+        )}
+        {/* A Vocab pass belongs to this mount; re-entry uses hydrated current progress. */}
+        {view === "flashcards" && uploadedLoaded && (
           <FlashcardsView
             deck={flashcardDeck}
             progress={flashcardProgress}
@@ -1740,17 +1745,23 @@ function FlashcardsView({
     [rescueFocusIds, rescueTermIds],
   );
   const effectiveRescueSet = useMemo(() => new Set(effectiveRescueList), [effectiveRescueList]);
-  const effectiveRescueKey = effectiveRescueList.join("\u0001");
   const [category, setCategory] = useState("all");
   const [topic, setTopic] = useState("all");
   const [readyNow, setReadyNow] = useState(true);
   const [scope, setScope] = useState<"rescue" | "all">(effectiveRescueSet.size > 0 ? "rescue" : "all");
-  const [sessionDeck, setSessionDeck] = useState<FlashcardTerm[]>([]);
-  const [index, setIndex] = useState(0);
+  const [pass, setPass] = useState<FlashcardPass | null>(null);
+  const passRef = useRef<FlashcardPass | null>(null);
+  const reviewPendingRef = useRef(false);
+  const [reviewPending, setReviewPending] = useState(false);
   const [revealed, setRevealed] = useState(false);
+  const passFilters = useMemo(() => ({ scope, category, topic, readyNow, rescueIds: effectiveRescueSet }),
+    [scope, category, topic, readyNow, effectiveRescueSet]);
+  const deckById = useMemo(() => new Map(deck.map(term => [term.id, term])), [deck]);
   const categoriesInDeck = uniqueSorted(deck.flatMap((term) => term.categories));
   const topicsInDeck = uniqueSorted(deck.flatMap((term) => term.topics));
-  const card = sessionDeck[index % Math.max(1, sessionDeck.length)];
+  const complete = pass ? isFlashcardPassComplete(pass) : false;
+  const cardId = pass ? currentFlashcardId(pass) : undefined;
+  const card = cardId ? deckById.get(cardId) : undefined;
 
   useEffect(() => {
     if (effectiveRescueSet.size > 0 && scope === "all" && rescueFocusIds) {
@@ -1759,17 +1770,19 @@ function FlashcardsView({
   }, [effectiveRescueSet.size, rescueFocusIds, scope]);
 
   useEffect(() => {
-    const filteredDeck = deck.filter((term) => {
-      if (scope === "rescue" && !effectiveRescueSet.has(term.id)) return false;
-      if (category !== "all" && !term.categories.includes(category)) return false;
-      if (topic !== "all" && !term.topics.includes(topic)) return false;
-      if (readyNow && progress[term.id] && !isDueForReview(progress[term.id])) return false;
-      return true;
-    });
-    setSessionDeck(shuffle(filteredDeck));
-    setIndex(0);
+    const next = reconcileFlashcardPass(passRef.current, { deck, progress, filters: passFilters, shuffle });
+    if (next === passRef.current) return;
+    passRef.current = next;
+    setPass(next);
     setRevealed(false);
-  }, [category, topic, readyNow, deck, scope, effectiveRescueKey]);
+  }, [deck, progress, passFilters]);
+
+  const startAnotherPass = () => {
+    const next = createFlashcardPass({ deck, progress, filters: passFilters, shuffle });
+    passRef.current = next;
+    setPass(next);
+    setRevealed(false);
+  };
 
   const updateScope = (nextScope: "rescue" | "all") => {
     setScope(nextScope);
@@ -1777,10 +1790,23 @@ function FlashcardsView({
   };
 
   const gradeCard = async (remembered: boolean) => {
-    if (!card) return;
-    await onReview(card.id, remembered);
-    setRevealed(false);
-    setIndex((current) => current + 1);
+    const reviewedPass = passRef.current;
+    if (!card || !reviewedPass || currentFlashcardId(reviewedPass) !== card.id || reviewPendingRef.current) return;
+    reviewPendingRef.current = true;
+    setReviewPending(true);
+    try {
+      await onReview(card.id, remembered);
+      // A filter change during the write starts a different pass; do not advance it.
+      if (passRef.current === reviewedPass) {
+        const next = advanceFlashcardPass(reviewedPass);
+        passRef.current = next;
+        setPass(next);
+        setRevealed(false);
+      }
+    } finally {
+      reviewPendingRef.current = false;
+      setReviewPending(false);
+    }
   };
 
   return (
@@ -1788,7 +1814,13 @@ function FlashcardsView({
       <div className="section-heading">
         <div>
           <p className="eyebrow">Vocabulary flashcards</p>
-          <h2>{sessionDeck.length} cards ready</h2>
+          <h2 aria-live="polite">
+            {complete
+              ? "Review complete / 本轮复习完成"
+              : pass && pass.passCardIds.length > 0
+                ? `Card ${pass.passIndex + 1} of ${pass.passCardIds.length} / 第 ${pass.passIndex + 1} 张，共 ${pass.passCardIds.length} 张`
+                : "Vocabulary review / 词汇复习"}
+          </h2>
         </div>
         <label className="toggle-row compact-toggle">
           <input type="checkbox" checked={readyNow} onChange={(event) => setReadyNow(event.target.checked)} />
@@ -1817,7 +1849,14 @@ function FlashcardsView({
         <SelectFilter label="Category" value={category} values={["all", ...categoriesInDeck]} onChange={setCategory} />
       </div>
 
-      {!card ? (
+      {complete && pass ? (
+        <div className="dashboard-panel">
+          <p>{pass.passCardIds.length} cards reviewed / 已复习 {pass.passCardIds.length} 张卡片</p>
+          <button className="primary-action" type="button" onClick={startAnotherPass}>
+            Start another pass / 再来一轮
+          </button>
+        </div>
+      ) : !card ? (
         <div className="dashboard-panel">
           {scope === "rescue" && effectiveRescueSet.size === 0 ? (
             <>
@@ -1831,7 +1870,7 @@ function FlashcardsView({
           )}
         </div>
       ) : (
-        <article className="flashcard">
+        <article className="flashcard" aria-busy={reviewPending}>
           <div className="flashcard-top">
             <div className="pill-row">
               <span className="type-pill">Appears in {card.questionIds.length} questions</span>
@@ -1852,11 +1891,11 @@ function FlashcardsView({
             <button type="button" onClick={() => setRevealed((current) => !current)}>
               {revealed ? "Hide" : "Flip"}
             </button>
-            <button type="button" onClick={() => gradeCard(false)}>
+            <button type="button" disabled={reviewPending} onClick={() => gradeCard(false)}>
               <RotateCcw aria-hidden="true" />
               <span>Again</span>
             </button>
-            <button className="primary-action" type="button" onClick={() => gradeCard(true)}>
+            <button className="primary-action" type="button" disabled={reviewPending} onClick={() => gradeCard(true)}>
               <CheckCircle2 aria-hidden="true" />
               <span>Got it</span>
             </button>
