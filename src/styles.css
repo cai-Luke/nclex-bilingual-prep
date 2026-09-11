@@ -2396,6 +2396,12 @@ h4 {
   font-weight: 900;
 }
 
+.matrix-table td button[aria-disabled="true"] {
+  cursor: default;
+  border-color: var(--border-strong);
+  background: var(--control-bg);
+}
+
 .cloze-panel {
   border: 1px solid var(--border);
   border-radius: 8px;

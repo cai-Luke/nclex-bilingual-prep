@@ -4109,7 +4109,12 @@ function MatrixControl({
                 const statusClass = submitted ? (correct ? "correct" : selected ? "incorrect" : "") : selected ? "selected" : "";
                 return (
                   <td className={statusClass} key={column.id}>
-                    <button type="button" onClick={() => toggleCell(row.id, column.id)} aria-pressed={selected}>
+                    <button
+                      type="button"
+                      onClick={() => toggleCell(row.id, column.id)}
+                      aria-pressed={selected}
+                      aria-disabled={submitted || undefined}
+                    >
                       {question.matrix.selectionMode === "single_per_row" ? (selected ? "●" : "○") : selected ? "☑" : "☐"}
                     </button>
                   </td>
