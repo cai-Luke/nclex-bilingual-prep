@@ -136,7 +136,6 @@ import type {
   SessionStatusFilter,
   Settings,
   StandaloneQuestion,
-  StudyMode,
   StoredSessionSnapshot,
   TextSizeMode,
   ThemeMode,
@@ -237,8 +236,8 @@ function buildChoiceMarkerMap(question: Question): Map<string, string> {
   return markers;
 }
 
-const standaloneRescueLabel = "Ask GPT about this question / 让 GPT 讲讲这道题";
-const casePartRescueLabel = "Ask GPT about this case part / 让 GPT 讲讲这个案例部分";
+const standaloneRescueLabel = "Copy question for GPT / 复制问题给 GPT";
+const casePartRescueLabel = "Copy case part for GPT / 复制案例部分给 GPT";
 
 const makeRescuePrompt = (
   question: StandaloneQuestion,
@@ -955,7 +954,10 @@ export default function App() {
             progress={progress}
             flags={flags}
             answerEvents={answerEvents}
-            onPracticeCategory={(category) => openBuilder({ categories: [category], status: "incorrect", mode: "study" })}
+            onOpenTopic={(topic) => {
+              setFilters({ ...blankFilters, topic });
+              setView("library");
+            }}
             onPracticeUnseen={() => openBuilder({ status: "unseen", mode: "study" })}
             onPracticeFlagged={() => openBuilder({ status: "flagged", mode: "study" })}
           />
@@ -1005,6 +1007,7 @@ export default function App() {
           <SettingsView
             settings={settings}
             updateSettings={updateSettings}
+            devEnabled={devStartup.enabled}
             onOpenPreviewLab={() => setView("previewLab")}
             currentBuild={currentBuild}
           />
@@ -1505,7 +1508,7 @@ function DashboardView({
   progress,
   flags,
   answerEvents,
-  onPracticeCategory,
+  onOpenTopic,
   onPracticeUnseen,
   onPracticeFlagged,
 }: {
@@ -1513,7 +1516,7 @@ function DashboardView({
   progress: Record<string, QuestionProgress>;
   flags: Record<string, QuestionFlag>;
   answerEvents: AnswerEvent[];
-  onPracticeCategory: (category: string) => void;
+  onOpenTopic: (topic: string) => void;
   onPracticeUnseen: () => void;
   onPracticeFlagged: () => void;
 }) {
@@ -1531,7 +1534,6 @@ function DashboardView({
     .sort((left, right) => left.accuracy - right.accuracy)
     .slice(0, 6);
   const recordsById = new Map(records.map((record) => [record.question.id, record]));
-  const topicCategory = new Map(records.map((record) => [record.question.topic, record.question.category] as const));
   const recentEvents = answerEvents.filter((event) => recordsById.has(event.questionId)).slice(-20);
 
   return (
@@ -1577,13 +1579,11 @@ function DashboardView({
               <button
                 type="button"
                 key={topic.label}
-                onClick={() => {
-                  const category = topicCategory.get(topic.label);
-                  if (category) onPracticeCategory(category);
-                }}
+                onClick={() => onOpenTopic(topic.label)}
               >
                 <span>{topic.label}</span>
                 <strong>{Math.round(topic.accuracy * 100)}%</strong>
+                <span>Open this topic / 打开此主题</span>
               </button>
             ))}
           </div>
@@ -1854,7 +1854,7 @@ function ImportView({
         </div>
         <button type="button" onClick={exportAll} disabled={allRecords.length === 0}>
           <Download aria-hidden="true" />
-          <span>Export all</span>
+          <span>Export questions / 导出题目</span>
         </button>
       </div>
 
@@ -1916,11 +1916,13 @@ const textSizeOptions: Array<{ value: TextSizeMode; label: string }> = [
 function SettingsView({
   settings,
   updateSettings,
+  devEnabled,
   onOpenPreviewLab,
   currentBuild,
 }: {
   settings: Settings;
   updateSettings: (settings: Settings) => void;
+  devEnabled: boolean;
   onOpenPreviewLab: () => void;
   currentBuild: AppBuildInfo | null;
 }) {
@@ -1942,16 +1944,6 @@ function SettingsView({
             <option value="off">Off</option>
             <option value="on-tap">On tap</option>
             <option value="always">Always</option>
-          </select>
-        </label>
-        <label>
-          <span>Default mode</span>
-          <select
-            value={settings.defaultMode}
-            onChange={(event) => updateSettings({ ...settings, defaultMode: event.target.value as StudyMode })}
-          >
-            <option value="study">Study</option>
-            <option value="test">Test</option>
           </select>
         </label>
         <label>
@@ -1989,16 +1981,18 @@ function SettingsView({
           <span>English audio buttons</span>
         </label>
       </div>
-      <section className="preview-lab-launcher">
-        <div>
-          <h3>Preview Lab</h3>
-          <p>Inspect layout behavior using bundled questions. Does not save answers or progress.</p>
-        </div>
-        <button className="secondary-action" type="button" onClick={onOpenPreviewLab}>
-          <Wrench aria-hidden="true" />
-          <span>Open Preview Lab</span>
-        </button>
-      </section>
+      {devEnabled && (
+        <section className="preview-lab-launcher">
+          <div>
+            <h3>Preview Lab</h3>
+            <p>Inspect layout behavior using bundled questions. Does not save answers or progress.</p>
+          </div>
+          <button className="secondary-action" type="button" onClick={onOpenPreviewLab}>
+            <Wrench aria-hidden="true" />
+            <span>Open Preview Lab</span>
+          </button>
+        </section>
+      )}
       <p className="app-build-diagnostic">
         <span>App build / 应用版本:</span> {formatAppBuildDiagnostic(currentBuild)}
       </p>
@@ -5166,15 +5160,15 @@ function SummaryView({
       <div className="summary-hero">
         <p className="eyebrow">{session.mode === "adaptive" ? "Exam-condition practice" : "Summary"}</p>
         <h2>
-          {scorePercent !== undefined ? `Score ${scorePercent}%` : `Mastered ${correct} / ${answered}`}
+          {scorePercent !== undefined ? `Score ${scorePercent}%` : `Fully correct in this set / 本组全对: ${correct} / ${answered}`}
         </h2>
         {pointTotals && (
           <p className="summary-score-detail">
-            {pointTotals.earned} of {pointTotals.possible} points · Mastered {correct}/{answered}
+            {pointTotals.earned} of {pointTotals.possible} points · Fully correct / 全对 {correct}/{answered}
           </p>
         )}
         <p className="summary-counts">
-          Answered {answered} · Mastered {correct} · Review {incorrect} · Skipped {skipped}
+          Answered {answered} · Fully correct / 全对 {correct} · Review {incorrect} · Skipped {skipped}
         </p>
         {session.mode === "adaptive" && (
           <p className="muted-copy">Adaptive practice changes difficulty by rolling performance. It is not a pass/fail or readiness estimate.</p>
@@ -5258,12 +5252,6 @@ function SummaryView({
             <h3>{reviewQuestions.length} question{reviewQuestions.length === 1 ? "" : "s"}</h3>
           </div>
           <div className="action-row compact">
-            {flaggedQuestions.length > 0 && (
-              <button className="secondary-action" type="button" onClick={() => setReviewScope("flagged")}>
-                <Flag aria-hidden="true" />
-                <span>Flagged this set ({flaggedQuestions.length})</span>
-              </button>
-            )}
             <LanguageTabs value={languageMode} onChange={setLanguageMode} />
           </div>
         </div>

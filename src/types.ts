@@ -305,6 +305,7 @@ export type SessionPhase = "questions" | "skipped-prompt" | "skipped-review";
 
 export type Settings = {
   languageMode: LanguageMode;
+  // Legacy persisted compatibility field; no learner control or launcher consumer.
   defaultMode: StudyMode;
   voiceEnabled: boolean;
   themeMode: ThemeMode;
