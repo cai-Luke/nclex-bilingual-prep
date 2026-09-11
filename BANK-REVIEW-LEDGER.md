@@ -1651,3 +1651,56 @@ Positive H.1 proof passed across all 13 banks. No learner-facing or scoring fiel
 Required validation, aggregate audit, stage-reference sweeps, regression implementations, TypeScript, and production build passed. Four work-order npm aliases (`test:typed-baseline`, `test:typed-baseline-scanner`, `test:typed-baseline-survey`, `test:typed-baseline-ui`) are absent in the pinned package manifest; each literal command failure is retained and the corresponding existing `scripts/tests/*.ts` implementation passed via `npx tsx`. No package alias was added. Strict stage-reference failure is expected and exactly reconciles to the 66 exceptions, with zero unresolved findings; the 75 existing legacy-only findings are separate. The previously admitted `test:single-row-lab-panels` manifest drift remains a known pre-existing failure and is not relabeled PASS.
 
 Census followed H.3: initial stale check, regeneration, exact JSON/Markdown diff reconciliation, then passing `census:check`. Stable movement is confined to the four approved bank schema versions and their derived composition (1,809 session units in those four banks); no question/content count moved. Generator time and input-commit provenance refreshed normally. Producer-independent checker confirmation of this census movement remains required before acceptance; see `census-reconciliation.json`. The external production `file://` smoke passed for the frozen final build, including baseline global context with zero Updates and the exact accepted stage prefix; the full tree and source/bank hashes were rechecked after the witness. See the commission build-identity and smoke receipts. Architect conformance review and any publication decision remain separate. `PROJECT-HISTORY.md` and `DECISIONS.md` are unchanged.
+
+
+## Quarantined Question Forge batch — independent review and promotion (2026-09-11)
+
+Promoted `banks/banks-raw/gpt-2026-08-30-1642-t1.json` (6 items, schema 2.0) into
+`banks/gpt-canonical.json`: `773 + 6 = 779`. Producer was an external Question Forge **GPT**
+instance (2026-08-30); independent content review and promotion by **Claude Code / Claude Opus 5**,
+satisfying producer ≠ checker. This discharges the condition carried by
+[the raw intake note](audit/quarantined-content-intake-2026-09-11-r1.md) and its terminal receipt,
+which staged the recovered batch as `RAW_UNREVIEWED` and explicitly withheld promotion pending
+fresh independent non-GPT semantic and source review. Full receipt:
+[independent review and promotion](audit/quarantined-content-intake-2026-09-11-r1-independent-review-and-promotion.md).
+
+The candidate was promoted **byte-unchanged** from intake — SHA-256
+`9f0ec549e35ef9c50244298a3a77bd016d1e78d7706533e37747ad16bd1daa0c` at both intake and promotion;
+`normalize-raw-bank` reported 0 structural changes and no hand-edit was made. `gpt-canonical.json`
+moved `154c31f860790d5e90f23dae2dabfd31fba32ca46cc53a38b038cc56af30d469` →
+`a4b7d10a7c0a0e6bdb9bbbc4cb34c726a889ee35b6340171e6015f6e8af27004`; the opening hash matches the
+final Campaign 16 Phase E R4 hash recorded above, so promotion began from the accepted post-R4 state.
+
+All six items were accepted. The three currency risks the producer packet flagged for fresh
+attention resolved as follows: the **oxytocin/tachysystole** and **CMS discharge-planning/caregiver-support**
+items are closed-world — each quotes its governing protocol or policy in the stem, so neither depends
+on live guideline currency — while the **Cu-IUD emergency-contraception window** was source-verified
+against CDC U.S. Selected Practice Recommendations 2024 (MMWR 2024;73(3)), which states placement
+within 5 days of the first act of unprotected intercourse; the stem explicitly excludes the
+ovulation-based branch, preserving a single finite answer. Bilingual parity swept clean across every
+`en`/`zh` pair and all glossary entries. The two nearest semantic neighbors in the destination bank
+(`gpt_case_nurse_provider_conflict_01`, `gpt_deepen_2026_06_23_bow_04`) were read in full and are
+neither functional duplicates nor contradictory.
+
+Verification: `gate:raw`, `promote`, `consolidate`, aggregate `audit`, `census:check`,
+`validate-bank -- banks/*.json`, `tsc --noEmit`, and `test:grading` / `test:schema-bank` /
+`test:audit-ids` / `test:consolidate` all passed. The canonical diff was verified structurally and
+not by gate result alone: exactly 6 IDs added, 0 removed, **0 pre-existing questions modified**,
+pre-existing order preserved, additions appended at the tail, `meta.count` 773 → 779,
+`meta.schemaVersion` unchanged at 2.1, and correct-answer text identical before and after the
+deterministic shuffle for every item. `audit:positions` and both `audit:non-mcq-bias` subchecks
+returned `INSUFFICIENT` — the batch has no multiple-choice items and six items is below the
+distributional threshold — and are recorded as absence of evidence, not as PASS. The two aggregate
+warnings are pre-existing (the 66 frozen Campaign 16 exceptions; a `visual-canonical` `select_all`
+spread) and reference none of the new IDs. Census was regenerated; movement is confined to the six
+added items and their derived composition (1,943 → 1,949 session units).
+
+One observation is carried forward as successor work rather than repaired here: the deterministic
+shuffle presented the ordered-response item as `B,A,C,D,E` against correct `A,B,C,D,E`, leaving 3 of
+5 tokens in final position, where the authored raw order was better scrambled. Across 188
+`ordered_response` items in the canonical banks the mean fixed-position fraction is 0.220, 10 items
+are at or above 60%, and 3 are fully pre-sorted — so this is in the unfavorable tail of an existing
+distribution, not a new defect. No hand-edit was made, since hand-patching deterministic pipeline
+output would violate the no-hand-merge invariant. A shuffle-quality floor for `ordered_response`
+presentation order is proposed as successor work and would also address the 3 fully pre-sorted
+legacy items.
