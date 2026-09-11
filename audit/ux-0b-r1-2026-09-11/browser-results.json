@@ -1,0 +1,146 @@
+{
+  "browser": "152.0.7977.83",
+  "productionUrl": "http://127.0.0.1:4174/",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "probeEvidence": [
+    {
+      "productionSha256": "5484e657b9f26219bf117dc54de87e597108554e1941bd9aff0be74e36867028",
+      "servedSha256": "2f0920c434e2b4d110571682d467398102ec401e9fb8a913e6429f63b9e86f9b",
+      "negativeControl": false,
+      "targets": {
+        "weighted": 1,
+        "request": 1,
+        "construct": 1
+      }
+    }
+  ],
+  "checks": [
+    {
+      "name": "No-session Study all and untouched-session weighted launch need no dialog",
+      "allCount": 1949,
+      "weightedCount": 10
+    },
+    {
+      "name": "Standalone draft, Escape, safe focus, re-request and Library return context survive Home cancellation"
+    },
+    {
+      "name": "Library one-question and Builder Test/Adaptive cancellation preserve destination and selections"
+    },
+    {
+      "name": "Confirmed Library single question is persisted before visible launch and survives immediate reload",
+      "durableIndexedDB": true
+    },
+    {
+      "name": "Unsubmitted case-part draft triggers confirmation and survives cancellation"
+    },
+    {
+      "name": "Skipped-review work is protected without a submitted answer"
+    },
+    {
+      "name": "Answered adaptive work is protected; Builder Study/Test/Adaptive preserve population, counts, language and first-item semantics"
+    },
+    {
+      "name": "Library filtered Study/Test and Home mistakes, answered and due launch through the same guard with unchanged pools"
+    },
+    {
+      "name": "Actually completed Summary related practice starts without an unfinished-work warning"
+    },
+    {
+      "name": "Rapid double request and confirmation produce one dialog and one Home-origin weighted session"
+    },
+    {
+      "name": "Actual delayed IndexedDB hydration holds one intent without sampling, then discovers protected work"
+    },
+    {
+      "name": "Held initial learner-data hydration rejects Home, Builder, Library pointer/keyboard and direct App requests with zero draw, construction or writes",
+      "heldStores": 8,
+      "mobileLayout": {
+        "statusInsideMain": true,
+        "mainHeaderGap": 0,
+        "contentStatusGap": 16,
+        "overflow": 0
+      },
+      "customNavigation": true,
+      "delayedMessageOnly": true
+    },
+    {
+      "name": "Readiness releases all launch controls without reload; Builder flagged pool and Library current filters use hydrated inputs"
+    },
+    {
+      "name": "Study all after held uploaded-record hydration includes the upload and matches ordinary post-hydration unseen/seen treatment",
+      "runs": [
+        {
+          "delayed": true,
+          "seenIndex": 1949,
+          "uploadedIndex": 171,
+          "population": 1950
+        },
+        {
+          "delayed": false,
+          "seenIndex": 1949,
+          "uploadedIndex": 171,
+          "population": 1950
+        }
+      ],
+      "seenId": "burn_mc_resuscitation_threshold_02",
+      "uploadedId": "ux0br1-uploaded-question"
+    },
+    {
+      "name": "Weighted sampler receives hydrated progress and gives the seeded due item its existing priority under controlled Math.random and Date",
+      "runs": [
+        {
+          "delayed": true,
+          "progressKeys": 335,
+          "poolSize": 1950,
+          "dueId": "burn_mc_resuscitation_threshold_02",
+          "dueSelected": true,
+          "mode": "study",
+          "count": 10
+        },
+        {
+          "delayed": false,
+          "progressKeys": 335,
+          "poolSize": 1950,
+          "dueId": "burn_mc_resuscitation_threshold_02",
+          "dueSelected": true,
+          "mode": "study",
+          "count": 10
+        }
+      ],
+      "oracle": "actual sampler input plus due-item behavior, not cross-context ID/order equality"
+    },
+    {
+      "name": "After learner readiness, held active-session hydration accepts one intent: protected Escape restores focus; empty and untouched snapshots launch exactly once"
+    },
+    {
+      "name": "Held earlier active-session save completes before replacement; no old autosave is enqueued during starting; final identity survives immediate reload",
+      "writeOrder": [
+        "ux0b-burn_mc_resuscitation_threshold_02",
+        "session-1789161171830-dcrkwv",
+        "session-1789161171830-dcrkwv"
+      ],
+      "durableIndexedDB": true,
+      "delay": "native IDB put success delivery held, keeping the older save promise pending"
+    },
+    {
+      "name": "Production file:// launches, confirms replacement and resumes within runtime (ordinary browser storage)",
+      "forcedMemoryFallback": false,
+      "reloadDurabilityClaimed": false
+    },
+    {
+      "name": "Production file:// launches, confirms replacement and resumes within runtime (forced memory fallback)",
+      "forcedMemoryFallback": true,
+      "reloadDurabilityClaimed": false
+    }
+  ],
+  "errors": []
+}

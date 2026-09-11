@@ -1,0 +1,8 @@
+{
+  "command": "PLAYWRIGHT_MODULE=/tmp/shrimp-ux-browser/node_modules/playwright/index.mjs UX0B_NEGATIVE_CONTROL=1 UX0B_EVIDENCE_DIR=scratch/ux-0b-r1-negative node --import tsx scripts/tests/session-start-browser.mjs",
+  "expectedExitCode": 1,
+  "actualExitCode": 1,
+  "result": "EXPECTED_FAILURE",
+  "mutation": "Remove only the compiled !uploadedLoaded negation in requestSessionStart; disabled UI controls remain intact.",
+  "output": "PAGE NCLEX Bilingual Prep\nHome\nBuilder\nDashboard\nVocab\nLibrary\nImport\nSettings\n\nPreparing your set / 正在准备练习…\n\nLoading study data / 正在加载学习数据…\n\nOFFLINE BILINGUAL NCLEX-RN PRACTICE\n\nTrain in English. Check reasoning in Chinese.\n1949\nQuestions\n0\nAnswered\n0\nDue review\n0\nMistakes\n0\nFlagged\n3647\nVocab terms\n\nRECOMMENDED\n\nAnswer 50, then review\n10\n25\n50\nStart practice · 50 questions\nStudy all questions\nCustom session\nSpaced review\nReview mistakes\nReview answered\nPerformance dashboard\nVocab flashcards\nImport a bank\nBrowse library\nnode:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: pre-hydration request must not enter the guard\n\n1 !== 0\n\n    at assertNoStart (/Users/holemini/Desktop/Project Shrimp UX-0B-R1/scripts/tests/session-start-browser.mjs:307:12)\n    at async <anonymous> (/Users/holemini/Desktop/Project Shrimp UX-0B-R1/scripts/tests/session-start-browser.mjs:336:3) {\n  generatedMessage: false,\n  code: 'ERR_ASSERTION',\n  actual: 1,\n  expected: 0,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v25.9.0\n"
+}

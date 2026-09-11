@@ -1,0 +1,55 @@
+{
+  "implementationCommit": "52b50e0a51e3b9cd98014629fa65feebcc77c3d7",
+  "commands": [
+    {
+      "command": "npm run test:session-start-guard",
+      "exitCode": 0,
+      "output": "\n> nclex-bilingual-prep@0.1.0 test:session-start-guard\n> tsx scripts/tests/session-start-guard.ts\n\nsession start guard tests passed: protected work, deferred intents, hydration, duplicates, cancellation, ordered persistence and failure recovery\n"
+    },
+    {
+      "command": "npm run test:session-navigation",
+      "exitCode": 0,
+      "output": "\n> nclex-bilingual-prep@0.1.0 test:session-navigation\n> tsx scripts/tests/session-navigation.ts\n\nsession navigation tests passed\n"
+    },
+    {
+      "command": "npx tsx scripts/tests/session-sampler.ts",
+      "exitCode": 0,
+      "output": "session sampler tests passed\n"
+    },
+    {
+      "command": "npm run test:storage-category-migration",
+      "exitCode": 0,
+      "output": "\n> nclex-bilingual-prep@0.1.0 test:storage-category-migration\n> tsx scripts/tests/storage-category-migration.ts\n\nstorage category migration tests passed\n"
+    },
+    {
+      "command": "npm run test:flashcard-pass",
+      "exitCode": 0,
+      "output": "\n> nclex-bilingual-prep@0.1.0 test:flashcard-pass\n> tsx scripts/tests/flashcard-pass.ts\n\nflashcard pass tests passed: finite completion, frozen IDs/order, exact keys, progress isolation, restart eligibility and empty states\n"
+    },
+    {
+      "command": "npx tsc -b --pretty false",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "command": "npm run census:check",
+      "exitCode": 0,
+      "output": "\n> nclex-bilingual-prep@0.1.0 census:check\n> tsx scripts/census.ts --check\n\ncensus.json is up to date.\n"
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "output": "\n> nclex-bilingual-prep@0.1.0 build\n> tsc -b && vite build && tsx scripts/make-file-build.ts && npm run validate:build-info\n\nvite v6.4.3 building for production...\ntransforming...\n✓ 1657 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/build-info.json                 0.13 kB │ gzip:     0.11 kB\ndist/index.html                      1.29 kB │ gzip:     0.63 kB\ndist/assets/index-OPNXbWjL.css      57.46 kB │ gzip:    10.55 kB\ndist/assets/index-U0nH94KF.js   11,305.84 kB │ gzip: 3,582.24 kB\n\n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n✓ built in 1.54s\n\n> nclex-bilingual-prep@0.1.0 validate:build-info\n> tsx scripts/validate-build-info.ts\n\nbuild identity validated in /Users/holemini/Desktop/Project Shrimp UX-0B-R1/scripts/../dist\n"
+    },
+    {
+      "command": "PLAYWRIGHT_MODULE=/tmp/shrimp-ux-browser/node_modules/playwright/index.mjs node --import tsx scripts/tests/session-start-browser.mjs",
+      "exitCode": 0,
+      "output": "PASS No-session Study all and untouched-session weighted launch need no dialog\nPASS Standalone draft, Escape, safe focus, re-request and Library return context survive Home cancellation\nPASS Library one-question and Builder Test/Adaptive cancellation preserve destination and selections\nPASS Confirmed Library single question is persisted before visible launch and survives immediate reload\nPASS Unsubmitted case-part draft triggers confirmation and survives cancellation\nPASS Skipped-review work is protected without a submitted answer\nPASS Answered adaptive work is protected; Builder Study/Test/Adaptive preserve population, counts, language and first-item semantics\nPASS Library filtered Study/Test and Home mistakes, answered and due launch through the same guard with unchanged pools\nPASS Actually completed Summary related practice starts without an unfinished-work warning\nPASS Rapid double request and confirmation produce one dialog and one Home-origin weighted session\nPASS Actual delayed IndexedDB hydration holds one intent without sampling, then discovers protected work\nPASS Held initial learner-data hydration rejects Home, Builder, Library pointer/keyboard and direct App requests with zero draw, construction or writes\nPASS Readiness releases all launch controls without reload; Builder flagged pool and Library current filters use hydrated inputs\nPASS Study all after held uploaded-record hydration includes the upload and matches ordinary post-hydration unseen/seen treatment\nPASS Weighted sampler receives hydrated progress and gives the seeded due item its existing priority under controlled Math.random and Date\nPASS After learner readiness, held active-session hydration accepts one intent: protected Escape restores focus; empty and untouched snapshots launch exactly once\nPASS Held earlier active-session save completes before replacement; no old autosave is enqueued during starting; final identity survives immediate reload\nPASS Production file:// launches, confirms replacement and resumes within runtime (ordinary browser storage)\nPASS Production file:// launches, confirms replacement and resumes within runtime (forced memory fallback)\n"
+    }
+  ]
+}
