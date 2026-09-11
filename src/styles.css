@@ -3507,17 +3507,26 @@ h4 {
     width: 100%;
   }
 
-  nav {
+  .app-primary-nav {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  nav button {
+  .app-primary-nav button {
     padding-inline: 0.4rem;
   }
 
-  nav button span {
-    display: none;
+  .app-primary-nav button span {
+    /* Match .sr-only while retaining the icon-first mobile layout. */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   .home-grid,

@@ -850,7 +850,7 @@ export default function App() {
           <img className="brand-mark" src={APP_ICON_SRC} alt="" aria-hidden="true" />
           <span>NCLEX Bilingual Prep</span>
         </button>
-        <nav aria-label="Main navigation">
+        <nav className="app-primary-nav" aria-label="Main navigation">
           <button className={view === "home" ? "active" : ""} type="button" onClick={() => setView("home")}>
             <Home aria-hidden="true" />
             <span>Home</span>
