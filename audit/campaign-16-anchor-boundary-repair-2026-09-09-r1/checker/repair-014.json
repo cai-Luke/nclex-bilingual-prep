@@ -1,0 +1,301 @@
+{
+  "repairPacketId": "repair-014",
+  "bankPath": "banks/gpt-canonical.json",
+  "bankSha256": "d7d228afc282bd15bc730be4ca5b3d2c7c14c017bbc14f3d12a7cbccbfef0f20",
+  "sourcePacketSha256": "5902b79788e1b68c9864127274b16042031eaead3131880f48f7cd6aeb0a21da",
+  "checker": "Claude Code / Claude Opus 5",
+  "checkerRole": "independent content checker (R4 Stage 2 blind full reconstruction)",
+  "blind": true,
+  "representation": {
+    "BASELINE": "proposedBoundary == {\"kind\":\"baseline\"}",
+    "STAGE": "proposedBoundary == exact declared stage id string",
+    "EXCEPTION": "proposedBoundary == null with exceptionReason",
+    "forbiddenAlternateField": "orStage (never emitted)"
+  },
+  "rowCount": 17,
+  "parentCaseIds": [
+    "gpt_2026_06_13_case_delirium_uti_01",
+    "gpt_case_opus23_nat_toddler_01",
+    "gpt_opus21_case_colostomy_lep_discharge_01"
+  ],
+  "counts": {
+    "BASELINE": 17,
+    "STAGE": 0,
+    "EXCEPTION": 0,
+    "HIGH": 17
+  },
+  "rows": [
+    {
+      "rowKey": "c7eb5840cbbbadd1",
+      "stage0QueueIndex": 211,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_13_case_delirium_uti_01",
+      "partId": "gpt_2026_06_13_case_delirium_uti_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Four of the five rows are quoted from the two baseline exhibits: the abrupt 36-hour change from usual cognition, the baseline word-finding pauses with orientation to person and place, the fever with banded leucocytosis, suprapubic tenderness and nitrite-positive pyuric urine, and the documented mild Alzheimer-type dementia. The remaining row states its own content, a positive CAM with inattention, disorganised thinking and fluctuating consciousness, which is itself the delirium definition. Separating acute delirium cues from baseline dementia is therefore done on the baseline surface plus knowledge.",
+      "laterStageLeakCheck": "stage_0_4_hr reports the CAM screen and its four positive components, which restates row r2, and it classifies nothing. Later stages show the recovery. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "116ca05d3e05684d",
+      "stage0QueueIndex": 212,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_13_case_delirium_uti_01",
+      "partId": "gpt_2026_06_13_case_delirium_uti_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem restates the event - the client attempts to stand on the stretcher and swings at staff - and baseline supplies the delirium picture that makes least-restrictive management correct. Staying with her, lowering the bed, using a calm voice and redirecting while preventing a fall is the priority, and the distractors fail on restraint, sedation-first and family-exclusion grounds.",
+      "laterStageLeakCheck": "stage_0_4_hr must not be the boundary: it records the nursing actions verbatim - 'lights dimmed, calm low voice used, gentle reorientation provided, bed placed in lowest position, call light within reach, daughter invited to remain as a familiar presence' - which is keyed option A carried out, in both languages. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "e9e934a8c3ae2548",
+      "stage0QueueIndex": 213,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_13_case_delirium_uti_01",
+      "partId": "gpt_2026_06_13_case_delirium_uti_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem restates the order's restriction - severe agitation creating an imminent safety threat, only after non-pharmacologic measures fail - and every keyed action is standard antipsychotic-safety nursing: document the specific threat and the failed measures, review QTc with potassium and magnesium and other QT-prolonging drugs, screen for Parkinson disease or Lewy body dementia before haloperidol, and reassess agitation, sedation, blood pressure and extrapyramidal symptoms afterwards. The two distractors, scheduled bedtime dosing and automatic post-dose restraints, fail on the same knowledge.",
+      "laterStageLeakCheck": "stage_8_16_hr must not be the boundary: its agitation-protocol exhibit enumerates the facility checks in the same order as the keyed options - verify ECG/QTc, review potassium and magnesium and other QT-prolonging medications, screen for Parkinson disease or dementia with Lewy bodies, document the safety threat and failed non-pharmacologic measures, and reassess after the dose - which hands the learner all four keyed options. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "b7435296154b1455",
+      "stage0QueueIndex": 214,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_13_case_delirium_uti_01",
+      "partId": "gpt_2026_06_13_case_delirium_uti_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Every row carries both endpoints of its own comparison - creatinine 1.3 to 1.0 with BUN 32 to 24, urine output 40 mL in two hours to 320 mL in eight hours, WBC 14.2 to 10.4 with normalised temperature, a still-positive CAM with disorientation to place and year, and half a soft breakfast without full-meal tolerance. Baseline independently supplies the admission values. Judging renal, volume and infection trends as improving while cognition and intake remain unresolved is evaluation, not lookup.",
+      "laterStageLeakCheck": "stage_24_36_hr is the source of the later values, which the rows restate, and it characterises the CAM as 'positive but improved', which pre-frames row r4. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "9fd6b38ef7a11397",
+      "stage0QueueIndex": 215,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_13_case_delirium_uti_01",
+      "partId": "gpt_2026_06_13_case_delirium_uti_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem quotes the daughter's question, and baseline supplies what the answer must respect: an assisted-living resident with mild Alzheimer-type dementia whose usual baseline is orientation to person and place with cueing for meals and grooming. A response framing delirium as clearing gradually over days to weeks, sometimes longer with underlying dementia, setting return to that baseline as the goal, and flagging the facility's supervision needs follows directly; the distractors promise resolution by tomorrow, declare permanent dementia progression, or discourage the question.",
+      "laterStageLeakCheck": "stage_24_36_hr contains the daughter's question that the stem restates and the plan to return to assisted living, which supports the supervision element without stating the response. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "fcf63e17b582d5fd",
+      "stage0QueueIndex": 216,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_13_case_delirium_uti_01",
+      "partId": "gpt_2026_06_13_case_delirium_uti_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem restates the entire risk profile - Braden 14, high fall risk, poor intake, urinary incontinence, disrupted sleep and ongoing confusion - so the data driving the bundle is inside the part. Each keyed intervention maps to one of those risks and is standard practice, while the distractors, turning off the bed alarm and using restraints to prevent line removal and falls, fail on safety and least-restrictive grounds. Baseline supplies the delirium context that makes the sleep and orientation measures apply.",
+      "laterStageLeakCheck": "stage_8_16_hr is the source of the Braden score and fall-risk designation that the stem restates, and stage_0_4_hr records the bed in lowest position and call light within reach, which are elements of keyed option A. Neither states the bundle. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "129b00e5620a91df",
+      "stage0QueueIndex": 217,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus23_nat_toddler_01",
+      "partId": "gpt_case_opus23_nat_toddler_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem scopes the item explicitly to initial presentation 'before imaging results are available', which is the baseline surface, and both baseline exhibits supply what is needed: the reported one-hour fall from a couch onto carpet, the boyfriend's dismissive statements, and a bruise inventory of four circular one-centimetre marks on the left lateral chest, two linear thigh bruises and a fading yellow-green scapular bruise, alongside normal coagulation studies. Objective body-map documentation, reporting the mechanism-injury mismatch to the physician, and continued pain and neurovascular checks follow; accusing the caregiver, accepting the explanation, and delaying documentation do not.",
+      "laterStageLeakCheck": "stage_1_90_min must not be the boundary: it records the ED physician stating that the injury pattern is 'highly concerning for nonaccidental trauma', which supplies the judgement keyed option B asks the learner to make. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "d5b87cc77e4ffc68",
+      "stage0QueueIndex": 218,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus23_nat_toddler_01",
+      "partId": "gpt_case_opus23_nat_toddler_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each row states its own finding, so the imaging results are inside the part, and the classification is child-abuse-recognition knowledge: posterior rib fractures with callus and classic metaphyseal lesions are highly specific for inflicted injury, multiple fractures at different healing stages with shifting explanations compound that, while a negative head CT and normal coagulation and calcium studies exclude alternative explanations without lowering the concern. Baseline supplies the normal PT, INR, PTT and calcium and the reported short-fall mechanism.",
+      "laterStageLeakCheck": "stage_1_90_min must not be the boundary: it states that the ED physician considers the pattern 'highly concerning for nonaccidental trauma' and that a mandatory CPS report is being filed, which is the c1 classification delivered as a conclusion. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "30e06fa20b5b45c9",
+      "stage0QueueIndex": 219,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus23_nat_toddler_01",
+      "partId": "gpt_case_opus23_nat_toddler_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states the disclosure and the request in full - the mother fears the boyfriend and asks the nurse not to tell him what she said - and the keyed responses are intimate-partner-violence and confidentiality practice: validate the fear and the disclosure, explain that her specific statements will not be shared with him, route the concern to social work and the CPS investigator so the safety plan covers her as well, and offer resources with nonjudgmental support. Telling the boyfriend and advising a confrontation both increase danger.",
+      "laterStageLeakCheck": "stage_2_3_hr supplies the surrounding actions - security notified, the boyfriend moved to a separate area, CPS interviewing separately - which supports keyed option C without stating any of the four responses. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "cbcba06f6de1f525",
+      "stage0QueueIndex": 220,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus23_nat_toddler_01",
+      "partId": "gpt_case_opus23_nat_toddler_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part supplies its own premises: the stem establishes an agitated caregiver and the cloze asserts that a CPS report exists. Both blanks are mandatory-reporting knowledge - the report rests on reasonable suspicion and a legal obligation rather than a hospital finding of guilt or the mother's permission, and the nurse avoids debating guilt, making accusations or attempting a forensic interview, while still documenting statements verbatim and using security if behaviour threatens safety.",
+      "laterStageLeakCheck": "stage_1_90_min contains the physician's statement that a mandatory CPS report is being filed and the boyfriend's agitated protest, which is the premise the stem restates; it states no nursing response. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "6bf92c0778c8a1e3",
+      "stage0QueueIndex": 221,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus23_nat_toddler_01",
+      "partId": "gpt_case_opus23_nat_toddler_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem establishes the Stage 3 state - the child is stable and a temporary safety plan is in place - and each keyed action is standard nonaccidental-trauma discharge practice: honest supportive information about CPS's child-safety purpose with reinforcement of the mother's protective actions, teaching the two-week follow-up skeletal survey and orthopaedic follow-up for the humeral fracture, coordinating with social work and CPS before discharge, and documenting the mother's statements and the child's behavioural responses to visitors. The distractors, promising CPS will not remove the child and limiting teaching to splint care, fail on principle. Baseline supplies the mid-humeral injury and the psychosocial picture.",
+      "laterStageLeakCheck": "stage_3_8_hr must not be the boundary: it states that a follow-up skeletal survey is ordered for two weeks and that CPS asks the nurse to document the child's behavioural responses to each visitor, which hands the learner keyed options B and D. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "94286d8c319d2b4f",
+      "stage0QueueIndex": 222,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_opus21_case_colostomy_lep_discharge_01",
+      "partId": "gpt_opus21_case_colostomy_lep_discharge_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem restates the three chart gaps, and baseline supplies the governing rule and the language facts. The case summary states the surgeon's conditional discharge criteria in full, including that 'caregiver participation may supplement but does not replace patient teach-back', and the initial record documents a Spanish-only patient, no qualified interpreter use during admission, and a night note of education 'via daughter interpreting' with no teach-back. Arranging a qualified interpreter before formal teaching, while keeping the daughter present if the patient wishes, follows directly.",
+      "laterStageLeakCheck": "stage_0700_0900 must not be the boundary: it states that 'The nurse requests a qualified Spanish interpreter, available by video within 15 minutes, and pages the WOC nurse', which is keyed option B carried out. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "c0d86ac5a04d4179",
+      "stage0QueueIndex": 223,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_opus21_case_colostomy_lep_discharge_01",
+      "partId": "gpt_opus21_case_colostomy_lep_discharge_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The measuring stick is baseline: the case summary states the surgeon's criteria requiring the patient's own demonstration and explanation, with caregiver participation supplementing rather than replacing teach-back, and the initial record documents the night note of education through the daughter with no teach-back. Each option is then judged on its face against that rule - proxy answering, proxy hand-guiding, nodding without matched responses, and education documented only through the daughter all fail the criterion, while a healthy stoma and stable ambulatory vital signs are true but do not bear on teaching criteria.",
+      "laterStageLeakCheck": "stage_0700_0900 must not be the boundary: it opens 'The nurse identifies three gaps: no qualified interpreter has been used, no WOC nurse visit has occurred, and the discharge criteria require the patient's independent demonstration and explanation', which names keyed option A and the criterion, and it then narrates the events described in keyed options C and D. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "7576ed1b406a7927",
+      "stage0QueueIndex": 224,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_opus21_case_colostomy_lep_discharge_01",
+      "partId": "gpt_opus21_case_colostomy_lep_discharge_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states the disclosure in full - the patient has been afraid to look at the stoma and has let her daughter handle all pouch care - and baseline supplies the new end colostomy on postoperative day 3 and the requirement that the patient herself demonstrate care. Acknowledging the fear, inviting her to describe her concerns and guiding a gradual first look with interpreter support is the body-image and ostomy-adaptation response; deferring to the daughter, dismissing the fear, or postponing all teaching for two weeks all fail.",
+      "laterStageLeakCheck": "stage_1000_1200 must not be the boundary: it states that 'The WOC nurse supports a gradual first look, then guides independent pouch emptying', which is keyed option A carried out in the same words. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "89f61b99f46cb0a2",
+      "stage0QueueIndex": 225,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_opus21_case_colostomy_lep_discharge_01",
+      "partId": "gpt_opus21_case_colostomy_lep_discharge_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Three rows describe the patient's current state, which baseline independently documents - a beefy red moist stoma about 3 cm protruding 1 cm, intact peristomal skin, and a functioning pouch - and the other three are counterfactual warning signs stated inside the rows. Classifying a dark purple or black stoma, absent output beyond six hours with cramping or distension, and peristomal breakdown as requiring escalation, while thinner more frequent output with stable vital signs on postoperative day 3 is expected, is ostomy knowledge.",
+      "laterStageLeakCheck": "stage_1000_1200 must not be the boundary: it records that the nurse documented the patient verbalising 'three warning signs: stoma changes from red to dark purple or black, peristomal skin breakdown, and no output for more than 6 hours with cramping or distension', which is exactly rows r4, r5 and r6 identified as the escalation set, in both languages. BASELINE is earliest and the only non-leaking boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "2d5da1885cd685c5",
+      "stage0QueueIndex": 226,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_opus21_case_colostomy_lep_discharge_01",
+      "partId": "gpt_opus21_case_colostomy_lep_discharge_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem supplies the question, and baseline supplies the facts: metformin 1,000 mg twice daily was restarted this morning after adequate oral intake with a creatinine of 0.9, and the patient has type 2 diabetes. Confirming her existing home monitoring plan and supplies rather than dictating or stopping monitoring, and teaching that metformin alone carries a low hypoglycaemia risk compared with insulin or secretagogues, is pharmacology within RN scope; the distractors route the teaching to the daughter, stop monitoring on a normal creatinine, or tie lisinopril to glucose.",
+      "laterStageLeakCheck": "stage_1300_1500 must not be the boundary: it states that 'The nurse confirms the home glucometer is available and reviews the primary care provider's target fasting glucose range', which is the first keyed blank carried out. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "38d44d8d82b913f1",
+      "stage0QueueIndex": 227,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_opus21_case_colostomy_lep_discharge_01",
+      "partId": "gpt_opus21_case_colostomy_lep_discharge_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The criterion against which each option is judged is baseline: the case summary states that the patient must demonstrate pouch emptying and wafer changing, identify concerning stoma findings and explain when to call, and that caregiver participation may supplement but does not replace patient teach-back. That single rule makes the daughter's assurance that she will handle the pouch at home the one option that does not support safe discharge, while patient-performed demonstration, patient-verbalised warning signs and medication schedule through the interpreter, Spanish written instructions with a supply plan, and complete documentation all do.",
+      "laterStageLeakCheck": "stage_1000_1200 and stage_1300_1500 must not be the boundary: between them they narrate every keyed finding as accomplished - the patient performing pouch emptying and wafer application with verbal coaching only, verbalising the warning signs and the medication schedule through the interpreter, receiving Spanish written instructions and a vendor list, and the nurse documenting interpreter use, return demonstration and follow-up. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

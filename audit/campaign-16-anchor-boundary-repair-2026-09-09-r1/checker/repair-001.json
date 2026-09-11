@@ -1,0 +1,297 @@
+{
+  "repairPacketId": "repair-001",
+  "bankPath": "banks/claude-canonical.json",
+  "bankSha256": "25f53ded1ac21da4ca9d211040c3f6110ebee38d72ba41d0fc64fe358ba73b71",
+  "sourcePacketSha256": "e404fbc5678d876566de168bc535a73527eca824ce22c065abf043168e80e0fd",
+  "checker": "Claude Code / Claude Opus 5",
+  "checkerRole": "independent content checker (R4 Stage 2 blind full reconstruction)",
+  "blind": true,
+  "representation": {
+    "BASELINE": "proposedBoundary == {\"kind\":\"baseline\"}",
+    "STAGE": "proposedBoundary == exact declared stage id string",
+    "EXCEPTION": "proposedBoundary == null with exceptionReason",
+    "forbiddenAlternateField": "orStage (never emitted)"
+  },
+  "rowCount": 17,
+  "parentCaseIds": [
+    "opus1_case_tha_discharge_lep_01",
+    "opus2_case_code_status_01",
+    "opus_vanco_case_01"
+  ],
+  "counts": {
+    "BASELINE": 15,
+    "STAGE": 1,
+    "EXCEPTION": 1,
+    "HIGH": 17
+  },
+  "rows": [
+    {
+      "rowKey": "56ab2ea0633879b2",
+      "stage0QueueIndex": 1,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus2_case_code_status_01",
+      "partId": "opus2_case_code_status_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The 0700 statement the part asks about is itself baseline content: the case summary quotes it verbatim ('I don't want to be kept alive by machines... I just want to be comfortable'), and the same summary establishes that there is no advance directive, POLST or healthcare power of attorney and that the code status is Full Code by default. The 0700 global exhibit independently records that he is alert and oriented x4 and 'assesses with full decision-making capacity'. Every element keyed option A requires - capacity assessment plus verbatim documentation - rests on that baseline surface, so zero declared stage updates are needed.",
+      "laterStageLeakCheck": "stage_1 must not be the boundary: its exhibit opens 'After Mr. Jeffries clarifies he does not want endotracheal intubation, mechanical ventilation, or CPR..., the nurse documents his verbatim statements and capacity', which states keyed option A as an accomplished action in both languages (ZH: '护士记录了他的原话及其决策能力'). stage_2 and stage_3 are later still and carry the deterioration and the eventual DNAR/DNI order. BASELINE is therefore both the earliest answerable boundary and the only one that does not hand over the key.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "83b0ee550a17e0e3",
+      "stage0QueueIndex": 2,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus2_case_code_status_01",
+      "partId": "opus2_case_code_status_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem itself supplies the decisive 0800 fact - that Dr. Reeves has acknowledged the page and will visit around 1100. The remaining premises are baseline: the summary already states that the attending pulmonologist is in the OR, that the covering provider is a hospitalist, that code status is Full Code with no directive on file, and the 0700 exhibit shows a clinically stable patient (SpO2 93% on 3 L, RR 20, BP 118/72, speaking in full sentences). Stability is what makes measured documentation and charge-nurse notification (option A) correct rather than the emergency escalation of option C, and it is baseline-visible.",
+      "laterStageLeakCheck": "stage_1 adds only the 0745 confirmation that the attending is scrubbed in until 1400 and the verbatim Reeves reply that the stem already paraphrases; it supplies no fact the answer turns on. stage_2 and stage_3 are later deterioration and resolution and would pre-empt parts q3 to q5. No stage states or implies the keyed combination of documenting, informing the charge nurse and planning re-escalation, so there is no leak either way; BASELINE is chosen because it is the earliest boundary at which the part is answerable.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "34925ffab6291d40",
+      "stage0QueueIndex": 3,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus2_case_code_status_01",
+      "partId": "opus2_case_code_status_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem restates the whole 1030 decision context - persistent hypoxaemia, increasing fatigue despite oxygen escalation, and a code status that is still Full Code. The other two premises keyed option A depends on are baseline: the case summary carries the patient's explicit refusal of intubation and mechanical ventilation, and the 0700 exhibit documents full decision-making capacity. A capacitated patient's refusal plus an unresolved Full Code order is the entire basis for communicating the refusal, activating the rapid response team or chain of command, and requiring an authorised provider to evaluate and enter orders, so no declared stage update is required.",
+      "laterStageLeakCheck": "stage_2 partially leaks: it narrates that at 0950 the nurse 'pages Dr. Reeves about the acute respiratory failure and wishes against intubation', which is the communication half of keyed option A. stage_3 leaks it outright - 'At 1100, the nurse activates the rapid response team (RRT)' is the other half, in both languages (ZH: '护士启动了快速反应小组'). Choosing BASELINE avoids both and is independently the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "c47220ac1fb7f995",
+      "stage0QueueIndex": 4,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus2_case_code_status_01",
+      "partId": "opus2_case_code_status_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem supplies the triggering event (the nurse activates the RRT at 1100). Everything keyed option A must convey is baseline-visible: the unresolved code status and absent advance directive from the case summary, the patient's expressed refusal of intubation quoted in that summary, and the documented decision-making capacity in the 0700 exhibit. The item is single-select and the three distractors fail on principle rather than on case data - transmitting only clinical data and assuming the RRT will read the chart (B), asking the RRT to stand down on a verbal refusal (D), and requesting procedural sedation for intubation (C) are wrong however much of the case is visible - so no stage is needed to discriminate.",
+      "laterStageLeakCheck": "stage_3 must not be the boundary: it narrates the RRT arriving, Dr. Anand asking the patient directly what he would want, the patient answering 'No tube. No machines. Comfortable.', and a DNAR/DNI order being entered, which demonstrates the keyed handoff content being acted on. stage_2 shows the nurse already communicating the refusal upward. Recorded qualifier: keyed option A also names 'the escalation history', which at BASELINE has no visible instance; because the item is single-select and A is the only defensible option, that unverified conjunct does not change the answer.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "f9ac2b9add5ea7c9",
+      "stage0QueueIndex": 5,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus2_case_code_status_01",
+      "partId": "opus2_case_code_status_q5",
+      "proposedBoundary": "stage_3",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "This is a select-all in which each keyed option must be separately defensible, and two of them are stage-dependent. Keyed option D proposes an incident report 'regarding the system vulnerability caused by the delayed provider response'; the delay exists only across stage_1 (attending scrubbed in until 1400, Reeves promising 1100) and stage_2 (Reeves paged again at 0950, replying only 'as soon as I can'), so at BASELINE there is no documented delay and D would be an unwarranted report. Keyed option C notifies the healthcare proxy of the deterioration 'and advance directive'; the case summary states there is no advance directive or healthcare power of attorney, and only stage_3 records social work completing the advance directive with the daughter. stage_3 is inclusive of stages 1 and 2, so it is the earliest boundary at which every keyed option is factually supported.",
+      "laterStageLeakCheck": "This is not a final-stage default: the binding constraints are option D's dependence on the stage_1/stage_2 delay record and option C's dependence on the completed advance directive, and the disposition would move earlier if those appeared earlier. stage_3 does not leak the keyed set - it narrates the DNAR/DNI order, the completed directive, the palliative consult and effective comfort measures, but it never enumerates the evaluation actions the item asks for (EHR order verification, wristband or door-sign confirmation, proxy notification, incident report), and distractor E (a single retrospective end-of-shift note) still has to be rejected on documentation principle.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "e6e33f98acb54edf",
+      "stage0QueueIndex": 6,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "partId": "opus_vanco_case_01_q1_infusion_reaction",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem reproduces the entire discriminating data set: onset fifteen minutes into the loading dose, intense itching, flushing confined to face, neck and upper trunk, chest wheals, tachycardia and mild hypotension, and the explicit absence of wheezing, stridor, tongue swelling, throat tightness and generalised urticaria. That regional-flushing-without-airway-involvement pattern is exactly what separates vancomycin flushing syndrome from anaphylaxis and drives keyed option B. Baseline additionally supplies the order itself (2,000 mg over at least two hours, no premedication ordered) and the absence of documented drug allergies, so no declared stage update is required.",
+      "laterStageLeakCheck": "stage_1 must not be the boundary: its second exhibit, stage_1_outcome, states 'The infusion is stopped, the IV is kept patent with normal saline, the client is positioned supine with legs slightly elevated, vital signs are repeated, and the provider is notified' - keyed option B word for word, and identically in Chinese ('停止输注，用生理盐水保持静脉通路通畅，使患者仰卧并轻度抬高双腿，复测生命体征，并通知医嘱者'). stage_2 and stage_3 are days later. BASELINE is both earliest and the only non-leaking boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "4f23479ea5389513",
+      "stage0QueueIndex": 7,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "partId": "opus_vanco_case_01_q2_documentation_cloze",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both dropdowns are decided by facts the stem itself carries: the flushing and itching resolved once the infusion was stopped and diphenhydramine was given, and the provider then restarted the remaining dose at a slower rate with no recurrence. A successful slower rechallenge is the discriminator between a rate-related infusion reaction and a true IgE-mediated allergy or anaphylaxis, which settles dropdown 1 on 'an infusion-related adverse drug reaction'; the same slower-rate restart plus the baseline order's absence of premedication settles dropdown 2 on 'premedication as ordered and an infusion rate no faster than 10 mg/min'. Baseline also records no documented drug allergies.",
+      "laterStageLeakCheck": "stage_1 must not be the boundary: stage_1_outcome ends 'The event is documented as an infusion-related adverse drug reaction rather than a drug allergy', which is dropdown 1's keyed option verbatim in both languages (ZH: '该事件记录为输注相关不良药物反应，而不是药物过敏'). That same stage is the only place carrying the fine-grained reaction description, so the stage that would supply extra detail is precisely the stage that states the answer; because the stem's rechallenge evidence is already sufficient, BASELINE is chosen. stage_2 and stage_3 concern trough monitoring and kidney injury and are irrelevant.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "9934b65487d9d53a",
+      "stage0QueueIndex": 8,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "partId": "opus_vanco_case_01_q3_supratherapeutic_trough_order",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The task is to sequence five nursing actions, and the stem supplies the trigger in full: a trough of 22.4 mcg/mL returning thirty minutes before the next scheduled 1,250 mg dose, with the pharmacist recommending a dose reduction and contacting the infectious disease provider. That establishes the dose is unsafe to give as scheduled without clarification. Baseline supplies the renal context that makes accumulation plausible (stage 3b CKD, creatinine 1.8, eGFR 38) and the original regimen. The safe order - hold, obtain the revised prescriber order, verify it in the MAR, administer only the corrected dose with its precautions, then document - follows from medication-safety sequencing rather than from any stage narrative.",
+      "laterStageLeakCheck": "stage_2 restates the trough, names the 1,000 mg recommendation that option C cites, and records that doses are premedicated and infused over at least two hours, but it never states the sequence the item asks for, so it supplies no information the answer turns on. stage_3 is a later hospital day. Recorded qualifier: at BASELINE the order set says 'No premedication is ordered before the first vancomycin dose', so option D's 'ordered premedication' has no baseline instance; since the item scores sequence rather than the truth of each option's premise, this does not change the keyed order.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "6c1c4c992aa4da7d",
+      "stage0QueueIndex": 9,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "partId": "opus_vanco_case_01_q4_ototoxicity_screening",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Every premise is in the part or in baseline. The stem states that increased ototoxicity monitoring has been recommended and that the client has baseline bilateral hearing loss and wears hearing aids; the baseline background exhibit independently records 'bilateral sensorineural hearing loss managed with hearing aids' and 'Hearing is functional with hearing aids in place'. The keyed actions - a repeatable bedside screen performed with the aids removed, targeted questioning about new tinnitus, dizziness, vertigo or subjective change, and documenting a dated patient-specific baseline for later comparison - are RN-scope ototoxicity monitoring that follow from those two facts plus knowledge that vancomycin is ototoxic.",
+      "laterStageLeakCheck": "stage_2 contains the pharmacist recommendation that the stem already restates and adds trough and renal values that bear on nephrotoxicity, not on how to screen hearing. stage_3 must not be the boundary: it reveals that the client has developed 'new persistent bilateral ringing in the ears', which converts keyed option B from a screening judgement into a confirmed finding and also pre-empts the stage_3 matrix part. BASELINE is the earliest answerable boundary and avoids that.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "37c2401af772da7a",
+      "stage0QueueIndex": 10,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "partId": "opus_vanco_case_01_q5_aki_cue_matrix",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "All five matrix rows quote their own data - creatinine 2.4 mg/dL with 180 mL of urine in twelve hours, new persistent bilateral tinnitus, a trough of 18.6 mcg/mL described as within the institutional surrogate range, repeat blood cultures with no growth at 48 hours, and an improving AV fistula site - so the findings to be classified are inside the part itself. The one external fact needed is the comparison creatinine, and baseline supplies both the historical baseline (1.6 mg/dL, creatinine clearance 44 mL/min) and the admission value (1.8 mg/dL, eGFR 38), which is what makes 2.4 mg/dL a priority toxicity cue rather than a stable number.",
+      "laterStageLeakCheck": "stage_3 must not be the boundary: its second exhibit, stage_3_new_orders, records that the provider ordered 'hold vancomycin; obtain a stat vancomycin level; switch to renally dosed daptomycin...' in both languages, which tells the learner that the correct interpretation of rows r1 and r2 is to hold and escalate - the c1 classification the matrix is testing. stage_1 and stage_2 predate the findings entirely. BASELINE is both earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "fe4e91f7d5e2c01d",
+      "stage0QueueIndex": 11,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "partId": "opus_vanco_case_01_q6_lisinopril_aki",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem carries every decisive fact: vancomycin has been held for acute kidney injury and new tinnitus, lisinopril 10 mg daily is still active with the morning dose ungiven, and potassium is 5.1 mEq/L. Baseline independently establishes lisinopril 10 mg daily as a continued home medication and the underlying stage 3b CKD. An ACE inhibitor in acute kidney injury with a potassium of 5.1 is held and clarified with the prescriber rather than given, discontinued unilaterally, or given on the strength of a blood pressure reading, and that judgement needs no stage narrative.",
+      "laterStageLeakCheck": "stage_3 must not be the boundary: stage_3_new_orders states that the provider ordered 'hold lisinopril' (ZH: '暂停赖诺普利'), which is keyed option A's action delivered to the learner directly. stage_1 and stage_2 predate the kidney injury and supply nothing the stem does not already state. BASELINE is the earliest answerable boundary and the only one that does not disclose the key.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "23c66e6046923646",
+      "stage0QueueIndex": 12,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus1_case_tha_discharge_lep_01",
+      "partId": "opus1_case_tha_discharge_lep_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part asks about postoperative day 0, which is the baseline exhibit itself. That exhibit records the primary language as Mandarin, that the client cannot reliably discuss medications, follow multistep instructions or read English documents, and closes with the explicit 'Chart concern: Mandarin is listed as the primary language. Informed consent was signed with an interpreter present, but no ongoing postoperative language-access plan is documented' - the exact gap the stem names. It also shows her leaning across the bed rail, suggesting fall-prevention instructions were not understood. Keyed option B follows directly from that baseline record.",
+      "laterStageLeakCheck": "stage_pod1 shows the consequence of not acting - an English-handout teaching attempt with failed teach-back and the documented need for a certified Mandarin interpreter - and stage_pod2 shows a certified in-person interpreter actually being used, both of which confirm that activating qualified interpreter services was the right first action. Neither supplies information the answer needs, and stage_pod3 is discharge day. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "6dfc7831ec885eb1",
+      "stage0QueueIndex": 13,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus1_case_tha_discharge_lep_01",
+      "partId": "opus1_case_tha_discharge_lep_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem restates the postoperative-day-1 teaching failure in full: an English handout was used for hip precautions and rivaroxaban safety, and with interpreter phone assistance the client still could not state the medication name, purpose, bleeding signs or missed-dose instructions. Baseline supplies the language profile and the rivaroxaban order. A failed teach-back on anticoagulant self-care means the client is not discharge-ready and needs qualified interpreter-supported teaching, which is keyed option A; the distractors fail on principle (repeating the same English handout with yes/no questions, discharging on written instructions, or using the son as interpreter and charting education complete).",
+      "laterStageLeakCheck": "stage_pod1 must not be the boundary: its exhibit states 'The nurse documents failed teach-back and the need for a certified Mandarin interpreter for comprehensive discharge teaching', which is keyed option A almost verbatim and identically in Chinese ('护士记录回教失败，并记录需要合格普通话医疗解释员进行全面出院教育'). stage_pod2 goes further and shows that teaching succeeding. BASELINE is both earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "d9d324461ff760a8",
+      "stage0QueueIndex": 14,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus1_case_tha_discharge_lep_01",
+      "partId": "opus1_case_tha_discharge_lep_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem enumerates the entire discharge-readiness screen the item turns on - unsafe walker use, no confirmed home support, no home health referral, incomplete teaching, no stair assessment, and a rising creatinine while taking rivaroxaban - so the barrier list is inside the part. Baseline supplies the surrounding facts that make each barrier consequential: she lives alone in a second-floor walk-up, her son is two hours away and works full time, she has no smartphone, and she is on rivaroxaban 10 mg daily for 35 days with CKD. Keyed options A through E are the barrier-resolution actions that follow, and distractor F is rejected because stable vital signs and a clean incision do not resolve mobility, teaching, language and support barriers.",
+      "laterStageLeakCheck": "stage_pod1 is where the barrier list originates, but the stem already reproduces it and pod1 adds the PT judgement that she 'is not safe for discharge home', which is keyed option A's substance. stage_pod2 must not be the boundary: it shows social work and case management engaged, the home health referral initiated, certified interpreter teaching delivered and PT completing walker and stair training - keyed options B, C and D carried out. BASELINE is the earliest answerable boundary and avoids both disclosures.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "af259a785b2a75a0",
+      "stage0QueueIndex": 15,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus1_case_tha_discharge_lep_01",
+      "partId": "opus1_case_tha_discharge_lep_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem supplies the renal picture the matrix depends on - creatinine 1.4 to 1.5 on postoperative day 1, back to 1.4 after hydration, eGFR 39 - and the drug order, rivaroxaban 10 mg once daily for 35 days after hip arthroplasty. Baseline independently carries the same order and the CKD history. Each row is then a scope-and-pharmacology judgement needing no stage: notifying the prescriber of the trend and confirming the plan is appropriate, a nurse independently holding an ordered anticoagulant is not, bleeding-sign teaching is appropriate, telling the client the 10 mg prophylactic dose must be taken with a full meal is wrong because that dose may be taken with or without food, and carrying the renal trend and bleeding surveillance into the home health handoff is appropriate.",
+      "laterStageLeakCheck": "stage_pod2 restates the same creatinine values the stem gives and adds interpreter-mediated teaching that covers rivaroxaban purpose, schedule, bleeding signs and missed-dose instructions, which is row r3's content. stage_pod3 must not be the boundary: its SBAR narrative lists 'rivaroxaban dose/duration and adherence concerns, renal-function trend, bleeding surveillance' as handoff content, which is row r5 stated as an accomplished fact. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "5167f735f4655df2",
+      "stage0QueueIndex": 16,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus1_case_tha_discharge_lep_01",
+      "partId": "opus1_case_tha_discharge_lep_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem gives both postoperative-day-2 facts the item turns on: interpreter-supported teach-back succeeded, and the client cannot independently navigate the surgeon's English-language phone system. Baseline supplies the access details the keyed options build on - she has no smartphone and uses a corded landline, she lives alone, and her adult son lives two hours away and works full time. From those, confirming the son as documented phone contact, providing large-print Mandarin numbers or landline speed-dial, carrying the phone-access barrier into the home health handoff, and asking the surgeon's office to schedule a Mandarin interpreter all follow; the distractors (do nothing because she repeated the danger signs, or route all questions to 911) fail on principle.",
+      "laterStageLeakCheck": "stage_pod3 must not be the boundary: it narrates the nurse calling the surgeon's office 'to confirm the 2-week follow-up appointment and request that a Mandarin interpreter be scheduled', communicating the son's role as the communication contact to the home health agency, and providing Mandarin-labelled materials - keyed options E, A, D and B performed in sequence, in both languages. stage_pod2 contains only the teach-back and the phone-tree remark that the stem already restates. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "25b7ff4311e66f43",
+      "stage0QueueIndex": 17,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus1_case_tha_discharge_lep_01",
+      "partId": "opus1_case_tha_discharge_lep_01_q6",
+      "proposedBoundary": null,
+      "disposition": "EXCEPTION",
+      "earliestBoundaryEvidence": "This is a select-all in which each keyed option must be independently true. Keyed option C ('creatinine trended up transiently and returned to baseline') requires the stage_pod1 rise to 1.5 and the stage_pod2 return to 1.4; baseline shows a single value of 1.4 and no trend, and the stem supplies none. Keyed option F asserts that 'equipment, functional status, follow-up appointment, and son's role as the phone contact have been confirmed'; stage_pod2 confirms equipment, functional status and the son's role, but stage_pod1 explicitly lists 'no confirmed follow-up appointment' among the unresolved barriers and stage_pod2 does not resolve it, so at stage_pod2 option F contains a false conjunct. Only stage_pod3 confirms the follow-up appointment. Keyed option D's 'after the son leaves' likewise needs stage_pod2. So no boundary earlier than stage_pod3 supports the keyed set.",
+      "laterStageLeakCheck": "stage_pod3 is disqualifying as decision evidence rather than merely confirmatory: its exhibit states that the nurse called the receiving home health nurse using SBAR and 'communicates language needs, the need for an interpreter for teaching, social situation, functional status, equipment, rivaroxaban dose/duration and adherence concerns, renal-function trend, bleeding surveillance, son's role as the communication contact, and the confirmed follow-up appointment' - which maps one-to-one onto keyed options A, B, C, D and F, in both English and Chinese. Anchoring there would let the learner read the answer set out of the narrative rather than judge handoff essentials. Anchoring earlier leaves keyed options C, D and F unsupported. Neither branch is defensible without editing content, which R4 forbids, so the row is an explicit exception for owner disposition.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": "Ambiguity that cannot be resolved without changing content or accepting an answer-supplying stage: the earliest boundary at which every keyed option is factually supported is stage_pod3, but stage_pod3's narrative enumerates the keyed handoff set almost verbatim, and the next-earlier candidate stage_pod2 leaves a conjunct of keyed option F unsupported, which would change answer correctness."
+    }
+  ]
+}

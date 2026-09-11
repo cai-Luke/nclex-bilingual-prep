@@ -92,6 +92,25 @@ refinement is optional future maintenance, not a blocker.
 Evidence, manifests, truth tables, and receipts are preserved under
 [`audit/campaign-16-phase-e-typed-baseline-support-implementation-2026-09-08-r1/`](audit/campaign-16-phase-e-typed-baseline-support-implementation-2026-09-08-r1/).
 
+### Campaign 16 R4 Anchor-Boundary Repair Closed (Sep 11)
+
+Campaign 16 R4 was accepted as **partial remediation** on 2026-09-11 from the frozen
+451-row / 93-parent population: 369 baseline repairs plus 16 stage repairs yielded 385
+repaired rows, while 66 reviewed exceptions were preserved unchanged. The four canonical
+banks received the accepted typed-baseline objects and moved to schema 2.1 as recorded by
+the campaign; the ordinary/default authoring version remains 2.0.
+
+Preservation, deterministic verification, owner-confirmed production `file://` smoke,
+architect conformance, and producer-independent Claude/Opus census confirmation completed.
+The acceptance remains a partial mechanism remediation, not complete answer-leakage or
+clinical-correctness certification. The residual 66 exceptions are deferred to a bounded
+successor task, and the separate 75 legacy-primary findings remain outside this closeout.
+
+The durable receipts are preserved under
+[`audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/`](audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/).
+Active product work can move to the separately queued UX-0A/0B/0C work orders after any
+intervening content-promotion work.
+
 ### Campaign 16 Phase B Quarantined FIX Recovery Published (Aug 27)
 
 Stage 3 mechanically published the 13-row final roster from the immutable publication freeze. All 13

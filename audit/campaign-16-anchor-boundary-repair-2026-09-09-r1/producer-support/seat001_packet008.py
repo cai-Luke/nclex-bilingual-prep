@@ -1,0 +1,76 @@
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'tools'))
+from producer_io import write_packet
+
+def R(part, boundary, disposition, evidence, leak, bilingual, confidence, exception):
+    return dict(partId=part, proposedBoundary=boundary, disposition=disposition,
+                earliestBoundaryEvidence=evidence, laterStageLeakCheck=leak,
+                bilingualRelation=bilingual, confidence=confidence, exceptionReason=exception)
+
+rows = [
+R('gpt_case_premium_2026_06_10_case01_matrix_screening_01', {'kind':'baseline'}, 'BASELINE',
+  'The English and Chinese initial-visit global exhibit supplies age 47, screening history, intact cervix, absence of first-degree colorectal history, and lack of symptoms. The matrix repeats each cue for classification, so no update is required.',
+  'The follow_up update introduces the selected FIT and its positive result. Those later findings do not determine the initial screening-indication matrix and are unnecessary to answer it.', 'PARALLEL', 'HIGH', None),
+R('gpt_case_premium_2026_06_10_case01_cloze_counseling_02', {'kind':'baseline'}, 'BASELINE',
+  'The global initial visit already describes Mandarin preference, hesitation with medical English, overdue screening, and the belief that feeling well removes the need for tests. Both-language counseling choices can be evaluated from this baseline communication problem.',
+  'The follow_up exhibit reports counseling already completed and the FIT result. Neither that confirmation nor later scheduling fears are necessary to choose interpreter-supported, plain-language counseling now.', 'PARALLEL', 'HIGH', None),
+R('gpt_case_premium_2026_06_10_case01_mc_positive_fit_03', {'kind':'baseline'}, 'BASELINE',
+  'This part explicitly states that the client FIT result is positive in both English and Chinese. Its own stem provides the result needed to distinguish diagnostic follow-up from routine repeat screening or a cancer diagnosis.',
+  'The follow_up exhibit repeats the same positive FIT and describes work and fear barriers, but no additional result or later outcome is needed for the instruction choice supplied in this part.', 'PARALLEL', 'HIGH', None),
+R('gpt_case_premium_2026_06_10_case01_sata_followup_04', 'follow_up', 'STAGE',
+  'This part asks which actions support the client actual follow-up plan without stating the test result in its stem. follow_up first establishes the chosen FIT, positive result, work constraints, and cancer fear that justify the FIT-specific teach-back and colonoscopy scheduling alongside language support in both languages.',
+  'The summary mentions an abnormal screening result without identifying its type. Treatment-action alternatives are not independent confirmation that this client has a positive FIT. follow_up is the first explicit source of the needed result and barriers, not a post-action validation reveal.', 'PARALLEL', 'HIGH', None),
+R('gpt_case_premium_2026_06_10_case01_or_screening_plan_05', {'kind':'baseline'}, 'BASELINE',
+  'The part asks for the order of developing a preventive screening plan. Its English and Chinese options fully name barrier assessment, explanation, teach-back, scheduling, and documentation; the global overdue-screening and language context is enough to order these process steps.',
+  'The later FIT selection, positive result, and work concerns need not be known before ordering the supplied counseling actions. The question does not ask the learner to identify an observed response from the update.', 'PARALLEL', 'HIGH', None),
+R('gpt_case_premium_2026_06_10_case02_mc_caregiver_priority_01', {'kind':'baseline'}, 'BASELINE',
+  'The global home visit records the spouse exhaustion, isolation, yelling, and fear of losing control in both languages. The alternatives also state all cues being compared, so the immediate-follow-up choice is supported at baseline.',
+  'one_month adds the daughter uncertainty and family preferences. The daughter cue is already written in its alternative and is not required to establish the global safety concern or its priority over planning needs.', 'PARALLEL', 'HIGH', None),
+R('gpt_case_premium_2026_06_10_case02_matrix_cues_02', {'kind':'baseline'}, 'BASELINE',
+  'Every matrix row repeats an English and Chinese global home-visit fact: poor sleep, guilt after yelling, preserved self-feeding, social isolation, or denial of intent to harm. No later family meeting is needed to classify these named cues.',
+  'The one_month resource and preference update contributes no missing matrix finding. It may inform subsequent planning but must not delay classification of the initial home-visit facts.', 'PARALLEL', 'HIGH', None),
+R('gpt_case_premium_2026_06_10_case02_cloze_response_03', {'kind':'baseline'}, 'BASELINE',
+  'The baseline spouse report already includes exhaustion and fear of losing control. In both languages the response choices contrast acknowledging that distress and assessing immediate safety with dismissal, delay, or an unsupported transfer of all care.',
+  'The daughter schedule and resource menu in one_month are unnecessary to select an immediate supportive response and concrete support assessment. The keyed response does not require knowing whether a particular later service was accepted.', 'PARALLEL', 'HIGH', None),
+R('gpt_case_premium_2026_06_10_case02_sata_resources_04', 'one_month', 'STAGE',
+  'one_month first establishes that the daughter is available on Saturdays and that the spouse is reluctant to admit strangers but needs relief. These English and Chinese details ground the specific Saturday task-sharing and short-trial respite alternatives in the actual family adaptation plan.',
+  'The baseline identifies strain and preserved client abilities but does not establish a daughter available for Saturday care. The options propose interventions rather than independently establish family capacity; one_month supplies the missing context without relying on later success.', 'PARALLEL', 'HIGH', None),
+R('gpt_case_premium_2026_06_10_case02_or_family_plan_05', {'kind':'baseline'}, 'BASELINE',
+  'The global fear of losing control establishes the safety-first need. The bilingual options fully specify the remaining meeting process: invite client goals, assess acceptable family help, match resources, and assign follow-up. Their order does not require the later answers to those assessments.',
+  'Although the stem calls this a follow-up family meeting, one_month preferences and daughter availability are not needed to order the supplied assessment-and-planning actions. No later outcome or resource acceptance determines the order.', 'PARALLEL', 'HIGH', None),
+R('gpt_case_premium_2026_06_10_case03_matrix_selfmgmt_01', {'kind':'baseline'}, 'BASELINE',
+  'The bilingual global diabetes visit supplies night-shift meals, mismatch between plan and daily life, requested daughter participation, reduced foot sensation, and intact skin. Those same facts are explicitly listed in the matrix for barrier-or-strength classification.',
+  'three_weeks supplies behavior logs and missed checks after the initial plan. None is needed for the matrix of initial visit cues, and the later absence of redness only confirms skin status already available.', 'PARALLEL', 'HIGH', None),
+R('gpt_case_premium_2026_06_10_case03_cloze_goal_02', {'kind':'baseline'}, 'BASELINE',
+  'The initial global statement that the plan never fits life, together with night work and irregular meals/checks, supports selecting realistic goals tied to the client own routine. English and Chinese cloze alternatives supply the whole planning comparison.',
+  'The three_weeks log shows later adherence and remaining barriers but is not needed to construct the explicitly requested initial teaching plan. It should not be revealed to justify selecting realistic goals.', 'PARALLEL', 'HIGH', None),
+R('gpt_case_premium_2026_06_10_case03_sata_plan_03', 'three_weeks', 'STAGE',
+  'The global visit supports meal timing, daughter participation, and foot prevention, but three_weeks first establishes the client existing phone photo log and actual missed-foot-check barrier. That bilingual update grounds the option to use the client collected log to reinforce progress within this actual plan.',
+  'The answer alternatives propose actions and do not themselves independently establish that the client has collected a usable log. three_weeks provides those data, not a later judgment that the proposed revised plan worked; no subsequent stage is needed.', 'PARALLEL', 'HIGH', None),
+R('gpt_case_premium_2026_06_10_case03_mc_understanding_04', {'kind':'baseline'}, 'BASELINE',
+  'The baseline identifies reduced sensation and a need for foot protection. This part presents four complete candidate statements in both languages and asks which would demonstrate effective teaching; the learner can compare their content without a reported follow-up response.',
+  'three_weeks quotes the missed-foot-check misconception also presented as a distractor, but the part is not asking which statement the client actually made. That later quotation is unnecessary to evaluate the supplied teaching statements.', 'PARALLEL', 'HIGH', None),
+R('gpt_case_premium_2026_06_10_case03_or_followup_05', {'kind':'baseline'}, 'BASELINE',
+  'The bilingual response options give the entire sequence to organize: review the phone log, ask why fatigue interfered with foot checks, revise a routine-linked goal, confirm it, and arrange follow-up. The ordering task supplies its own working scenario and asks no extraction of actual logged values.',
+  'The three-week label does not alone require three_weeks. Its numerical activity/meal record and actual quotations add context but do not determine the ordering of the already specified review, assessment, revision, verification, and follow-up actions.', 'PARALLEL', 'HIGH', None),
+R('gpt_case_premium_2026_06_10_case04_matrix_risk_01', {'kind':'baseline'}, 'BASELINE',
+  'The matrix explicitly concerns rehabilitation admission and repeats the global reduced sensation, Braden score, blanchable redness, intact skin, and urinary leakage in both languages. All requested cue classifications are answerable before any declared update.',
+  'day_three introduces nonblanchable redness and boggy heels, which are different later findings. They are not required for the admission matrix and could blur its explicit initial-timeframe comparison.', 'PARALLEL', 'HIGH', None),
+R('gpt_case_premium_2026_06_10_case04_cloze_stage1_02', 'day_three', 'STAGE',
+  'The stem asks interpretation of the day-3 sacral finding but does not describe it. day_three first supplies intact skin with nonblanchable sacral redness in both languages; baseline instead describes blanchable coccyx redness and cannot support the same classification.',
+  'day_three contains the assessment that must be interpreted, not a later response validating an already selected action. It is the earliest source of the changed blanching finding needed for this cloze and there is no further stage.', 'PARALLEL', 'HIGH', None),
+R('gpt_case_premium_2026_06_10_case04_mc_first_action_03', {'kind':'baseline'}, 'BASELINE',
+  'This part expressly supplies nonblanchable sacral redness in its English and Chinese stem. With the global rehabilitation context, the options can be compared for the priority response to that stated finding without opening day_three.',
+  'day_three repeats the finding and adds size, warmth, heel texture, and donut-cushion use. Those details are unnecessary to choose pressure relief from the supplied alternatives, including the explicitly described donut-cushion distractor.', 'PARALLEL', 'HIGH', None),
+R('gpt_case_premium_2026_06_10_case04_sata_prevention_04', {'kind':'baseline'}, 'BASELINE',
+  'The global wheelchair dependence, reduced sensation, redness after prolonged sitting, mistaken reliance on pain, and urinary leakage already support the listed pressure, skin, moisture, and teaching measures in both languages. The cushion alternatives specify the equipment comparison themselves.',
+  'The word revised does not make the day_three assessment necessary: the selected prevention components are already indicated by the baseline risks, and no choice asks for a stage-specific measurement or an actual response to treatment.', 'PARALLEL', 'HIGH', None),
+R('gpt_case_premium_2026_06_10_case04_or_heel_action_05', {'kind':'baseline'}, 'BASELINE',
+  'The own bilingual stem states that the heels are boggy but intact. Together with the supplied assessment, offloading, coordination, teaching, and documentation actions, it contains the findings needed to order the response at baseline.',
+  'day_three duplicates heel bogginess and gives other sacral findings that are not required for this heel-specific sequence. The small wording difference about ordered or protocol-permitted boots does not create a different stage dependency.', 'PARALLEL', 'HIGH', None),
+]
+
+write_packet('repair-008', rows, '/root/producer_001_009')

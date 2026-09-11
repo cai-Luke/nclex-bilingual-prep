@@ -1,0 +1,291 @@
+{
+  "repairPacketId": "repair-024",
+  "producer": "Codex / GPT-6 Astra",
+  "producingAgent": "/root/r4_verifier",
+  "role": "PRODUCER_SEMANTIC_RECONSTRUCTION",
+  "independentReview": false,
+  "sourcePacketSha256": "5649f266f46a0c88b17562ee35850eb365d40cbaf2ff874246339b2302e2cc47",
+  "workOrderSha256": "8cd476c23f2b6cadb07ae8115fd675fbbfc3f60acb46d7a521d5d1da30b2558b",
+  "parentCaseIds": [
+    "opus_scc_case_01",
+    "opus_icit_case_01",
+    "opus_tpn_case_mucositis_01"
+  ],
+  "method": "Whole parent examined; each affected part independently evaluated at baseline and successive declared boundaries in English and Simplified Chinese. No Phase E leak verdict or calibration answer key used.",
+  "rows": [
+    {
+      "rowKey": "cc01916f47e7cd29",
+      "stage0QueueIndex": 381,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_scc_case_01",
+      "partId": "opus_scc_case_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The global history and baseline exam already establish thoracic metastases, changing focal back pain, new motor weakness, hyperreflexia/Babinski findings, a sensory level and incomplete bladder emptying. The stem explicitly asks for interpretation of that initial cluster, identically in English and Chinese.",
+      "laterStageLeakCheck": "stage_1 supplies MRI confirmation and worsening deficits, which would confirm the suspected emergency already recognizable globally. That diagnostic confirmation must not delay this baseline recognition item.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "818efa64297eb1f4",
+      "stage0QueueIndex": 382,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_scc_case_01",
+      "partId": "opus_scc_case_01_q2",
+      "proposedBoundary": "stage_1",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The part asks for the immediate priority in the Stage 1 course without supplying that course itself. stage_1 first establishes the urgent IV dexamethasone escalation order, MRI findings and further neurologic decline; the global record instead continues the prior oral regimen. Those bilingual changes determine the current medication priority.",
+      "laterStageLeakCheck": "stage_2 states the bolus was already administered and shows further deterioration. That later execution and outcome are unnecessary to act on the newly available stage_1 order.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "129fea1d5eb05884",
+      "stage0QueueIndex": 383,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_scc_case_01",
+      "partId": "opus_scc_case_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem itself supplies the increased bladder volume of 420 mL and new perineal numbness. Global thoracic metastatic disease, localizing neurologic deficits, initial residual 280 mL and unremarkable urinalysis provide enough context to interpret the new supplied findings as progression in both languages.",
+      "laterStageLeakCheck": "stage_1 repeats the retention and numbness and adds MRI confirmation, but those are not missing premises for this interpretation. The later severe losses and postoperative response are unnecessary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "e41cf426fbcb8f48",
+      "stage0QueueIndex": 384,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_scc_case_01",
+      "partId": "opus_scc_case_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem explicitly establishes the neurosurgeon's emergent-decompression recommendation. Global medications include scheduled enoxaparin, and the history/exam establishes evolving deficits. This information plus the supplied consent, preoperative-data, anticoagulant, monitoring and insulin-target choices is sufficient for the bilingual preparation task.",
+      "laterStageLeakCheck": "stage_2 repeats the surgical recommendation and documents a glucose value, but the insulin option's unprescribed stat dose and fixed target need not be validated by a later lab to be rejected. The detailed later neurologic decline and postoperative outcome are not needed for the offered preparation actions.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "6b1c6f18f2924a96",
+      "stage0QueueIndex": 385,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_scc_case_01",
+      "partId": "opus_scc_case_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part directly quotes the daughter's prognosis question, while global case context establishes cord compression concern with remaining leg movement and new walking difficulty. That context supports a response acknowledging distress, explaining decompression goals and referring specific recovery expectations, in both languages, without a stage.",
+      "laterStageLeakCheck": "stage_2 repeats the question and quantifies worse but still present movement. stage_3 reveals some recovery, which must not be used to justify reassurance before surgery. Neither adds a prerequisite for the offered communication distinction.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "87a2537e9bbe086f",
+      "stage0QueueIndex": 386,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_scc_case_01",
+      "partId": "opus_scc_case_01_q6",
+      "proposedBoundary": "stage_2",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The matrix supplies postoperative strength 3/5 and sensory level T8–T9 but asks specifically to compare with Stage 2 preoperative status. stage_2 first provides the required 2/5 motor strength and T6 sensory level. Against global 4/5 strength, 3/5 would not represent improvement, so that comparison stage is essential in both languages.",
+      "laterStageLeakCheck": "stage_3 repeats the postoperative findings already supplied by the matrix and explicitly interprets several as improved. The earliest needed information is the stage_2 comparator, and the later interpretation must not be used as an answer key.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "81b19b3e972c0b93",
+      "stage0QueueIndex": 387,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_icit_case_01",
+      "partId": "opus_icit_case_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part expressly asks what to do before Stage 1. Globally visible pre-infusion symptoms, tachycardia, troponin/BNP and liver-enzyme elevations already support holding the scheduled ICI and urgent notification in English and Chinese.",
+      "laterStageLeakCheck": "opus_icit_stage_1 records that notification and the oncologist's hold decision, while later stages show further injury. Those actions and outcomes must not be revealed to solve the initial safety decision.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "b174c7627b0e9957",
+      "stage0QueueIndex": 388,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_icit_case_01",
+      "partId": "opus_icit_case_01_q2",
+      "proposedBoundary": "opus_icit_stage_1",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The requested Stage 1 constellation requires the newly diffuse ST depressions and new PR prolongation, which opus_icit_stage_1 first supplies along with symptom progression. Baseline has abnormal biomarkers but a normal PR and no described diffuse ECG changes; the title's diagnosis cannot substitute for the requested clinical analysis. Both languages describe the same change.",
+      "laterStageLeakCheck": "opus_icit_stage_2 explicitly supplies the specialist diagnosis, LVEF decline and marked biomarker rise. That confirmation is unnecessary once the stage_1 pattern supports the hypothesis and must not serve as the answer source.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "5b9a3f652e7815e8",
+      "stage0QueueIndex": 389,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_icit_case_01",
+      "partId": "opus_icit_case_01_q3",
+      "proposedBoundary": "opus_icit_stage_2",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "opus_icit_stage_2 first supplies dyspnea at rest, SpO2 93% below the stated target and the urgent IV steroid/transfer/access orders. Earlier saturations are 96% or 95%, so the priority assigned to supplemental oxygen cannot be justified from those earlier assessments merely by the stem's general deterioration statement. The necessary bilingual clinical trigger agrees.",
+      "laterStageLeakCheck": "The selected stage provides the pre-intervention assessment and orders needed to sequence care. Its subsequent administration sentence is not used as proof of order; stage_3's treatment response is wholly unnecessary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "11ecd193df0f6dde",
+      "stage0QueueIndex": 390,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_icit_case_01",
+      "partId": "opus_icit_case_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The globally visible ICI cardiac/liver condition and abnormal cardiac/hepatic markers supply the monitoring context, while the part explicitly establishes corticosteroid administration. Its choices ask prospectively about biomarker/glucose surveillance, arrhythmia monitoring and overlapping toxicity screening; no actual later arrhythmia or hyperglycemia is needed to plan these measures in either language.",
+      "laterStageLeakCheck": "The later prolonged PR, PVCs and steroid-associated glucose elevation exemplify the complications being anticipated. Requiring their occurrence would unnecessarily delay a prospective monitoring plan; the option about PR normalization is conditional rather than an unstated actual event.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "c8eb6d9b4ee7a496",
+      "stage0QueueIndex": 391,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_icit_case_01",
+      "partId": "opus_icit_case_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem explicitly gives the oncologist's permanent-discontinuation order. Global ICI exposure and the cardiac/liver reaction context, together with that complete order premise, are sufficient to choose verification, adverse-reaction documentation and education in both languages without a stage.",
+      "laterStageLeakCheck": "opus_icit_stage_2 repeats the permanent order, and stage_3 elaborates long-term specialist guidance. The question asks how to execute the already stated order, not whether a later team independently confirms it.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "b8b40dc4fcd9a612",
+      "stage0QueueIndex": 392,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_icit_case_01",
+      "partId": "opus_icit_case_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The item states 18–24 hours of corticosteroid treatment and supplies complete troponin decline and PVC-resolution trends plus glucose 218. The global glucose 104 and cardiac-disease context provide the remaining comparison needed to classify response versus adverse effect in both languages.",
+      "laterStageLeakCheck": "opus_icit_stage_3 repeats these same outcomes and labels their causes, but no missing trend needs to be obtained there. The matrix itself supplies the response findings to interpret.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "802896cb6a9c1b8e",
+      "stage0QueueIndex": 393,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_tpn_case_mucositis_01",
+      "partId": "opus_tpn_case_mucositis_01_q1",
+      "proposedBoundary": "stage_1",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The question asks for the emerging complication and highest-priority new cue after interventions but gives only general worsening in the stem. stage_1 first supplies the actual further blood-pressure fall despite bolus, rising lactate/creatinine, persistent oliguria and rigors, allowing the offered systemic versus local/volume/reaction interpretations to be compared in both languages.",
+      "laterStageLeakCheck": "The later preliminary and definitive blood cultures would disclose the source diagnosis. They are not required to recognize the worsening sepsis pattern already supported by the stage_1 clinical course.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "5fd548c9d6d6bd03",
+      "stage0QueueIndex": 394,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_tpn_case_mucositis_01",
+      "partId": "opus_tpn_case_mucositis_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem explicitly gives glucose 324 and rising despite sliding-scale coverage with TPN continuing at 85 mL/hr. The global record supplies continuous TPN dependence and current glucose management, so the complete escalation scenario is present in English and Chinese before a stage update.",
+      "laterStageLeakCheck": "stage_1 repeats the glucose problem and stage_2 states the insulin-infusion and TPN-reduction orders that the item asks the nurse to anticipate. Those later decisions are unnecessary and would reveal the planned solution.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "a0e42e1a6716455d",
+      "stage0QueueIndex": 395,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_tpn_case_mucositis_01",
+      "partId": "opus_tpn_case_mucositis_01_q3",
+      "proposedBoundary": "stage_2",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The stem supplies the preliminary culture timing, and the global history supplies TPN dependence, but the full coordination sequence also asks to verify empiric vancomycin infusion. stage_2 first adds that actual prescription and the line/source-control planning context; baseline and stage_1 prescribe cefepime without vancomycin. Both language surfaces require that new order context.",
+      "laterStageLeakCheck": "stage_3 supplies final paired-culture confirmation and completed removal/replacement. Waiting for it would disclose the later source-control execution and is unnecessary for coordinating the preliminary-result response at stage_2.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "51e9b75bf5e30694",
+      "stage0QueueIndex": 396,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_tpn_case_mucositis_01",
+      "partId": "opus_tpn_case_mucositis_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem fully specifies severe pain, bleeding confluent mucositis and refusal after missed rinses. The global record adds platelets 18,000, PCA use and sodium-bicarbonate rinse orders, which support analgesia-facilitated atraumatic care in English and Chinese without any new update.",
+      "laterStageLeakCheck": "stage_2 repeats the oral-care barrier and stage_3 shows later successful rinse tolerance after improved analgesia. That outcome confirms the plan but is unnecessary to choose it prospectively.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "68dc7bd2f5bc1bfc",
+      "stage0QueueIndex": 397,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_tpn_case_mucositis_01",
+      "partId": "opus_tpn_case_mucositis_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The matrix directly supplies declining lactate and temperature, stabilized glucose on insulin, elevated triglycerides and plateaued creatinine. The global renal baseline 1.3 and initial elevated glucose provide any remaining comparison context. These complete bilingual outcome statements can be classified without an update.",
+      "laterStageLeakCheck": "stage_3 repeats and interprets the same outcomes. No later chart confirmation is needed because the question itself supplies the trends, while the original global renal value explains the continuing impairment.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "664554d731c00372",
+      "stage0QueueIndex": 398,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_tpn_case_mucositis_01",
+      "partId": "opus_tpn_case_mucositis_01_q6",
+      "proposedBoundary": null,
+      "disposition": "EXCEPTION",
+      "earliestBoundaryEvidence": "The stem supplies rinse tolerance but inability to swallow, and the global record establishes severe oral/esophageal mucositis. However, the question asks about transitioning to enteral nutrition generally, while its keyed rationale treats inability to swallow as making enteral delivery physically impossible. The source does not establish suitability or exclusion of all non-oral enteral routes, so that broad conclusion cannot be recovered confidently in either language.",
+      "laterStageLeakCheck": "No declared stage provides the missing assessment of other enteral-delivery routes. stage_3 documents ongoing TPN and improved rinsing only; continued prescribed TPN is not proof that every enteral route is impossible or that the broad keyed explanation is correct.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "LOW",
+      "exceptionReason": "Answer-correctness/scope ambiguity: the part asks about enteral nutrition broadly but the supporting facts and rationale establish only swallowing limitations and equate enteral delivery with oral swallowing; a boundary alone cannot resolve the route distinction."
+    }
+  ]
+}

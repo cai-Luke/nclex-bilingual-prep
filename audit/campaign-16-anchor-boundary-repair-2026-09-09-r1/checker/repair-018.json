@@ -1,0 +1,317 @@
+{
+  "repairPacketId": "repair-018",
+  "bankPath": "banks/gpt-canonical.json",
+  "bankSha256": "d7d228afc282bd15bc730be4ca5b3d2c7c14c017bbc14f3d12a7cbccbfef0f20",
+  "sourcePacketSha256": "dd498bf682723911976f4d071a62e4c943fa007915537adb28674a2cfa81fa39",
+  "checker": "Claude Code / Claude Opus 5",
+  "checkerRole": "independent content checker (R4 Stage 2 blind full reconstruction)",
+  "blind": true,
+  "representation": {
+    "BASELINE": "proposedBoundary == {\"kind\":\"baseline\"}",
+    "STAGE": "proposedBoundary == exact declared stage id string",
+    "EXCEPTION": "proposedBoundary == null with exceptionReason",
+    "forbiddenAlternateField": "orStage (never emitted)"
+  },
+  "rowCount": 18,
+  "parentCaseIds": [
+    "gpt_case_client_advocacy_refusal_01",
+    "gpt_case_nurse_provider_conflict_01",
+    "gpt_case_unsafe_premature_discharge_01"
+  ],
+  "counts": {
+    "BASELINE": 18,
+    "STAGE": 0,
+    "EXCEPTION": 0,
+    "HIGH": 18
+  },
+  "rows": [
+    {
+      "rowKey": "cf592a9790298a72",
+      "stage0QueueIndex": 282,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_premature_discharge_01",
+      "partId": "gpt_case_unsafe_premature_discharge_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Every segment states its own finding, and most are baseline: alert and oriented, resting respiratory rate 22 with SpO2 93 percent, weight down from 84.6 to 78.2 kg, no jugular distension at 45 degrees, trace pedal oedema, BNP down from 2,400 to 680, creatinine 1.8 against an outpatient baseline of 1.4, and living alone in a second-floor walk-up without a scale. The three segments drawn from the morning trial - exertional desaturation to 89 percent, the failed teach-back, and the 95-dollar copay - state their own content, and baseline independently records that she stopped furosemide because she could not afford the refill.",
+      "laterStageLeakCheck": "stage_2 must not be the boundary: it records the nurse documenting exactly 'ambulation findings, failed teach-back, medication affordability barrier, and home environment concerns', which names the red-flag set the item asks the learner to identify. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "a66d5112e73705ac",
+      "stage0QueueIndex": 283,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_premature_discharge_01",
+      "partId": "gpt_case_unsafe_premature_discharge_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "All ten rows state their own findings and values, and baseline supplies the ones that need grounding - weight trend, BNP trend, creatinine 1.8 against a 1.4 baseline, potassium 3.4 on continuing loop diuretic, absent jugular distension, living alone in a walk-up. Sorting active discharge barriers from resolved or improving findings is discharge-readiness judgement applied to that surface.",
+      "laterStageLeakCheck": "stage_2 lists the same barriers as the content of the nurse's documentation and escalation, which would identify the active-barrier set. BASELINE is earliest and answerable.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "d7ff4baa9bad1683",
+      "stage0QueueIndex": 284,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_premature_discharge_01",
+      "partId": "gpt_case_unsafe_premature_discharge_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states the attending's two reasons, and baseline supplies the counterweight: an active discharge order entered during bed-throughput pressure for a client who lives alone up a flight of stairs without a scale, whose creatinine has risen above baseline and whose potassium is 3.4 on a new diuretic she stopped taking last month for cost. A falling biomarker does not establish functional or comprehension readiness, so advocating to hold or modify is the stance; proceeding, deferring to bed management, or avoiding challenge all fail.",
+      "laterStageLeakCheck": "stage_2 must not be the boundary: it narrates this exact exchange - the attending citing length of stay, downtrending BNP and bed need, the nurse reiterating safety concerns and stating she will escalate, and the attending agreeing to hold - which discloses both the stance and its outcome. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "681d5517f3f5b35e",
+      "stage0QueueIndex": 285,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_premature_discharge_01",
+      "partId": "gpt_case_unsafe_premature_discharge_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The barriers are baseline-visible or stated in the part: unaffordable new diuretic in a client who stopped her prior one for cost, no scale, a second-floor walk-up, living alone with a daughter 90 minutes away, and unresolved comprehension. Documenting the objective findings, engaging case management for transition and coverage, requesting social work for a scale and home-safety evaluation, asking pharmacy for an affordable alternative, and arranging home health with family support all follow; discharging as ordered on written instructions does not.",
+      "laterStageLeakCheck": "stage_2 must not be the boundary: it narrates every keyed action being performed - documentation, case manager page, social work request, clinical pharmacist contact, home health referral and the call to the daughter - and reports each resource being secured. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "1584c5cef3f26dfd",
+      "stage0QueueIndex": 286,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_premature_discharge_01",
+      "partId": "gpt_case_unsafe_premature_discharge_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states the premise, an active discharge order with an 11:00 target after the unsafe picture is identified, and baseline establishes that the attending entered that order. Chain-of-command practice places the first call with the prescriber who wrote the order, with the objective safety findings and a request to hold; going over the attending's head first, or paging social work or the daughter before the order is addressed, all leave the unsafe order active.",
+      "laterStageLeakCheck": "stage_2 must not be the boundary: it records that 'At 09:15, the nurse calls the attending and reports...', which is the keyed first action carried out. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "d90d7ebc2b193a19",
+      "stage0QueueIndex": 287,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_premature_discharge_01",
+      "partId": "gpt_case_unsafe_premature_discharge_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each row states its own re-evaluation finding, and baseline supplies the barrier list each row is matched against - the failed teach-back, the affordability problem, the absent scale and stair access, and the renal and potassium abnormalities. Recognising that a documented functional trial, demonstrated teach-back, a revised affordable prescription with supply in hand, and a confirmed support and follow-up plan each close a specific barrier, while a falling BNP is supportive treatment-response data only, is evaluation.",
+      "laterStageLeakCheck": "stage_3 is the source of the re-evaluation values, which the rows restate, and it classifies none of them against the barrier list. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "b57c212dfee53516",
+      "stage0QueueIndex": 288,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_nurse_provider_conflict_01",
+      "partId": "gpt_case_nurse_provider_conflict_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline states the measuring stick verbatim: the unit protocol caps peripheral potassium chloride at 10 mEq per 100 mL and 10 mEq per hour, requires central access above that, requires verification of creatinine and eGFR before replacement, and directs the nurse to hold and clarify any non-conforming order. Baseline also records the single 20-gauge peripheral IV with no central access and a creatinine of 1.6 with eGFR 34 against a baseline of 1.3 and 42 to 44. The two options describing the order state its rate and concentration, so all four keyed findings are available; normal sinus rhythm and a discharge question are not safety concerns.",
+      "laterStageLeakCheck": "stage_1 is where the order is written, and the options restate its parameters. The stage does not evaluate the order against the protocol. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "9f776ccbf7464d4d",
+      "stage0QueueIndex": 289,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_nurse_provider_conflict_01",
+      "partId": "gpt_case_nurse_provider_conflict_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline supplies both elements that define the disagreement as a genuine safety conflict: a written unit protocol the order violates on concentration and rate, and renal function that has worsened to an eGFR of 34, which raises the risk of potassium accumulation. Characterising it as a personality clash, a scope-of-practice problem, or an equally acceptable preference is defeated by that protocol text, which places the hold-and-clarify duty on the nurse.",
+      "laterStageLeakCheck": "stage_1 contains the exchange with the covering resident that the stem refers to; it adds tone but no new safety fact. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "2bbdbc71ceaff8ee",
+      "stage0QueueIndex": 290,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_nurse_provider_conflict_01",
+      "partId": "gpt_case_nurse_provider_conflict_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem quotes the instruction, and baseline supplies the protocol that makes the ordered rate and concentration unsafe through a peripheral line without central access. Protecting the client while continuing to advocate for safe replacement is the priority; administering because the potassium is 3.1, preserving the relationship by not challenging, and refusing all replacement pending an in-person attending evaluation each sacrifice either safety or the legitimate clinical need.",
+      "laterStageLeakCheck": "stage_1 carries the exchange the stem restates; stage_2 narrates the resolution. Neither states the priority. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "2944cbd4d2952f0e",
+      "stage0QueueIndex": 291,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_nurse_provider_conflict_01",
+      "partId": "gpt_case_nurse_provider_conflict_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline's protocol sentence - hold and clarify any potassium order that does not conform - directly supports withholding and escalating, and the remaining keyed actions are standard conflict-resolution practice: graded-assertiveness language naming the safety concern, requesting a modified or properly authorised order through the appropriate pathway, and factual documentation of the order, concern, communications, escalation and outcome. Administering because the instruction was repeated, and handing the syringe to another nurse, both evade rather than resolve the concern.",
+      "laterStageLeakCheck": "stage_2 narrates these actions being carried out and the order being revised; it is the source of the resolution rather than of the judgement. BASELINE is earliest and answerable.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "ea9348fa302ce2d0",
+      "stage0QueueIndex": 292,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_nurse_provider_conflict_01",
+      "partId": "gpt_case_nurse_provider_conflict_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem quotes the moment, and the answer is graded-assertiveness practice: state the protocol-based safety concern clearly using CUS or two-challenge language before escalating further, rather than administering, ending the call to jump the chain, filing a report first, or waiting passively. Baseline supplies the protocol that gives the safety statement its content.",
+      "laterStageLeakCheck": "stage_1 contains the exchange and stage_2 the escalation; neither names the communication technique. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "cd5e4cf70fa74138",
+      "stage0QueueIndex": 293,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_nurse_provider_conflict_01",
+      "partId": "gpt_case_nurse_provider_conflict_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each row states its own finding, and baseline supplies the standard they are judged against: the revised order of 10 mEq in 100 mL over one hour by peripheral line is exactly what the protocol permits, so its substitution for the 40 mEq/hr order, the unadministered original, the improved repeat potassium with a stable rhythm, the absence of site or cardiac symptoms, and the resident's acknowledgement all support safe resolution, while an earlier question about going home does not.",
+      "laterStageLeakCheck": "stage_3 is the source of these outcome findings, which the rows restate, and it classifies none of them. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "5a6f6b69e81b9c80",
+      "stage0QueueIndex": 294,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_client_advocacy_refusal_01",
+      "partId": "gpt_case_client_advocacy_refusal_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The decisive segments are baseline. The admission record states the advance directive condition verbatim - the son's durable power of attorney 'to be activated only if Mrs. Ellison loses decisional capacity' - and documents a Mini-Cog of 4/5 with orientation to person, place, time and situation, a calm reflective mood, and her own statement that she does not want more tubes or machines. The remaining segments state their own content, including the physician's documentation of understanding, her clarifying questions and her repeated refusal. Separating capacity-and-refusal evidence from the son's assertion and from nutritional laboratory values is knowledge.",
+      "laterStageLeakCheck": "stage_1 is the source of the consent-discussion segments, which the segments restate, and it identifies no governing decision. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "0f39bf4232565761",
+      "stage0QueueIndex": 295,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_client_advocacy_refusal_01",
+      "partId": "gpt_case_client_advocacy_refusal_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states the son's claim, and baseline refutes it directly: the advance directive activates his authority only on loss of decisional capacity, and the admission assessment documents that capacity is intact with a Mini-Cog of 4/5 and full orientation. Her refusal therefore governs, and the alternatives - proxy priority over a capacitated patient, medical recommendation overriding refusal, sibling consensus, or waiting for another relative - all fail against that same directive language.",
+      "laterStageLeakCheck": "stage_1 records the informed-consent discussion and her repeated refusal, which reinforce the conclusion without supplying it. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "15fabfb73313f2b1",
+      "stage0QueueIndex": 296,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_client_advocacy_refusal_01",
+      "partId": "gpt_case_client_advocacy_refusal_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states the physician's suggestion, and baseline supplies the ethical frame: a capacitated patient with documented orientation and a Mini-Cog of 4/5 who has stated she wants no more tubes or machines, and a directive that does not transfer authority while she retains capacity. Advocating so that an informed voluntary refusal is not overridden by family pressure or provider ambivalence follows; treating the consult as neutral, prioritising albumin correction, staying neutral, or refusing to engage the family all fail.",
+      "laterStageLeakCheck": "stage_2 carries the suggestion the stem restates and the family pressure; it states no obligation. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "ec154db89a21301d",
+      "stage0QueueIndex": 297,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_client_advocacy_refusal_01",
+      "partId": "gpt_case_client_advocacy_refusal_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline supplies the governing facts - documented capacity, the conditional directive, and a recently cancelled outpatient palliative-care referral that makes the palliative and social-work request concrete. Confirming that the decision remains informed and voluntary and screening for coercion, documenting the refusal with direct quotes and observations of capacity, naming the ethical concern to the physician, and arranging structured family support with her consent all uphold autonomy; pressing her to reconsider for her family's sake and deferring to the son's demand do not.",
+      "laterStageLeakCheck": "stage_2 narrates the family pressure and the physician's ambivalence, and later narrative carries the palliative referral; neither states the action set. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "4d3ad55a5f9060c3",
+      "stage0QueueIndex": 298,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_client_advocacy_refusal_01",
+      "partId": "gpt_case_client_advocacy_refusal_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states the premise - reassessment confirms she remains alert, informed, voluntary and consistent - and the first advocacy action follows from baseline's directive language and documented capacity: tell the physician without delay that the refusal stands, that capacity is documented, and that scheduling a consult over a documented refusal raises an ethical concern. Finishing documentation first, escalating to ethics before addressing the prescriber, requesting the paperwork, or asking her to accept a one-time consult all either delay or undermine the refusal.",
+      "laterStageLeakCheck": "stage_2 carries the reassessment and the ethical conflict; it does not state the first action. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "a5f668a193fe1d99",
+      "stage0QueueIndex": 299,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_client_advocacy_refusal_01",
+      "partId": "gpt_case_client_advocacy_refusal_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each row states its own finding, and baseline supplies the two that anchor the discrimination: the admission albumin of 2.6 and prealbumin of 11, which are nutritional data rather than advocacy outcomes, and the conditional directive that makes the son's threatened legal action an external pressure rather than a measure of advocacy effectiveness. Consistent capacity documentation, the absence of a consult placed over her refusal, a comfort-focused plan with hospice referral, and her own statement that she feels heard are the effectiveness markers.",
+      "laterStageLeakCheck": "stage_3 is the source of the outcome findings, which the rows restate, and it classifies none of them. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

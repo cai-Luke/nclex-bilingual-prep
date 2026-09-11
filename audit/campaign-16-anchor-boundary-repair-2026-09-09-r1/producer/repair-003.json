@@ -1,0 +1,299 @@
+{
+  "repairPacketId": "repair-003",
+  "producer": "Codex / GPT-6 Astra",
+  "producingAgent": "/root/producer_001_009",
+  "role": "PRODUCER_SEMANTIC_RECONSTRUCTION",
+  "independentReview": false,
+  "sourcePacketSha256": "613b1c9a7623c220d7160ddc4b031aefc41f4a79b4d549b0e7cbe9f3bb581391",
+  "workOrderSha256": "8cd476c23f2b6cadb07ae8115fd675fbbfc3f60acb46d7a521d5d1da30b2558b",
+  "parentCaseIds": [
+    "opus24_case_elder_neglect_med_mismanagement_01",
+    "opus26_case_refeeding_syndrome_01",
+    "opus27_case_ipv_prenatal_care_01"
+  ],
+  "method": "Whole parent examined; each affected part independently evaluated at baseline and successive declared boundaries in English and Simplified Chinese. No Phase E leak verdict or calibration answer key used.",
+  "rows": [
+    {
+      "rowKey": "4128d40164b4fa77",
+      "stage0QueueIndex": 35,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus24_case_elder_neglect_med_mismanagement_01",
+      "partId": "opus24_case_elder_neglect_med_mismanagement_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Global home-visit findings already include absent monitoring, soiled brief, discordant medication use and worsening wound. Each bilingual matrix row supplies its own cue, including cognitive impairment and sodium/BUN, so classification needs zero updates.",
+      "laterStageLeakCheck": "stage_1 explicitly names the neglect pattern and reporting response; its conclusion is unnecessary because the global facts and row text support the distinction.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "cd7c37297a49fa90",
+      "stage0QueueIndex": 36,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus24_case_elder_neglect_med_mismanagement_01",
+      "partId": "opus24_case_elder_neglect_med_mismanagement_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The global day-10 assessment and returned labs show nearly empty furosemide, nearly full potassium, potassium 2.9, HR 54 and BP 92/58. The comparison with missed insulin and glucose 268 is also global in both languages.",
+      "laterStageLeakCheck": "stage_2 ECG changes confirm subsequent cardiac consequences, but the medication evidence and acute vital/lab risk are already sufficient to prioritize the potassium problem.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "f056443c83a76a72",
+      "stage0QueueIndex": 37,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus24_case_elder_neglect_med_mismanagement_01",
+      "partId": "opus24_case_elder_neglect_med_mismanagement_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both-language global evidence establishes acute dehydration, renal/electrolyte abnormalities and a pattern of inadequate caregiver care. The options ask prospective notification, directed emergency evaluation, policy-based reporting and objective documentation.",
+      "laterStageLeakCheck": "stage_1 performs precisely those actions. Requiring that update would expose the selected response instead of supply a fact absent from the completed home assessment.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "ee56ac60cc709ab2",
+      "stage0QueueIndex": 38,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus24_case_elder_neglect_med_mismanagement_01",
+      "partId": "opus24_case_elder_neglect_med_mismanagement_01_q4",
+      "proposedBoundary": "stage_2_ed_initial",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The stem supplies the potassium prescription, but stage_2_ed_initial first establishes the ED-specific continuous-telemetry protocol and concurrent magnesium replacement order needed to affirm all selected actions. Earlier global labs show low magnesium but no replacement order or ED protocol in either language.",
+      "laterStageLeakCheck": "stage_3 demonstrates response and repeats ongoing replacement; it is not needed to implement the initial ED potassium/magnesium administration plan.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "2d7522673cfbaf41",
+      "stage0QueueIndex": 39,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus24_case_elder_neglect_med_mismanagement_01",
+      "partId": "opus24_case_elder_neglect_med_mismanagement_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both stems directly provide the metformin discontinuation order and eGFR nadir 28 during AKI. Global renal baseline and the option mentioning repeat eGFR 33 complete the interpretation choices; no stage-only order fact remains necessary.",
+      "laterStageLeakCheck": "stage_3 repeats discontinuation and prescriber-clearance language. It confirms the intended interpretation but the order and reason are already expressly supplied by the part.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "23c8636371feafb9",
+      "stage0QueueIndex": 40,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus24_case_elder_neglect_med_mismanagement_01",
+      "partId": "opus24_case_elder_neglect_med_mismanagement_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "This item classifies the significance of expressly listed findings: potassium still 3.4, creatinine above baseline, persistent wound/nutrition problems and unresolved APS process versus improved ECG/vitals. Each finding is supplied bilingually in its option; global context establishes home safety concerns.",
+      "laterStageLeakCheck": "stage_3 repeats the listed responses and ongoing problems. The question does not require discovering which events occurred from unseen records; their significance can be judged from the supplied options.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "9e0d8c28e0256852",
+      "stage0QueueIndex": 41,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus26_case_refeeding_syndrome_01",
+      "partId": "opus26_case_refeeding_syndrome_01_q1",
+      "proposedBoundary": "stage_18h",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The global protocol gives hold/replacement thresholds but baseline potassium 3.6 and phosphorus 3.1 do not cross them. stage_18h first supplies 12-hour potassium 3.4 and phosphorus 2.4, necessary in both languages to select hold, immediate notification and the oral replacement route.",
+      "laterStageLeakCheck": "stage_36h reports that oral replacement and holding advancement occurred, then gives lower values requiring a different route. That later result must not supply this initial threshold decision.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "d3e3db886cfc6d1b",
+      "stage0QueueIndex": 42,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus26_case_refeeding_syndrome_01",
+      "partId": "opus26_case_refeeding_syndrome_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both stems state mild post-meal bloating, nausea and cramping and the request for smaller portions. The global prescribed refeeding plan and supervised meals establish the context needed for comfort, documentation and team communication.",
+      "laterStageLeakCheck": "stage_18h repeats the symptoms; later worsening electrolytes and distress are not needed to respond to this explicitly mild symptom report.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "f226f8f9964c740a",
+      "stage0QueueIndex": 43,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus26_case_refeeding_syndrome_01",
+      "partId": "opus26_case_refeeding_syndrome_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part carries its own deterministic PVC rhythm_strip and explicitly states QTc 480, potassium 3.1, phosphorus 1.9 and magnesium 1.4 in both languages. Global admission ECG/labs and replacement protocol provide comparison and authorized thresholds without a stage update.",
+      "laterStageLeakCheck": "stage_36h duplicates the labs and stage_60h records IV replacement after notification. The part’s own visual and measured values supply the decision cues before those confirmations.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "2c35ab34f9142f54",
+      "stage0QueueIndex": 44,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus26_case_refeeding_syndrome_01",
+      "partId": "opus26_case_refeeding_syndrome_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The bilingual stem supplies tearfulness, attribution of illness to food, desire to stop eating and napkin food-hiding. Global supervised refeeding orders make the therapeutic communication and objective-reporting choices answerable before updates.",
+      "laterStageLeakCheck": "stage_36h repeats the behavior and stage_60h reports later counseling success; that outcome cannot be a prerequisite for choosing the response to the supplied distress.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "9237cffb061dc974",
+      "stage0QueueIndex": 45,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus26_case_refeeding_syndrome_01",
+      "partId": "opus26_case_refeeding_syndrome_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both stems expressly give improved electrolytes, mild bilateral edema, clear lungs and 1.1 kg/60-hour gain; the part itself supplies the follow-up sinus rhythm_strip. Together with global refeeding context, these are sufficient for the edema assessment response.",
+      "laterStageLeakCheck": "stage_60h repeats the edema and recovery findings. Its detailed lab values are not required because this part supplies electrolyte improvement and the relevant respiratory/rhythm context.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "2d47bfebc29f8cc3",
+      "stage0QueueIndex": 46,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus26_case_refeeding_syndrome_01",
+      "partId": "opus26_case_refeeding_syndrome_01_q6",
+      "proposedBoundary": "stage_60h",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The cloze asks whether the current values exceed the global hold thresholds, but the stem supplies only a conditional future plan. stage_60h first supplies recovered potassium 3.8 and phosphorus 2.8 after the stage_36h nadir; both languages require those current values to classify them.",
+      "laterStageLeakCheck": "The 60-hour results are the data explicitly being evaluated, not a positional default. No future confirmation draw is shown or assumed; the second blank correctly remains contingent on that later draw.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "2a08509f4d4bd4f9",
+      "stage0QueueIndex": 47,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus27_case_ipv_prenatal_care_01",
+      "partId": "opus27_case_ipv_prenatal_care_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Global clinic protocol explicitly requires private screening, and the initial assessment shows the partner present and answering. Both-language information is sufficient to choose routine separation before screening.",
+      "laterStageLeakCheck": "stage1_private_screening performs the separation and screening; it would reveal the action already derivable from baseline policy and presence.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "906c87e66283fe2a",
+      "stage0QueueIndex": 48,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus27_case_ipv_prenatal_care_01",
+      "partId": "opus27_case_ipv_prenatal_care_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part explicitly identifies a request for secrecy; global clinic protocol states documentation, provider notification, partner confidentiality and reporting exceptions. Both languages support honest confidentiality limits without the later disclosure narrative.",
+      "laterStageLeakCheck": "stage1_private_screening explains why secrecy was requested but adds no requirement necessary to the policy-based response; later safety plans do not select these blanks.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "ef3e4aa9193aaddb",
+      "stage0QueueIndex": 49,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus27_case_ipv_prenatal_care_01",
+      "partId": "opus27_case_ipv_prenatal_care_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both stems supply the 3-year-old witnessing pushing/grabbing. Global clinic policy specifies child-abuse/neglect reporting triggers and conditional state requirements, sufficient to select provider consultation and criteria-based reporting.",
+      "laterStageLeakCheck": "stage2_safety_discussion repeats child exposure. No later finding or final safety plan is needed to choose the conditional reporting response stated in the option.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "a7f2d97912fc5c3e",
+      "stage0QueueIndex": 50,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus27_case_ipv_prenatal_care_01",
+      "partId": "opus27_case_ipv_prenatal_care_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem itself provides unwillingness to leave and the bad-mother question in both languages. Global IPV concern and clinic safety-planning protocol support validation, autonomy and discreet resources without needing details of later coercive control.",
+      "laterStageLeakCheck": "stage2_safety_discussion adds specific transport and phone barriers, but the options ask to explore them rather than assume their answers. stage3 completed planning is unnecessary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "69bfd255f8e4a057",
+      "stage0QueueIndex": 51,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus27_case_ipv_prenatal_care_01",
+      "partId": "opus27_case_ipv_prenatal_care_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The bilingual prompt explicitly asks about chart documentation and partner access. Global protocol provides documentation and confidentiality requirements; assessing practical access risks and confirming a safe contact method are prospective actions requiring no stage-only access fact.",
+      "laterStageLeakCheck": "stage2 phone monitoring and stage3 chosen secondary number exemplify the risks and solutions. They do not need to be revealed to choose assessment and safe-contact actions.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "96f84d2bb9dbfce2",
+      "stage0QueueIndex": 52,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus27_case_ipv_prenatal_care_01",
+      "partId": "opus27_case_ipv_prenatal_care_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both stems give the partner’s return and exact question. The global routine prenatal visit, normal BP and confidentiality protocol support a neutral routine-care explanation and reject disclosure or fabricated hypertension.",
+      "laterStageLeakCheck": "stage3_safety_plan_and_exit repeats the partner’s question; the detailed disclosure/safety plan is not needed and should not be exposed to select the safe response.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

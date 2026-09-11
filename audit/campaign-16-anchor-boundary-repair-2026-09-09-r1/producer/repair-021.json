@@ -1,0 +1,194 @@
+{
+  "repairPacketId": "repair-021",
+  "producer": "Codex / GPT-6 Astra",
+  "producingAgent": "/root/r4_verifier",
+  "role": "PRODUCER_SEMANTIC_RECONSTRUCTION",
+  "independentReview": false,
+  "sourcePacketSha256": "44efc8efb6248bf036bc9968370a7a25c011aaa5079b6218010e95350e55f644",
+  "workOrderSha256": "8cd476c23f2b6cadb07ae8115fd675fbbfc3f60acb46d7a521d5d1da30b2558b",
+  "parentCaseIds": [
+    "gpt_case_opioid_recovery_relapse_risk_01",
+    "gpt_case_pressure_injury_prevention_mobility_01"
+  ],
+  "method": "Whole parent examined; each affected part independently evaluated at baseline and successive declared boundaries in English and Simplified Chinese. No Phase E leak verdict or calibration answer key used.",
+  "rows": [
+    {
+      "rowKey": "4266c1cf77177067",
+      "stage0QueueIndex": 336,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+      "partId": "gpt_case_opioid_recovery_relapse_risk_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The highlight passage directly supplies the ambiguous burden statement, relapse fear, distress, failure to contact supports, reluctance to bother them and fear of opioid exposure, alongside the reassuring or physical comparison findings. The global recovery history gives context. These complete English/Chinese statements can be classified as psychosocial risk cues before an update.",
+      "laterStageLeakCheck": "stage_1 repeats the quoted behaviors but is not necessary to interpret the supplied passage; the later explicit craving and family conflict should not be used to retroactively select the earlier cues.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "dcf2dbbe0f27ca65",
+      "stage0QueueIndex": 337,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+      "partId": "gpt_case_opioid_recovery_relapse_risk_01_q2",
+      "proposedBoundary": "stage_1",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "Baseline provides pain, recovery history and no objective withdrawal, but the full Stage 1 interpretation also depends on his ambiguous statement followed by clarification denying self-harm, catastrophic relapse framing, avoidance of Tanya/sponsor and improved vital signs. stage_1 first supplies that actual cluster, allowing relapse risk to be distinguished from the competing labels in both languages.",
+      "laterStageLeakCheck": "The later hopelessness after Tanya's arrival and later explicit craving intensify risk but are unnecessary; stage_1 already supplies the observed coping/support pattern and safety clarification relevant to this interpretation.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "18d46f73fa754220",
+      "stage0QueueIndex": 338,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+      "partId": "gpt_case_opioid_recovery_relapse_risk_01_q3",
+      "proposedBoundary": "stage_2",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The choice requires knowing that the MAT plan has already been clarified while hopelessness/isolation are escalating and Tanya has asked a private hallway question. Those facts first occur in stage_2. At baseline and stage_1 the buprenorphine hold still needs resolution, so the competing MAT action cannot yet be dismissed on the stated basis. The bilingual priority problem agrees.",
+      "laterStageLeakCheck": "stage_3 adds worsening pain/craving and discharge barriers, but stage_2's current emotional deterioration and resolved MAT question are sufficient to prioritize engagement and safety reassessment.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "b02619cc0abe50fd",
+      "stage0QueueIndex": 339,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+      "partId": "gpt_case_opioid_recovery_relapse_risk_01_q4",
+      "proposedBoundary": "stage_2",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The part quotes Marcus's distress, which supports several therapeutic responses directly, but its full choice set also concerns repeating Tanya's 2 AM report. stage_2 first establishes that she supplied that collateral privately in a hallway outside Marcus's hearing and shows the accompanying mistrust. That context supports the consent-based response and rejection of using her private remarks against him in both languages.",
+      "laterStageLeakCheck": "No later craving or discharge outcome is needed for this communication choice. stage_2 supplies the private-conversation context; stage_3 does not resolve a missing requirement.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "73a1a25cd88535fd",
+      "stage0QueueIndex": 340,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+      "partId": "gpt_case_opioid_recovery_relapse_risk_01_q5",
+      "proposedBoundary": "stage_3",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The full discharge plan responds to newly disclosed craving, increasing pain as the block wears off, missed sponsor contact, uncertain meeting transportation, unconfirmed MAT follow-up and a question about an older naloxone kit. stage_3 first supplies those concrete current barriers, while stage_2 supplies the ordered analgesic/MAT regimen. Earlier updates cannot establish the entire individualized plan in either language.",
+      "laterStageLeakCheck": "This is prospective planning from the current discharge-readiness assessment, not reliance on a later successful outcome. No later stage exists or is needed to act on the stated craving and support gaps.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "e87b4b5028c4ae2a",
+      "stage0QueueIndex": 341,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+      "partId": "gpt_case_opioid_recovery_relapse_risk_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The matrix supplies each separate candidate safety scenario in full: established support/follow-up, understood pain/naloxone plans, engaged reassessment, or intent to use, refusal of support, firearm-associated self-harm concern and passive ideation without protective reasons. Global OUD/recovery context is sufficient to classify those stated scenarios in English and Chinese without seeing an update.",
+      "laterStageLeakCheck": "Several listed scenarios are hypothetical alternatives, not findings documented in stage_3. They should be evaluated as given rather than waiting for a later chart to certify their occurrence.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "def921ec23551752",
+      "stage0QueueIndex": 342,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+      "partId": "gpt_case_pressure_injury_prevention_mobility_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The highlight passage itself supplies the coccygeal lesion, moisture, pain-limited movement, post-hydromorphone sedation and respiration, missed spirometry, poor intake, weight loss and protein markers alongside its comparison findings. Together with the global postoperative record, these bilingual findings are directly classifiable before any declared update.",
+      "laterStageLeakCheck": "stage_1 repeats several passage findings, including the sedation and minimal intake, but provides no missing premise needed to select the stated cues. Later toileting and heel complications are unnecessary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "e04640c8bdb4438f",
+      "stage0QueueIndex": 343,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+      "partId": "gpt_case_pressure_injury_prevention_mobility_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The global initial assessment already documents intact non-blanchable coccygeal erythema, moisture exposure, pain preventing movement, poor intake and weight loss, low protein markers and Braden risk, with a dry intact incision and preserved leg neurovascular findings. That actual cluster supports the pressure-injury interpretation in both languages without requiring a new update.",
+      "laterStageLeakCheck": "stage_1 reinforces persistence and mobility limitations through additional sedation; it does not establish a previously missing element distinguishing pressure injury from the offered infection, hemorrhage, DVT or normal-redness alternatives. The Stage 1 label alone is not a boundary requirement.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "0eb41edc4fe6849b",
+      "stage0QueueIndex": 344,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+      "partId": "gpt_case_pressure_injury_prevention_mobility_01_q3",
+      "proposedBoundary": "stage_2",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "stage_2 first combines catheter removal, urgency with a 420 mL bladder scan, the request for reinsertion and a failed standing attempt with orthostatic symptoms. Baseline and stage_1 still have a Foley and do not establish the immediate safe-toileting priority. The English and Chinese updates support the same decision.",
+      "laterStageLeakCheck": "stage_3 documents successful commode voiding and improved orthostasis, which would disclose response to the plan. That confirmation is unnecessary for the priority arising at stage_2.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "375aacb3f6469581",
+      "stage0QueueIndex": 345,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+      "partId": "gpt_case_pressure_injury_prevention_mobility_01_q4",
+      "proposedBoundary": "stage_2",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The complete integrated plan requires the active urinary-urgency and orthostatic-transfer risks first documented in stage_2, in addition to baseline pain, nutrition and skin risks and stage_1 pressure-relief measures. Earlier data cannot establish the urgency-driven transfer problem addressed by prompted voiding. Both language surfaces match.",
+      "laterStageLeakCheck": "The later improvement after commode transfers and the new heel injury are outcomes rather than prerequisites for planning. stage_2 already supplies the current risk domains that the proposed interventions address.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "2e075b7d68f40f7b",
+      "stage0QueueIndex": 346,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+      "partId": "gpt_case_pressure_injury_prevention_mobility_01_q5",
+      "proposedBoundary": "stage_3",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The stem names new non-blanchable heel redness, but stage_3 first supplies the intact skin, exact location and shifted boot-strap pressure mechanism needed for the full device-related injury assessment and documentation choice. Earlier heel assessments are intact without this new lesion. These necessary details agree in English and Chinese.",
+      "laterStageLeakCheck": "The stage_3 heel finding is the present trigger for action, not a subsequent validation of an earlier proposed answer. Its unrelated coccygeal and mobility improvements are not used to choose the heel response.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "c6e021cbe4a86e6a",
+      "stage0QueueIndex": 347,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+      "partId": "gpt_case_pressure_injury_prevention_mobility_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each matrix row provides the outcome to evaluate, including the before/after coccygeal size, explicitly improved pain/mobility/orthostasis, a new strap-related heel injury, persistent nutrition markers, hemoglobin change and fragmented sleep. The global pressure-prevention context plus those complete bilingual scenarios supports each category without a declared update.",
+      "laterStageLeakCheck": "The rows already disclose their respective trends and new injury; stage_3 repeats many of them rather than adding information needed for classification. Sleep fragmentation is supplied by the part itself and need not be inferred from a later chart.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

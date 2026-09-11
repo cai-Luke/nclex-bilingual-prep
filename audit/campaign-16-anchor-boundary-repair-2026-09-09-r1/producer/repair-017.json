@@ -1,0 +1,301 @@
+{
+  "repairPacketId": "repair-017",
+  "producer": "Codex / GPT-6 Astra",
+  "producingAgent": "/root/producer_010_018",
+  "role": "PRODUCER_SEMANTIC_RECONSTRUCTION",
+  "independentReview": false,
+  "sourcePacketSha256": "11172fd63bba32f0d8d3949413578c2ba201099cbf3b2321c2bcaa5b399583f1",
+  "workOrderSha256": "8cd476c23f2b6cadb07ae8115fd675fbbfc3f60acb46d7a521d5d1da30b2558b",
+  "parentCaseIds": [
+    "gpt_case_unsafe_assignment_01",
+    "gpt_case_hipaa_disclosure_breach_01",
+    "gpt_case_mass_casualty_start_triage_01"
+  ],
+  "method": "Whole parent examined; each affected part independently evaluated at baseline and successive declared boundaries in English and Simplified Chinese. No Phase E leak verdict or calibration answer key used.",
+  "rows": [
+    {
+      "rowKey": "d6fee5a4070018d8",
+      "stage0QueueIndex": 264,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_assignment_01",
+      "partId": "gpt_case_unsafe_assignment_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The global summary explicitly lists the nurse's validated and missing competencies, and the initial assignment supplies vasoactive titration, arterial monitoring and the unit-specific neuro protocol for A/B versus routine care for C. The bilingual options can be checked against those baseline records directly.",
+      "laterStageLeakCheck": "stage_1 records the nurse recognizing the same mismatch. Later instability and reassignment are unnecessary to identify unsafe requirements at initial rounds.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "b5148e990070de29",
+      "stage0QueueIndex": 265,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_assignment_01",
+      "partId": "gpt_case_unsafe_assignment_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part quotes the complete leave-the-drips-unchanged workaround, while global orders require dynamic titration and the competency file excludes it. The explicit float policy supplies the responsibility to match competence, allowing the explanation to be selected in both languages.",
+      "laterStageLeakCheck": "stage_1 repeats the quote and stage_2 demonstrates delayed support. Actual deterioration is later confirmation, not necessary evidence that fixed settings and on-call help fail to address the initial mismatch.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "08898ea126dffdae",
+      "stage0QueueIndex": 266,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_assignment_01",
+      "partId": "gpt_case_unsafe_assignment_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem explicitly establishes that immediate patient-specific changes have already been reported to qualified staff and asks the management-of-care priority. The global competency/assignment mismatch therefore determines the structural problem in both languages without requiring the details of those changes.",
+      "laterStageLeakCheck": "stage_2 provides concrete patient changes and delayed assistance, but the part supplies the condition that immediate concerns were escalated. stage_3 corrective staffing is the later response and should not supply the chosen priority.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "e95ee9e5c7e20378",
+      "stage0QueueIndex": 267,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_assignment_01",
+      "partId": "gpt_case_unsafe_assignment_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The global assignment and policy establish that C is within competence and A/B require support or reassignment, while the charge nurse dismisses the mismatch because staffing is short. The proposed actions can be evaluated for maintaining C's care, seeking competency-matched care and nursing-chain escalation on both surfaces.",
+      "laterStageLeakCheck": "stage_1 restates the refusal to adjust and stage_2 shows its consequences. Neither is required to address the already unresolved unsafe initial assignment; stage_3 successful reassignment merely confirms the proposed solution.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "acd99216399a57bc",
+      "stage0QueueIndex": 268,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_assignment_01",
+      "partId": "gpt_case_unsafe_assignment_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The matrix presents complete candidate communication statements: objective competency limits, a safe split assignment, a specific twelve-minute response delay and a speculative personal accusation. Global competence and client assignments support the substance; English and Chinese can judge the supplied statements for objective safety communication.",
+      "laterStageLeakCheck": "stage_2 records the twelve-minute delay, but the matrix already gives that concrete event as a statement to evaluate. The question does not ask the learner to recover the elapsed time, and the later supervisor outcome is unnecessary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "259612f337f327b0",
+      "stage0QueueIndex": 269,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_assignment_01",
+      "partId": "gpt_case_unsafe_assignment_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem supplies the documentation task, and the options fully describe objective assessment/notification/delay/handoff documentation versus omission, substitution by a variance report or placing incident-report filing in the patient chart. The bilingual choice does not require reproducing any actual event timestamp.",
+      "laterStageLeakCheck": "stage_3 records the documentation/handoff sequence, but its completion would only confirm the appropriate documentation method. Earlier global competency concerns establish the subject of the record.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "98b316af5f95976b",
+      "stage0QueueIndex": 270,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_hipaa_disclosure_breach_01",
+      "partId": "gpt_case_hipaa_disclosure_breach_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Every option supplies its own potential event, including curiosity access without care role, unauthorized-contact request, identifiable personal-device image, employer request without authorization and named hallway discussion within visitor earshot. The global reporting policy lets both languages distinguish these follow-up risks from routine pain assessment.",
+      "laterStageLeakCheck": "stage_1 records the same morning events but adds no prerequisite for recognizing the risks explicitly written in this part. Later breach determinations are not needed for follow-up screening.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "816f8ee32a25b1ca",
+      "stage0QueueIndex": 271,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_hipaa_disclosure_breach_01",
+      "partId": "gpt_case_hipaa_disclosure_breach_01_q2",
+      "proposedBoundary": "stage_1",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The abbreviated matrix labels do not themselves establish absent consent for the photograph or the identifiers/visitor exposure during hallway report. stage_1 first states that the student had no written consent and a visible wristband, and that staff named another patient and HIV status within visitor earshot. These facts are required to classify the actual events as impermissible creation and failed safeguards in both languages.",
+      "laterStageLeakCheck": "stage_2 mitigation and stage_3 Privacy Officer review are not needed to classify the events as presented. The initial event description already supplies the authorization and exposure conditions, so no final breach decision is imported.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "33239a7419ffd816",
+      "stage0QueueIndex": 272,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_hipaa_disclosure_breach_01",
+      "partId": "gpt_case_hipaa_disclosure_breach_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The options explicitly identify Casey's unauthorized EHR access, requests before any release, the patient's concern and a photograph retained on one device. The prompt specifically asks for completed non-incidental unauthorized access; that type is directly supplied by the EHR option on both language surfaces.",
+      "laterStageLeakCheck": "stage_1 details Casey's curiosity and viewed records, and later review confirms investigation. Neither is necessary to distinguish an explicitly unauthorized completed access from unfulfilled requests or concern.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "081b3b885639d73b",
+      "stage0QueueIndex": 273,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_hipaa_disclosure_breach_01",
+      "partId": "gpt_case_hipaa_disclosure_breach_01_q4",
+      "proposedBoundary": "stage_1",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "Baseline provides the reporting policy and Megan-only authorized contact but does not establish Casey's lack of care role or that the student's image lacked consent. This action list presupposes those specific events; stage_1 first supplies unauthorized curiosity access, no written photo consent, employer-request context and exposed hallway report, making the combined containment plan warranted in both languages.",
+      "laterStageLeakCheck": "stage_2 carries out the same containment plan and confirms the patient's restriction. The option asks the nurse to verify Robert's authorization if needed, so that later refusal and HIM/Privacy Officer validation are not required.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "2187e86ed9d2877c",
+      "stage0QueueIndex": 274,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_hipaa_disclosure_breach_01",
+      "partId": "gpt_case_hipaa_disclosure_breach_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part itself explicitly states Casey is actively viewing the patient's record without a care role. The global facility policy prescribes immediate mitigation followed by notification/reporting, which directly supports the first action in both languages.",
+      "laterStageLeakCheck": "stage_1 repeats the access event and stage_2 the mitigation. No later investigation or discipline decision is needed to stop the active unauthorized access.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "c6a742591e41b86e",
+      "stage0QueueIndex": 275,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_hipaa_disclosure_breach_01",
+      "partId": "gpt_case_hipaa_disclosure_breach_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The global policy defines containment and reporting, and the options explicitly provide candidate completion evidence: no unauthorized release, reports outside the clinical chart, formal review/audit preservation and photo deletion with follow-up. Both languages can compare those process results with unrelated clinical stability or absence of another phone call.",
+      "laterStageLeakCheck": "Stages 2 and 3 narrate the actual follow-through, but all outcome propositions needed for this evaluation are already in the options. No hidden investigation finding is needed.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "d0399c7588111fc7",
+      "stage0QueueIndex": 276,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_mass_casualty_start_triage_01",
+      "partId": "gpt_case_mass_casualty_start_triage_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The global triage-point exhibit already contains all seven casualties' ambulation, post-repositioning breathing, perfusion and command-following data. The matrix repeats the decisive cues and the global MCI protocol states the categories/resource context, enabling bilingual initial START classification.",
+      "laterStageLeakCheck": "stage_1 records sorting and treatment destinations, which would reveal implementation rather than provide missing triage facts. Later outcomes must not influence initial category assignment.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "e7bafc40a81c24ff",
+      "stage0QueueIndex": 277,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_mass_casualty_start_triage_01",
+      "partId": "gpt_case_mass_casualty_start_triage_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The global protocol explicitly states resource-constrained MCI mode and comfort-only care for black/expectant casualties when feasible. The global triage findings show A and G remain apneic after airway repositioning; these facts establish the reason for not allocating resuscitation resources in both languages.",
+      "laterStageLeakCheck": "stage_1 later describes withholding further resuscitation and G becoming pulseless, but the original post-repositioning apnea already supports the protocol decision. Their later deaths are not prerequisites.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "9c754693704f5e3e",
+      "stage0QueueIndex": 278,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_mass_casualty_start_triage_01",
+      "partId": "gpt_case_mass_casualty_start_triage_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The bilingual stem explicitly supplies two red casualties, C's uncontaminated hemorrhagic shock and D's contaminated stridor. The always-visible policy requires full external decontamination before ED entry and lists limited bays, establishing C's immediate entry while D undergoes outside decontamination.",
+      "laterStageLeakCheck": "stage_1 documents the same routing, but it is the action being selected rather than necessary evidence. Later transfusion or airway improvement must not determine this entry decision.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "be43919f41f6ef9e",
+      "stage0QueueIndex": 279,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_mass_casualty_start_triage_01",
+      "partId": "gpt_case_mass_casualty_start_triage_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Global triage findings and the resource policy establish C/D immediate threats, E's stable burn status, B/F's minor ambulatory category and A/G's expectant status. The options explicitly supply ordered transfusion/respiratory/burn measures and D's after-decontamination condition, making the resource-compatible action set evaluable in both languages.",
+      "laterStageLeakCheck": "stage_2 supplies detailed deterioration and implementation, but the proposed actions already state their orders and necessary decontamination condition. No treatment success or final casualty count is needed to select them.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "63412241ddf68859",
+      "stage0QueueIndex": 280,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_mass_casualty_start_triage_01",
+      "partId": "gpt_case_mass_casualty_start_triage_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Global records identify D's wet ammonia-contaminated clothing/hair, symptoms, functional outside station and explicit full-decontamination-before-ED policy. The action texts give PPE before approach, clothing removal, irrigation, post-decontamination re-triage, ED entry and definitive in-ED treatment, so the bilingual sequence is established before updates.",
+      "laterStageLeakCheck": "Stages 1 and 2 narrate decontamination and entry, but their timing/outcomes are not needed to sequence the stated steps under the visible facility policy.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "0cfa3711d256081a",
+      "stage0QueueIndex": 281,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_mass_casualty_start_triage_01",
+      "partId": "gpt_case_mass_casualty_start_triage_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The global MCI protocol defines the goals and initial resource limits. The options fully specify outcomes for salvaged red casualties, stable transferred yellow casualty, safely deferred/discharged green casualties and prevention of secondary contamination versus zero mortality/full routine charting. Both languages can evaluate these propositions at baseline.",
+      "laterStageLeakCheck": "stage_3 records survival/disposition, but the part already states each candidate result and asks which indicates effectiveness. Later observed deaths or improvement do not have to be revealed to define appropriate MCI outcome measures.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-08-28T00:26:17.959Z
-Input Git SHA: 3286024bcab90c1a114811a7202d956c3e586bf4
+Generated: 2026-09-11T02:23:19.764Z
+Input Git SHA: a639b5fe7f6816e68228d7dc13d068c0c0f69e91
 
 ## Session-Unit Inventory and Delivery Capacity
 
@@ -21,11 +21,11 @@ Population basis: top-level delivery units. Category, topic, item-type, and diff
 |------|--------|-----------|---------------|----------|
 | burn-canonical.json | 1.2 | 8 | 8 | — |
 | capnography-canonical.json | 1.2 | 7 | 7 | — |
-| claude-canonical.json | 2.0 | 96 | 96 | — |
+| claude-canonical.json | 2.1 | 96 | 96 | — |
 | device-canonical.json | 1.2 | 8 | 8 | — |
-| gemini-canonical.json | 2.0 | 874 | 874 | — |
-| gpt-canonical.json | 2.0 | 773 | 773 | — |
-| hard-cases-canonical.json | 1.8 | 66 | 66 | — |
+| gemini-canonical.json | 2.1 | 874 | 874 | — |
+| gpt-canonical.json | 2.1 | 773 | 773 | — |
+| hard-cases-canonical.json | 2.1 | 66 | 66 | — |
 | io-canonical.json | 1.2 | 8 | 8 | — |
 | lab-canonical.json | 1.2 | 20 | 20 | — |
 | mar-canonical.json | 1.2 | 8 | 8 | — |
@@ -97,8 +97,8 @@ Operational shortfalls:
 ### Session-Unit Schema and Source Inventory
 
 - Schema v1.2: 77 session units (burn-canonical.json, capnography-canonical.json, device-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, vitals-canonical.json)
-- Schema v2.0: 1800 session units (claude-canonical.json, gemini-canonical.json, gpt-canonical.json, visual-canonical.json)
-- Schema v1.8: 66 session units (hard-cases-canonical.json)
+- Schema v2.1: 1809 session units (claude-canonical.json, gemini-canonical.json, gpt-canonical.json, hard-cases-canonical.json)
+- Schema v2.0: 57 session units (visual-canonical.json)
 - burn-canonical.json: 8
 - capnography-canonical.json: 7
 - claude-canonical.json: 96

@@ -1,0 +1,284 @@
+{
+  "mode": "SYNTHETIC_IN_MEMORY_SELF_TEST",
+  "ok": true,
+  "count": 69,
+  "tests": [
+    {
+      "name": "positive: exact baseline + resolving primary + unchanged exception and subset-only claim",
+      "status": "PASS"
+    },
+    {
+      "name": "positive: every row repaired; exact accounting and no leaks",
+      "status": "PASS"
+    },
+    {
+      "name": "positive: ordinary string baseline is a stage only when declared",
+      "status": "PASS"
+    },
+    {
+      "name": "positive: all exceptions reconciled without claiming any repaired row",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: malformed primary null",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: malformed accepted null",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: malformed primary []",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: malformed accepted []",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: malformed primary {}",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: malformed accepted {}",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: malformed primary {\"kind\":\"Baseline\"}",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: malformed accepted {\"kind\":\"Baseline\"}",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: malformed primary {\"kind\":\"baseline\",\"extra\":true}",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: malformed accepted {\"kind\":\"baseline\",\"extra\":true}",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: malformed primary {\"kind\":{\"kind\":\"baseline\"}}",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: malformed accepted {\"kind\":{\"kind\":\"baseline\"}}",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: malformed primary true",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: malformed accepted true",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: malformed primary 1",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: malformed accepted 1",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: malformed primary \"\"",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: malformed accepted \"\"",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: unresolved opaque primary missing",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: unresolved opaque primary baseline",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: unresolved opaque primary @@case-baseline",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: unresolved opaque primary admission",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: live validator rejects baseline below floor 1.0",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: live validator rejects baseline below floor 1.1",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: live validator rejects baseline below floor 1.2",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: live validator rejects baseline below floor 1.3",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: live validator rejects baseline below floor 1.4",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: live validator rejects baseline below floor 1.5",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: live validator rejects baseline below floor 1.6",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: live validator rejects baseline below floor 1.7",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: live validator rejects baseline below floor 1.8",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: live validator rejects baseline below floor 1.9",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: live validator rejects baseline below floor 2.0",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: missing bank envelope cannot bypass schema floor",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: legacy-only repair rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: legacy field forbidden even beside exact baseline",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: resolving wrong accepted stage",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: stage substituted for agreed baseline",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: primary omission never counted as repair",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: exception with primary changed",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: exception with own undefined field is not absent",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: stage order drift",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: stage id drift",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: declared stages removed",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: missing parent",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: duplicate parent",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: missing part",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: duplicate part",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: duplicate bank",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: duplicate frozen identity",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: frozen row count drift",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: frozen parent count drift",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: unrecognized exception",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: duplicate exception",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: empty exception reason",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: exception identity disagreement",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: missing exception partition row",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: missing accepted partition row",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: duplicate accepted row",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: accepted exception overlap",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: non-object exception",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: accepted disposition/value disagreement",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: new leak outside frozen population",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: collector contradiction repaired row remains leak",
+      "status": "PASS"
+    },
+    {
+      "name": "negative: exception must remain collector-visible",
+      "status": "PASS"
+    }
+  ],
+  "scope": "No canonical-bank reads/writes, no real row adjudications, no accepted mappings, no independent-review claim."
+}

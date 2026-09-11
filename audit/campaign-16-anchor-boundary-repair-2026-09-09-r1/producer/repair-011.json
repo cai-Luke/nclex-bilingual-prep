@@ -1,0 +1,287 @@
+{
+  "repairPacketId": "repair-011",
+  "producer": "Codex / GPT-6 Astra",
+  "producingAgent": "/root/producer_010_018",
+  "role": "PRODUCER_SEMANTIC_RECONSTRUCTION",
+  "independentReview": false,
+  "sourcePacketSha256": "a0205f0194da7e87e20b89e7130220f1e37836320a32c506c2a803629b3ee3ae",
+  "workOrderSha256": "8cd476c23f2b6cadb07ae8115fd675fbbfc3f60acb46d7a521d5d1da30b2558b",
+  "parentCaseIds": [
+    "gpt_case_opus5_cdi_immunocompromised_01",
+    "gpt_case_warfarin_mvr_2026_06_11_01",
+    "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01"
+  ],
+  "method": "Whole parent examined; each affected part independently evaluated at baseline and successive declared boundaries in English and Simplified Chinese. No Phase E leak verdict or calibration answer key used.",
+  "rows": [
+    {
+      "rowKey": "7ff91306353114b2",
+      "stage0QueueIndex": 159,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus5_cdi_immunocompromised_01",
+      "partId": "gpt_case_opus5_cdi_immunocompromised_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The always-visible summary already supplies frequent watery stools, fever, leukocytosis, antibiotic exposure, immunosuppression and abdominal distension; this part independently supplies the active loperamide order. Both language surfaces therefore establish suspected CDI and the medication decision before any update.",
+      "laterStageLeakCheck": "stage1's orders explicitly hold loperamide and stage2 confirms CDI; both are subsequent action/diagnostic confirmations, unnecessary for deciding to withhold and clarify on suspicion.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "512f18a6d743171e",
+      "stage0QueueIndex": 160,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus5_cdi_immunocompromised_01",
+      "partId": "gpt_case_opus5_cdi_immunocompromised_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The summary identifies antibiotic-associated frequent watery diarrhea with fever and leukocytosis, sufficient for the first-hour suspected-CDI infection-control question. The testing choice is explicitly conditional on an order in English and Chinese, so actual testing orders are not prerequisite facts.",
+      "laterStageLeakCheck": "stage1 implements precautions and stage2 confirms testing/cleaning; requiring either update would reveal the initial actions being tested and needlessly delay precautions until confirmation.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "9eadd799d0770d7e",
+      "stage0QueueIndex": 161,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus5_cdi_immunocompromised_01",
+      "partId": "gpt_case_opus5_cdi_immunocompromised_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The cloze itself states CDI is treated with oral vancomycin and asks why this route delivers drug to the appropriate compartment. The route, target disease and oral-versus-IV comparison are all supplied in both languages; no patient-specific response or stage-only dose is needed.",
+      "laterStageLeakCheck": "stage1's oral prescription and stage2/3 treatment response are confirmations of the regimen already asserted in the part, not information needed for the route-mechanism explanation.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "5caa6a6c6558a723",
+      "stage0QueueIndex": 162,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus5_cdi_immunocompromised_01",
+      "partId": "gpt_case_opus5_cdi_immunocompromised_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The matrix supplies six complete paired monitoring scenarios: gradual improvement with a soft stable abdomen, stopped diarrhea with distension/absent sounds, WBC/vital improvement, peritoneal signs, hypotension/tachycardia/lactate rise, and renal/stool recovery. Each can be classified in the globally identified CDI context in either language.",
+      "laterStageLeakCheck": "'Stage 2 monitoring' labels the exercise; the rows themselves include both possible deterioration and improvement, some never occurring in the stages. Stage2/3 actual outcomes are not needed to judge the stated scenarios.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "71be643a211fbcd0",
+      "stage0QueueIndex": 163,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus5_cdi_immunocompromised_01",
+      "partId": "gpt_case_opus5_cdi_immunocompromised_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The summary already establishes the new suspected-CDI pattern, dehydration and hypokalemia, while the fixed actions themselves supply the PRN loperamide issue and the obtain-orders-before-specimen/treatment sequence. Both languages provide a complete initial-response ordering task without stage-only measurements.",
+      "laterStageLeakCheck": "stage1's orders exhibit narrates the very precautions, loperamide hold, provider call and treatment to be sequenced. Showing it would confirm the answer; stage2 confirmation and stage3 recovery are also unnecessary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "88652b698276d9cc",
+      "stage0QueueIndex": 164,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus5_cdi_immunocompromised_01",
+      "partId": "gpt_case_opus5_cdi_immunocompromised_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The question offers complete discharge-teaching statements, including a conditional 'if symptoms have resolved,' completion of oral vancomycin and recurrence warnings. With CDI and chronic methotrexate already identified globally, the learner can judge these statements in both languages without being asked to establish actual discharge readiness or remaining doses.",
+      "laterStageLeakCheck": "stage3 explicitly gives no repeat test, completed-course instruction and the methotrexate follow-up plan; these confirm the teaching choice. Actual recovery measurements and the number of remaining days do not enter this question.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "36e946f23d39aa83",
+      "stage0QueueIndex": 165,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_warfarin_mvr_2026_06_11_01",
+      "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem explicitly supplies warfarin 7.5 mg, INR 5.2, gingival oozing and new ecchymoses; global admission supplies the mechanical valve and target INR. Both languages can support holding and clarifying the dose before subsequent provider orders.",
+      "laterStageLeakCheck": "stage_1_1400 records the provider's hold and vitamin K orders, confirming rather than enabling the nursing decision; later bleeding/reversal updates must not choose the initial action.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "b322c74f7d1d045f",
+      "stage0QueueIndex": 166,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_warfarin_mvr_2026_06_11_01",
+      "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part independently reports the wife's two naproxen doses, and global admission/initial assessment establish warfarin exposure and active bleeding. These facts suffice for the medication-reconciliation and counseling choices in both languages.",
+      "laterStageLeakCheck": "stage_1_1400 documents reporting naproxen and stage_2_2200 repeats the NSAID/diet teaching. Those completed actions are not needed to select appropriate initial responses.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "65c0c9f7c90d45d0",
+      "stage0QueueIndex": 167,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_warfarin_mvr_2026_06_11_01",
+      "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem itself gives the oral vitamin K 2.5 mg order. Global initial assessment shows minor mucocutaneous bleeding with stable BP/mentation and the admission record identifies the mechanical mitral valve/ongoing anticoagulation requirement. All competing-risk facts for the bilingual cloze are available at baseline.",
+      "laterStageLeakCheck": "stage_1_1400 repeats the order and stable status; stage_2_2200 shows partial reversal and subsequent stages major bleeding. None is required to explain the already-specified low-dose oral plan.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "36149eb570c32902",
+      "stage0QueueIndex": 168,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_warfarin_mvr_2026_06_11_01",
+      "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The bilingual stem fully states the new 0645 INR 6.8, hemoglobin 9.2, gross hematuria, positive guaiac, BP/HR and lightheadedness. Baseline initial labs provide the preceding hemoglobin 11.4 and INR 5.2, and home medications identify metoprolol/furosemide. The action matrix therefore has its required deterioration and medication context before updates.",
+      "laterStageLeakCheck": "stage_3_0645 repeats the acute presentation supplied in the stem, while stage_3_1200 narrates reversal and reassessment. Neither later narrative is needed to classify the immediate actions.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "a82d837749fbc8f9",
+      "stage0QueueIndex": 169,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_warfarin_mvr_2026_06_11_01",
+      "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part expressly supplies major bleeding and the IV vitamin K/4-factor PCC orders. It asks which verification, infusion, prompt product administration and monitoring actions are appropriate, with ordered-time/protocol qualifiers in both languages; no missing patient dose or response value is requested.",
+      "laterStageLeakCheck": "stage_3_1200 lists the actual infusion and verification actions, making it answer confirmation. The stem already establishes the indication and authorization needed for this administration-safety question.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "1ba7f5adb52e894a",
+      "stage0QueueIndex": 170,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_warfarin_mvr_2026_06_11_01",
+      "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem supplies the 1200 improved INR, post-transfusion hemoglobin, better BP, clearing urine, negative CT and pending consultations. Global history supplies the mechanical mitral valve and target INR. Those bilingual facts establish an improving but unresolved bleeding episode with competing anticoagulation risk, sufficient for the handoff choice.",
+      "laterStageLeakCheck": "stage_3_1200 repeats the status and adds detailed treatment narration. The question already gives the response data to evaluate, so no update is necessary merely because its timestamp matches the stem.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "bd45f4c3e500e7d7",
+      "stage0QueueIndex": 171,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The matrix explicitly lists smoking with an open balcony door, petroleum use, prescribed 2 L/min, tubing across a doorway and a charged battery. Global referral establishes new home oxygen and the prescribed flow. Both languages provide all behaviors to classify without waiting for a home interview.",
+      "laterStageLeakCheck": "stage_1_home repeats several listed hazards and stage_3_equipment reports charged backup equipment. These duplicates do not supply missing information for the self-contained safety matrix.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "74147c736cbdfe8d",
+      "stage0QueueIndex": 172,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "proposedBoundary": null,
+      "disposition": "EXCEPTION",
+      "earliestBoundaryEvidence": "Both stems attribute the discharge barrier to 'Stage 1 teaching.' The actual stage_1_home statement is adherence ('exactly 2 liters like the prescription'), whereas the keyed unsafe self-adjustment statement first appears in stage_2_teaching. Baseline supplies no such client behavior; the two declared updates imply opposite behavior at the named encounter.",
+      "laterStageLeakCheck": "Using stage_2_teaching would supply the keyed statement but would silently reinterpret the stem's Stage 1 reference; stage_3_equipment does not resolve that mismatch. This needs a content-scope decision beyond adding an anchor.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": "The part names Stage 1 teaching, where the live client statement is prescribed-flow adherence; the keyed self-adjustment behavior belongs to Stage 2. An anchor alone cannot reconcile the incorrect encounter reference without choosing a content interpretation."
+    },
+    {
+      "rowKey": "70ac819ad3a63a03",
+      "stage0QueueIndex": 173,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Global referral already specifies discharge with new home oxygen, the prescription and spouse; the fixed actions supply verifying orders, confirming resources, demonstrating safety and documenting readiness. Both languages ask to order this complete workflow, not to decide whether an actual delivery has occurred.",
+      "laterStageLeakCheck": "The 'after Stage 2' wording does not introduce an absent fact needed for this ordering task. stage_3_equipment supplies actual readiness confirmations that would duplicate the actions the learner is to arrange.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "5dfd13c7620f751f",
+      "stage0QueueIndex": 174,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part provides all proposed teach-back statements: flame separation/signage versus smoking, petroleum and rugs over tubing. With home oxygen established globally, these are complete alternative safety statements in English and Chinese; no unquoted client reply must be retrieved from Stage 3.",
+      "laterStageLeakCheck": "stage_3_equipment confirms an actual signage/tubing demonstration, but identifying the correct statement among the supplied options does not require that confirmation.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "37cbe021c6109e51",
+      "stage0QueueIndex": 175,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both stems explicitly give 600 L usable oxygen and 2 L/min and request duration in minutes. The arithmetic inputs and units are wholly contained in this part; the Stage 3 reference only attributes those supplied measurements.",
+      "laterStageLeakCheck": "stage_3_equipment repeats the cylinder volume and prescribed flow, so opening it supplies no missing value and would unnecessarily expose equipment-readiness outcomes.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

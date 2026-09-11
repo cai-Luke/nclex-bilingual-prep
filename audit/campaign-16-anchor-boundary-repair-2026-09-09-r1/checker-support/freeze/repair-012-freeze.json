@@ -1,0 +1,33 @@
+{
+  "repairPacketId": "repair-012",
+  "path": "checker/repair-012.json",
+  "bytes": 27145,
+  "sha256": "b7ea3f95ab7dd5f445e3588ce6191b7f4f2587d7cc92c50a82c9ed489a577ce3",
+  "rowCount": 20,
+  "parentCount": 4,
+  "sourcePacketSha256": "c0da6ef9bad82a33966bacb29064f52f98f1de41d7b188b6d60e9701ed6d9286",
+  "bankPath": "banks/gpt-canonical.json",
+  "bankSha256": "d7d228afc282bd15bc730be4ca5b3d2c7c14c017bbc14f3d12a7cbccbfef0f20",
+  "checker": "Claude Code / Claude Opus 5",
+  "counts": {
+    "BASELINE": 18,
+    "STAGE": 2,
+    "EXCEPTION": 0,
+    "HIGH": 19
+  },
+  "supersedes": [
+    {
+      "sha256": "73b46d4929c534f5332e582cb84bf4cb1642596db165bce274acd4395a37e3fd",
+      "bytes": 27143,
+      "counts": {
+        "BASELINE": 18,
+        "STAGE": 2,
+        "EXCEPTION": 0,
+        "HIGH": 20
+      },
+      "amendmentReason": "Checker transcription error corrected before the complete freeze: row 4a1fb7e61c0936a2 (gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3) was written with confidence HIGH because a helper default was not overridden, while the checker's recorded reasoning in laterStageLeakCheck explicitly states the rating is MEDIUM. Corrected to MEDIUM so the confidence field matches the recorded reasoning. No disposition, boundary, evidence text or identity field changed."
+    }
+  ],
+  "amended": true,
+  "amendmentReason": "Checker transcription error corrected before the complete freeze: row 4a1fb7e61c0936a2 (gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3) was written with confidence HIGH because a helper default was not overridden, while the checker's recorded reasoning in laterStageLeakCheck explicitly states the rating is MEDIUM. Corrected to MEDIUM so the confidence field matches the recorded reasoning. No disposition, boundary, evidence text or identity field changed."
+}

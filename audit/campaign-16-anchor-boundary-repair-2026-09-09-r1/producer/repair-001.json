@@ -1,0 +1,287 @@
+{
+  "repairPacketId": "repair-001",
+  "producer": "Codex / GPT-6 Astra",
+  "producingAgent": "/root/producer_001_009",
+  "role": "PRODUCER_SEMANTIC_RECONSTRUCTION",
+  "independentReview": false,
+  "sourcePacketSha256": "e404fbc5678d876566de168bc535a73527eca824ce22c065abf043168e80e0fd",
+  "workOrderSha256": "8cd476c23f2b6cadb07ae8115fd675fbbfc3f60acb46d7a521d5d1da30b2558b",
+  "parentCaseIds": [
+    "opus2_case_code_status_01",
+    "opus_vanco_case_01",
+    "opus1_case_tha_discharge_lep_01"
+  ],
+  "method": "Whole parent examined; each affected part independently evaluated at baseline and successive declared boundaries in English and Simplified Chinese. No Phase E leak verdict or calibration answer key used.",
+  "rows": [
+    {
+      "rowKey": "56ab2ea0633879b2",
+      "stage0QueueIndex": 1,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus2_case_code_status_01",
+      "partId": "opus2_case_code_status_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The 0700 summary quotes refusal of machines/intubation and the global assessment records full capacity; the English and Chinese prompt asks the immediate response to that statement. Zero updates are needed to choose assessment and contemporaneous documentation.",
+      "laterStageLeakCheck": "stage_1 describes that documentation already being performed; stages 2 and 3 add deterioration and resolution, which are consequences rather than prerequisites for the initial response.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "83b0ee550a17e0e3",
+      "stage0QueueIndex": 2,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus2_case_code_status_01",
+      "partId": "opus2_case_code_status_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both stems explicitly give the 0800 provider response and planned 1100 visit. The global record supplies a stable capacitated client with unresolved Full Code and a refusal of intubation, sufficient for documenting, charge-nurse notification and conditional follow-up.",
+      "laterStageLeakCheck": "stage_1 repeats the response already in this part. The later respiratory decline would change urgency and must not be imported into the earlier conditional safety plan.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "34925ffab6291d40",
+      "stage0QueueIndex": 3,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus2_case_code_status_01",
+      "partId": "opus2_case_code_status_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part itself states persistent hypoxemia, increasing fatigue despite oxygen escalation and continued Full Code; the global summary provides the capacitated refusal. Both languages therefore supply the urgent escalation conflict before any update.",
+      "laterStageLeakCheck": "stage_2 provides numeric confirmation of deterioration and stage_3 performs the RRT/order response. Neither is needed to select urgent communication and provider evaluation from this self-contained prompt.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "c47220ac1fb7f995",
+      "stage0QueueIndex": 4,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus2_case_code_status_01",
+      "partId": "opus2_case_code_status_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both stems supply RRT activation and ask which categories belong in handoff. Global Full Code, assessed capacity and refusal of intubation establish the essential communication content; the option asks to communicate escalation history rather than recall a particular unprovided event.",
+      "laterStageLeakCheck": "The stage_1 and stage_2 conversations add detail to a handoff but do not change which listed information is essential. stage_3 resolves the order conflict and is later than this activation handoff.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "f9ac2b9add5ea7c9",
+      "stage0QueueIndex": 5,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus2_case_code_status_01",
+      "partId": "opus2_case_code_status_q5",
+      "proposedBoundary": null,
+      "disposition": "EXCEPTION",
+      "earliestBoundaryEvidence": "The part supplies entry of DNAR/DNI and asks post-advocacy checks, but keyed option C specifically requires notifying a healthcare proxy. Baseline explicitly records no healthcare power of attorney; stage_3 mentions an advance directive with the daughter without establishing a proxy appointment in either language.",
+      "laterStageLeakCheck": "Reading the final resolution cannot establish whether the daughter became a healthcare proxy. Selecting a boundary would leave the keyed proxy requirement unsupported or require changing content outside the authorized field.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": "Answer-correctness risk: a keyed healthcare-proxy notification presumes a proxy that no visible case boundary explicitly establishes; family/emergency contact and proxy cannot silently be equated."
+    },
+    {
+      "rowKey": "e6e33f98acb54edf",
+      "stage0QueueIndex": 6,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "partId": "opus_vanco_case_01_q1_infusion_reaction",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both stems independently provide infusion timing, regional flushing/itching/wheals, hemodynamic symptoms and absent airway/generalized findings. The global record supplies the vancomycin order and IV context; that is sufficient for the immediate infusion response.",
+      "laterStageLeakCheck": "stage_1 includes the actual stop/support/notify response, reproducing the answer; its intervention outcome is not needed because the part already supplies the assessment cues.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "4f23479ea5389513",
+      "stage0QueueIndex": 7,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "partId": "opus_vanco_case_01_q2_documentation_cloze",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The English and Chinese stems explicitly state resolution after stopping/diphenhydramine and successful slower rechallenge. Those visible facts plus the global vancomycin therapy support the requested reaction documentation and future precautions without an update.",
+      "laterStageLeakCheck": "stage_1 repeats the response and explicitly labels the reaction; requiring it would expose the documentation answer rather than add necessary facts absent from this part.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "9934b65487d9d53a",
+      "stage0QueueIndex": 8,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "partId": "opus_vanco_case_01_q3_supratherapeutic_trough_order",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part provides trough 22.4, the imminent 1250 mg dose, pharmacy recommendation and prescriber contact; its action cards name the revised 1000 mg order and ordered precautions. Global CKD context is already visible in both languages, enabling the hold/clarify/verify/administer/document sequence.",
+      "laterStageLeakCheck": "stage_2 restates the same trough and pharmacy recommendation. stage_3 subsequent toxicity is not needed to order the safety actions for the already described dose clarification.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "6c1c4c992aa4da7d",
+      "stage0QueueIndex": 9,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "partId": "opus_vanco_case_01_q4_ototoxicity_screening",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both stems explicitly give increased ototoxicity monitoring, pre-existing bilateral hearing loss and hearing aids; the global record independently confirms the hearing baseline. Selecting repeatable screening, symptom inquiry and baseline documentation needs no later change.",
+      "laterStageLeakCheck": "stage_2 repeats the monitoring recommendation; stage_3 actual tinnitus is a later development and is not a prerequisite for preventive screening.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "37c2401af772da7a",
+      "stage0QueueIndex": 10,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "partId": "opus_vanco_case_01_q5_aki_cue_matrix",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each bilingual matrix row supplies its own relevant finding: creatinine 2.4 with 180 mL/12 h, new tinnitus, in-target trough, negative cultures, and improving fistula. Global renal baseline and infection context allow classification of all five rows without stage data.",
+      "laterStageLeakCheck": "stage_3 repeats these supplied findings and adds provider treatment orders. Those orders would validate the toxicity response, while the matrix already contains the information to derive it.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "fe4e91f7d5e2c01d",
+      "stage0QueueIndex": 11,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "partId": "opus_vanco_case_01_q6_lisinopril_aki",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both stems expressly provide AKI, new tinnitus, held vancomycin, still-active ungiven lisinopril and potassium 5.1. With global chronic lisinopril/CKD context, the safety clarification question is fully posed before updates.",
+      "laterStageLeakCheck": "stage_3 later orders already hold lisinopril, whereas this part expressly asks while its order is still active. The later order is not needed and should not replace the part-specific decision point.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "23c66e6046923646",
+      "stage0QueueIndex": 12,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus1_case_tha_discharge_lep_01",
+      "partId": "opus1_case_tha_discharge_lep_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The bilingual prompt and global admission record both identify Mandarin needs and the absent postoperative language-access plan. This is sufficient to initiate qualified interpretation and document the ongoing need.",
+      "laterStageLeakCheck": "POD1 failed education and later successful teaching are consequences of the initial access gap, not information needed for this first action.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "6dfc7831ec885eb1",
+      "stage0QueueIndex": 13,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus1_case_tha_discharge_lep_01",
+      "partId": "opus1_case_tha_discharge_lep_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both stems give the English handout, interpreter-assisted failure to state medication purpose and precautions, and the teach-back failure. Global Mandarin limitations provide context; no staged record is needed to choose renewed comprehensive teaching and defer clearance.",
+      "laterStageLeakCheck": "stage_pod1 repeats failed teach-back, while stage_pod2 supplies its eventual remedy. The result of later teaching cannot be required to identify the current failure.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "d9d324461ff760a8",
+      "stage0QueueIndex": 14,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus1_case_tha_discharge_lep_01",
+      "partId": "opus1_case_tha_discharge_lep_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part independently lists every unresolved barrier: walker safety, support, referral, teaching, stairs and creatinine trend. Both languages plus global home/language/medication context support all proposed coordination actions without a declared update.",
+      "laterStageLeakCheck": "stage_pod1 expands those same barriers; stages 2 and 3 show their resolution. They do not add a prerequisite for choosing how to address the barriers expressly in the stem.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "af259a785b2a75a0",
+      "stage0QueueIndex": 15,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus1_case_tha_discharge_lep_01",
+      "partId": "opus1_case_tha_discharge_lep_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The English and Chinese stems provide the complete creatinine trajectory, post-hydration value, eGFR and rivaroxaban dose/duration; action rows provide the claims to classify. No staged lab or order is missing from the medication-safety question.",
+      "laterStageLeakCheck": "stage_pod2 duplicates the recovery measurements, and stage_pod3 later renal recovery cannot determine how the listed actions should be classified at the stated point.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "5167f735f4655df2",
+      "stage0QueueIndex": 16,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus1_case_tha_discharge_lep_01",
+      "partId": "opus1_case_tha_discharge_lep_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part supplies successful teach-back and inability to navigate the English phone system. The global record supplies Mandarin, a landline and an adult son; both languages support confirming a practical contact plan and accessible instructions before any update.",
+      "laterStageLeakCheck": "stage_pod2 repeats the phone barrier and stage_pod3 executes the contact arrangements. Actual completion is unnecessary for selecting the prospective planning actions.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "25b7ff4311e66f43",
+      "stage0QueueIndex": 17,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus1_case_tha_discharge_lep_01",
+      "partId": "opus1_case_tha_discharge_lep_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "This is a relevance-of-handoff-information question. Its bilingual options themselves state the renal recovery, confirmed equipment/follow-up/contact arrangements and social risks; global context supplies Mandarin, home layout and rivaroxaban. The learner can select essential information without retrieving a later observation.",
+      "laterStageLeakCheck": "stage_pod3 documents the same completed arrangements and even the SBAR content. It confirms supplied information and the answer; this part does not ask whether those arrangements actually occurred in an unseen record.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

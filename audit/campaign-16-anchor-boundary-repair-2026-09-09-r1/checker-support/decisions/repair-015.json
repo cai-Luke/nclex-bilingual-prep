@@ -1,0 +1,147 @@
+{
+ "67fd2fc440876dd3": {
+  "partId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q1",
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "Every highlight segment states its own finding, and the four keyed ones are independently named in the baseline case summary, which records a postpartum day 4 call with 'a severe headache, visual spots, new facial edema, and repeated home BP of 162/108'. The baseline background exhibit supplies the discriminating context - a normotensive prenatal course with negative protein screens, discharge at 118/74 with no oedema, and explicit instructions to call for headache, vision changes or BP above 140/90 - which is what makes these four a severe-features cluster and the lochia, voiding, denied chest symptoms and poor sleep non-cues.",
+  "laterStageLeakCheck": "stage1 restates the same triage-call findings and adds the ED examination; it classifies nothing and identifies no cluster. BASELINE is the earliest answerable boundary."
+ },
+ "1d1a8c300bfa67ce": {
+  "partId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q2",
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "Each row carries its own finding - severe-range BP repeated five minutes apart, headache 9/10 with visual spots, 3+ deep tendon reflexes with ankle clonus, 3+ dipstick protein, and a still-pending HELLP panel - so the ED data is inside the part. Baseline supplies the negative prenatal protein screens and normotensive course that make the proteinuria supportive rather than diagnostic. Recognising severe-range BP with neurologic features as immediate-treatment cues, and that pending labs must not delay magnesium and antihypertensive therapy, is preeclampsia knowledge.",
+  "laterStageLeakCheck": "stage1 is the source of the ED values, which the rows restate, and it classifies none of them. stage2 shows treatment being started before the stat labs returned, which demonstrates the 'should not delay treatment' classification of row r5. BASELINE is earliest and avoids that."
+ },
+ "f9808a51e6bb06d4": {
+  "partId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q3",
+  "disposition": "STAGE",
+  "stage": "stage2",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "The cloze restates no value, and its middle blank is a laboratory exclusion: HELLP syndrome is less likely 'because platelets, AST/ALT, and LDH are not showing the HELLP triad'. Asserting that requires current values, and the only current values are the stat labs in stage2 - platelets 195, AST 34, ALT 28, LDH 198, drawn at 12:15 PM. The baseline panel is the delivery-admission set drawn days earlier and cannot exclude a day-4 HELLP picture. The competing options in that dropdown are the stage2 urine protein-to-creatinine ratio and the stage2 uric acid, so every choice is a current-lab claim that only stage2 supplies.",
+  "laterStageLeakCheck": "stage2 supplies the values without the reasoning: it lists the results and the treatment orders but never names a diagnosis, never says HELLP is less likely, and never explains why this is not hypertension without severe features. stage3 is later and reports the response to treatment. Recorded qualifier: the case title itself reads 'Late postpartum preeclampsia with severe features', so the diagnosis blank is already disclosed at BASELINE by the title; that pre-existing item feature does not remove the stage2 dependency of the HELLP-exclusion blank, which is the binding constraint here."
+ },
+ "65e1cbdccd489d80": {
+  "partId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q4",
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "The stem supplies the patient's question and the option set names both drugs, so the comparison is inside the part. The answer is pharmacology: magnesium sulfate is seizure prophylaxis rather than an antihypertensive, and immediate-release nifedipine is the agent used for acute severe-range reduction, while extended-release nifedipine is not an acute agent and neither drug is withheld for breastfeeding.",
+  "laterStageLeakCheck": "stage2 must not be the boundary: its order set states the indications outright - 'magnesium sulfate 4 g IV loading dose ... for seizure prophylaxis; immediate-release nifedipine 10 mg PO now for acute BP reduction' - which is keyed option A word for word, in both languages. BASELINE is earliest and non-leaking."
+ },
+ "e9269c6a25dde0a6": {
+  "partId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q5",
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "The stem states the situation - confirmed severe-range BP with seizure risk at the moment treatment is initiated - and every keyed action is standard severe-preeclampsia practice: magnesium loading dose by infusion pump, immediate-release nifedipine as ordered, seizure precautions with padded rails, bedside suction, dim lighting and minimal stimulation, and blood pressure every five minutes for the first twenty. The distractors fail on safety knowledge, since magnesium is never run by gravity and antihypertensive therapy is not delayed for the loading dose.",
+  "laterStageLeakCheck": "stage2 must not be the boundary: its order set enumerates the seizure precautions verbatim and the five-minute monitoring interval, and its narrative records magnesium starting by pump at 11:40 AM with nifedipine given at 11:45 AM, which delivers all four keyed options and refutes the delay distractor. BASELINE is earliest and non-leaking."
+ },
+ "a13e3d339e5e1040": {
+  "partId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q6",
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "Each row states its own reassessment finding, and the column labels supply the magnesium context, so the classification runs on knowledge: falling blood pressure, resolved scotomata with a lower headache score, reflexes back to 2+ without clonus, and a respiratory rate of 16 in an alert patient are improvement and absence of magnesium toxicity; 45 mL of urine in the second hour matters because magnesium is renally cleared and oliguria risks accumulation; and facial oedema is not an acute treatment-response marker. Baseline supplies the discharge finding of no oedema that makes the facial swelling subacute.",
+  "laterStageLeakCheck": "stage3 is the source of the values, which the rows restate, and it classifies none of them. BASELINE is the earliest answerable boundary."
+ },
+ "a95e5a71ca6d9ed0": {
+  "partId": "gpt_case_acute_hemolytic_transfusion_reaction_01_q1",
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "Every segment states its own finding, and three of them carry their own baseline comparator explicitly - temperature rising from 98.2 F to 101.5 F, heart rate from 92 to 118, blood pressure from 108/68 to 96/58 - all of which the baseline record independently documents. Recognising flank pain, a sense of impending doom, rigors with fever, tachycardia, hypotension and dark reddish-brown urine as significant cues, and a normal-appearing IV site as not one, is transfusion-reaction knowledge.",
+  "laterStageLeakCheck": "stage_1 is the source of the acute findings, which the segments restate, and it labels none of them. Later stages show shock and disseminated coagulopathy. BASELINE is the earliest answerable boundary."
+ },
+ "202a2609a5f06af0": {
+  "partId": "gpt_case_acute_hemolytic_transfusion_reaction_01_q2",
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "The stem restates the entire cue cluster - fever with rigors, bilateral flank pain, hypotension, a sense of impending doom and dark reddish-brown urine twelve minutes into the transfusion - so the discriminating data is inside the part. Baseline goes further: the case summary states that a mislabelled pretransfusion specimen led to issue of an ABO-incompatible unit, and the case title names acute haemolytic transfusion reaction outright. Timing within minutes with haemoglobinuria separates this from febrile non-haemolytic, allergic, circulatory-overload and delayed haemolytic reactions.",
+  "laterStageLeakCheck": "stage_1 supplies the findings the stem restates and stage_2 confirms haemolysis by laboratory values; neither is needed. BASELINE is the earliest answerable boundary."
+ },
+ "b7a0a36f93939948": {
+  "partId": "gpt_case_acute_hemolytic_transfusion_reaction_01_q3",
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "All five options quote Stage 1 findings, so the candidate set is inside the part, and baseline supplies the pre-transfusion comparators of blood pressure 108/68 and heart rate 92 that make the hypotension with tachycardia a new haemodynamic change. Ranking evolving circulatory collapse above fever, haemoglobinuria, nausea and a normal IV site is prioritisation knowledge.",
+  "laterStageLeakCheck": "stage_1 is the source of the findings the options restate. stage_2 shows the hypotension progressing to shock at 82/50 with mottling, which would confirm the ranking retrospectively. BASELINE is earliest and answerable."
+ },
+ "57c3cac17776e34e": {
+  "partId": "gpt_case_acute_hemolytic_transfusion_reaction_01_q4",
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "Baseline establishes a transfusion in progress through a peripheral IV, and the keyed actions are the standard transfusion-reaction protocol: clamp and stop the transfusion, disconnect the blood tubing and keep the line open with normal saline through new tubing, stay with the client while another staff member notifies the provider and blood bank, and save the unit with its tubing and labels for investigation. The distractors fail on the same protocol, since the catheter is retained for access and the residual blood in the original tubing must never be flushed into the client.",
+  "laterStageLeakCheck": "stage_2 must not be the boundary: it states that the blood bank 'requests the discontinued unit with attached tubing, a post-reaction blood sample from the opposite arm, and the original pretransfusion specimen', which is keyed option E, and its own title records the transfusion stopped with a saline bolus started, which is keyed options A and B. BASELINE is earliest and non-leaking."
+ },
+ "b946c62afa657761": {
+  "partId": "gpt_case_acute_hemolytic_transfusion_reaction_01_q5",
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "The stem restates the whole Stage 2 picture - persistent hypotension despite initial saline, worsening oliguria with port-wine urine, oozing from puncture sites, petechiae, and laboratory evidence of haemolysis with evolving disseminated intravascular coagulation - so the deterioration is inside the part. Immediate escalation to rapid response or ICU-level care while maintaining perfusion support and strict output monitoring follows; documenting first, giving antipyretics, waiting for blood-bank confirmation, or slowing fluids for chronic kidney disease all defer definitive care.",
+  "laterStageLeakCheck": "stage_3 must not be the boundary: it opens with the client already 'transferred to the ICU' on vasopressor support, which is keyed option B carried out. BASELINE is earliest and non-leaking."
+ },
+ "e167c20db280040e": {
+  "partId": "gpt_case_acute_hemolytic_transfusion_reaction_01_q6",
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "Each row states its own finding with its own direction of change, including two hypothetical improvement patterns - decreasing vasopressor requirement, and a rising fibrinogen with falling INR and aPTT - that are not this client's actual Stage 3 course. Classifying persistent 8 mL hourly haemoglobinuric output and a rising potassium with worsening creatinine as continued deterioration, and a temperature falling by just over one degree as insufficient by itself, is judgement rather than lookup. Baseline supplies the pre-transfusion potassium of 4.6 and creatinine of 1.8 that make the renal trend interpretable.",
+  "laterStageLeakCheck": "stage_3 is the source of the actual values behind rows r1 and r4 and would additionally show the vasopressor and coagulation course running opposite to rows r2 and r3, which could confuse a reader into judging those rows against the case rather than on their own terms. BASELINE is the earliest answerable boundary."
+ },
+ "1f82e6d0d2838072": {
+  "partId": "gpt_case_svc_syndrome_01_q1",
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "Every segment states its own finding and most are baseline: facial plethora, bilateral periorbital oedema, external jugular veins that do not collapse with inspiration or 45-degree elevation, faint chest-wall venous collaterals, diminished right upper lobe breath sounds with a known right mediastinal mass, absent lower-extremity oedema, non-oedematous hands, normal neurologic findings, temperature and capillary refill are all in the baseline admission record. The two segments drawn from the later narrative - worse head fullness with desaturation when the head of bed is lowered, and sluggish right forearm IV flow - state their own content. Recognising upper-body venous congestion that spares the lower body is knowledge.",
+  "laterStageLeakCheck": "stage_1 narrates the head-of-bed event and the sluggish IV that two segments restate; it classifies nothing. BASELINE is the earliest answerable boundary."
+ },
+ "fa8ea9db9c2cb191": {
+  "partId": "gpt_case_svc_syndrome_01_q2",
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "The stem restates the entire cue cluster - upper-body venous congestion sparing the lower extremities, worsening when the head of bed is lowered, a known right mediastinal mass, chest-wall venous collaterals and a mildly elevated D-dimer - and baseline independently supplies each element, including the D-dimer of 0.8 and the explicit absence of any deep-vein-thrombosis or heart-failure history. Those same baseline facts defeat the heart-failure, isolated upper-extremity thrombosis and pneumonia distractors.",
+  "laterStageLeakCheck": "stage_1 supplies the head-of-bed event the stem restates; later stages show deterioration and treatment. None is needed. BASELINE is the earliest answerable boundary."
+ },
+ "4c2db0e7a408fb1b": {
+  "partId": "gpt_case_svc_syndrome_01_q3",
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "All four options quote Stage 2 findings, so the candidate set is inside the part, and baseline supplies what makes stridor 'new' and the neck change measurable: the admission examination records no stridor and a neck circumference of 44 cm at the cricoid. Ranking new inspiratory stridor - an airway-obstruction sign - above tachycardia, a three-centimetre neck increase and a saturation of 90 percent is prioritisation knowledge.",
+  "laterStageLeakCheck": "stage_2 is the source of the four findings the options restate. stage_3 records that stridor resolved after escalation, which would confirm it was the decisive problem. BASELINE is earliest and answerable."
+ },
+ "5b9335d7f7f0d306": {
+  "partId": "gpt_case_svc_syndrome_01_q4",
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "The stem establishes an emergency response and the option set supplies its trigger by naming the new stridor. Baseline supplies the standing orders that two keyed actions rest on - head of bed at least 45 degrees, and oxygen titrated to keep SpO2 above 92 percent. Increasing oxygen, keeping the head elevated, activating rapid response with notification of new stridor, and bringing airway, suction and bag-valve-mask equipment to the bedside are airway-emergency practice; lowering the head of bed and delaying help to attempt another forearm IV both fail on that standard.",
+  "laterStageLeakCheck": "stage_3 must not be the boundary: it states that 'The nurse escalated to the provider, oxygen was increased to high-flow nasal cannula at 40 L/min with FiO2 0.50 per order, and the head of bed remains at 45 degrees', which discloses keyed options C, A and B as accomplished. BASELINE is earliest and non-leaking."
+ },
+ "15712993ff72cdc9": {
+  "partId": "gpt_case_svc_syndrome_01_q5",
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "The stem states the premise - the infiltrated right forearm IV has been discontinued during an airway response - and baseline supplies the reason upper-extremity access is unsuitable: superior vena cava obstruction with non-collapsing jugular veins and chest-wall collaterals means blood and infusate from the upper body drain through the obstructed segment. Coordinating non-upper-extremity access per policy and provider direction follows, and the three distractors all place access in the compromised drainage territory.",
+  "laterStageLeakCheck": "stage_3 must not be the boundary: it states that 'A new peripheral IV has been placed in the left lower extremity after coordination with the team and per facility policy', which is the keyed answer carried out. BASELINE is earliest and the only non-leaking boundary."
+ },
+ "26e35fe0f3d7562b": {
+  "partId": "gpt_case_svc_syndrome_01_q6",
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "Each row carries its own finding and its own comparator, including the neck circumference row that states both the 47 cm peak and the 44 cm baseline, and the saturation row that states the level of support required to achieve it. Judging resolved stridor as early improvement, a 93 percent saturation that depends on high-flow oxygen and a still-elevated neck circumference and exertional dyspnoea as ongoing risk, and urine output as not a primary superior-vena-cava response marker, is evaluation rather than lookup. Baseline supplies the 44 cm admission measurement independently.",
+  "laterStageLeakCheck": "stage_3 is the source of the values the rows restate and adds that the client 'feels a little better but is still short of breath with movement', which frames the overall response; it classifies no individual finding. BASELINE is the earliest answerable boundary."
+ }
+}

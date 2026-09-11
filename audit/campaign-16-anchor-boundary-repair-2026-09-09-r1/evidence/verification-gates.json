@@ -1,0 +1,291 @@
+[
+  {
+    "name": "validate-bank",
+    "command": [
+      "npm",
+      "run",
+      "validate-bank",
+      "--",
+      "banks/burn-canonical.json",
+      "banks/capnography-canonical.json",
+      "banks/claude-canonical.json",
+      "banks/device-canonical.json",
+      "banks/gemini-canonical.json",
+      "banks/gpt-canonical.json",
+      "banks/hard-cases-canonical.json",
+      "banks/io-canonical.json",
+      "banks/lab-canonical.json",
+      "banks/mar-canonical.json",
+      "banks/medlabel-canonical.json",
+      "banks/visual-canonical.json",
+      "banks/vitals-canonical.json"
+    ],
+    "exitCode": 0,
+    "startedAt": "2026-09-11T02:22:42.730488+00:00",
+    "finishedAt": "2026-09-11T02:22:43.941802+00:00",
+    "log": "evidence/validate-bank.log",
+    "logSha256": "0d65dd42222dc6213043b79e47e7d5247589069b185e30b15189def98a3f4221"
+  },
+  {
+    "name": "audit",
+    "command": [
+      "npm",
+      "run",
+      "audit"
+    ],
+    "exitCode": 0,
+    "startedAt": "2026-09-11T02:22:43.942796+00:00",
+    "finishedAt": "2026-09-11T02:22:50.257190+00:00",
+    "log": "evidence/audit.log",
+    "logSha256": "5bb28d060975e83d0c6f618667d7e03833854e1e10159b2f2af595d5ff4e4e67"
+  },
+  {
+    "name": "stage-refs-burn-canonical",
+    "command": [
+      "npm",
+      "run",
+      "audit:stage-refs",
+      "--",
+      "--file",
+      "banks/burn-canonical.json"
+    ],
+    "exitCode": 0,
+    "startedAt": "2026-09-11T02:22:50.257602+00:00",
+    "finishedAt": "2026-09-11T02:22:50.517067+00:00",
+    "log": "evidence/stage-refs-burn-canonical.log",
+    "logSha256": "45eaae41ac708005ee7113ac23b0fe6aff796e43e888a178f3216c5858a4c1fd"
+  },
+  {
+    "name": "stage-refs-capnography-canonical",
+    "command": [
+      "npm",
+      "run",
+      "audit:stage-refs",
+      "--",
+      "--file",
+      "banks/capnography-canonical.json"
+    ],
+    "exitCode": 0,
+    "startedAt": "2026-09-11T02:22:50.517384+00:00",
+    "finishedAt": "2026-09-11T02:22:50.780347+00:00",
+    "log": "evidence/stage-refs-capnography-canonical.log",
+    "logSha256": "aff6d4f6b57c0d9427654150b67dd325f5500beb7d837eb09583a372d4345544"
+  },
+  {
+    "name": "stage-refs-claude-canonical",
+    "command": [
+      "npm",
+      "run",
+      "audit:stage-refs",
+      "--",
+      "--file",
+      "banks/claude-canonical.json"
+    ],
+    "exitCode": 0,
+    "startedAt": "2026-09-11T02:22:50.780690+00:00",
+    "finishedAt": "2026-09-11T02:22:51.102719+00:00",
+    "log": "evidence/stage-refs-claude-canonical.log",
+    "logSha256": "deaf6ba15acf0829b280b7d19168460d3435e6936865bfb3f8b413c985aa7732"
+  },
+  {
+    "name": "stage-refs-device-canonical",
+    "command": [
+      "npm",
+      "run",
+      "audit:stage-refs",
+      "--",
+      "--file",
+      "banks/device-canonical.json"
+    ],
+    "exitCode": 0,
+    "startedAt": "2026-09-11T02:22:51.103042+00:00",
+    "finishedAt": "2026-09-11T02:22:51.403909+00:00",
+    "log": "evidence/stage-refs-device-canonical.log",
+    "logSha256": "2fe42055ad4204b56b7b8a3bc72c07788e52b4767ef6ff077bef1a25aacd1e6d"
+  },
+  {
+    "name": "stage-refs-gemini-canonical",
+    "command": [
+      "npm",
+      "run",
+      "audit:stage-refs",
+      "--",
+      "--file",
+      "banks/gemini-canonical.json"
+    ],
+    "exitCode": 0,
+    "startedAt": "2026-09-11T02:22:51.404368+00:00",
+    "finishedAt": "2026-09-11T02:22:51.823705+00:00",
+    "log": "evidence/stage-refs-gemini-canonical.log",
+    "logSha256": "b7026b37af6c719507e4f3a1b5817ac0d41e5ed7189a86bdb92a6b777c0d1ad7"
+  },
+  {
+    "name": "stage-refs-gpt-canonical",
+    "command": [
+      "npm",
+      "run",
+      "audit:stage-refs",
+      "--",
+      "--file",
+      "banks/gpt-canonical.json"
+    ],
+    "exitCode": 0,
+    "startedAt": "2026-09-11T02:22:51.824143+00:00",
+    "finishedAt": "2026-09-11T02:22:52.353408+00:00",
+    "log": "evidence/stage-refs-gpt-canonical.log",
+    "logSha256": "e09adb9332176083036c91cfeb197a8a8a2317f5e525929254bceaa724a0100e"
+  },
+  {
+    "name": "stage-refs-hard-cases-canonical",
+    "command": [
+      "npm",
+      "run",
+      "audit:stage-refs",
+      "--",
+      "--file",
+      "banks/hard-cases-canonical.json"
+    ],
+    "exitCode": 0,
+    "startedAt": "2026-09-11T02:22:52.353770+00:00",
+    "finishedAt": "2026-09-11T02:22:52.703555+00:00",
+    "log": "evidence/stage-refs-hard-cases-canonical.log",
+    "logSha256": "05fa2b91f3f7728f1e679828d69246b4caa77c0d8cf0a074b92b5f5f958465a7"
+  },
+  {
+    "name": "stage-refs-io-canonical",
+    "command": [
+      "npm",
+      "run",
+      "audit:stage-refs",
+      "--",
+      "--file",
+      "banks/io-canonical.json"
+    ],
+    "exitCode": 0,
+    "startedAt": "2026-09-11T02:22:52.703936+00:00",
+    "finishedAt": "2026-09-11T02:22:52.985698+00:00",
+    "log": "evidence/stage-refs-io-canonical.log",
+    "logSha256": "548f61666327952fe6a94caa1bcfd8da26e63238e663b4681e7718d5018c1120"
+  },
+  {
+    "name": "stage-refs-lab-canonical",
+    "command": [
+      "npm",
+      "run",
+      "audit:stage-refs",
+      "--",
+      "--file",
+      "banks/lab-canonical.json"
+    ],
+    "exitCode": 0,
+    "startedAt": "2026-09-11T02:22:52.986055+00:00",
+    "finishedAt": "2026-09-11T02:22:53.287207+00:00",
+    "log": "evidence/stage-refs-lab-canonical.log",
+    "logSha256": "d28053a0c48fe71a7be5eba12861d2d69b3826ec500acc092081859156b50d49"
+  },
+  {
+    "name": "stage-refs-mar-canonical",
+    "command": [
+      "npm",
+      "run",
+      "audit:stage-refs",
+      "--",
+      "--file",
+      "banks/mar-canonical.json"
+    ],
+    "exitCode": 0,
+    "startedAt": "2026-09-11T02:22:53.287614+00:00",
+    "finishedAt": "2026-09-11T02:22:53.586613+00:00",
+    "log": "evidence/stage-refs-mar-canonical.log",
+    "logSha256": "304d6754f9bf34bcb604959263728adcf8b0537f7fc304a912d5db4ea58d8d53"
+  },
+  {
+    "name": "stage-refs-medlabel-canonical",
+    "command": [
+      "npm",
+      "run",
+      "audit:stage-refs",
+      "--",
+      "--file",
+      "banks/medlabel-canonical.json"
+    ],
+    "exitCode": 0,
+    "startedAt": "2026-09-11T02:22:53.587027+00:00",
+    "finishedAt": "2026-09-11T02:22:53.880304+00:00",
+    "log": "evidence/stage-refs-medlabel-canonical.log",
+    "logSha256": "6c050e1dd94b46002be09dbb1c8fa05ae61050e4c863139a5f3c07d200991df4"
+  },
+  {
+    "name": "stage-refs-visual-canonical",
+    "command": [
+      "npm",
+      "run",
+      "audit:stage-refs",
+      "--",
+      "--file",
+      "banks/visual-canonical.json"
+    ],
+    "exitCode": 0,
+    "startedAt": "2026-09-11T02:22:53.880725+00:00",
+    "finishedAt": "2026-09-11T02:22:54.182378+00:00",
+    "log": "evidence/stage-refs-visual-canonical.log",
+    "logSha256": "fbee9088726deb636b111f07664b0fff67280eb6388675bc3f42841dd1d01c7d"
+  },
+  {
+    "name": "stage-refs-vitals-canonical",
+    "command": [
+      "npm",
+      "run",
+      "audit:stage-refs",
+      "--",
+      "--file",
+      "banks/vitals-canonical.json"
+    ],
+    "exitCode": 0,
+    "startedAt": "2026-09-11T02:22:54.182793+00:00",
+    "finishedAt": "2026-09-11T02:22:54.455411+00:00",
+    "log": "evidence/stage-refs-vitals-canonical.log",
+    "logSha256": "822ee0931626daf02d30b7bb36de585362a3a8873639f4a79f344ad084f04b3b"
+  },
+  {
+    "name": "stage-refs-strict",
+    "command": [
+      "npm",
+      "run",
+      "audit:stage-refs",
+      "--",
+      "--strict",
+      "--file",
+      "banks/burn-canonical.json",
+      "--file",
+      "banks/capnography-canonical.json",
+      "--file",
+      "banks/claude-canonical.json",
+      "--file",
+      "banks/device-canonical.json",
+      "--file",
+      "banks/gemini-canonical.json",
+      "--file",
+      "banks/gpt-canonical.json",
+      "--file",
+      "banks/hard-cases-canonical.json",
+      "--file",
+      "banks/io-canonical.json",
+      "--file",
+      "banks/lab-canonical.json",
+      "--file",
+      "banks/mar-canonical.json",
+      "--file",
+      "banks/medlabel-canonical.json",
+      "--file",
+      "banks/visual-canonical.json",
+      "--file",
+      "banks/vitals-canonical.json"
+    ],
+    "exitCode": 1,
+    "startedAt": "2026-09-11T02:22:54.455749+00:00",
+    "finishedAt": "2026-09-11T02:22:55.149396+00:00",
+    "log": "evidence/stage-refs-strict.log",
+    "logSha256": "3841899cc4498aadd884b66a68e448f1b9aa4c574cc024b12a8cf6b58d33c3be"
+  }
+]

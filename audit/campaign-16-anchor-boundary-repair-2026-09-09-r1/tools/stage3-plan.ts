@@ -1,0 +1,34 @@
+import assert from 'node:assert/strict';
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { basename, resolve } from 'node:path';
+import { schemaVersionAtLeast } from '../../../src/schema';
+import { isCaseBaselineBoundary } from '../../../src/caseVisibilityBoundary';
+const root=resolve(import.meta.dirname,'..');
+const hash=(p:string)=>createHash('sha256').update(readFileSync(p)).digest('hex');
+const read=(n:string)=>JSON.parse(readFileSync(resolve(root,n),'utf8'));
+const write=(n:string,v:unknown)=>writeFileSync(resolve(root,n),JSON.stringify(v,null,2)+'\n',{flag:'wx'});
+const freeze=read('comparison-freeze.json');
+for(const [p,h] of Object.entries(freeze.artifacts))assert.equal(hash(resolve(root,p)),h);
+const opening=read('opening-state.json');
+const accepted=readFileSync(resolve(root,'accepted-boundaries.jsonl'),'utf8').trim().split('\n').map(x=>JSON.parse(x));
+const comparison=read('comparison.json');
+const plans=Object.entries(comparison.byBank).map(([bankPath,counts]:[string,any])=>{
+ const rows=accepted.filter(r=>r.bankPath===bankPath); const baselines=rows.filter(r=>isCaseBaselineBoundary(r.acceptedBoundary));
+ const before=opening.banks[bankPath].schemaVersion;
+ const bump=baselines.length>0&&!schemaVersionAtLeast(before,'2.1');
+ return {bankPath,openingSha256:opening.banks[bankPath].sha256,before,after:bump?'2.1':before,bumpAuthorized:bump,acceptedBaseline:baselines.length,acceptedStage:rows.length-baselines.length,exceptions:counts.EXCEPTION};
+});
+write('schema-floor-plan.json',{comparisonFreezeSha256:hash(resolve(root,'comparison-freeze.json')),schemaSourceSha256:hash('src/schema.ts'),typeSourceSha256:hash('src/types.ts'),rule:'R4 B.1/F.1: baseline presence and ordered live schema floor predicate',banks:plans});
+mkdirSync(resolve(root,'patches'));
+const patches=plans.filter(p=>p.acceptedBaseline+p.acceptedStage>0).map(p=>{
+ const rows=accepted.filter(r=>r.bankPath===p.bankPath); const name='patches/'+basename(p.bankPath,'.json')+'.ts';
+ let source="// Generated from frozen R4 E.1 exact agreements. Only P15 setValue operations.\nimport { runPatch, setValue } from '../../../scripts/patch-raw';\nrunPatch([\n";
+ for(const r of rows)source+='  setValue({ id: '+JSON.stringify(r.parentCaseId)+', path: ["caseStudy", "questions", { id: '+JSON.stringify(r.partId)+' }, "answerableAfterStageId"], before: undefined, after: '+JSON.stringify(r.acceptedBoundary)+', note: '+JSON.stringify('Campaign16 R4 rowKey='+r.rowKey+' producer/checker exact agreement')+' }),\n';
+ source+=']);\n'; writeFileSync(resolve(root,name),source,{flag:'wx'});
+ return {bankPath:p.bankPath,patchPath:name,patchSha256:hash(resolve(root,name)),operationCount:rows.length,rowKeys:rows.map(r=>r.rowKey),precondition:'answerableAfterStageId: undefined; bank SHA chain after exact schema bump',operation:'setValue',stageIdWritten:false};
+});
+assert(patches.length<=4); assert.equal(new Set(patches.flatMap(p=>p.rowKeys)).size,accepted.length);
+write('patch-plan.json',{comparisonFreezeSha256:hash(resolve(root,'comparison-freeze.json')),totalOperations:accepted.length,patches});
+write('stage3-plan-freeze.json',{createdAt:new Date().toISOString(),artifacts:Object.fromEntries(['schema-floor-plan.json','patch-plan.json',...patches.map(p=>p.patchPath)].map(n=>[n,hash(resolve(root,n))]))});
+console.log(JSON.stringify({status:'PLANS_FROZEN',banks:plans,operations:accepted.length},null,2));

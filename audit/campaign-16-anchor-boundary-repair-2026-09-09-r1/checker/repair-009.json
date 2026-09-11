@@ -1,0 +1,334 @@
+{
+  "repairPacketId": "repair-009",
+  "bankPath": "banks/gpt-canonical.json",
+  "bankSha256": "d7d228afc282bd15bc730be4ca5b3d2c7c14c017bbc14f3d12a7cbccbfef0f20",
+  "sourcePacketSha256": "9112519ebd594745bf752b10ac2c05df8f00f4899056a8a83e93ac7ec825a9ba",
+  "checker": "Claude Code / Claude Opus 5",
+  "checkerRole": "independent content checker (R4 Stage 2 blind full reconstruction)",
+  "blind": true,
+  "representation": {
+    "BASELINE": "proposedBoundary == {\"kind\":\"baseline\"}",
+    "STAGE": "proposedBoundary == exact declared stage id string",
+    "EXCEPTION": "proposedBoundary == null with exceptionReason",
+    "forbiddenAlternateField": "orStage (never emitted)"
+  },
+  "rowCount": 19,
+  "parentCaseIds": [
+    "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+    "gpt_case_premium_2026_06_10_case05_health_literacy_adherence",
+    "gpt_case_premium_next_case_caregiver_adaptation_dementia_03",
+    "gpt_case_premium_next_case_health_literacy_diabetes_01",
+    "gpt_case_premium_next_case_occupational_exposure_vaccine_04",
+    "gpt_case_premium_next_case_rehab_pressure_bowel_02"
+  ],
+  "counts": {
+    "BASELINE": 18,
+    "STAGE": 1,
+    "EXCEPTION": 0,
+    "HIGH": 19
+  },
+  "rows": [
+    {
+      "rowKey": "a2fc6385f44d7431",
+      "stage0QueueIndex": 125,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case05_health_literacy_adherence",
+      "partId": "gpt_case_premium_2026_06_10_case05_mc_assessment_01",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline supplies every literacy cue the response must handle: the client reads at an elementary level, says 'The label has too many words', prefers Spanish while understanding some English, and asks the nurse to instruct the nephew instead. Normalising label difficulty and asking how the client likes health instructions explained assesses need while preserving dignity, and the three distractors fail on that same standard - a yes/no literacy challenge, a demand to learn English medical words, and bypassing the client entirely.",
+      "laterStageLeakCheck": "The parent has a single declared stage; a one-stage parent does not make that stage the default boundary under R4. lab_and_call reports the later adherence update and states no assessment technique. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "1b918ecf6fdb70d0",
+      "stage0QueueIndex": 126,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case05_health_literacy_adherence",
+      "partId": "gpt_case_premium_2026_06_10_case05_matrix_understanding_02",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "All five rows are quoted from the baseline primary-care note: taking the thyroid pill 'when I remember', the label having too many words, preferring Spanish with some English, asking for nephew involvement, and using a basic cell phone. Sorting adherence and comprehension barriers from potential supports is done entirely on that surface.",
+      "laterStageLeakCheck": "The parent has a single declared stage; a one-stage parent does not make that stage the default boundary under R4. lab_and_call contains the follow-up call and TSH result and none of the five cues. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "e22f08bd7ad039c0",
+      "stage0QueueIndex": 127,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case05_health_literacy_adherence",
+      "partId": "gpt_case_premium_2026_06_10_case05_cloze_teaching_03",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline gives both drivers: elementary reading level with a preference for Spanish, and a client who cannot use a dense pharmacy label. A plain-language picture schedule in the client's preferred language, confirmed by teach-back in the client's own words, follows directly, and the distractors fail on health-literacy principle - a thyroid physiology chart, an English label read aloud once, a written quiz, and asking 'Do you understand?'",
+      "laterStageLeakCheck": "lab_and_call must not be the boundary: it opens with the client saying 'The picture schedule helped', which names dropdown 1's keyed tool and confirms it worked, in both languages. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "a9945d58228a2424",
+      "stage0QueueIndex": 128,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case05_health_literacy_adherence",
+      "partId": "gpt_case_premium_2026_06_10_case05_sata_adherence_04",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each keyed strategy is grounded at baseline: linking the pill to a consistent waking routine answers 'I take the thyroid pill when I remember' with a stated 6 AM pre-work breakfast; asking permission before involving the nephew answers the client's own 'Can you just tell my nephew what to do?'; and short sentences in the preferred language answer the elementary reading level and Spanish preference. Refill coordination is a standard adherence component for a client who arrives with three bottles in a plastic bag and takes doses irregularly. Both distractors fail on principle - shaming the client, and writing off a basic cell phone.",
+      "laterStageLeakCheck": "lab_and_call reports a refill gap that would make keyed option C concrete, but that option is defensible at baseline as routine adherence planning and nothing at baseline contradicts it. The stage states none of the four strategies. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "23da20412200c0bc",
+      "stage0QueueIndex": 129,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case05_health_literacy_adherence",
+      "partId": "gpt_case_premium_2026_06_10_case05_mc_evaluate_05",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The four options are self-describing follow-up findings, and baseline supplies the 'before' state that makes them interpretable: the client currently takes the pill 'when I remember', so the option repeating that phrase is recognisable as no change, while describing a consistent waking routine with a tailored tool is improvement. The other two distractors fail on principle - the nephew answering while the client stays silent, and discarding written instructions after one explanation.",
+      "laterStageLeakCheck": "lab_and_call must not be the boundary: it states 'The picture schedule helped. I take the thyroid pill on the table when I wake up', which is keyed option A almost word for word and identically in Chinese. BASELINE is earliest and the only non-leaking boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "4392ef82cc13a964",
+      "stage0QueueIndex": 130,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+      "partId": "gpt_case_gap_2026_06_11_pressure_ltc_part_1_matrix_risk",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "All five rows are quoted from the baseline skin-risk huddle note: needing moderate assistance to turn in bed, a wet brief with loose stool near the sacrum, eating 25 percent of meals with little fluid, both heels resting directly on the mattress, and blanchable sacral redness. Assigning each to pressure/mobility, moisture/skin protection, or nutrition/hydration is done entirely on that surface.",
+      "laterStageLeakCheck": "The parent has a single declared stage; a one-stage parent does not make that stage the default boundary under R4. stage_48h is the reassessment after intervention and contains no admission cue. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "23a1a8fea4396b74",
+      "stage0QueueIndex": 131,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+      "partId": "gpt_case_gap_2026_06_11_pressure_ltc_part_2_sata_plan",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Every keyed intervention is supported by baseline: individualised repositioning for a resident who needs moderate assistance to turn, heel offloading because both heels rest directly on the mattress, prompt incontinence care with a moisture barrier for the wet brief and loose stool, a pressure-redistribution surface for a wheelchair-and-bed resident with sacral redness, and a dietitian consult for 25 percent intake with little fluid. The distractor is rejected on wound-care knowledge, since massaging reddened bony prominences increases tissue damage.",
+      "laterStageLeakCheck": "stage_48h must not be the boundary: it records that a moisture-barrier product is in use after each incontinence episode, that heels are offloaded, that repositioning is documented per an individualised plan, and that supplements were offered - keyed options C, B, A and F carried out, in both languages. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "755f55d2f881c1fe",
+      "stage0QueueIndex": 132,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+      "partId": "gpt_case_gap_2026_06_11_pressure_ltc_part_3_mc_delegate",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "This is a delegation-scope judgement decided by knowledge plus the baseline picture: assistive personnel may reposition per an established plan and report new redness or pain, while assessment, staging a pressure injury, revising repositioning frequency from a skin assessment, and selecting a support surface all remain with the nurse. Baseline supplies the resident's mobility needs and the existing sacral redness that the plan addresses.",
+      "laterStageLeakCheck": "The parent has a single declared stage; a one-stage parent does not make that stage the default boundary under R4. stage_48h states that staff document repositioning and comfort checks based on the individualised plan, which is consistent with the keyed delegation but does not name what may or may not be delegated. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "9e680b364da03b94",
+      "stage0QueueIndex": 133,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+      "partId": "gpt_case_gap_2026_06_11_pressure_ltc_part_4_cloze_outcome",
+      "proposedBoundary": "stage_48h",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "This part has no evidence of its own. The stem says only 'Use the 48-hour update to evaluate the plan' and the cloze opens 'The 48-hour update suggests...', restating nothing. At baseline no 48-hour update exists, and the visible picture is the opposite of the keyed reading - a wet brief with loose stool near the sacrum, blanchable redness after sitting, heels on the mattress, and 25 percent intake - so nothing supports 'improving skin tolerance'. stage_48h is the only source of the evidence the item synthesises: sacral redness resolving after pressure relief with skin still intact, less reported burning, moisture-barrier use after each episode, and intake improved to about 50 percent.",
+      "laterStageLeakCheck": "stage_48h supplies the findings but does not draw the conclusion or state the action. It never characterises the trend as improving skin tolerance, never says to continue the plan, and never sets a reassessment interval, so both blanks remain the learner's synthesis. It is the parent's only stage, so no earlier boundary can supply a 48-hour update.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "2942cc0a8818f122",
+      "stage0QueueIndex": 134,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_health_literacy_diabetes_01",
+      "partId": "gpt_case_premium_next_case_health_literacy_diabetes_01_matrix_cues",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "All five rows are quoted from the two baseline exhibits: taking glipizide when feeling shaky, skipping breakfast on workdays, fasting readings that include 64 and 69 mg/dL, intact skin on both feet, and a stated preference for pictures with short instructions. Sorting them into expected, needs focused teaching, and needs prompt provider follow-up is guideline knowledge applied to that surface, with recurrent readings below 70 mg/dL on a sulfonylurea being the item needing prescriber attention.",
+      "laterStageLeakCheck": "The parent has a single declared stage; a one-stage parent does not make that stage the default boundary under R4. planning is a care-team message asking the nurse to reinforce medication safety and assess meal barriers, which gestures at the teaching rows without classifying any of them, and it contains no new finding. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "58eecebec4ea60c8",
+      "stage0QueueIndex": 135,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_health_literacy_diabetes_01",
+      "partId": "gpt_case_premium_next_case_health_literacy_diabetes_01_cloze_priority",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline supplies the entire reasoning chain: the client takes glipizide - a sulfonylurea added two weeks ago - specifically 'when I feel shaky', skips breakfast on workdays, and has fasting readings of 64 and 69 mg/dL. Shakiness with sub-70 readings is hypoglycaemia, and the corrective teaching is fast-acting carbohydrate rather than more glucose-lowering medication or a high-fat snack.",
+      "laterStageLeakCheck": "The parent has a single declared stage; a one-stage parent does not make that stage the default boundary under R4. planning lists available clinic resources and the provider's request; it names neither hypoglycaemia nor any treatment. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "ac3e57e405ea2824",
+      "stage0QueueIndex": 136,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_rehab_pressure_bowel_02",
+      "partId": "gpt_case_premium_next_case_rehab_pressure_bowel_02_matrix_risk",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "All five rows are quoted from the two baseline exhibits: a sacrum that is pink and blanches slowly, fluid avoidance to prevent leakage, a last bowel movement four days ago, standing with assistance and a walker, and the daughter's night-shift work with fear of falls. Assigning each to pressure-injury risk, bowel or bladder management, or discharge planning - some to more than one - is done entirely on that surface.",
+      "laterStageLeakCheck": "The parent has a single declared stage; a one-stage parent does not make that stage the default boundary under R4. discharge_planning adds therapy availability, a stool-softener order and unit protocols; it contains none of the five findings and classifies nothing. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "349ac8838316916e",
+      "stage0QueueIndex": 137,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_rehab_pressure_bowel_02",
+      "partId": "gpt_case_premium_next_case_rehab_pressure_bowel_02_or_transfer",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states the task itself - transferring from bed to chair with a walker - and the order follows safe-transfer practice: prepare and position the locked chair, apply nonskid footwear and a gait belt, sit the client at the bedside and check for dizziness, cue the stand-pivot, then restore call light and needed items. Baseline supplies the only client-specific facts required, that the client can stand with assistance and a walker but tires quickly.",
+      "laterStageLeakCheck": "The parent has a single declared stage; a one-stage parent does not make that stage the default boundary under R4. discharge_planning notes that physical therapy will assess gait endurance and that occupational therapy can train bathroom equipment use; neither changes the transfer sequence. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "042085c3703ff4a5",
+      "stage0QueueIndex": 138,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_rehab_pressure_bowel_02",
+      "partId": "gpt_case_premium_next_case_rehab_pressure_bowel_02_cloze_skin",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "All three blanks are settled by baseline. The focused assessment lists the Braden risk factors explicitly - limited mobility, occasional moisture from urinary leakage, fair nutrition, needing assistance to reposition - and records a sacrum that is pink and blanches slowly, which is the early pressure-injury picture. That yields pressure injury as the risk, limited mobility with moisture from urinary leakage as the cause, and scheduled repositioning with moisture management and pressure redistribution as the priority, while the fluid-restriction distractor is defeated by the same exhibit's note that the client is already avoiding fluids.",
+      "laterStageLeakCheck": "The parent has a single declared stage; a one-stage parent does not make that stage the default boundary under R4. discharge_planning supplies the stool softener named in one distractor but states no risk, cause or prevention bundle. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "8f38bedb59bb54f0",
+      "stage0QueueIndex": 139,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_rehab_pressure_bowel_02",
+      "partId": "gpt_case_premium_next_case_rehab_pressure_bowel_02_fib_intake",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem contains the entire problem: 600 mL of water, 8 oz of milk, 0.5 L of soup, with the conversion 1 oz = 30 mL supplied. The computation 600 + 240 + 500 = 1,340 mL uses no case data at all beyond the stem.",
+      "laterStageLeakCheck": "The parent has a single declared stage; a one-stage parent does not make that stage the default boundary under R4. discharge_planning contains no intake values and cannot affect an arithmetic conversion. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "af6f5edd1794ec32",
+      "stage0QueueIndex": 140,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_caregiver_adaptation_dementia_03",
+      "partId": "gpt_case_premium_next_case_caregiver_adaptation_dementia_03_matrix_cues",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "All five rows are quoted from the two baseline exhibits: the spouse yelling and holding the client's wrists to stop wandering, the disabled hallway smoke alarm, three to four hours of sleep per night, two missed morning antihypertensive doses, and the absence of bruising or injury on the client's wrists. Assigning each to caregiver strain, immediate safety, care coordination, or reassuring - several to more than one - is done entirely on that surface.",
+      "laterStageLeakCheck": "The parent has a single declared stage; a one-stage parent does not make that stage the default boundary under R4. support_plan lists agency resources and the son's availability; it contains none of the five findings and classifies nothing. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "9f16b07ef0fb5415",
+      "stage0QueueIndex": 141,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_caregiver_adaptation_dementia_03",
+      "partId": "gpt_case_premium_next_case_caregiver_adaptation_dementia_03_mc_response",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem quotes the spouse's statement, and baseline supplies everything the response must hold together: exhaustion on three to four hours of sleep, the wrist-holding episode with an expressed fear of losing control, and the observation that no bruising or injury is present. Validating the distress while inviting assessment and same-day support is the response that neither excuses the unsafe act nor threatens placement, and the distractors fail on each of those grounds, including the one that treats absent bruising as a reason to drop the safety issue.",
+      "laterStageLeakCheck": "The parent has a single declared stage; a one-stage parent does not make that stage the default boundary under R4. support_plan enumerates the supports that could follow but states no response to the spouse. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "c8d3a9a6f4ece2bb",
+      "stage0QueueIndex": 142,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_occupational_exposure_vaccine_04",
+      "partId": "gpt_case_premium_next_case_occupational_exposure_vaccine_04_or_initial",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The baseline policy exhibit states the required sequence almost in full: wash needlestick injuries with soap and water, report the exposure immediately, identify source-client information per privacy policy, and contact employee health for risk assessment and postexposure recommendations. The baseline incident note supplies the one remaining step by showing the nurse saying 'I will finish the line first', which is why arranging qualified coverage belongs early rather than deferring first aid and reporting.",
+      "laterStageLeakCheck": "The parent has a single declared stage; a one-stage parent does not make that stage the default boundary under R4. qi_review reports workflow hazards - an overfilled sharps container, tray transport, recapping, and uncertain hepatitis B titre documentation - which belong to other parts of this parent and state no ordering. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "2879d5184ddf49e6",
+      "stage0QueueIndex": 143,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_occupational_exposure_vaccine_04",
+      "partId": "gpt_case_premium_next_case_occupational_exposure_vaccine_04_cloze_exposure",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The baseline incident note establishes a puncture wound to the finger from a used needle, which is by definition a percutaneous exposure, and the baseline policy exhibit supplies both actions: wash with soap and water, then contact employee health for risk assessment. The distractors are defeated by the same exhibit and by the incident note's 'I will finish the line first', which the policy explicitly overrides.",
+      "laterStageLeakCheck": "The parent has a single declared stage; a one-stage parent does not make that stage the default boundary under R4. qi_review adds the workflow observations and the nurse's uncertain hepatitis B titre; it neither classifies the exposure type nor states the immediate actions. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

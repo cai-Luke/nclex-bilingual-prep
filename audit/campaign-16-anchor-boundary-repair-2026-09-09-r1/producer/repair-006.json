@@ -1,0 +1,335 @@
+{
+  "repairPacketId": "repair-006",
+  "producer": "Codex / GPT-6 Astra",
+  "producingAgent": "/root/producer_001_009",
+  "role": "PRODUCER_SEMANTIC_RECONSTRUCTION",
+  "independentReview": false,
+  "sourcePacketSha256": "34f1834dd1a97e19fa2757ce09709449693d0b5579cb536402e96308aada73ef",
+  "workOrderSha256": "8cd476c23f2b6cadb07ae8115fd675fbbfc3f60acb46d7a521d5d1da30b2558b",
+  "parentCaseIds": [
+    "gemini_gap_case_postpartum_depression_04",
+    "gemini_gap_case_disaster_triage_05",
+    "gemini_gap_case_pyloric_stenosis_01",
+    "gemini_gap_case_pediatric_croup_02",
+    "gemini_gap_case_pediatric_diabetes_03"
+  ],
+  "method": "Whole parent examined; each affected part independently evaluated at baseline and successive declared boundaries in English and Simplified Chinese. No Phase E leak verdict or calibration answer key used.",
+  "rows": [
+    {
+      "rowKey": "e2c79603024000ae",
+      "stage0QueueIndex": 77,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_postpartum_depression_04",
+      "partId": "gemini_gap_case_postpartum_depression_04_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The global clinic note already provides EPDS 15 with its reference, sleep difficulty while the infant sleeps, inadequacy, tearfulness and withdrawal. Both-language options can be matched to this record without safety-interview data.",
+      "laterStageLeakCheck": "stage_safety_assessment adds passive hopelessness but is not needed to recognize the depressive findings explicitly present in the opening record.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "ad1f40bfa944c76e",
+      "stage0QueueIndex": 78,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_postpartum_depression_04",
+      "partId": "gemini_gap_case_postpartum_depression_04_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Global EPDS 15, persistent depressive symptoms and inadequacy already establish the need to assess safety directly. Neither language supplies evidence warranting forced admission or infant separation; detailed assessment is the appropriate first step before those dispositions.",
+      "laterStageLeakCheck": "stage_safety_assessment adds a passive death-related statement and initial denials, reinforcing the need for assessment. It does not create the first basis for suicide-risk inquiry after the positive global depression screen.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "da8629b69d1a7f43",
+      "stage0QueueIndex": 79,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_postpartum_depression_04",
+      "partId": "gemini_gap_case_postpartum_depression_04_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The bilingual cloze is a general comparison of baby blues duration versus persistent clinical depression and its care needs. Global four-week postpartum timing supplies context; no individual later safety finding is needed for that comparison.",
+      "laterStageLeakCheck": "The single interview stage neither provides a symptom-duration rule nor alters the requested distinction. It must not be selected merely because the parent has one stage.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "0c064c9fbfb94fc8",
+      "stage0QueueIndex": 80,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_postpartum_depression_04",
+      "partId": "gemini_gap_case_postpartum_depression_04_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each bilingual matrix row states a proposed supportive action: validation, practical family help or suppression of thoughts. The global distress and social withdrawal support judging these actions before additional safety findings.",
+      "laterStageLeakCheck": "stage_safety_assessment intensifies concern but does not change the appropriateness of validation, assistance and open communication as presented.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "4ab59e09eea05c52",
+      "stage0QueueIndex": 81,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_disaster_triage_05",
+      "partId": "gemini_gap_case_disaster_triage_05_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The global field report supplies Victim D’s RR 34, radial pulse and inability to follow commands, and the options repeat these cues. The question asks which is assessed first under named START, answerable from this bilingual opening data.",
+      "laterStageLeakCheck": "stage_triage_update only announces responders and completed tags. It contains no new D physiology and is unnecessary for initial START sorting.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "073af1428e095ad5",
+      "stage0QueueIndex": 82,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_disaster_triage_05",
+      "partId": "gemini_gap_case_disaster_triage_05_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Global A remains apneic after opening the airway and C walks, talks and follows commands. The cloze supplies A’s criterion again; both languages provide all facts needed for the two requested tags before updates.",
+      "laterStageLeakCheck": "The ambulance-arrival stage states tags have been applied but supplies no additional A/C assessment. Requiring it would only delay an already answerable classification.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "49cb6ad2be1e0ea1",
+      "stage0QueueIndex": 83,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_disaster_triage_05",
+      "partId": "gemini_gap_case_disaster_triage_05_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The matrix supplies B and D’s respiratory rates and command following; the global report adds B’s present weak radial pulse. Together these are the stated START physiologic inputs in both languages before the arrival stage.",
+      "laterStageLeakCheck": "stage_triage_update adds transport logistics without any change in the victims’ physiology or bleeding-control data, so it is not required for the authored classification.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "1c9c9d1c76ee1216",
+      "stage0QueueIndex": 84,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_disaster_triage_05",
+      "partId": "gemini_gap_case_disaster_triage_05_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part asks general mass-casualty sorting principles and its bilingual options supply all proposed rules. Global START use in a multi-vehicle incident establishes the resource-limited context without new event data.",
+      "laterStageLeakCheck": "Arrival of responders and completed tags does not determine which general triage practices are appropriate. The principles are answerable before that stage.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "79ee6fa22cd57df3",
+      "stage0QueueIndex": 85,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+      "partId": "gemini_gap_case_pyloric_stenosis_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Global triage already documents projectile nonbilious emesis, hunger, olive-shaped mass, depressed fontanelle, dry mucosa and weight below birth weight. Both-language options can be assessed against those findings with zero updates.",
+      "laterStageLeakCheck": "stage_labs confirms physiologic consequences and stage_postop documents treatment; neither is needed to identify the opening clinical cues.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "4b48daedf0d8a0a2",
+      "stage0QueueIndex": 86,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+      "partId": "gemini_gap_case_pyloric_stenosis_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The matrix explicitly asks whether three proposed values would be expected with severe vomiting; it does not ask to retrieve the infant’s measured panel. Global persistent vomiting and the bilingual pH/potassium/chloride rows suffice for this expected-pattern comparison.",
+      "laterStageLeakCheck": "stage_labs contains the actual alkalemic panel and would confirm two row values. That confirmation is not necessary to classify the hypothetical pH 7.25 and supplied electrolyte alternatives.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "8248ef708b75727a",
+      "stage0QueueIndex": 87,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+      "partId": "gemini_gap_case_pyloric_stenosis_01_q3",
+      "proposedBoundary": null,
+      "disposition": "EXCEPTION",
+      "earliestBoundaryEvidence": "The global record shows significant infant dehydration, and stage_labs supplies low potassium, but no visible boundary gives urine output, established renal clearance or a potassium-containing-fluid order. The key asks to prioritize potassium-containing IV fluids without that safety prerequisite in either language.",
+      "laterStageLeakCheck": "The postoperative stage shows later stable recovery but cannot retrospectively establish that potassium administration was safe during initial dehydration. A boundary field cannot add the missing preoperative safety condition.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "MEDIUM",
+      "exceptionReason": "Clinical/answer-correctness uncertainty: potassium-containing IV fluid is keyed for a markedly dehydrated infant without visible urine-output/renal-clearance confirmation or a specific preoperative replacement order; resolving that uncertainty would require information outside the authorized field."
+    },
+    {
+      "rowKey": "9729bf71edce3119",
+      "stage0QueueIndex": 88,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+      "partId": "gemini_gap_case_pyloric_stenosis_01_q4",
+      "proposedBoundary": "stage_postop",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The prompt names postoperative feeding orders but provides no recovery assessment. stage_postop first establishes successful pyloromyotomy, stable vitals, clean incisions, alertness and an order to initiate feeds; earlier records describe active obstructive vomiting and preoperative dehydration in both languages.",
+      "laterStageLeakCheck": "The chosen stage supplies current postoperative readiness rather than a successful feeding outcome. No feeding tolerance outcome is assumed; the requested first small-volume feeding still precedes that assessment.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "aa5257bcf0a4b270",
+      "stage0QueueIndex": 89,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_croup_02",
+      "partId": "gemini_gap_case_pediatric_croup_02_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The global triage note records stridor at rest, respiratory effort, fever, HR and saturation in both languages. The part asks which opening finding indicates airway compromise, so no treatment response is required.",
+      "laterStageLeakCheck": "stage_interventions shows resolved stridor after treatment and would obscure the initial urgency. The initial airway cue is already present before it.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "de7bd11afe30a159",
+      "stage0QueueIndex": 90,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_croup_02",
+      "partId": "gemini_gap_case_pediatric_croup_02_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both-language global barking cough, stridor at rest, agitation and retractions define the current care context. The matrix asks the appropriateness of prescribed epinephrine/steroid and a provocative throat procedure, not whether administration succeeded.",
+      "laterStageLeakCheck": "stage_interventions reports epinephrine/dexamethasone administration and improvement. That response confirms two interventions rather than add a needed premise for selecting them.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "f91309ce46e51ee1",
+      "stage0QueueIndex": 91,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_croup_02",
+      "partId": "gemini_gap_case_pediatric_croup_02_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem itself specifies ordered nebulized racemic epinephrine and the cloze asks its monitoring concern and effect duration. Global croup context suffices; no later measured treatment response is part of the question.",
+      "laterStageLeakCheck": "The single post-treatment stage shows immediate relief only. It does not supply the drug-duration principle or a necessary later relapse event.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "a6e17c77fd035b50",
+      "stage0QueueIndex": 92,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_croup_02",
+      "partId": "gemini_gap_case_pediatric_croup_02_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part explicitly places the child in discharge preparation and asks general parent instruction choices, including warning signs and how to use prescribed medication. The global croup diagnosis/presentation provides the context in both languages.",
+      "laterStageLeakCheck": "stage_interventions demonstrates improved readiness but is not necessary to select the contents of the hypothetical discharge teaching; this item does not ask whether discharge is safe now.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "6daa074f12822085",
+      "stage0QueueIndex": 93,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_diabetes_03",
+      "partId": "gemini_gap_case_pediatric_diabetes_03_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The bilingual options provide possible hypoglycemia versus hyperglycemia symptoms. Global newly diagnosed type1 diabetes and insulin education are sufficient context for anticipatory teaching without an actual later episode.",
+      "laterStageLeakCheck": "stage_education introduces soccer and school planning, neither of which changes the symptom recognition asked here.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "6ccee7593e5d22bf",
+      "stage0QueueIndex": 94,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_diabetes_03",
+      "partId": "gemini_gap_case_pediatric_diabetes_03_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both stems supply a child able to report shakiness/lightheadedness and measured glucose 62. Global alert/stable diabetes context supplies the background; immediate treatment among the listed choices does not need a separate school-planning stage.",
+      "laterStageLeakCheck": "stage_education describes school soccer but not this glucose episode. The part itself independently introduces the episode, so the stage adds no missing treatment cue.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "b6b8f9941876daca",
+      "stage0QueueIndex": 95,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_diabetes_03",
+      "partId": "gemini_gap_case_pediatric_diabetes_03_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The matrix lists the complete injection techniques to judge and the global orders specify subcutaneous insulin. Both languages support technique classification before any exercise/discharge update.",
+      "laterStageLeakCheck": "stage_education contributes only school/exercise concerns, not injection-technique evidence needed for this question.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "42c6839b23c972cb",
+      "stage0QueueIndex": 96,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_diabetes_03",
+      "partId": "gemini_gap_case_pediatric_diabetes_03_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part’s own cloze specifies soccer, pre-exercise glucose under100 and injection timing. Global insulin treatment supplies the remaining context, so the snack/active-limb site choices are answerable in both languages before an update.",
+      "laterStageLeakCheck": "stage_education repeats that the child plays soccer. The specific exercise and glucose condition is already directly supplied by this part, making that repetition unnecessary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

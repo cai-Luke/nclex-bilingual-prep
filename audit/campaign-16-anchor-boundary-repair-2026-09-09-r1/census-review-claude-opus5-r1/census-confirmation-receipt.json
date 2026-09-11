@@ -1,0 +1,404 @@
+{
+  "receiptType": "R4_H_3_5_PRODUCER_INDEPENDENT_CENSUS_CONFIRMATION",
+  "verdict": "CONFIRMED",
+  "recordedAt": "2026-09-11T05:00:53.184090+00:00",
+  "reviewer": {
+    "seat": "Claude Code / Claude Opus 5",
+    "role": "External R4 census checker named in R4 H.3.5 and census-reconciliation.json",
+    "independence": "Producer-independent of the executing seat (Codex / GPT-6 Astra). This seat did not generate the repair, did not author or adjudicate any of the 451 semantic judgments, did not build the comparison or accepted mapping, did not apply the patches or schema-floor bumps, and did not regenerate the census. All findings below were recomputed locally from live disk rather than copied from executor assertions.",
+    "accessMode": "Live local working tree, direct shell execution",
+    "gitMutationsPerformed": 0,
+    "artifactsMutated": "none outside this checker-owned directory"
+  },
+  "scope": {
+    "assigned": "Bounded H.3.5 census confirmation only",
+    "explicitlyExcluded": [
+      "451-row semantic review",
+      "resolution of the 66 exceptions",
+      "production file:// smoke gate (owner-confirmed, removed from this assignment)",
+      "full R4 acceptance",
+      "publication authority"
+    ]
+  },
+  "snapshot": {
+    "branch": "main",
+    "head": "a639b5fe7f6816e68228d7dc13d068c0c0f69e91",
+    "headMatchesExpected": true,
+    "aheadBehindOrigin": "0/0",
+    "trackedModifications": [
+      "BANK-CENSUS.md",
+      "BANK-REVIEW-LEDGER.md",
+      "banks/claude-canonical.json",
+      "banks/gemini-canonical.json",
+      "banks/gpt-canonical.json",
+      "banks/hard-cases-canonical.json",
+      "census.json"
+    ],
+    "trackedModificationCount": 7,
+    "untrackedObserved": [
+      "UX-0A-LEARNER-SURFACE-TRUTHFULNESS-CODEX-SPEC-2026-09-11.md",
+      "UX-0B-ACTIVE-SESSION-REPLACEMENT-PROTECTION-CODEX-SPEC-2026-09-11.md",
+      "audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/",
+      "audit/campaign-16-phase-e-anchor-omission-inventory-2026-09-08-r1/frozen-inventory.jsonl"
+    ],
+    "untrackedNote": "UX-0B appeared during this review session and was absent at entry. It is an unrelated queued UX spec that references no bank, census, or commission artifact and is explicitly gated until Campaign 16 closes. Identified, not modified or deleted."
+  },
+  "entryPins": {
+    "executorReceiptSha256AtEntry": "14e73c829dbc94b9fe412ebceebd2650d2bc7a819c955f09e092bf576749dc56",
+    "verifiedPins": {
+      "producer-freeze.json": {
+        "recorded": "151c1327a5d9fa4decf9897200f2d336e55cea31d0f978317a7653c5c4193e4a",
+        "recomputed": "151c1327a5d9fa4decf9897200f2d336e55cea31d0f978317a7653c5c4193e4a"
+      },
+      "checker-freeze.json": {
+        "recorded": "f506178017ce44c6b4429d2125e2542ad89eb56565c4fab82dece08b32b5ba43",
+        "recomputed": "f506178017ce44c6b4429d2125e2542ad89eb56565c4fab82dece08b32b5ba43"
+      },
+      "frozen-inventory.jsonl": {
+        "recorded": "9f66750caaeead9d374742588856e2630a7fce09415bb7c2c662669a2af93e8e",
+        "recomputed": "9f66750caaeead9d374742588856e2630a7fce09415bb7c2c662669a2af93e8e"
+      },
+      "R4-work-order.md": {
+        "recorded": "8cd476c23f2b6cadb07ae8115fd675fbbfc3f60acb46d7a521d5d1da30b2558b",
+        "recomputed": "8cd476c23f2b6cadb07ae8115fd675fbbfc3f60acb46d7a521d5d1da30b2558b"
+      }
+    },
+    "allPinsMatch": true
+  },
+  "recomputedIdentities": {
+    "commissionArtifacts": {
+      "declared": 329,
+      "recomputedMatching": 329,
+      "mismatched": 0,
+      "missing": 0
+    },
+    "finalTrackedFiles": {
+      "BANK-CENSUS.md": "e428f6529ac92484eb3d898c20262798e1f4b1dbf5ce23735302b7bdf466cf5b",
+      "BANK-REVIEW-LEDGER.md": "0eea2c4bace5c18f54d70098ed74a85865100f9de277de1eb77122d9fe1a3d1d",
+      "banks/claude-canonical.json": "9777aaad1f40ad7be449a7399e7d3706060a6a8e19d5d54909d121ab8480c69e",
+      "banks/gemini-canonical.json": "fd98f560f93851c82b6c691aeeb3f3897aee3c2bf7a9268d973a0c7c7fff2901",
+      "banks/gpt-canonical.json": "154c31f860790d5e90f23dae2dabfd31fba32ca46cc53a38b038cc56af30d469",
+      "banks/hard-cases-canonical.json": "8af1a86256278900b619f83812087dfb0e940ea349a00ceddef9fe2f079ca8e3",
+      "census.json": "84d4ed5d653ea7c92c6b1c6d39955bc2aac516180b16bc28fe95df64f82ebec2"
+    },
+    "finalTrackedFilesAllMatchReceipt": true,
+    "openingIdentityAnchoring": {
+      "method": "Preserved opening copies under evidence/ compared byte-for-byte against the committed HEAD blobs, so the opening baseline is anchored to git rather than only to executor-held copies.",
+      "opening-census.json": {
+        "evidence": "0a596c1dca3527599133ea905881ce9044e6998adab46f1f15fee5a722e676ed",
+        "committedHead": "0a596c1dca3527599133ea905881ce9044e6998adab46f1f15fee5a722e676ed",
+        "match": true
+      },
+      "opening-BANK-CENSUS.md": {
+        "evidence": "2ce7646b53f8828ed9750bacc4e8a1436d6bc42120335d97fbe7ea1fb2345026",
+        "committedHead": "2ce7646b53f8828ed9750bacc4e8a1436d6bc42120335d97fbe7ea1fb2345026",
+        "match": true
+      },
+      "openingBanks": {
+        "claude": {
+          "evidence": "25f53ded1ac21da4ca9d211040c3f6110ebee38d72ba41d0fc64fe358ba73b71",
+          "committedHead": "25f53ded1ac21da4ca9d211040c3f6110ebee38d72ba41d0fc64fe358ba73b71",
+          "match": true
+        },
+        "gemini": {
+          "evidence": "3dc416a4652f5f5712219dde7de87b92f0697fac953750b8abb8fc0dbb976bb6",
+          "committedHead": "3dc416a4652f5f5712219dde7de87b92f0697fac953750b8abb8fc0dbb976bb6",
+          "match": true
+        },
+        "gpt": {
+          "evidence": "d7d228afc282bd15bc730be4ca5b3d2c7c14c017bbc14f3d12a7cbccbfef0f20",
+          "committedHead": "d7d228afc282bd15bc730be4ca5b3d2c7c14c017bbc14f3d12a7cbccbfef0f20",
+          "match": true
+        },
+        "hard-cases": {
+          "evidence": "5d47b79a1e63fe5f852eab7b4ab9b8db6ca7e9ec924037d5e81de8a8bb3ee3d1",
+          "committedHead": "5d47b79a1e63fe5f852eab7b4ab9b8db6ca7e9ec924037d5e81de8a8bb3ee3d1",
+          "match": true
+        }
+      }
+    }
+  },
+  "versionAndCountMovement": {
+    "perBank": [
+      {
+        "bank": "banks/claude-canonical.json",
+        "before": "2.0",
+        "after": "2.1",
+        "sessionUnits": 96,
+        "sessionUnitsChanged": false,
+        "acceptedBaseline": 46,
+        "acceptedStage": 5,
+        "exceptions": 7,
+        "typedBaselineRowsLive": 46,
+        "bumpCompelled": true
+      },
+      {
+        "bank": "banks/gemini-canonical.json",
+        "before": "2.0",
+        "after": "2.1",
+        "sessionUnits": 874,
+        "sessionUnitsChanged": false,
+        "acceptedBaseline": 38,
+        "acceptedStage": 2,
+        "exceptions": 6,
+        "typedBaselineRowsLive": 38,
+        "bumpCompelled": true
+      },
+      {
+        "bank": "banks/gpt-canonical.json",
+        "before": "2.0",
+        "after": "2.1",
+        "sessionUnits": 773,
+        "sessionUnitsChanged": false,
+        "acceptedBaseline": 201,
+        "acceptedStage": 7,
+        "exceptions": 35,
+        "typedBaselineRowsLive": 201,
+        "bumpCompelled": true
+      },
+      {
+        "bank": "banks/hard-cases-canonical.json",
+        "before": "1.8",
+        "after": "2.1",
+        "sessionUnits": 66,
+        "sessionUnitsChanged": false,
+        "acceptedBaseline": 84,
+        "acceptedStage": 2,
+        "exceptions": 18,
+        "typedBaselineRowsLive": 84,
+        "bumpCompelled": true
+      }
+    ],
+    "groupingBefore": {
+      "1.2": 77,
+      "2.0": 1800,
+      "1.8": 66
+    },
+    "groupingAfter": {
+      "1.2": 77,
+      "2.1": 1809,
+      "2.0": 57
+    },
+    "groupingAfterFiles": {
+      "2.1": [
+        "claude-canonical.json",
+        "gemini-canonical.json",
+        "gpt-canonical.json",
+        "hard-cases-canonical.json"
+      ],
+      "2.0": [
+        "visual-canonical.json"
+      ]
+    },
+    "totalSessionUnits": {
+      "before": 1943,
+      "after": 1943,
+      "changed": false
+    },
+    "arithmetic": "77 + 1809 + 57 = 1943; 96 + 874 + 773 + 66 = 1809",
+    "matchesHandoffExpectation": true,
+    "unchangedTotals": {
+      "total": 1943,
+      "standalone": 1798,
+      "caseContainers": 145,
+      "embeddedParts": 731,
+      "inventoryRecords": 2674
+    },
+    "accounting": {
+      "total": 451,
+      "repairedBaseline": 369,
+      "repairedStage": 16,
+      "exceptions": 66,
+      "reconciles": true
+    }
+  },
+  "checksExecuted": [
+    {
+      "id": 1,
+      "check": "Reconfirm branch, HEAD, index, worktree before relying on recorded evidence",
+      "method": "git rev-parse / branch / status --porcelain / rev-list",
+      "result": "PASS",
+      "detail": "main @ a639b5fe\u2026, 0/0 vs origin, exactly the seven expected tracked modifications"
+    },
+    {
+      "id": 2,
+      "check": "R4 work-order pin",
+      "method": "shasum -a 256",
+      "result": "PASS",
+      "detail": "8cd476c2\u2026 matches recorded pin"
+    },
+    {
+      "id": 3,
+      "check": "Three recorded semantic pins (producer freeze, checker freeze, frozen inventory)",
+      "method": "shasum -a 256",
+      "result": "PASS",
+      "detail": "all three recomputed equal to recorded values"
+    },
+    {
+      "id": 4,
+      "check": "Record executor-receipt hash at entry",
+      "method": "shasum -a 256",
+      "result": "RECORDED",
+      "detail": "14e73c829dbc94b9fe412ebceebd2650d2bc7a819c955f09e092bf576749dc56"
+    },
+    {
+      "id": 5,
+      "check": "Recompute every commission artifact identity rather than copying receipt assertions",
+      "method": "local SHA-256 over all 329 declared artifacts",
+      "result": "PASS",
+      "detail": "329/329 match, 0 mismatch, 0 missing"
+    },
+    {
+      "id": 6,
+      "check": "Bind final affected bank data and generated artifacts to the reviewed package",
+      "method": "local SHA-256 of the 7 tracked files vs receipt",
+      "result": "PASS",
+      "detail": "7/7 match"
+    },
+    {
+      "id": 7,
+      "check": "Confirm opening census identities against committed opening artifacts",
+      "method": "evidence copies vs git show HEAD:\u2026",
+      "result": "PASS",
+      "detail": "opening census.json and BANK-CENSUS.md byte-identical to committed HEAD; opening baseline anchored to git"
+    },
+    {
+      "id": 8,
+      "check": "Confirm the four opening bank identities",
+      "method": "evidence vs HEAD vs census-reconciliation.json openingSha256",
+      "result": "PASS",
+      "detail": "all four agree across all three sources"
+    },
+    {
+      "id": 9,
+      "check": "Complete census JSON content unchanged outside the authorized transform (not just headline totals)",
+      "method": "independent recursive leaf-level diff, opening vs live",
+      "result": "PASS",
+      "detail": "exactly 11 leaf differences: 2 generator provenance, 5 bySchemaVersion grouping, 4 perFile schemaVersion. Nothing else in the document differs."
+    },
+    {
+      "id": 10,
+      "check": "Per-file census counts unchanged for affected banks",
+      "method": "perFile entry-by-entry comparison",
+      "result": "PASS",
+      "detail": "13/13 files present; the 4 bumped entries differ only in schemaVersion; metaCount/questionsLength/mismatch identical for every file"
+    },
+    {
+      "id": 11,
+      "check": "Scored/content populations and visual inventories must not drift",
+      "method": "object equality on scoredLeaves, visualArtifacts, idUniqueness, docsDrift, and sessionUnits totals",
+      "result": "PASS",
+      "detail": "all identical to opening"
+    },
+    {
+      "id": 12,
+      "check": "Census agrees with the live bank files themselves",
+      "method": "parse all 13 banks; compare meta.schemaVersion, meta.count, questions.length against census perFile",
+      "result": "PASS",
+      "detail": "13/13 agree, 0 mismatch"
+    },
+    {
+      "id": 13,
+      "check": "Each bumped bank actually receives accepted typed-baseline rows",
+      "method": "verify all 385 accepted rows against live bank anchors at caseStudy.questions",
+      "result": "PASS",
+      "detail": "385/385 present with exactly the accepted boundary; 0 mismatches; per-bank baseline 46/38/201/84 and stage 5/2/7/2"
+    },
+    {
+      "id": 14,
+      "check": "The approved before/after version is applied and compelled, not discretionary",
+      "method": "read src/schema.ts:1422 floor rule and src/types.ts SchemaVersion union",
+      "result": "PASS",
+      "detail": "validator rejects a typed baseline below meta.schemaVersion 2.1, so each of the four bumps is forced by the accepted rows it receives"
+    },
+    {
+      "id": 15,
+      "check": "No unjustified bump anywhere in the corpus",
+      "method": "typed-baseline scan across all 13 live banks",
+      "result": "PASS",
+      "detail": "typed baselines exist only in the four bumped banks (46/38/201/84, equal to accepted baseline counts); all nine other banks hold zero and retain their original floors, including visual-canonical.json at 2.0"
+    },
+    {
+      "id": 16,
+      "check": "Exception rows remain unrepaired and unanchored",
+      "method": "inspect all 66 exception parts in live banks",
+      "result": "PASS",
+      "detail": "66/66 carry neither answerableAfterStageId nor revealsAllStages; per-bank 7/6/35/18"
+    },
+    {
+      "id": 17,
+      "check": "Complete census Markdown content unchanged outside the authorized transform",
+      "method": "diff opening vs live BANK-CENSUS.md",
+      "result": "PASS",
+      "detail": "16 changed lines = 8 pairs: 2 provenance, 4 per-file version cells, 2 grouping lines. Per-file counts untouched."
+    },
+    {
+      "id": 18,
+      "check": "BANK-CENSUS.md is generator-derived, not hand-edited",
+      "method": "import renderCensus from scripts/census.ts and render live census.json",
+      "result": "PASS",
+      "detail": "render is byte-identical to BANK-CENSUS.md (e428f652\u2026)"
+    },
+    {
+      "id": 19,
+      "check": "Read-only npm run census:check succeeds against current reviewed inputs",
+      "method": "npm run census:check",
+      "result": "PASS",
+      "detail": "exit 0, 'census.json is up to date'. npm run census was NOT run."
+    },
+    {
+      "id": 20,
+      "check": "census:check is genuinely read-only",
+      "method": "source inspection of scripts/census.ts plus before/after hashing",
+      "result": "PASS",
+      "detail": "--check routes to checkDrift(), which never writes; census.json, BANK-CENSUS.md and all 13 banks byte-identical after the run"
+    },
+    {
+      "id": 21,
+      "check": "Generator provenance changes are accurate and separate from content changes",
+      "method": "git log on both recorded inputGitSha values; source inspection of stripVolatile",
+      "result": "PASS",
+      "detail": "old sha 3286024b is a real ancestor commit (2026-08-26, consistent with the 2026-08-28 generatedAt); new sha equals current HEAD exactly. generatedAt and inputGitSha are precisely the generator's stripVolatile set, so provenance is structurally separate from content."
+    },
+    {
+      "id": 22,
+      "check": "Evidence unchanged while reviewed, apart from new review outputs",
+      "method": "re-verification of all 329 artifacts and 7 tracked files at exit",
+      "result": "PASS",
+      "detail": "329/329 and 7/7 unchanged; git HEAD, branch and tracked status identical to entry"
+    }
+  ],
+  "postTerminalAdditionsIdentified": {
+    "note": "Files present in the commission but not in the executor manifest. Identified, not deleted or overwritten, per the handoff.",
+    "files": [
+      "architect-conformance-review.md",
+      "claude-census-confirmation-handoff.md",
+      "tools/__pycache__/freeze_producer.cpython-314.pyc",
+      "tools/__pycache__/producer_io.cpython-314.pyc"
+    ],
+    "assessment": "The two Markdown files are the legitimate post-executor review artifacts. The two .pyc files are incidental CPython bytecode caches, not evidence mutation. No declared artifact is missing from disk."
+  },
+  "confirmationStatements": {
+    "1_bumpedBanksReceiveAcceptedTypedBaselineRows": "CONFIRMED",
+    "2_perFileCensusCountsUnchanged": "CONFIRMED",
+    "3_onlySubstantiveMovementIsFourAuthorizedTransitionsAndGrouping": "CONFIRMED",
+    "4_generatorProvenanceAccurateAndSeparate": "CONFIRMED",
+    "5_remainingCensusJsonAndMarkdownContentUnchanged": "CONFIRMED",
+    "6_readOnlyCensusCheckSucceeds": "CONFIRMED",
+    "7_evidenceUnchangedWhileReviewed": "CONFIRMED"
+  },
+  "preservationStatement": "This review performed no Git mutation of any kind (no commit, push, merge, checkout, stash, reset, or clean) and executed only read-only inspection plus the single authorized read-only npm run census:check. No bank, runtime, package script, census artifact, ledger, history, governance file, frozen manifest, comparison, accepted mapping, exception record, semantic freeze, or executor receipt was edited. No patch, bump, planning, or finalization tool was re-run. The only files created are the two receipts in this checker-owned directory.",
+  "acceptanceLimitations": [
+    "Confirms the census transform only. It does not certify clinical correctness, bilingual quality, or complete answer-leakage closure.",
+    "The 451 semantic judgments were not re-run and the 66 exceptions were not resolved; both were explicitly out of scope.",
+    "Executor preservation, comparison, patch and schema-floor tooling were not re-executed; their results are attributed to recorded evidence, while the identities, live bank anchors, census content and census:check result above are this seat's own observations.",
+    "npm run census:check compares substantive content only; generatedAt and inputGitSha are excluded by the generator's stripVolatile. Both were verified separately (check 21).",
+    "The full test suite, npx tsc, npm run build and the production file:// smoke were not run here; the smoke gate was removed from this assignment by owner confirmation.",
+    "This receipt does not constitute full R4 acceptance and confers no authority to publish, commit, merge, or update PROJECT-HISTORY.md."
+  ],
+  "verdictDetail": {
+    "status": "CONFIRMED",
+    "statement": "The census movement matches the reviewed repair. The only substantive change to census.json and BANK-CENSUS.md is the four authorized schema-version transitions and the version grouping they imply, plus accurate generator provenance. Every affected bank's per-file counts are unchanged, every bump is compelled by accepted typed-baseline rows actually present in the live bank, and no unauthorized census content moved.",
+    "reasons": []
+  }
+}

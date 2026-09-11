@@ -1,0 +1,300 @@
+{
+  "repairPacketId": "repair-022",
+  "bankPath": "banks/hard-cases-canonical.json",
+  "bankSha256": "5d47b79a1e63fe5f852eab7b4ab9b8db6ca7e9ec924037d5e81de8a8bb3ee3d1",
+  "sourcePacketSha256": "f8dd594cf6dd02c2318c5d2ce995fdb4db2ddc8070af105eda004646d5159afb",
+  "checker": "Claude Code / Claude Opus 5",
+  "checkerRole": "independent content checker (R4 Stage 2 blind full reconstruction)",
+  "blind": true,
+  "representation": {
+    "BASELINE": "proposedBoundary == {\"kind\":\"baseline\"}",
+    "STAGE": "proposedBoundary == exact declared stage id string",
+    "EXCEPTION": "proposedBoundary == null with exceptionReason",
+    "forbiddenAlternateField": "orStage (never emitted)"
+  },
+  "rowCount": 17,
+  "parentCaseIds": [
+    "case_ami_01",
+    "case_preeclampsia_magnesium_01",
+    "case_sepsis_pneumonia_01",
+    "claude_cs_jun06_chest_tube_rrp_01"
+  ],
+  "counts": {
+    "BASELINE": 16,
+    "STAGE": 1,
+    "EXCEPTION": 0,
+    "HIGH": 16
+  },
+  "rows": [
+    {
+      "rowKey": "3d499c83d3b6fee5",
+      "stage0QueueIndex": 348,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_sepsis_pneumonia_01",
+      "partId": "sepsis_pneumonia_cues_matrix",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "All four rows are quoted from the two baseline exhibits: the right lower-lobe infiltrate with productive cough, a lactate of 4.6 mmol/L, cool mottled skin with five-second capillary refill, and home metformin use. Sorting infection cues from hypoperfusion cues and background history is knowledge applied to that surface.",
+      "laterStageLeakCheck": "stage_0815 and stage_1000 carry the orders and the resuscitation response; neither contains a triage finding or assigns a category. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "6e725d54a1eb49fa",
+      "stage0QueueIndex": 349,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_sepsis_pneumonia_01",
+      "partId": "sepsis_pneumonia_actions_order",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline establishes the full sepsis picture - fever with a right lower-lobe infiltrate, heart rate 118, blood pressure 92/54, lactate 4.6, and five-second capillary refill - and the option set names the five actions. The order follows bundle logic: activate the response and notify the provider, obtain cultures and a repeat lactate without delaying treatment, start antibiotics, give the crystalloid bolus, then reassess perfusion and prepare vasopressor support.",
+      "laterStageLeakCheck": "stage_0815 must not be the boundary: it lists the ordered bundle elements, and stage_1000 states that 'Antibiotics started after cultures', which discloses the cultures-before-antibiotics ordering the item tests. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "4a682d55aa8d68a9",
+      "stage0QueueIndex": 350,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_sepsis_pneumonia_01",
+      "partId": "sepsis_pneumonia_fluid_calc",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states both inputs - a weight of 68 kg and a prescription of 30 mL/kg - and the case summary independently records the 68-kg weight, so the product of 2,040 mL uses no data outside the part.",
+      "laterStageLeakCheck": "stage_1000 must not be the boundary: it states 'Total lactated Ringer's infused: 2,040 mL', which is the computed answer stated outright. BASELINE is earliest and the only non-leaking boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "126f3569705e33cd",
+      "stage0QueueIndex": 351,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_sepsis_pneumonia_01",
+      "partId": "sepsis_pneumonia_outcomes_cloze",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Every dropdown option states its own finding, including the lactate option that carries both endpoints of the fall from 4.6 to 3.1, and baseline independently records the 4.6 starting value. Judging a falling lactate as the best evidence of improving perfusion, and 20 mL of urine in an hour in a 68-kg adult as the finding still needing follow-up, is evaluation rather than lookup.",
+      "laterStageLeakCheck": "stage_1000 is the source of the values the options restate, and it classifies none of them. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "d1fcbf27551ef74c",
+      "stage0QueueIndex": 352,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_preeclampsia_magnesium_01",
+      "partId": "preeclampsia_severe_features_sata",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "All six options are quoted from the two baseline exhibits: blood pressure 166/112 repeated twenty minutes apart, severe headache unrelieved by acetaminophen, right upper-quadrant pain with AST 94 and ALT 88, platelets 92, urine protein 2+, and a reassuring fetal heart rate baseline with moderate variability. Separating severe features from proteinuria and a reassuring tracing is obstetric knowledge applied to that surface.",
+      "laterStageLeakCheck": "The later stages carry the orders and the magnesium course; neither contains an admission finding. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "5f98e56a7984100e",
+      "stage0QueueIndex": 353,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_preeclampsia_magnesium_01",
+      "partId": "preeclampsia_initial_priority_mc",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem scopes the item to the admission data, which is baseline, and baseline supplies everything the priority rests on: severe-range blood pressure on two readings, severe headache with blurred vision, right upper-quadrant pain with transaminitis, and thrombocytopenia, with no history of seizure disorder. Seizure precautions with magnesium sulfate follow, and the distractors - waiting for a 24-hour collection, deferring delivery to 40 weeks, or pushing oral fluids - are defeated by the same findings.",
+      "laterStageLeakCheck": "stage_magnesium must not be the boundary: it is the magnesium infusion itself, which confirms the keyed action as the one taken. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "4ed232508e948559",
+      "stage0QueueIndex": 354,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_preeclampsia_magnesium_01",
+      "partId": "preeclampsia_mag_toxicity_matrix",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each row states its own finding, and baseline supplies the comparators that make them interpretable - a pre-treatment respiratory rate of 18 and blood pressures of 166/112 and 164/110. Classifying a respiratory rate of 10, absent patellar reflexes and 20 mL of urine in an hour as toxicity concerns, and a fall to 148/94 as the therapeutic response, is magnesium pharmacology.",
+      "laterStageLeakCheck": "stage_magnesium is where the infusion runs and the findings arise, which the rows restate; it classifies none of them. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "36efb76916ab6581",
+      "stage0QueueIndex": 355,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_preeclampsia_magnesium_01",
+      "partId": "preeclampsia_mag_toxicity_order",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states the premise, suspected magnesium toxicity, and the option set names the five actions. Sequencing follows antidote-emergency logic: stop the infusion first because it is the ongoing cause, then assess airway and breathing with oxygen while staying with the client, notify the provider and rapid response, prepare calcium gluconate as the antidote, and continue seizure precautions with maternal-fetal monitoring. Baseline establishes the seizure-prophylaxis indication that the last step preserves.",
+      "laterStageLeakCheck": "stage_magnesium carries the toxicity findings that a different part interprets; it states no sequence. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "3cddf040b6564db7",
+      "stage0QueueIndex": 356,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_ami_01",
+      "partId": "case_ami_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem scopes the item to the ECG, and the single baseline exhibit states it in full: ST-segment elevation in leads V3 and V4. Mapping that lead group to the anterior wall is electrocardiographic knowledge requiring nothing else.",
+      "laterStageLeakCheck": "stage_1 carries the later deterioration vitals and lung findings, which have no bearing on lead localisation. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "921c126c050de4ee",
+      "stage0QueueIndex": 357,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_ami_01",
+      "partId": "case_ami_01_q2",
+      "proposedBoundary": "stage_1",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "This part restates nothing and baseline contains no vital signs at all - the only baseline exhibit is the twelve-lead ECG showing ST elevation in V3 and V4, and the case summary adds only crushing chest pain with diaphoresis. The stem asks the nurse to analyse 'the new vital signs and lung findings', which exist solely in stage_1: blood pressure 80/50, heart rate 110, respiratory rate 24, and crackles in all lung fields. Hypotension with diffuse pulmonary congestion in an anterior infarct is what distinguishes cardiogenic from the competing shock state and drives the inotropic answer, and none of it is available earlier.",
+      "laterStageLeakCheck": "stage_1 supplies the findings without the interpretation: it lists the vitals and the crackles but never names a shock state or a support modality. Recorded qualifier: the case title reads 'AMI with Cardiogenic Shock', so the first blank is already disclosed on the baseline surface by the title itself; because R4 counts the title as baseline-visible, a BASELINE reading is arguable on that basis alone, which is why confidence is MEDIUM rather than HIGH. The analysis the item actually asks for cannot be performed without stage_1.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "MEDIUM",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "743b4c9c90df9ad3",
+      "stage0QueueIndex": 358,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_ami_01",
+      "partId": "case_ami_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem scopes itself explicitly to the period 'before the client becomes hypotensive', which is the baseline state, and baseline establishes the STEMI through ST elevation in V3 and V4 with crushing chest pain. Anticipating aspirin, clopidogrel, morphine and nitroglycerin while excluding warfarin for initial STEMI care is pharmacology knowledge.",
+      "laterStageLeakCheck": "stage_1 introduces the hypotension that the stem explicitly excludes from scope, and would make nitroglycerin contraindicated; anchoring there would contradict the stem's own framing. BASELINE is earliest and answerable.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "2f06155c745ee664",
+      "stage0QueueIndex": 359,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_ami_01",
+      "partId": "case_ami_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem supplies the entire premise - percutaneous coronary intervention performed via the femoral artery - and the option set names the four post-procedure actions. Sequencing vital signs first, then distal pulses and site assessment for bleeding, then continuous rhythm monitoring, then bedrest positioning is post-procedural nursing knowledge needing no case data.",
+      "laterStageLeakCheck": "stage_1 concerns the pre-procedure deterioration and contains no post-procedure information. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "2140e432e153d008",
+      "stage0QueueIndex": 360,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_ami_01",
+      "partId": "case_ami_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "All three rows are general heart-failure findings - jugular venous distention, pulmonary oedema, peripheral oedema - and the item asks the learner to attribute each to left- or right-sided failure. That is pathophysiology knowledge; no case-specific value is required, and baseline's anterior infarct supplies the clinical relevance.",
+      "laterStageLeakCheck": "stage_1 records crackles in all lung fields, which is one row's finding shown in this client, but the row is answered by attribution rather than by observation. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "dd194513d090446f",
+      "stage0QueueIndex": 361,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "claude_cs_jun06_chest_tube_rrp_01",
+      "partId": "claude_cs_jun06_chest_tube_rrp_01_part_1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Three of the four rows are documented verbatim in the baseline drainage observation - tidaling in the water-seal chamber, gentle continuous bubbling in the suction-control chamber, and intermittent bubbling in the water-seal chamber - and the fourth, 200 mL of bright red drainage in an hour, is a counterfactual stated inside the row against baseline's 30 mL of serosanguineous fluid since insertion. Separating expected drainage-system behaviour from a finding requiring immediate follow-up is chest-tube knowledge.",
+      "laterStageLeakCheck": "stage_1330 carries the later disconnection incident and contains none of these four findings. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "208cc5901c3fa815",
+      "stage0QueueIndex": 362,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "claude_cs_jun06_chest_tube_rrp_01",
+      "partId": "claude_cs_jun06_chest_tube_rrp_01_part_2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states the finding and its novelty - new continuous bubbling in the water-seal chamber that was not present before - and baseline establishes the prior state as intermittent bubbling, which is what makes the change meaningful. Interpreting new continuous water-seal bubbling as an air leak in the system or at the insertion site, rather than lung re-expansion, low suction or obstruction, is chest-tube knowledge.",
+      "laterStageLeakCheck": "stage_1330 is the later disconnection event, which is a different problem. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "489aca6dec5a5d68",
+      "stage0QueueIndex": 363,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "claude_cs_jun06_chest_tube_rrp_01",
+      "partId": "claude_cs_jun06_chest_tube_rrp_01_part_3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states the emergency in full - the chest tube has disconnected from the drainage tubing and the client is dyspnoeic with an SpO2 of 89 percent - and baseline supplies the comparator of 95 percent on 2 L and the closed water-seal system with suction at minus 20 cm H2O. Submerging the tube end in sterile water to re-establish the seal is the immediate action, while clamping risks tension pneumothorax, reconnecting contaminated tubing is unsafe, and lying the client flat worsens ventilation.",
+      "laterStageLeakCheck": "stage_1330 is where the disconnection occurs, and the stem restates it; the stage states no response. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "f71a81a682b13a92",
+      "stage0QueueIndex": 364,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "claude_cs_jun06_chest_tube_rrp_01",
+      "partId": "claude_cs_jun06_chest_tube_rrp_01_part_4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states the premise that the seal is restored and the system reconnected, and baseline supplies the current state the resolution is measured against - active tidaling with intermittent water-seal bubbling, a pneumothorax as the indication, and a post-insertion chest x-ray ordered. Recognising that cessation of tidaling and bubbling with improved breath sounds and radiographic re-expansion indicates resolution, while returning continuous bubbling, new crepitus or rapid bloody drainage indicate complications, is chest-tube knowledge.",
+      "laterStageLeakCheck": "stage_1330 concerns the disconnection rather than the resolution; no stage states the resolution criteria. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

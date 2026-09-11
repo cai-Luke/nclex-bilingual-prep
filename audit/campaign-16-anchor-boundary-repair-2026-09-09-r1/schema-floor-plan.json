@@ -1,0 +1,48 @@
+{
+  "comparisonFreezeSha256": "dfd587d1f6a0ca1e0ebeb48c86ab8d406583aded3cb79881c95d8b426a0444cb",
+  "schemaSourceSha256": "0b88e83a048485e9732f175e2b47b4c46b1f79d449d523e49f9ff3ebfa692fad",
+  "typeSourceSha256": "73638dc4fe16fffb6be414da72f36f84abfbb63df5d67390c5875916e60654b9",
+  "rule": "R4 B.1/F.1: baseline presence and ordered live schema floor predicate",
+  "banks": [
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "openingSha256": "25f53ded1ac21da4ca9d211040c3f6110ebee38d72ba41d0fc64fe358ba73b71",
+      "before": "2.0",
+      "after": "2.1",
+      "bumpAuthorized": true,
+      "acceptedBaseline": 46,
+      "acceptedStage": 5,
+      "exceptions": 7
+    },
+    {
+      "bankPath": "banks/gemini-canonical.json",
+      "openingSha256": "3dc416a4652f5f5712219dde7de87b92f0697fac953750b8abb8fc0dbb976bb6",
+      "before": "2.0",
+      "after": "2.1",
+      "bumpAuthorized": true,
+      "acceptedBaseline": 38,
+      "acceptedStage": 2,
+      "exceptions": 6
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "openingSha256": "d7d228afc282bd15bc730be4ca5b3d2c7c14c017bbc14f3d12a7cbccbfef0f20",
+      "before": "2.0",
+      "after": "2.1",
+      "bumpAuthorized": true,
+      "acceptedBaseline": 201,
+      "acceptedStage": 7,
+      "exceptions": 35
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "openingSha256": "5d47b79a1e63fe5f852eab7b4ab9b8db6ca7e9ec924037d5e81de8a8bb3ee3d1",
+      "before": "1.8",
+      "after": "2.1",
+      "bumpAuthorized": true,
+      "acceptedBaseline": 84,
+      "acceptedStage": 2,
+      "exceptions": 18
+    }
+  ]
+}

@@ -1,0 +1,270 @@
+{
+  "repairPacketId": "repair-023",
+  "producer": "Codex / GPT-6 Astra",
+  "producingAgent": "/root/r4_verifier",
+  "role": "PRODUCER_SEMANTIC_RECONSTRUCTION",
+  "independentReview": false,
+  "sourcePacketSha256": "286c5783e37ae3f0c0b4fcfbd957c697b160b3a1c079c9bebc9ef8b6a85d3c15",
+  "workOrderSha256": "8cd476c23f2b6cadb07ae8115fd675fbbfc3f60acb46d7a521d5d1da30b2558b",
+  "parentCaseIds": [
+    "claude_cs_jun06_cdiff_sic_01",
+    "cs_thyroid_storm_main",
+    "cs_stemi_vfib_04",
+    "cs_sepsis_shock_01"
+  ],
+  "method": "Whole parent examined; each affected part independently evaluated at baseline and successive declared boundaries in English and Simplified Chinese. No Phase E leak verdict or calibration answer key used.",
+  "rows": [
+    {
+      "rowKey": "d5fce4a7d2fe0eb8",
+      "stage0QueueIndex": 365,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "claude_cs_jun06_cdiff_sic_01",
+      "partId": "claude_cs_jun06_cdiff_sic_01_part_1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The global summary already reports symptomatic diarrhea and a positive C. difficile toxin test, with the shared-room assessment. That identified organism and presentation are enough to select the transmission precaution in English and Chinese before new orders.",
+      "laterStageLeakCheck": "stage_orders directs appropriate precautions without adding a new pathogen or route. Its instruction confirms a need already present globally and does not supply a necessary missing premise.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "ed29c389c3b4d417",
+      "stage0QueueIndex": 366,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "claude_cs_jun06_cdiff_sic_01",
+      "partId": "claude_cs_jun06_cdiff_sic_01_part_2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Confirmed C. difficile is globally visible, and the item directly asks for hand hygiene after providing care. The bilingual organism and task information are complete before any treatment or isolation order update.",
+      "laterStageLeakCheck": "The later vancomycin and clindamycin orders do not affect the hand-hygiene choice. No subsequent intervention or outcome is needed to identify the practice asked here.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "92a2be7f0f4318de",
+      "stage0QueueIndex": 367,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "claude_cs_jun06_cdiff_sic_01",
+      "partId": "claude_cs_jun06_cdiff_sic_01_part_3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each matrix row gives a complete student action involving PPE, dedicated equipment, the cleaning product or exit hygiene. Global confirmation of C. difficile supplies the condition against which those bilingual actions are judged, without requiring a new stage.",
+      "laterStageLeakCheck": "stage_orders adds treatment directions but no observed student behavior or cleaning detail. The item's own explicit actions provide the assessment scenario in full.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "e55052e149e1be0a",
+      "stage0QueueIndex": 368,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "claude_cs_jun06_cdiff_sic_01",
+      "partId": "claude_cs_jun06_cdiff_sic_01_part_4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The item explicitly provides the PPE-removal actions to order, and the global C. difficile diagnosis establishes the relevant final hand-hygiene context. Both language surfaces supply the complete removal task at baseline.",
+      "laterStageLeakCheck": "The new-order stage contains no additional PPE sequence instruction or circumstance needed for this ordering task. Medication management does not determine when the removal question becomes answerable.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "cd63f4580897d0d7",
+      "stage0QueueIndex": 369,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_thyroid_storm_main",
+      "partId": "cs_thyroid_storm_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The initial 0800 triage assessment is a global exhibit and includes the fever, neck enlargement, severe agitation/confusion and heart rate 152 repeated in the matrix. Those bilingual findings support each requested distinction before lab or order updates.",
+      "laterStageLeakCheck": "stage_0830 confirms thyroid excess and the rhythm, while stage_1200 shows response. Neither is needed to classify the fully stated initial clinical findings.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "545d112ac11f8548",
+      "stage0QueueIndex": 370,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_thyroid_storm_main",
+      "partId": "cs_thyroid_storm_q2",
+      "proposedBoundary": null,
+      "disposition": "EXCEPTION",
+      "earliestBoundaryEvidence": "The choices and global crisis presentation allow consideration of the medication sequence, but stage_0830 orders hydrocortisone STAT while the keyed strict order puts it after iodine. The item's own rationale says hydrocortisone may be concurrent or after the primary sequence starts, while requiring iodine to wait after PTU. The source therefore does not establish a unique safe strict position for the steroid in either language.",
+      "laterStageLeakCheck": "stage_1200 only says all drugs were received and shows improvement; that later successful outcome cannot resolve the inconsistent timing requirements or establish the keyed order as uniquely correct.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "LOW",
+      "exceptionReason": "Answer-correctness/order ambiguity: the hydrocortisone STAT order and explicit concurrent-administration rationale do not support its uniquely keyed position after delayed iodine; selecting a boundary cannot repair that conflict."
+    },
+    {
+      "rowKey": "b0acf59728d726aa",
+      "stage0QueueIndex": 371,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_thyroid_storm_main",
+      "partId": "cs_thyroid_storm_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Global 0800 findings already establish dangerous fever, marked agitation, tachycardia and profuse sweating after antithyroid-medication interruption. The part supplies supportive-care candidates and prospectively specified prescribed antipyretics; its full nursing-plan choice is answerable in English and Chinese from that initial state.",
+      "laterStageLeakCheck": "The 0830 drugs and later vital-sign improvement are not required to identify the active fever and safety needs. The 0800–1200 wording is a planned care interval rather than a requirement to see its completed outcomes.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "771f9bc6410432c9",
+      "stage0QueueIndex": 372,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_thyroid_storm_main",
+      "partId": "cs_thyroid_storm_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem directly establishes monitoring for PTU adverse effects, and its choices supply every laboratory value to compare. Global Graves/thyroid-crisis context plus the explicit low WBC and other candidate values make the notification choice answerable in both languages without a declared update.",
+      "laterStageLeakCheck": "stage_1200 documents samples drawn but gives no corresponding laboratory results; those values are supplied by the item itself. The later improving rhythm and vital signs do not determine which offered lab needs notification.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "ad5148e6291b76b0",
+      "stage0QueueIndex": 373,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_stemi_vfib_04",
+      "partId": "cs_stemi_vfib_04_part_1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The global summary and triage exhibit already provide radiating crushing pain, diaphoresis, V1–V4 elevation, tachycardia and oxygen saturation. The choices repeat those initial findings, supporting the bilingual infarction/sympathetic-cue selection before deterioration.",
+      "laterStageLeakCheck": "The later arrest establishes a complication rather than a missing initial infarction finding. It is unnecessary to recognize the triage cues requested here.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "b922586401896706",
+      "stage0QueueIndex": 374,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_stemi_vfib_04",
+      "partId": "cs_stemi_vfib_04_part_2",
+      "proposedBoundary": "stage_1415",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The stem supplies unresponsiveness and a chaotic monitor rhythm but does not establish a checked absent pulse. stage_1415 first states no palpable carotid pulse and describes the waveform with no discernible complexes, supplying the actual arrest findings needed for the CPR/defibrillation sequence in both languages.",
+      "laterStageLeakCheck": "This update supplies the immediate diagnostic trigger, not a later resuscitation outcome. The title's broad cardiac-arrest label cannot replace the necessary current pulse assessment, and no later confirmation is used.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "5fd252b0e752d7f7",
+      "stage0QueueIndex": 375,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_stemi_vfib_04",
+      "partId": "cs_stemi_vfib_04_part_3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The matrix asks to match explicitly named medications to their primary drug classes. Those complete bilingual names and class choices determine the response independently of whether the actual case arrest has been revealed.",
+      "laterStageLeakCheck": "stage_1415 documents arrest but contains no medication administration or class information. It contributes no missing premise to this classification task.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "80fd9b659ef40c02",
+      "stage0QueueIndex": 376,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_stemi_vfib_04",
+      "partId": "cs_stemi_vfib_04_part_4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem directly establishes a resuscitation scenario and asks which candidate finding best supports ROSC. The complete candidates specify a sustained PETCO2 increase, pulseless organized rhythm, pupillary finding and agonal breathing in both languages, with no dependence on an actual later observation.",
+      "laterStageLeakCheck": "The sole update stops at arrest and contains no ROSC or PETCO2 result. This is an expected-evidence question whose candidate outcomes are supplied by the part itself.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "39850947db0e8657",
+      "stage0QueueIndex": 377,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_sepsis_shock_01",
+      "partId": "cs_sepsis_shock_01_part_1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part asks about the initial 1400 triage data, which are globally visible: fever, tachycardia, low blood pressure, changed mentation and diabetes history. All matrix rows repeat those bilingual findings and require no stage laboratory results.",
+      "laterStageLeakCheck": "The 1600 lactate and worsening post-bolus pressure confirm progression but are unnecessary to classify the initial findings. They must not replace the initial-state evidence requested here.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "d53f0eb41254949a",
+      "stage0QueueIndex": 378,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_sepsis_shock_01",
+      "partId": "cs_sepsis_shock_01_part_2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem directly establishes provider-confirmed septic shock and asks for anticipated actions, with the fluid, cultures, antibiotics and vasopressor steps explicitly supplied. Global hypotension and suspected infection give context; no later value is required to plan the stated sequence in either language.",
+      "laterStageLeakCheck": "stage_1600 adds post-bolus hypotension and labs, but the diagnosis is already an explicit item premise. The prospective action task does not require seeing that later course before arranging its offered steps.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "d1aba0bf402dca2f",
+      "stage0QueueIndex": 379,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_sepsis_shock_01",
+      "partId": "cs_sepsis_shock_01_part_3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem explicitly supplies the completed treatment scenario and asks which findings would indicate improvement. Its options state decreased lactate, urine output, MAP, orientation, skin status and unchanged creatinine; global initial disorientation and low perfusion provide the remaining comparison context. Both languages are sufficient at baseline.",
+      "laterStageLeakCheck": "The sole 1600 update precedes the hypothetical two-hour resuscitation response. The option text already specifies its lab trends, so revealing that earlier update is unnecessary to evaluate the proposed outcomes.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "b064652d131b7ef1",
+      "stage0QueueIndex": 380,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_sepsis_shock_01",
+      "partId": "cs_sepsis_shock_01_part_4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part directly states persistent MAP 60 despite norepinephrine at 10 mcg/min and the new vasopressin order. Combined with the globally visible infection/hypoperfusion presentation, this explicit treatment scenario is sufficient to choose the pharmacologic rationale in English and Chinese.",
+      "laterStageLeakCheck": "stage_1600 contains neither the stated norepinephrine dose nor vasopressin addition. Those decisive premises come from this part, and no later response is needed to explain the addition.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

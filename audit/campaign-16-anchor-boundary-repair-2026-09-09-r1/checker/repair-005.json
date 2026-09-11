@@ -1,0 +1,314 @@
+{
+  "repairPacketId": "repair-005",
+  "bankPath": "banks/gemini-canonical.json",
+  "bankSha256": "3dc416a4652f5f5712219dde7de87b92f0697fac953750b8abb8fc0dbb976bb6",
+  "sourcePacketSha256": "3f3861f510b428f9078263dad2a3d64ba1cfd1c2d1deaecb37bd3d3142d5d559",
+  "checker": "Claude Code / Claude Opus 5",
+  "checkerRole": "independent content checker (R4 Stage 2 blind full reconstruction)",
+  "blind": true,
+  "representation": {
+    "BASELINE": "proposedBoundary == {\"kind\":\"baseline\"}",
+    "STAGE": "proposedBoundary == exact declared stage id string",
+    "EXCEPTION": "proposedBoundary == null with exceptionReason",
+    "forbiddenAlternateField": "orStage (never emitted)"
+  },
+  "rowCount": 18,
+  "parentCaseIds": [
+    "gemini_gap_case_hypertension_lifestyle_02",
+    "gemini_gap_case_lead_poisoning_01",
+    "gemini_gap_case_palliative_care_03",
+    "opus_agvd_case_agvhd_01"
+  ],
+  "counts": {
+    "BASELINE": 16,
+    "STAGE": 2,
+    "EXCEPTION": 0,
+    "HIGH": 18
+  },
+  "rows": [
+    {
+      "rowKey": "80f86db49e773318",
+      "stage0QueueIndex": 59,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "opus_agvd_case_agvhd_01",
+      "partId": "opus_agvd_case_agvhd_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem is unusually complete: it supplies the negative infectious workup, the subtherapeutic tacrolimus trough, and the entire cue cluster it asks the learner to interpret - acral maculopapular rash, high-volume watery diarrhoea, mildly elevated bilirubin with rising liver enzymes, and onset on day 26 post-transplant. Baseline independently carries every one of those: the rash on palms, soles and pinnae covering about 30 percent body surface area, five to six watery stools daily, total bilirubin 2.1 with direct 1.4, ALT 62 and AST 58, a tacrolimus trough of 8.2 against a target of 10 to 15, and the summary's statement that transplant was twenty-six days ago. Recognising that triad as acute graft-versus-host disease is knowledge.",
+      "laterStageLeakCheck": "stage_1 must not be the boundary: it states 'The transplant team clinically diagnoses acute graft-versus-host disease (aGVHD) involving the skin..., the gastrointestinal tract..., and the liver..., grading the overall disease as grade II aGVHD', which is keyed option q1_opt_a delivered as a diagnosis, identically in Chinese. The only thing stage_1 adds beyond that is the negative stool and viral studies, which the stem already restates. stage_2 and stage_3 are later. BASELINE is earliest and the only non-leaking boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "4ce14ff05af707a1",
+      "stage0QueueIndex": 60,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "opus_agvd_case_agvhd_01",
+      "partId": "opus_agvd_case_agvhd_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem supplies the repeat values the action responds to - potassium 3.1 mEq/L and magnesium 1.4 mg/dL - and frames the timing as before high-dose corticosteroids are given, which establishes that steroids are pending. Baseline supplies the trajectory and the mechanism: potassium 3.4 and magnesium 1.6 on admission with five to six watery stools a day and 280 mL of stool in the first eight-hour shift. Ongoing diarrhoeal losses plus imminent corticosteroid-driven renal potassium wasting make prompt provider notification for intravenous replacement the priority, and magnesium must be repleted for potassium correction to hold.",
+      "laterStageLeakCheck": "stage_1 is the source of the two values the stem restates and orders the methylprednisolone but no electrolyte replacement, so it supplies nothing the answer needs. stage_2 must not be the boundary: it orders 'IV potassium chloride 40 mEq in 100 mL normal saline infused over 4 hours and IV magnesium sulfate 2 g over 2 hours', which is the keyed action's result. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "89493e6230bd35f0",
+      "stage0QueueIndex": 61,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "opus_agvd_case_agvhd_01",
+      "partId": "opus_agvd_case_agvhd_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem lists the entire Stage 2 data set the prioritisation runs on - heart rate 118, blood pressure 92/56, urine output 180 mL over eight hours, escalating bloody stool output, rising creatinine, supratherapeutic tacrolimus, hyperglycaemia, worsening bilirubin, and haemoglobin 7.9 g/dL - so the competing problems are all inside the part. Baseline supplies the reference values that make 'rising' and 'supratherapeutic' meaningful: creatinine 1.0, haemoglobin 9.8, tacrolimus 8.2 against a 10 to 15 target, and blood pressure 108/68 with heart rate 96. Tachycardia with hypotension and oliguria in the setting of massive stool losses is the immediately life-threatening problem.",
+      "laterStageLeakCheck": "stage_2 is the source of these values and the stem restates them; it adds dry mucous membranes and decreased skin turgor, which reinforce hypovolaemia but are not needed once tachycardia, hypotension and oliguria are given. stage_2 also orders a 500 mL normal saline bolus first among its interventions, which signals the volume priority the item asks the learner to derive. stage_3 shows the recovery. BASELINE is earliest and avoids that signal.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "e4c0ce4085a31fbe",
+      "stage0QueueIndex": 62,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "opus_agvd_case_agvhd_01",
+      "partId": "opus_agvd_case_agvhd_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem gives both values the decision rests on - a tacrolimus trough of 18.4 ng/mL and a creatinine rising from 1.0 to 1.6 mg/dL - and baseline supplies the target range of 10 to 15 ng/mL and the fact that tacrolimus is running as a continuous infusion for graft-versus-host prophylaxis. From there the answer is calcineurin-inhibitor knowledge: reduce the rate on the provider's order and monitor urine output, rather than stopping a graft-versus-host prophylactic independently, ignoring the level, or adding a loop diuretic.",
+      "laterStageLeakCheck": "stage_2 must not be the boundary: it states 'Tacrolimus infusion rate is reduced in response to the supratherapeutic trough level' (ZH: '降低了其输注速率'), which is keyed option q4_opt_a narrated as already done. Recorded qualifier: that keyed option reads 'per the provider order', and at BASELINE no such order has been narrated; the action is nonetheless the only defensible one and the three distractors fail on pharmacology and scope, so the phrasing does not change selectability. stage_3 shows the trough back at 12.1.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "aaef25bc33cc9e85",
+      "stage0QueueIndex": 63,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "opus_agvd_case_agvhd_01",
+      "partId": "opus_agvd_case_agvhd_01_q5",
+      "proposedBoundary": "stage_2",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "This part carries no clinical data of its own. The stem says only that the nurse must coordinate 'multiple simultaneous interventions' and asks which of 'the concurrent interventions ordered' comes first; the four options name a fluid bolus with cardiac monitoring, peripheral potassium replacement, a red blood cell transfusion, and glucose checks with sliding-scale insulin. None of those exist at baseline, where the patient is haemodynamically stable at 108/68 with heart rate 96, haemoglobin 9.8 and glucose 118, and none exist at stage_1 either, which orders only lactated Ringer at 125 mL/hr, methylprednisolone and a biopsy. stage_2 is the first boundary where all four interventions are actually ordered and where the data that ranks them exists: heart rate 118, blood pressure 92/56, urine output 180 mL over eight hours, and potassium 2.8 mEq/L.",
+      "laterStageLeakCheck": "stage_2 supplies the ordered set and the ranking data but does not state which to initiate first; it lists the orders without sequencing them, so the prioritisation judgement remains with the learner. stage_3 must not be the boundary: it reports the corrected potassium of 3.8, the post-transfusion haemoglobin of 8.8 and restored perfusion, which would show retrospectively that volume resuscitation and monitoring were the right first move.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "47e8dfe5f72a69a4",
+      "stage0QueueIndex": 64,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "opus_agvd_case_agvhd_01",
+      "partId": "opus_agvd_case_agvhd_01_q6",
+      "proposedBoundary": "stage_2",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "Two matrix rows assert a direction of change that is false at any boundary earlier than stage_2, which would invert their classification. Row row_bili reads 'Total bilirubin decreased to 2.4 mg/dL', but the baseline bilirubin is 2.1, so at BASELINE 2.4 is a rise, not a decrease; it becomes a genuine decrease only against the stage_2 value of 3.6. Row row_stool reads 'Stool volume decreased to 900 mL/24h', but baseline records 280 mL in an eight-hour shift, roughly 840 mL/day, so at BASELINE the figure is flat, and at stage_1 the 24-hour total is already 900 mL; it becomes a decrease only against the stage_2 total of 2,200 mL. Row row_immuno also needs the stage_2 fever of 100.6 F to make 'absence of fever' meaningful and the stage_2 ruxolitinib order to make the drug real. stage_2 is therefore the earliest boundary at which every row is coherent as written.",
+      "laterStageLeakCheck": "stage_2 is required as the comparator rather than as an answer source: it contains the deterioration, not the evaluation, and never classifies any finding as a therapeutic response or as needing vigilance. stage_3 is not required because all five row values are quoted inside the rows themselves, and it must be avoided: it opens 'The patient has shown early but measurable improvement', which pre-classifies the stool, rash and bilirubin rows as therapeutic response in both languages.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "b61fa4b15342c733",
+      "stage0QueueIndex": 65,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_lead_poisoning_01",
+      "partId": "gemini_gap_case_lead_poisoning_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem scopes the item explicitly to 'the well-child note', which is the single baseline exhibit, and every option is drawn from it: the 1950 rental house, the peeling paint on the playroom windowsills, the toddler's frequent hand-to-mouth behaviour, the 50th-percentile weight, and the ability to stack three blocks. Separating the environmental and behavioural exposure risks from the normal growth and development findings needs no stage.",
+      "laterStageLeakCheck": "stage_lead_labs contains only the venous blood lead level and the CDC reference value, and stage_lead_education only frames the teaching plan; neither names or classifies a risk factor, and neither is needed. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "4170e57ae9a4c3ec",
+      "stage0QueueIndex": 66,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_lead_poisoning_01",
+      "partId": "gemini_gap_case_lead_poisoning_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states the value the interpretation rests on - a blood lead level of 18 mcg/dL. Baseline establishes the exposure context (1950 home, peeling paint, hand-to-mouth behaviour, positive risk questionnaire) and that the child is developmentally normal and asymptomatic. Placing 18 mcg/dL as elevated but far below the chelation threshold, and therefore managed with environmental education and a repeat venous test in one to three months, is paediatric knowledge; the distractors fail on that knowledge alone, since chelation is reserved for much higher levels, activated charcoal does not bind lead, and no level in this range is normal.",
+      "laterStageLeakCheck": "stage_lead_labs supplies the same 18 mcg/dL the stem restates plus the CDC reference value of 3.5, which confirms the level is actionable but does not distinguish between the four management options. stage_lead_education states that the teaching plan focuses on 'environmental control in the home and dietary changes', which points at keyed option A's first half. BASELINE is earliest and avoids that.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "cd7df4a4d5c4d6de",
+      "stage0QueueIndex": 67,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_lead_poisoning_01",
+      "partId": "gemini_gap_case_lead_poisoning_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "All three rows are general lead-absorption nutrition principles - adequate dietary iron and calcium compete with lead for gastrointestinal absorption sites, lead is absorbed faster on an empty stomach so frequent small meals help, and a high-fat diet increases absorption. The stem states the teaching goal, and baseline establishes that this is a toddler with an identified lead-exposure risk. No case-specific value is required.",
+      "laterStageLeakCheck": "stage_lead_labs supplies the blood level, which is not needed to classify dietary measures. stage_lead_education states that the plan covers 'dietary changes that reduce lead uptake in the body', which is the item's framing rather than any row's classification. Neither stage supplies information the answer needs, so BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "20fdafaa493d8306",
+      "stage0QueueIndex": 68,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_lead_poisoning_01",
+      "partId": "gemini_gap_case_lead_poisoning_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both dropdowns are general lead-abatement household teaching: wet mopping or damp cloths trap lead dust while dry sweeping and standard vacuuming aerosolise it, and only cold tap water flushed for one to two minutes should be used for formula because hot water leaches more lead from plumbing. The stem states that the nurse is giving environmental cleaning instructions, and baseline establishes the 1950 home with peeling paint and a formula-age toddler. No stage value is required.",
+      "laterStageLeakCheck": "stage_lead_labs gives only the blood level. stage_lead_education states that the focus is 'environmental control in the home', which frames the item without supplying either keyed option. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "cad66c8e5cd0bb1c",
+      "stage0QueueIndex": 69,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_hypertension_lifestyle_02",
+      "partId": "gemini_gap_case_htn_lifestyle_02_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "This is a DASH-diet knowledge item: the keyed statement identifies increased potassium, calcium and magnesium with sodium restriction, and the distractors fail on their own terms because DASH is not a low-carbohydrate or high-protein plan, fluid restriction is not indicated for stage 1 hypertension, and substituting potassium chloride for table salt without medical approval is unsafe. Baseline supplies all the context needed - stage 1 readings of 136/88 and 138/86, a fast-food and processed-snack diet with low fruit and vegetable intake, sedentary work, and a BMI of 29.0.",
+      "laterStageLeakCheck": "The parent has a single declared stage, stage_htn_followup, which reports the three-month results; a single-stage parent does not make that stage the default answer. It contains only follow-up blood pressure, weight and activity data and states nothing about DASH content, so it supplies nothing the item needs. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "959169732df20279",
+      "stage0QueueIndex": 70,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_hypertension_lifestyle_02",
+      "partId": "gemini_gap_case_htn_lifestyle_02_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The item asks which foods to encourage on a DASH plan, and every option is decided by food knowledge: fresh fruit and vegetables for potassium and magnesium, low-fat dairy for calcium, whole grains, and lean protein are core components, while canned soups and processed deli meats are high-sodium and excluded. Baseline supplies the reason the plan applies at all - stage 1 hypertension with frequent fast food and high processed-snack intake.",
+      "laterStageLeakCheck": "stage_htn_followup records only that the client adheres to sodium restriction and gives three-month blood pressure and weight; it names no food and does not affect any option. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "4d6293aadd790c99",
+      "stage0QueueIndex": 71,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_hypertension_lifestyle_02",
+      "partId": "gemini_gap_case_htn_lifestyle_02_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both dropdowns are general activity-prescription knowledge for hypertension: at least 150 minutes of moderate-intensity aerobic activity weekly, and avoidance of heavy straining or Valsalva-style lifting unless cleared by the provider, since brisk walking and stretching are the recommended activities rather than things to avoid. Baseline establishes the sedentary desk job with no regular exercise, which is why the guidance is being given.",
+      "laterStageLeakCheck": "stage_htn_followup reports that the client walks about one day per week, which is an adherence datum used by a different part; it states neither the weekly minute target nor any contraindicated activity. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "6e5b87c68e82f58d",
+      "stage0QueueIndex": 72,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_hypertension_lifestyle_02",
+      "partId": "gemini_gap_case_htn_lifestyle_02_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each row carries its own value or state - blood pressure 128/82 seated, weight decreased from 202 lbs to 194 lbs stated as a pair, and physical activity remaining at one day per week of walking - so the follow-up data is inside the part. Baseline supplies the comparators that make the first row interpretable, recording 136/88 with a prior visit of 138/86 and a starting weight of 202 lbs with BMI 29.0. The third row is decided against the 150-minutes-weekly target rather than against any case value.",
+      "laterStageLeakCheck": "stage_htn_followup is the source of these three findings but the rows restate all of them, including both endpoints of the weight change, and the stage does not label any of them as progress or lack of progress. It is therefore not needed, and BASELINE is the earliest boundary at which the part is answerable.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "b89f57548b8c9d29",
+      "stage0QueueIndex": 73,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_palliative_care_03",
+      "partId": "gemini_gap_case_palliative_care_03_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline establishes everything the choice needs: an end-stage heart failure client admitted to inpatient hospice with severe breathlessness at rest, anxiety about suffocating, comfort as the stated primary goal, and the note that he is alert and able to swallow, which makes an oral or sublingual route feasible. Low-dose opioid is the first-line pharmacologic treatment for palliative dyspnoea, and the distractors fail on knowledge - high-dose IV furosemide treats volume rather than air hunger, albuterol treats bronchospasm rather than cardiac congestion, and lorazepam is secondary to morphine for breathlessness.",
+      "laterStageLeakCheck": "The single declared stage, stage_hospice_followup, must not be the boundary: it opens 'The client has received two doses of prescribed oral morphine liquid (2.5 mg every 2 hours)' (ZH: '口服吗啡液'), which names keyed option A outright. BASELINE is both the earliest answerable boundary and the only one that does not disclose the drug.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "7fe104dccf843914",
+      "stage0QueueIndex": 74,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_palliative_care_03",
+      "partId": "gemini_gap_case_palliative_care_03_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both dropdowns are opioid pharmacology in palliative dyspnoea: morphine blunts the respiratory centre's sensitivity to elevated carbon dioxide, reducing the drive to breathe, and produces systemic venodilation with peripheral pooling that lowers preload and eases pulmonary congestion. Baseline supplies the clinical setting - end-stage heart failure with bibasilar crackles and air hunger - that makes both mechanisms relevant. No case value is required.",
+      "laterStageLeakCheck": "stage_hospice_followup records that morphine was given and that breathing feels easier, but it offers no mechanism and names neither carbon dioxide sensitivity nor vasodilation, so it supplies nothing either blank needs. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "0289c42705687b26",
+      "stage0QueueIndex": 75,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_palliative_care_03",
+      "partId": "gemini_gap_case_palliative_care_03_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline supplies each row's decision context: severe resting dyspnoea with accessory muscle use, bibasilar crackles from heart failure, and an oxygen saturation of 92 percent on room air. Cool air across the face relieves dyspnoea through trigeminal stimulation, flat supine positioning increases venous return and worsens pulmonary congestion, and palliative oxygen is reserved for symptomatic hypoxaemia rather than given routinely. All three classifications follow from that.",
+      "laterStageLeakCheck": "stage_hospice_followup must not be the boundary: it states the client is 'resting in semi-Fowler's position with a personal cooling fan blowing gently across his face', which demonstrates row r1 as indicated and row r2's flat position as rejected, in both languages. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "3456f9062f916506",
+      "stage0QueueIndex": 76,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_palliative_care_03",
+      "partId": "gemini_gap_case_palliative_care_03_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Every option is a self-describing reassessment finding - respiratory rate 18 deep and regular, relaxed facial expression with occasional sleep, a statement that breathing feels much easier, absent intercostal accessory muscle use, and saturation of 100 percent on a high-flow mask. Baseline supplies the pre-treatment comparator that makes the first four count as response: respiratory rate 28 and shallow, anxious facial expression, intercostal accessory muscle use, and the report of not being able to catch his breath. The distractor is rejected on palliative-care principle, since driving saturation to 100 percent with a high-flow mask is not a comfort goal in end-stage heart failure.",
+      "laterStageLeakCheck": "stage_hospice_followup must not be the boundary: it states 'The client states his breathing feels much easier. His face is relaxed, and he is sleeping occasionally', which is keyed options C and B word for word and identically in Chinese. BASELINE is earliest and the only non-leaking boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

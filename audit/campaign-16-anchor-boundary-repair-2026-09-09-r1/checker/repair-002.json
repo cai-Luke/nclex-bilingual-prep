@@ -1,0 +1,297 @@
+{
+  "repairPacketId": "repair-002",
+  "bankPath": "banks/claude-canonical.json",
+  "bankSha256": "25f53ded1ac21da4ca9d211040c3f6110ebee38d72ba41d0fc64fe358ba73b71",
+  "sourcePacketSha256": "ffbf8677331758f3ceaf7ecfd15fbf0af492e3ea279a38c7906d305bda7cfc68",
+  "checker": "Claude Code / Claude Opus 5",
+  "checkerRole": "independent content checker (R4 Stage 2 blind full reconstruction)",
+  "blind": true,
+  "representation": {
+    "BASELINE": "proposedBoundary == {\"kind\":\"baseline\"}",
+    "STAGE": "proposedBoundary == exact declared stage id string",
+    "EXCEPTION": "proposedBoundary == null with exceptionReason",
+    "forbiddenAlternateField": "orStage (never emitted)"
+  },
+  "rowCount": 17,
+  "parentCaseIds": [
+    "opus20_case_cdiff_01",
+    "opus22_case_postpartum_intrusive_thoughts_01",
+    "opus_case_warfarin_bridge_01"
+  ],
+  "counts": {
+    "BASELINE": 15,
+    "STAGE": 2,
+    "EXCEPTION": 0,
+    "HIGH": 17
+  },
+  "rows": [
+    {
+      "rowKey": "b9f71a35f2963bb9",
+      "stage0QueueIndex": 18,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus20_case_cdiff_01",
+      "partId": "opus20_case_cdiff_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Although the stem says 'at Stage 1', the assessment findings and laboratory data it names are the baseline exhibit's own two sections. Everything keyed option B needs is there: creatinine 2.1 mg/dL against a stated baseline of 1.4, eGFR 24 against a baseline of 42, BUN 38, weight 64 kg against 68 kg two weeks earlier, dry tacky mucous membranes, sluggish sternal turgor, three-second capillary refill, HR 104, BP 98/62, lightheadedness on standing, and three days of six to eight watery stools with poor intake. That is a complete prerenal picture. Distractor A is excluded because the case gives a known CKD baseline that the current values exceed acutely, and C is excluded because the only organ dysfunction present is renal with a lactate of 2.4.",
+      "laterStageLeakCheck": "stage_1 adds the positive C. difficile PCR, four further stools, an eight-hour intake/output of 1,400 mL in against 200 mL urine, HR 100, BP 100/64 and a potassium of 3.1 with a replacement order. The potassium order is the premise of distractor D rather than support for the key, and the improving vitals do not change the answer. stage_2 and stage_3 show recovery. No stage names volume depletion or prerenal injury, so there is no leak; BASELINE is chosen because the part is already answerable there.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "faf6edfda1e6d1d4",
+      "stage0QueueIndex": 19,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus20_case_cdiff_01",
+      "partId": "opus20_case_cdiff_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem reproduces the entire observation - the daughter entering in gloves but no gown and the son-in-law entering with no personal protective equipment. The baseline case summary independently establishes that contact precautions were ordered on admission for suspected C. difficile infection. From those two facts the keyed action follows on infection-control knowledge: every person entering a C. difficile room needs gown and gloves, and alcohol gel does not kill spores, so the visit is interrupted and hand hygiene is done with soap and water.",
+      "laterStageLeakCheck": "stage_1 is where the observation originates but the stem already restates it and the stage adds nothing the answer turns on. stage_3 must not be the boundary: it records that 'The daughter demonstrates correct donning and doffing of gown and gloves and performs hand hygiene with soap and water before and after the visit without prompting', which is keyed option B's content shown as the correct end state, in both languages. stage_2 likewise previews the sanitizer question. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "710cb29c2c8f10a0",
+      "stage0QueueIndex": 20,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus20_case_cdiff_01",
+      "partId": "opus20_case_cdiff_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both of the daughter's questions are quoted in full inside the stem - whether alcohol sanitizer can replace handwashing, and whether gown and gloves are needed when she is 'just sitting in the chair'. The baseline summary establishes contact precautions for suspected C. difficile. The keyed response rests on two pieces of knowledge, that C. difficile spores resist alcohol so soap-and-water friction is required, and that spores contaminate room surfaces so gown and gloves are required for anyone entering regardless of patient contact. No declared stage supplies either.",
+      "laterStageLeakCheck": "stage_2 is where the questions are asked, and the stem quotes them verbatim, so the stage adds nothing needed. stage_3 must not be the boundary: it shows the daughter performing exactly the behaviour keyed option B prescribes - soap-and-water hand hygiene plus correct gown and glove use - which converts the teaching judgement into an observed model answer in both languages. BASELINE is earliest and avoids that.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "3772a87a24608ad8",
+      "stage0QueueIndex": 21,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus20_case_cdiff_01",
+      "partId": "opus20_case_cdiff_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states the finding the intervention responds to: worsening perianal maceration with partial-thickness skin loss. Baseline supplies the cause and the starting state - six to eight watery stools daily for three days with perianal skin 'intact but erythematous' - so the learner can see moisture-associated skin damage progressing. Choosing gentle cleansing plus a moisture barrier over dry-wipe friction, open-air drying, or an antifungal is wound-care knowledge that needs no stage narrative.",
+      "laterStageLeakCheck": "stage_2 carries the wound measurements the stem already summarises and the Braden moisture subscale drop. stage_3 must not be the boundary: it states outright that 'a moisture barrier cream was applied at Stage 2 and the surrounding maceration is improving' (ZH: '在阶段2应用了防潮隔离霜'), which is keyed option D named as the action taken and shown to have worked. BASELINE is the earliest answerable boundary and the only one that does not disclose the key.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "b6abb951b5915a76",
+      "stage0QueueIndex": 22,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus20_case_cdiff_01",
+      "partId": "opus20_case_cdiff_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem supplies the two values the decision turns on - a current eGFR of 33 mL/min/1.73 m2 against a stated baseline of 42 - and the baseline case summary establishes that metformin 1,000 mg twice daily is her home medication and was held on admission pending evaluation of renal function. Recognising that 30 to 45 mL/min is a caution range, that the value has not returned to her own baseline, and that she is still recovering from acute kidney injury is metformin pharmacology within RN scope. Distractor C is defeated by the same knowledge, since an eGFR below 45 is a caution rather than a permanent contraindication.",
+      "laterStageLeakCheck": "stage_3 contains the provider's request that the stem restates and the same eGFR value; it supplies no additional decision evidence and does not state the recommendation, so it does not leak. stage_1 and stage_2 predate the value entirely. BASELINE is chosen as the earliest boundary at which the part is answerable.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "c9d1fba0eb5fe4bd",
+      "stage0QueueIndex": 23,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus20_case_cdiff_01",
+      "partId": "opus20_case_cdiff_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Every matrix row quotes its own datum and, where a comparison is needed, its own reference: two formed-to-semiformed stools in twelve hours, a WBC falling from 18.2 to 12.4, an eGFR of 33 against a stated baseline of 42, urine output of 50 mL/hour, and a lactate of 1.2. The classification is then a treatment-response judgement - falling stool frequency, falling WBC, restored urine output and a normal lactate indicate improvement, while an eGFR still below the patient's own baseline requires ongoing monitoring - and needs no stage narrative because the rows carry the data.",
+      "laterStageLeakCheck": "stage_3 is the source of these values but the rows restate them, so it supplies nothing needed. It also does not classify any finding as improvement or as requiring monitoring, so it would not directly leak; BASELINE is chosen simply because it is the earliest boundary at which the part is answerable. stage_1 and stage_2 predate the values.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "ca66a61cf072c87a",
+      "stage0QueueIndex": 24,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_warfarin_bridge_01",
+      "partId": "opus_case_warfarin_bridge_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both decisive facts are baseline. The exhibit's laboratory section gives the hospital-day-5 INR of 1.9 (with the 1.0 and 1.6 trend), and the case summary states the facility protocol verbatim: the enoxaparin bridge continues at home 'until the INR is therapeutic (2.0-3.0) on two consecutive measurements at least 24 hours apart', which it explicitly notes is stricter than the standard overlap minimum. An INR of 1.9 is below the range and cannot satisfy a two-consecutive-value rule, so keyed option opt_1_1 follows, and distractor opt_1_4's three-day overlap claim is defeated by the summary's own dates.",
+      "laterStageLeakCheck": "stage_2 must not be the boundary: it states that 'The provider confirms that the INR of 1.9 does not meet the therapeutic threshold and that the enoxaparin bridge must continue at home', which is keyed option opt_1_1 delivered as a provider statement, identically in Chinese. stage_1 only poses the wife's question that the stem already frames. stage_3 is later. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "2a99c7e730312a4f",
+      "stage0QueueIndex": 25,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_warfarin_bridge_01",
+      "partId": "opus_case_warfarin_bridge_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The baseline case summary establishes the ibuprofen use itself - over-the-counter ibuprofen 400 mg as needed, typically three to four times per week, for osteoarthritis - alongside therapeutic enoxaparin every twelve hours and warfarin 5 mg daily. That combination is the entire basis for the keyed action: an NSAID on a discharge list for a patient on dual anticoagulation is a clinically significant interaction, so the nurse holds the reconciliation and asks the provider for an alternative analgesic. The three distractors (continue it, halve the dose, take it with food) all fail on the same pharmacology.",
+      "laterStageLeakCheck": "stage_1 adds that he took two tablets this morning and that ibuprofen appears on the pharmacy reconciliation list; both sharpen the scenario but neither changes which option is correct. stage_2 must not be the boundary: it records that 'The nurse has notified the provider about the ibuprofen... The provider discontinues ibuprofen and writes for acetaminophen 650 mg', which is keyed option opt_2_1 carried out and its result disclosed, in both languages. BASELINE is earliest and avoids that.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "3eb5c0a2ee9e3de6",
+      "stage0QueueIndex": 26,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_warfarin_bridge_01",
+      "partId": "opus_case_warfarin_bridge_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states the observation completely - during the return demonstration the wife prepares to aspirate before injecting the enoxaparin - and the baseline summary establishes that the patient is on enoxaparin 1 mg/kg subcutaneously every twelve hours. Correct subcutaneous enoxaparin technique (pinched abdominal fold, ninety degrees, no aspiration, do not expel the air bubble) is nursing knowledge, so the gentle in-the-moment correction of keyed option opt_3_1 follows without any stage narrative.",
+      "laterStageLeakCheck": "stage_2 is where the demonstration occurs and the stem restates the only detail that matters. stage_3 states that 'The patient has successfully demonstrated subcutaneous injection technique with his wife', which implies the technique was corrected but does not name the correction. Neither stage supplies information the answer needs, so BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "f3d632e242a2a5f9",
+      "stage0QueueIndex": 27,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_warfarin_bridge_01",
+      "partId": "opus_case_warfarin_bridge_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each matrix row is a self-contained bleeding presentation - sudden severe headache with confusion, coffee-ground emesis, new bruising disproportionate to injury, and a small nosebleed that stops with ten minutes of pressure but recurs the same day - and the triage into emergency care versus same-day anticoagulation clinic contact is standard anticoagulation teaching. The one contextual fact needed, that the patient is on dual anticoagulation with warfarin and enoxaparin, is in the baseline case summary.",
+      "laterStageLeakCheck": "stage_2 is where the teaching session occurs but adds no row data. stage_3 states that 'The nurse reviews the signs and symptoms requiring emergency care versus same-day anticoagulation clinic contact', which names the two categories the matrix uses but assigns none of the four rows, so it confirms the framing rather than the answer. No stage supplies information the classification needs; BASELINE is earliest.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "04aa661c7840c96e",
+      "stage0QueueIndex": 28,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_warfarin_bridge_01",
+      "partId": "opus_case_warfarin_bridge_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The keyed response is the warfarin vitamin-K consistency principle, which follows from the baseline summary's establishment that the patient was started on warfarin 5 mg daily with a target INR of 2.0 to 3.0. The stem names the subject (dietary plans regarding vitamin K and green vegetables) and the option set supplies the two competing lay beliefs it must correct - eliminating all leafy greens, and eating spinach and kale to prevent anaemia - so the learner has what is needed to select consistent daily intake over avoidance or loading.",
+      "laterStageLeakCheck": "stage_1 introduces the wife's frozen spinach and kale purchased to 'build his blood back up' and stage_3 introduces her printed 'foods to avoid on warfarin' list; those are the premises of distractors opt_5_3 and opt_5_2 rather than support for the key, and neither stage states the consistency principle. Because the keyed answer is knowledge-based and the options carry the competing beliefs, BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "8a8b83152f1416e2",
+      "stage0QueueIndex": 29,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_warfarin_bridge_01",
+      "partId": "opus_case_warfarin_bridge_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The baseline case summary states that the patient works as a long-haul truck driver, and the baseline laboratory section gives the subtherapeutic INR of 1.9 on the morning of planned discharge while he remains on therapeutic enoxaparin. Those are exactly the facts that make return-to-driving in four days a provider decision: prolonged immobility is a DVT risk factor, he is on dual anticoagulation with an INR not yet in range, and long-haul driving puts him far from emergency care. The stem supplies the question itself, so no stage is required.",
+      "laterStageLeakCheck": "stage_3 is where the patient asks the question the stem restates; it adds a final normal set of vitals and the confirmed clinic appointment, neither of which changes the answer, and it does not state the keyed advice. stage_1 and stage_2 are earlier and unrelated. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "ab969d93bdc3f6db",
+      "stage0QueueIndex": 30,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus22_case_postpartum_intrusive_thoughts_01",
+      "partId": "opus22_case_postpartum_intrusive_thoughts_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "All six matrix rows restate content that is already in the three baseline exhibits. The initial-presentation exhibit carries r1 (she says the thought horrifies her and she would never hurt the baby) and the protective avoidance; the assessment exhibit carries r2 ('identifies the harm thoughts as her own unwanted thoughts, not voices or commands'), r3 ('no disorganized or delusional thinking', oriented x4), r4 (poor sleep, anhedonia, guilt, PHQ-9 18) and r5 (denies suicidal and homicidal ideation, C-SSRS negative) almost word for word. Row r6 is an explicit hypothetical. The classification into ego-dystonic intrusive thoughts with intact reality testing, depression severity, and would-be psychosis cues is therefore fully derivable at baseline.",
+      "laterStageLeakCheck": "stage_1_intake repeats the disclosure and adds an EPDS of 20, two to three fragmented hours of sleep, and her fear that the baby would be taken away; stage_1_family_concern adds the mother's collateral question. None of that supplies a row datum or the classification. stage_2 and stage_3 are later follow-ups whose expanded symptoms and improvement would confuse a Stage 1 classification. No stage states the keyed categories, so BASELINE is chosen as the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "a0fe1b2b6a0943fb",
+      "stage0QueueIndex": 31,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus22_case_postpartum_intrusive_thoughts_01",
+      "partId": "opus22_case_postpartum_intrusive_thoughts_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states the safety-assessment result the responses are conditioned on - no intent to harm, no psychosis, intact ability to care for the infant - and baseline supplies the rest: the disclosure and her horror at the thoughts, her intact reality testing, and the fact that she lives with a partner. Each keyed option is then a therapeutic-communication or documentation judgement (thank and validate the disclosure, explain that intrusive thoughts differ from intent, involve a support person with permission, document the assessment and plan), and the two distractors fail on principle - blanket mother-infant separation is not indicated where the assessment shows no intent or psychosis, and disclosing assessment detail to a family member without the client's permission breaches confidentiality.",
+      "laterStageLeakCheck": "stage_1's family-concern exhibit introduces the visiting mother who asks whether her daughter is dangerous, which is the concrete premise behind distractor E and behind the word 'mother' in keyed option D; keyed option D reads 'her mother or partner', and the partner is established at baseline, so the missing mother does not make D unselectable. Neither stage_1 exhibit states any of the keyed responses. stage_2 and stage_3 are later. BASELINE is earliest and answerable.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "ae621f8f29d258c7",
+      "stage0QueueIndex": 32,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus22_case_postpartum_intrusive_thoughts_01",
+      "partId": "opus22_case_postpartum_intrusive_thoughts_01_q3",
+      "proposedBoundary": "stage_2_follow_up",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "This part is not self-contained: the stem says only 'complete the clinical judgment statement about the symptom trajectory' and the cloze sentence begins 'The Stage 2 findings are most consistent with...', without restating a single Stage 2 finding. The learner cannot judge a trajectory from baseline, which shows only the intake picture of EPDS 19 and PHQ-9 18 with no follow-up point. stage_2_follow_up supplies exactly the evidence both blanks need: partial improvement in sleep and appetite with PHQ-9 down only to 16 and EPDS to 18, intrusive thoughts undiminished and now including the infant choking, checking the infant's breathing every fifteen to twenty minutes all night, avoidance of bathing the infant alone and of leaving the house alone - the inadequate response with emerging obsessive-compulsive features and functional impairment of dropdown 1 - and the client's own question about the dose, which frames dropdown 2.",
+      "laterStageLeakCheck": "stage_2 is required rather than merely confirmatory: it is the only place the follow-up data exist, and it does not state either keyed option. It never characterises the response as inadequate, never names obsessive-compulsive features, and never says the nurse should notify the prescriber; the client simply asks whether the dose should be increased. stage_3 must not be the boundary because it reveals that the dose was raised to 100 mg on day 21 and that the client subsequently improved, which would retrospectively confirm that the Stage 2 response was inadequate and that escalation to the prescriber was right.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "0c01ba9f616c9a07",
+      "stage0QueueIndex": 33,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus22_case_postpartum_intrusive_thoughts_01",
+      "partId": "opus22_case_postpartum_intrusive_thoughts_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem quotes the client's question, and the baseline background exhibit establishes that sertraline 50 mg daily was started by the obstetrician and that she is exclusively breastfeeding. The keyed answer is a scope-of-practice and communication judgement: acknowledge the question, assemble the symptom changes, screening scores and safety findings, and route them to the prescriber for review. The distractors fail on scope or on fact - the nurse cannot direct a dose increase, cannot dismiss the question as outside nursing, and should not advise stopping sertraline merely because the client is breastfeeding, which baseline already establishes.",
+      "laterStageLeakCheck": "stage_2_medication_question is where the client asks, and the stem quotes it. stage_2's symptom data would strengthen the nurse's report but the keyed option describes assembling that data rather than reciting any particular value, so it is not needed to choose. stage_3 must not be the boundary: its header records 'dose 100 mg daily since day 21', disclosing that the dose was in fact increased. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "0be29cb2eb0c1c8b",
+      "stage0QueueIndex": 34,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus22_case_postpartum_intrusive_thoughts_01",
+      "partId": "opus22_case_postpartum_intrusive_thoughts_01_q5",
+      "proposedBoundary": "stage_3_response",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "Keyed option A asserts that 'Your sleep, appetite, functioning, screening scores, and ability to care for the baby show meaningful improvement.' That is a factual claim about the client's state and it is true only from stage_3_response, which records five to six hours of sleep, regular meals, two walks with the infant, EPDS down to 11 and PHQ-9 to 10, bathing the infant alone without significant distress, and no longer avoiding the staircase. At baseline she is at EPDS 19 and PHQ-9 18, and at stage_2 the response is explicitly minimal with PHQ-9 16, expanding intrusive thoughts and new avoidance, so option A would be false at any earlier boundary and could not be keyed correct. stage_3 also supplies the three anticipatory-guidance questions the item answers - duration of treatment, breastfeeding safety, and recurrence risk in a future pregnancy.",
+      "laterStageLeakCheck": "This is not a final-stage default: the binding constraint is option A's claim of meaningful improvement, which no earlier stage supports, and the disposition would move earlier if that improvement appeared earlier. stage_3 does not leak the keyed set - it narrates the improvement and lists the client's three questions but answers none of them, so the learner must still supply the guidance about continuing CBT, prescriber-led medication decisions, sertraline's compatibility with breastfeeding, individualised treatment duration, and recurrence screening, and must still reject the abrupt-discontinuation distractor.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

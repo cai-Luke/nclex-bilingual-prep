@@ -1,0 +1,317 @@
+{
+  "repairPacketId": "repair-025",
+  "bankPath": "banks/hard-cases-canonical.json",
+  "bankSha256": "5d47b79a1e63fe5f852eab7b4ab9b8db6ca7e9ec924037d5e81de8a8bb3ee3d1",
+  "sourcePacketSha256": "1dd286ada75430b510f3db049070cf6331486302dbf1cdfb61729b029aa19cb3",
+  "checker": "Claude Code / Claude Opus 5",
+  "checkerRole": "independent content checker (R4 Stage 2 blind full reconstruction)",
+  "blind": true,
+  "representation": {
+    "BASELINE": "proposedBoundary == {\"kind\":\"baseline\"}",
+    "STAGE": "proposedBoundary == exact declared stage id string",
+    "EXCEPTION": "proposedBoundary == null with exceptionReason",
+    "forbiddenAlternateField": "orStage (never emitted)"
+  },
+  "rowCount": 18,
+  "parentCaseIds": [
+    "opus1_case_discharge_med_rec_anticoag_01",
+    "opus2_case_postop_opioid_respiratory_depression_01",
+    "opus_case_se_01"
+  ],
+  "counts": {
+    "BASELINE": 18,
+    "STAGE": 0,
+    "EXCEPTION": 0,
+    "HIGH": 18
+  },
+  "rows": [
+    {
+      "rowKey": "493d5483657410de",
+      "stage0QueueIndex": 399,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_case_se_01",
+      "partId": "opus_case_se_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The option set carries its own premise, naming the two failed adequate doses of first-line therapy, and baseline supplies the confirming picture: ongoing convulsive activity with a respiratory rate obscured by motor movement, SpO2 88 percent on room air, end-tidal carbon dioxide of 52, a lateral tongue bite, and diaphoresis. Established status epilepticus after failed first-line benzodiazepine therapy is what those facts support, and the postictal, third-lorazepam-dose and medication-error readings are each defeated by the persisting seizure.",
+      "laterStageLeakCheck": "stage_1 carries the second-line therapy that follows from this interpretation; it is not needed to make it. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "d3dbfc0c60e9cf24",
+      "stage0QueueIndex": 400,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_case_se_01",
+      "partId": "opus_case_se_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem scopes the item explicitly to the baseline assessment and laboratory data, so the boundary is set by the stem. Baseline supplies each row's value - a glucose of 142, the hyperthermia, tachycardia and hypertension, the hypoxaemia with hypercapnia - and separating a primary precipitant from the metabolic and autonomic consequences of prolonged convulsion is pathophysiology applied to that surface.",
+      "laterStageLeakCheck": "The later stages carry treatment and its effects; neither contains a baseline finding. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "d247e0b1640d6fc8",
+      "stage0QueueIndex": 401,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_case_se_01",
+      "partId": "opus_case_se_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem names the drug being infused, and the keyed interventions are fosphenytoin administration knowledge - continuous cardiac and blood-pressure monitoring for hypotension and dysrhythmia during infusion, adherence to the maximum infusion rate, site monitoring, and continued airway and oxygenation support. Baseline supplies the single peripheral line, the cardiac monitoring already in place, and the hypoxaemia that makes airway support concurrent.",
+      "laterStageLeakCheck": "stage_1 is where the drug is ordered and started; it states no nursing precautions. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "a181b4aff896bdb0",
+      "stage0QueueIndex": 402,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_case_se_01",
+      "partId": "opus_case_se_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem restates the entire Stage 2 picture - persisting motor seizure activity, SpO2 91 percent, end-tidal carbon dioxide 58, copious secretions and increasing cyanosis - so the competing problems are inside the part. Baseline supplies the starting hypoventilation with an end-tidal of 52 and a saturation of 88 percent, which makes the trajectory clear. Prioritising the airway and ventilation threat is airway-breathing-circulation judgement.",
+      "laterStageLeakCheck": "stage_2 is the source of the values the stem restates; it identifies no priority. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "3fb81f6217154a3c",
+      "stage0QueueIndex": 403,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_case_se_01",
+      "partId": "opus_case_se_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states the finding it asks about - visible motor seizure activity ceased ten minutes after the midazolam infusion began - and the answer is status-epilepticus knowledge: cessation of visible convulsion does not equal electrographic termination, so nonconvulsive status may continue and electroencephalographic monitoring is required. Baseline establishes the established status epilepticus that makes that risk real.",
+      "laterStageLeakCheck": "stage_3 carries the clinical course the stem restates; it does not state the interpretive rule. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "548030ab04397f4d",
+      "stage0QueueIndex": 404,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_case_se_01",
+      "partId": "opus_case_se_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states both findings - 120 mL of urine over the first intensive-care hour and a markedly positive urine myoglobin - and baseline supplies the prolonged convulsive activity that causes rhabdomyolysis. Recognising the need for aggressive fluid resuscitation with monitoring of renal function and creatine kinase, rather than restricting fluid or treating the output as adequate, is knowledge.",
+      "laterStageLeakCheck": "stage_3 is the source of the two findings the stem restates; it states no action. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "7fb5c0cf61087c59",
+      "stage0QueueIndex": 405,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus1_case_discharge_med_rec_anticoag_01",
+      "partId": "opus1_case_discharge_med_rec_anticoag_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The discharge prescription list is itself a baseline global exhibit, so the material the item classifies is baseline-visible: warfarin 5 mg daily together with enoxaparin 40 mg subcutaneously for fourteen days, and metformin listed at 1000 mg twice daily. Each row additionally states its own comparison, including that the verified home list and administration record show metformin 500 mg twice daily. Baseline's history of permanent atrial fibrillation on warfarin with chronic kidney disease stage 3a is what makes the duplicate anticoagulant and the doubled metformin the two items needing clarification, while stable haemoglobin, a clean incision and matching antihypertensive doses do not.",
+      "laterStageLeakCheck": "The declared stages cover the clarification call and the teaching session; neither contains the prescription list, which is already baseline. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "6e24e84cb54a169e",
+      "stage0QueueIndex": 406,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus1_case_discharge_med_rec_anticoag_01",
+      "partId": "opus1_case_discharge_med_rec_anticoag_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The option set names the four candidate first actions, and baseline carries the discrepancies themselves in the discharge prescription exhibit. Holding transmission and clarifying the duplicate anticoagulant and the metformin dose with the prescriber is the answer; transmitting first, deleting a prescriber's order independently, and proceeding to teaching because there is no bleeding yet all fail on medication-safety grounds.",
+      "laterStageLeakCheck": "stage_2_clarification is the clarification call itself, which is the keyed action carried out. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "a76895f245ec09aa",
+      "stage0QueueIndex": 407,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus1_case_discharge_med_rec_anticoag_01",
+      "partId": "opus1_case_discharge_med_rec_anticoag_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states the prescriber's response in full - uncertainty about the metformin change and that enoxaparin was not meant to continue - and baseline supplies the governing facts: warfarin for permanent atrial fibrillation, stage 3a chronic kidney disease relevant to metformin dosing, and the printed list containing both. The keyed actions follow as verification, pharmacist involvement, documentation and obtaining corrected orders before teaching.",
+      "laterStageLeakCheck": "stage_2_clarification is where the exchange occurs, and the stem restates it; the stage states no nursing action set. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "5f55daa9ed911fbb",
+      "stage0QueueIndex": 408,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus1_case_discharge_med_rec_anticoag_01",
+      "partId": "opus1_case_discharge_med_rec_anticoag_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states the premise, that the pharmacist has verified the errors and corrected orders are entered, and the option set names the five actions. Sequencing verification of the corrected list against the record, reconciliation with the client and family, teaching with teach-back, provision of the corrected written list, and documentation is discharge-process logic anchored in the baseline prescription list.",
+      "laterStageLeakCheck": "stage_3_teaching narrates the teaching session; it states no sequence. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "05b4155c59675831",
+      "stage0QueueIndex": 409,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus1_case_discharge_med_rec_anticoag_01",
+      "partId": "opus1_case_discharge_med_rec_anticoag_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states the daughter's question, and baseline supplies both drugs on the same list - warfarin 5 mg daily and enoxaparin 40 mg subcutaneously - together with permanent atrial fibrillation as the warfarin indication. The teaching follows: the injections were temporary inpatient bridging while warfarin was re-established, the client follows the corrected list without adding injections unless specifically prescribed and verified, and seeks urgent help for bleeding signs. The distractors are defeated by the same baseline facts.",
+      "laterStageLeakCheck": "stage_3_teaching is where the question is asked, and the stem restates it; the stage states no teaching content. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "66c60aabb74f4529",
+      "stage0QueueIndex": 410,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus1_case_discharge_med_rec_anticoag_01",
+      "partId": "opus1_case_discharge_med_rec_anticoag_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The option set carries the candidate documentation entries, and the standard is scope and factual accuracy: record the identified discrepancies, the prescriber and pharmacist communication, the corrected orders and the teaching provided, without characterising blame or recording an incident report in the chart. Baseline supplies the discrepancies that the documentation must reflect.",
+      "laterStageLeakCheck": "The later stages narrate the clarification and teaching that the documentation records. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "a7a705c773d6bd28",
+      "stage0QueueIndex": 411,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus2_case_postop_opioid_respiratory_depression_01",
+      "partId": "opus2_case_postop_opioid_respiratory_depression_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each row states its own cue - a sedation score of 3 with eyes opening only to loud voice and firm touch, a respiratory rate of 8 and shallow with SpO2 89 percent, constricted but reactive 2 mm pupils, and a dry dressing with unchanged drain output - so the material is inside the part. Baseline supplies the interpretive frame: obstructive sleep apnoea with home CPAP, a body mass index of 38, and a 0715 handoff recording an awake, conversational, oriented client. Sorting the opioid-toxidrome cues from the finding that argues against bleeding is knowledge.",
+      "laterStageLeakCheck": "stage_0830 is the source of the cue values, which the rows restate, and it classifies none of them. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "14d012dcbe732e81",
+      "stage0QueueIndex": 412,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus2_case_postop_opioid_respiratory_depression_01",
+      "partId": "opus2_case_postop_opioid_respiratory_depression_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The option set names the six candidate actions, and baseline supplies the risk profile - sleep apnoea, obesity and postoperative opioid therapy - that makes the keyed set correct: hold further opioid, stimulate and assess arousability, reposition to support the airway, and apply oxygen with continued monitoring. Giving another morphine dose and documenting the client as sleeping both fail on that same profile.",
+      "laterStageLeakCheck": "stage_0830 is where the deterioration is found, which the options describe; it states no action set. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "571db6cc5f87dc07",
+      "stage0QueueIndex": 413,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus2_case_postop_opioid_respiratory_depression_01",
+      "partId": "opus2_case_postop_opioid_respiratory_depression_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem restates the entire 0838 picture - minimally responsive with a respiratory rate of 7, snoring respirations, apnoeic pauses and SpO2 91 percent despite stimulation, repositioning and 2 L of oxygen - so the failure of the first-line measures is inside the part. Escalating to the reversal agent with provider notification is the priority once stimulation and oxygen have not restored ventilation.",
+      "laterStageLeakCheck": "stage_0838 is the source of the findings the stem restates; it states no action. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "dae0a573b8b9ca7f",
+      "stage0QueueIndex": 414,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus2_case_postop_opioid_respiratory_depression_01",
+      "partId": "opus2_case_postop_opioid_respiratory_depression_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "All three blanks are naloxone knowledge in a postoperative context: the intravenous route, small repeated doses rather than a full vial as a bolus, and titration to improved ventilation and arousability while limiting abrupt loss of analgesia. Baseline supplies the postoperative pain context that makes the analgesia-sparing titration the point.",
+      "laterStageLeakCheck": "The later stages narrate the naloxone being given and its effect; neither states the route, dosing approach or titration endpoint. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "0e362fad56f8d45a",
+      "stage0QueueIndex": 415,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus2_case_postop_opioid_respiratory_depression_01",
+      "partId": "opus2_case_postop_opioid_respiratory_depression_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem restates the 0855 state - awake enough to follow commands after two small intravenous naloxone doses, with incisional pain 7/10 - and baseline supplies what makes the priority resedation rather than pain alone: naloxone's short duration against a longer-acting opioid, in a client with obstructive sleep apnoea and a body mass index of 38. Continued close sedation and respiratory monitoring for recurrence is the concern for the next period of care.",
+      "laterStageLeakCheck": "stage_0855 is the source of the status the stem restates; it identifies no priority. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "6bf3a50f589c39d7",
+      "stage0QueueIndex": 416,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus2_case_postop_opioid_respiratory_depression_01",
+      "partId": "opus2_case_postop_opioid_respiratory_depression_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Every option states its own handoff point, and the two that need case grounding are grounded at baseline: obstructive sleep apnoea with a CPAP machine brought to hospital but not in use during postoperative sleep, and a body mass index of 38. The third keyed item states its own morphine-dosing history, and the recommendation for multimodal analgesia with continued monitoring is knowledge. The distractors - blaming the antihypertensive and the proton-pump inhibitor, and restarting morphine because pain persists - are defeated by the same baseline profile.",
+      "laterStageLeakCheck": "The later stages narrate the event and the recovery that the handoff summarises; none states the handoff content. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

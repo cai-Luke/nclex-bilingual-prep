@@ -1,0 +1,115 @@
+{
+  "repairPacketId": "repair-004",
+  "bankPath": "banks/claude-canonical.json",
+  "bankSha256": "25f53ded1ac21da4ca9d211040c3f6110ebee38d72ba41d0fc64fe358ba73b71",
+  "sourcePacketSha256": "78ae27f622f0faf428f1f81d307fa49ce2620d697465a80172154ffb689a7770",
+  "checker": "Claude Code / Claude Opus 5",
+  "checkerRole": "independent content checker (R4 Stage 2 blind full reconstruction)",
+  "blind": true,
+  "representation": {
+    "BASELINE": "proposedBoundary == {\"kind\":\"baseline\"}",
+    "STAGE": "proposedBoundary == exact declared stage id string",
+    "EXCEPTION": "proposedBoundary == null with exceptionReason",
+    "forbiddenAlternateField": "orStage (never emitted)"
+  },
+  "rowCount": 6,
+  "parentCaseIds": [
+    "opus_case_lithium_toxicity_01"
+  ],
+  "counts": {
+    "BASELINE": 2,
+    "STAGE": 4,
+    "EXCEPTION": 0,
+    "HIGH": 5
+  },
+  "rows": [
+    {
+      "rowKey": "069feba96b2b8325",
+      "stage0QueueIndex": 53,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_lithium_toxicity_01",
+      "partId": "opus_case_lithium_toxicity_q1",
+      "proposedBoundary": "stage_1",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "Keyed answer A turns on the patient actually being on a thiazide. The baseline surface (case title, parent stem, and the single global exhibit 'Admission Assessment & Labs (0800)') carries assessment findings and labs only and contains no home-medication history: hydrochlorothiazide is never named. The case first establishes it in stage_1's order set ('discontinue lithium, discontinue HCTZ, hold metformin') and the daughter's 'is this from the new blood pressure pill? She was fine two weeks ago'. Without that premise, distractor B (dehydration from poor intake and vomiting alone, explicitly denying a medication interaction) is fully consistent with the baseline picture of a week of GI symptoms, 68->64 kg weight loss, dry tacky mucosa, three-second tenting, thready pulses and 0.3 mL/kg/hr urine output, so A and B are not separable at baseline from case evidence. stage_1 is the earliest boundary that supplies the missing decisive fact.",
+      "laterStageLeakCheck": "stage_2 and stage_3 are not required: they add the 1200 repeat labs, dialysis and recovery, none of which bear on the precipitating mechanism. stage_1 itself does not leak the key: it establishes that HCTZ is on board and newly started but states no mechanism, so the A-versus-D discrimination (proximal tubular sodium/lithium reabsorption versus increased GI absorption) still rests on the learner's pharmacology. Counter-argument recorded for the MEDIUM rating: the stem scopes itself 'Based on the admission data', and options A, B and D each presuppose a thiazide, so a reader could hold the thiazide's presence to be established by the part itself, which is baseline-visible; that reading yields BASELINE. The two readings are genuinely balanced, so confidence is not HIGH.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "MEDIUM",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "e16efeb234f31534",
+      "stage0QueueIndex": 54,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_lithium_toxicity_01",
+      "partId": "opus_case_lithium_toxicity_q2",
+      "proposedBoundary": "stage_1",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The part situates itself 'At 0930 (Stage 1)' and its stem gives only a qualitative paraphrase - 'vomits', 'declining neurological status', 'hemodynamic instability'. The particulars that make option A decisive live only in stage_1's exhibit: 150 mL of bilious emesis, the fall to eye-opening only on loud verbal stimulation with inappropriate verbal responses, HR 112 and BP 94/58. Option D ('increase the rate of the continuous normal saline infusion') presupposes a running NS infusion, which the case establishes only in the stage_1 order set; at baseline no infusion exists, so D cannot be weighed as written. stage_1 is therefore the earliest boundary at which the aspiration-risk-versus-perfusion judgement is made on case evidence.",
+      "laterStageLeakCheck": "stage_2 (1200 labs, myoclonus, nephrology consult, dialysis decision) and stage_3 (dialysis, recovery) are later than the 0930 decision point and neither supply nor alter the airway priority; including them would only reveal the dialysis course that parts q3 and q5 examine. stage_1 does not state or imply the keyed action - it narrates the nurse's response after the fact but the stem asks what is highest priority, and stage_1 supplies the cues rather than ranking them.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "117e92a832582184",
+      "stage0QueueIndex": 55,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_lithium_toxicity_01",
+      "partId": "opus_case_lithium_toxicity_q3",
+      "proposedBoundary": "stage_2",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "Keyed answer A requires the conjunction of decreased level of consciousness, progressive neurotoxicity, and impaired renal clearance persisting despite IV hydration. The 'despite IV hydration' element exists only at stage_2: lithium 2.6 mEq/L after aggressive fluids (a 0.2 mEq/L fall from 2.8), eGFR 30, urine output 0.5 mL/kg/hr, plus the new intermittent myoclonic jerks and facial fasciculations that establish progression. The competing distractors are drawn from that same stage_2 data set (B cites the 2.6 level, C cites eGFR 30, D cites the 0.5 mL/kg/hr output), so the discrimination itself is stage_2-dependent. stage_2 is inclusive of stage_1, which supplies the obtundation, so no earlier boundary suffices.",
+      "laterStageLeakCheck": "stage_3 is not required and must not be included: it reports that dialysis was performed and worked (lithium 1.1, neurological recovery), which would confirm the indication retrospectively rather than supply the decision evidence, and would also expose the rebound data that part q5 tests. stage_2 states the nephrologist's recommendation and its stated grounds are the persistently elevated level, worsening neurotoxicity and impaired clearance; that is the cue set the item asks the learner to recognise, not a statement of which option is keyed.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "6a1c2b0d2f2252a6",
+      "stage0QueueIndex": 56,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_lithium_toxicity_01",
+      "partId": "opus_case_lithium_toxicity_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem restates the entire order on which the answer turns - potassium chloride 20 mEq IV in 100 mL NS over one hour, peripheral line, infusion pump - so every parameter option A depends on ('the ordered concentration and rate exceed usual peripheral limits') is inside the part itself. The remaining premise, that the patient is hypokalaemic and renally impaired so that a potassium order is plausible at all, is baseline-visible in the 0800 exhibit (potassium 3.1 mEq/L, creatinine 1.9 from a 0.9 baseline, eGFR 28). Rejecting the distractors is knowledge-based: option B's 'infusion pump plus cardiac monitoring' claim is restated inside option B, option C's gravity-drip proposal and option D's calcium-level proposal need no case data. No declared stage supplies information needed to answer, so under R4 no stage is a legitimate boundary and BASELINE is the earliest legal answer.",
+      "laterStageLeakCheck": "stage_2 contains the same order verbatim and adds only the 1200 labs and the dialysis plan; it confirms the order exists but supplies nothing the stem does not already state, so it is not a legitimate boundary under the rule that a stage must supply information needed to answer. stage_3 is later still and irrelevant. Recorded qualifier: the stem opens 'At Stage 2', so at a baseline boundary that phrase is a dangling narrative reference; this is a coherence wart rather than an answerability barrier, and R4 forbids inferring the boundary from a stage mention or position, so it does not move the disposition.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "3b022fee319f25a3",
+      "stage0QueueIndex": 57,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_lithium_toxicity_01",
+      "partId": "opus_case_lithium_toxicity_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem is self-sufficient: it states that dialysis occurred, gives the immediate post-dialysis level of 1.1 mEq/L and the 0200 level of 1.3 mEq/L, which is the entire data set option A interprets. Baseline supplies the admission level of 2.8 mEq/L, so the learner can also see that dialysis worked and reject option B ('ineffective, restart immediately') without any stage. Options C and D fail on knowledge alone. No declared stage supplies information needed to answer.",
+      "laterStageLeakCheck": "stage_3 must not be the boundary because it leaks the key: its narrative states that the 0200 level was drawn 'per the nephrologist's order to check for rebound', and the Chinese text does the same ('重新抽血检查锂浓度以检查反弹'), while keyed option A is precisely 'expected post-dialysis lithium rebound'. Anchoring at stage_3 would hand the learner the answer word for word in both languages. stage_1 and stage_2 predate dialysis entirely and supply nothing. BASELINE is both the earliest answerable boundary and the only one that does not leak.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "57172a88716b42d8",
+      "stage0QueueIndex": 58,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_lithium_toxicity_01",
+      "partId": "opus_case_lithium_toxicity_q6",
+      "proposedBoundary": "stage_3",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "Keyed option A asserts 'The improvement in her alertness is a positive sign'. That improvement is a case fact that exists only at stage_3, where the patient opens her eyes spontaneously, follows commands and speaks in full sentences. Through stage_1 she becomes more lethargic and through stage_2 she 'remains obtunded' with new myoclonus, so at any earlier boundary option A would be factually false and could not be keyed correct. Keyed option B ('caused by a specific drug interaction and dehydration') additionally needs the HCTZ interaction established in stage_1. The daughter's guilt and her 'permanent brain damage' question are stage_2; her question about stopping lithium permanently is stage_1. stage_3 is inclusive of all of these and is the earliest boundary at which every keyed option is defensible.",
+      "laterStageLeakCheck": "stage_3 is the final stage, but this is a specific information dependency rather than a final-stage default: the binding constraint is option A's claim of improved alertness, which no earlier stage supports, and the disposition would change if that improvement appeared earlier. stage_3 does not leak the key - it narrates the clinical improvement and ends with the patient's own question about resuming lithium, but it does not state which nursing responses are appropriate, and the distractors (false reassurance of complete recovery, telling the family she may never take lithium again, deflecting from the guilt) remain to be rejected on therapeutic-communication knowledge.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

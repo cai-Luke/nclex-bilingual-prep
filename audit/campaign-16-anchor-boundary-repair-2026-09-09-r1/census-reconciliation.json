@@ -1,0 +1,148 @@
+{
+  "status": "PASS_EXECUTOR_DETERMINISTIC_RECONCILIATION",
+  "rule": "R4 H.3",
+  "openingCheckExitCode": 1,
+  "regenerateExitCode": 0,
+  "schemaMovementByBank": [
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "openingSha256": "25f53ded1ac21da4ca9d211040c3f6110ebee38d72ba41d0fc64fe358ba73b71",
+      "before": "2.0",
+      "after": "2.1",
+      "bumpAuthorized": true,
+      "acceptedBaseline": 46,
+      "acceptedStage": 5,
+      "exceptions": 7
+    },
+    {
+      "bankPath": "banks/gemini-canonical.json",
+      "openingSha256": "3dc416a4652f5f5712219dde7de87b92f0697fac953750b8abb8fc0dbb976bb6",
+      "before": "2.0",
+      "after": "2.1",
+      "bumpAuthorized": true,
+      "acceptedBaseline": 38,
+      "acceptedStage": 2,
+      "exceptions": 6
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "openingSha256": "d7d228afc282bd15bc730be4ca5b3d2c7c14c017bbc14f3d12a7cbccbfef0f20",
+      "before": "2.0",
+      "after": "2.1",
+      "bumpAuthorized": true,
+      "acceptedBaseline": 201,
+      "acceptedStage": 7,
+      "exceptions": 35
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "openingSha256": "5d47b79a1e63fe5f852eab7b4ab9b8db6ca7e9ec924037d5e81de8a8bb3ee3d1",
+      "before": "1.8",
+      "after": "2.1",
+      "bumpAuthorized": true,
+      "acceptedBaseline": 84,
+      "acceptedStage": 2,
+      "exceptions": 18
+    }
+  ],
+  "compositionBefore": {
+    "1.2": {
+      "questions": 77,
+      "files": [
+        "burn-canonical.json",
+        "capnography-canonical.json",
+        "device-canonical.json",
+        "io-canonical.json",
+        "lab-canonical.json",
+        "mar-canonical.json",
+        "medlabel-canonical.json",
+        "vitals-canonical.json"
+      ]
+    },
+    "2.0": {
+      "questions": 1800,
+      "files": [
+        "claude-canonical.json",
+        "gemini-canonical.json",
+        "gpt-canonical.json",
+        "visual-canonical.json"
+      ]
+    },
+    "1.8": {
+      "questions": 66,
+      "files": [
+        "hard-cases-canonical.json"
+      ]
+    }
+  },
+  "compositionAfter": {
+    "1.2": {
+      "questions": 77,
+      "files": [
+        "burn-canonical.json",
+        "capnography-canonical.json",
+        "device-canonical.json",
+        "io-canonical.json",
+        "lab-canonical.json",
+        "mar-canonical.json",
+        "medlabel-canonical.json",
+        "vitals-canonical.json"
+      ]
+    },
+    "2.1": {
+      "questions": 1809,
+      "files": [
+        "claude-canonical.json",
+        "gemini-canonical.json",
+        "gpt-canonical.json",
+        "hard-cases-canonical.json"
+      ]
+    },
+    "2.0": {
+      "questions": 57,
+      "files": [
+        "visual-canonical.json"
+      ]
+    }
+  },
+  "fullJsonEqualToOpeningPlusOnlyApprovedVersionCompositionAndGeneratorMetadata": true,
+  "fullMarkdownEqualToExpectedTransform": true,
+  "generatorMetadataMovement": {
+    "generatedAt": {
+      "before": "2026-08-28T00:26:17.959Z",
+      "after": "2026-09-11T02:23:19.764Z"
+    },
+    "inputGitSha": {
+      "before": "3286024bcab90c1a114811a7202d956c3e586bf4",
+      "after": "a639b5fe7f6816e68228d7dc13d068c0c0f69e91"
+    }
+  },
+  "questionAndContentCountDrift": false,
+  "unchangedTotals": {
+    "total": 1943,
+    "standalone": 1798,
+    "caseContainers": 145,
+    "embeddedParts": 731,
+    "inventoryRecords": 2674
+  },
+  "scoredLeavesAndVisualArtifactsEntireObjectsUnchanged": true,
+  "artifacts": {
+    "census.json": {
+      "openingSha256": "0a596c1dca3527599133ea905881ce9044e6998adab46f1f15fee5a722e676ed",
+      "finalSha256": "84d4ed5d653ea7c92c6b1c6d39955bc2aac516180b16bc28fe95df64f82ebec2"
+    },
+    "BANK-CENSUS.md": {
+      "openingSha256": "2ce7646b53f8828ed9750bacc4e8a1436d6bc42120335d97fbe7ea1fb2345026",
+      "finalSha256": "e428f6529ac92484eb3d898c20262798e1f4b1dbf5ce23735302b7bdf466cf5b"
+    }
+  },
+  "reviewedDiffSha256": "1b62e452cc4328a93aeec46de31d5d2a34ab5a6f1915d7d95139926df5c31f6c",
+  "producerIndependentCheckerConfirmation": {
+    "status": "PENDING_BEFORE_ACCEPTANCE",
+    "requiredSeat": "Claude Code / Claude Opus 5",
+    "scope": "Confirm reviewed schema-version composition matches the accepted repair; executor reconciliation does not claim this independent confirmation."
+  },
+  "publication": "No Git mutation; generated artifacts prepared for later authorized publication.",
+  "finalCheckExitCode": 0,
+  "finalCheckLogSha256": "7aefd695a30ed738aec94c573a165f672a53af5964dc07e0b41780917cccbb67"
+}

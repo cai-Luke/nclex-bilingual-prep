@@ -1,0 +1,220 @@
+{
+  "repairPacketId": "repair-021",
+  "bankPath": "banks/gpt-canonical.json",
+  "bankSha256": "d7d228afc282bd15bc730be4ca5b3d2c7c14c017bbc14f3d12a7cbccbfef0f20",
+  "sourcePacketSha256": "44efc8efb6248bf036bc9968370a7a25c011aaa5079b6218010e95350e55f644",
+  "checker": "Claude Code / Claude Opus 5",
+  "checkerRole": "independent content checker (R4 Stage 2 blind full reconstruction)",
+  "blind": true,
+  "representation": {
+    "BASELINE": "proposedBoundary == {\"kind\":\"baseline\"}",
+    "STAGE": "proposedBoundary == exact declared stage id string",
+    "EXCEPTION": "proposedBoundary == null with exceptionReason",
+    "forbiddenAlternateField": "orStage (never emitted)"
+  },
+  "rowCount": 12,
+  "parentCaseIds": [
+    "gpt_case_opioid_recovery_relapse_risk_01",
+    "gpt_case_pressure_injury_prevention_mobility_01"
+  ],
+  "counts": {
+    "BASELINE": 12,
+    "STAGE": 0,
+    "EXCEPTION": 0,
+    "HIGH": 12
+  },
+  "rows": [
+    {
+      "rowKey": "4266c1cf77177067",
+      "stage0QueueIndex": 336,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+      "partId": "gpt_case_opioid_recovery_relapse_risk_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each segment quotes its own finding or statement, so the material to be sorted is inside the part, and baseline supplies the risk frame that makes the sorting possible: opioid use disorder in recovery about five months on buprenorphine/naloxone with weekly counselling, two prior relapses including a naloxone-reversed overdose eight months ago, and named supports in a sponsor, girlfriend and mother. Against that, passive hopelessness, exhaustion with feeling one bad day from using, tearful distress, and not contacting supports are relapse-risk cues, while improving pain and vital signs and a clean drug screen are not.",
+      "laterStageLeakCheck": "stage_1 is the source of the quoted statements and values, which the segments restate, and it classifies none of them. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "dcf2dbbe0f27ca65",
+      "stage0QueueIndex": 337,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+      "partId": "gpt_case_opioid_recovery_relapse_risk_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline carries the entire converging picture: a client in early recovery with two prior relapses and an overdose history, severe pain from an acute fracture, an explicit fear that opioid exposure will undo his recovery, and a held buprenorphine dose with no full agonist ordered. Baseline also rules out the competing readings directly, since the assessment records no diaphoresis, tremor, piloerection, rhinorrhoea, yawning, vomiting or gastrointestinal distress, which excludes active withdrawal, and a negative illicit drug screen with a normal alcohol level. Acute relapse risk from converging pain, fear, shame and self-isolation is what remains.",
+      "laterStageLeakCheck": "stage_1 supplies the statements that make the isolation and hopelessness explicit; it names no interpretation. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "18d46f73fa754220",
+      "stage0QueueIndex": 338,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+      "partId": "gpt_case_opioid_recovery_relapse_risk_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The option set carries its own scenario, naming the partner's hallway question, the unaddressed buprenorphine plan, the discharge teaching task and the drug screen, so the competing priorities are inside the part. Baseline supplies the overdose history and the recovery supports that make escalating hopelessness with isolation the priority over a concrete discharge task, a confidentiality-sensitive hallway conversation, or a repeat screen.",
+      "laterStageLeakCheck": "stage_2 is where the partner's question and the emotional escalation occur, and the options restate them; the stage identifies no priority. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "b02619cc0abe50fd",
+      "stage0QueueIndex": 339,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+      "partId": "gpt_case_opioid_recovery_relapse_risk_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem quotes the client's statement in full, and baseline supplies the context the responses must respect - stigma-sensitive early recovery, a sponsor and partner he is avoiding, and a medication-assisted treatment programme. The keyed responses are therapeutic-communication and safety practice: acknowledge the stigma without minimising it, explore the statement and reassess safety, reconnect him with his supports, and reinforce that treatment-supported recovery is legitimate.",
+      "laterStageLeakCheck": "stage_2 is where the statement occurs and the stem quotes it; the stage states no response. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "73a1a25cd88535fd",
+      "stage0QueueIndex": 340,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+      "partId": "gpt_case_opioid_recovery_relapse_risk_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline supplies each element the teaching rests on: buprenorphine/naloxone through a medication-assisted treatment programme with a prescriber to coordinate with, a held dose with the pain plan still to be settled, a prior naloxone-reversed overdose, a partner already trained in naloxone with a kit at home, and a sponsor and counselling group. The keyed discharge actions - coordinating the resumed medication plan with the prescriber, multimodal non-opioid analgesia with explicit limits if any opioid is used, naloxone availability and refresher teaching, reconnecting supports, and follow-up with warning signs - follow directly.",
+      "laterStageLeakCheck": "stage_3 narrates the discharge plan being assembled; it does not state the teaching set. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "e87b4b5028c4ae2a",
+      "stage0QueueIndex": 341,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+      "partId": "gpt_case_opioid_recovery_relapse_risk_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each row states its own discharge finding, and baseline supplies the standard they are judged against: an established medication-assisted treatment relationship, a naloxone-trained partner with a kit, named recovery supports, and a documented overdose history that sets the bar for what must be in place before discharge. Sorting findings that support discharge on the current plan from those requiring escalation is judgement rather than lookup.",
+      "laterStageLeakCheck": "stage_3 is the source of the findings, which the rows restate, and it classifies none of them. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "def921ec23551752",
+      "stage0QueueIndex": 342,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+      "partId": "gpt_case_pressure_injury_prevention_mobility_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem scopes the item to baseline and Stage 1 together, and each segment states its own finding. Baseline supplies the majority directly - the 2 by 3 cm non-blanchable coccygeal erythema warm to touch, the moist perineum with gluteal-fold erythema, pain 7/10 at rest with fear of moving, the roughly seven-pound loss with poor intake, dry mucous membranes and a declined tray, albumin 2.8 with prealbumin 14, right foot and ankle oedema with intact perfusion, hypoactive bowel sounds, a normal temperature, and the Braden score of 14. The remaining segments state their own content. Separating findings needing attention from expected postoperative ones is judgement.",
+      "laterStageLeakCheck": "stage_1 is the source of the post-repositioning findings that a few segments restate, and it classifies none of them. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "e04640c8bdb4438f",
+      "stage0QueueIndex": 343,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+      "partId": "gpt_case_pressure_injury_prevention_mobility_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline assembles the whole risk cluster in one place: a Braden score of 14 in a frail 82-year-old after hip hemiarthroplasty, non-blanchable coccygeal erythema already present, moisture with gluteal-fold erythema, pain-limited and precaution-limited mobility, and malnutrition evidenced by recent weight loss with albumin 2.8 and prealbumin 14. Synthesising pressure, moisture, mobility and nutrition into a single multifactorial risk picture follows from that surface.",
+      "laterStageLeakCheck": "stage_1 adds the post-repositioning and sedation findings; it states no synthesis. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "0eb41edc4fe6849b",
+      "stage0QueueIndex": 344,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+      "partId": "gpt_case_pressure_injury_prevention_mobility_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The option set carries the competing needs, and baseline supplies the opioid context - hydromorphone given in the postanaesthesia unit ninety minutes earlier in a drowsy but arousable 82-year-old on 2 L oxygen with a saturation of 95 percent. Ranking respiratory and sedation safety above skin, nutrition and mobility tasks when sedation deepens is airway-breathing prioritisation.",
+      "laterStageLeakCheck": "stage_2 is where the deterioration occurs and the options restate it; the stage identifies no priority. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "375aacb3f6469581",
+      "stage0QueueIndex": 345,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+      "partId": "gpt_case_pressure_injury_prevention_mobility_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline supplies every element the integrated plan addresses: posterior hip precautions and a planned physiotherapy evaluation, sequential compression devices and enoxaparin, incentive spirometry, the Foley removal bundle, the coccygeal erythema with perineal moisture, the Braden score, and the nutrition markers with refused intake. Building repositioning with pressure redistribution, moisture management, analgesia timed to enable mobility, nutrition support, and respiratory and mobility measures around those orders is care planning rather than lookup.",
+      "laterStageLeakCheck": "stage_2 narrates interventions being started; it states no plan. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "2e075b7d68f40f7b",
+      "stage0QueueIndex": 346,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+      "partId": "gpt_case_pressure_injury_prevention_mobility_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states the new finding itself, non-blanchable heel redness, and baseline records that the heels were intact at admission, which is what makes it new, alongside the Braden score and the immobility that explain it. Offloading the heels, documenting and staging the finding with measurement, adjusting the repositioning and support-surface plan, notifying the provider or wound resource, and reinforcing nutrition all follow from pressure-injury practice.",
+      "laterStageLeakCheck": "stage_3 is where the heel finding appears, and the stem restates it; the stage prescribes no action. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "c6e021cbe4a86e6a",
+      "stage0QueueIndex": 347,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+      "partId": "gpt_case_pressure_injury_prevention_mobility_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each row states its own outcome, and baseline supplies the starting points that make each judgement possible - intact heels, the coccygeal erythema, the Braden score, the nutrition markers, and the pain and mobility limits. Sorting outcomes that show the plan working from those requiring a change, and from parallel findings that do not bear on the pressure-injury plan, is evaluation.",
+      "laterStageLeakCheck": "stage_3 is the source of the outcome data, which the rows restate, and it classifies none of them. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

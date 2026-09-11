@@ -1,0 +1,285 @@
+{
+  "repairPacketId": "repair-002",
+  "producer": "Codex / GPT-6 Astra",
+  "producingAgent": "/root/producer_001_009",
+  "role": "PRODUCER_SEMANTIC_RECONSTRUCTION",
+  "independentReview": false,
+  "sourcePacketSha256": "ffbf8677331758f3ceaf7ecfd15fbf0af492e3ea279a38c7906d305bda7cfc68",
+  "workOrderSha256": "8cd476c23f2b6cadb07ae8115fd675fbbfc3f60acb46d7a521d5d1da30b2558b",
+  "parentCaseIds": [
+    "opus20_case_cdiff_01",
+    "opus_case_warfarin_bridge_01",
+    "opus22_case_postpartum_intrusive_thoughts_01"
+  ],
+  "method": "Whole parent examined; each affected part independently evaluated at baseline and successive declared boundaries in English and Simplified Chinese. No Phase E leak verdict or calibration answer key used.",
+  "rows": [
+    {
+      "rowKey": "b9f71a35f2963bb9",
+      "stage0QueueIndex": 18,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus20_case_cdiff_01",
+      "partId": "opus20_case_cdiff_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Global admission data already show profuse diarrhea, poor intake, 4 kg loss, dry mucosa, hypotension/tachycardia and creatinine 2.1 versus baseline 1.4. Those bilingual cues establish volume depletion with renal injury before the update despite the Stage 1 wording.",
+      "laterStageLeakCheck": "stage_1 adds ongoing losses and positive PCR, confirming the mechanism already supported by the global assessment. Later improvement does not select the initial physiological threat.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "faf6edfda1e6d1d4",
+      "stage0QueueIndex": 19,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus20_case_cdiff_01",
+      "partId": "opus20_case_cdiff_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The global summary orders contact precautions for suspected C. difficile, and both stems explicitly describe each visitor PPE breach. Those facts suffice for the immediate corrective response with zero updates.",
+      "laterStageLeakCheck": "stage_1 duplicates the visitor behavior and confirms PCR; precautions were already ordered for suspicion, so that confirmation is not required.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "710cb29c2c8f10a0",
+      "stage0QueueIndex": 20,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus20_case_cdiff_01",
+      "partId": "opus20_case_cdiff_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both stems quote the sanitizer and sitting-in-chair questions. Global suspected C. difficile and contact-precaution orders establish the teaching context; no missing staged observation determines the response.",
+      "laterStageLeakCheck": "stage_2 restates the questions and stage_3 successful demonstration validates teaching afterward. Neither is a prerequisite for teaching the current precautions.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "3772a87a24608ad8",
+      "stage0QueueIndex": 21,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus20_case_cdiff_01",
+      "partId": "opus20_case_cdiff_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part explicitly supplies worsening perianal maceration and partial-thickness loss in both languages; global frequent watery stools supplies the exposure. The skin-protection intervention is answerable without an update.",
+      "laterStageLeakCheck": "stage_2 repeats skin loss, and stage_3 reports barrier cream with improvement. The later treatment result must not supply the chosen intervention.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "b6abb951b5915a76",
+      "stage0QueueIndex": 22,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus20_case_cdiff_01",
+      "partId": "opus20_case_cdiff_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The question supplies current eGFR 33 and baseline 42; global data supplies the acute diarrheal illness, earlier eGFR 24 and held home metformin. Both languages thus support the proposed cautious prescriber discussion before updates.",
+      "laterStageLeakCheck": "stage_3 duplicates the current renal value and asks about restart. It is not needed to interpret the renal recovery explicitly provided in the prompt.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "c9d1fba0eb5fe4bd",
+      "stage0QueueIndex": 23,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus20_case_cdiff_01",
+      "partId": "opus20_case_cdiff_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each matrix row provides its own current result or trend: stool consistency/frequency, WBC decline, eGFR versus baseline, urine output and lactate. Global diarrhea, WBC 18.2, eGFR 24 and lactate 2.4 provide the opening comparison in English and Chinese.",
+      "laterStageLeakCheck": "stage_3 repeats all of these supplied outcomes. No additional stage-only measurement is necessary to classify the five explicit findings.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "ca66a61cf072c87a",
+      "stage0QueueIndex": 24,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_warfarin_bridge_01",
+      "partId": "opus_case_warfarin_bridge_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The global summary states the facility requirement for two therapeutic measurements and the global day-5 lab gives INR 1.9. Both languages establish the comparison needed to continue bridging before any update.",
+      "laterStageLeakCheck": "stage_1 repeats INR 1.9 and stage_2 has the provider confirm the answer; neither adds a prerequisite beyond the visible protocol and result.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "2a99c7e730312a4f",
+      "stage0QueueIndex": 25,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_warfarin_bridge_01",
+      "partId": "opus_case_warfarin_bridge_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Global history explicitly includes regular OTC ibuprofen while current enoxaparin and warfarin are being prepared for discharge. Both stems identify the reconciliation question, so the interacting home analgesic already supports holding reconciliation for prescriber clarification.",
+      "laterStageLeakCheck": "stage_1 adds the morning dose and exact discharge-list repetition. stage_2 substitutes acetaminophen and confirms the recommended action rather than supplying a necessary new interaction fact.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "3eb5c0a2ee9e3de6",
+      "stage0QueueIndex": 26,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_warfarin_bridge_01",
+      "partId": "opus_case_warfarin_bridge_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The bilingual stem itself describes the wife preparing to aspirate during enoxaparin injection. The global order confirms subcutaneous administration, making the technique correction answerable at baseline.",
+      "laterStageLeakCheck": "stage_2 repeats the demonstration and stage_3 records successful technique. The later performance is not needed to identify the stated error.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "f3d632e242a2a5f9",
+      "stage0QueueIndex": 27,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_warfarin_bridge_01",
+      "partId": "opus_case_warfarin_bridge_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both languages provide four complete hypothetical bleeding presentations in the matrix. Global dual anticoagulation establishes the safety context; classification requires no actual later symptom or treatment stage.",
+      "laterStageLeakCheck": "stage_2 introduces the teaching question, and stage_3 reviews urgent versus clinic symptoms. Those teaching events add no facts missing from the matrix.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "04aa661c7840c96e",
+      "stage0QueueIndex": 28,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_warfarin_bridge_01",
+      "partId": "opus_case_warfarin_bridge_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Global warfarin initiation and the bilingual vitamin-K question define the teaching need. Options explicitly contrast elimination, abrupt increases and consistent intake, so the dietary counseling choice needs no stage-only plan detail.",
+      "laterStageLeakCheck": "stage_1 spinach purchase and stage_3 elimination plan exemplify misconceptions already represented in the options; neither is necessary to select consistent intake counseling.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "8a8b83152f1416e2",
+      "stage0QueueIndex": 29,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_warfarin_bridge_01",
+      "partId": "opus_case_warfarin_bridge_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part explicitly gives the four-day return-to-truck-driving request. Global acute proximal DVT, new dual anticoagulation and INR 1.9 provide the relevant occupational safety context in both languages.",
+      "laterStageLeakCheck": "stage_3 repeats that work request and confirms appointment details. Provider clearance remains the answer without any final-stage confirmation.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "ab969d93bdc3f6db",
+      "stage0QueueIndex": 30,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus22_case_postpartum_intrusive_thoughts_01",
+      "partId": "opus22_case_postpartum_intrusive_thoughts_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The six bilingual matrix rows provide the distress, insight, reality testing, depression symptoms, denied intent and conditional psychosis cue to classify. Global assessment independently documents those safety findings and PHQ-9 18 before updates.",
+      "laterStageLeakCheck": "stage_1 repeats structured safety information; subsequent checking behaviors or improvement are not needed to classify these explicit cues.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "a0fe1b2b6a0943fb",
+      "stage0QueueIndex": 31,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus22_case_postpartum_intrusive_thoughts_01",
+      "partId": "opus22_case_postpartum_intrusive_thoughts_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both stems explicitly establish no intent, no psychosis and intact caregiving after assessment. Global distress and unwanted thoughts provide the therapeutic context, sufficient for validation, education and permission-based support.",
+      "laterStageLeakCheck": "stage_1 adds family questions and disclosure fear; later treatment course does not change the appropriate responses once the stem-established safety assessment is given.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "ae621f8f29d258c7",
+      "stage0QueueIndex": 32,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus22_case_postpartum_intrusive_thoughts_01",
+      "partId": "opus22_case_postpartum_intrusive_thoughts_01_q3",
+      "proposedBoundary": "stage_2_follow_up",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The question asks to interpret a symptom trajectory without supplying the follow-up observations. stage_2_follow_up first shows only slight score/sleep improvement alongside checking every 15–20 minutes and avoidance of bathing/leaving home. Baseline and stage_1 lack that evolving pattern in both languages.",
+      "laterStageLeakCheck": "stage_3 describes improvement after treatment change and must not replace the earlier inadequate-response judgment; the stage_2 observations themselves support the inference and notification choice.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "0c01ba9f616c9a07",
+      "stage0QueueIndex": 33,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus22_case_postpartum_intrusive_thoughts_01",
+      "partId": "opus22_case_postpartum_intrusive_thoughts_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The English and Chinese stems directly quote the dose-increase question. Global current sertraline, screening scores and safety assessment suffice to select communicating data to the prescriber rather than independently changing medication.",
+      "laterStageLeakCheck": "stage_2 details the symptom changes, but this item asks the nurse’s response and scope, not whether a dose increase is clinically indicated. stage_3 actual increase is unnecessary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "0be29cb2eb0c1c8b",
+      "stage0QueueIndex": 34,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus22_case_postpartum_intrusive_thoughts_01",
+      "partId": "opus22_case_postpartum_intrusive_thoughts_01_q5",
+      "proposedBoundary": "stage_3_response",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "This item asks to evaluate actual treatment response, including whether meaningful improvement can be stated. Only stage_3_response supplies sleep 5–6 hours, eating, walks, bathing, reduced intrusions and EPDS/PHQ-9 improvement in both languages; stage_2 still shows functional impairment.",
+      "laterStageLeakCheck": "The final update is required as the observed outcome evidence being evaluated, not merely because it is final or contains generic teaching. The other counseling statements do not establish that the client has improved.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

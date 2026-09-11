@@ -1,0 +1,283 @@
+{
+  "repairPacketId": "repair-019",
+  "producer": "Codex / GPT-6 Astra",
+  "producingAgent": "/root/r4_verifier",
+  "role": "PRODUCER_SEMANTIC_RECONSTRUCTION",
+  "independentReview": false,
+  "sourcePacketSha256": "79b39df061683a21540b6219297668a08baea3ad077852a1468a8fa7a6de068f",
+  "workOrderSha256": "8cd476c23f2b6cadb07ae8115fd675fbbfc3f60acb46d7a521d5d1da30b2558b",
+  "parentCaseIds": [
+    "gpt_case_lateral_incivility_01",
+    "gpt_case_clozapine_toxicity_01",
+    "gpt_case_refeeding_syndrome_tpn_01"
+  ],
+  "method": "Whole parent examined; each affected part independently evaluated at baseline and successive declared boundaries in English and Simplified Chinese. No Phase E leak verdict or calibration answer key used.",
+  "rows": [
+    {
+      "rowKey": "ab92bfe105b8804a",
+      "stage0QueueIndex": 300,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_lateral_incivility_01",
+      "partId": "gpt_case_lateral_incivility_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The bilingual highlight passage itself supplies the dismissive MAR remark, eye-roll, refusal to allow questions, missed dose/monitoring handoff, hallway ridicule, and Priya's failure to clarify. The global summary already identifies the handoff omission. These concrete cues can be selected without a declared update; the Stage 1 label adds no missing fact.",
+      "laterStageLeakCheck": "The later BP spike and conduct follow-up are consequences, not prerequisites for identifying the quoted behaviors and omissions in this part's passage.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "672aa875a32e8f86",
+      "stage0QueueIndex": 301,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_lateral_incivility_01",
+      "partId": "gpt_case_lateral_incivility_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each English/Chinese matrix row states the communication behavior to classify, including the medication/monitoring omission and the private respectful MAR reminder. Distinguishing humiliation, safety omission, and acceptable assertiveness needs no further case event beyond these supplied behaviors.",
+      "laterStageLeakCheck": "Neither the subsequent clinical deterioration nor the later coaching is needed to classify the already quoted conduct; stage_1 merely repeats several rows.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "f56f69400453dee6",
+      "stage0QueueIndex": 302,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_lateral_incivility_01",
+      "partId": "gpt_case_lateral_incivility_01_q3",
+      "proposedBoundary": "stage_2",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The part supplies BP 186/102, headache and missed monitoring, but its keyed priority specifically includes exceeding the provider's call threshold. stage_2 first displays the hospitalist's SBP >180/<110 notification instruction. Baseline and stage_1 disclose q4h monitoring but not that threshold; both languages require the same current safety interpretation.",
+      "laterStageLeakCheck": "stage_3's actual hospitalist call, hydralazine and improvement confirm the response; none is needed once the current BP and explicit call parameter are visible.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "b1d86a48db7dac8f",
+      "stage0QueueIndex": 303,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_lateral_incivility_01",
+      "partId": "gpt_case_lateral_incivility_01_q4",
+      "proposedBoundary": "stage_2",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The open charge-nurse response prompt needs the actual active care gap. stage_2 first establishes missed q4h monitoring plus BP 186/102, headache and the crossed call parameter, supporting immediate hospitalist notification alongside private coaching/reporting. At baseline/stage_1, the abnormal current BP and trigger for urgent clinical escalation are not yet available in the chart.",
+      "laterStageLeakCheck": "Do not wait for stage_3's performed conversations or reporting, which would disclose the intended responses. The stage_2 assessment already supports selecting those prospective actions in English and Chinese.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "a8982658716e5dd4",
+      "stage0QueueIndex": 304,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_lateral_incivility_01",
+      "partId": "gpt_case_lateral_incivility_01_q5",
+      "proposedBoundary": "stage_2",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "Choosing what Marcus should do first requires the current symptomatic BP and the ordered notification trigger, both first documented in stage_2. The earlier record describes a stable 152/88 assessment and inadequate handoff; it does not establish that clinical notification must precede the conduct response. English and Chinese ask the same immediate-priority question.",
+      "laterStageLeakCheck": "stage_3 reports that Marcus actually directed the call and treatment followed. That implementation is answer confirmation and is unnecessary for the stage_2 priority decision.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "beaf823e2d18b6b3",
+      "stage0QueueIndex": 305,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_lateral_incivility_01",
+      "partId": "gpt_case_lateral_incivility_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "This part asks which listed findings best demonstrate success, and supplies the entire BP improvement/headache resolution, completed q4h checks, complete subsequent handoffs and manager follow-up as candidate outcomes. The global summary identifies the medication/monitoring handoff failure. Both languages permit evaluating those supplied clinical/process outcome criteria without observing a later update.",
+      "laterStageLeakCheck": "stage_3 repeats the clinical improvement and follow-up actions; it does not need to certify that every candidate occurred to distinguish relevant success indicators from friendship or an unrelated creatinine trend.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "2ed58e84a2272763",
+      "stage0QueueIndex": 306,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_clozapine_toxicity_01",
+      "partId": "gpt_case_clozapine_toxicity_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The matrix itself labels fever/sore throat, new tachycardic chest pressure and new S3/crackles/edema, and explicitly dates drooling and orthostatic symptoms to Day 10. Its glucose value is also supplied. Together with the baseline clozapine context and hold policy, these bilingual rows contain the evidence needed for urgency/expected-effect/metabolic classification.",
+      "laterStageLeakCheck": "Day 18 labs and the four-hour echocardiogram are not required to classify the stated cues. Waiting for stage_2 or stage_3 would add confirmation rather than necessary row information.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "3db55ace83b191ac",
+      "stage0QueueIndex": 307,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_clozapine_toxicity_01",
+      "partId": "gpt_case_clozapine_toxicity_01_q2",
+      "proposedBoundary": "stage_2",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The prompt asks which interpretations are supported by the actual Stage 2 findings. stage_2 first records ANC 980 with fever/sore throat and the new troponin/CRP/BNP elevations with S3, crackles and edema. Earlier actual assessments have adequate ANC and no cardiac injury; candidate interpretations cannot substitute for establishing this client's concurrent acute findings.",
+      "laterStageLeakCheck": "stage_3's echocardiogram confirms myocarditis but is not required for the explicitly suspected myocarditis interpretation or the neutropenia interpretation supported at stage_2.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "e091c2e5e7c356f8",
+      "stage0QueueIndex": 308,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_clozapine_toxicity_01",
+      "partId": "gpt_case_clozapine_toxicity_01_q3",
+      "proposedBoundary": "stage_2",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The immediate hold-and-notify choice needs an active policy trigger: stage_2 first establishes fever above the supplied hold parameter, ANC 980 and acute cardiac findings. Baseline is a normal pre-initiation assessment and stage_1 has expected effects with preserved ANC/troponin; the case title alone does not establish when ongoing dosing becomes unsafe. Both languages ask for the present Stage 2 action.",
+      "laterStageLeakCheck": "The actual medication hold and echo diagnosis in stage_3 must not be used as an answer key. The acute findings at stage_2 already activate the global policy.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "53abf6daaaf8fd16",
+      "stage0QueueIndex": 309,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_clozapine_toxicity_01",
+      "partId": "gpt_case_clozapine_toxicity_01_q4",
+      "proposedBoundary": "stage_2",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The stem establishes holding clozapine and notifying the provider, but selecting both infection and cardiac interventions for this client requires the concurrent febrile ANC decline and cardiac injury pattern first shown in stage_2. Earlier chart findings do not justify both urgent pathways. The English/Chinese intervention choices and clinical referent agree.",
+      "laterStageLeakCheck": "stage_3 lists the monitoring, cultures, antibiotics and diagnostic workup after implementation. Those are later confirmations; stage_2 already supports anticipating them.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "171d0dbb7f92e8a8",
+      "stage0QueueIndex": 310,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_clozapine_toxicity_01",
+      "partId": "gpt_case_clozapine_toxicity_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part supplies the decision state: the dose is not yet given, neutropenic precautions are already in place, and the listed remaining tasks include holding exposure, notifying with the toxicities' findings, cardiac support, cultures and antibiotics. Against the global hold policy and named clozapine-toxicity scenario, ordering those specified tasks does not require additional laboratory values; cultures-before-antibiotics is explicit in the choices in both languages.",
+      "laterStageLeakCheck": "No later update is needed to establish that these tasks have already occurred; the question asks to order prospective tasks. stage_3's performed sequence would directly disclose that order.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "05e76aac6f75e2cb",
+      "stage0QueueIndex": 311,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_clozapine_toxicity_01",
+      "partId": "gpt_case_clozapine_toxicity_01_q6",
+      "proposedBoundary": "stage_3",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The complete key includes a current-state judgment that the client is relatively hemodynamically stable yet not improving because troponin/CRP are still rising and ANC remains low. stage_3 supplies the repeat 0.52/72/940 results and supported vital signs needed to compare with stage_2. Earlier information cannot establish that post-intervention trajectory; the two languages express the same claim.",
+      "laterStageLeakCheck": "The four-hour observations are the subject of this outcome evaluation, not evidence used to solve an earlier action. No later declared stage exists or is required; hypothetical recovery indicators are judged alongside this actual trend.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "2ec7051c4b76af7f",
+      "stage0QueueIndex": 312,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_refeeding_syndrome_tpn_01",
+      "partId": "gpt_case_refeeding_syndrome_tpn_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The highlight passage itself gives the phosphorus/potassium/magnesium decreases, rising glucose and pulse, new symptoms and urine-output decline, plus the non-abnormal temperature and PICC findings. The baseline malnutrition/PN history supplies the context. Both language passages already contain every selectable cue and its comparison, so no update is necessary.",
+      "laterStageLeakCheck": "The later severe electrolyte decline, arrhythmias and infection findings are unnecessary to recognize this explicitly supplied early cue cluster and would introduce a different severity state.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "3547d5f076446b1e",
+      "stage0QueueIndex": 313,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_refeeding_syndrome_tpn_01",
+      "partId": "gpt_case_refeeding_syndrome_tpn_01_q2",
+      "proposedBoundary": "stage_1",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The cloze asks to interpret the client's new laboratory pattern and glucose trend. stage_1 first supplies the simultaneous K/phosphorus/magnesium decline after PN and the raised glucose with a benign PICC site. Baseline identifies risk and prior values but not a realized new pattern; the title and candidate mechanisms cannot replace the missing measurements. The bilingual cloze asks the same causal analysis.",
+      "laterStageLeakCheck": "The more severe stage_2 crisis is not needed to identify the early refeeding pattern, and stage_3 treatment response cannot be a prerequisite for the original causal inference.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "e7820c89234bfb5d",
+      "stage0QueueIndex": 314,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_refeeding_syndrome_tpn_01",
+      "partId": "gpt_case_refeeding_syndrome_tpn_01_q3",
+      "proposedBoundary": "stage_2",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "Prioritizing the active electrolyte-driven cardiac/respiratory threat over suspected PICC infection needs stage_2's frequent PVCs, prolonged QT, shallow respirations and severe electrolyte decline together with the new drainage. Baseline/stage_1 show risk and early changes but not the competing acute problems at this severity. English and Chinese priority framing is parallel.",
+      "laterStageLeakCheck": "stage_3's urgent treatment and later rhythm improvement confirm management, but the near-term threat is already evidenced by stage_2's actual organ compromise.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "0620f6656c0e487d",
+      "stage0QueueIndex": 315,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_refeeding_syndrome_tpn_01",
+      "partId": "gpt_case_refeeding_syndrome_tpn_01_q4",
+      "proposedBoundary": "stage_2",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The safe-and-indicated selection requires continued electrolyte decline despite initial repletion, new rhythm/respiratory findings and purulent PICC drainage. These are first shown together at stage_2; the earlier clean site and less severe values cannot establish the higher-tier repletion and infection-workup indications. Both languages present the same prospective measures.",
+      "laterStageLeakCheck": "stage_3 supplies the actual reduced-rate/repletion/culture orders after escalation. Those do not need to be seen to anticipate the safe indicated responses from stage_2.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "c8306bb54be5fce7",
+      "stage0QueueIndex": 316,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_refeeding_syndrome_tpn_01",
+      "partId": "gpt_case_refeeding_syndrome_tpn_01_q5",
+      "proposedBoundary": "stage_2",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The prompt and matrix rows explicitly provide that orders were received and name their actions, so the orders' later transcription in stage_3 is not required. stage_2 is nevertheless needed to establish why electrolyte/rate interventions are immediate priorities over infection workup: active PVC/QT and shallow-breathing deterioration is absent from the earlier record. The bilingual timing categories match.",
+      "laterStageLeakCheck": "Do not delay to stage_3 merely to read the orders again or see improvement; the part has already supplied the ordered actions, and stage_2 supplies their current clinical priority.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "c832d26389e1b4fd",
+      "stage0QueueIndex": 317,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_refeeding_syndrome_tpn_01",
+      "partId": "gpt_case_refeeding_syndrome_tpn_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Every matrix row provides the response to classify: rising replacement values, resolved PVCs/shortened QT, better alertness/strength, the complete glucose decrease, nonexpanding PICC erythema with pending cultures, or premature full-rate restart. With the baseline refeeding-risk context and cautious-advancement plan, those stated responses can be classified in both languages without another update.",
+      "laterStageLeakCheck": "stage_3 repeats the responses already supplied by the rows. Classification does not require retrieving an unquoted measurement or confirming an outcome occurred, and the initial nutrition plan already argues against immediate full-rate resumption.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

@@ -1,0 +1,317 @@
+{
+  "repairPacketId": "repair-017",
+  "bankPath": "banks/gpt-canonical.json",
+  "bankSha256": "d7d228afc282bd15bc730be4ca5b3d2c7c14c017bbc14f3d12a7cbccbfef0f20",
+  "sourcePacketSha256": "11172fd63bba32f0d8d3949413578c2ba201099cbf3b2321c2bcaa5b399583f1",
+  "checker": "Claude Code / Claude Opus 5",
+  "checkerRole": "independent content checker (R4 Stage 2 blind full reconstruction)",
+  "blind": true,
+  "representation": {
+    "BASELINE": "proposedBoundary == {\"kind\":\"baseline\"}",
+    "STAGE": "proposedBoundary == exact declared stage id string",
+    "EXCEPTION": "proposedBoundary == null with exceptionReason",
+    "forbiddenAlternateField": "orStage (never emitted)"
+  },
+  "rowCount": 18,
+  "parentCaseIds": [
+    "gpt_case_hipaa_disclosure_breach_01",
+    "gpt_case_mass_casualty_start_triage_01",
+    "gpt_case_unsafe_assignment_01"
+  ],
+  "counts": {
+    "BASELINE": 18,
+    "STAGE": 0,
+    "EXCEPTION": 0,
+    "HIGH": 18
+  },
+  "rows": [
+    {
+      "rowKey": "d6fee5a4070018d8",
+      "stage0QueueIndex": 264,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_assignment_01",
+      "partId": "gpt_case_unsafe_assignment_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem scopes the item to the initial rounds and shift report, which is the baseline surface. The case summary lists the competency file exactly - validated for telemetry, PCA, chest tubes and routine postoperative assessment, never validated for vasoactive titration, arterial-line haemodynamic monitoring or the step-down neuro protocol - and the baseline assignment exhibit describes Client A on a titrated norepinephrine drip with a left radial arterial line and Client B on nicardipine with hourly protocol neuro checks. The mismatch between those two lists is the whole answer, and the distractors (all three stable, a continuous passive motion machine) are refuted or absent at baseline.",
+      "laterStageLeakCheck": "stage_1 records the nurse reaching the same conclusion and raising it with the charge nurse, which states the mismatch rather than supplying new findings. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "b5148e990070de29",
+      "stage0QueueIndex": 265,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_assignment_01",
+      "partId": "gpt_case_unsafe_assignment_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem quotes the charge nurse's instruction in full, and baseline supplies why it fails: the assignment exhibit describes both drips as titrated to physiologic targets - norepinephrine to keep MAP above 64, nicardipine to keep systolic between 100 and 150 - so they are dynamic and require the primary nurse to recognise the need for and perform timely titration. The distractors are defeated by the baseline float policy itself, which places the duty to adjust the assignment on the charge nurse and contains no blanket prohibition on infusions.",
+      "laterStageLeakCheck": "stage_2 must not be the boundary: it demonstrates the failure by having Client A's MAP fall to 64 while the non-validated nurse cannot titrate and the charge nurse must come to the bedside. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "08898ea126dffdae",
+      "stage0QueueIndex": 266,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_assignment_01",
+      "partId": "gpt_case_unsafe_assignment_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem brackets the patient-specific items as already reported and asks for the management-of-care priority, which is the structural problem baseline establishes: a nurse without documented competency left as primary caregiver for two patients whose care requires those competencies, against a float policy that requires the charge nurse to adjust the assignment or arrange competency-matched support. The three distractors are single downstream events rather than the system defect.",
+      "laterStageLeakCheck": "stage_2 supplies the concrete instances behind the distractors - the twelve-minute page delay, the rising chest-tube output, the possible speech change - and shows the structural failure recurring; it never names the assignment structure as the priority. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "e95ee9e5c7e20378",
+      "stage0QueueIndex": 267,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_assignment_01",
+      "partId": "gpt_case_unsafe_assignment_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline supplies both the competency boundary and the policy route. The nurse continues caring for Client C, whose acuity matches her validated skills; she escalates to the nursing supervisor because the charge nurse has not adjusted the assignment as the float policy requires; and she proposes the specific safe alternative of reassigning Clients A and B to a validated nurse. Refusing all care and leaving the unit is abandonment, and routing a staffing concern to the on-call provider bypasses the nursing chain.",
+      "laterStageLeakCheck": "stage_1 records her raising the concern with the charge nurse and stage_3 carries the supervisor contact; neither is needed, since the policy and the competency mismatch are baseline. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "acd99216399a57bc",
+      "stage0QueueIndex": 268,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_assignment_01",
+      "partId": "gpt_case_unsafe_assignment_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each row states its own candidate sentence, so the classification is a professional-communication judgement: reporting the objective competency limitation, the specific patients requiring a validated nurse, and a factual timed delay are appropriate escalation content, while characterising the charge nurse as dismissive and lazy is a personal attribution rather than a safety fact. Baseline supplies the competency file and the float policy that make the first and third statements accurate.",
+      "laterStageLeakCheck": "stage_2 is the source of the twelve-minute delay that one row states, and the row restates it. No stage classifies any statement. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "259612f337f327b0",
+      "stage0QueueIndex": 269,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_assignment_01",
+      "partId": "gpt_case_unsafe_assignment_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline states the governing documentation rule in the float and reporting context, and the keyed action is standard: chart the factual assessments, exact notification times, the delayed response and the handoff in the patient records, while keeping the variance report separate and never referencing it in the chart. Omitting the delay to protect liability and substituting a single multi-patient report for individual charting both fail on that standard.",
+      "laterStageLeakCheck": "stage_2 supplies the events to be documented and stage_3 carries the follow-through; neither states a documentation rule beyond what baseline establishes. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "98b316af5f95976b",
+      "stage0QueueIndex": 270,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_hipaa_disclosure_breach_01",
+      "partId": "gpt_case_hipaa_disclosure_breach_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each option states its own event in full, so the candidate set is inside the part, and baseline supplies the two facts that make the judgements possible: the chart lists daughter Megan Torrance as the only authorised contact, and the facility policy defines the nurse's duty on discovering a potential privacy breach. Recognising an unverified caller request, curiosity-based record access, an unauthorised employer fax, an identifiable wound photograph on a personal phone, and a named hallway discussion of another patient's HIV status as privacy events - and a routine pain assessment as not one - is knowledge.",
+      "laterStageLeakCheck": "stage_1 is the source of the five events, which the options restate, and it classifies none of them. stage_2 narrates the mitigation. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "816f8ee32a25b1ca",
+      "stage0QueueIndex": 271,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_hipaa_disclosure_breach_01",
+      "partId": "gpt_case_hipaa_disclosure_breach_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each row names its own event and each column states its own category, so the classification runs on privacy knowledge: curiosity-based electronic access and an identifiable photograph already taken are completed impermissible accesses, an employer fax and an unverified caller are conditionally permissible only after authorisation or a legal basis is verified through the proper process, and a hallway conversation overheard by a visitor is an incidental-disclosure risk from absent safeguards. Baseline supplies the authorised-contact restriction that anchors the caller row.",
+      "laterStageLeakCheck": "stage_1 lists the events and stage_2 narrates the response; neither assigns a category. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "33239a7419ffd816",
+      "stage0QueueIndex": 272,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_hipaa_disclosure_breach_01",
+      "partId": "gpt_case_hipaa_disclosure_breach_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "All five options quote their events, so the comparison is inside the part. The discrimination is conceptual: the fax and the caller are requests before any release, the photograph is still confined to one device, and the patient's worry is not a disclosure, whereas the curiosity-based electronic health record access is a completed, non-incidental unauthorised access that triggers formal breach response. Baseline supplies the policy framework for that response.",
+      "laterStageLeakCheck": "stage_2 must not be the boundary: it states that 'The charge nurse confirms the access is unauthorized and directs incident reporting and Privacy Officer notification', which singles out the keyed event as the formal-investigation case. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "081b3b885639d73b",
+      "stage0QueueIndex": 273,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_hipaa_disclosure_breach_01",
+      "partId": "gpt_case_hipaa_disclosure_breach_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline carries the decisive policy text, which requires the nurse to mitigate exposure immediately, notify the charge nurse, complete an electronic incident report and ensure same-shift manager and Privacy Officer notification, and which states that incident reports 'must not be referenced in the medical record' - a sentence that by itself defeats the one incorrect option. Baseline also lists Megan as the sole authorised contact, which grounds the response to Robert. The remaining keyed actions follow from the same policy plus privacy knowledge.",
+      "laterStageLeakCheck": "stage_2 must not be the boundary: it narrates every keyed action being performed - withholding information from Robert, having Casey exit with charge-nurse notification and incident reporting, securing the fax and routing it to health information management, supervised deletion of the photograph with Privacy Officer referral, and moving the hallway report to a private area - and confirms the reports were kept out of the medical record. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "2187e86ed9d2877c",
+      "stage0QueueIndex": 274,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_hipaa_disclosure_breach_01",
+      "partId": "gpt_case_hipaa_disclosure_breach_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem states the observation, and baseline states the required first step: the policy directs the nurse who witnesses a potential breach to 'immediately mitigate exposure' and then notify the charge nurse and complete the incident report. Asking Casey to close the record or log out stops the ongoing exposure before any reporting step, while completing the report first, deferring to end of shift, or imposing discipline all fail against that policy.",
+      "laterStageLeakCheck": "stage_2 records the same sequence being carried out with charge-nurse confirmation and incident reporting. BASELINE is earliest and answerable.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "c6a742591e41b86e",
+      "stage0QueueIndex": 275,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_hipaa_disclosure_breach_01",
+      "partId": "gpt_case_hipaa_disclosure_breach_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Every option states its own finding, and baseline supplies the rule that settles the trickiest one, since the policy states incident reports must not be referenced in the medical record. Containment is shown by completed reports kept out of the chart, a Privacy Officer breach determination with the audit trail preserved, no protected health information released to Robert or the employer from the unit, and supervised deletion of the photograph with cloud-sync follow-up and programme notification. Stable postoperative vital signs and Robert's silence are not containment evidence.",
+      "laterStageLeakCheck": "stage_2 and stage_3 narrate the containment and follow-through, which would confirm each keyed finding as accomplished. BASELINE is earliest and answerable.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "d0399c7588111fc7",
+      "stage0QueueIndex": 276,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_mass_casualty_start_triage_01",
+      "partId": "gpt_case_mass_casualty_start_triage_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "All seven rows restate their casualty's decisive findings, and the baseline triage-point exhibit documents each casualty in full - A and G apneic after airway repositioning, B and F ambulatory and alert, C with a respiratory rate of 32 and four-second capillary refill with altered mentation, D with stridor and ammonia contamination, E a nonambulatory burn casualty following commands. Baseline also states the START protocol and category order. Assigning categories is algorithm application to that surface.",
+      "laterStageLeakCheck": "The later stages carry the treatment and outcome; neither adds a triage-point finding nor states a category. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "e7bafc40a81c24ff",
+      "stage0QueueIndex": 277,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_mass_casualty_start_triage_01",
+      "partId": "gpt_case_mass_casualty_start_triage_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline supplies both premises. The triage-point exhibit records that A and G remain apneic after airway repositioning, and the protocol exhibit states the facility is in resource-constrained mass-casualty mode with black/expectant casualties receiving comfort measures only when resources allow. The utilitarian rationale follows, and the distractors are defeated by the same exhibits, since contamination alone is not the reason, age is not a triage criterion, and routine code practice is explicitly suspended under the activated protocol.",
+      "laterStageLeakCheck": "The later stages describe treatment of the salvageable casualties and the outcome; neither states the expectant rationale. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "9c754693704f5e3e",
+      "stage0QueueIndex": 278,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_mass_casualty_start_triage_01",
+      "partId": "gpt_case_mass_casualty_start_triage_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem names both red casualties and baseline describes each in full, including that Casualty D's clothing and hair are wet with a pungent ammonia odour. The protocol exhibit settles the question directly by requiring 'full external decontamination of any chemically contaminated casualty before ED entry', so Casualty C goes to the trauma bay while D decontaminates. That same sentence defeats the option that would bring D straight in, and the burn and delay options conflict with the stated red-before-yellow order.",
+      "laterStageLeakCheck": "The later stages narrate the decontamination and treatment sequence, which would show the keyed choice being carried out. BASELINE is earliest and answerable.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "be43919f41f6ef9e",
+      "stage0QueueIndex": 279,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_mass_casualty_start_triage_01",
+      "partId": "gpt_case_mass_casualty_start_triage_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each option names its own ordered therapy, and baseline supplies the framework: the protocol's red-before-yellow-before-green ordering, the expectant-category rule, the decontamination-before-entry requirement, and the resource inventory of three nurses, two ventilators with one in use and four units of O-negative blood. From those, transfusing Casualty C, treating Casualty D's airway after decontamination, continuing burn resuscitation and transfer planning for E, and deferring the green casualties are appropriate, while diverting a nurse to CPR on an expectant casualty and requiring full head-to-toe assessments before treatment are not.",
+      "laterStageLeakCheck": "The later stages narrate these interventions being carried out; neither is needed to judge them. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "63412241ddf68859",
+      "stage0QueueIndex": 280,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_mass_casualty_start_triage_01",
+      "partId": "gpt_case_mass_casualty_start_triage_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline states the controlling rule, that chemically contaminated casualties receive full external decontamination before ED entry at the functional station outside the ambulance entrance, and it describes Casualty D's contamination and stridor. The order then follows decontamination practice: don personal protective equipment, remove and bag contaminated clothing, irrigate copiously including eyes and skin for the protocol duration, reassess and re-triage, move into the ED only after decontamination is complete, and then deliver definitive airway treatment.",
+      "laterStageLeakCheck": "The later stages narrate the same sequence being performed, which would disclose the ordering. BASELINE is earliest and answerable.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "0cfa3711d256081a",
+      "stage0QueueIndex": 281,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_mass_casualty_start_triage_01",
+      "partId": "gpt_case_mass_casualty_start_triage_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Every option states its own finding, and baseline supplies the standard they are judged against: a resource-constrained protocol that prioritises salvageable casualties, requires decontamination before entry to protect the department, and accepts expectant status. Survival and improvement of the red casualties, a stable yellow burn casualty with an accepted transfer, safely deferred green casualties, and absence of secondary contamination inside the department are the effectiveness markers, while complete routine charting during the acute phase and a zero-mortality requirement are not.",
+      "laterStageLeakCheck": "stage_3 is the source of the outcome findings, which the options restate, and it classifies none of them. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

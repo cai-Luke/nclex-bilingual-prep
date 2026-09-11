@@ -1609,3 +1609,45 @@ unchanged. The pre-write dry run and post-write zero-write idempotency check pas
 authorial-constraint and producer-vocabulary regressions, TypeScript, `census:check`, production build,
 and `git diff --check` all exited 0; census artifacts were not regenerated. Full receipts are under
 `audit/campaign-16-phase-d-bowtie-repair-2026-08-29-r2/`.
+
+
+## Campaign 16 Phase E R4 — checked boundary repair (2026-09-10 commission; post-freeze execution 2026-09-11 UTC)
+
+Local deterministic repair applied under [R4](scratch/CAMPAIGN-16-PHASE-E-451-BOUNDARY-REPAIR-WORK-ORDER-2026-09-09-R4.md), SHA-256 `8cd476c23f2b6cadb07ae8115fd675fbbfc3f60acb46d7a521d5d1da30b2558b`. Evidence: [commission receipt](audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/closeout.md). Publication and acceptance remain pending; no Git mutation is part of this commission.
+
+Producer **Codex / GPT-6 Astra**, with the producing-team contributions disclosed in `producer-method.md` and `evidence/producer-delegation.json`; independent content checker **Claude Code / Claude Opus 5**. Both completed all 451 rows across 93 parents in the frozen 27 parent-whole packets. All checker packets were frozen blind before unblinding. Producer freeze SHA-256 `151c1327a5d9fa4decf9897200f2d336e55cea31d0f978317a7653c5c4193e4a`; checker freeze SHA-256 `f506178017ce44c6b4429d2125e2542ad89eb56565c4fab82dece08b32b5ba43`.
+
+Literal E.1 acceptance was deterministic: only identical baseline or stage judgments with both HIGH and both PARALLEL were patchable. No third semantic adjudication occurred. All three checker MEDIUM rows and its explicit EXCEPTION remained exceptions. Accounting: **451 = 369 repairedBaseline + 16 repairedStage + 66 exceptions**. Only the 385-row repaired subset is structurally closed; 66 explicit pure-omission exceptions remain fail-open.
+
+| Bank | Baseline | Stage | Exception | Opening schema | Final schema |
+|---|---:|---:|---:|---|---|
+| `banks/claude-canonical.json` | 46 | 5 | 7 | 2.0 | 2.1 |
+| `banks/gemini-canonical.json` | 38 | 2 | 6 | 2.0 | 2.1 |
+| `banks/gpt-canonical.json` | 201 | 7 | 35 | 2.0 | 2.1 |
+| `banks/hard-cases-canonical.json` | 84 | 2 | 18 | 1.8 | 2.1 |
+
+Each bank receives accepted typed baseline and therefore its exact envelope version bump was authorized. The commission-specific serializer tool passed its synthetic self-tests and validated an atomic one-field metadata change with full parsed equality after version restoration. Each bump preceded one canonical P15 patch for that bank: 51, 40, 208, and 86 exact `setValue` operations respectively. No raw/staging question file was produced, promoted, consolidated, or deleted: this is the explicitly authorized P15 in-place correction path.
+
+| Bank | Opening SHA-256 | Final SHA-256 |
+|---|---|---|
+| `banks/claude-canonical.json` | `25f53ded1ac21da4ca9d211040c3f6110ebee38d72ba41d0fc64fe358ba73b71` | `9777aaad1f40ad7be449a7399e7d3706060a6a8e19d5d54909d121ab8480c69e` |
+| `banks/gemini-canonical.json` | `3dc416a4652f5f5712219dde7de87b92f0697fac953750b8abb8fc0dbb976bb6` | `fd98f560f93851c82b6c691aeeb3f3897aee3c2bf7a9268d973a0c7c7fff2901` |
+| `banks/gpt-canonical.json` | `d7d228afc282bd15bc730be4ca5b3d2c7c14c017bbc14f3d12a7cbccbfef0f20` | `154c31f860790d5e90f23dae2dabfd31fba32ca46cc53a38b038cc56af30d469` |
+| `banks/hard-cases-canonical.json` | `5d47b79a1e63fe5f852eab7b4ab9b8db6ca7e9ec924037d5e81de8a8bb3ee3d1` | `8af1a86256278900b619f83812087dfb0e940ea349a00ceddef9fe2f079ca8e3` |
+
+Disjoint final-exception reason combinations (66 total):
+
+- `PRODUCER_EXCEPTION; BOUNDARY_DISPOSITION_DISAGREEMENT`: 6.
+- `CHECKER_EXCEPTION; BOUNDARY_DISPOSITION_DISAGREEMENT`: 1.
+- `BOUNDARY_DISPOSITION_DISAGREEMENT`: 48.
+- `CHECKER_NON_HIGH`: 2.
+- `STAGE_ID_DISAGREEMENT`: 1.
+- `PRODUCER_EXCEPTION; PRODUCER_BILINGUAL_UNCERTAIN; BOUNDARY_DISPOSITION_DISAGREEMENT`: 1.
+- `PRODUCER_EXCEPTION; PRODUCER_NON_HIGH; BOUNDARY_DISPOSITION_DISAGREEMENT`: 6.
+- `CHECKER_NON_HIGH; STAGE_ID_DISAGREEMENT`: 1.
+
+Positive H.1 proof passed across all 13 banks. No learner-facing or scoring field outside `answerableAfterStageId` changed. All 66 exception parts are deep-equal before/after with both anchors absent; all legacy `stageId` fields, ids/order, stage payloads, counts, and `meta.count` are unchanged. All primary anchors outside the accepted set are unchanged. All nine unaffected banks remain byte-identical. The 75 out-of-scope strict-only `missingRequiredAnchor` identities remain exactly unchanged.
+
+Required validation, aggregate audit, stage-reference sweeps, regression implementations, TypeScript, and production build passed. Four work-order npm aliases (`test:typed-baseline`, `test:typed-baseline-scanner`, `test:typed-baseline-survey`, `test:typed-baseline-ui`) are absent in the pinned package manifest; each literal command failure is retained and the corresponding existing `scripts/tests/*.ts` implementation passed via `npx tsx`. No package alias was added. Strict stage-reference failure is expected and exactly reconciles to the 66 exceptions, with zero unresolved findings; the 75 existing legacy-only findings are separate. The previously admitted `test:single-row-lab-panels` manifest drift remains a known pre-existing failure and is not relabeled PASS.
+
+Census followed H.3: initial stale check, regeneration, exact JSON/Markdown diff reconciliation, then passing `census:check`. Stable movement is confined to the four approved bank schema versions and their derived composition (1,809 session units in those four banks); no question/content count moved. Generator time and input-commit provenance refreshed normally. Producer-independent checker confirmation of this census movement remains required before acceptance; see `census-reconciliation.json`. The external production `file://` smoke passed for the frozen final build, including baseline global context with zero Updates and the exact accepted stage prefix; the full tree and source/bank hashes were rechecked after the witness. See the commission build-identity and smoke receipts. Architect conformance review and any publication decision remain separate. `PROJECT-HISTORY.md` and `DECISIONS.md` are unchanged.

@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "mode": "SELF_TEST_SYNTHETIC_TEMP_ONLY",
+  "count": 12,
+  "tests": [
+    "one-field proof preserves complete object and meta.count",
+    "reject no baseline",
+    "reject no authorization",
+    "reject wrong target",
+    "reject wrong opening value",
+    "reject wrong hash",
+    "reject already floor",
+    "reject schema-invalid source even with matching hash",
+    "atomic valid write, disk proof, no leftover temp",
+    "repeated bump refused and bytes unchanged",
+    "existing temp fails closed without overwriting it or bank",
+    "concurrent bank drift detected before rename"
+  ],
+  "toolSha256": "3674a2178d1ca8d97cb34d41d2d170ddffe91db474242486843e837e5c9b4c85"
+}

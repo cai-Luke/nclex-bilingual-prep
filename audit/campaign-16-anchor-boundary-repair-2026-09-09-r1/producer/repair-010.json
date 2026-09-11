@@ -1,0 +1,261 @@
+{
+  "repairPacketId": "repair-010",
+  "producer": "Codex / GPT-6 Astra",
+  "producingAgent": "/root/producer_010_018",
+  "role": "PRODUCER_SEMANTIC_RECONSTRUCTION",
+  "independentReview": false,
+  "sourcePacketSha256": "9ab1fa8ffd1addaf5c2ac0a47681e5ec160b58050e7f17b3b28d77ebd1f2989b",
+  "workOrderSha256": "8cd476c23f2b6cadb07ae8115fd675fbbfc3f60acb46d7a521d5d1da30b2558b",
+  "parentCaseIds": [
+    "gpt_case_premium_next_case_preventive_screening_vaccine_05",
+    "gpt_case_premium_next_case_ipv_safety_planning_06",
+    "gpt_case_gap_2026_06_11_case_tls_01",
+    "gpt_case_gap_2026_06_11_case_adhf_01",
+    "gpt_case_gap_2026_06_11_case_aki_02",
+    "gpt_case_gap_2026_06_11_case_pancreatitis_03",
+    "gpt_case_gap_2026_06_11_case_adrenal_crisis_04",
+    "gpt_case_gap_2026_06_11_case_urosepsis_05",
+    "gpt_case_gap_2026_06_11_case_anticoag_bleeding_06"
+  ],
+  "method": "Whole parent examined; each affected part independently evaluated at baseline and successive declared boundaries in English and Simplified Chinese. No Phase E leak verdict or calibration answer key used.",
+  "rows": [
+    {
+      "rowKey": "aad55dc4116d0f37",
+      "stage0QueueIndex": 144,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_preventive_screening_vaccine_05",
+      "partId": "gpt_case_premium_next_case_preventive_screening_vaccine_05_matrix_needs",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Global clinic_intake supplies age 52 and absent colorectal screening, 8-year mammogram gap, no shingles vaccine and >10-year tetanus interval; assessment_data and the matrix explicitly supply asymptomatic BP 136/84. Both languages support classifying these existing needs before any update.",
+      "laterStageLeakCheck": "shared_planning adds available clinic services, but neither service availability nor completed counseling is required to interpret the five intake findings.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "6dc1fe66cf76d26a",
+      "stage0QueueIndex": 145,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_preventive_screening_vaccine_05",
+      "partId": "gpt_case_premium_next_case_preventive_screening_vaccine_05_cloze_crc",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "clinic_intake already identifies a 52-year-old never-screened client unable to miss work for colonoscopy; the cloze asks for an acceptable screening alternative and positive-test follow-up, with the same constraints in Chinese. No clinic-specific resource decision is requested.",
+      "laterStageLeakCheck": "shared_planning explicitly offers FIT kits, confirming an option the learner can select from the baseline access barrier and the cloze choices; that confirmation is unnecessary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "d5cec73760ef9477",
+      "stage0QueueIndex": 146,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_ipv_safety_planning_06",
+      "partId": "gpt_case_premium_next_case_ipv_safety_planning_06_matrix_cues",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Global triage_note and private_interview already establish partner control, bruises of different ages, monitored phone/portal, unwillingness to leave, and denial of suicide/weapons. These are the exact five bilingual matrix findings; private_interview is global despite its later-sounding title.",
+      "laterStageLeakCheck": "resource_planning adds advocates, discreet resources and partner pacing, none of which changes the interpretation of the five already-visible findings.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "2a8d34ba73c3cc6f",
+      "stage0QueueIndex": 147,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_ipv_safety_planning_06",
+      "partId": "gpt_case_premium_next_case_ipv_safety_planning_06_mc_communication",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part itself quotes 'not ready to leave'/还没准备好离开, and global private_interview confirms disclosure and privacy concerns. Selecting a validating, nonpressuring response requires no additional resource or discharge update.",
+      "laterStageLeakCheck": "The resource_planning exhibit concerns subsequent practical help; it does not supply information needed to distinguish supportive autonomy from pressure or partner involvement in this response question.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "f7a627d7442adfb2",
+      "stage0QueueIndex": 148,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_tls_01",
+      "partId": "gpt_case_gap_2026_06_11_case_tls_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The matrix itself states every Stage 1 finding and comparison: K 7.1 with peaked T/widening QRS, phosphorus/calcium with tingling, creatinine rise with urine output, uric acid decrease after rasburicase, temperature and LDH rise. Global admission supplies the chemotherapy/rasburicase context; both languages are complete without opening a stage.",
+      "laterStageLeakCheck": "stage1 repeats the data already printed in this part; stage2 worsens the ECG and stage3 confirms treatment response. Neither repetition nor later deterioration is needed to classify these supplied findings.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "794357310f3949b4",
+      "stage0QueueIndex": 149,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_tls_01",
+      "partId": "gpt_case_gap_2026_06_11_case_tls_01_q2",
+      "proposedBoundary": "stage1",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "At stage1 the learner first observes K 7.1 with peaked T waves/widening QRS and uric acid falling to 4.1 after rasburicase, sufficient for all three cloze judgments in both languages. Baseline has K 4.8 and no ECG abnormality, so the option 'hyperkalemia with ECG changes' is not yet established as this client's finding.",
+      "laterStageLeakCheck": "Although the prompt names Stage 1 and Stage 2, stage2's further QRS widening/loss of P waves only intensifies the already established immediate cardiac risk; stage3 treatment response is unnecessary and must stay hidden.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "348d14afb5b2b05b",
+      "stage0QueueIndex": 150,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_tls_01",
+      "partId": "gpt_case_gap_2026_06_11_case_tls_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "This part explicitly supplies emergency hyperkalemia protocol orders and arranged dialysis access, then supplies the prescribed calcium, insulin/dextrose, dialysis and monitoring actions to order. Together with the global TLS emergency summary this is a complete action-sequencing scenario in both languages; it does not ask the learner to establish the orders from an update.",
+      "laterStageLeakCheck": "stage2 repeats the order/access circumstance already given by the stem, while stage3 reveals the actual calcium/insulin/dialysis sequence and response. That subsequent confirmation must not select or delay the ordering answer.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "a88e4eab36e4c6e8",
+      "stage0QueueIndex": 151,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_tls_01",
+      "partId": "gpt_case_gap_2026_06_11_case_tls_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both stem languages explicitly provide total urine 80 mL and elapsed 4 hours and request mL/hr. The division is fully specified in the part; 'At Stage 1' identifies the measurement's setting without making an unseen chart value necessary.",
+      "laterStageLeakCheck": "stage1 duplicates the same numerator and duration; stage3's different urine total must not be substituted. No update is needed for the stated calculation.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "d12f49be4f59d290",
+      "stage0QueueIndex": 152,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_tls_01",
+      "partId": "gpt_case_gap_2026_06_11_case_tls_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each outcome to classify is explicitly provided by this bilingual matrix: narrowing QRS/less prominent T waves, K falling 7.1 to 5.4, persistent calcium 7.5/creatinine 2.0, urine 110 mL over 4 hours, and uric acid 2.8 after rasburicase. Global admission gives initial uric acid 9.2. The supplied trends and values suffice to distinguish improvement from ongoing monitoring.",
+      "laterStageLeakCheck": "The phrase 'Using Stage 3 data' is accompanied by the data in the rows themselves. stage3 duplicates those outcomes and adds treatment narration; earlier stage updates are not needed to classify the explicitly stated trends.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "5c6cb830f12d4085",
+      "stage0QueueIndex": 153,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_adhf_01",
+      "partId": "gpt_case_gap_2026_06_11_adhf_matrix_01",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "adhf_triage and adhf_labs already show SpO2 89%, crackles/orthopnea, non-elevated troponin, weight 80.8 to 84 kg and K 3.7, precisely the matrix's bilingual cue set. The initial fluid-overload cluster is sufficient to classify each row.",
+      "laterStageLeakCheck": "adhf_stage2 adds new frothy sputum/refractory hypoxemia, and adhf_stage3 adds treatment response. Neither is needed to interpret the initial findings listed here.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "d5a5a03aa2b76fb2",
+      "stage0QueueIndex": 154,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_aki_02",
+      "partId": "gpt_case_gap_2026_06_11_aki_matrix_01",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Global aki_initial/aki_labs provide dehydration with ibuprofen exposure, urine 60 mL in 4 hours, creatinine 0.9 to 2.6, specific gravity 1.030 and negative nitrites. Both languages explicitly ask to classify these admission cues, all visible at baseline.",
+      "laterStageLeakCheck": "aki_stage2's potassium/ECG deterioration and aki_stage3's improved urine output address later complications and response, not the supplied admission-cue classification.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "b47b333d8fcc09fb",
+      "stage0QueueIndex": 155,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_pancreatitis_03",
+      "partId": "gpt_case_gap_2026_06_11_panc_matrix_01",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "panc_initial and panc_labs supply vomiting/tachycardia with hematocrit 49%, calcium 7.4, lipase 1860, gallstones with duct dilation and back-radiating pain. These exact initial findings are printed in both matrix languages, permitting the requested diagnostic-versus-risk distinction at baseline.",
+      "laterStageLeakCheck": "panc_stage2 adds shock/hypoxemia and panc_stage3 reports resuscitation response and tingling. Those later developments are not required to classify the initial risk cues.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "dbb4ec87b4ad3fbe",
+      "stage0QueueIndex": 156,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_adrenal_crisis_04",
+      "partId": "gpt_case_gap_2026_06_11_adrenal_matrix_01",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Global adrenal_initial/adrenal_labs already establish missed hydrocortisone during illness, BP 84/46 with mottling, glucose 52, sodium 126/potassium 5.9 and abdominal pain. The bilingual matrix asks about those existing findings, not the later reassessment.",
+      "laterStageLeakCheck": "adrenal_stage2's further BP/glucose decline and reduced arousal intensify the crisis; adrenal_stage3 confirms treatment response. Neither is needed to identify the baseline crisis cue cluster.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "89371a6c8270884d",
+      "stage0QueueIndex": 157,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_urosepsis_05",
+      "partId": "gpt_case_gap_2026_06_11_sepsis_matrix_01",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "sepsis_initial and sepsis_labs give acute confusion, lactate 3.8, infected obstructing stone/hydronephrosis, room-air SpO2 96% and creatinine doubled from 0.9 to 1.8. Both language versions of the matrix classify exactly this visible admission information.",
+      "laterStageLeakCheck": "sepsis_stage2 supplies post-fluid shock and sepsis_stage3 supplies partial response. These later values are unnecessary to distinguish the listed source/organ-risk cues from normal oxygen saturation.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "afdf207e4081096c",
+      "stage0QueueIndex": 158,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_anticoag_bleeding_06",
+      "partId": "gpt_case_gap_2026_06_11_anticoag_matrix_01",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Global anticoag_initial/anticoag_labs include aPTT 118 against the stated 60-80 range, high anti-Xa, platelets 226 to 154, correctly programmed pump and improving pleuritic pain. The part expressly asks about these morning data in both languages; no later bleeding presentation is required.",
+      "laterStageLeakCheck": "anticoag_stage2 introduces shock, flank pain and further laboratory deterioration; anticoag_stage3 introduces suspected retroperitoneal bleeding/HIT evaluation. Those later interpretations must not supply the morning follow-up judgment.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

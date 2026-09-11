@@ -1,0 +1,212 @@
+[
+  {
+    "partId": "gpt_2026_06_19_case_ici_pneumonitis_01_q1",
+    "proposedBoundary": {
+      "kind": "baseline"
+    },
+    "disposition": "BASELINE",
+    "earliestBoundaryEvidence": "The global clinic assessment/labs already supply recent pembrolizumab, new cough, exertional dyspnea, crackles, saturation decline from 96% to 93% and CRP 18 with its reference. The highlight repeats these and all comparison findings in both languages, enabling initial cue recognition.",
+    "laterStageLeakCheck": "stage_1 duplicates the baseline symptom cluster; the CT and ABG in stage_2 are confirmatory and are not needed to decide that evaluation is required.",
+    "bilingualRelation": "PARALLEL",
+    "confidence": "HIGH",
+    "exceptionReason": null
+  },
+  {
+    "partId": "gpt_2026_06_19_case_ici_pneumonitis_01_q2",
+    "proposedBoundary": {
+      "kind": "baseline"
+    },
+    "disposition": "BASELINE",
+    "earliestBoundaryEvidence": "The global title names ICI pneumonitis and the initial assessment establishes the lower-respiratory inflammatory/oxygenation pattern. The bilingual cloze supplies that pattern and offers seasonal allergies as the benign competing explanation, so the clinical contrast is answerable without the actual antihistamine conversation.",
+    "laterStageLeakCheck": "stage_1 identifies the patient's request to take an antihistamine but the dropdown itself identifies the competing explanation. Later imaging confirms the higher-risk process rather than supplying a missing discriminator.",
+    "bilingualRelation": "PARALLEL",
+    "confidence": "HIGH",
+    "exceptionReason": null
+  },
+  {
+    "partId": "gpt_2026_06_19_case_ici_pneumonitis_01_q3",
+    "proposedBoundary": {
+      "kind": "baseline"
+    },
+    "disposition": "BASELINE",
+    "earliestBoundaryEvidence": "The stem explicitly supplies CT-compatible pneumonitis, room-air PaO2 68 and saturation 91%, and frames the options as ordered interventions. Both languages therefore establish the immediate oxygenation threat and permit oxygen-first selection without knowing the numerical prescribed target.",
+    "laterStageLeakCheck": "stage_2 repeats the tests and orders but adds no prerequisite for applying oxygen and titrating to the existing order. Later steroid response must remain unnecessary.",
+    "bilingualRelation": "PARALLEL",
+    "confidence": "HIGH",
+    "exceptionReason": null
+  },
+  {
+    "partId": "gpt_2026_06_19_case_ici_pneumonitis_01_q4",
+    "proposedBoundary": {
+      "kind": "baseline"
+    },
+    "disposition": "BASELINE",
+    "earliestBoundaryEvidence": "The global summary establishes ICI lung toxicity requiring ordered corticosteroids. The part supplies the permanent-stoppage concern and explicit current-hold, prescribed methylprednisolone, oxygen-target and monitoring actions. English and Chinese can distinguish these from promises of rechallenge or declaring all treatment ended.",
+    "laterStageLeakCheck": "stage_2 records the same current plan, while stage_3 supplies later oncology decisions. Those future decisions must not be used to answer the initial scope-appropriate conversation and ongoing ordered care.",
+    "bilingualRelation": "PARALLEL",
+    "confidence": "HIGH",
+    "exceptionReason": null
+  },
+  {
+    "partId": "gpt_2026_06_19_case_ici_pneumonitis_01_q5",
+    "proposedBoundary": {
+      "kind": "baseline"
+    },
+    "disposition": "BASELINE",
+    "earliestBoundaryEvidence": "The global summary and assessment give declining oxygenation from immune-related lung injury. The ordered actions themselves state the oxygen target, verified corticosteroid initiation, subsequent on-oxygen monitoring and consultation after stabilization begins; their wording and the immediate threat establish the sequence on both surfaces.",
+    "laterStageLeakCheck": "stage_2 supplies a more severe saturation and formal orders, but every action is already framed as ordered and the immediate oxygenation problem is present globally. stage_3 response does not determine order.",
+    "bilingualRelation": "PARALLEL",
+    "confidence": "HIGH",
+    "exceptionReason": null
+  },
+  {
+    "partId": "gpt_2026_06_19_case_ici_pneumonitis_01_q6",
+    "proposedBoundary": {
+      "kind": "baseline"
+    },
+    "disposition": "BASELINE",
+    "earliestBoundaryEvidence": "Every matrix row supplies its own response trend, including oxygenation values with changed oxygen support, CRP endpoints, reduced HR/RR, less dyspnea and persistent but stable/slightly reduced crackles. Both languages allow evaluation of the aggregate early response without retrieving an update.",
+    "laterStageLeakCheck": "stage_3 repeats the same values and symptoms. Their support level is already explicit, and no later medication decision is needed to interpret improvement with ongoing oxygen rather than complete recovery.",
+    "bilingualRelation": "PARALLEL",
+    "confidence": "HIGH",
+    "exceptionReason": null
+  },
+  {
+    "partId": "gpt_case_neutropenic_fever_nadir_01_q1",
+    "proposedBoundary": {
+      "kind": "baseline"
+    },
+    "disposition": "BASELINE",
+    "earliestBoundaryEvidence": "The global 1415 assessment/1420 labs and highlight passage explicitly supply fever 102 F, rigors, tachycardia, cool mottled fingertips/refill delay and ANC 180 during the nadir, together with comparison findings. The fever is above either displayed standing-order rendering, so the urgent cue choice is determinate in both languages.",
+    "laterStageLeakCheck": "stage_1 describes cultures, notification and antibiotic initiation after the already visible findings. Later hypotension and lactate elevation cannot be required to recognize the initial emergency.",
+    "bilingualRelation": "PARALLEL",
+    "confidence": "HIGH",
+    "exceptionReason": null
+  },
+  {
+    "partId": "gpt_case_neutropenic_fever_nadir_01_q2",
+    "proposedBoundary": {
+      "kind": "baseline"
+    },
+    "disposition": "BASELINE",
+    "earliestBoundaryEvidence": "The global record establishes febrile severe neutropenia and standing culture/notification orders. The cloze options explicitly state the ordered one-hour antibiotic window and contrast pre-antibiotic cultures with waiting for identification or another fever hour; the complementary diagnostic/treatment reasoning is complete in both languages.",
+    "laterStageLeakCheck": "stage_1 gives actual collection and administration times, but the part asks the rule and reason, not whether a recorded dose met the deadline. Later organism identification is not needed.",
+    "bilingualRelation": "PARALLEL",
+    "confidence": "HIGH",
+    "exceptionReason": null
+  },
+  {
+    "partId": "gpt_case_neutropenic_fever_nadir_01_q3",
+    "proposedBoundary": {
+      "kind": "baseline"
+    },
+    "disposition": "BASELINE",
+    "earliestBoundaryEvidence": "The response options explicitly identify a perfusion crisis with BP drop, HR/lactate rise and urine decline, an ordered crystalloid bolus, oxygen support and reculturing before broadened antibiotics. The stem permits overlap while asking dominant priorities, so both language surfaces provide the needed escalation scenario.",
+    "laterStageLeakCheck": "stage_2 quantifies those trends but the action text already states their direction and perfusion significance. The later bolus/antibiotic response does not determine immediate priorities.",
+    "bilingualRelation": "PARALLEL",
+    "confidence": "HIGH",
+    "exceptionReason": null
+  },
+  {
+    "partId": "gpt_case_neutropenic_fever_nadir_01_q4",
+    "proposedBoundary": {
+      "kind": "baseline"
+    },
+    "disposition": "BASELINE",
+    "earliestBoundaryEvidence": "The global labs already show ANC 180 and the assessment identifies oral mucositis and a PICC. With the stem naming severe neutropenia, the bilingual options can be judged for exposure reduction, mucosal protection and aseptic necessary line access at baseline.",
+    "laterStageLeakCheck": "stage_1 posts the precautions that the learner is selecting, so revealing them is unnecessary confirmation. Later positive cultures or hemodynamic response do not change the protective measures.",
+    "bilingualRelation": "PARALLEL",
+    "confidence": "HIGH",
+    "exceptionReason": null
+  },
+  {
+    "partId": "gpt_case_neutropenic_fever_nadir_01_q5",
+    "proposedBoundary": "stage_3",
+    "disposition": "STAGE",
+    "earliestBoundaryEvidence": "The temperature row mixes unitless 39.4 and 38.6 with 100.6 F (38.1 C), so baseline does not unambiguously establish a common-unit downward trend. stage_2 supplies the 39.4 C peak, and stage_3 first explicitly supplies 38.6 C then 38.1 C together with all response observations; that prefix resolves the intended trajectory for both languages.",
+    "laterStageLeakCheck": "stage_3 is required for this outcome-evaluation row because it disambiguates the temperature readings themselves, not merely because it is final. The other matrix trends are stated directly; the culture result is classified for follow-up rather than used to infer deterioration.",
+    "bilingualRelation": "PARALLEL",
+    "confidence": "HIGH",
+    "exceptionReason": null
+  },
+  {
+    "partId": "gpt_case_neutropenic_fever_nadir_01_q6",
+    "proposedBoundary": null,
+    "disposition": "EXCEPTION",
+    "earliestBoundaryEvidence": "The always-visible summary states the single oral trigger as 100.9 F (38.3 C), while the global standing order and keyed discharge option state 101 F (38.3 C). This part explicitly teaches an exact emergency threshold; selecting a boundary cannot reconcile the conflicting Fahrenheit thresholds on either language surface.",
+    "laterStageLeakCheck": "No stage replaces or clarifies the inconsistent single-reading threshold. A later anchor would retain both conflicting baseline statements, so recovery would require an out-of-scope content/precision decision.",
+    "bilingualRelation": "PARALLEL",
+    "confidence": "HIGH",
+    "exceptionReason": "Unresolved clinical threshold conflict: the summary uses 100.9 F, but the global order and keyed home-teaching option use 101 F for the same 38.3 C single-reading trigger; an anchor-only change cannot reconcile exact action advice."
+  },
+  {
+    "partId": "gpt_case_taco_vs_trali_01_q1",
+    "proposedBoundary": {
+      "kind": "baseline"
+    },
+    "disposition": "BASELINE",
+    "earliestBoundaryEvidence": "The global pretransfusion assessment supplies baseline vitals, chronic faint crackles, absent S3/JVD and trace edema. The highlight supplies all new observations and many explicit before/after pairs, so both languages can distinguish clinically significant changes without the stage update.",
+    "laterStageLeakCheck": "stage_2 repeats the acute findings, while later x-ray/BNP and diuretic response confirm mechanism. Those later findings are not required for identifying the presented new cues.",
+    "bilingualRelation": "PARALLEL",
+    "confidence": "HIGH",
+    "exceptionReason": null
+  },
+  {
+    "partId": "gpt_case_taco_vs_trali_01_q2",
+    "proposedBoundary": "stage_2",
+    "disposition": "STAGE",
+    "earliestBoundaryEvidence": "Baseline supplies cardiac/renal susceptibility and stable chronic findings, and stage_1 remains stable. The dropdown offers several coherent reaction/evidence pairs rather than asserting which actually occurred. stage_2 first establishes new hypertension, JVD, S3, edema extension, oliguria and pulmonary congestion needed to select TACO instead of the competing respiratory/allergic reactions in both languages.",
+    "laterStageLeakCheck": "stage_3 imaging/BNP and diuretic response strengthen the TACO diagnosis but are unnecessary once the stage_2 overload cluster is visible. stage_4 provider confirmation is later validation and must remain hidden.",
+    "bilingualRelation": "PARALLEL",
+    "confidence": "HIGH",
+    "exceptionReason": null
+  },
+  {
+    "partId": "gpt_case_taco_vs_trali_01_q3",
+    "proposedBoundary": {
+      "kind": "baseline"
+    },
+    "disposition": "BASELINE",
+    "earliestBoundaryEvidence": "The options explicitly name acute hypoxemia with respiratory distress versus quantified hypertension, reduced urine and residual anemia. With the global transfusion context, those complete candidate problems allow the immediate breathing priority to be identified in English and Chinese.",
+    "laterStageLeakCheck": "stage_2 quantifies the respiratory deterioration, but no particular saturation cutoff is required to rank an explicitly acute hypoxemia/distress option above the other listed problems. Later diagnosis and treatment response are irrelevant.",
+    "bilingualRelation": "PARALLEL",
+    "confidence": "HIGH",
+    "exceptionReason": null
+  },
+  {
+    "partId": "gpt_case_taco_vs_trali_01_q4",
+    "proposedBoundary": {
+      "kind": "baseline"
+    },
+    "disposition": "BASELINE",
+    "earliestBoundaryEvidence": "The part itself names a suspected TACO episode. The global cardiac/renal history and standing transfusion context are sufficient to evaluate stopping blood, saline KVO through new tubing, upright oxygen support, provider-directed diuresis and output monitoring against restart or rapid-fluid alternatives on both surfaces.",
+    "laterStageLeakCheck": "stage_2 helps diagnose TACO, but that suspected mechanism is already supplied by this part. stage_3 implementation and stage_4 response would merely reveal which proposed measures were carried out.",
+    "bilingualRelation": "PARALLEL",
+    "confidence": "HIGH",
+    "exceptionReason": null
+  },
+  {
+    "partId": "gpt_case_taco_vs_trali_01_q5",
+    "proposedBoundary": {
+      "kind": "baseline"
+    },
+    "disposition": "BASELINE",
+    "earliestBoundaryEvidence": "The matrix explicitly gives transfusion cessation and oxygen for saturation 89% with dyspnea alongside positioning, provider contact, blood-bank handling and reporting. Those stated facts and the global transfusion context allow first stabilization actions to be distinguished from subsequent protocol tasks in both languages.",
+    "laterStageLeakCheck": "stage_2 adds the broader overload exam but the immediate hypoxemic episode is already stated in the oxygen row. stage_3 actions and stage_4 report completion are not needed for the proposed-action classification.",
+    "bilingualRelation": "PARALLEL",
+    "confidence": "HIGH",
+    "exceptionReason": null
+  },
+  {
+    "partId": "gpt_case_taco_vs_trali_01_q6",
+    "proposedBoundary": {
+      "kind": "baseline"
+    },
+    "disposition": "BASELINE",
+    "earliestBoundaryEvidence": "The stem supplies TACO as the condition being evaluated, and each option supplies a complete outcome: return of vitals/congestion to baseline, BNP 890-to-420 decline, improved saturation with oxygen weaning, 1,400 mL post-diuretic urine or hemoglobin 8.1. Both languages can identify volume-removal and respiratory recovery evidence from those propositions.",
+    "laterStageLeakCheck": "Stages 3 and 4 record the same findings, but the options already state their changes, support conditions and timing. Later provider documentation of TACO is not required to judge these proposed response indicators.",
+    "bilingualRelation": "PARALLEL",
+    "confidence": "HIGH",
+    "exceptionReason": null
+  }
+]

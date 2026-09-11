@@ -1,0 +1,108 @@
+{
+ "aad55dc4116d0f37": {
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "All five rows are quoted from the two baseline exhibits: no colorectal cancer screening at age 52, no mammogram in eight years, no shingles vaccine, a tetanus booster more than ten years ago, and a blood pressure of 136/84 without symptoms. Sorting them into screening or referral, vaccination counseling, and routine follow-up is guideline knowledge applied to that surface.",
+  "laterStageLeakCheck": "The parent has a single declared stage, shared_planning, which lists clinic resources; a one-stage parent does not make that stage the default boundary. It contains no client finding and classifies nothing. BASELINE is the earliest answerable boundary."
+ },
+ "6dc1fe66cf76d26a": {
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "Baseline supplies every element of the sentence: the client is 52 and has never had colorectal cancer screening, and says 'I cannot miss work for a colonoscopy', which is the exact access barrier the middle blank answers. A stool-based test as an acceptable initial option with colonoscopy required after a positive result is screening-guideline knowledge, and the distractors fail on the same knowledge and on the baseline age.",
+  "laterStageLeakCheck": "shared_planning offers fecal immunochemical test kits among the clinic's resources, which partially cues the middle blank; it does not state the age eligibility or the positive-result pathway. BASELINE is earliest and avoids that cue."
+ },
+ "d5cec73760ef9477": {
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "All five rows are quoted from the two baseline exhibits: the partner answering questions with a hand on the client's shoulder, bruising in different stages of healing, the statement that the phone and online portal are checked, not being ready to leave today, and the denial of suicidal thoughts with no weapons at home. Both the triage note and the private interview are global exhibits, so the entire evidence base for abuse concern, confidentiality planning and protective cues is baseline-visible.",
+  "laterStageLeakCheck": "The parent has a single declared stage, resource_planning, which lists clinic resources and notes the partner pacing near the front desk; it contains none of the five findings and classifies nothing. BASELINE is the earliest answerable boundary."
+ },
+ "2a8d34ba73c3cc6f": {
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "The stem quotes the client's statement, and baseline supplies the surrounding facts: the partner's controlling behaviour, the disclosed wrist grab, the monitored phone and portal, and the client's own plan to call a friend from work. Validating autonomy while expressing concern and offering options that do not force a decision today is the therapeutic response, and the distractors fail on safety and trust grounds - bringing the partner in, demanding a promise to call police, or withdrawing help unless the client leaves.",
+  "laterStageLeakCheck": "resource_planning describes advocates, discreet documentation and a shoe-sized safety card; it states no response to the client. BASELINE is the earliest answerable boundary."
+ },
+ "f7a627d7442adfb2": {
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "Every row carries both its Stage 1 value and its own comparator, so the data is inside the part: potassium 7.1 with peaked T waves and widening QRS, phosphorus 8.4 with calcium 6.8 and fingertip tingling, creatinine risen from 1.1 to 2.4 with 80 mL of urine in four hours, uric acid fallen from 9.2 to 4.1 after rasburicase, temperature 99.3 F, and LDH risen from 1,450 to 3,200. Baseline independently supplies the rasburicase order and all the admission values the rows compare against. Sorting danger cues from an expected rasburicase effect and a non-priority temperature is tumour-lysis knowledge.",
+  "laterStageLeakCheck": "stage1 is the source of these values but each row restates them with its comparator, and the stage classifies nothing; it only adds that the oncology and nephrology teams were notified. stage2 and stage3 are the deterioration and the treatment response. BASELINE is the earliest answerable boundary."
+ },
+ "794357310f3949b4": {
+  "disposition": "STAGE",
+  "stage": "stage1",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "The cloze restates no value and its premises are false at baseline. It asks for 'the most immediate life-threatening problem' among hyperkalaemia with ECG changes, rising creatinine, hypocalcaemia with tingling and elevated LDH, and then asks how to interpret 'The falling uric acid level'. At baseline the potassium is 4.8 with no ECG abnormality, creatinine is 1.1, calcium is 8.9, and the uric acid is 9.2 and has not fallen, so none of the candidate problems exists and the third blank has no referent. stage1 is the first boundary that supplies all three: potassium 7.1 with peaked T waves and a widening QRS, the competing derangements, and uric acid down from 9.2 to 4.1 after rasburicase.",
+  "laterStageLeakCheck": "stage1 supplies the data without the reasoning: it reports the values and the monitor findings but never ranks the problems, never explains the dysrhythmia risk, and never says the uric-acid fall is a drug effect rather than resolution. stage2 must not be the boundary even though the stem mentions it, because it adds nothing the three blanks need and it discloses the conclusion - nephrology ordering emergent haemodialysis and the provider entering emergency hyperkalaemia protocol orders identifies hyperkalaemia as the emergency for the learner."
+ },
+ "348d14afb5b2b05b": {
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "The stem supplies the situation in full: emergency hyperkalaemia protocol orders are entered while dialysis access is being arranged. The safest order is then hyperkalaemia-protocol knowledge - confirm continuous cardiac monitoring and capture the tracing, give prescribed calcium gluconate to stabilise the myocardium, give prescribed insulin with dextrose to shift potassium intracellularly, prepare for catheter placement and dialysis as the definitive removal, then monitor glucose, repeat potassium, ECG and strict intake and output.",
+  "laterStageLeakCheck": "stage3 must not be the boundary: it opens 'After IV calcium gluconate, insulin with dextrose, and initiation of dialysis...', which discloses the middle three steps in the keyed order, in both languages. stage1 and stage2 supply the severity that the stem already implies by naming an emergency protocol. BASELINE is earliest and non-leaking."
+ },
+ "a88e4eab36e4c6e8": {
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "The stem states the entire problem - 80 mL of urine total over the past four hours - and asks for the average in mL/hr. The computation uses no case data beyond the stem.",
+  "laterStageLeakCheck": "stage1 is the source of the 80 mL figure, which the stem restates verbatim, so it supplies nothing the calculation needs. Later stages report different outputs that would only confuse the arithmetic. BASELINE is the earliest answerable boundary."
+ },
+ "d12f49be4f59d290": {
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "Each of the six rows is self-describing and carries its comparator either internally or against baseline: narrowing QRS with less prominent T waves, potassium decreased from 7.1 to 5.4, calcium still low at 7.5 against a baseline of 8.9, creatinine still elevated at 2.0 against a baseline of 1.1, urine output of 110 mL over four hours which is below adult adequacy, and uric acid 2.8 after the baseline-ordered rasburicase. Sorting improvement from continued monitoring is judgement rather than lookup.",
+  "laterStageLeakCheck": "stage3 is the source of these values but every row restates them, and the stage classifies nothing - it reports that the client is more alert and lists the numbers. It would, however, frame the whole picture as post-treatment improvement. BASELINE is the earliest answerable boundary."
+ },
+ "5c6cb830f12d4085": {
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "All five rows are quoted from the two baseline exhibits: SpO2 89 percent on room air, bibasilar crackles with orthopnoea, a non-elevated troponin, a weight of 84 kg against 80.8 kg last week which is the stated 3.2 kg rise, and potassium 3.7. Separating fluid-overload cues from the two findings that do not explain the respiratory deterioration is heart-failure knowledge applied to that surface.",
+  "laterStageLeakCheck": "adhf_stage2 and adhf_stage3 report the later deterioration and the diuretic response; neither contains an admission finding, and neither classifies anything. BASELINE is the earliest answerable boundary."
+ },
+ "d5a5a03aa2b76fb2": {
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "The stem scopes the item to 'the admission data', which is the baseline surface, and all five rows are quoted from it: creatinine risen from 0.9 to 2.6, 60 mL of urine over four hours, ibuprofen use during dehydration, urine specific gravity 1.030, and negative nitrites. Recognising prerenal injury with nephrotoxic exposure, and that absent nitrites do not explain hypoperfusion, is knowledge.",
+  "laterStageLeakCheck": "aki_stage2 and aki_stage3 report the later hyperkalaemia with ECG changes and the treatment response; neither contains an admission cue. BASELINE is the earliest answerable boundary."
+ },
+ "b47b333d8fcc09fb": {
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "The stem scopes the item to 'the initial data', which is the baseline surface, and all five rows are quoted from it: haematocrit 49 percent with vomiting and tachycardia, calcium 7.4, lipase 1,860, a mildly dilated common bile duct with gallstones, and pain radiating to the back. Separating severity or complication cues from expected pancreatitis findings is knowledge applied to those values.",
+  "laterStageLeakCheck": "The later stages of this parent report the subsequent course; they contain no initial finding and classify nothing. BASELINE is the earliest answerable boundary."
+ },
+ "dbb4ec87b4ad3fbe": {
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "All five rows are quoted from the two baseline exhibits: two days of not keeping hydrocortisone down, blood pressure 84/46 with mottled skin, glucose 52, potassium 5.9 with sodium 126, and abdominal pain after gastroenteritis. Recognising missed steroid replacement during illness plus shock, hypoglycaemia, hyponatraemia and hyperkalaemia as adrenal crisis, with abdominal pain as the least specific cue, is endocrine knowledge.",
+  "laterStageLeakCheck": "The later stages report the subsequent course and treatment; they contain no presenting finding. BASELINE is the earliest answerable boundary."
+ },
+ "89371a6c8270884d": {
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "All five rows are quoted from the two baseline exhibits: new confusion, lactate 3.8, an 8 mm obstructing ureteral stone with hydronephrosis, SpO2 96 percent on room air, and creatinine doubled from a baseline of 0.9 to 1.8. Recognising altered mentation, hyperlactataemia, an obstructed infected source and acute kidney injury as sepsis cues, and a normal saturation as not one, is knowledge.",
+  "laterStageLeakCheck": "The later stages report the subsequent course; they contain no presenting finding and classify nothing. BASELINE is the earliest answerable boundary."
+ },
+ "afdf207e4081096c": {
+  "disposition": "BASELINE",
+  "bilingualRelation": "PARALLEL",
+  "confidence": "HIGH",
+  "earliestBoundaryEvidence": "The stem scopes the item to 'the morning data', which is the baseline laboratory exhibit, and all five rows are quoted from it or from the baseline note: an aPTT of 118 seconds against a stated therapeutic range of 60 to 80, anti-Xa above range, a platelet fall from 226 to 154, pump settings matching the prescription, and improving pleuritic chest pain. Recognising supratherapeutic anticoagulation and a falling platelet count as needing prompt follow-up is heparin-monitoring knowledge.",
+  "laterStageLeakCheck": "The later stages report the subsequent course; they contain no morning value. BASELINE is the earliest answerable boundary."
+ }
+}

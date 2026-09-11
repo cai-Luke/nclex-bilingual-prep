@@ -1,0 +1,109 @@
+{
+  "status": "PASS",
+  "receipts": [
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "command": [
+        "npx",
+        "tsx",
+        "/Users/holemini/Desktop/Project Shrimp/audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/patches/claude-canonical.ts",
+        "--in",
+        "banks/claude-canonical.json",
+        "--out",
+        "banks/claude-canonical.json",
+        "--allow-canonical",
+        "--reason",
+        "Campaign 16 R4 E.1 frozen producer/checker exact agreement; see commission comparison and BANK-REVIEW-LEDGER.md",
+        "--strict-parity"
+      ],
+      "exitCode": 0,
+      "patchSha256": "427178fc56709f5cbf4f4826f92f5b43d3df1517a2f033e9c3b3d9f1a2e2b17f",
+      "operationCount": 51,
+      "beforeSha256": "85a4608994f5f24990179ec51e3fb4bb40426edea69d6774630c494cb27fce65",
+      "expectedFinalSha256": "9777aaad1f40ad7be449a7399e7d3706060a6a8e19d5d54909d121ab8480c69e",
+      "finalSha256": "9777aaad1f40ad7be449a7399e7d3706060a6a8e19d5d54909d121ab8480c69e",
+      "log": "evidence/claude-canonical-p15.log",
+      "logSha256": "ec4a2e30e0c3f281836a6a783febf318488ec041f8379f184bc96cf2b62aab5e",
+      "hashChainPassed": true,
+      "appliedAt": "2026-09-11T02:21:11.574Z"
+    },
+    {
+      "bankPath": "banks/gemini-canonical.json",
+      "command": [
+        "npx",
+        "tsx",
+        "/Users/holemini/Desktop/Project Shrimp/audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/patches/gemini-canonical.ts",
+        "--in",
+        "banks/gemini-canonical.json",
+        "--out",
+        "banks/gemini-canonical.json",
+        "--allow-canonical",
+        "--reason",
+        "Campaign 16 R4 E.1 frozen producer/checker exact agreement; see commission comparison and BANK-REVIEW-LEDGER.md",
+        "--strict-parity"
+      ],
+      "exitCode": 0,
+      "patchSha256": "af9efc02d59032ab3fe46418c68cb1d1d562b70aa8df066633d45a2851f51fac",
+      "operationCount": 40,
+      "beforeSha256": "b0711e8f88806c18186de4fc10bd9c43cd0ea9ae78b30ebd513bbc6a53e0aad1",
+      "expectedFinalSha256": "fd98f560f93851c82b6c691aeeb3f3897aee3c2bf7a9268d973a0c7c7fff2901",
+      "finalSha256": "fd98f560f93851c82b6c691aeeb3f3897aee3c2bf7a9268d973a0c7c7fff2901",
+      "log": "evidence/gemini-canonical-p15.log",
+      "logSha256": "0435ed140c573fad7206f34ac1526617309284e51628b432043cdc1f46b24d04",
+      "hashChainPassed": true,
+      "appliedAt": "2026-09-11T02:21:12.628Z"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "command": [
+        "npx",
+        "tsx",
+        "/Users/holemini/Desktop/Project Shrimp/audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/patches/gpt-canonical.ts",
+        "--in",
+        "banks/gpt-canonical.json",
+        "--out",
+        "banks/gpt-canonical.json",
+        "--allow-canonical",
+        "--reason",
+        "Campaign 16 R4 E.1 frozen producer/checker exact agreement; see commission comparison and BANK-REVIEW-LEDGER.md",
+        "--strict-parity"
+      ],
+      "exitCode": 0,
+      "patchSha256": "bbe02fc7a06029e4d6f41eb6d98153629a30d3f53e218750d69460e366175a14",
+      "operationCount": 208,
+      "beforeSha256": "59c5018ad798b211918174f8c2133ca429f308243215aea2b0dd86834fa96d60",
+      "expectedFinalSha256": "154c31f860790d5e90f23dae2dabfd31fba32ca46cc53a38b038cc56af30d469",
+      "finalSha256": "154c31f860790d5e90f23dae2dabfd31fba32ca46cc53a38b038cc56af30d469",
+      "log": "evidence/gpt-canonical-p15.log",
+      "logSha256": "57440122d935e85d285b43c0c6bd5c6cc86079abc55c3861a4b8a8371fa7c3af",
+      "hashChainPassed": true,
+      "appliedAt": "2026-09-11T02:21:14.112Z"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "command": [
+        "npx",
+        "tsx",
+        "/Users/holemini/Desktop/Project Shrimp/audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/patches/hard-cases-canonical.ts",
+        "--in",
+        "banks/hard-cases-canonical.json",
+        "--out",
+        "banks/hard-cases-canonical.json",
+        "--allow-canonical",
+        "--reason",
+        "Campaign 16 R4 E.1 frozen producer/checker exact agreement; see commission comparison and BANK-REVIEW-LEDGER.md",
+        "--strict-parity"
+      ],
+      "exitCode": 0,
+      "patchSha256": "34c17766dc20c9f4c81af8223abb32e59ec064249b27ce0aa99ab2107427b45b",
+      "operationCount": 86,
+      "beforeSha256": "3d21710a90b33da41a875be3b53e9ac1cd10c1f6c78f57e44187f4e16b09a00e",
+      "expectedFinalSha256": "8af1a86256278900b619f83812087dfb0e940ea349a00ceddef9fe2f079ca8e3",
+      "finalSha256": "8af1a86256278900b619f83812087dfb0e940ea349a00ceddef9fe2f079ca8e3",
+      "log": "evidence/hard-cases-canonical-p15.log",
+      "logSha256": "03970a25477a5517381a362dbb3a5fa65bdfd3ea6a3bfd9808d48c7855036cac",
+      "hashChainPassed": true,
+      "appliedAt": "2026-09-11T02:21:14.979Z"
+    }
+  ]
+}

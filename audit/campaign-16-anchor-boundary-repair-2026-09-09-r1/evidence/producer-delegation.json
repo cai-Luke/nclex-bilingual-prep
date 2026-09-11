@@ -1,0 +1,78 @@
+{
+  "scope": "PRODUCING_TEAM_ONLY",
+  "model": "GPT-6 Astra",
+  "recursiveDelegation": false,
+  "independentChecker": "Claude Code / Claude Opus 5 \u2014 external, no descendant qualifies",
+  "assignments": [
+    {
+      "task": "r4_verifier",
+      "substance": "implementation",
+      "scope": "commission-local read-only boundary verifier and in-memory self-tests"
+    },
+    {
+      "task": "producer_001_009",
+      "substance": "producer semantic evidence",
+      "packets": [
+        "repair-001",
+        "repair-002",
+        "repair-003",
+        "repair-004",
+        "repair-005",
+        "repair-006",
+        "repair-007",
+        "repair-008",
+        "repair-009"
+      ]
+    },
+    {
+      "task": "producer_010_018",
+      "substance": "producer semantic evidence",
+      "packets": [
+        "repair-010",
+        "repair-011",
+        "repair-012",
+        "repair-013",
+        "repair-014",
+        "repair-015",
+        "repair-016",
+        "repair-017",
+        "repair-018"
+      ]
+    },
+    {
+      "task": "r4_verifier \u2014 subsequent producer assignment",
+      "substance": "producer semantic evidence",
+      "packets": [
+        "repair-019",
+        "repair-020",
+        "repair-021",
+        "repair-022",
+        "repair-023",
+        "repair-024",
+        "repair-025",
+        "repair-026",
+        "repair-027"
+      ]
+    }
+  ],
+  "primarySeat": "commission opening, source snapshots, artifact IO and reconciliation, producing-team integration and freeze; no independent acceptance",
+  "assignmentAdjustments": [
+    {
+      "at": "2026-09-10T17:05:25.996570+00:00",
+      "reason": "Primary seat undertakes bounded semantic work concurrently",
+      "r4_verifier_remaining": [
+        "repair-020",
+        "repair-021",
+        "repair-022",
+        "repair-023",
+        "repair-024"
+      ],
+      "primaryRemaining": [
+        "repair-025",
+        "repair-026",
+        "repair-027"
+      ],
+      "declaredProducerCheckerSeatsUnchanged": true
+    }
+  ]
+}

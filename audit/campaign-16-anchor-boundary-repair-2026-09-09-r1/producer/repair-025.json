@@ -1,0 +1,305 @@
+{
+  "repairPacketId": "repair-025",
+  "producer": "Codex / GPT-6 Astra",
+  "producingAgent": "/root",
+  "role": "PRODUCER_SEMANTIC_RECONSTRUCTION",
+  "independentReview": false,
+  "sourcePacketSha256": "1dd286ada75430b510f3db049070cf6331486302dbf1cdfb61729b029aa19cb3",
+  "workOrderSha256": "8cd476c23f2b6cadb07ae8115fd675fbbfc3f60acb46d7a521d5d1da30b2558b",
+  "parentCaseIds": [
+    "opus_case_se_01",
+    "opus1_case_discharge_med_rec_anticoag_01",
+    "opus2_case_postop_opioid_respiratory_depression_01"
+  ],
+  "method": "Whole parent examined; each affected part independently evaluated at baseline and successive declared boundaries in English and Simplified Chinese. No Phase E leak verdict or calibration answer key used.",
+  "rows": [
+    {
+      "rowKey": "493d5483657410de",
+      "stage0QueueIndex": 399,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_case_se_01",
+      "partId": "opus_case_se_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The always-visible summary gives fifteen minutes of continuing convulsions despite both documented prehospital lorazepam doses and expressly distinguishes the active seizure from a postictal state. The English and Chinese arrival questions can therefore be answered from that prehospital report before any ED update.",
+      "laterStageLeakCheck": "stage_1 introduces the second-line infusion and stages 2/3 describe further escalation and response. Those later events are not required to recognize failure of the already documented first-line therapy.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "d3dbfc0c60e9cf24",
+      "stage0QueueIndex": 400,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_case_se_01",
+      "partId": "opus_case_se_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part asks about baseline laboratory findings, and exhibit_baseline already contains the low levetiracetam level, lactate, bicarbonate and CK, while the summary gives suspected missed medication and prolonged muscular activity. Both languages supply every cause-versus-consequence comparison before a declared update.",
+      "laterStageLeakCheck": "Although stage_1 narrates the lab results returning, the actual values are placed in the always-visible baseline exhibit and repeated in the matrix. A later rise in CK or confirmed response is unnecessary for this initial classification.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "d247e0b1640d6fc8",
+      "stage0QueueIndex": 401,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_case_se_01",
+      "partId": "opus_case_se_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both stems already establish that prescribed IV fosphenytoin is being administered. The choices themselves specify the proposed cardiac/BP/seizure monitoring and rate limit; the global record supplies the adult patient and active status epilepticus. The question requires choosing infusion-safety measures, not retrieving a missing dose or patient measurement.",
+      "laterStageLeakCheck": "stage_1 records the nurse actually performing the monitoring and following the same rate limit. Those actions confirm the requested choices; later persistence of seizures and intubation do not determine the precautions during the specified infusion.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "a181b4aff896bdb0",
+      "stage0QueueIndex": 402,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_case_se_01",
+      "partId": "opus_case_se_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The bilingual prompt explicitly supplies persistent convulsions, SpO2 91%, end-tidal CO2 58, copious secretions and increasing cyanosis. These current airway/ventilation cues, alongside the global seizure history, suffice to prioritize the compromised airway without retrieving any stage-only laboratory result.",
+      "laterStageLeakCheck": "stage_2 repeats those findings and then performs intubation, while stage_3 reports improved gas exchange. Requiring either update would use subsequent management or response to confirm the priority already evidenced by the prompt.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "3fb81f6217154a3c",
+      "stage0QueueIndex": 403,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_case_se_01",
+      "partId": "opus_case_se_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both stems supply the precise decision state: visible movements stopped ten minutes after starting midazolam. The cloze asks whether that observation alone establishes seizure termination, with the same possibility-versus-certainty distinction in Chinese. It needs no actual EEG result from a declared update.",
+      "laterStageLeakCheck": "stage_3 explicitly reveals persistent electrographic activity followed by successful titration, which would resolve the uncertainty the learner is asked to recognize. That later confirmation must not be required for the inference from motor cessation alone.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "548030ab04397f4d",
+      "stage0QueueIndex": 404,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_case_se_01",
+      "partId": "opus_case_se_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The part supplies the ICU urine volume and markedly positive myoglobin, and the proposed isotonic-fluid action expressly carries its ordered rate in both languages. The global prolonged convulsive activity supplies the muscular-injury context. Selecting the appropriate ordered response does not require an unseen weight, urine-output target or additional stage measurement.",
+      "laterStageLeakCheck": "stage_3 reports that fluids were already increased and repeats the myoglobin finding. Those completed actions are answer confirmation; the prompt and its ordered-action choice already establish the information needed for the requested intervention.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "7fb5c0cf61087c59",
+      "stage0QueueIndex": 405,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus1_case_discharge_med_rec_anticoag_01",
+      "partId": "opus1_case_discharge_med_rec_anticoag_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both the verified home list and the conflicting discharge list are global exhibits, including the exhibit titled Stage 1. The matrix itself states the anticoagulant combination, doubled metformin, stable hemoglobin, incision findings and matching antihypertensives. All five comparisons are available before either declared update in both languages.",
+      "laterStageLeakCheck": "stage_2_clarification confirms which entries were errors and changes the orders; it is not needed to recognize the discrepancies that require clarification. stage_3_teaching occurs after they are resolved.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "6e24e84cb54a169e",
+      "stage0QueueIndex": 406,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus1_case_discharge_med_rec_anticoag_01",
+      "partId": "opus1_case_discharge_med_rec_anticoag_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The global stage_1_discharge_list contains the two-anticoagulant entries and unexplained metformin increase, and baseline_record supplies the verified home doses and current assessment. Both stems ask the first response to those already-visible discrepancies, sufficient to select withholding transmission for prescriber clarification.",
+      "laterStageLeakCheck": "The prescriber and pharmacist subsequently perform the corrections in stage_2_clarification. Their confirmation of the errors must not be required to prevent the unverified list from reaching the pharmacy.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "a76895f245ec09aa",
+      "stage0QueueIndex": 407,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus1_case_discharge_med_rec_anticoag_01",
+      "partId": "opus1_case_discharge_med_rec_anticoag_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The English and Chinese stems explicitly provide the resident acknowledgement that enoxaparin was not intended and uncertainty about metformin. Global medication lists supply the discrepancies; the choices ask how to obtain verification and corrected orders, without needing the later pharmacist finding.",
+      "laterStageLeakCheck": "stage_2_clarification contains the eventual pharmacist verification and corrected prescriptions. Requiring that update would move beyond the uncertainty expressly given in this part and reveal the next steps being selected.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "5f55daa9ed911fbb",
+      "stage0QueueIndex": 408,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus1_case_discharge_med_rec_anticoag_01",
+      "partId": "opus1_case_discharge_med_rec_anticoag_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both stems expressly establish pharmacist verification and entered corrections. The action cards themselves specify removing enoxaparin, metformin 500 mg twice daily, INR follow-up, teaching, teach-back and documentation. Ordering those fully supplied tasks needs no stage-only order detail or observation.",
+      "laterStageLeakCheck": "The clarification update repeats the correction details already included in the cards, and stage_3_teaching performs the later educational steps. Their occurrence is not a prerequisite for sequencing this prospective workflow.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "05b4155c59675831",
+      "stage0QueueIndex": 409,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus1_case_discharge_med_rec_anticoag_01",
+      "partId": "opus1_case_discharge_med_rec_anticoag_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "baseline_record documents temporary inpatient enoxaparin during warfarin interruption/restart. The bilingual part independently supplies that injections will not continue at home, and asks for adherence to the corrected list and bleeding warnings, rather than the exact revised order or follow-up interval. These facts support all three cloze choices before updates.",
+      "laterStageLeakCheck": "stage_2_clarification verifies the actual deletion and stage_3_teaching quotes the teaching answer. Neither adds a fact needed for the general instruction to follow the verified plan given the noncontinuation already stated in this prompt.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "66c60aabb74f4529",
+      "stage0QueueIndex": 410,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus1_case_discharge_med_rec_anticoag_01",
+      "partId": "opus1_case_discharge_med_rec_anticoag_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The global case identifies the anticoagulant/metformin reconciliation problem and caregiver. Each documentation option supplies a complete proposed record; both languages ask which best reflects the nursing role. Specific escalation, verification and teaching can be distinguished from vague documentation or unauthorized prescription changes without retrieving an unquoted event detail.",
+      "laterStageLeakCheck": "stage_2_clarification and stage_3_teaching enact the appropriate record content. They confirm the workflow, but the item tests the quality and scope of the supplied documentation choices rather than asking whether a particular hidden encounter occurred.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "a7a705c773d6bd28",
+      "stage0QueueIndex": 411,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus2_case_postop_opioid_respiratory_depression_01",
+      "partId": "opus2_case_postop_opioid_respiratory_depression_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The matrix itself supplies the current arousal response, shallow RR 8, room-air SpO2 89, small reactive pupils and unchanged dressing/drain findings in both languages. The global medication record gives recent repeated morphine and the earlier normal assessment, so all four cue classifications are answerable without a declared update.",
+      "laterStageLeakCheck": "stage_0830 repeats the exact matrix observations; stage_0838 and stage_0855 add escalation and reversal. Neither repeated observation nor later naloxone response is required to interpret the fully stated cue cluster.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "14d012dcbe732e81",
+      "stage0QueueIndex": 412,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus2_case_postop_opioid_respiratory_depression_01",
+      "partId": "opus2_case_postop_opioid_respiratory_depression_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The always-visible summary already states difficult arousal after repeated IV morphine and opioid-related respiratory compromise. The global orders and OSA history, together with the supplied action choices, suffice to choose holding opioids, stimulation, airway positioning and oxygen/monitoring in both languages; the item asks no numerical threshold or dose calculation.",
+      "laterStageLeakCheck": "stage_0830 adds severity measurements but does not change the immediate supportive actions for the respiratory compromise already disclosed globally. stage_0838 describes those same actions being performed and stage_0855 their eventual escalation outcome.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "571db6cc5f87dc07",
+      "stage0QueueIndex": 413,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus2_case_postop_opioid_respiratory_depression_01",
+      "partId": "opus2_case_postop_opioid_respiratory_depression_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both stems fully state the failed initial measures, persistent minimal responsiveness, RR 7, snoring, apneic pauses and oxygen-supported saturation. With the global opioid exposure, these supplied findings support urgent escalation and ventilation support; confirming an already activated response is explicitly allowed by the option.",
+      "laterStageLeakCheck": "stage_0838 repeats the deterioration and reports team activation; stage_0855 supplies naloxone response. Neither is needed to decide the prospective priority from the complete deterioration scenario in the part.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "dae0a573b8b9ca7f",
+      "stage0QueueIndex": 414,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus2_case_postop_opioid_respiratory_depression_01",
+      "partId": "opus2_case_postop_opioid_respiratory_depression_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The bilingual cloze independently identifies suspected postoperative opioid-induced respiratory depression and the goal of limiting abrupt analgesia loss. The global record establishes an IV-treated monitored postoperative patient. Choosing route, repeated-small-dose strategy and respiratory target needs no unseen concentration or exact prescribed dose.",
+      "laterStageLeakCheck": "stage_0838 supplies an available vial concentration and stage_0855 demonstrates actual increments and improvement. The cloze does not ask a calculation or retrieval of those increments; their later use would confirm the proposed strategy.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "0e362fad56f8d45a",
+      "stage0QueueIndex": 415,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus2_case_postop_opioid_respiratory_depression_01",
+      "partId": "opus2_case_postop_opioid_respiratory_depression_01_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both stems supply the response to two small IV naloxone doses, restored command following and residual pain. Global context establishes repeated morphine exposure and already identifies recurrence monitoring; the old hemoglobin and postoperative assessment are also globally available for the distractors. No missing current measurement determines the next-care concern.",
+      "laterStageLeakCheck": "stage_0855 repeats the response and explicitly states the opioid-versus-naloxone duration concern that is the keyed choice. That later explanatory statement is answer confirmation, not a required hidden patient fact.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "6bf3a50f589c39d7",
+      "stage0QueueIndex": 416,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus2_case_postop_opioid_respiratory_depression_01",
+      "partId": "opus2_case_postop_opioid_respiratory_depression_01_q6",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The global history/orders list OSA, BMI 38, CPAP not applied since surgery and all three morphine administration times; the summary links the doses to difficult arousal and respiratory compromise. The part supplies proposed recurrence-prevention handoff points. Both language surfaces support the same selections without an additional observed response.",
+      "laterStageLeakCheck": "stage_0830 quantifies the episode and stage_0855 discusses revising analgesia. The question asks which risks and prospective plan to communicate, not the actual naloxone dose or final vital signs, so those updates are unnecessary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

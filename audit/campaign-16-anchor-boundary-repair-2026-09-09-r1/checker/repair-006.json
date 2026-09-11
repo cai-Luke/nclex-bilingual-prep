@@ -1,0 +1,351 @@
+{
+  "repairPacketId": "repair-006",
+  "bankPath": "banks/gemini-canonical.json",
+  "bankSha256": "3dc416a4652f5f5712219dde7de87b92f0697fac953750b8abb8fc0dbb976bb6",
+  "sourcePacketSha256": "34f1834dd1a97e19fa2757ce09709449693d0b5579cb536402e96308aada73ef",
+  "checker": "Claude Code / Claude Opus 5",
+  "checkerRole": "independent content checker (R4 Stage 2 blind full reconstruction)",
+  "blind": true,
+  "representation": {
+    "BASELINE": "proposedBoundary == {\"kind\":\"baseline\"}",
+    "STAGE": "proposedBoundary == exact declared stage id string",
+    "EXCEPTION": "proposedBoundary == null with exceptionReason",
+    "forbiddenAlternateField": "orStage (never emitted)"
+  },
+  "rowCount": 20,
+  "parentCaseIds": [
+    "gemini_gap_case_disaster_triage_05",
+    "gemini_gap_case_pediatric_croup_02",
+    "gemini_gap_case_pediatric_diabetes_03",
+    "gemini_gap_case_postpartum_depression_04",
+    "gemini_gap_case_pyloric_stenosis_01"
+  ],
+  "counts": {
+    "BASELINE": 20,
+    "STAGE": 0,
+    "EXCEPTION": 0,
+    "HIGH": 20
+  },
+  "rows": [
+    {
+      "rowKey": "e2c79603024000ae",
+      "stage0QueueIndex": 77,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_postpartum_depression_04",
+      "partId": "gemini_gap_case_postpartum_depression_04_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem scopes the item explicitly to 'the clinic record', which is the single baseline exhibit, and every keyed option is drawn from it: the EPDS score of 15 against the stated 10-13 threshold, difficulty sleeping even when the baby sleeps, feelings of inadequacy quoted as 'I feel like I can't do anything right for my baby', and the husband's report of frequent crying and social withdrawal. The distractor, mild fatigue resolving with a single night of sleep, is contradicted by the same exhibit's description of persistent exhaustion.",
+      "laterStageLeakCheck": "The parent has one declared stage, stage_safety_assessment, which contains the private safety interview; a single-stage parent does not make that stage the default. It adds a passive suicidal statement and a denial of infant-harm thoughts, neither of which is one of the five options, and it classifies nothing. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "ad1f40bfa944c76e",
+      "stage0QueueIndex": 78,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_postpartum_depression_04",
+      "partId": "gemini_gap_case_postpartum_depression_04_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline already establishes what makes a detailed safety assessment the priority: an EPDS of 15 above the stated threshold, persistent tearfulness and exhaustion, insomnia despite the infant sleeping, expressed inadequacy and worthlessness, and social withdrawal. A positive depression screen with hopelessness content requires the nurse to ask directly about suicidal thoughts, plan and intent before any other action, and the three distractors fail on principle - separating the infant and involuntary admission both require findings that assessment has not yet produced, and calling the feelings normal is false reassurance.",
+      "laterStageLeakCheck": "stage_safety_assessment must not be the boundary, on two grounds. It leaks: the stage narrates the nurse conducting exactly the keyed action, recording that 'On questioning, the client denies active suicidal ideation or plans to harm herself' and that she was asked about thoughts of harming the baby, which is keyed option A performed, in both languages. It is also incoherent as a boundary, since the item asks what the nurse should do first while the stage has already done it. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "da8629b69d1a7f43",
+      "stage0QueueIndex": 79,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_postpartum_depression_04",
+      "partId": "gemini_gap_case_postpartum_depression_04_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both dropdowns are general perinatal mental-health knowledge: postpartum blues resolve within 10 to 14 days, whereas postpartum depression persists and needs medical evaluation, psychotherapy and pharmacotherapy rather than rest alone or first-line electroconvulsive therapy. Baseline supplies the context that makes the comparison relevant - a four-week postpartum client with an EPDS of 15 and persistent symptoms, which is already past the blues window.",
+      "laterStageLeakCheck": "stage_safety_assessment concerns suicide risk and contains no timeline or treatment-modality content, so it supplies nothing either blank needs. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "0c064c9fbfb94fc8",
+      "stage0QueueIndex": 80,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_postpartum_depression_04",
+      "partId": "gemini_gap_case_postpartum_depression_04_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "All three rows are general postpartum-depression care-planning judgements: validating the client's feelings and framing the illness as treatable rather than a personal failure reduces guilt and supports adherence, coordinating family and friends for infant care and household tasks addresses exhaustion and safety, and advising her to avoid voicing negative thoughts is contraindicated because suppression increases isolation and defeats safety monitoring. Baseline supplies the presenting picture and the husband's involvement that the plan is built around.",
+      "laterStageLeakCheck": "stage_safety_assessment adds risk-assessment content but names none of the three interventions and classifies none of them. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "4ab59e09eea05c52",
+      "stage0QueueIndex": 81,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_disaster_triage_05",
+      "partId": "gemini_gap_case_disaster_triage_05_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Victim D's full physiological description is in the baseline field report - conscious with a severe head injury, breathing at 34 breaths per minute, rapid radial pulse, not following commands - and the options quote those same findings. Selecting the respiratory rate above 30 as the first-assessed START parameter that independently assigns RED is algorithm knowledge, and the same knowledge rejects a present radial pulse and an anatomical head-injury description as triage criteria.",
+      "laterStageLeakCheck": "The single declared stage, stage_triage_update, states only that the first ambulance has arrived, that the triage officer must direct transport, and that tags have already been applied; it names no tag colour and no physiological criterion, so it supplies nothing the answer needs and could not leak it. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "073af1428e095ad5",
+      "stage0QueueIndex": 82,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_disaster_triage_05",
+      "partId": "gemini_gap_case_disaster_triage_05_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The cloze itself restates Victim A's decisive finding - no breathing after the airway was opened - and the baseline field report supplies both victims in full, including that Victim A remains apneic with no palpable pulse after manual airway opening and that Victim C is a dazed teenager with limb abrasions who walks, talks and follows commands. Assigning BLACK to a victim apneic after repositioning and GREEN to the walking wounded is START knowledge.",
+      "laterStageLeakCheck": "stage_triage_update says tags 'have been applied to all four victims' but does not say which colour any victim received, so it neither supplies nor discloses either keyed option. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "49cb6ad2be1e0ea1",
+      "stage0QueueIndex": 83,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_disaster_triage_05",
+      "partId": "gemini_gap_case_disaster_triage_05_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both rows restate their victim's complete physiological profile inside the row text - Victim B with a femur fracture and severe bleeding but respiratory rate 24, heart rate 110 and following commands, and Victim D with respiratory rate 34, rapid pulse and not following commands - and the same descriptions appear in the baseline field report. Sorting them by the START respiration-perfusion-mental-status criteria, so that anatomic severity does not override intact physiology, is algorithm knowledge.",
+      "laterStageLeakCheck": "stage_triage_update contains no victim data and assigns no categories. It is neither needed nor disclosing, so BASELINE is the earliest boundary at which the part is answerable.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "1c9c9d1c76ee1216",
+      "stage0QueueIndex": 84,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_disaster_triage_05",
+      "partId": "gemini_gap_case_disaster_triage_05_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "This item asks for general mass-casualty triage principles rather than anything specific to these four victims: limiting on-scene intervention to airway opening and haemorrhage control, keeping assessment under a minute per victim, sorting on physiological respiration-perfusion-mental-status criteria rather than anatomical injury, directing the walking wounded to a designated area, and rejecting field suturing and detailed wound care. Baseline establishes the mass-casualty scene and the START method by name.",
+      "laterStageLeakCheck": "stage_triage_update describes the arrival of the first responders and the need to direct transport; it states none of the five guidelines. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "79ee6fa22cd57df3",
+      "stage0QueueIndex": 85,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+      "partId": "gemini_gap_case_pyloric_stenosis_01_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem scopes the item to 'the triage assessment', which is the single baseline exhibit, and every option comes from it: projectile non-bilious vomiting after feeds, the palpable olive-shaped mass right of the umbilicus, constant hunger immediately after vomiting, and the depressed fontanelle with dry mucous membranes. The distractor is defeated by the same exhibit, which records a fall from a birth weight of 4.1 kg to 3.8 kg rather than any gain.",
+      "laterStageLeakCheck": "stage_labs contains only serum chemistries and stage_postop only the day-one postoperative note; neither names a physical finding of pyloric stenosis or dehydration, so neither is needed. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "4b48daedf0d8a0a2",
+      "stage0QueueIndex": 86,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+      "partId": "gemini_gap_case_pyloric_stenosis_01_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each row carries its own value - pH 7.25, potassium 3.1 mEq/L, chloride 88 mEq/L - and the classification is pathophysiology rather than a lookup: protracted loss of gastric hydrochloric acid produces a hypochloraemic, hypokalaemic metabolic alkalosis, so low potassium and low chloride are expected while an acidotic pH is not. Baseline supplies the mechanism by describing forceful non-bilious vomiting after almost every feed for five days.",
+      "laterStageLeakCheck": "stage_labs must not be the boundary: it reports this infant's actual pH of 7.51 with bicarbonate 34, potassium 3.1 and chloride 88, which displays the alkalotic hypokalaemic hypochloraemic pattern and thereby settles all three rows, including that row r1's acidotic pH is the odd one out. BASELINE is earliest and does not disclose that pattern.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "8248ef708b75727a",
+      "stage0QueueIndex": 87,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+      "partId": "gemini_gap_case_pyloric_stenosis_01_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline supplies the preoperative problem directly: five days of forceful vomiting with a depressed fontanelle, dry mucous membranes, decreased skin turgor and weight loss below birth weight. Correcting dehydration and electrolyte losses with intravenous fluid containing potassium, and keeping the infant nil by mouth to stop further vomiting and aspiration risk, follows from that; potassium is never given by intravenous push, and oral rehydration is excluded by the nil-by-mouth requirement, so both distractor sets fail on knowledge.",
+      "laterStageLeakCheck": "stage_labs would supply the measured hypokalaemia and hypochloraemia, which reinforces the potassium-containing fluid choice but is not needed once the vomiting history and dehydration signs are visible, and it belongs to a different part. stage_postop is after surgery. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "9729bf71edce3119",
+      "stage0QueueIndex": 88,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+      "partId": "gemini_gap_case_pyloric_stenosis_01_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem is self-contained: it establishes that this is postoperative day one and that orders for postoperative feeding have been written. Graded refeeding after pyloromyotomy - beginning with small volumes of clear liquid or oral rehydration solution and advancing as tolerated - is paediatric surgical nursing knowledge, and the distractors fail on it, since a full bottle of standard formula immediately is contraindicated, further strict nil by mouth is unnecessary without complications, and there is no indication to delay feeding for antiemetics.",
+      "laterStageLeakCheck": "stage_postop states that the pyloromyotomy was successful, that vital signs are stable and that 'The provider has written orders to initiate postoperative feedings', all of which the stem restates; it does not describe the feeding regimen, so it supplies nothing the answer needs. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "aa5257bcf0a4b270",
+      "stage0QueueIndex": 89,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_croup_02",
+      "partId": "gemini_gap_case_pediatric_croup_02_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem scopes the item to 'the triage note', which is the single baseline exhibit, and all four options quote values from it - inspiratory stridor audible at rest, temperature 101.1 F, oxygen saturation 94 percent, heart rate 138. Recognising stridor at rest as the marker of significant subglottic narrowing, with tachycardia and mild desaturation as downstream consequences and fever as expected in viral croup, is respiratory assessment knowledge.",
+      "laterStageLeakCheck": "The single declared stage, stage_interventions, is the post-treatment note showing stridor resolved and saturation 98 percent; it contains no triage-note finding and would only show that the stridor was the treated problem. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "de7bd11afe30a159",
+      "stage0QueueIndex": 90,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_croup_02",
+      "partId": "gemini_gap_case_pediatric_croup_02_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline supplies the whole clinical picture the three interventions are judged against: a fourteen-month-old with a barking cough, inspiratory stridor at rest and visible subcostal and intercostal retractions. Nebulised racemic epinephrine for rapid mucosal vasoconstriction and dexamethasone for sustained anti-inflammatory effect are indicated, and instrumenting the posterior pharynx with a tongue depressor for a throat culture is contraindicated because it can precipitate laryngospasm and complete obstruction. All three follow from knowledge plus the baseline findings.",
+      "laterStageLeakCheck": "stage_interventions must not be the boundary: it states 'The child was administered prescribed nebulized racemic epinephrine and oral dexamethasone (0.6 mg/kg)' and then reports stridor resolved and retractions gone, which shows rows r1 and r2 as indicated and effective, in both languages. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "f91309ce46e51ee1",
+      "stage0QueueIndex": 91,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_croup_02",
+      "partId": "gemini_gap_case_pediatric_croup_02_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both dropdowns are racemic epinephrine pharmacology: onset is rapid but duration is only about one to two hours, so subglottic oedema can recur and the child must be watched for rebound stridor and respiratory distress rather than discharged immediately. Baseline establishes the croup presentation for which the drug is given, and the stem states that it is being administered. No case value is required.",
+      "laterStageLeakCheck": "stage_interventions records the post-treatment improvement at 0330 but says nothing about duration of action or rebound risk, so it supplies neither blank. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "a6e17c77fd035b50",
+      "stage0QueueIndex": 92,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_croup_02",
+      "partId": "gemini_gap_case_pediatric_croup_02_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem establishes that the child is preparing for discharge, and each option is general croup home-care teaching: cool-mist humidification and cool night air relieve mucosal swelling and spasm, upright positioning prevents airway compression, and parents must watch for retractions, noisy breathing and perioral cyanosis. The distractor fails on medication knowledge, since dexamethasone is given as a scheduled short course rather than as needed for coughing spells. Baseline supplies the diagnosis and the severity that make these instructions apply.",
+      "laterStageLeakCheck": "stage_interventions documents the in-department treatment response and names dexamethasone and racemic epinephrine, but it gives no home-care instruction and does not address dosing schedule, so it supplies nothing the item needs. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "6daa074f12822085",
+      "stage0QueueIndex": 93,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_diabetes_03",
+      "partId": "gemini_gap_case_pediatric_diabetes_03_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "This is a hypoglycaemia-versus-hyperglycaemia recognition item decided entirely by knowledge: shakiness, diaphoresis, irritability and confusion are autonomic and neuroglycopenic hypoglycaemia signs, while warm dry flushed skin and polyuria belong to hyperglycaemia. Baseline supplies the reason the teaching applies, establishing a newly diagnosed type 1 diabetic child started on prandial regular insulin and bedtime glargine.",
+      "laterStageLeakCheck": "The single declared stage, stage_education, concerns the school and exercise plan and lists no sign or symptom, so it supplies nothing the item needs. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "6ccee7593e5d22bf",
+      "stage0QueueIndex": 94,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_diabetes_03",
+      "partId": "gemini_gap_case_pediatric_diabetes_03_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem is self-contained: it gives the symptoms, the measured glucose of 62 mg/dL, and implicitly that the child is conscious and complaining, which is what makes oral carbohydrate rather than glucagon correct. Applying the rule of fifteen with about four ounces of juice or regular soda is standard practice, and the distractors fail on knowledge - glucagon is for the unconscious or non-swallowing client, insulin would worsen the hypoglycaemia, and waiting thirty minutes without treatment is unsafe. Baseline supplies the insulin regimen that explains the event.",
+      "laterStageLeakCheck": "stage_education establishes that the child attends school and plays soccer, which is scene-setting the stem already carries, and it states no treatment threshold or intervention. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "b6b8f9941876daca",
+      "stage0QueueIndex": 95,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_diabetes_03",
+      "partId": "gemini_gap_case_pediatric_diabetes_03_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "All three rows are subcutaneous insulin technique judgements decided by knowledge: rotating within one anatomical region keeps absorption consistent while preventing lipodystrophy, aspiration is not performed for subcutaneous injection and only increases bruising, and pinching the skin with a 45 to 90 degree angle chosen by tissue thickness delivers into the subcutaneous space. Baseline establishes that both insulins are given subcutaneously, which is the only case fact required.",
+      "laterStageLeakCheck": "stage_education concerns exercise and school glucose management and describes no injection technique. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "42c6839b23c972cb",
+      "stage0QueueIndex": 96,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_diabetes_03",
+      "partId": "gemini_gap_case_pediatric_diabetes_03_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The cloze sentence itself supplies the scenario - soccer practice, a pre-exercise glucose check, and the sub-100 mg/dL threshold - so the activity does not have to come from a stage. Both answers are exercise-and-insulin knowledge: a 15-gram carbohydrate snack before exercising below 100 mg/dL, and avoiding injection into the thigh because increased blood flow in the working limb accelerates absorption and can precipitate hypoglycaemia. Baseline supplies the regimen of prandial regular insulin and bedtime glargine.",
+      "laterStageLeakCheck": "stage_education states that 'The child plays soccer at school in the afternoons' and that the parents are worried about glucose during exercise, which is the premise the cloze already restates; it gives neither the carbohydrate rule nor the injection-site caution. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

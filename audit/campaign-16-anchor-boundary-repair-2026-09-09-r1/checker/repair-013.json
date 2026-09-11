@@ -1,0 +1,267 @@
+{
+  "repairPacketId": "repair-013",
+  "bankPath": "banks/gpt-canonical.json",
+  "bankSha256": "d7d228afc282bd15bc730be4ca5b3d2c7c14c017bbc14f3d12a7cbccbfef0f20",
+  "sourcePacketSha256": "3a7cf41533be308df3c94727b9311c70a66828da807c27c70f2aa7dd729ac4dd",
+  "checker": "Claude Code / Claude Opus 5",
+  "checkerRole": "independent content checker (R4 Stage 2 blind full reconstruction)",
+  "blind": true,
+  "representation": {
+    "BASELINE": "proposedBoundary == {\"kind\":\"baseline\"}",
+    "STAGE": "proposedBoundary == exact declared stage id string",
+    "EXCEPTION": "proposedBoundary == null with exceptionReason",
+    "forbiddenAlternateField": "orStage (never emitted)"
+  },
+  "rowCount": 15,
+  "parentCaseIds": [
+    "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02",
+    "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03",
+    "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04"
+  ],
+  "counts": {
+    "BASELINE": 14,
+    "STAGE": 1,
+    "EXCEPTION": 0,
+    "HIGH": 15
+  },
+  "rows": [
+    {
+      "rowKey": "320414cdcec3309a",
+      "stage0QueueIndex": 196,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Baseline carries every fact the answer needs: a 58-year-old whose primary language is Mandarin with limited English, an unsigned consent form for endoscopy with moderate sedation, and an adult daughter offering 'I can translate everything.' Informed consent requires a certified medical interpreter and a provider-led discussion in the client's language; using a family member, treating a nod as agreement, and documenting refusal all fail on that standard.",
+      "laterStageLeakCheck": "stage_1_consent must not be the boundary: it states that 'The provider has not yet reviewed risks, benefits, alternatives, and expected recovery using a certified interpreter', which names the certified-interpreter requirement that keyed option B supplies. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "a3fc8b3be6c01f0d",
+      "stage0QueueIndex": 197,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each row states its own finding and the classification is discharge-readiness knowledge: English-only written instructions for a client who reads simplified Chinese, an answer to prescribe extra aspirin for heavy bleeding, no confirmed responsible adult after moderate sedation, and residual drowsiness all require follow-up, while correct use of a phone interpreter supports readiness. Baseline grounds the language rows by recording the Mandarin primary language and simplified-Chinese reading, and grounds the sedation row by recording the planned moderate sedation.",
+      "laterStageLeakCheck": "stage_2_discharge is the source of the row content, which the rows restate, and it classifies nothing. stage_3_barriers shows the barriers resolved. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "85ecab1a1fe8ade9",
+      "stage0QueueIndex": 198,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem supplies the decisive fact - a failed teach-back response after sedation - and baseline supplies the rest: a Mandarin-speaking client with limited English facing a procedure under moderate sedation. A failed teach-back in a client with a language barrier is a safety and comprehension barrier, and moderate sedation independently requires a responsible adult, so interpreter-supported re-teaching plus responsible-adult discharge planning follows. The distractors - a billing consultation, and immediate discharge on daughter-only translation - fail on principle.",
+      "laterStageLeakCheck": "stage_3_barriers must not be the boundary: it narrates the resolution, with the certified interpreter on the phone, translated instructions printed and a neighbour agreeing to stay overnight and drive, which is the keyed second blank carried out. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "87f0b4d14220d4c2",
+      "stage0QueueIndex": 199,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The task is ordering, and the option set itself describes the barrier. The sequence follows post-sedation discharge logic: pause discharge and maintain supervision because teach-back is unreliable after sedation, use a certified interpreter to identify the specific learning gaps, notify the provider or charge nurse that discharge criteria are not met, coordinate translated instructions and a responsible adult, then document the failed teach-back and the final safe plan. Baseline supplies the language barrier and the moderate sedation that make each step apply.",
+      "laterStageLeakCheck": "stage_3_barriers must not be the boundary: it narrates the interpreter clarification, the provider review, the printed translated instructions and the overnight escort, which discloses steps B and D as accomplished. BASELINE is earliest and answerable.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "a8f78d0aebd01b2f",
+      "stage0QueueIndex": 200,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "All four rows are self-describing client statements and the judgement is post-sedation discharge knowledge: calling for heavy bleeding or trouble breathing, avoiding alcohol and sedatives that night, and using the translated instructions show understanding, while planning to drive the next morning does not, since driving is restricted after moderate sedation. Baseline supplies the moderate sedation and the simplified-Chinese reading ability that make the last row meaningful.",
+      "laterStageLeakCheck": "stage_3_barriers must not be the boundary: it records the client's correct teach-back verbatim - 'call the clinic or emergency services for heavy bleeding, fever, severe pain, or trouble breathing; do not drive, sign legal papers, drink alcohol, or take sedatives tonight' - which supplies rows r1 and r3 as correct and marks row r2 as wrong, in both languages. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "c827f2ece4ba697c",
+      "stage0QueueIndex": 201,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each row states its own cue, and two of the five are counterfactual red flags rather than this child's findings: baseline records that the child 'cries with tears' and stage_1 records no bilious emesis, so the 'no tears' and 'bilious vomiting' rows are hypotheticals the learner classifies on knowledge. The remaining rows are grounded - one wet diaper in six hours is in the baseline note, and alertness and mildly dry mucous membranes describe mild-to-moderate dehydration suitable for oral rehydration.",
+      "laterStageLeakCheck": "stage_1_triage must not be the boundary: it states 'No lethargy, sunken eyes, bilious emesis, or severe abdominal distention is noted', which enumerates the escalation category that row r4 belongs to. BASELINE is earliest and avoids that cue.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "ee4af7b894b76a37",
+      "stage0QueueIndex": 202,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem scopes itself explicitly to 'the clinic protocol in the baseline note' and restates both inputs - 75 mL/kg over four hours and a weight of 11 kg - so the product of 825 mL uses only the baseline exhibit and the part itself.",
+      "laterStageLeakCheck": "No stage contains a volume or a weight, so none can affect the calculation. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "0eaccc592c2657e8",
+      "stage0QueueIndex": 203,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem supplies the decisive event - vomiting after a large amount of sports drink - and baseline supplies the prescribed remedy by naming the clinic's oral rehydration solution protocol. Substituting oral rehydration solution for a sweet sports drink and giving it in small frequent amounts after a brief pause is standard paediatric rehydration teaching, and the distractors (undiluted juice, plain water only, a full cup hourly, waiting 24 hours) fail on the same knowledge.",
+      "laterStageLeakCheck": "stage_2_teaching must not be the boundary: it states that 'The nurse prepares oral rehydration solution and a 5-mL syringe', which names the first keyed option and demonstrates the small-volume method of the second. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "e60e141ac49baf63",
+      "stage0QueueIndex": 204,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem supplies the trigger - the child has vomited once - and the five steps sequence by paediatric rehydration logic: pause fluids briefly with safe positioning, restart oral rehydration solution in very small amounts, increase gradually as vomiting decreases, resume age-appropriate foods as tolerated while continuing fluids, and seek care for red flags or inability to keep fluids down. Baseline supplies the oral rehydration protocol that anchors the plan.",
+      "laterStageLeakCheck": "stage_3_home lists continuing oral rehydration solution, resuming age-appropriate foods and avoiding large sweet boluses, which restates several steps' content without changing any position. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "a67d40b6059bdb3b",
+      "stage0QueueIndex": 205,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "All five options are self-describing parent statements and the judgement is paediatric red-flag knowledge: no wet diaper for eight hours, green (bilious) vomit, and blood in the stool require urgent contact, while playfulness after small sips and keeping down bland food are reassuring. Baseline grounds the comparison by recording one wet diaper in six hours and no blood in stool at presentation.",
+      "laterStageLeakCheck": "stage_3_home records the parent asking which signs mean calling or returning urgently, which frames the item, but it enumerates none of the red flags. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "0acc13e5c4139a70",
+      "stage0QueueIndex": 206,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q1",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Each row states its own observation, and the three needing case grounding are grounded at baseline: the offloading boot and the glucose monitoring are both in the baseline order set, and the daily dressing change by a caregiver matches the ordered plan. Classifying hand hygiene before opening sterile supplies, a clean field away from pet food, boot use despite neuropathy, and glucose-log adherence is wound-care and diabetes knowledge.",
+      "laterStageLeakCheck": "stage_3_followup must not be the boundary: it states that the nurse re-teaches 'hand hygiene, clean field setup away from pets, normal-saline cleansing, prescribed dressing placement, offloading boot use', which enumerates the corrections for rows r1, r2 and r4. BASELINE is earliest and non-leaking.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "1f137477204f33f1",
+      "stage0QueueIndex": 207,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q2",
+      "proposedBoundary": "stage_2_teachback",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The part restates nothing: the stem says only that Stage 2 includes the spouse's teach-back, and the cloze asks what 'The spouse's response' shows. At baseline no teach-back has occurred, so the learner cannot distinguish the keyed 'teach-back failure with unsafe wound-care steps' from the alternative 'readiness to independently change the dressing' - the option set offers both directions and the case offers no basis to choose. stage_2_teachback is the only source of the decisive content: the spouse saying 'If it looks dirty, I will clean it with hydrogen peroxide and pack the gauze tightly so it closes faster', which is unsafe on two counts against the baseline order for normal-saline cleansing and the prescribed dressing.",
+      "laterStageLeakCheck": "stage_2_teachback supplies the evidence without the answer: it quotes the spouse but never labels the response a failure and never states the corrective action. stage_3_followup must not be the boundary: it records the nurse re-teaching the full sequence and the spouse performing 'a correct return demonstration after coaching', which is the keyed second blank carried out.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "8d4801b44a9cf10f",
+      "stage0QueueIndex": 208,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q3",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "All four options quote the Stage 2 findings, so the candidate set is inside the part, and baseline supplies the context that ranks them - a plantar ulcer in a client with type 2 diabetes and peripheral neuropathy, where new foul odour, increased purulent drainage and warm periwound skin indicate probable infection and outrank a coaching need, an uncomfortable boot, or a question about walking barefoot.",
+      "laterStageLeakCheck": "stage_2_teachback is the source of the four findings, which the options restate, and it adds a temperature of 100.2 F that would reinforce the infection reading; it does not identify which finding is strongest. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "3daca5a04b2f9c3c",
+      "stage0QueueIndex": 209,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q4",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The stem restates both measurement pairs - baseline 2.8 cm by 1.8 cm and Stage 3 3.2 cm by 2.1 cm - so computing 6.72 minus 5.04 equals a 1.68 square centimetre increase uses no data outside the part. Baseline independently records the 2.8 by 1.8 clinic measurement.",
+      "laterStageLeakCheck": "stage_3_followup is the source of the current measurement, which the stem restates verbatim. BASELINE is the earliest answerable boundary.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "2df072f00aaf4f1e",
+      "stage0QueueIndex": 210,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The task is ordering, and the sequence follows wound-care teaching logic: establish a clean work area away from pets and food and perform hand hygiene, demonstrate normal-saline cleansing and the prescribed dressing, obtain a return demonstration with the actual supplies, address the barriers to boot use and glucose checks, then confirm when to call the wound clinic and arrange follow-up. Baseline supplies the order set - saline cleansing, prescribed dressing daily, offloading boot, glucose monitoring - that each step maps to.",
+      "laterStageLeakCheck": "stage_3_followup must not be the boundary: it narrates the nurse re-teaching this same list and the spouse performing a correct return demonstration afterwards, which discloses the sequence. BASELINE is earliest and answerable.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

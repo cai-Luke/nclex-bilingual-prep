@@ -1,0 +1,103 @@
+{
+  "repairPacketId": "repair-004",
+  "producer": "Codex / GPT-6 Astra",
+  "producingAgent": "/root/producer_001_009",
+  "role": "PRODUCER_SEMANTIC_RECONSTRUCTION",
+  "independentReview": false,
+  "sourcePacketSha256": "78ae27f622f0faf428f1f81d307fa49ce2620d697465a80172154ffb689a7770",
+  "workOrderSha256": "8cd476c23f2b6cadb07ae8115fd675fbbfc3f60acb46d7a521d5d1da30b2558b",
+  "parentCaseIds": [
+    "opus_case_lithium_toxicity_01"
+  ],
+  "method": "Whole parent examined; each affected part independently evaluated at baseline and successive declared boundaries in English and Simplified Chinese. No Phase E leak verdict or calibration answer key used.",
+  "rows": [
+    {
+      "rowKey": "069feba96b2b8325",
+      "stage0QueueIndex": 53,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_lithium_toxicity_01",
+      "partId": "opus_case_lithium_toxicity_q1",
+      "proposedBoundary": "stage_1",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "Baseline admission data establish dehydration, lithium toxicity and acute renal impairment but do not identify thiazide exposure. stage_1 first names HCTZ among medications being discontinued and records the daughter’s new-blood-pressure-pill concern in both languages, enabling the interaction mechanism rather than assuming an unlisted drug.",
+      "laterStageLeakCheck": "stage_2 dialysis escalation and stage_3 recovery do not add information needed to identify the sodium/lithium reabsorption mechanism once HCTZ exposure and baseline dehydration are visible.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "e16efeb234f31534",
+      "stage0QueueIndex": 54,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_lithium_toxicity_01",
+      "partId": "opus_case_lithium_toxicity_q2",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "The bilingual stem directly gives vomiting, declining neurologic status and hemodynamic instability. The global GCS 12 and lithium toxicity provide background; the immediate airway-protection choice requires no numerical update.",
+      "laterStageLeakCheck": "stage_1 describes lateral positioning and suction actually performed, which confirms the answer. Those actions should not be revealed merely to choose them from the supplied emergency presentation.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "117e92a832582184",
+      "stage0QueueIndex": 55,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_lithium_toxicity_01",
+      "partId": "opus_case_lithium_toxicity_q3",
+      "proposedBoundary": "stage_1",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The decisive option is decreased consciousness/progressive neurotoxicity with impaired clearance despite IV hydration. Baseline already establishes renal impairment, but stage_1 first records IV hydration followed by worsening lethargy and inappropriate speech. That cumulative evidence supports the named indication in both languages before the dialysis recommendation stage.",
+      "laterStageLeakCheck": "stage_2 provides additional myoclonus and minimal lithium reduction and explicitly recommends dialysis. These strengthen an indication already supported after stage_1 rather than create its first required evidence.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "6a1c2b0d2f2252a6",
+      "stage0QueueIndex": 56,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_lithium_toxicity_01",
+      "partId": "opus_case_lithium_toxicity_q4",
+      "proposedBoundary": null,
+      "disposition": "EXCEPTION",
+      "earliestBoundaryEvidence": "The English order specifies 20 mEq/100 mL over one hour; the Chinese order says 超过一小时, meaning more than one hour, so the administered rate is not equally definite. The keyed rationale invokes a facility peripheral-limit protocol that is not actually supplied as a visible protocol at any boundary.",
+      "laterStageLeakCheck": "stage_2 repeats the same inconsistent order wording; later dialysis does not supply a facility limit or resolve the bilingual rate. A boundary-only field cannot clarify either dosing premise.",
+      "bilingualRelation": "UNCERTAIN",
+      "confidence": "HIGH",
+      "exceptionReason": "Bilingual dosing-rate uncertainty and unsupported institution-specific limit: English one-hour infusion versus Chinese more-than-one-hour wording; no visible facility protocol resolves the rate/concentration safety premise."
+    },
+    {
+      "rowKey": "3b022fee319f25a3",
+      "stage0QueueIndex": 57,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_lithium_toxicity_01",
+      "partId": "opus_case_lithium_toxicity_q5",
+      "proposedBoundary": {
+        "kind": "baseline"
+      },
+      "disposition": "BASELINE",
+      "earliestBoundaryEvidence": "Both stems explicitly provide the post-dialysis lithium change from 1.1 to 1.3 at 0200. The task is to interpret that stated change, so the part itself supplies the entire necessary temporal comparison without declared updates.",
+      "laterStageLeakCheck": "stage_3 repeats the rebound and documents the serial-monitoring plan; those entries confirm the interpretation and action already derivable from the provided result pair.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    },
+    {
+      "rowKey": "57172a88716b42d8",
+      "stage0QueueIndex": 58,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_lithium_toxicity_01",
+      "partId": "opus_case_lithium_toxicity_q6",
+      "proposedBoundary": "stage_3",
+      "disposition": "STAGE",
+      "earliestBoundaryEvidence": "The selected response includes factual reassurance that alertness has improved. Baseline and stages 1–2 show impaired or declining consciousness; stage_3 first records spontaneous eye opening, command following and later orientation, while the inclusive prefix retains HCTZ exposure and dehydration context. Both languages require this real improvement evidence.",
+      "laterStageLeakCheck": "This is not a final-stage default: the response would be factually unsupported before improvement. The final stage is used only for observed alertness recovery, not to promise permanent recovery or determine future lithium prescribing.",
+      "bilingualRelation": "PARALLEL",
+      "confidence": "HIGH",
+      "exceptionReason": null
+    }
+  ]
+}

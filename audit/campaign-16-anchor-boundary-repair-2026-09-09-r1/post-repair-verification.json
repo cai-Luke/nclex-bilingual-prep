@@ -1,0 +1,3708 @@
+{
+  "mode": "POST_REPAIR_STRUCTURAL_G",
+  "commissionRoot": "audit/campaign-16-anchor-boundary-repair-2026-09-09-r1",
+  "workOrderSha256": "8cd476c23f2b6cadb07ae8115fd675fbbfc3f60acb46d7a521d5d1da30b2558b",
+  "openingHead": "a639b5fe7f6816e68228d7dc13d068c0c0f69e91",
+  "hashes": {
+    "tool": "f477dfc82e9fd31d3d070fbfbcd6b4c0cf22d07c843900b0ce0a5f13adacaafb",
+    "inventory": "9f66750caaeead9d374742588856e2630a7fce09415bb7c2c662669a2af93e8e",
+    "manifest": "46c054df95f1c94aefb636e137976b3e02d173813fbb6977823d119f292d7661",
+    "acceptedBoundaries": "a7e2eb21ea51693e4e2071052bfa21db088e939a902b6aa2797d1adb452dbad6",
+    "exceptions": "f47bef718ab210f2e41f383b8ee14f7a812c259c2389baa8ca3f5dc78db5d6c5",
+    "sharedBoundary": "b83c80c29949adba3e301cefa0e5785e1855567cf814ba5447c976100ecdcc7d",
+    "schema": "0b88e83a048485e9732f175e2b47b4c46b1f79d449d523e49f9ff3ebfa692fad",
+    "stageReferenceAudit": "9a2ce0ce9121046679bcd626b002a2c126ace707cbb5b09d33ea39da9420715b"
+  },
+  "bankDigests": {
+    "banks/burn-canonical.json": {
+      "openingSha256": "5244b8d37daa49adbd1fbed7991f4ede52ded8ce710e26821841ef5e2ce3719f",
+      "sha256": "5244b8d37daa49adbd1fbed7991f4ede52ded8ce710e26821841ef5e2ce3719f",
+      "affected": false
+    },
+    "banks/capnography-canonical.json": {
+      "openingSha256": "36d72a89405fe4400f27b3b8969cdbe1c51f3217151f8b2592b7f877d636f20c",
+      "sha256": "36d72a89405fe4400f27b3b8969cdbe1c51f3217151f8b2592b7f877d636f20c",
+      "affected": false
+    },
+    "banks/claude-canonical.json": {
+      "openingSha256": "25f53ded1ac21da4ca9d211040c3f6110ebee38d72ba41d0fc64fe358ba73b71",
+      "sha256": "9777aaad1f40ad7be449a7399e7d3706060a6a8e19d5d54909d121ab8480c69e",
+      "affected": true
+    },
+    "banks/device-canonical.json": {
+      "openingSha256": "83d5a6ac7219524f4c528265291cbee2ed5b2f17c13fbeb3649342bae2e4aac5",
+      "sha256": "83d5a6ac7219524f4c528265291cbee2ed5b2f17c13fbeb3649342bae2e4aac5",
+      "affected": false
+    },
+    "banks/gemini-canonical.json": {
+      "openingSha256": "3dc416a4652f5f5712219dde7de87b92f0697fac953750b8abb8fc0dbb976bb6",
+      "sha256": "fd98f560f93851c82b6c691aeeb3f3897aee3c2bf7a9268d973a0c7c7fff2901",
+      "affected": true
+    },
+    "banks/gpt-canonical.json": {
+      "openingSha256": "d7d228afc282bd15bc730be4ca5b3d2c7c14c017bbc14f3d12a7cbccbfef0f20",
+      "sha256": "154c31f860790d5e90f23dae2dabfd31fba32ca46cc53a38b038cc56af30d469",
+      "affected": true
+    },
+    "banks/hard-cases-canonical.json": {
+      "openingSha256": "5d47b79a1e63fe5f852eab7b4ab9b8db6ca7e9ec924037d5e81de8a8bb3ee3d1",
+      "sha256": "8af1a86256278900b619f83812087dfb0e940ea349a00ceddef9fe2f079ca8e3",
+      "affected": true
+    },
+    "banks/io-canonical.json": {
+      "openingSha256": "2ce6488e65049ba00cd9dccf889a042e0a624f224387382d564d282e147b2645",
+      "sha256": "2ce6488e65049ba00cd9dccf889a042e0a624f224387382d564d282e147b2645",
+      "affected": false
+    },
+    "banks/lab-canonical.json": {
+      "openingSha256": "1038cb68f6b91f6a2c981562d97ad9e16179db9b1332c75725fd538595c44b05",
+      "sha256": "1038cb68f6b91f6a2c981562d97ad9e16179db9b1332c75725fd538595c44b05",
+      "affected": false
+    },
+    "banks/mar-canonical.json": {
+      "openingSha256": "f12c03a28ff5b52411843f84bc942b4ca5667e989194357ed2d60a394f17641e",
+      "sha256": "f12c03a28ff5b52411843f84bc942b4ca5667e989194357ed2d60a394f17641e",
+      "affected": false
+    },
+    "banks/medlabel-canonical.json": {
+      "openingSha256": "cc3bd0053516fc7ea4b23e814e46f186e6d2dbf40888fa713a862c07ea2b3993",
+      "sha256": "cc3bd0053516fc7ea4b23e814e46f186e6d2dbf40888fa713a862c07ea2b3993",
+      "affected": false
+    },
+    "banks/visual-canonical.json": {
+      "openingSha256": "e42e2a3fa6aa349a61279e6988e250e65c2b752a6f36d33806a2671e0af0f9e4",
+      "sha256": "e42e2a3fa6aa349a61279e6988e250e65c2b752a6f36d33806a2671e0af0f9e4",
+      "affected": false
+    },
+    "banks/vitals-canonical.json": {
+      "openingSha256": "5154e25492bced8e4a49d763f04e25e154389c31e085bf37669651e13d411b9d",
+      "sha256": "5154e25492bced8e4a49d763f04e25e154389c31e085bf37669651e13d411b9d",
+      "affected": false
+    }
+  },
+  "ok": true,
+  "failures": [],
+  "accounting": {
+    "total": 451,
+    "repairedBaseline": 369,
+    "repairedStage": 16,
+    "exceptions": 66,
+    "reconciled": 451
+  },
+  "equation": "451 = 369 + 16 + 66",
+  "closure": "REPAIRED_SUBSET_ONLY",
+  "remainingLeaks": 66,
+  "strictOnlyMissingRequiredAnchor": 75,
+  "unresolvedFindings": 0,
+  "rows": [
+    {
+      "rowKey": "56ab2ea0633879b2",
+      "stage0QueueIndex": 1,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus2_case_code_status_01",
+      "partId": "opus2_case_code_status_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "83b0ee550a17e0e3",
+      "stage0QueueIndex": 2,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus2_case_code_status_01",
+      "partId": "opus2_case_code_status_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "34925ffab6291d40",
+      "stage0QueueIndex": 3,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus2_case_code_status_01",
+      "partId": "opus2_case_code_status_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "c47220ac1fb7f995",
+      "stage0QueueIndex": 4,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus2_case_code_status_01",
+      "partId": "opus2_case_code_status_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "f9ac2b9add5ea7c9",
+      "stage0QueueIndex": 5,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus2_case_code_status_01",
+      "partId": "opus2_case_code_status_q5",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "e6e33f98acb54edf",
+      "stage0QueueIndex": 6,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "partId": "opus_vanco_case_01_q1_infusion_reaction",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "4f23479ea5389513",
+      "stage0QueueIndex": 7,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "partId": "opus_vanco_case_01_q2_documentation_cloze",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "9934b65487d9d53a",
+      "stage0QueueIndex": 8,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "partId": "opus_vanco_case_01_q3_supratherapeutic_trough_order",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "6c1c4c992aa4da7d",
+      "stage0QueueIndex": 9,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "partId": "opus_vanco_case_01_q4_ototoxicity_screening",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "37c2401af772da7a",
+      "stage0QueueIndex": 10,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "partId": "opus_vanco_case_01_q5_aki_cue_matrix",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "fe4e91f7d5e2c01d",
+      "stage0QueueIndex": 11,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "partId": "opus_vanco_case_01_q6_lisinopril_aki",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "23c66e6046923646",
+      "stage0QueueIndex": 12,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus1_case_tha_discharge_lep_01",
+      "partId": "opus1_case_tha_discharge_lep_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "6dfc7831ec885eb1",
+      "stage0QueueIndex": 13,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus1_case_tha_discharge_lep_01",
+      "partId": "opus1_case_tha_discharge_lep_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "d9d324461ff760a8",
+      "stage0QueueIndex": 14,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus1_case_tha_discharge_lep_01",
+      "partId": "opus1_case_tha_discharge_lep_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "af259a785b2a75a0",
+      "stage0QueueIndex": 15,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus1_case_tha_discharge_lep_01",
+      "partId": "opus1_case_tha_discharge_lep_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "5167f735f4655df2",
+      "stage0QueueIndex": 16,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus1_case_tha_discharge_lep_01",
+      "partId": "opus1_case_tha_discharge_lep_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "25b7ff4311e66f43",
+      "stage0QueueIndex": 17,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus1_case_tha_discharge_lep_01",
+      "partId": "opus1_case_tha_discharge_lep_01_q6",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "b9f71a35f2963bb9",
+      "stage0QueueIndex": 18,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus20_case_cdiff_01",
+      "partId": "opus20_case_cdiff_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "faf6edfda1e6d1d4",
+      "stage0QueueIndex": 19,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus20_case_cdiff_01",
+      "partId": "opus20_case_cdiff_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "710cb29c2c8f10a0",
+      "stage0QueueIndex": 20,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus20_case_cdiff_01",
+      "partId": "opus20_case_cdiff_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "3772a87a24608ad8",
+      "stage0QueueIndex": 21,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus20_case_cdiff_01",
+      "partId": "opus20_case_cdiff_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b6abb951b5915a76",
+      "stage0QueueIndex": 22,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus20_case_cdiff_01",
+      "partId": "opus20_case_cdiff_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "c9d1fba0eb5fe4bd",
+      "stage0QueueIndex": 23,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus20_case_cdiff_01",
+      "partId": "opus20_case_cdiff_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "ca66a61cf072c87a",
+      "stage0QueueIndex": 24,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_warfarin_bridge_01",
+      "partId": "opus_case_warfarin_bridge_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "2a99c7e730312a4f",
+      "stage0QueueIndex": 25,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_warfarin_bridge_01",
+      "partId": "opus_case_warfarin_bridge_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "3eb5c0a2ee9e3de6",
+      "stage0QueueIndex": 26,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_warfarin_bridge_01",
+      "partId": "opus_case_warfarin_bridge_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "f3d632e242a2a5f9",
+      "stage0QueueIndex": 27,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_warfarin_bridge_01",
+      "partId": "opus_case_warfarin_bridge_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "04aa661c7840c96e",
+      "stage0QueueIndex": 28,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_warfarin_bridge_01",
+      "partId": "opus_case_warfarin_bridge_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "8a8b83152f1416e2",
+      "stage0QueueIndex": 29,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_warfarin_bridge_01",
+      "partId": "opus_case_warfarin_bridge_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "ab969d93bdc3f6db",
+      "stage0QueueIndex": 30,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus22_case_postpartum_intrusive_thoughts_01",
+      "partId": "opus22_case_postpartum_intrusive_thoughts_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "a0fe1b2b6a0943fb",
+      "stage0QueueIndex": 31,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus22_case_postpartum_intrusive_thoughts_01",
+      "partId": "opus22_case_postpartum_intrusive_thoughts_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "ae621f8f29d258c7",
+      "stage0QueueIndex": 32,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus22_case_postpartum_intrusive_thoughts_01",
+      "partId": "opus22_case_postpartum_intrusive_thoughts_01_q3",
+      "state": "REPAIRED_STAGE"
+    },
+    {
+      "rowKey": "0c01ba9f616c9a07",
+      "stage0QueueIndex": 33,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus22_case_postpartum_intrusive_thoughts_01",
+      "partId": "opus22_case_postpartum_intrusive_thoughts_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "0be29cb2eb0c1c8b",
+      "stage0QueueIndex": 34,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus22_case_postpartum_intrusive_thoughts_01",
+      "partId": "opus22_case_postpartum_intrusive_thoughts_01_q5",
+      "state": "REPAIRED_STAGE"
+    },
+    {
+      "rowKey": "4128d40164b4fa77",
+      "stage0QueueIndex": 35,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus24_case_elder_neglect_med_mismanagement_01",
+      "partId": "opus24_case_elder_neglect_med_mismanagement_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "cd7c37297a49fa90",
+      "stage0QueueIndex": 36,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus24_case_elder_neglect_med_mismanagement_01",
+      "partId": "opus24_case_elder_neglect_med_mismanagement_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "f056443c83a76a72",
+      "stage0QueueIndex": 37,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus24_case_elder_neglect_med_mismanagement_01",
+      "partId": "opus24_case_elder_neglect_med_mismanagement_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "ee56ac60cc709ab2",
+      "stage0QueueIndex": 38,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus24_case_elder_neglect_med_mismanagement_01",
+      "partId": "opus24_case_elder_neglect_med_mismanagement_01_q4",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "2d7522673cfbaf41",
+      "stage0QueueIndex": 39,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus24_case_elder_neglect_med_mismanagement_01",
+      "partId": "opus24_case_elder_neglect_med_mismanagement_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "23c8636371feafb9",
+      "stage0QueueIndex": 40,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus24_case_elder_neglect_med_mismanagement_01",
+      "partId": "opus24_case_elder_neglect_med_mismanagement_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "9e0d8c28e0256852",
+      "stage0QueueIndex": 41,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus26_case_refeeding_syndrome_01",
+      "partId": "opus26_case_refeeding_syndrome_01_q1",
+      "state": "REPAIRED_STAGE"
+    },
+    {
+      "rowKey": "d3e3db886cfc6d1b",
+      "stage0QueueIndex": 42,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus26_case_refeeding_syndrome_01",
+      "partId": "opus26_case_refeeding_syndrome_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "f226f8f9964c740a",
+      "stage0QueueIndex": 43,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus26_case_refeeding_syndrome_01",
+      "partId": "opus26_case_refeeding_syndrome_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "2c35ab34f9142f54",
+      "stage0QueueIndex": 44,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus26_case_refeeding_syndrome_01",
+      "partId": "opus26_case_refeeding_syndrome_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "9237cffb061dc974",
+      "stage0QueueIndex": 45,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus26_case_refeeding_syndrome_01",
+      "partId": "opus26_case_refeeding_syndrome_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "2d47bfebc29f8cc3",
+      "stage0QueueIndex": 46,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus26_case_refeeding_syndrome_01",
+      "partId": "opus26_case_refeeding_syndrome_01_q6",
+      "state": "REPAIRED_STAGE"
+    },
+    {
+      "rowKey": "2a08509f4d4bd4f9",
+      "stage0QueueIndex": 47,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus27_case_ipv_prenatal_care_01",
+      "partId": "opus27_case_ipv_prenatal_care_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "906c87e66283fe2a",
+      "stage0QueueIndex": 48,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus27_case_ipv_prenatal_care_01",
+      "partId": "opus27_case_ipv_prenatal_care_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "ef3e4aa9193aaddb",
+      "stage0QueueIndex": 49,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus27_case_ipv_prenatal_care_01",
+      "partId": "opus27_case_ipv_prenatal_care_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "a7f2d97912fc5c3e",
+      "stage0QueueIndex": 50,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus27_case_ipv_prenatal_care_01",
+      "partId": "opus27_case_ipv_prenatal_care_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "69bfd255f8e4a057",
+      "stage0QueueIndex": 51,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus27_case_ipv_prenatal_care_01",
+      "partId": "opus27_case_ipv_prenatal_care_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "96f84d2bb9dbfce2",
+      "stage0QueueIndex": 52,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus27_case_ipv_prenatal_care_01",
+      "partId": "opus27_case_ipv_prenatal_care_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "069feba96b2b8325",
+      "stage0QueueIndex": 53,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_lithium_toxicity_01",
+      "partId": "opus_case_lithium_toxicity_q1",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "e16efeb234f31534",
+      "stage0QueueIndex": 54,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_lithium_toxicity_01",
+      "partId": "opus_case_lithium_toxicity_q2",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "117e92a832582184",
+      "stage0QueueIndex": 55,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_lithium_toxicity_01",
+      "partId": "opus_case_lithium_toxicity_q3",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "6a1c2b0d2f2252a6",
+      "stage0QueueIndex": 56,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_lithium_toxicity_01",
+      "partId": "opus_case_lithium_toxicity_q4",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "3b022fee319f25a3",
+      "stage0QueueIndex": 57,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_lithium_toxicity_01",
+      "partId": "opus_case_lithium_toxicity_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "57172a88716b42d8",
+      "stage0QueueIndex": 58,
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_case_lithium_toxicity_01",
+      "partId": "opus_case_lithium_toxicity_q6",
+      "state": "REPAIRED_STAGE"
+    },
+    {
+      "rowKey": "80f86db49e773318",
+      "stage0QueueIndex": 59,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "opus_agvd_case_agvhd_01",
+      "partId": "opus_agvd_case_agvhd_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "4ce14ff05af707a1",
+      "stage0QueueIndex": 60,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "opus_agvd_case_agvhd_01",
+      "partId": "opus_agvd_case_agvhd_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "89493e6230bd35f0",
+      "stage0QueueIndex": 61,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "opus_agvd_case_agvhd_01",
+      "partId": "opus_agvd_case_agvhd_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "e4c0ce4085a31fbe",
+      "stage0QueueIndex": 62,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "opus_agvd_case_agvhd_01",
+      "partId": "opus_agvd_case_agvhd_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "aaef25bc33cc9e85",
+      "stage0QueueIndex": 63,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "opus_agvd_case_agvhd_01",
+      "partId": "opus_agvd_case_agvhd_01_q5",
+      "state": "REPAIRED_STAGE"
+    },
+    {
+      "rowKey": "47e8dfe5f72a69a4",
+      "stage0QueueIndex": 64,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "opus_agvd_case_agvhd_01",
+      "partId": "opus_agvd_case_agvhd_01_q6",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "b61fa4b15342c733",
+      "stage0QueueIndex": 65,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_lead_poisoning_01",
+      "partId": "gemini_gap_case_lead_poisoning_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "4170e57ae9a4c3ec",
+      "stage0QueueIndex": 66,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_lead_poisoning_01",
+      "partId": "gemini_gap_case_lead_poisoning_01_q2",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "cd7df4a4d5c4d6de",
+      "stage0QueueIndex": 67,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_lead_poisoning_01",
+      "partId": "gemini_gap_case_lead_poisoning_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "20fdafaa493d8306",
+      "stage0QueueIndex": 68,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_lead_poisoning_01",
+      "partId": "gemini_gap_case_lead_poisoning_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "cad66c8e5cd0bb1c",
+      "stage0QueueIndex": 69,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_hypertension_lifestyle_02",
+      "partId": "gemini_gap_case_htn_lifestyle_02_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "959169732df20279",
+      "stage0QueueIndex": 70,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_hypertension_lifestyle_02",
+      "partId": "gemini_gap_case_htn_lifestyle_02_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "4d6293aadd790c99",
+      "stage0QueueIndex": 71,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_hypertension_lifestyle_02",
+      "partId": "gemini_gap_case_htn_lifestyle_02_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "6e5b87c68e82f58d",
+      "stage0QueueIndex": 72,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_hypertension_lifestyle_02",
+      "partId": "gemini_gap_case_htn_lifestyle_02_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b89f57548b8c9d29",
+      "stage0QueueIndex": 73,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_palliative_care_03",
+      "partId": "gemini_gap_case_palliative_care_03_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "7fe104dccf843914",
+      "stage0QueueIndex": 74,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_palliative_care_03",
+      "partId": "gemini_gap_case_palliative_care_03_q2",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "0289c42705687b26",
+      "stage0QueueIndex": 75,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_palliative_care_03",
+      "partId": "gemini_gap_case_palliative_care_03_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "3456f9062f916506",
+      "stage0QueueIndex": 76,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_palliative_care_03",
+      "partId": "gemini_gap_case_palliative_care_03_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "e2c79603024000ae",
+      "stage0QueueIndex": 77,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_postpartum_depression_04",
+      "partId": "gemini_gap_case_postpartum_depression_04_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "ad1f40bfa944c76e",
+      "stage0QueueIndex": 78,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_postpartum_depression_04",
+      "partId": "gemini_gap_case_postpartum_depression_04_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "da8629b69d1a7f43",
+      "stage0QueueIndex": 79,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_postpartum_depression_04",
+      "partId": "gemini_gap_case_postpartum_depression_04_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "0c064c9fbfb94fc8",
+      "stage0QueueIndex": 80,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_postpartum_depression_04",
+      "partId": "gemini_gap_case_postpartum_depression_04_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "4ab59e09eea05c52",
+      "stage0QueueIndex": 81,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_disaster_triage_05",
+      "partId": "gemini_gap_case_disaster_triage_05_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "073af1428e095ad5",
+      "stage0QueueIndex": 82,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_disaster_triage_05",
+      "partId": "gemini_gap_case_disaster_triage_05_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "49cb6ad2be1e0ea1",
+      "stage0QueueIndex": 83,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_disaster_triage_05",
+      "partId": "gemini_gap_case_disaster_triage_05_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "1c9c9d1c76ee1216",
+      "stage0QueueIndex": 84,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_disaster_triage_05",
+      "partId": "gemini_gap_case_disaster_triage_05_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "79ee6fa22cd57df3",
+      "stage0QueueIndex": 85,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+      "partId": "gemini_gap_case_pyloric_stenosis_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "4b48daedf0d8a0a2",
+      "stage0QueueIndex": 86,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+      "partId": "gemini_gap_case_pyloric_stenosis_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "8248ef708b75727a",
+      "stage0QueueIndex": 87,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+      "partId": "gemini_gap_case_pyloric_stenosis_01_q3",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "9729bf71edce3119",
+      "stage0QueueIndex": 88,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+      "partId": "gemini_gap_case_pyloric_stenosis_01_q4",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "aa5257bcf0a4b270",
+      "stage0QueueIndex": 89,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_croup_02",
+      "partId": "gemini_gap_case_pediatric_croup_02_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "de7bd11afe30a159",
+      "stage0QueueIndex": 90,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_croup_02",
+      "partId": "gemini_gap_case_pediatric_croup_02_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "f91309ce46e51ee1",
+      "stage0QueueIndex": 91,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_croup_02",
+      "partId": "gemini_gap_case_pediatric_croup_02_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "a6e17c77fd035b50",
+      "stage0QueueIndex": 92,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_croup_02",
+      "partId": "gemini_gap_case_pediatric_croup_02_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "6daa074f12822085",
+      "stage0QueueIndex": 93,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_diabetes_03",
+      "partId": "gemini_gap_case_pediatric_diabetes_03_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "6ccee7593e5d22bf",
+      "stage0QueueIndex": 94,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_diabetes_03",
+      "partId": "gemini_gap_case_pediatric_diabetes_03_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b6b8f9941876daca",
+      "stage0QueueIndex": 95,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_diabetes_03",
+      "partId": "gemini_gap_case_pediatric_diabetes_03_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "42c6839b23c972cb",
+      "stage0QueueIndex": 96,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pediatric_diabetes_03",
+      "partId": "gemini_gap_case_pediatric_diabetes_03_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "d62bcb54069bc2f3",
+      "stage0QueueIndex": 97,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_cirrhosis_homecare_04",
+      "partId": "gemini_gap_case_cirrhosis_homecare_04_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "a47ec00ef1455a0c",
+      "stage0QueueIndex": 98,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_cirrhosis_homecare_04",
+      "partId": "gemini_gap_case_cirrhosis_homecare_04_q2",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "d3d4e5ec837dbc58",
+      "stage0QueueIndex": 99,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_cirrhosis_homecare_04",
+      "partId": "gemini_gap_case_cirrhosis_homecare_04_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "9347266410faeb13",
+      "stage0QueueIndex": 100,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_cirrhosis_homecare_04",
+      "partId": "gemini_gap_case_cirrhosis_homecare_04_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "03bd0aad72ee0681",
+      "stage0QueueIndex": 101,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "partId": "gemini_gap_case_chronic_hf_05_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "f2747d10f4c73a0f",
+      "stage0QueueIndex": 102,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "partId": "gemini_gap_case_chronic_hf_05_q2",
+      "state": "REPAIRED_STAGE"
+    },
+    {
+      "rowKey": "d27d38d95a9cda96",
+      "stage0QueueIndex": 103,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "partId": "gemini_gap_case_chronic_hf_05_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "d4e09cde7df74e40",
+      "stage0QueueIndex": 104,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_chronic_hf_05",
+      "partId": "gemini_gap_case_chronic_hf_05_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "681dce853b5dc1a2",
+      "stage0QueueIndex": 105,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case01_preventive_screening",
+      "partId": "gpt_case_premium_2026_06_10_case01_matrix_screening_01",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "03777e383cade092",
+      "stage0QueueIndex": 106,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case01_preventive_screening",
+      "partId": "gpt_case_premium_2026_06_10_case01_cloze_counseling_02",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "51fafa7e93411550",
+      "stage0QueueIndex": 107,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case01_preventive_screening",
+      "partId": "gpt_case_premium_2026_06_10_case01_mc_positive_fit_03",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "647fd881f260a88d",
+      "stage0QueueIndex": 108,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case01_preventive_screening",
+      "partId": "gpt_case_premium_2026_06_10_case01_sata_followup_04",
+      "state": "REPAIRED_STAGE"
+    },
+    {
+      "rowKey": "500bf26e2e4d0bb5",
+      "stage0QueueIndex": 109,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case01_preventive_screening",
+      "partId": "gpt_case_premium_2026_06_10_case01_or_screening_plan_05",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "4be43231eb22bcd9",
+      "stage0QueueIndex": 110,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case02_caregiver_burden",
+      "partId": "gpt_case_premium_2026_06_10_case02_mc_caregiver_priority_01",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "7e534d96c43bc63d",
+      "stage0QueueIndex": 111,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case02_caregiver_burden",
+      "partId": "gpt_case_premium_2026_06_10_case02_matrix_cues_02",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "aac0042dbd50f005",
+      "stage0QueueIndex": 112,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case02_caregiver_burden",
+      "partId": "gpt_case_premium_2026_06_10_case02_cloze_response_03",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "d97b1a7195f53ca8",
+      "stage0QueueIndex": 113,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case02_caregiver_burden",
+      "partId": "gpt_case_premium_2026_06_10_case02_sata_resources_04",
+      "state": "REPAIRED_STAGE"
+    },
+    {
+      "rowKey": "72b1de47c44bda5b",
+      "stage0QueueIndex": 114,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case02_caregiver_burden",
+      "partId": "gpt_case_premium_2026_06_10_case02_or_family_plan_05",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "3a063891f4392091",
+      "stage0QueueIndex": 115,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case03_chronic_self_management",
+      "partId": "gpt_case_premium_2026_06_10_case03_matrix_selfmgmt_01",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "d87bea9dc4bd3470",
+      "stage0QueueIndex": 116,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case03_chronic_self_management",
+      "partId": "gpt_case_premium_2026_06_10_case03_cloze_goal_02",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "be2fb184c47c9d5e",
+      "stage0QueueIndex": 117,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case03_chronic_self_management",
+      "partId": "gpt_case_premium_2026_06_10_case03_sata_plan_03",
+      "state": "REPAIRED_STAGE"
+    },
+    {
+      "rowKey": "076e3311e14405ec",
+      "stage0QueueIndex": 118,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case03_chronic_self_management",
+      "partId": "gpt_case_premium_2026_06_10_case03_mc_understanding_04",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "3457bb77db089c5e",
+      "stage0QueueIndex": 119,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case03_chronic_self_management",
+      "partId": "gpt_case_premium_2026_06_10_case03_or_followup_05",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "44032c3dd03062b3",
+      "stage0QueueIndex": 120,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case04_pressure_injury_rehab",
+      "partId": "gpt_case_premium_2026_06_10_case04_matrix_risk_01",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "1218bbfc2cc0b0f9",
+      "stage0QueueIndex": 121,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case04_pressure_injury_rehab",
+      "partId": "gpt_case_premium_2026_06_10_case04_cloze_stage1_02",
+      "state": "REPAIRED_STAGE"
+    },
+    {
+      "rowKey": "b5fae7d4ce9e1b35",
+      "stage0QueueIndex": 122,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case04_pressure_injury_rehab",
+      "partId": "gpt_case_premium_2026_06_10_case04_mc_first_action_03",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "0881cf6db258323c",
+      "stage0QueueIndex": 123,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case04_pressure_injury_rehab",
+      "partId": "gpt_case_premium_2026_06_10_case04_sata_prevention_04",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "f5e20370a2f809fe",
+      "stage0QueueIndex": 124,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case04_pressure_injury_rehab",
+      "partId": "gpt_case_premium_2026_06_10_case04_or_heel_action_05",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "a2fc6385f44d7431",
+      "stage0QueueIndex": 125,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case05_health_literacy_adherence",
+      "partId": "gpt_case_premium_2026_06_10_case05_mc_assessment_01",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "1b918ecf6fdb70d0",
+      "stage0QueueIndex": 126,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case05_health_literacy_adherence",
+      "partId": "gpt_case_premium_2026_06_10_case05_matrix_understanding_02",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "e22f08bd7ad039c0",
+      "stage0QueueIndex": 127,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case05_health_literacy_adherence",
+      "partId": "gpt_case_premium_2026_06_10_case05_cloze_teaching_03",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "a9945d58228a2424",
+      "stage0QueueIndex": 128,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case05_health_literacy_adherence",
+      "partId": "gpt_case_premium_2026_06_10_case05_sata_adherence_04",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "23da20412200c0bc",
+      "stage0QueueIndex": 129,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case05_health_literacy_adherence",
+      "partId": "gpt_case_premium_2026_06_10_case05_mc_evaluate_05",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "4392ef82cc13a964",
+      "stage0QueueIndex": 130,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+      "partId": "gpt_case_gap_2026_06_11_pressure_ltc_part_1_matrix_risk",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "23a1a8fea4396b74",
+      "stage0QueueIndex": 131,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+      "partId": "gpt_case_gap_2026_06_11_pressure_ltc_part_2_sata_plan",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "755f55d2f881c1fe",
+      "stage0QueueIndex": 132,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+      "partId": "gpt_case_gap_2026_06_11_pressure_ltc_part_3_mc_delegate",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "9e680b364da03b94",
+      "stage0QueueIndex": 133,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+      "partId": "gpt_case_gap_2026_06_11_pressure_ltc_part_4_cloze_outcome",
+      "state": "REPAIRED_STAGE"
+    },
+    {
+      "rowKey": "2942cc0a8818f122",
+      "stage0QueueIndex": 134,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_health_literacy_diabetes_01",
+      "partId": "gpt_case_premium_next_case_health_literacy_diabetes_01_matrix_cues",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "58eecebec4ea60c8",
+      "stage0QueueIndex": 135,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_health_literacy_diabetes_01",
+      "partId": "gpt_case_premium_next_case_health_literacy_diabetes_01_cloze_priority",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "ac3e57e405ea2824",
+      "stage0QueueIndex": 136,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_rehab_pressure_bowel_02",
+      "partId": "gpt_case_premium_next_case_rehab_pressure_bowel_02_matrix_risk",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "349ac8838316916e",
+      "stage0QueueIndex": 137,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_rehab_pressure_bowel_02",
+      "partId": "gpt_case_premium_next_case_rehab_pressure_bowel_02_or_transfer",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "042085c3703ff4a5",
+      "stage0QueueIndex": 138,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_rehab_pressure_bowel_02",
+      "partId": "gpt_case_premium_next_case_rehab_pressure_bowel_02_cloze_skin",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "8f38bedb59bb54f0",
+      "stage0QueueIndex": 139,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_rehab_pressure_bowel_02",
+      "partId": "gpt_case_premium_next_case_rehab_pressure_bowel_02_fib_intake",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "af6f5edd1794ec32",
+      "stage0QueueIndex": 140,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_caregiver_adaptation_dementia_03",
+      "partId": "gpt_case_premium_next_case_caregiver_adaptation_dementia_03_matrix_cues",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "9f16b07ef0fb5415",
+      "stage0QueueIndex": 141,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_caregiver_adaptation_dementia_03",
+      "partId": "gpt_case_premium_next_case_caregiver_adaptation_dementia_03_mc_response",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "c8d3a9a6f4ece2bb",
+      "stage0QueueIndex": 142,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_occupational_exposure_vaccine_04",
+      "partId": "gpt_case_premium_next_case_occupational_exposure_vaccine_04_or_initial",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "2879d5184ddf49e6",
+      "stage0QueueIndex": 143,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_occupational_exposure_vaccine_04",
+      "partId": "gpt_case_premium_next_case_occupational_exposure_vaccine_04_cloze_exposure",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "aad55dc4116d0f37",
+      "stage0QueueIndex": 144,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_preventive_screening_vaccine_05",
+      "partId": "gpt_case_premium_next_case_preventive_screening_vaccine_05_matrix_needs",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "6dc1fe66cf76d26a",
+      "stage0QueueIndex": 145,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_preventive_screening_vaccine_05",
+      "partId": "gpt_case_premium_next_case_preventive_screening_vaccine_05_cloze_crc",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "d5cec73760ef9477",
+      "stage0QueueIndex": 146,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_ipv_safety_planning_06",
+      "partId": "gpt_case_premium_next_case_ipv_safety_planning_06_matrix_cues",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "2a8d34ba73c3cc6f",
+      "stage0QueueIndex": 147,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_next_case_ipv_safety_planning_06",
+      "partId": "gpt_case_premium_next_case_ipv_safety_planning_06_mc_communication",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "f7a627d7442adfb2",
+      "stage0QueueIndex": 148,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_tls_01",
+      "partId": "gpt_case_gap_2026_06_11_case_tls_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "794357310f3949b4",
+      "stage0QueueIndex": 149,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_tls_01",
+      "partId": "gpt_case_gap_2026_06_11_case_tls_01_q2",
+      "state": "REPAIRED_STAGE"
+    },
+    {
+      "rowKey": "348d14afb5b2b05b",
+      "stage0QueueIndex": 150,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_tls_01",
+      "partId": "gpt_case_gap_2026_06_11_case_tls_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "a88e4eab36e4c6e8",
+      "stage0QueueIndex": 151,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_tls_01",
+      "partId": "gpt_case_gap_2026_06_11_case_tls_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "d12f49be4f59d290",
+      "stage0QueueIndex": 152,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_tls_01",
+      "partId": "gpt_case_gap_2026_06_11_case_tls_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "5c6cb830f12d4085",
+      "stage0QueueIndex": 153,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_adhf_01",
+      "partId": "gpt_case_gap_2026_06_11_adhf_matrix_01",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "d5a5a03aa2b76fb2",
+      "stage0QueueIndex": 154,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_aki_02",
+      "partId": "gpt_case_gap_2026_06_11_aki_matrix_01",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b47b333d8fcc09fb",
+      "stage0QueueIndex": 155,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_pancreatitis_03",
+      "partId": "gpt_case_gap_2026_06_11_panc_matrix_01",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "dbb4ec87b4ad3fbe",
+      "stage0QueueIndex": 156,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_adrenal_crisis_04",
+      "partId": "gpt_case_gap_2026_06_11_adrenal_matrix_01",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "89371a6c8270884d",
+      "stage0QueueIndex": 157,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_urosepsis_05",
+      "partId": "gpt_case_gap_2026_06_11_sepsis_matrix_01",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "afdf207e4081096c",
+      "stage0QueueIndex": 158,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_anticoag_bleeding_06",
+      "partId": "gpt_case_gap_2026_06_11_anticoag_matrix_01",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "7ff91306353114b2",
+      "stage0QueueIndex": 159,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus5_cdi_immunocompromised_01",
+      "partId": "gpt_case_opus5_cdi_immunocompromised_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "512f18a6d743171e",
+      "stage0QueueIndex": 160,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus5_cdi_immunocompromised_01",
+      "partId": "gpt_case_opus5_cdi_immunocompromised_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "9eadd799d0770d7e",
+      "stage0QueueIndex": 161,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus5_cdi_immunocompromised_01",
+      "partId": "gpt_case_opus5_cdi_immunocompromised_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "5caa6a6c6558a723",
+      "stage0QueueIndex": 162,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus5_cdi_immunocompromised_01",
+      "partId": "gpt_case_opus5_cdi_immunocompromised_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "71be643a211fbcd0",
+      "stage0QueueIndex": 163,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus5_cdi_immunocompromised_01",
+      "partId": "gpt_case_opus5_cdi_immunocompromised_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "88652b698276d9cc",
+      "stage0QueueIndex": 164,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus5_cdi_immunocompromised_01",
+      "partId": "gpt_case_opus5_cdi_immunocompromised_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "36e946f23d39aa83",
+      "stage0QueueIndex": 165,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_warfarin_mvr_2026_06_11_01",
+      "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b322c74f7d1d045f",
+      "stage0QueueIndex": 166,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_warfarin_mvr_2026_06_11_01",
+      "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "65c0c9f7c90d45d0",
+      "stage0QueueIndex": 167,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_warfarin_mvr_2026_06_11_01",
+      "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "36149eb570c32902",
+      "stage0QueueIndex": 168,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_warfarin_mvr_2026_06_11_01",
+      "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "a82d837749fbc8f9",
+      "stage0QueueIndex": 169,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_warfarin_mvr_2026_06_11_01",
+      "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "1ba7f5adb52e894a",
+      "stage0QueueIndex": 170,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_warfarin_mvr_2026_06_11_01",
+      "partId": "gpt_case_warfarin_mvr_2026_06_11_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "bd45f4c3e500e7d7",
+      "stage0QueueIndex": 171,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "74147c736cbdfe8d",
+      "stage0QueueIndex": 172,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "70ac819ad3a63a03",
+      "stage0QueueIndex": 173,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "5dfd13c7620f751f",
+      "stage0QueueIndex": 174,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "37cbe021c6109e51",
+      "stage0QueueIndex": 175,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "f58ee332d1468537",
+      "stage0QueueIndex": 176,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "76a19a7f8fbebee6",
+      "stage0QueueIndex": 177,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "4a1fb7e61c0936a2",
+      "stage0QueueIndex": 178,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "d4caa565d343593d",
+      "stage0QueueIndex": 179,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b48a934b6467890b",
+      "stage0QueueIndex": 180,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b5fd131fdd134629",
+      "stage0QueueIndex": 181,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "36a6818fe4cdc5e8",
+      "stage0QueueIndex": 182,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "8de6bae0fae5c24b",
+      "stage0QueueIndex": 183,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "9ce78b9990a32ea2",
+      "stage0QueueIndex": 184,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "e88e04c32fa31ff0",
+      "stage0QueueIndex": 185,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "dafa889abc3fd372",
+      "stage0QueueIndex": 186,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_delirium_family_04",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_delirium_family_04_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "568717a52b1e2bdd",
+      "stage0QueueIndex": 187,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_delirium_family_04",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_delirium_family_04_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "647b702ec2cbaa9a",
+      "stage0QueueIndex": 188,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_delirium_family_04",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_delirium_family_04_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b1aa66631ac6fb12",
+      "stage0QueueIndex": 189,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_delirium_family_04",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_delirium_family_04_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "d3f9cd0e9e15c192",
+      "stage0QueueIndex": 190,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_delirium_family_04",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_delirium_family_04_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "924a1211f2c3fd12",
+      "stage0QueueIndex": 191,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "256ab73421f54385",
+      "stage0QueueIndex": 192,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q2",
+      "state": "REPAIRED_STAGE"
+    },
+    {
+      "rowKey": "5042b7fcf52e7d99",
+      "stage0QueueIndex": 193,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q3",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "865534bdf1deefcc",
+      "stage0QueueIndex": 194,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "3ee213a634cd1dd2",
+      "stage0QueueIndex": 195,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "320414cdcec3309a",
+      "stage0QueueIndex": 196,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "a3fc8b3be6c01f0d",
+      "stage0QueueIndex": 197,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "85ecab1a1fe8ade9",
+      "stage0QueueIndex": 198,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "87f0b4d14220d4c2",
+      "stage0QueueIndex": 199,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "a8f78d0aebd01b2f",
+      "stage0QueueIndex": 200,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "c827f2ece4ba697c",
+      "stage0QueueIndex": 201,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03_q1",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "ee4af7b894b76a37",
+      "stage0QueueIndex": 202,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "0eaccc592c2657e8",
+      "stage0QueueIndex": 203,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "e60e141ac49baf63",
+      "stage0QueueIndex": 204,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "a67d40b6059bdb3b",
+      "stage0QueueIndex": 205,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "0acc13e5c4139a70",
+      "stage0QueueIndex": 206,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "1f137477204f33f1",
+      "stage0QueueIndex": 207,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q2",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "8d4801b44a9cf10f",
+      "stage0QueueIndex": 208,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "3daca5a04b2f9c3c",
+      "stage0QueueIndex": 209,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "2df072f00aaf4f1e",
+      "stage0QueueIndex": 210,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "c7eb5840cbbbadd1",
+      "stage0QueueIndex": 211,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_13_case_delirium_uti_01",
+      "partId": "gpt_2026_06_13_case_delirium_uti_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "116ca05d3e05684d",
+      "stage0QueueIndex": 212,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_13_case_delirium_uti_01",
+      "partId": "gpt_2026_06_13_case_delirium_uti_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "e9e934a8c3ae2548",
+      "stage0QueueIndex": 213,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_13_case_delirium_uti_01",
+      "partId": "gpt_2026_06_13_case_delirium_uti_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b7435296154b1455",
+      "stage0QueueIndex": 214,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_13_case_delirium_uti_01",
+      "partId": "gpt_2026_06_13_case_delirium_uti_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "9fd6b38ef7a11397",
+      "stage0QueueIndex": 215,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_13_case_delirium_uti_01",
+      "partId": "gpt_2026_06_13_case_delirium_uti_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "fcf63e17b582d5fd",
+      "stage0QueueIndex": 216,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_13_case_delirium_uti_01",
+      "partId": "gpt_2026_06_13_case_delirium_uti_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "129b00e5620a91df",
+      "stage0QueueIndex": 217,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus23_nat_toddler_01",
+      "partId": "gpt_case_opus23_nat_toddler_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "d5b87cc77e4ffc68",
+      "stage0QueueIndex": 218,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus23_nat_toddler_01",
+      "partId": "gpt_case_opus23_nat_toddler_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "30e06fa20b5b45c9",
+      "stage0QueueIndex": 219,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus23_nat_toddler_01",
+      "partId": "gpt_case_opus23_nat_toddler_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "cbcba06f6de1f525",
+      "stage0QueueIndex": 220,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus23_nat_toddler_01",
+      "partId": "gpt_case_opus23_nat_toddler_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "6bf92c0778c8a1e3",
+      "stage0QueueIndex": 221,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opus23_nat_toddler_01",
+      "partId": "gpt_case_opus23_nat_toddler_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "94286d8c319d2b4f",
+      "stage0QueueIndex": 222,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_opus21_case_colostomy_lep_discharge_01",
+      "partId": "gpt_opus21_case_colostomy_lep_discharge_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "c0d86ac5a04d4179",
+      "stage0QueueIndex": 223,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_opus21_case_colostomy_lep_discharge_01",
+      "partId": "gpt_opus21_case_colostomy_lep_discharge_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "7576ed1b406a7927",
+      "stage0QueueIndex": 224,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_opus21_case_colostomy_lep_discharge_01",
+      "partId": "gpt_opus21_case_colostomy_lep_discharge_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "89f61b99f46cb0a2",
+      "stage0QueueIndex": 225,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_opus21_case_colostomy_lep_discharge_01",
+      "partId": "gpt_opus21_case_colostomy_lep_discharge_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "2d5da1885cd685c5",
+      "stage0QueueIndex": 226,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_opus21_case_colostomy_lep_discharge_01",
+      "partId": "gpt_opus21_case_colostomy_lep_discharge_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "38d44d8d82b913f1",
+      "stage0QueueIndex": 227,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_opus21_case_colostomy_lep_discharge_01",
+      "partId": "gpt_opus21_case_colostomy_lep_discharge_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "67fd2fc440876dd3",
+      "stage0QueueIndex": 228,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01",
+      "partId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "1d1a8c300bfa67ce",
+      "stage0QueueIndex": 229,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01",
+      "partId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "f9808a51e6bb06d4",
+      "stage0QueueIndex": 230,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01",
+      "partId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q3",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "65e1cbdccd489d80",
+      "stage0QueueIndex": 231,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01",
+      "partId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "e9269c6a25dde0a6",
+      "stage0QueueIndex": 232,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01",
+      "partId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "a13e3d339e5e1040",
+      "stage0QueueIndex": 233,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01",
+      "partId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "a95e5a71ca6d9ed0",
+      "stage0QueueIndex": 234,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_acute_hemolytic_transfusion_reaction_01",
+      "partId": "gpt_case_acute_hemolytic_transfusion_reaction_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "202a2609a5f06af0",
+      "stage0QueueIndex": 235,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_acute_hemolytic_transfusion_reaction_01",
+      "partId": "gpt_case_acute_hemolytic_transfusion_reaction_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b7a0a36f93939948",
+      "stage0QueueIndex": 236,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_acute_hemolytic_transfusion_reaction_01",
+      "partId": "gpt_case_acute_hemolytic_transfusion_reaction_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "57c3cac17776e34e",
+      "stage0QueueIndex": 237,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_acute_hemolytic_transfusion_reaction_01",
+      "partId": "gpt_case_acute_hemolytic_transfusion_reaction_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b946c62afa657761",
+      "stage0QueueIndex": 238,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_acute_hemolytic_transfusion_reaction_01",
+      "partId": "gpt_case_acute_hemolytic_transfusion_reaction_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "e167c20db280040e",
+      "stage0QueueIndex": 239,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_acute_hemolytic_transfusion_reaction_01",
+      "partId": "gpt_case_acute_hemolytic_transfusion_reaction_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "1f82e6d0d2838072",
+      "stage0QueueIndex": 240,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_svc_syndrome_01",
+      "partId": "gpt_case_svc_syndrome_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "fa8ea9db9c2cb191",
+      "stage0QueueIndex": 241,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_svc_syndrome_01",
+      "partId": "gpt_case_svc_syndrome_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "4c2db0e7a408fb1b",
+      "stage0QueueIndex": 242,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_svc_syndrome_01",
+      "partId": "gpt_case_svc_syndrome_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "5b9335d7f7f0d306",
+      "stage0QueueIndex": 243,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_svc_syndrome_01",
+      "partId": "gpt_case_svc_syndrome_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "15712993ff72cdc9",
+      "stage0QueueIndex": 244,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_svc_syndrome_01",
+      "partId": "gpt_case_svc_syndrome_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "26e35fe0f3d7562b",
+      "stage0QueueIndex": 245,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_svc_syndrome_01",
+      "partId": "gpt_case_svc_syndrome_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "e44491c1124189df",
+      "stage0QueueIndex": 246,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_19_case_ici_pneumonitis_01",
+      "partId": "gpt_2026_06_19_case_ici_pneumonitis_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "9764294a7ada8b72",
+      "stage0QueueIndex": 247,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_19_case_ici_pneumonitis_01",
+      "partId": "gpt_2026_06_19_case_ici_pneumonitis_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "f062b8f7e2e06b90",
+      "stage0QueueIndex": 248,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_19_case_ici_pneumonitis_01",
+      "partId": "gpt_2026_06_19_case_ici_pneumonitis_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "21ae1bab45be25e1",
+      "stage0QueueIndex": 249,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_19_case_ici_pneumonitis_01",
+      "partId": "gpt_2026_06_19_case_ici_pneumonitis_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "078520ff9f4a867b",
+      "stage0QueueIndex": 250,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_19_case_ici_pneumonitis_01",
+      "partId": "gpt_2026_06_19_case_ici_pneumonitis_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "9e1edfce40d3a1a3",
+      "stage0QueueIndex": 251,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_2026_06_19_case_ici_pneumonitis_01",
+      "partId": "gpt_2026_06_19_case_ici_pneumonitis_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "64b48ae1df39ff19",
+      "stage0QueueIndex": 252,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_neutropenic_fever_nadir_01",
+      "partId": "gpt_case_neutropenic_fever_nadir_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "9e4eb5dd2cde8883",
+      "stage0QueueIndex": 253,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_neutropenic_fever_nadir_01",
+      "partId": "gpt_case_neutropenic_fever_nadir_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "1099dd1834d4d112",
+      "stage0QueueIndex": 254,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_neutropenic_fever_nadir_01",
+      "partId": "gpt_case_neutropenic_fever_nadir_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "77249a8cba808d86",
+      "stage0QueueIndex": 255,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_neutropenic_fever_nadir_01",
+      "partId": "gpt_case_neutropenic_fever_nadir_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b8f6c34736ed2d5d",
+      "stage0QueueIndex": 256,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_neutropenic_fever_nadir_01",
+      "partId": "gpt_case_neutropenic_fever_nadir_01_q5",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "7f1db592e0bf40fd",
+      "stage0QueueIndex": 257,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_neutropenic_fever_nadir_01",
+      "partId": "gpt_case_neutropenic_fever_nadir_01_q6",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "156ad4793227871b",
+      "stage0QueueIndex": 258,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_taco_vs_trali_01",
+      "partId": "gpt_case_taco_vs_trali_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b87b748b0a8fe610",
+      "stage0QueueIndex": 259,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_taco_vs_trali_01",
+      "partId": "gpt_case_taco_vs_trali_01_q2",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "387ae206a6979169",
+      "stage0QueueIndex": 260,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_taco_vs_trali_01",
+      "partId": "gpt_case_taco_vs_trali_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "7e7ef64a3cad91d5",
+      "stage0QueueIndex": 261,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_taco_vs_trali_01",
+      "partId": "gpt_case_taco_vs_trali_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "d96435ca1ba9cf9e",
+      "stage0QueueIndex": 262,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_taco_vs_trali_01",
+      "partId": "gpt_case_taco_vs_trali_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "13e8da43f79e49c6",
+      "stage0QueueIndex": 263,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_taco_vs_trali_01",
+      "partId": "gpt_case_taco_vs_trali_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "d6fee5a4070018d8",
+      "stage0QueueIndex": 264,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_assignment_01",
+      "partId": "gpt_case_unsafe_assignment_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b5148e990070de29",
+      "stage0QueueIndex": 265,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_assignment_01",
+      "partId": "gpt_case_unsafe_assignment_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "08898ea126dffdae",
+      "stage0QueueIndex": 266,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_assignment_01",
+      "partId": "gpt_case_unsafe_assignment_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "e95ee9e5c7e20378",
+      "stage0QueueIndex": 267,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_assignment_01",
+      "partId": "gpt_case_unsafe_assignment_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "acd99216399a57bc",
+      "stage0QueueIndex": 268,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_assignment_01",
+      "partId": "gpt_case_unsafe_assignment_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "259612f337f327b0",
+      "stage0QueueIndex": 269,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_assignment_01",
+      "partId": "gpt_case_unsafe_assignment_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "98b316af5f95976b",
+      "stage0QueueIndex": 270,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_hipaa_disclosure_breach_01",
+      "partId": "gpt_case_hipaa_disclosure_breach_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "816f8ee32a25b1ca",
+      "stage0QueueIndex": 271,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_hipaa_disclosure_breach_01",
+      "partId": "gpt_case_hipaa_disclosure_breach_01_q2",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "33239a7419ffd816",
+      "stage0QueueIndex": 272,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_hipaa_disclosure_breach_01",
+      "partId": "gpt_case_hipaa_disclosure_breach_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "081b3b885639d73b",
+      "stage0QueueIndex": 273,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_hipaa_disclosure_breach_01",
+      "partId": "gpt_case_hipaa_disclosure_breach_01_q4",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "2187e86ed9d2877c",
+      "stage0QueueIndex": 274,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_hipaa_disclosure_breach_01",
+      "partId": "gpt_case_hipaa_disclosure_breach_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "c6a742591e41b86e",
+      "stage0QueueIndex": 275,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_hipaa_disclosure_breach_01",
+      "partId": "gpt_case_hipaa_disclosure_breach_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "d0399c7588111fc7",
+      "stage0QueueIndex": 276,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_mass_casualty_start_triage_01",
+      "partId": "gpt_case_mass_casualty_start_triage_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "e7bafc40a81c24ff",
+      "stage0QueueIndex": 277,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_mass_casualty_start_triage_01",
+      "partId": "gpt_case_mass_casualty_start_triage_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "9c754693704f5e3e",
+      "stage0QueueIndex": 278,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_mass_casualty_start_triage_01",
+      "partId": "gpt_case_mass_casualty_start_triage_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "be43919f41f6ef9e",
+      "stage0QueueIndex": 279,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_mass_casualty_start_triage_01",
+      "partId": "gpt_case_mass_casualty_start_triage_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "63412241ddf68859",
+      "stage0QueueIndex": 280,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_mass_casualty_start_triage_01",
+      "partId": "gpt_case_mass_casualty_start_triage_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "0cfa3711d256081a",
+      "stage0QueueIndex": 281,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_mass_casualty_start_triage_01",
+      "partId": "gpt_case_mass_casualty_start_triage_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "cf592a9790298a72",
+      "stage0QueueIndex": 282,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_premature_discharge_01",
+      "partId": "gpt_case_unsafe_premature_discharge_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "a66d5112e73705ac",
+      "stage0QueueIndex": 283,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_premature_discharge_01",
+      "partId": "gpt_case_unsafe_premature_discharge_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "d7ff4baa9bad1683",
+      "stage0QueueIndex": 284,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_premature_discharge_01",
+      "partId": "gpt_case_unsafe_premature_discharge_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "681d5517f3f5b35e",
+      "stage0QueueIndex": 285,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_premature_discharge_01",
+      "partId": "gpt_case_unsafe_premature_discharge_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "1584c5cef3f26dfd",
+      "stage0QueueIndex": 286,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_premature_discharge_01",
+      "partId": "gpt_case_unsafe_premature_discharge_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "d90d7ebc2b193a19",
+      "stage0QueueIndex": 287,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_unsafe_premature_discharge_01",
+      "partId": "gpt_case_unsafe_premature_discharge_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b57c212dfee53516",
+      "stage0QueueIndex": 288,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_nurse_provider_conflict_01",
+      "partId": "gpt_case_nurse_provider_conflict_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "9f776ccbf7464d4d",
+      "stage0QueueIndex": 289,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_nurse_provider_conflict_01",
+      "partId": "gpt_case_nurse_provider_conflict_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "2bbdbc71ceaff8ee",
+      "stage0QueueIndex": 290,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_nurse_provider_conflict_01",
+      "partId": "gpt_case_nurse_provider_conflict_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "2944cbd4d2952f0e",
+      "stage0QueueIndex": 291,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_nurse_provider_conflict_01",
+      "partId": "gpt_case_nurse_provider_conflict_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "ea9348fa302ce2d0",
+      "stage0QueueIndex": 292,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_nurse_provider_conflict_01",
+      "partId": "gpt_case_nurse_provider_conflict_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "cd5e4cf70fa74138",
+      "stage0QueueIndex": 293,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_nurse_provider_conflict_01",
+      "partId": "gpt_case_nurse_provider_conflict_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "5a6f6b69e81b9c80",
+      "stage0QueueIndex": 294,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_client_advocacy_refusal_01",
+      "partId": "gpt_case_client_advocacy_refusal_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "0f39bf4232565761",
+      "stage0QueueIndex": 295,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_client_advocacy_refusal_01",
+      "partId": "gpt_case_client_advocacy_refusal_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "15fabfb73313f2b1",
+      "stage0QueueIndex": 296,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_client_advocacy_refusal_01",
+      "partId": "gpt_case_client_advocacy_refusal_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "ec154db89a21301d",
+      "stage0QueueIndex": 297,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_client_advocacy_refusal_01",
+      "partId": "gpt_case_client_advocacy_refusal_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "4d3ad55a5f9060c3",
+      "stage0QueueIndex": 298,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_client_advocacy_refusal_01",
+      "partId": "gpt_case_client_advocacy_refusal_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "a5f668a193fe1d99",
+      "stage0QueueIndex": 299,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_client_advocacy_refusal_01",
+      "partId": "gpt_case_client_advocacy_refusal_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "ab92bfe105b8804a",
+      "stage0QueueIndex": 300,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_lateral_incivility_01",
+      "partId": "gpt_case_lateral_incivility_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "672aa875a32e8f86",
+      "stage0QueueIndex": 301,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_lateral_incivility_01",
+      "partId": "gpt_case_lateral_incivility_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "f56f69400453dee6",
+      "stage0QueueIndex": 302,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_lateral_incivility_01",
+      "partId": "gpt_case_lateral_incivility_01_q3",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "b1d86a48db7dac8f",
+      "stage0QueueIndex": 303,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_lateral_incivility_01",
+      "partId": "gpt_case_lateral_incivility_01_q4",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "a8982658716e5dd4",
+      "stage0QueueIndex": 304,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_lateral_incivility_01",
+      "partId": "gpt_case_lateral_incivility_01_q5",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "beaf823e2d18b6b3",
+      "stage0QueueIndex": 305,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_lateral_incivility_01",
+      "partId": "gpt_case_lateral_incivility_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "2ed58e84a2272763",
+      "stage0QueueIndex": 306,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_clozapine_toxicity_01",
+      "partId": "gpt_case_clozapine_toxicity_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "3db55ace83b191ac",
+      "stage0QueueIndex": 307,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_clozapine_toxicity_01",
+      "partId": "gpt_case_clozapine_toxicity_01_q2",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "e091c2e5e7c356f8",
+      "stage0QueueIndex": 308,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_clozapine_toxicity_01",
+      "partId": "gpt_case_clozapine_toxicity_01_q3",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "53abf6daaaf8fd16",
+      "stage0QueueIndex": 309,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_clozapine_toxicity_01",
+      "partId": "gpt_case_clozapine_toxicity_01_q4",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "171d0dbb7f92e8a8",
+      "stage0QueueIndex": 310,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_clozapine_toxicity_01",
+      "partId": "gpt_case_clozapine_toxicity_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "05e76aac6f75e2cb",
+      "stage0QueueIndex": 311,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_clozapine_toxicity_01",
+      "partId": "gpt_case_clozapine_toxicity_01_q6",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "2ec7051c4b76af7f",
+      "stage0QueueIndex": 312,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_refeeding_syndrome_tpn_01",
+      "partId": "gpt_case_refeeding_syndrome_tpn_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "3547d5f076446b1e",
+      "stage0QueueIndex": 313,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_refeeding_syndrome_tpn_01",
+      "partId": "gpt_case_refeeding_syndrome_tpn_01_q2",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "e7820c89234bfb5d",
+      "stage0QueueIndex": 314,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_refeeding_syndrome_tpn_01",
+      "partId": "gpt_case_refeeding_syndrome_tpn_01_q3",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "0620f6656c0e487d",
+      "stage0QueueIndex": 315,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_refeeding_syndrome_tpn_01",
+      "partId": "gpt_case_refeeding_syndrome_tpn_01_q4",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "c8306bb54be5fce7",
+      "stage0QueueIndex": 316,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_refeeding_syndrome_tpn_01",
+      "partId": "gpt_case_refeeding_syndrome_tpn_01_q5",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "c832d26389e1b4fd",
+      "stage0QueueIndex": 317,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_refeeding_syndrome_tpn_01",
+      "partId": "gpt_case_refeeding_syndrome_tpn_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "ebb5a729b4471ebd",
+      "stage0QueueIndex": 318,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_caregiver_role_strain_dementia_01",
+      "partId": "gpt_case_caregiver_role_strain_dementia_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b61284f53efc0427",
+      "stage0QueueIndex": 319,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_caregiver_role_strain_dementia_01",
+      "partId": "gpt_case_caregiver_role_strain_dementia_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "5e6cd8254c891c72",
+      "stage0QueueIndex": 320,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_caregiver_role_strain_dementia_01",
+      "partId": "gpt_case_caregiver_role_strain_dementia_01_q3",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "d92f499014ea0870",
+      "stage0QueueIndex": 321,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_caregiver_role_strain_dementia_01",
+      "partId": "gpt_case_caregiver_role_strain_dementia_01_q4",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "12f132a17a90729c",
+      "stage0QueueIndex": 322,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_caregiver_role_strain_dementia_01",
+      "partId": "gpt_case_caregiver_role_strain_dementia_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b0c0a4c63a0d84ae",
+      "stage0QueueIndex": 323,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_caregiver_role_strain_dementia_01",
+      "partId": "gpt_case_caregiver_role_strain_dementia_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "6d957bf39576559f",
+      "stage0QueueIndex": 324,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_infection_control_clustered_care_01",
+      "partId": "gpt_case_infection_control_clustered_care_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "5b8b918ba86d5aa5",
+      "stage0QueueIndex": 325,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_infection_control_clustered_care_01",
+      "partId": "gpt_case_infection_control_clustered_care_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "1e12ffbae816c10e",
+      "stage0QueueIndex": 326,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_infection_control_clustered_care_01",
+      "partId": "gpt_case_infection_control_clustered_care_01_q3",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "7e2930f2c2781c41",
+      "stage0QueueIndex": 327,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_infection_control_clustered_care_01",
+      "partId": "gpt_case_infection_control_clustered_care_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "0ee5e6a812cd1c61",
+      "stage0QueueIndex": 328,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_infection_control_clustered_care_01",
+      "partId": "gpt_case_infection_control_clustered_care_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "f73d9942f5f998b0",
+      "stage0QueueIndex": 329,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_infection_control_clustered_care_01",
+      "partId": "gpt_case_infection_control_clustered_care_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "6df1d242b546a2ab",
+      "stage0QueueIndex": 330,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_nine_month_well_child_safety_01",
+      "partId": "gpt_case_nine_month_well_child_safety_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "c9ddb715599fbf07",
+      "stage0QueueIndex": 331,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_nine_month_well_child_safety_01",
+      "partId": "gpt_case_nine_month_well_child_safety_01_q2",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "e96243e83bc44a97",
+      "stage0QueueIndex": 332,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_nine_month_well_child_safety_01",
+      "partId": "gpt_case_nine_month_well_child_safety_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "bb9ff3ab3ff079ec",
+      "stage0QueueIndex": 333,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_nine_month_well_child_safety_01",
+      "partId": "gpt_case_nine_month_well_child_safety_01_q4",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "21a2852e7d370ecd",
+      "stage0QueueIndex": 334,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_nine_month_well_child_safety_01",
+      "partId": "gpt_case_nine_month_well_child_safety_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "68e5df7960d1bb86",
+      "stage0QueueIndex": 335,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_nine_month_well_child_safety_01",
+      "partId": "gpt_case_nine_month_well_child_safety_01_q6",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "4266c1cf77177067",
+      "stage0QueueIndex": 336,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+      "partId": "gpt_case_opioid_recovery_relapse_risk_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "dcf2dbbe0f27ca65",
+      "stage0QueueIndex": 337,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+      "partId": "gpt_case_opioid_recovery_relapse_risk_01_q2",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "18d46f73fa754220",
+      "stage0QueueIndex": 338,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+      "partId": "gpt_case_opioid_recovery_relapse_risk_01_q3",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "b02619cc0abe50fd",
+      "stage0QueueIndex": 339,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+      "partId": "gpt_case_opioid_recovery_relapse_risk_01_q4",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "73a1a25cd88535fd",
+      "stage0QueueIndex": 340,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+      "partId": "gpt_case_opioid_recovery_relapse_risk_01_q5",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "e87b4b5028c4ae2a",
+      "stage0QueueIndex": 341,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+      "partId": "gpt_case_opioid_recovery_relapse_risk_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "def921ec23551752",
+      "stage0QueueIndex": 342,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+      "partId": "gpt_case_pressure_injury_prevention_mobility_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "e04640c8bdb4438f",
+      "stage0QueueIndex": 343,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+      "partId": "gpt_case_pressure_injury_prevention_mobility_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "0eb41edc4fe6849b",
+      "stage0QueueIndex": 344,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+      "partId": "gpt_case_pressure_injury_prevention_mobility_01_q3",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "375aacb3f6469581",
+      "stage0QueueIndex": 345,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+      "partId": "gpt_case_pressure_injury_prevention_mobility_01_q4",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "2e075b7d68f40f7b",
+      "stage0QueueIndex": 346,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+      "partId": "gpt_case_pressure_injury_prevention_mobility_01_q5",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "c6e021cbe4a86e6a",
+      "stage0QueueIndex": 347,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+      "partId": "gpt_case_pressure_injury_prevention_mobility_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "3d499c83d3b6fee5",
+      "stage0QueueIndex": 348,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_sepsis_pneumonia_01",
+      "partId": "sepsis_pneumonia_cues_matrix",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "6e725d54a1eb49fa",
+      "stage0QueueIndex": 349,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_sepsis_pneumonia_01",
+      "partId": "sepsis_pneumonia_actions_order",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "4a682d55aa8d68a9",
+      "stage0QueueIndex": 350,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_sepsis_pneumonia_01",
+      "partId": "sepsis_pneumonia_fluid_calc",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "126f3569705e33cd",
+      "stage0QueueIndex": 351,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_sepsis_pneumonia_01",
+      "partId": "sepsis_pneumonia_outcomes_cloze",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "d1fcbf27551ef74c",
+      "stage0QueueIndex": 352,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_preeclampsia_magnesium_01",
+      "partId": "preeclampsia_severe_features_sata",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "5f98e56a7984100e",
+      "stage0QueueIndex": 353,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_preeclampsia_magnesium_01",
+      "partId": "preeclampsia_initial_priority_mc",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "4ed232508e948559",
+      "stage0QueueIndex": 354,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_preeclampsia_magnesium_01",
+      "partId": "preeclampsia_mag_toxicity_matrix",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "36efb76916ab6581",
+      "stage0QueueIndex": 355,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_preeclampsia_magnesium_01",
+      "partId": "preeclampsia_mag_toxicity_order",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "3cddf040b6564db7",
+      "stage0QueueIndex": 356,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_ami_01",
+      "partId": "case_ami_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "921c126c050de4ee",
+      "stage0QueueIndex": 357,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_ami_01",
+      "partId": "case_ami_01_q2",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "743b4c9c90df9ad3",
+      "stage0QueueIndex": 358,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_ami_01",
+      "partId": "case_ami_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "2f06155c745ee664",
+      "stage0QueueIndex": 359,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_ami_01",
+      "partId": "case_ami_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "2140e432e153d008",
+      "stage0QueueIndex": 360,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "case_ami_01",
+      "partId": "case_ami_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "dd194513d090446f",
+      "stage0QueueIndex": 361,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "claude_cs_jun06_chest_tube_rrp_01",
+      "partId": "claude_cs_jun06_chest_tube_rrp_01_part_1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "208cc5901c3fa815",
+      "stage0QueueIndex": 362,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "claude_cs_jun06_chest_tube_rrp_01",
+      "partId": "claude_cs_jun06_chest_tube_rrp_01_part_2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "489aca6dec5a5d68",
+      "stage0QueueIndex": 363,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "claude_cs_jun06_chest_tube_rrp_01",
+      "partId": "claude_cs_jun06_chest_tube_rrp_01_part_3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "f71a81a682b13a92",
+      "stage0QueueIndex": 364,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "claude_cs_jun06_chest_tube_rrp_01",
+      "partId": "claude_cs_jun06_chest_tube_rrp_01_part_4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "d5fce4a7d2fe0eb8",
+      "stage0QueueIndex": 365,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "claude_cs_jun06_cdiff_sic_01",
+      "partId": "claude_cs_jun06_cdiff_sic_01_part_1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "ed29c389c3b4d417",
+      "stage0QueueIndex": 366,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "claude_cs_jun06_cdiff_sic_01",
+      "partId": "claude_cs_jun06_cdiff_sic_01_part_2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "92a2be7f0f4318de",
+      "stage0QueueIndex": 367,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "claude_cs_jun06_cdiff_sic_01",
+      "partId": "claude_cs_jun06_cdiff_sic_01_part_3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "e55052e149e1be0a",
+      "stage0QueueIndex": 368,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "claude_cs_jun06_cdiff_sic_01",
+      "partId": "claude_cs_jun06_cdiff_sic_01_part_4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "cd63f4580897d0d7",
+      "stage0QueueIndex": 369,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_thyroid_storm_main",
+      "partId": "cs_thyroid_storm_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "545d112ac11f8548",
+      "stage0QueueIndex": 370,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_thyroid_storm_main",
+      "partId": "cs_thyroid_storm_q2",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "b0acf59728d726aa",
+      "stage0QueueIndex": 371,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_thyroid_storm_main",
+      "partId": "cs_thyroid_storm_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "771f9bc6410432c9",
+      "stage0QueueIndex": 372,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_thyroid_storm_main",
+      "partId": "cs_thyroid_storm_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "ad5148e6291b76b0",
+      "stage0QueueIndex": 373,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_stemi_vfib_04",
+      "partId": "cs_stemi_vfib_04_part_1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b922586401896706",
+      "stage0QueueIndex": 374,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_stemi_vfib_04",
+      "partId": "cs_stemi_vfib_04_part_2",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "5fd252b0e752d7f7",
+      "stage0QueueIndex": 375,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_stemi_vfib_04",
+      "partId": "cs_stemi_vfib_04_part_3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "80fd9b659ef40c02",
+      "stage0QueueIndex": 376,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_stemi_vfib_04",
+      "partId": "cs_stemi_vfib_04_part_4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "39850947db0e8657",
+      "stage0QueueIndex": 377,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_sepsis_shock_01",
+      "partId": "cs_sepsis_shock_01_part_1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "d53f0eb41254949a",
+      "stage0QueueIndex": 378,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_sepsis_shock_01",
+      "partId": "cs_sepsis_shock_01_part_2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "d1aba0bf402dca2f",
+      "stage0QueueIndex": 379,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_sepsis_shock_01",
+      "partId": "cs_sepsis_shock_01_part_3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b064652d131b7ef1",
+      "stage0QueueIndex": 380,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_sepsis_shock_01",
+      "partId": "cs_sepsis_shock_01_part_4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "cc01916f47e7cd29",
+      "stage0QueueIndex": 381,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_scc_case_01",
+      "partId": "opus_scc_case_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "818efa64297eb1f4",
+      "stage0QueueIndex": 382,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_scc_case_01",
+      "partId": "opus_scc_case_01_q2",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "129fea1d5eb05884",
+      "stage0QueueIndex": 383,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_scc_case_01",
+      "partId": "opus_scc_case_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "e41cf426fbcb8f48",
+      "stage0QueueIndex": 384,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_scc_case_01",
+      "partId": "opus_scc_case_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "6b1c6f18f2924a96",
+      "stage0QueueIndex": 385,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_scc_case_01",
+      "partId": "opus_scc_case_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "87a2537e9bbe086f",
+      "stage0QueueIndex": 386,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_scc_case_01",
+      "partId": "opus_scc_case_01_q6",
+      "state": "REPAIRED_STAGE"
+    },
+    {
+      "rowKey": "81b19b3e972c0b93",
+      "stage0QueueIndex": 387,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_icit_case_01",
+      "partId": "opus_icit_case_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b174c7627b0e9957",
+      "stage0QueueIndex": 388,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_icit_case_01",
+      "partId": "opus_icit_case_01_q2",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "5b9a3f652e7815e8",
+      "stage0QueueIndex": 389,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_icit_case_01",
+      "partId": "opus_icit_case_01_q3",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "11ecd193df0f6dde",
+      "stage0QueueIndex": 390,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_icit_case_01",
+      "partId": "opus_icit_case_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "c8eb6d9b4ee7a496",
+      "stage0QueueIndex": 391,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_icit_case_01",
+      "partId": "opus_icit_case_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b8b40dc4fcd9a612",
+      "stage0QueueIndex": 392,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_icit_case_01",
+      "partId": "opus_icit_case_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "802896cb6a9c1b8e",
+      "stage0QueueIndex": 393,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_tpn_case_mucositis_01",
+      "partId": "opus_tpn_case_mucositis_01_q1",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "5fd548c9d6d6bd03",
+      "stage0QueueIndex": 394,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_tpn_case_mucositis_01",
+      "partId": "opus_tpn_case_mucositis_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "a0e42e1a6716455d",
+      "stage0QueueIndex": 395,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_tpn_case_mucositis_01",
+      "partId": "opus_tpn_case_mucositis_01_q3",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "51e9b75bf5e30694",
+      "stage0QueueIndex": 396,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_tpn_case_mucositis_01",
+      "partId": "opus_tpn_case_mucositis_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "68dc7bd2f5bc1bfc",
+      "stage0QueueIndex": 397,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_tpn_case_mucositis_01",
+      "partId": "opus_tpn_case_mucositis_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "664554d731c00372",
+      "stage0QueueIndex": 398,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_tpn_case_mucositis_01",
+      "partId": "opus_tpn_case_mucositis_01_q6",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "493d5483657410de",
+      "stage0QueueIndex": 399,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_case_se_01",
+      "partId": "opus_case_se_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "d3dbfc0c60e9cf24",
+      "stage0QueueIndex": 400,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_case_se_01",
+      "partId": "opus_case_se_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "d247e0b1640d6fc8",
+      "stage0QueueIndex": 401,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_case_se_01",
+      "partId": "opus_case_se_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "a181b4aff896bdb0",
+      "stage0QueueIndex": 402,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_case_se_01",
+      "partId": "opus_case_se_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "3fb81f6217154a3c",
+      "stage0QueueIndex": 403,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_case_se_01",
+      "partId": "opus_case_se_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "548030ab04397f4d",
+      "stage0QueueIndex": 404,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus_case_se_01",
+      "partId": "opus_case_se_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "7fb5c0cf61087c59",
+      "stage0QueueIndex": 405,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus1_case_discharge_med_rec_anticoag_01",
+      "partId": "opus1_case_discharge_med_rec_anticoag_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "6e24e84cb54a169e",
+      "stage0QueueIndex": 406,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus1_case_discharge_med_rec_anticoag_01",
+      "partId": "opus1_case_discharge_med_rec_anticoag_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "a76895f245ec09aa",
+      "stage0QueueIndex": 407,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus1_case_discharge_med_rec_anticoag_01",
+      "partId": "opus1_case_discharge_med_rec_anticoag_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "5f55daa9ed911fbb",
+      "stage0QueueIndex": 408,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus1_case_discharge_med_rec_anticoag_01",
+      "partId": "opus1_case_discharge_med_rec_anticoag_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "05b4155c59675831",
+      "stage0QueueIndex": 409,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus1_case_discharge_med_rec_anticoag_01",
+      "partId": "opus1_case_discharge_med_rec_anticoag_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "66c60aabb74f4529",
+      "stage0QueueIndex": 410,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus1_case_discharge_med_rec_anticoag_01",
+      "partId": "opus1_case_discharge_med_rec_anticoag_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "a7a705c773d6bd28",
+      "stage0QueueIndex": 411,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus2_case_postop_opioid_respiratory_depression_01",
+      "partId": "opus2_case_postop_opioid_respiratory_depression_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "14d012dcbe732e81",
+      "stage0QueueIndex": 412,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus2_case_postop_opioid_respiratory_depression_01",
+      "partId": "opus2_case_postop_opioid_respiratory_depression_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "571db6cc5f87dc07",
+      "stage0QueueIndex": 413,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus2_case_postop_opioid_respiratory_depression_01",
+      "partId": "opus2_case_postop_opioid_respiratory_depression_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "dae0a573b8b9ca7f",
+      "stage0QueueIndex": 414,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus2_case_postop_opioid_respiratory_depression_01",
+      "partId": "opus2_case_postop_opioid_respiratory_depression_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "0e362fad56f8d45a",
+      "stage0QueueIndex": 415,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus2_case_postop_opioid_respiratory_depression_01",
+      "partId": "opus2_case_postop_opioid_respiratory_depression_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "6bf3a50f589c39d7",
+      "stage0QueueIndex": 416,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus2_case_postop_opioid_respiratory_depression_01",
+      "partId": "opus2_case_postop_opioid_respiratory_depression_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "c60472873109c972",
+      "stage0QueueIndex": 417,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus3_iv_potassium_safety_case_01",
+      "partId": "opus3_iv_potassium_safety_case_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "f87442051d5bb571",
+      "stage0QueueIndex": 418,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus3_iv_potassium_safety_case_01",
+      "partId": "opus3_iv_potassium_safety_case_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "66cf9e6dd67596ab",
+      "stage0QueueIndex": 419,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus3_iv_potassium_safety_case_01",
+      "partId": "opus3_iv_potassium_safety_case_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "6100fbbaa6bd6cd0",
+      "stage0QueueIndex": 420,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus3_iv_potassium_safety_case_01",
+      "partId": "opus3_iv_potassium_safety_case_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "8b864f71ca475308",
+      "stage0QueueIndex": 421,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus3_iv_potassium_safety_case_01",
+      "partId": "opus3_iv_potassium_safety_case_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "7b93b19069276111",
+      "stage0QueueIndex": 422,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus3_iv_potassium_safety_case_01",
+      "partId": "opus3_iv_potassium_safety_case_01_q6",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "e9414ae6fbc06e10",
+      "stage0QueueIndex": 423,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus4_case_postop_sbar_01",
+      "partId": "opus4_case_postop_sbar_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "1b5857eae322868c",
+      "stage0QueueIndex": 424,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus4_case_postop_sbar_01",
+      "partId": "opus4_case_postop_sbar_01_q2",
+      "state": "REPAIRED_STAGE"
+    },
+    {
+      "rowKey": "8b3faa785726d8b1",
+      "stage0QueueIndex": 425,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus4_case_postop_sbar_01",
+      "partId": "opus4_case_postop_sbar_01_q3",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "0241b19b707e1f79",
+      "stage0QueueIndex": 426,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus4_case_postop_sbar_01",
+      "partId": "opus4_case_postop_sbar_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "74d569506f4ebeeb",
+      "stage0QueueIndex": 427,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus4_case_postop_sbar_01",
+      "partId": "opus4_case_postop_sbar_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "731b6696add9257e",
+      "stage0QueueIndex": 428,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus4_case_postop_sbar_01",
+      "partId": "opus4_case_postop_sbar_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "8fdddc13883a4a38",
+      "stage0QueueIndex": 429,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus5_case_consent_interpreter_01",
+      "partId": "opus5_case_consent_interpreter_01_q1",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "762d3ae71a6cfd8d",
+      "stage0QueueIndex": 430,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus5_case_consent_interpreter_01",
+      "partId": "opus5_case_consent_interpreter_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "7b95010f9bcbbb34",
+      "stage0QueueIndex": 431,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus5_case_consent_interpreter_01",
+      "partId": "opus5_case_consent_interpreter_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "6f1c08bee18a25aa",
+      "stage0QueueIndex": 432,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus5_case_consent_interpreter_01",
+      "partId": "opus5_case_consent_interpreter_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "2460ea5a7cb49380",
+      "stage0QueueIndex": 433,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus5_case_consent_interpreter_01",
+      "partId": "opus5_case_consent_interpreter_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "41588ae0fafa9db2",
+      "stage0QueueIndex": 434,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus12_case_inpatient_suicide_risk_01",
+      "partId": "opus12_case_inpatient_suicide_risk_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "5736fd4bd7af83cd",
+      "stage0QueueIndex": 435,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus12_case_inpatient_suicide_risk_01",
+      "partId": "opus12_case_inpatient_suicide_risk_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "05bb74f900e8b04e",
+      "stage0QueueIndex": 436,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus12_case_inpatient_suicide_risk_01",
+      "partId": "opus12_case_inpatient_suicide_risk_01_q3",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "908b1cd7bda596f8",
+      "stage0QueueIndex": 437,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus12_case_inpatient_suicide_risk_01",
+      "partId": "opus12_case_inpatient_suicide_risk_01_q4",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "1f87bf9ea5d134a4",
+      "stage0QueueIndex": 438,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus12_case_inpatient_suicide_risk_01",
+      "partId": "opus12_case_inpatient_suicide_risk_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "beafc63091930b57",
+      "stage0QueueIndex": 439,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus12_case_inpatient_suicide_risk_01",
+      "partId": "opus12_case_inpatient_suicide_risk_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "a93fbcf4a3236a3a",
+      "stage0QueueIndex": 440,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01",
+      "partId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "74b943503fa2ab41",
+      "stage0QueueIndex": 441,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01",
+      "partId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_q2",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "a94ddaa5fb5a0c22",
+      "stage0QueueIndex": 442,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01",
+      "partId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b99d09e91cc81278",
+      "stage0QueueIndex": 443,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01",
+      "partId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_q4",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "38fc2d30bf73f229",
+      "stage0QueueIndex": 444,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01",
+      "partId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_q5",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "b2250afa2ad1e534",
+      "stage0QueueIndex": 445,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01",
+      "partId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_q6",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "d5b1fd4cea4731a5",
+      "stage0QueueIndex": 446,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01",
+      "partId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q1",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "224be8add61c276a",
+      "stage0QueueIndex": 447,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01",
+      "partId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q2",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "22450f492ad261a2",
+      "stage0QueueIndex": 448,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01",
+      "partId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q3",
+      "state": "REPAIRED_BASELINE"
+    },
+    {
+      "rowKey": "cc1132738316b540",
+      "stage0QueueIndex": 449,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01",
+      "partId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q4",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "0f5aac8326dc6ee2",
+      "stage0QueueIndex": 450,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01",
+      "partId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q5",
+      "state": "EXCEPTION_UNCHANGED"
+    },
+    {
+      "rowKey": "73df80f9cc831a0e",
+      "stage0QueueIndex": 451,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01",
+      "partId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q6",
+      "state": "EXCEPTION_UNCHANGED"
+    }
+  ],
+  "limitation": "Structural §G only. Exception status proves anchor omission and audit leakage, not whole-part deep equality. Independent semantic acceptance and §H preservation remain separate mandatory gates."
+}
