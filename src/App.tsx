@@ -1851,7 +1851,7 @@ function FlashcardsView({
 
       {complete && pass ? (
         <div className="dashboard-panel">
-          <p>{pass.passCardIds.length} cards reviewed / 已复习 {pass.passCardIds.length} 张卡片</p>
+          <p>{pass.passCardIds.length} {pass.passCardIds.length === 1 ? "card" : "cards"} reviewed / 已复习 {pass.passCardIds.length} 张卡片</p>
           <button className="primary-action" type="button" onClick={startAnotherPass}>
             Start another pass / 再来一轮
           </button>
