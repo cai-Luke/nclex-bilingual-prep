@@ -271,6 +271,31 @@ main {
   padding: clamp(1rem, 4vw, 2rem) 0;
 }
 
+.session-start-status {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 1rem auto;
+}
+
+.session-replacement-dialog {
+  width: min(36rem, calc(100% - 2rem));
+  max-height: calc(100dvh - 2rem);
+  overflow: auto;
+  padding: 1.5rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  color: var(--text);
+  background: var(--surface);
+  box-shadow: var(--popover-shadow);
+}
+
+.session-replacement-dialog::backdrop {
+  background: rgb(0 0 0 / 45%);
+}
+
+.session-replacement-dialog p {
+  line-height: 1.6;
+}
+
 .app-shell.wide-main main {
   width: min(1400px, calc(100% - 2rem));
 }

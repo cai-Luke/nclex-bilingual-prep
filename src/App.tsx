@@ -93,6 +93,7 @@ import {
 } from "./sessionNavigation";
 import { buildTargetedReviewPool, buildWeightedSession, seedFromString } from "./sessionSampler";
 import { buildSessionState, type SessionState } from "./sessionState";
+import { createOrderedSessionPersistence, createSessionStartGuard, type SessionStartStatus } from "./sessionStartGuard";
 import { formatItemType } from "./itemTypes";
 import { buildQuestionRescuePromptText } from "./reviewPrompt";
 import {
@@ -401,6 +402,19 @@ export default function App() {
   const [filters, setFilters] = useState<Filters>(blankFilters);
   const [builderFilters, setBuilderFilters] = useState<BuilderFilters>(blankBuilderFilters);
   const [sessionHydrated, setSessionHydrated] = useState(false);
+  const [sessionStartStatus, setSessionStartStatus] = useState<SessionStartStatus>("idle");
+  const [sessionStartError, setSessionStartError] = useState(false);
+  const [sessionPersistence] = useState(() => createOrderedSessionPersistence({
+    save: saveActiveSession,
+    clear: clearActiveSession,
+  }));
+  const [sessionStartGuard] = useState(() => createSessionStartGuard({
+    onStatusChange: setSessionStartStatus,
+    onError: () => setSessionStartError(true),
+  }));
+  const replacementDialogRef = useRef<HTMLDialogElement>(null);
+  const keepCurrentSetRef = useRef<HTMLButtonElement>(null);
+  const sessionStartControlRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     document.documentElement.dataset.theme = settings.themeMode;
@@ -505,27 +519,38 @@ export default function App() {
 
   useEffect(() => {
     if (!uploadedLoaded || sessionHydrated) return;
+    let cancelled = false;
     void loadActiveSession().then((snapshot) => {
-      if (snapshot) {
-        const hydrated = hydrateSession(snapshot, recordsById);
-        if (hydrated) {
-          setSession(hydrated);
-        } else {
-          void clearActiveSession();
-        }
-      }
+      if (cancelled) return;
+      const hydrated = snapshot ? hydrateSession(snapshot, recordsById) : null;
+      if (hydrated) setSession(hydrated);
+      else if (snapshot) void sessionPersistence.clear();
       setSessionHydrated(true);
+      sessionStartGuard.resolveHydration(hydrated);
     });
-  }, [recordsById, sessionHydrated, uploadedLoaded]);
+    return () => { cancelled = true; };
+  }, [recordsById, sessionHydrated, uploadedLoaded, sessionPersistence, sessionStartGuard]);
 
   useEffect(() => {
     if (!sessionHydrated || !session) return;
+    // The replacement write owns this interval; an old async answer may still finish.
+    if (sessionStartGuard.status === "starting") return;
     if (session.completed) {
-      void clearActiveSession();
+      void sessionPersistence.clear();
       return;
     }
-    void saveActiveSession(toStoredSession(session));
-  }, [session, sessionHydrated]);
+    void sessionPersistence.save(toStoredSession(session));
+  }, [session, sessionHydrated, sessionPersistence, sessionStartGuard]);
+
+  useEffect(() => {
+    const dialog = replacementDialogRef.current;
+    if (sessionStartStatus === "confirming") {
+      if (dialog && !dialog.open) dialog.showModal();
+      keepCurrentSetRef.current?.focus();
+    } else if (dialog?.open) {
+      dialog.close();
+    }
+  }, [sessionStartStatus]);
 
   useEffect(() => {
     if (view !== "flashcards" && rescueFocusIds) {
@@ -538,51 +563,82 @@ export default function App() {
     saveSettings(next);
   };
 
-  const startSession = (
+  const requestSessionStart = (
     records: QuestionRecord[],
     mode: SessionMode,
     title: string,
     options: { count?: number; order?: SessionOrder; returnView?: View; weighting?: "nclex" } = {},
   ) => {
-    if (records.length === 0) return;
-    setSessionReturnView(options.returnView ?? "home");
+    if (records.length === 0 || sessionStartGuard.status !== "idle") return;
+    const requestedRecords = [...records];
+    const requestedOptions = { ...options };
+    sessionStartControlRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    setSessionStartError(false);
+    sessionStartGuard.request(() => performSessionStart(requestedRecords, mode, title, requestedOptions), session);
+  };
+
+  const keepCurrentSet = () => {
+    if (!sessionStartGuard.cancel()) return;
+    replacementDialogRef.current?.close();
+    if (sessionStartControlRef.current?.isConnected) sessionStartControlRef.current.focus();
+    sessionStartControlRef.current = null;
+  };
+
+  const confirmSessionStart = () => {
+    void sessionStartGuard.confirm();
+    replacementDialogRef.current?.close();
+    sessionStartControlRef.current = null;
+  };
+
+  const performSessionStart = async (
+    records: QuestionRecord[],
+    mode: SessionMode,
+    title: string,
+    options: { count?: number; order?: SessionOrder; returnView?: View; weighting?: "nclex" },
+  ) => {
+    let nextSession: SessionState | undefined;
     if (mode === "adaptive") {
-      startAdaptiveSession(records, title, Math.max(1, options.count ?? 75));
-      return;
-    }
-    let orderedRecords: QuestionRecord[];
-    const requestedCount = Math.max(1, Math.min(options.count ?? records.length, records.length));
-    if (options.order === "sequential") {
-      orderedRecords = [...records];
-    } else if (options.weighting === "nclex") {
-      const seed = (Date.now() ^ Math.floor(Math.random() * 0xffffffff)) >>> 0;
-      orderedRecords = buildWeightedSession(records, requestedCount, progress, mulberry32(seed), {
-        now: new Date(),
-      });
+      nextSession = performAdaptiveSessionStart(records, title, Math.max(1, options.count ?? 75));
     } else {
-      const unseen = shuffle(records.filter((r) => (progress[r.question.id]?.seen ?? 0) === 0));
-      const seen = shuffle(records.filter((r) => (progress[r.question.id]?.seen ?? 0) > 0));
-      orderedRecords = [...unseen, ...seen];
+      let orderedRecords: QuestionRecord[];
+      const requestedCount = Math.max(1, Math.min(options.count ?? records.length, records.length));
+      if (options.order === "sequential") {
+        orderedRecords = [...records];
+      } else if (options.weighting === "nclex") {
+        const seed = (Date.now() ^ Math.floor(Math.random() * 0xffffffff)) >>> 0;
+        orderedRecords = buildWeightedSession(records, requestedCount, progress, mulberry32(seed), {
+          now: new Date(),
+        });
+      } else {
+        const unseen = shuffle(records.filter((r) => (progress[r.question.id]?.seen ?? 0) === 0));
+        const seen = shuffle(records.filter((r) => (progress[r.question.id]?.seen ?? 0) > 0));
+        orderedRecords = [...unseen, ...seen];
+      }
+      const selectedRecords = orderedRecords.slice(0, requestedCount);
+      nextSession = buildSessionState({
+        id: createSessionId(),
+        mode,
+        questions: selectedRecords.map((record) => record.question),
+        poolIds: selectedRecords.map((record) => record.question.id),
+        languageMode: mode === "test" ? "off" : settings.languageMode,
+        title,
+        startedAt: new Date().toISOString(),
+      });
     }
-    const selectedRecords = orderedRecords.slice(0, requestedCount);
-    setSession(buildSessionState({
-      id: createSessionId(),
-      mode,
-      questions: selectedRecords.map((record) => record.question),
-      poolIds: selectedRecords.map((record) => record.question.id),
-      languageMode: mode === "test" ? "off" : settings.languageMode,
-      title,
-      startedAt: new Date().toISOString(),
-    }));
+    if (!nextSession) return;
+    // Wait behind every earlier save/clear before exposing the replacement.
+    await sessionPersistence.save(toStoredSession(nextSession));
+    setSessionReturnView(options.returnView ?? "home");
+    setSession(nextSession);
     setView("session");
   };
 
-  const startAdaptiveSession = (records: QuestionRecord[], title: string, requestedCount: number) => {
+  const performAdaptiveSessionStart = (records: QuestionRecord[], title: string, requestedCount: number) => {
     const selectedRecords = shuffle(records);
     const firstRecord = selectRecordForDifficulty(selectedRecords, "medium");
     if (!firstRecord) return;
     const targetCount = Math.max(1, Math.min(requestedCount, selectedRecords.length));
-    setSession(buildSessionState({
+    return buildSessionState({
       id: createSessionId(),
       mode: "adaptive",
       questions: [firstRecord.question],
@@ -596,12 +652,11 @@ export default function App() {
         rollingResults: [],
         difficultyHistory: [{ questionId: firstRecord.question.id, difficulty: firstRecord.question.difficulty }],
       },
-    }));
-    setView("session");
+    });
   };
 
   const finishSession = () => {
-    void clearActiveSession();
+    void sessionPersistence.clear();
     setSession((current) => (current ? { ...current, completed: true } : current));
     setView("summary");
   };
@@ -644,7 +699,7 @@ export default function App() {
     setAnswerEvents(await loadAnswerEvents());
     setCaseAnswerPartEvents(await loadCaseAnswerPartEvents());
     setSession((current) => {
-      if (!current) return current;
+      if (!current || current.id !== session.id) return current;
       if (Object.prototype.hasOwnProperty.call(current.results, question.id)) return current;
       return {
         ...current,
@@ -702,13 +757,13 @@ export default function App() {
       if (current.mode === "adaptive" && current.adaptive) {
         if (current.index < current.questions.length - 1) return { ...current, index: current.index + 1 };
         if (current.questions.length >= current.adaptive.targetCount) {
-          void clearActiveSession();
+          void sessionPersistence.clear();
           setView("summary");
           return { ...current, completed: true };
         }
         const nextRecord = selectNextAdaptiveRecord(current, recordsById);
         if (!nextRecord) {
-          void clearActiveSession();
+          void sessionPersistence.clear();
           setView("summary");
           return { ...current, completed: true };
         }
@@ -746,7 +801,7 @@ export default function App() {
         return { ...current, index: current.index + 1 };
       }
       if (current.mode !== "study" || current.skippedQuestionIds.length === 0) {
-        void clearActiveSession();
+        void sessionPersistence.clear();
         setView("summary");
         return { ...current, completed: true };
       }
@@ -818,7 +873,7 @@ export default function App() {
   };
 
   const practiceOne = (record: QuestionRecord) => {
-    startSession([record], "study", record.question.stem.en, {
+    requestSessionStart([record], "study", record.question.stem.en, {
       order: "sequential",
       returnView: "library",
     });
@@ -845,7 +900,7 @@ export default function App() {
 
   return (
     <div className={`app-shell ${view === "session" ? "session-active" : ""} ${isWidePage ? "wide-main" : ""}`}>
-      <header className="app-header">
+      <header className="app-header" inert={sessionStartStatus === "starting"}>
         <button className="brand" type="button" onClick={() => setView("home")}>
           <img className="brand-mark" src={APP_ICON_SRC} alt="" aria-hidden="true" />
           <span>NCLEX Bilingual Prep</span>
@@ -894,7 +949,14 @@ export default function App() {
         </nav>
       </header>
 
-      <main>
+      {(sessionStartStatus === "waiting-hydration" || sessionStartStatus === "starting") && (
+        <p className="session-start-status" role="status">Preparing your set / 正在准备练习…</p>
+      )}
+      {sessionStartError && (
+        <p className="session-start-status" role="alert">Could not start the new set. Try again. / 无法开始新练习，请重试。</p>
+      )}
+
+      <main inert={sessionStartStatus === "starting"} aria-busy={sessionStartStatus === "waiting-hydration" || sessionStartStatus === "starting"}>
         {updateAvailable && <AppUpdateBanner />}
 
         {bundled.errors.length > 0 && (
@@ -916,13 +978,13 @@ export default function App() {
             vocab={flashcardDeck.length}
             activeSession={activeSession}
             onResume={() => setView("session")}
-            onStudy={() => startSession(allRecords, "study", "Study all questions")}
+            onStudy={() => requestSessionStart(allRecords, "study", "Study all questions")}
             onTest={(count) =>
-              startSession(allRecords, "study", `Practice · ${count} questions`, { count, weighting: "nclex" })
+              requestSessionStart(allRecords, "study", `Practice · ${count} questions`, { count, weighting: "nclex" })
             }
-            onMistakes={() => startSession(missedRecords, "study", "Review mistakes")}
-            onAnswered={() => startSession(answeredRecords, "study", "Review answered questions")}
-            onDue={() => startSession(dueRecords, "study", "Spaced review")}
+            onMistakes={() => requestSessionStart(missedRecords, "study", "Review mistakes")}
+            onAnswered={() => requestSessionStart(answeredRecords, "study", "Review answered questions")}
+            onDue={() => requestSessionStart(dueRecords, "study", "Spaced review")}
             onCustom={() => openBuilder()}
             onDashboard={() => setView("dashboard")}
             onFlashcards={openVocab}
@@ -938,7 +1000,7 @@ export default function App() {
             setFilters={setBuilderFilters}
             onStart={() => {
               const label = builderFilters.mode === "adaptive" ? "Adaptive exam practice" : "Custom session";
-              startSession(
+              requestSessionStart(
                 builderRecords,
                 builderFilters.mode,
                 label,
@@ -984,8 +1046,8 @@ export default function App() {
             flags={flags}
             filters={filters}
             setFilters={setFilters}
-            onStudy={() => startSession(filteredRecords, "study", "Filtered study set")}
-            onTest={() => startSession(filteredRecords, "test", "Filtered test set")}
+            onStudy={() => requestSessionStart(filteredRecords, "study", "Filtered study set")}
+            onTest={() => requestSessionStart(filteredRecords, "test", "Filtered test set")}
             onToggleFlag={toggleFlag}
             onPracticeOne={practiceOne}
           />
@@ -1074,7 +1136,7 @@ export default function App() {
             relatedCount={relatedPracticePool.length}
             sessionMissedTermIds={sessionMissedTermIds}
             onPracticeRelated={() =>
-              startSession(relatedPracticePool, "study", "Practice related", {
+              requestSessionStart(relatedPracticePool, "study", "Practice related", {
                 count: DEFAULT_SESSION_COUNT,
                 order: "sequential",
               })
@@ -1084,6 +1146,30 @@ export default function App() {
         )}
       </main>
 
+      <dialog
+        className="session-replacement-dialog"
+        ref={replacementDialogRef}
+        aria-labelledby="session-replacement-title"
+        aria-describedby="session-replacement-description"
+        onCancel={(event) => {
+          event.preventDefault();
+          keepCurrentSet();
+        }}
+      >
+        <h2 id="session-replacement-title">Start a new set? / 开始新的练习吗？</h2>
+        <div id="session-replacement-description">
+          <p>You have unfinished work in the current set. Recorded answer history will stay, but this set, including unsubmitted drafts and remaining questions, will no longer be resumable.</p>
+          <p lang="zh-Hans">当前练习还有未完成内容。已记录的答题历史会保留，但当前练习（包括未提交的草稿和剩余题目）将无法再继续。</p>
+        </div>
+        <div className="action-row">
+          <button className="primary-action" type="button" ref={keepCurrentSetRef} onClick={keepCurrentSet}>
+            Keep current set / 保留当前练习
+          </button>
+          <button type="button" onClick={confirmSessionStart}>
+            Start new set / 开始新练习
+          </button>
+        </div>
+      </dialog>
     </div>
   );
 }
