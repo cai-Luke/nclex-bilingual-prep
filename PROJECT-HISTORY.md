@@ -52,6 +52,28 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### UX-0B R1 Verified and Owner-Approved for Push (Sep 11)
+
+Luke approved the startup-data freshness correction and authorized pushing all
+pending work on 2026-09-11. Implementation `52b50e0` and evidence `a6adfa0`
+were completed on the clean `codex/ux-0b-r1-startup-freshness` worktree, based
+on the existing UX-0A/0B/0C feature lineage. The original feature branch was
+then fast-forwarded to that verified correction for publication. This entry
+records owner approval and feature-branch publication, not integration into
+`main` or a live-site deployment.
+
+The [completion receipt](audit/ux-0b-r1-2026-09-11/implementation-receipt.md)
+owns the implementation, control inventory, and verification details. All
+required commands and the nineteen browser scenario groups passed, including
+delayed learner hydration, fresh sampler inputs, uploaded-question inclusion,
+replacement focus/persistence races, mobile layout, and production file use.
+The negative control failed at the intended readiness assertion. The receipt
+also preserves the separate blocked-IndexedDB and target-phone timing follow-ups.
+
+The pending non-MCQ audit outputs, architect review, and queued ordered-response
+shuffle specification are published as existing artifacts. Their inclusion
+does not implement the queued shuffle commission or promote new bank content.
+
 ### Campaign 16 Typed-Baseline Reader Support Accepted (Sep 9)
 
 Completed and accepted support-only reader implementation for an explicit baseline visibility
