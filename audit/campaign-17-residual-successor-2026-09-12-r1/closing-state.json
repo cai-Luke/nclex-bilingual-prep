@@ -1,0 +1,138 @@
+{
+  "status": "PASS_PRODUCER_HANDOFF_INTEGRITY_ONLY",
+  "checkedAt": "2026-09-12T06:49:32.265764+00:00",
+  "access": "LOCAL_DISK",
+  "worktree": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+  "branch": "codex/campaign-17-residual-successor-2026-09-12",
+  "acceptedBase": "d895d851ae5c7b4c29aab74534bf4d4ad44f42e0",
+  "phaseHeadBeforeCloseoutCommit": "58f2e1f1903f39ebdb6ace3ad529f7f8aaac5aa0",
+  "upstreamAtCheck": "origin/main",
+  "aheadBehindAtCheck": [
+    4,
+    0
+  ],
+  "trackedScope": "audit/campaign-17-residual-successor-2026-09-12-r1/",
+  "preserved": {
+    "bankHashes": 13,
+    "campaign16Hashes": 293,
+    "authorityHashes": 11
+  },
+  "frozenManifests": {
+    "phase-a": {
+      "sha256": "cae51fbd56aafcae1598134e59602ef228adb44c2dc0a464e00cd6c78329dcd6",
+      "files": 83
+    },
+    "phase-b": {
+      "sha256": "8b2f629c48facefd00e2592a7d8f46a46c222bf307cad923a003a7b04df0d921",
+      "files": 53
+    },
+    "phase-c": {
+      "sha256": "5ef335dea1af1388034f201570af384dbac549eb324be1581bb5ce1a18c1ab73",
+      "files": 120
+    },
+    "phase-d": {
+      "sha256": "b135d0e7ec50a7d54a742242645f97ad9248f1742490747108c2207ef851c396",
+      "files": 120
+    }
+  },
+  "phaseA": {
+    "rows": 66,
+    "parents": 38,
+    "dispositions": {
+      "CONTENT_REPAIR_REQUIRED": 40,
+      "ANCHOR_ONLY_REPAIR_CANDIDATE": 20,
+      "REPLACEMENT_CANDIDATE": 4,
+      "REVIEW_HOLD": 2
+    },
+    "deterministicRows": 0,
+    "holds": [
+      {
+        "partId": "opus24_case_elder_neglect_med_mismanagement_01_q4",
+        "requiredContentWork": "Independent reviewer should choose a revised self-contained administration stem or approve stage_2 as a protocol-application construct with an explicit rationale. Do not resolve by calling all potassium monitoring universally identical."
+      },
+      {
+        "partId": "gpt_case_hipaa_disclosure_breach_01_q4",
+        "requiredContentWork": "Obtain a specific approved institutional photo-incident procedure or revise D and matching stage/rationale to contain sharing and follow Privacy Officer/security direction while preserving required incident evidence. Do not present HIPAA as universally mandating immediate permanent deletion."
+      }
+    ]
+  },
+  "phaseB": {
+    "rows": 75,
+    "parents": 19,
+    "banks": 3,
+    "deterministicCandidates": 75,
+    "semanticHolds": 0,
+    "negativeControls": 14
+  },
+  "phaseC": {
+    "items": 18,
+    "batches": 3,
+    "topics": 13,
+    "formats": {
+      "fill_in_blank": 5,
+      "highlight": 8,
+      "dropdown_cloze": 3,
+      "bowtie": 2
+    },
+    "positiveControls": 39,
+    "negativeControls": 89,
+    "bilingualPairs": 229
+  },
+  "phaseD": {
+    "records": 3,
+    "dispositions": {
+      "ACQUIRE_CANDIDATE": 1,
+      "HOLD_RIGHTS": 1,
+      "REJECT": 1
+    }
+  },
+  "receiptCountBeforeThisCommand": 48,
+  "receiptExitCountsBeforeThisCommand": {
+    "0": 43,
+    "1": 5
+  },
+  "canonicalMutation": false,
+  "independentReviewCompleted": false,
+  "promotedItems": 0,
+  "historyPublication": "Deferred to post-review publishing/merge seat",
+  "publication": "This check precedes its containing closeout commit; final handoff reports live remote HEAD.",
+  "verificationIndex": "verification/final-closeout.txt",
+  "finalCloseoutReceipt": {
+    "argv": [
+      "python3",
+      "audit/campaign-17-residual-successor-2026-09-12-r1/tools/verify_closeout.py"
+    ],
+    "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+    "startedAt": "2026-09-12T06:49:32.116601+00:00",
+    "finishedAt": "2026-09-12T06:49:32.303865+00:00",
+    "exitCode": 0,
+    "output": "verification/final-closeout.txt",
+    "outputSha256": "b0b40dcc62a25bc2cc7dafd4f420ba7c3deea0941bc77593e159414e39add915"
+  },
+  "totalCommandReceipts": 49,
+  "totalReceiptExitCounts": {
+    "0": 44,
+    "1": 5
+  },
+  "phaseCommits": {
+    "A": "1d79b577171b79194fd81c967b37dbebe5cfeda4",
+    "B": "7e1c0dafab75e6dbf2309397c2d721f815a6bef1",
+    "C": "5304eff1468426d5f14ce029beb8bb9754dad91c",
+    "D": "58f2e1f1903f39ebdb6ace3ad529f7f8aaac5aa0"
+  },
+  "unrelatedWorktrees": [
+    {
+      "path": "/Users/holemini/Desktop/Project Shrimp",
+      "branch": "codex/ux-0c-finite-vocab-pass",
+      "head": "bb29bff1adc0cb275784f38ee330fc605bf4acab",
+      "cleanAtCloseout": true
+    },
+    {
+      "path": "/Users/holemini/Desktop/Project Shrimp UX-0B-R1",
+      "branch": "codex/ux-0b-r1-startup-freshness",
+      "head": "a6adfa0840784f45f53cd1424f6ad3131b741cd7",
+      "cleanAtCloseout": true
+    }
+  ],
+  "temporaryImageReviewFilesRemoved": true
+}

@@ -1,0 +1,823 @@
+{
+  "status": "PASS_PRODUCER_HANDOFF_INTEGRITY_ONLY",
+  "checkedAt": "2026-09-12T06:49:32.265764+00:00",
+  "access": "LOCAL_DISK",
+  "worktree": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+  "branch": "codex/campaign-17-residual-successor-2026-09-12",
+  "acceptedBase": "d895d851ae5c7b4c29aab74534bf4d4ad44f42e0",
+  "phaseHeadBeforeCloseoutCommit": "58f2e1f1903f39ebdb6ace3ad529f7f8aaac5aa0",
+  "upstreamAtCheck": "origin/main",
+  "aheadBehindAtCheck": [
+    4,
+    0
+  ],
+  "trackedScope": "audit/campaign-17-residual-successor-2026-09-12-r1/",
+  "preserved": {
+    "bankHashes": 13,
+    "campaign16Hashes": 293,
+    "authorityHashes": 11
+  },
+  "frozenManifests": {
+    "phase-a": {
+      "sha256": "cae51fbd56aafcae1598134e59602ef228adb44c2dc0a464e00cd6c78329dcd6",
+      "files": 83
+    },
+    "phase-b": {
+      "sha256": "8b2f629c48facefd00e2592a7d8f46a46c222bf307cad923a003a7b04df0d921",
+      "files": 53
+    },
+    "phase-c": {
+      "sha256": "5ef335dea1af1388034f201570af384dbac549eb324be1581bb5ce1a18c1ab73",
+      "files": 120
+    },
+    "phase-d": {
+      "sha256": "b135d0e7ec50a7d54a742242645f97ad9248f1742490747108c2207ef851c396",
+      "files": 120
+    }
+  },
+  "phaseA": {
+    "rows": 66,
+    "parents": 38,
+    "dispositions": {
+      "CONTENT_REPAIR_REQUIRED": 40,
+      "ANCHOR_ONLY_REPAIR_CANDIDATE": 20,
+      "REPLACEMENT_CANDIDATE": 4,
+      "REVIEW_HOLD": 2
+    },
+    "deterministicRows": 0,
+    "holds": [
+      {
+        "partId": "opus24_case_elder_neglect_med_mismanagement_01_q4",
+        "requiredContentWork": "Independent reviewer should choose a revised self-contained administration stem or approve stage_2 as a protocol-application construct with an explicit rationale. Do not resolve by calling all potassium monitoring universally identical."
+      },
+      {
+        "partId": "gpt_case_hipaa_disclosure_breach_01_q4",
+        "requiredContentWork": "Obtain a specific approved institutional photo-incident procedure or revise D and matching stage/rationale to contain sharing and follow Privacy Officer/security direction while preserving required incident evidence. Do not present HIPAA as universally mandating immediate permanent deletion."
+      }
+    ]
+  },
+  "phaseB": {
+    "rows": 75,
+    "parents": 19,
+    "banks": 3,
+    "deterministicCandidates": 75,
+    "semanticHolds": 0,
+    "negativeControls": 14
+  },
+  "phaseC": {
+    "items": 18,
+    "batches": 3,
+    "topics": 13,
+    "formats": {
+      "fill_in_blank": 5,
+      "highlight": 8,
+      "dropdown_cloze": 3,
+      "bowtie": 2
+    },
+    "positiveControls": 39,
+    "negativeControls": 89,
+    "bilingualPairs": 229
+  },
+  "phaseD": {
+    "records": 3,
+    "dispositions": {
+      "ACQUIRE_CANDIDATE": 1,
+      "HOLD_RIGHTS": 1,
+      "REJECT": 1
+    }
+  },
+  "receiptCountBeforeThisCommand": 48,
+  "receiptExitCountsBeforeThisCommand": {
+    "0": 43,
+    "1": 5
+  },
+  "receipts": [
+    {
+      "receipt": "verification/audit-default.json",
+      "argv": [
+        "npm",
+        "run",
+        "audit"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:02:52.488204+00:00",
+      "finishedAt": "2026-09-12T06:02:59.475788+00:00",
+      "exitCode": 0,
+      "output": "verification/audit-default.txt",
+      "outputSha256": "b9da62b529d40a8fa0cda402b0ad6731ddb0b7fe743ebff39580bde80a565b97"
+    },
+    {
+      "receipt": "verification/build.json",
+      "argv": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:03:11.621380+00:00",
+      "finishedAt": "2026-09-12T06:03:16.992337+00:00",
+      "exitCode": 0,
+      "output": "verification/build.txt",
+      "outputSha256": "8b2986f2b653a4b4b0103bdbc7a80350a0afc11ebe3e106fa7750cbe7ef3e3c3"
+    },
+    {
+      "receipt": "verification/canonical-validation.json",
+      "argv": [
+        "npm",
+        "run",
+        "validate-bank",
+        "--",
+        "banks/burn-canonical.json",
+        "banks/capnography-canonical.json",
+        "banks/claude-canonical.json",
+        "banks/device-canonical.json",
+        "banks/gemini-canonical.json",
+        "banks/gpt-canonical.json",
+        "banks/hard-cases-canonical.json",
+        "banks/io-canonical.json",
+        "banks/lab-canonical.json",
+        "banks/mar-canonical.json",
+        "banks/medlabel-canonical.json",
+        "banks/visual-canonical.json",
+        "banks/vitals-canonical.json"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:02:52.504851+00:00",
+      "finishedAt": "2026-09-12T06:02:54.342866+00:00",
+      "exitCode": 0,
+      "output": "verification/canonical-validation.txt",
+      "outputSha256": "63d42eb203c799e873546cfbaebfedf39b7ad39fa158c7142f822411b61f04b4"
+    },
+    {
+      "receipt": "verification/census-check.json",
+      "argv": [
+        "npm",
+        "run",
+        "census:check"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:02:52.507942+00:00",
+      "finishedAt": "2026-09-12T06:02:54.432927+00:00",
+      "exitCode": 0,
+      "output": "verification/census-check.txt",
+      "outputSha256": "7aefd695a30ed738aec94c573a165f672a53af5964dc07e0b41780917cccbb67"
+    },
+    {
+      "receipt": "verification/phase-a-freeze.json",
+      "argv": [
+        "python3",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/tools/freeze.py",
+        "phase-a"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:04:34.034137+00:00",
+      "finishedAt": "2026-09-12T06:04:34.075870+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-a-freeze.txt",
+      "outputSha256": "47281a7653fc85ce2aa421b85c7700eb8d988094a9e4929bdbd3283bbad11864"
+    },
+    {
+      "receipt": "verification/phase-a-inventory.json",
+      "argv": [
+        "npx",
+        "tsx",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/tools/inventory.ts"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T05:25:58.303927+00:00",
+      "finishedAt": "2026-09-12T05:25:59.262096+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-a-inventory.txt",
+      "outputSha256": "5b91fc3fbf548e14883d70022811c7e814d53d4bd8f99baabc49dc9f19fe2594"
+    },
+    {
+      "receipt": "verification/phase-a-live-inventory.json",
+      "argv": [
+        "npx",
+        "tsx",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/tools/inventory.ts"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:02:52.492219+00:00",
+      "finishedAt": "2026-09-12T06:02:53.616932+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-a-live-inventory.txt",
+      "outputSha256": "5b91fc3fbf548e14883d70022811c7e814d53d4bd8f99baabc49dc9f19fe2594"
+    },
+    {
+      "receipt": "verification/phase-a-packet-tests.json",
+      "argv": [
+        "python3",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/tools/verify_a.py"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:02:52.485895+00:00",
+      "finishedAt": "2026-09-12T06:02:53.704791+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-a-packet-tests.txt",
+      "outputSha256": "80509f22ec77b1817899cc83a3b91d84094ce462ebefbb78c6819c2e7c7af11c"
+    },
+    {
+      "receipt": "verification/phase-a-packets.json",
+      "argv": [
+        "python3",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/tools/build_packets.py"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T05:27:14.363362+00:00",
+      "finishedAt": "2026-09-12T05:27:14.645367+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-a-packets.txt",
+      "outputSha256": "16235301691010b600e0a115c107ce4d4555ed5659517053b5243966f0038381"
+    },
+    {
+      "receipt": "verification/phase-a-reconciliation.json",
+      "argv": [
+        "python3",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/tools/build_packets.py"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:03:12.768404+00:00",
+      "finishedAt": "2026-09-12T06:03:12.987054+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-a-reconciliation.txt",
+      "outputSha256": "16235301691010b600e0a115c107ce4d4555ed5659517053b5243966f0038381"
+    },
+    {
+      "receipt": "verification/phase-b-freeze.json",
+      "argv": [
+        "python3",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/tools/freeze.py",
+        "phase-b"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:08:03.161131+00:00",
+      "finishedAt": "2026-09-12T06:08:03.196034+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-b-freeze.txt",
+      "outputSha256": "62661a8900f1a2ad0d19131f1c1bb5330b1a4933fd45487003c9aef58792974c"
+    },
+    {
+      "receipt": "verification/phase-b-preservation.json",
+      "argv": [
+        "python3",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/tools/verify_a.py"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:08:02.629658+00:00",
+      "finishedAt": "2026-09-12T06:08:03.138373+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-b-preservation.txt",
+      "outputSha256": "80509f22ec77b1817899cc83a3b91d84094ce462ebefbb78c6819c2e7c7af11c"
+    },
+    {
+      "receipt": "verification/phase-b-survey.json",
+      "argv": [
+        "npx",
+        "tsx",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/tools/legacy_survey.ts"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:07:00.025846+00:00",
+      "finishedAt": "2026-09-12T06:07:03.002418+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-b-survey.txt",
+      "outputSha256": "73e604c7f13889aa714648394cf079f8db2c6c79ed62009cb2f6a0602a1122cd"
+    },
+    {
+      "receipt": "verification/phase-c-batch1-author-r2.json",
+      "argv": [
+        "python3",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/tools/raw_batch1.py"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:15:58.982127+00:00",
+      "finishedAt": "2026-09-12T06:15:59.005573+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-c-batch1-author-r2.txt",
+      "outputSha256": "db103a9a81fe47afc7b2e6935b7f3d740fc56abf7471e2ed6da9fda50bda23f3"
+    },
+    {
+      "receipt": "verification/phase-c-batch1-author.json",
+      "argv": [
+        "python3",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/tools/raw_batch1.py"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:15:43.518031+00:00",
+      "finishedAt": "2026-09-12T06:15:43.549456+00:00",
+      "exitCode": 1,
+      "output": "verification/phase-c-batch1-author.txt",
+      "outputSha256": "be72cb6504ef27c3ea80f1b592979329940ea07cebd74197deb7a28fc4fa85d4"
+    },
+    {
+      "receipt": "verification/phase-c-batch1-normalize-r2.json",
+      "argv": [
+        "npm",
+        "run",
+        "normalize-raw-bank",
+        "--",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/phase-c/raw/gpt-2026-09-12-0609-t1.json"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:15:59.027593+00:00",
+      "finishedAt": "2026-09-12T06:15:59.272162+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-c-batch1-normalize-r2.txt",
+      "outputSha256": "0386ef72155de62142118d76d097c253a34b03f43d23a07a30102a452e4409e9"
+    },
+    {
+      "receipt": "verification/phase-c-batch1-normalize.json",
+      "argv": [
+        "npm",
+        "run",
+        "normalize-raw-bank",
+        "--",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/phase-c/raw/gpt-2026-09-12-0609-t1.json"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:15:43.571811+00:00",
+      "finishedAt": "2026-09-12T06:15:43.839560+00:00",
+      "exitCode": 1,
+      "output": "verification/phase-c-batch1-normalize.txt",
+      "outputSha256": "ddf7c687814fc2ec0e7b065e8946ce137d23335394e97772b302b39ff0e11715"
+    },
+    {
+      "receipt": "verification/phase-c-batch1-raw-gate-r2.json",
+      "argv": [
+        "npm",
+        "run",
+        "gate:raw",
+        "--",
+        "--file",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/phase-c/raw/gpt-2026-09-12-0609-t1.json"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:20:06.219677+00:00",
+      "finishedAt": "2026-09-12T06:20:07.400151+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-c-batch1-raw-gate-r2.txt",
+      "outputSha256": "6e142275a424f6d97884359b8a05de46c7ad1c203fc571ab8c46d41f497094d5"
+    },
+    {
+      "receipt": "verification/phase-c-batch1-raw-gate.json",
+      "argv": [
+        "npm",
+        "run",
+        "gate:raw",
+        "--",
+        "--file",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/phase-c/raw/gpt-2026-09-12-0609-t1.json"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:16:13.928156+00:00",
+      "finishedAt": "2026-09-12T06:16:15.145933+00:00",
+      "exitCode": 1,
+      "output": "verification/phase-c-batch1-raw-gate.txt",
+      "outputSha256": "b4f57d0f83a09f3d787772d2018cb85c49c664e84b6e52bd460e9def74432409"
+    },
+    {
+      "receipt": "verification/phase-c-batch1-validate-r2.json",
+      "argv": [
+        "npm",
+        "run",
+        "validate-bank",
+        "--",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/phase-c/raw/gpt-2026-09-12-0609-t1.json"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:15:59.294890+00:00",
+      "finishedAt": "2026-09-12T06:15:59.534815+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-c-batch1-validate-r2.txt",
+      "outputSha256": "6794a0580b46d37c7a37771a6a9ac4932fa50ac76768436be6932831cd5a5d8b"
+    },
+    {
+      "receipt": "verification/phase-c-batch1-validate-r3.json",
+      "argv": [
+        "npm",
+        "run",
+        "validate-bank",
+        "--",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/phase-c/raw/gpt-2026-09-12-0609-t1.json"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:20:05.944785+00:00",
+      "finishedAt": "2026-09-12T06:20:06.196902+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-c-batch1-validate-r3.txt",
+      "outputSha256": "6794a0580b46d37c7a37771a6a9ac4932fa50ac76768436be6932831cd5a5d8b"
+    },
+    {
+      "receipt": "verification/phase-c-batch1-validate.json",
+      "argv": [
+        "npm",
+        "run",
+        "validate-bank",
+        "--",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/phase-c/raw/gpt-2026-09-12-0609-t1.json"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:15:43.862593+00:00",
+      "finishedAt": "2026-09-12T06:15:44.095162+00:00",
+      "exitCode": 1,
+      "output": "verification/phase-c-batch1-validate.txt",
+      "outputSha256": "7adbf7ed4b126afcfc06ccc407966ecf493682e163eb285f4ac7ea7c0d677296"
+    },
+    {
+      "receipt": "verification/phase-c-batch2-author.json",
+      "argv": [
+        "python3",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/tools/raw_batch2.py"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:24:19.985289+00:00",
+      "finishedAt": "2026-09-12T06:24:20.008663+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-c-batch2-author.txt",
+      "outputSha256": "962adba3d4469e8ea23c04a21f25f24cab0e054f3d96e2b3ab19948d3738f6ee"
+    },
+    {
+      "receipt": "verification/phase-c-batch2-normalize.json",
+      "argv": [
+        "npm",
+        "run",
+        "normalize-raw-bank",
+        "--",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/phase-c/raw/gpt-2026-09-12-0609-t2.json"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:24:20.031287+00:00",
+      "finishedAt": "2026-09-12T06:24:20.273405+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-c-batch2-normalize.txt",
+      "outputSha256": "0ca6c241c6f2b5414f54fbe23957f048ddaa0a55c77f078df03defcf6e1d357d"
+    },
+    {
+      "receipt": "verification/phase-c-batch2-raw-gate.json",
+      "argv": [
+        "npm",
+        "run",
+        "gate:raw",
+        "--",
+        "--file",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/phase-c/raw/gpt-2026-09-12-0609-t2.json"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:24:20.557484+00:00",
+      "finishedAt": "2026-09-12T06:24:21.761071+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-c-batch2-raw-gate.txt",
+      "outputSha256": "c4d2dc11cddb45862eaf7c348cd354a0383fd58d420674b1f0f9afe546d9b5b6"
+    },
+    {
+      "receipt": "verification/phase-c-batch2-validate.json",
+      "argv": [
+        "npm",
+        "run",
+        "validate-bank",
+        "--",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/phase-c/raw/gpt-2026-09-12-0609-t2.json"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:24:20.296156+00:00",
+      "finishedAt": "2026-09-12T06:24:20.534777+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-c-batch2-validate.txt",
+      "outputSha256": "29b3fc2708a1a01a55d9b1ae6b6707918068e08393b982a272c8545026fda030"
+    },
+    {
+      "receipt": "verification/phase-c-batch3-author.json",
+      "argv": [
+        "python3",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/tools/raw_batch3.py"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:28:17.885797+00:00",
+      "finishedAt": "2026-09-12T06:28:17.907320+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-c-batch3-author.txt",
+      "outputSha256": "f7c821c4542936ee4f8c4940527142901604e6c964f325770f6908e17bbe6dbc"
+    },
+    {
+      "receipt": "verification/phase-c-batch3-normalize.json",
+      "argv": [
+        "npm",
+        "run",
+        "normalize-raw-bank",
+        "--",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/phase-c/raw/gpt-2026-09-12-0609-t3.json"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:28:17.928946+00:00",
+      "finishedAt": "2026-09-12T06:28:18.178006+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-c-batch3-normalize.txt",
+      "outputSha256": "0d67c09759dbf79117e230d9e1c6b437fbf7c208e127987466888f8f585bacfb"
+    },
+    {
+      "receipt": "verification/phase-c-batch3-raw-gate.json",
+      "argv": [
+        "npm",
+        "run",
+        "gate:raw",
+        "--",
+        "--file",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/phase-c/raw/gpt-2026-09-12-0609-t3.json"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:28:18.462158+00:00",
+      "finishedAt": "2026-09-12T06:28:19.639150+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-c-batch3-raw-gate.txt",
+      "outputSha256": "1e725c8d08ab13f1d802f3f934653d34d42d76d737de77187e12414d4b916ad2"
+    },
+    {
+      "receipt": "verification/phase-c-batch3-validate.json",
+      "argv": [
+        "npm",
+        "run",
+        "validate-bank",
+        "--",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/phase-c/raw/gpt-2026-09-12-0609-t3.json"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:28:18.200791+00:00",
+      "finishedAt": "2026-09-12T06:28:18.439337+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-c-batch3-validate.txt",
+      "outputSha256": "43c4d71ff3b52200a33d215122700f93beeaf184dc71faaa9bbc18089d16e0b4"
+    },
+    {
+      "receipt": "verification/phase-c-census-check.json",
+      "argv": [
+        "npm",
+        "run",
+        "census:check"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:33:38.628757+00:00",
+      "finishedAt": "2026-09-12T06:33:39.543126+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-c-census-check.txt",
+      "outputSha256": "7aefd695a30ed738aec94c573a165f672a53af5964dc07e0b41780917cccbb67"
+    },
+    {
+      "receipt": "verification/phase-c-combined-raw-gate-r2.json",
+      "argv": [
+        "npm",
+        "run",
+        "gate:raw",
+        "--",
+        "--file",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/phase-c/raw/gpt-2026-09-12-0609-t1.json",
+        "--file",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/phase-c/raw/gpt-2026-09-12-0609-t2.json",
+        "--file",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/phase-c/raw/gpt-2026-09-12-0609-t3.json"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:32:37.211076+00:00",
+      "finishedAt": "2026-09-12T06:32:38.997452+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-c-combined-raw-gate-r2.txt",
+      "outputSha256": "640d87e379ebd8db0986320a953dd582a21f05662b467076d7f6b4bf487e0507"
+    },
+    {
+      "receipt": "verification/phase-c-combined-raw-gate.json",
+      "argv": [
+        "npm",
+        "run",
+        "gate:raw",
+        "--",
+        "--file",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/phase-c/raw/gpt-2026-09-12-0609-t1.json",
+        "--file",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/phase-c/raw/gpt-2026-09-12-0609-t2.json",
+        "--file",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/phase-c/raw/gpt-2026-09-12-0609-t3.json"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:31:28.485066+00:00",
+      "finishedAt": "2026-09-12T06:31:30.382143+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-c-combined-raw-gate.txt",
+      "outputSha256": "640d87e379ebd8db0986320a953dd582a21f05662b467076d7f6b4bf487e0507"
+    },
+    {
+      "receipt": "verification/phase-c-grading-preflight-r2.json",
+      "argv": [
+        "npx",
+        "tsx",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/tools/raw_preflight.ts"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:32:36.912623+00:00",
+      "finishedAt": "2026-09-12T06:32:37.188184+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-c-grading-preflight-r2.txt",
+      "outputSha256": "46029d4213db0ccf4e3ab092866d66a70956ef0737349f6260cf3217cec320fb"
+    },
+    {
+      "receipt": "verification/phase-c-grading-preflight.json",
+      "argv": [
+        "npx",
+        "tsx",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/tools/raw_preflight.ts"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:31:28.021854+00:00",
+      "finishedAt": "2026-09-12T06:31:28.461801+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-c-grading-preflight.txt",
+      "outputSha256": "46029d4213db0ccf4e3ab092866d66a70956ef0737349f6260cf3217cec320fb"
+    },
+    {
+      "receipt": "verification/phase-c-metadata.json",
+      "argv": [
+        "python3",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/tools/raw_metadata.py"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:31:27.962040+00:00",
+      "finishedAt": "2026-09-12T06:31:27.999376+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-c-metadata.txt",
+      "outputSha256": "a8b0a42d57382f61494395a365fac907b6e544ca2f2b38ae51196efb39ce4580"
+    },
+    {
+      "receipt": "verification/phase-c-note-order-refinement.json",
+      "argv": [
+        "python3",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/tools/raw_adjustments.py"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:32:36.146875+00:00",
+      "finishedAt": "2026-09-12T06:32:36.890045+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-c-note-order-refinement.txt",
+      "outputSha256": "d492723723a1b27f37f810f75402762e737396e3d7e5d379671715877efcb4de"
+    },
+    {
+      "receipt": "verification/phase-c-preservation.json",
+      "argv": [
+        "python3",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/tools/verify_a.py"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:33:38.060217+00:00",
+      "finishedAt": "2026-09-12T06:33:38.606018+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-c-preservation.txt",
+      "outputSha256": "80509f22ec77b1817899cc83a3b91d84094ce462ebefbb78c6819c2e7c7af11c"
+    },
+    {
+      "receipt": "verification/phase-c-tsc.json",
+      "argv": [
+        "npx",
+        "tsc",
+        "-b",
+        "--pretty",
+        "false"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:33:39.565858+00:00",
+      "finishedAt": "2026-09-12T06:33:42.717587+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-c-tsc.txt",
+      "outputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "verification/phase-d-preservation.json",
+      "argv": [
+        "python3",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/tools/verify_a.py"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:44:06.559411+00:00",
+      "finishedAt": "2026-09-12T06:44:07.137831+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-d-preservation.txt",
+      "outputSha256": "80509f22ec77b1817899cc83a3b91d84094ce462ebefbb78c6819c2e7c7af11c"
+    },
+    {
+      "receipt": "verification/phase-d-recon-author.json",
+      "argv": [
+        "python3",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/tools/image_recon.py"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:44:06.469215+00:00",
+      "finishedAt": "2026-09-12T06:44:06.492551+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-d-recon-author.txt",
+      "outputSha256": "4ce6c09240f67d452b92bb0e019eac382bd0120ae10d91797a5bcc5ff12f08a8"
+    },
+    {
+      "receipt": "verification/phase-d-record-check.json",
+      "argv": [
+        "python3",
+        "audit/campaign-17-residual-successor-2026-09-12-r1/tools/verify_d.py"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:44:06.515147+00:00",
+      "finishedAt": "2026-09-12T06:44:06.536473+00:00",
+      "exitCode": 0,
+      "output": "verification/phase-d-record-check.txt",
+      "outputSha256": "94a7fabd2d2d3a4a5f9aa1c1f60ada9b86094699557b1d5217881db39617bb46"
+    },
+    {
+      "receipt": "verification/stage-refs-strict-live.json",
+      "argv": [
+        "npm",
+        "run",
+        "audit:stage-refs",
+        "--",
+        "--strict"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:07:11.292790+00:00",
+      "finishedAt": "2026-09-12T06:07:12.163914+00:00",
+      "exitCode": 1,
+      "output": "verification/stage-refs-strict-live.txt",
+      "outputSha256": "07f8be728f15fd4f7f156fa4100d72461c34275eb6a570ba71a23eefd6b16643"
+    },
+    {
+      "receipt": "verification/test-audit-stage-refs.json",
+      "argv": [
+        "npm",
+        "run",
+        "test:audit-stage-refs"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:02:52.549899+00:00",
+      "finishedAt": "2026-09-12T06:02:54.769309+00:00",
+      "exitCode": 0,
+      "output": "verification/test-audit-stage-refs.txt",
+      "outputSha256": "9cede330561fce6e8d8067c4720ab9bc9e497eef9d0ab791db74265010877447"
+    },
+    {
+      "receipt": "verification/test-exam-layout.json",
+      "argv": [
+        "npm",
+        "run",
+        "test:exam-layout"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:02:52.558899+00:00",
+      "finishedAt": "2026-09-12T06:02:53.102539+00:00",
+      "exitCode": 0,
+      "output": "verification/test-exam-layout.txt",
+      "outputSha256": "5a2645b1a0c38a09bb0a63dae208eafb76f33f5677e4032271fee3e5dd817172"
+    },
+    {
+      "receipt": "verification/test-grading.json",
+      "argv": [
+        "npm",
+        "run",
+        "test:grading"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:02:52.539808+00:00",
+      "finishedAt": "2026-09-12T06:02:53.130498+00:00",
+      "exitCode": 0,
+      "output": "verification/test-grading.txt",
+      "outputSha256": "cf54a2a784bf213b8b0bafc2de96911c23fdbf5830dc9661ffb8067e0414cbd5"
+    },
+    {
+      "receipt": "verification/test-schema-bank.json",
+      "argv": [
+        "npm",
+        "run",
+        "test:schema-bank"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:02:52.532971+00:00",
+      "finishedAt": "2026-09-12T06:02:53.312199+00:00",
+      "exitCode": 0,
+      "output": "verification/test-schema-bank.txt",
+      "outputSha256": "e782ed4eed17d2dce6fccc6b746dec7e0ae090a62f8abd69d4647ed179c0ecfb"
+    },
+    {
+      "receipt": "verification/tsc.json",
+      "argv": [
+        "npx",
+        "tsc",
+        "-b",
+        "--pretty",
+        "false"
+      ],
+      "cwd": "/Users/holemini/Desktop/Project Shrimp Campaign 17",
+      "startedAt": "2026-09-12T06:02:52.523289+00:00",
+      "finishedAt": "2026-09-12T06:02:57.078947+00:00",
+      "exitCode": 0,
+      "output": "verification/tsc.txt",
+      "outputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "canonicalMutation": false,
+  "independentReviewCompleted": false,
+  "promotedItems": 0,
+  "historyPublication": "Deferred to post-review publishing/merge seat",
+  "publication": "This check precedes its containing closeout commit; final handoff reports live remote HEAD."
+}
