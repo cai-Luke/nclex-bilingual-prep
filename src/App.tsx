@@ -1541,7 +1541,7 @@ function LibraryView({
                   <Flag aria-hidden="true" />
                 </button>
                 {flagged && <span className="type-pill">Saved</span>}
-                {itemProgress?.needsReview && <span className="missed-pill">Missed</span>}
+                {itemProgress?.needsReview && <span className="missed-pill">Needs review</span>}
                 {itemProgress && <span>{itemProgress.correct}/{itemProgress.seen}</span>}
               </div>
             </article>
@@ -3113,7 +3113,7 @@ function QuestionCard({
         <span>{question.topic}</span>
         <span>{question.difficulty}</span>
         {flagged && <span className="type-pill">Saved</span>}
-        {progress?.needsReview && <span className="missed-pill">Review</span>}
+        {progress?.needsReview && <span className="missed-pill">Needs review</span>}
         {showQuestionActions && (
           <button
             className={`icon-action flag-action ${flagged ? "flagged" : ""}`}
@@ -4568,7 +4568,7 @@ function ReadAllButton({ question, enabled }: { question: Question; enabled: boo
 
 function TranslateAllButton({ onClick }: { onClick: () => void }) {
   return (
-    <div className="language-miss-action translate-all-action">
+    <div className="translate-all-action">
       <button className="secondary-action" type="button" onClick={onClick}>
         <BookOpen aria-hidden="true" />
         <span>Show full Chinese</span>
