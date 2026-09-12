@@ -1,0 +1,31 @@
+[{
+"rowKey":"__FILL__","packetId":"parent-15","bankPath":"banks/gemini-canonical.json",
+"parentCaseId":"gemini_gap_case_lead_poisoning_01","partId":"gemini_gap_case_lead_poisoning_01_q2",
+"reviewerDerivedProposition":"A confirmed venous blood lead level of 18 mcg/dL is elevated but well below the chelation threshold. The correct response is environmental and nutritional education aimed at removing the exposure and reducing absorption, together with scheduled repeat venous testing. It is neither a normal result, nor an indication for inpatient chelation, nor a situation in which activated charcoal has any role.",
+"requiredFacts":[
+"The venous blood lead level of 18 mcg/dL and the CDC reference value - stage_lead_labs. The q2 stem restates the value itself, so the stem is partly self-carrying, but the reference value that makes 18 interpretable is in the stage.",
+"The exposure source supporting the environmental limb of the keyed action - baseline (1950 rental home, peeling paint on playroom windowsills, hand-to-mouth behaviour, positive risk questionnaire).",
+"Nothing in stage_lead_education is required to answer."],
+"earliestDefensibleBoundary":"stage_lead_labs",
+"boundaryIsTerminalStage":false,
+"stagesVisibleAtBoundary":["stage_lead_labs"],
+"stagesHiddenAtBoundary":["stage_lead_education"],
+"prefixDisclosesAnswer":false,
+"disclosureEvidence":"stage_lead_labs contains only the laboratory value and the CDC reference value; it prescribes no action and names no management option. Hiding stage_lead_education is NECESSARY rather than cosmetic: that stage states 'The nurse is developing an educational plan for the parents to reduce lead exposure and absorption. The focus is on environmental control in the home and dietary changes that reduce lead uptake', which is keyed option A restated. The current fail-open render therefore discloses this item's answer, and the anchor genuinely repairs it.",
+"reviewerDisposition":"ANCHOR_ONLY_REPAIR_CANDIDATE",
+"clinicalVerdict":"Correct and verified against the CDC clinical guidance for childhood lead exposure. For a confirmed venous level in the 10-19 mcg/dL band, CDC's follow-up table specifies early follow-up testing at 1-3 months and later follow-up at 3-6 months, with management including environmental investigation, iron-deficiency screening, nutritional counselling, developmental assessment and health-department reporting. Keyed option A states exactly the 1-to-3-month repeat venous test plus environmental education and is correct. Chelation is reserved for levels at or above 45 mcg/dL, so distractor B is correctly excluded and the rationale's threshold is right. The CDC blood lead reference value of 3.5 mcg/dL cited in the stage exhibit is current, so distractor C is correctly wrong. Activated charcoal does not bind lead, so distractor D is correctly wrong and is a genuine error rather than filler. The item's rationale also correctly frames education plus retesting as the standard for the 3.5 to 44 mcg/dL range. I found no clinical error, no invented fact and no unsupported premise.",
+"contentDefects":[],
+"bilingualVerdict":"PARALLEL - I read the Chinese against the English for the stem, all four options, the key rationale, all four byChoice entries and the strategy. Each pair is semantically equivalent, including the numerically load-bearing thresholds: option A's '1至3个月内复查静脉血铅', the rationale's '≥45 mcg/dL' chelation threshold and the '≥3.5 mcg/dL' reference value all match their English counterparts exactly. No language-specific defect.",
+"confidence":"HIGH",
+"sourcesChecked":[
+"CDC clinical guidance on childhood lead poisoning prevention (https://www.cdc.gov/lead-prevention/hcp/clinical-guidance/index.html) - read directly. Table 2 gives early follow-up testing at 1-3 months for a confirmed venous level of 10-19 mcg/dL, which is the band containing this client's 18 mcg/dL, and confirms the management bundle and the chelation threshold at or above 45 mcg/dL. This verifies the specific numeric interval keyed in option A rather than merely the general management direction."],
+"siblingImpact":"NONE. This is an anchor-only repair; no learner-facing text changes, so no sibling can be affected. Siblings q1, q3 and q4 are baseline-anchored and non-residual.",
+"repairConstraints":[
+"Set answerableAfterStageId to stage_lead_labs. No content change of any kind is required or authorised by this row.",
+"Do not anchor at baseline. Although the stem restates the value of 18 mcg/dL, the CDC reference value that makes it interpretable lives in stage_lead_labs, and at baseline no blood lead result exists at all."],
+"criticalNote":"This row survives affirmative scrutiny as a true anchor-only repair. I applied the adversarial tests that converted other proposed anchor-only rows in this review to content repairs - stranded option values under the proposed boundary, dangling stage citations, undisclosed or unestablished premises, non-unique keys, and bilingual divergence in a load-bearing number - and this row passes all of them. The anchor also does real work, hiding a stage that currently restates the keyed option.",
+"codexProposedDisposition":"ANCHOR_ONLY_REPAIR_CANDIDATE","codexProposedBoundary":"stage_lead_labs",
+"agreementWithCodex":"AGREE",
+"agreementReasoning":"I derived stage_lead_labs independently as the earliest boundary at which the result and its reference value exist, and independently confirmed that stage_lead_education restates keyed option A and must be hidden. Codex reached the same boundary with no content work. I treated the absence of proposed edits as a claim to test rather than accept, verified the keyed retest interval and the chelation threshold against the CDC guidance rather than assuming them, and read the Chinese in full. The Campaign-16 producer's stage_lead_labs was correct; the checker's baseline was too early because no lead result exists at baseline.",
+"producerIndependent":true
+}]

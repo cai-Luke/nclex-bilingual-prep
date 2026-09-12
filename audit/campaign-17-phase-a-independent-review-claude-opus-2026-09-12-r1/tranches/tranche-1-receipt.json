@@ -1,0 +1,129 @@
+{
+ "tranche": "T1",
+ "packets": "parent-01 .. parent-13",
+ "rowsAdjudicated": 24,
+ "parentsCovered": 13,
+ "explicitCampaign16ConcernsContained": 14,
+ "frozenAt": "2026-09-12T14:40:09.611118+00:00",
+ "sourceHead": "816272456fdf7062c5c62ed9845ac3f8166938df",
+ "reviewSeat": "Claude Opus 5, producer-independent",
+ "producerIndependent": true,
+ "reviewerDispositionCounts": {
+  "CONTENT_REPAIR_REQUIRED": 21,
+  "REPLACEMENT_CANDIDATE": 2,
+  "ANCHOR_ONLY_REPAIR_CANDIDATE": 1
+ },
+ "codexProposedCounts": {
+  "CONTENT_REPAIR_REQUIRED": 18,
+  "ANCHOR_ONLY_REPAIR_CANDIDATE": 3,
+  "REPLACEMENT_CANDIDATE": 3
+ },
+ "agreementCounts": {
+  "AGREE_WITH_ADDITIONS": 13,
+  "AGREE": 4,
+  "DISAGREE": 2,
+  "AGREE_ON_DISPOSITION_DISAGREE_ON_BOUNDARY": 4,
+  "PARTIAL_DISAGREE": 1
+ },
+ "dispositionChanges": [
+  {
+   "partId": "opus_case_lithium_toxicity_q2",
+   "from": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+   "to": "CONTENT_REPAIR_REQUIRED"
+  },
+  {
+   "partId": "opus_case_lithium_toxicity_q3",
+   "from": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+   "to": "CONTENT_REPAIR_REQUIRED"
+  },
+  {
+   "partId": "cs_thyroid_storm_q2",
+   "from": "REPLACEMENT_CANDIDATE",
+   "to": "CONTENT_REPAIR_REQUIRED"
+  }
+ ],
+ "boundaryChanges": [
+  {
+   "partId": "opus_case_lithium_toxicity_q1",
+   "codex": null,
+   "reviewer": "HOLD_PENDING_CONTENT_DECISION"
+  },
+  {
+   "partId": "opus_case_lithium_toxicity_q2",
+   "codex": "baseline",
+   "reviewer": "stage_1"
+  },
+  {
+   "partId": "opus_case_lithium_toxicity_q3",
+   "codex": "baseline",
+   "reviewer": "stage_2"
+  },
+  {
+   "partId": "opus_case_lithium_toxicity_q4",
+   "codex": null,
+   "reviewer": "stage_2"
+  },
+  {
+   "partId": "gemini_gap_case_palliative_care_03_q2",
+   "codex": null,
+   "reviewer": "HOLD_PENDING_REPLACEMENT"
+  },
+  {
+   "partId": "gpt_case_neutropenic_fever_nadir_01_q5",
+   "codex": "baseline",
+   "reviewer": "stage_3"
+  },
+  {
+   "partId": "gpt_case_nine_month_well_child_safety_01_q6",
+   "codex": "baseline",
+   "reviewer": "stage_3"
+  },
+  {
+   "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03_q1",
+   "codex": "baseline",
+   "reviewer": "HOLD_PENDING_CONTENT_DECISION"
+  },
+  {
+   "partId": "cs_thyroid_storm_q2",
+   "codex": null,
+   "reviewer": "stage_0830"
+  },
+  {
+   "partId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q6",
+   "codex": "baseline",
+   "reviewer": "stage3"
+  },
+  {
+   "partId": "opus_tpn_case_mucositis_01_q3",
+   "codex": null,
+   "reviewer": "HOLD_PENDING_REPLACEMENT"
+  }
+ ],
+ "rowKeys": [
+  "069feba96b2b8325",
+  "0f5aac8326dc6ee2",
+  "117e92a832582184",
+  "25b7ff4311e66f43",
+  "545d112ac11f8548",
+  "664554d731c00372",
+  "68e5df7960d1bb86",
+  "6a1c2b0d2f2252a6",
+  "73df80f9cc831a0e",
+  "74147c736cbdfe8d",
+  "7f1db592e0bf40fd",
+  "7fe104dccf843914",
+  "802896cb6a9c1b8e",
+  "8248ef708b75727a",
+  "9729bf71edce3119",
+  "a0e42e1a6716455d",
+  "a47ec00ef1455a0c",
+  "b8f6c34736ed2d5d",
+  "bb9ff3ab3ff079ec",
+  "c827f2ece4ba697c",
+  "c9ddb715599fbf07",
+  "cc1132738316b540",
+  "e16efeb234f31534",
+  "f9ac2b9add5ea7c9"
+ ],
+ "adjudicationSha256": "6eb5c0ab61c7f160a6df03348271f8f1496c6d14a36f70f189475849ce194aee"
+}

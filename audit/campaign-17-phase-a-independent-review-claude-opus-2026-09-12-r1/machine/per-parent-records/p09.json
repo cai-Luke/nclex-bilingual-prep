@@ -1,0 +1,42 @@
+[{
+"rowKey":"__FILL__","packetId":"parent-09","bankPath":"banks/gpt-canonical.json",
+"parentCaseId":"gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03","partId":"gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03_q1",
+"reviewerDerivedProposition":"As written the part asks the learner to sort five cues into 'consistent with oral rehydration teaching' versus 'requires urgent escalation' using Stage 1 data. No sound proposition can be derived, because two of the five rows describe findings the case affirmatively denies, and one of those two is keyed to an escalation category that the dehydration literature does not support.",
+"requiredFacts":[
+"r1 alert and interested in a toy - stage_1_triage, present.",
+"r2 one wet diaper in 6 hours - baseline, present.",
+"r5 mildly dry mucous membranes - stage_1_triage, present.",
+"r3 'No tears when crying' - CONTRADICTED. The baseline clinic note states the child 'cries with tears'.",
+"r4 'Bilious vomiting' - CONTRADICTED. stage_1_triage states 'No lethargy, sunken eyes, bilious emesis, or severe abdominal distention is noted.'"],
+"earliestDefensibleBoundary":"HOLD_PENDING_CONTENT_DECISION",
+"boundaryIsTerminalStage":false,
+"stagesVisibleAtBoundary":["stage_1_triage if the Stage 1 framing is retained; baseline becomes available only if the rows are reframed as hypothetical"],
+"stagesHiddenAtBoundary":["stage_2_teaching","stage_3_home under the stage_1 route; all three under the reframed route"],
+"prefixDisclosesAnswer":false,
+"disclosureEvidence":"stage_1_triage supplies the findings but assigns no severity category and recommends no disposition. Disclosure is not this row's problem. The problem is the opposite - the prefix contradicts two of the rows the learner is told to classify.",
+"reviewerDisposition":"CONTENT_REPAIR_REQUIRED",
+"clinicalVerdict":"TWO INDEPENDENT DEFECTS. FIRST, a framing contradiction. The stem instructs the learner to classify cues 'Using Stage 1 data', but rows r3 and r4 are not Stage 1 data: the chart states the child cries WITH tears and explicitly documents that bilious emesis is absent. The learner is asked to treat as present two findings the record denies. SECOND, a clinical mis-key. Row r3 'No tears when crying' is keyed to 'Requires urgent escalation'. Absent tears is a component of the moderate or 'some dehydration' tier of standard paediatric dehydration assessment, not an escalation trigger. Verified against StatPearls Pediatric Dehydration: moderate dehydration is characterised by 'dry oral mucosa, decreased skin turgor, prolonged capillary refill, tachycardia, and irritability', while severe dehydration adds 'altered mental status and lethargy, hyperpnea, hypotension, and skin mottling', and the enumerated indications for intravenous therapy are severe dehydration above ten percent, altered mental status or aspiration risk, failed oral rehydration, abdominal ileus or severe vomiting, and hypovolaemic shock. Absent tears appears in none of them. The item's own byChoice hedges accordingly - 'Absence of tears CAN indicate more significant dehydration' - which is not a basis for a definite escalation key. Row r4 bilious vomiting IS correctly keyed to escalation, consistent with the ileus/obstruction indication. Rows r1, r2 and r5 are correctly keyed.",
+"contentDefects":[
+"PRIMARY: rows r3 and r4 present as classifiable cues two findings the case affirmatively negates, while the stem asserts the rows are Stage 1 data.",
+"PRIMARY: row r3 is mis-keyed. Absent tears is a moderate-dehydration sign managed with oral rehydration, not a cue requiring urgent escalation, and no source rule in the case distinguishes the two categories.",
+"CONTRIBUTING: the parent supplies no severity rule at all. The baseline note gives an oral rehydration protocol (75 mL/kg over 4 hours for mild to moderate dehydration) but no criteria for what counts as mild to moderate, so the learner has no in-case basis for the boundary between the two columns.",
+"NOTE: the part's category and topic are recorded as 'Reduction of Risk Potential' / 'Laboratory & Diagnostic Tests' while the parent is 'Health Promotion and Maintenance' / 'Pediatric & Adolescent Health'. The topic assignment is a poor fit for a dehydration-cue classification item and should be reviewed if the part is rewritten."],
+"bilingualVerdict":"PARALLEL - stem, two columns, five rows, key, rationale, five byChoice entries, strategy and glossary are semantically equivalent EN/ZH. Both defects are reproduced faithfully in ZH, including the hedged '无泪可能提示更明显脱水'. No language-specific defect.",
+"confidence":"HIGH",
+"sourcesChecked":[
+"StatPearls Pediatric Dehydration (https://www.ncbi.nlm.nih.gov/books/NBK436022/) - read directly. Severity tiers at 3-5, 6-10 and over 10 percent; the moderate and severe sign lists quoted above; and the explicit list of indications for intravenous fluids. Absent tears is not an escalation criterion. This is decisive against the r3 key."],
+"siblingImpact":"NONE for the option-level repair. Siblings q2, q3, q4 and q5 are all baseline-anchored and non-residual. If the repair instead adds severity criteria to the baseline note, that becomes a shared global surface visible to all five parts and would require re-review of the four siblings, since q3 and q5 also concern rehydration decisions.",
+"repairConstraints":[
+"Resolve the framing first, because the boundary follows from it. Either reframe the rows explicitly as possible findings to be evaluated rather than as this child's Stage 1 data, in which case the stem must stop saying 'Using Stage 1 data' and baseline becomes available; or restrict the rows to findings the chart actually contains, in which case the boundary is stage_1_triage.",
+"Do NOT resolve the contradiction by adding absent tears or bilious vomiting to this child's chart. The record deliberately documents their absence, and inventing them would also disturb siblings.",
+"Re-key or replace row r3. If a genuine escalation cue is wanted, use a sourced composite consistent with the severity tiers - for example lethargy with poor perfusion - rather than isolated absent tears.",
+"Retain row r4 as an escalation cue; bilious emesis is correctly classified.",
+"If a severity rule is needed to make the two columns decidable, author it as reviewed case content and re-review the four baseline-anchored siblings for new disclosure.",
+"Review the part's category and topic assignment.",
+"Do not set a boundary until the framing route is chosen."],
+"criticalNote":"The Campaign-16 producer declined this row for exactly the reason I reach independently - an isolated absent-tears cue with no accompanying severity findings and no source rule to separate escalation from the oral-rehydration category. That exception was well founded and I sustain it.",
+"codexProposedDisposition":"CONTENT_REPAIR_REQUIRED","codexProposedBoundary":"baseline",
+"agreementWithCodex":"AGREE_ON_DISPOSITION_DISAGREE_ON_BOUNDARY",
+"agreementReasoning":"I independently found the contradiction between the stem's Stage 1 framing and rows r3 and r4 before reading any proposal, and independently concluded that the r3 key is clinically unsupported, which I then verified against the dehydration literature. Codex's repair direction matches mine on both points - reframe the rows as possible findings and replace the isolated absent-tears cue with a sourced composite - and its instruction not to invent those findings in the child's chart is correct and important. I decline to record baseline as the boundary now, because the boundary is a consequence of the framing decision the repair has not yet made: baseline is defensible only if the rows are reframed as hypothetical, and if the Stage 1 framing is kept the boundary must be stage_1_triage. Recording baseline in advance would pre-commit the repair to one route. I add the verified severity-tier evidence, the observation that the parent supplies no severity rule at all, and the category/topic mismatch.",
+"producerIndependent":true
+}]

@@ -1,0 +1,39 @@
+[{
+"rowKey":"__FILL__","packetId":"parent-05","bankPath":"banks/gemini-canonical.json",
+"parentCaseId":"gemini_gap_case_palliative_care_03","partId":"gemini_gap_case_palliative_care_03_q2",
+"reviewerDerivedProposition":"As written the part asks the learner to assert a two-limb mechanism for morphine's relief of palliative breathlessness: that it reduces the brain's sensitivity to elevated carbon dioxide, and that it produces systemic vasodilation which decreases cardiac workload. Neither limb yields a single defensible answer, so no sound proposition can be recovered from the current construct.",
+"requiredFacts":[
+"That the client is receiving morphine for refractory dyspnoea in hospice - morphine appears ONLY in stage_hospice_followup (oral morphine liquid 2.5 mg q2h, two doses given). Baseline records the dyspnoea and the comfort goal but lists no morphine order.",
+"The item is otherwise a pure pharmacology-mechanism question and depends on no other chart datum."],
+"earliestDefensibleBoundary":"HOLD_PENDING_REPLACEMENT",
+"boundaryIsTerminalStage":null,
+"stagesVisibleAtBoundary":["undetermined - the replacement construct determines the boundary"],
+"stagesHiddenAtBoundary":["undetermined"],
+"prefixDisclosesAnswer":false,
+"disclosureEvidence":"stage_hospice_followup records the doses given, the positioning, the fan and the client's improvement. It does not state any mechanism, so it does not disclose either dropdown. Disclosure is not the problem with this row.",
+"reviewerDisposition":"REPLACEMENT_CANDIDATE",
+"clinicalVerdict":"DEFECTIVE IN BOTH DROPDOWNS. (1) Dropdown 1 has a non-unique key. The cloze asks what the brain's sensitivity is reduced TO, and keys 'elevated carbon dioxide levels' while offering 'decreased oxygen levels' as a distractor. Opioids reduce BOTH the hypercapnic and the hypoxic ventilatory response through mu-opioid receptor activation, acting on the nucleus of the solitary tract for the hypoxic response and the caudal medullary raphe for the hypercapnic response. The distractor is therefore a factually true completion of the sentence, and the item's OWN rationale concedes it - 'morphine blunts the respiratory center's response to hypercapnia (elevated carbon dioxide) and hypoxia'. The item supplies the justification for the answer it marks wrong. Since the stem does not ask for the predominant or primary limb, the key is not unique. (2) Dropdown 2 forces an unsupported and outdated hemodynamic claim. The operative mechanism of opioid relief of refractory breathlessness is central - reduced brainstem respiratory motor output, reduced corollary discharge to cortical perceptual areas, and blunted perceptual sensitivity to breathlessness, with affective modulation via rostral anterior cingulate and nucleus accumbens. Preload reduction by venodilation is a property associated with intravenous morphine in acute cardiogenic pulmonary oedema, a use that has itself been substantially deprecated; it is not the mechanism by which 2.5 mg of ORAL morphine liquid eases hospice dyspnoea. Keying 'systemic vasodilation and pooling of blood ... to decrease cardiac workload' teaches a route-inappropriate and clinically misleading mechanism.",
+"contentDefects":[
+"Dropdown 1 admits two correct answers and the rationale endorses the unkeyed one.",
+"Dropdown 2 requires assent to a hemodynamic mechanism that does not operate at this dose and route and that reflects deprecated practice.",
+"The defect is encoded in the clozeStem itself ('by reducing the brain's sensitivity to {{1}} and by causing {{2}} to decrease cardiac workload'), not merely in the option lists, so it cannot be repaired without rewriting the sentence, both option sets, both keys, the rationale, the byChoice entries and the strategy - that is, everything except the identity."],
+"bilingualVerdict":"PARALLEL - stem, clozeStem, all six options, rationale, byChoice and strategy are semantically equivalent EN/ZH. Both defects are reproduced faithfully in Chinese, so bilingual parity is intact and provides no independent ground for or against replacement.",
+"confidence":"HIGH",
+"sourcesChecked":[
+"Peer-reviewed palliative and respiratory-pharmacology literature located via NIH-domain search, including 'Managing breathlessness in advanced disease' and Cochrane-linked work on opioids for refractory breathlessness - verified verbatim that 'Opioids reduce hypercapnic and hypoxic ventilatory responses due to activation of mu opioid receptors', with the hypoxic response localised to the nucleus of the solitary tract and the hypercapnic response to the caudal medullary raphe. This establishes the non-uniqueness of dropdown 1.",
+"The same literature establishes the central/perceptual mechanism for breathlessness relief - reduced corollary discharge to cortical perceptual areas and blunted perceptual sensitivity - which establishes the inappropriateness of the hemodynamic limb in dropdown 2.",
+"StatPearls NBK526006 was fetched but proved to be NSAID toxicity, not opioid pharmacology; it contributed nothing and was discarded rather than cited."],
+"siblingImpact":"NONE. The replacement is confined to this embedded part. Siblings q1, q3 and q4 are all anchored at baseline, resolve, and share no surface with q2 beyond the global exhibit, which the replacement must not touch. No title, summary, stage or exhibit change is implied.",
+"repairConstraints":[
+"Replace the part IN PLACE under P23's application - an embedded case leaf is a planning unit but not a unit of removal; parent and part identity are preserved and nothing is deleted.",
+"The replacement must not simply re-key dropdown 1 to hypoxia; that inverts the same trap. Either ask for a single unambiguous target, or abandon the mechanism-recitation construct entirely.",
+"Do NOT carry the venodilation/preload limb into the replacement, and do not assert that oral morphine at palliative doses reduces cardiac workload.",
+"Prefer a symptom-management and monitoring construct appropriate to the chart that exists: titration to effect, reassessment of breathlessness, and surveillance for sedation and respiratory depression - and do not claim that low-dose palliative opioid carries no respiratory risk.",
+"The replacement is authored by a producer seat, not by this review seat, and returns here for independent re-review before promotion.",
+"Set the boundary only after the replacement construct exists; if the replacement continues to reference morphine administration it cannot be anchored earlier than stage_hospice_followup, because baseline contains no morphine order."],
+"criticalNote":"I considered and rejected ordinary repair. Both dropdowns are independently defective and the defect lives in the clozeStem sentence, so a 'repair' would retain only the item id. Replacement in place is the honest characterisation and is the route P23's application prescribes.",
+"codexProposedDisposition":"REPLACEMENT_CANDIDATE","codexProposedBoundary":null,
+"agreementWithCodex":"AGREE_WITH_ADDITIONS",
+"agreementReasoning":"I derived the dropdown-1 non-uniqueness independently from the item's own rationale before reading the frozen judgments, and reached the same conclusion as the Campaign-16 producer. Codex's replacement disposition and its caution against overclaiming oral-morphine venodilation match my finding. I add: primary-literature verification that opioids blunt both ventilatory responses and localisation of the two responses, which converts the ambiguity from an editorial opinion into a sourced fact; the identification that the defect is encoded in the clozeStem rather than the options, which is what forecloses ordinary repair; the explicit warning not to re-key to hypoxia; and the P23 in-place framing with preserved identity.",
+"producerIndependent":true
+}]

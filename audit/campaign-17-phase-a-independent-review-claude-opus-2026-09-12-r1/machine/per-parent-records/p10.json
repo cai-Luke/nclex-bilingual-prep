@@ -1,0 +1,37 @@
+[{
+"rowKey":"__FILL__","packetId":"parent-10","bankPath":"banks/gpt-canonical.json",
+"parentCaseId":"gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01","partId":"gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+"reviewerDerivedProposition":"A client who says he will turn his oxygen up until he feels better has disclosed unsafe self-titration of a prescribed therapy. The teaching correction is to use the prescribed flow and to escalate to the provider or emergency services when symptoms worsen, rather than changing the litre flow independently, chasing a saturation of 100 percent, or removing oxygen during activity for which it was ordered.",
+"requiredFacts":[
+"The unsafe statement 'If I feel short of breath, I can turn it up until I feel better' - stage_2_teaching ONLY.",
+"The prescribed flow of 2 L/min by nasal cannula with activity and sleep - baseline.",
+"CONTRADICTING FACT AT THE STEM'S NAMED STAGE: stage_1_home records the client saying 'I set the machine to exactly 2 liters like the prescription says', which is correct adherence and the opposite of the keyed behaviour.",
+"Nothing in stage_3_equipment is required; it reports delivery logistics and a completed return demonstration."],
+"earliestDefensibleBoundary":"stage_2_teaching",
+"boundaryIsTerminalStage":false,
+"stagesVisibleAtBoundary":["stage_1_home","stage_2_teaching"],
+"stagesHiddenAtBoundary":["stage_3_equipment"],
+"prefixDisclosesAnswer":false,
+"disclosureEvidence":"stage_2_teaching quotes the client's unsafe statement, which is the cue the item asks the learner to recognise as the problem, not the answer to it; neither the correct teaching response nor the characterisation of the statement as the priority barrier appears anywhere in the visible prefix. Hiding stage_3_equipment is substantive: it records that the client and spouse completed a successful return demonstration, which would signal that teaching gaps were already resolved.",
+"reviewerDisposition":"CONTENT_REPAIR_REQUIRED",
+"clinicalVerdict":"Both keys are clinically correct and both option sets are sound. Self-titration of oxygen is genuinely unsafe in COPD, and the keyed teaching - prescribed flow plus an escalation pathway - is correct. The distractors are properly wrong: driving oxygen to a saturation of 100 percent is hazardous in COPD, and turning oxygen off during household ambulation contradicts an order written for activity. THE DEFECT IS A STAGE MISREFERENCE IN THE STEM. The stem says 'The nurse reviews the Stage 1 teaching session', but Stage 1 is the home safety interview, not a teaching session, and the keyed unsafe statement occurs in Stage 2, which IS titled the teaching session. The stem is wrong twice over: wrong stage number, and a stage label that does not match the stage it names. The consequence is not cosmetic. If the item were anchored at stage_1_home as its own stem directs, the only flow-related statement visible would be the client's CORRECT adherence, and the keyed answer would be unsupported by, and contradicted by, everything on screen.",
+"contentDefects":[
+"PRIMARY: the stem names Stage 1 while the keyed evidence lives in Stage 2, and Stage 1 contains a statement of correct adherence that directly contradicts the key.",
+"SECONDARY (MEDIUM confidence, not raised by either prior seat): the first dropdown asks for 'the priority discharge barrier', but stage_1_home establishes two unaddressed oxygen fire hazards - a spouse smoking on the balcony with the sliding door open, and petroleum jelly used on the nares. In home-oxygen safety teaching, fire risk conventionally outranks flow self-adjustment. The option list contains neither hazard, so the item cannot actually be answered wrongly, but a well-prepared learner may reasonably object that the keyed item is not the priority. If the item is reopened, either soften 'priority discharge barrier' to the most immediate teaching gap about oxygen use, or account for the fire hazards."],
+"bilingualVerdict":"PARALLEL - stem, clozeStem, all six dropdown options, both keys, rationale, both byChoice entries, strategy and glossary are semantically equivalent EN/ZH. The stage misreference is reproduced in ZH ('护士查看第 1 阶段的宣教记录'), so the correction must be applied in both languages.",
+"confidence":"HIGH",
+"sourcesChecked":["No external clinical premise was load-bearing. The unsafe-self-titration teaching point and the hazard of targeting 100 percent saturation in COPD are standard and undisputed; the finding rests on the internal contradiction between the stem's named stage and the location of the keyed evidence, which I verified directly against the stage exhibits."],
+"siblingImpact":"NONE. The repair is confined to q2's own stem in both languages. Siblings q1, q3, q4 and q5 are all baseline-anchored and non-residual, and no stage, exhibit, title or summary text changes.",
+"repairConstraints":[
+"Correct the stem in EN and ZH so it names Stage 2, the teaching session, where the keyed statement actually occurs.",
+"Preserve the prescribed oxygen value of 2 L/min and do not alter the baseline order.",
+"Do not move the client's unsafe statement into Stage 1; Stage 1's adherent statement is deliberate content and its contrast with Stage 2 is pedagogically useful.",
+"Consider the priority-wording concern above; it is optional and must not be bundled without review.",
+"Verify the rationale reads correctly against the corrected stage reference.",
+"Anchor to stage_2_teaching after repair."],
+"criticalNote":"The Campaign-16 checker proposed stage_2_teaching without addressing the stem's incorrect Stage 1 reference. Anchoring at stage_2 while the stem still says Stage 1 would leave the learner reading a stem that points at the wrong encounter; the anchor and the stem correction must ship together.",
+"codexProposedDisposition":"CONTENT_REPAIR_REQUIRED","codexProposedBoundary":"stage_2_teaching",
+"agreementWithCodex":"AGREE_WITH_ADDITIONS",
+"agreementReasoning":"Reading the stages blind I noticed that Stage 1 shows correct adherence while the keyed unsafe statement sits in Stage 2, and reached the stage_2_teaching boundary independently; the Campaign-16 producer had raised the same mismatch and Codex proposes the same correction, changing both stem languages from Stage 1 to Stage 2. I add the observation that the stem is wrong in two ways rather than one - the number AND the encounter label - and the previously unraised MEDIUM-confidence concern that 'priority discharge barrier' is contestable while Stage 1's smoking and petroleum-jelly fire hazards remain unaddressed and unofferable.",
+"producerIndependent":true
+}]

@@ -1,0 +1,39 @@
+[{
+"rowKey":"__FILL__","packetId":"parent-04","bankPath":"banks/gemini-canonical.json",
+"parentCaseId":"gemini_gap_case_cirrhosis_homecare_04","partId":"gemini_gap_case_cirrhosis_homecare_04_q2",
+"reviewerDerivedProposition":"Lactulose is titrated to a target of 2-3 soft stools daily. Five to six watery stools daily is over-effect, not treatment failure and not a reason for the family to stop the drug unilaterally, because abrupt cessation permits ammonia rebound and hepatic encephalopathy. The nurse directs the spouse to contact the provider or follow prescribed titration parameters to reduce the dose, and to watch for the consequences of the excess stool output, namely dehydration and potassium loss.",
+"requiredFacts":[
+"Lactulose 30 mL PO three times daily and spironolactone 100 mg daily - baseline clinic note.",
+"5-6 loose watery stools per day for 3 days, cramping, spouse's intent to stop lactulose, no confusion - stage_adherence_issue ONLY. The stem restates that this is a response to the telehealth report but does not restate the stool count.",
+"Cirrhosis with moderate ascites and 2+ ankle oedema - baseline (supports the distractor about fluid overload)."],
+"earliestDefensibleBoundary":"stage_adherence_issue",
+"boundaryIsTerminalStage":true,
+"stagesVisibleAtBoundary":["stage_adherence_issue"],
+"stagesHiddenAtBoundary":[],
+"prefixDisclosesAnswer":false,
+"disclosureEvidence":"stage_adherence_issue states the problem (stool frequency, cramping, spouse's wish to stop) and explicitly records the absence of confusion, but prescribes no nursing action and names no monitoring target. Neither dropdown is disclosed. The stage is a clean trigger.",
+"reviewerDisposition":"CONTENT_REPAIR_REQUIRED",
+"clinicalVerdict":"The KEYS are defensible but the RATIONALE contains a clear pharmacological error. Keyed dropdown 1 (contact provider or follow titration parameters to reach 2-3 soft stools) is correct. Keyed dropdown 2 (dehydration and hypokalaemia) is defensible: profuse diarrhoea causes water and potassium loss, and hypokalaemia matters here because it increases renal ammoniagenesis and worsens encephalopathy. THE DEFECT is the stated cause. The rationale asserts hypokalaemia is 'exacerbated by concurrently taking spironolactone', and the byChoice adds that the risk is severe 'especially when diuretics are also used'. Spironolactone is a potassium-SPARING aldosterone antagonist. Verified: 'there is increased potassium retention' and 'the most common ... electrolyte adverse effects of spironolactone are ... hyperkalemia'; hyperkalaemia is a stated contraindication. The only diuretic this client takes is spironolactone, so the named drug OPPOSES rather than exacerbates the keyed risk.",
+"contentDefects":[
+"PRIMARY: the rationale and byChoice attribute worsening hypokalaemia to spironolactone. That is pharmacologically backwards and, under P8, is a clinical claim the authored source does not support.",
+"CORROBORATING INTRA-PARENT CONTRADICTION: non-residual sibling q4 teaches the correct pharmacology in the same parent - 'Spironolactone is a potassium-sparing aldosterone antagonist', 'spironolactone typically causes potassium retention, making low potassium abnormal', and keys a potassium of 2.9 mEq/L as an UNEXPECTED adverse outcome. A learner who completes q2 and then q4 is taught opposite facts about the same drug in the same case.",
+"SECONDARY: the rationale's absolute claim that the medication 'must not be stopped completely' is overstated. Temporary interruption for severe diarrhoea with volume depletion is a legitimate clinical action; the teaching point is that the SPOUSE must not stop it unilaterally without provider direction."],
+"bilingualVerdict":"PARALLEL - stem, clozeStem, all six dropdown options, both keys, rationale, byChoice and testTakingStrategy are semantically equivalent EN/ZH. The spironolactone error is reproduced faithfully in ZH ('同时服用螺内酯会加剧这一情况'), so the repair must be applied in both languages.",
+"confidence":"HIGH",
+"sourcesChecked":[
+"StatPearls Spironolactone (https://www.ncbi.nlm.nih.gov/books/NBK554421/) - read directly. Confirms potassium retention as the mechanism, hyperkalaemia as the characteristic electrolyte adverse effect and a contraindication, and spironolactone as the main agent for cirrhotic ascites. This is decisive against the q2 rationale.",
+"Intra-parent cross-check of sibling q4 text in the same frozen packet, which independently states the correct pharmacology."],
+"siblingImpact":"NONE to the shared surface. The repair is confined to q2's rationale, byChoice and testTakingStrategy. CRITICAL DIRECTION: q4 is pharmacologically CORRECT and is a non-residual, already-accepted sibling - it must NOT be altered to agree with q2. The correction runs in the opposite direction.",
+"repairConstraints":[
+"Remove the claim that spironolactone exacerbates potassium loss from the rationale, the byChoice for dropdown 2, and the testTakingStrategy, in EN and ZH together.",
+"If a potentiating factor is wanted, ground the hypokalaemia risk in the diarrhoeal losses themselves and, if desired, in the clinically meaningful link between hypokalaemia and worsened hyperammonaemia. Do not introduce a loop diuretic that the chart does not contain.",
+"Soften the absolute 'must not be stopped completely' to the accurate teaching point that the spouse should not discontinue it without provider direction because of ammonia rebound.",
+"Preserve both keys (o1 and o1) and all six option texts.",
+"Ensure the repaired q2 is consistent with sibling q4; do not modify q4.",
+"Anchor to stage_adherence_issue after repair."],
+"criticalNote":"stage_adherence_issue is the only stage and is terminal, so the approved anchor hides nothing and the rendered surface is unchanged by anchoring. This row cannot be closed by the anchor repair.",
+"codexProposedDisposition":"CONTENT_REPAIR_REQUIRED","codexProposedBoundary":"stage_adherence_issue",
+"agreementWithCodex":"AGREE_WITH_ADDITIONS",
+"agreementReasoning":"I read the parent and independently identified the spironolactone error and the overstated never-stop claim before reading the frozen judgments or the proposal; Codex names both. I add: independent verification against the spironolactone label rather than the registry paraphrase; confirmation of the intra-parent contradiction with sibling q4 by reading q4's actual text, with the explicit direction that q4 must not be 'harmonised' downward; the clinically correct substitute justification for hypokalaemia (ammoniagenesis) that keeps the key intact; and the note that the anchor is a render no-op here.",
+"producerIndependent":true
+}]

@@ -1,0 +1,81 @@
+[
+{
+"rowKey":"__FILL__","packetId":"parent-06","bankPath":"banks/gemini-canonical.json",
+"parentCaseId":"gemini_gap_case_pyloric_stenosis_01","partId":"gemini_gap_case_pyloric_stenosis_01_q3",
+"reviewerDerivedProposition":"An infant with hypertrophic pyloric stenosis is resuscitated before operation, not operated on urgently. The nurse keeps the infant nil by mouth to prevent further vomiting and aspiration at induction, and gives intravenous fluid to correct the hypochloraemic, hypokalaemic metabolic alkalosis. Potassium belongs in that fluid only once the kidneys are known to be making urine; it is never given by direct intravenous push.",
+"requiredFacts":[
+"Diagnosis: projectile non-bilious vomiting, hungry infant, palpable olive - baseline.",
+"Dehydration: depressed fontanelle, dry mucosa, decreased turgor, weight 3.8 kg against 4.1 kg birth weight - baseline.",
+"The electrolyte picture that makes potassium relevant: K 3.1, Cl 88, HCO3 34, pH 7.51 - stage_labs ONLY.",
+"Adequate urine output, the precondition for adding potassium - NOT ESTABLISHED ANYWHERE. No urine output, voiding history or wet-nappy count appears in the baseline exhibit, stage_labs or stage_postop."],
+"earliestDefensibleBoundary":"stage_labs",
+"boundaryIsTerminalStage":false,
+"stagesVisibleAtBoundary":["stage_labs"],
+"stagesHiddenAtBoundary":["stage_postop"],
+"prefixDisclosesAnswer":false,
+"disclosureEvidence":"stage_labs is a bare chemistry panel and prescribes no action; baseline is triage findings only. Neither names NPO status nor any fluid. No answer-supplying prose. Hiding stage_postop is appropriate and substantive, since the postoperative note would otherwise reveal that the operation has already happened while the item asks the learner to prepare for it.",
+"reviewerDisposition":"CONTENT_REPAIR_REQUIRED",
+"clinicalVerdict":"Dropdown 2 (NPO) is correct and well supported. Dropdown 1 is DEFECTIVE AS KEYED. Verified verbatim against the Royal Children's Hospital pyloric stenosis guideline: resuscitation fluid is 0.9% sodium chloride, maintenance is 0.9% sodium chloride with 5% glucose, and 'Include potassium in IV fluids once urine output is adequate (1-2 mL/kg/hr)'. This infant is markedly dehydrated and the chart records no urine output at all, so the precondition for potassium is unmet and unverifiable from the case. Keying 'intravenous fluids containing potassium' as the priority preoperative administration teaches the learner to give potassium to a hypovolaemic infant of unknown renal clearance, inverting the guideline sequence. The distractors are otherwise sound: oral rehydration is contraindicated once the diagnosis is made, and potassium by IV push is lethal and correctly excluded. The guideline also confirms the case's broader framing that operation is delayed until dehydration, electrolytes and acid-base are corrected.",
+"contentDefects":[
+"PRIMARY: the keyed first-dropdown option puts potassium ahead of the urine-output precondition the guideline requires, in an infant whose urine output the case never reports.",
+"CONTRIBUTING: the case contains no urine output datum and no specific preoperative replacement order, so no visible evidence could make the current key safe. The gap is in the chart, not only in the option."],
+"bilingualVerdict":"PARALLEL - stem, clozeStem, all six options, both keys, rationale, byChoice and strategy are semantically equivalent EN/ZH. The defect is identical in both languages. Note in passing that ZH option o3 renders 'bolus dose' as '靶剂量' (target dose) rather than a bolus; this does not change the option's wrongness, since the lethal feature is the IV push, but it should be tidied if the option set is touched.",
+"confidence":"HIGH",
+"sourcesChecked":[
+"Royal Children's Hospital Melbourne clinical guideline, Pyloric stenosis (https://www.rch.org.au/clinicalguide/guideline_index/Pyloric_stenosis/) - read directly. Verbatim: 'Include potassium in IV fluids once urine output is adequate (1-2 mL/kg/hr)'; resuscitation '0.9% sodium chloride'; maintenance '0.9% sodium chloride + 5% glucose'; and 'Surgical correction of pyloric stenosis is usually delayed until after correction of dehydration, electrolyte disturbances and acid-base abnormalities.' This is the source Codex cited as rch-pyloric; I read it rather than relying on the registry summary."],
+"siblingImpact":"LOW IF the option is changed; MODERATE IF the chart route is taken. Repairing only q3's first dropdown and rationale touches nothing shared. Adding a urine-output datum to the baseline triage exhibit or to stage_labs would change a surface visible to siblings q1 and q2 (both baseline-anchored, both non-residual and already accepted) and to residual q4, and would require re-review of q1 and q2 for new disclosure - q1 and q2 concern recognition of the dehydration/electrolyte picture, so a urine-output line could plausibly affect them.",
+"repairConstraints":[
+"Choose one route. Route A (confined, preferred): change the keyed first-dropdown option to isotonic resuscitation without premature potassium, keeping 'IV fluids containing potassium' as a now-incorrect option whose rationale explains the urine-output precondition. Route B (chart route): add measured adequate urine output and an explicit prescribed potassium-containing fluid after resuscitation as authored case context, then the current key becomes defensible.",
+"Under either route the rationale, byChoice for dropdown 1 and the testTakingStrategy must state the urine-output precondition; at present none of them mentions it.",
+"Do not alter dropdown 2; NPO is correct.",
+"Retain the IV-push option as a distractor and its 'never push potassium' teaching.",
+"If Route B is taken, re-review siblings q1 and q2 for new disclosure before promotion.",
+"Anchor to stage_labs after repair."],
+"criticalNote":"The Campaign-16 checker proposed baseline. Baseline is not available: the potassium limb of the cloze is only motivated by the stage_labs chemistry, and at baseline the learner could not distinguish a potassium-containing fluid from plain isotonic saline on any visible evidence.",
+"codexProposedDisposition":"CONTENT_REPAIR_REQUIRED","codexProposedBoundary":"stage_labs",
+"agreementWithCodex":"AGREE",
+"agreementReasoning":"Reading the parent blind, I flagged the potassium-before-urine-output problem myself before opening the frozen judgments, and I reached stage_labs as the boundary independently. The Campaign-16 producer had raised the same concern and Codex carried it forward with the same two repair routes. I verified the precondition against the cited guideline's own words rather than the registry paraphrase, and I add the sibling-impact asymmetry between the two routes and the minor ZH wording note on option o3.",
+"producerIndependent":true
+},
+{
+"rowKey":"__FILL__","packetId":"parent-06","bankPath":"banks/gemini-canonical.json",
+"parentCaseId":"gemini_gap_case_pyloric_stenosis_01","partId":"gemini_gap_case_pyloric_stenosis_01_q4",
+"reviewerDerivedProposition":"Once the pyloric obstruction has been relieved surgically, enteral feeding is resumed early and advanced as tolerated rather than withheld; a full-volume feed risks emesis and tension on the repair, prolonged nil-by-mouth is unnecessary, and early postoperative spitting up is expected and does not by itself call for antiemetics or delay.",
+"requiredFacts":[
+"Successful laparoscopic pyloromyotomy performed, postoperative day 1, stable vital signs, infant alert and crying for feeds, and provider orders written to initiate postoperative feedings - stage_postop ONLY. The stem restates the day and the presence of feeding orders.",
+"Nothing in baseline or stage_labs bears on the postoperative feeding decision."],
+"earliestDefensibleBoundary":"stage_postop",
+"boundaryIsTerminalStage":true,
+"stagesVisibleAtBoundary":["stage_labs","stage_postop"],
+"stagesHiddenAtBoundary":[],
+"prefixDisclosesAnswer":false,
+"disclosureEvidence":"stage_postop establishes the premise that feeding orders exist but states no feeding regimen, volume, composition or schedule. None of the four options is disclosed. No answer-supplying prose.",
+"reviewerDisposition":"CONTENT_REPAIR_REQUIRED",
+"clinicalVerdict":"Keyed option A is the best of the four offered and its comparative logic is sound, but the supporting rationale contains a clinical claim that current evidence contradicts, and the option set omits the regimen that contemporary practice actually uses. The rationale asserts 'Postoperative feedings following a pyloromyotomy typically begin 12 to 24 hours after surgery.' Verified against the post-pyloromyotomy feeding literature: in a prospective randomised trial BOTH arms began feeding two hours postoperatively - the protocol arm starting with Pedialyte then half- and full-strength formula or breast milk, the ad libitum arm receiving formula or breast milk at two hours - and reported time to FULL feeds of roughly 19 to 23 hours. Feeding therefore begins in hours, not at 12 to 24 hours, and by postoperative day 1 an uncomplicated infant should be at or approaching goal feeds rather than starting clear liquids. A meta-analysis favours ad libitum feeding for reduced length of stay, with early rapid feeds recommended where a structured regimen is preferred. Two consequences: the rationale's timing claim is unsupported, and the option list contains no breast-milk or formula feeding option, so the regimen most consistent with current evidence cannot be chosen. Distractors B, C and D remain correctly incorrect.",
+"contentDefects":[
+"PRIMARY: the rationale states a universal 12-to-24-hour initiation window that the evidence contradicts; feeds begin about two hours postoperatively.",
+"SECONDARY: the case premise is internally stale. stage_postop has an infant on postoperative day 1 still awaiting the first feed, which is not the ordinary course, and the stem then asks for the first feeding action at a point when goal feeds would normally already be established.",
+"TERTIARY: the option set offers no breast-milk or formula option, so the ad libitum or early rapid regimen supported by the evidence is unavailable. The keyed 'clear liquids or oral rehydration solution' reflects the older graduated approach, and the rationale's parenthetical widening to 'diluted formula/breast milk' describes something option A does not actually say.",
+"The rationale's 'dilution' language is likewise not supported by the ad libitum evidence."],
+"bilingualVerdict":"PARALLEL - stem, four options, rationale, all four byChoice entries, strategy and glossary are semantically equivalent EN/ZH. The unsupported timing claim is reproduced faithfully in ZH ('通常在术后 12 至 24 小时开始') and must be corrected in both languages.",
+"confidence":"HIGH",
+"sourcesChecked":[
+"Prospective randomised trial of protocol versus ad libitum feeding after laparoscopic pyloromyotomy (PubMed 24439596) - both arms fed from two hours postoperatively; ad libitum reached goal feeds sooner with more emesis after goal and no difference in length of stay or readmission.",
+"Retrospective comparative series (PubMed 17484656) - time to full feeds 19.0 versus 23.1 hours for ad libitum versus standardised regimen, with no difference in emesis frequency or length of stay.",
+"Feeding Post-Pyloromyotomy meta-analysis (PubMed 26719292) - recommends ad libitum feeding for decreased length of stay, with early rapid feeds if a structured regimen is preferred.",
+"The Royal Children's Hospital guideline read for the sibling row confirms it is silent on postoperative feeding, so it cannot be cited for the 12-to-24-hour claim."],
+"siblingImpact":"NONE if the repair is confined to q4's rationale and options. MODERATE if the stale premise is corrected: rewording stage_postop to place the infant at an earlier postoperative hour changes a stage surface, but that stage is the terminal stage and is visible only to this part in practice, since q1 and q2 are baseline-anchored and q3 must be anchored at stage_labs with stage_postop hidden. Confirm q3's anchor is set before editing stage_postop so the edit cannot leak backwards into q3.",
+"repairConstraints":[
+"Correct or delete the 12-to-24-hour initiation claim in the rationale and its ZH counterpart; do not replace it with another unsourced universal window.",
+"Either supply an explicit prescribed feeding progression in stage_postop as authored context so the keyed graduated answer is grounded in this facility's order, or rewrite the item to a tolerance-based prescribed breast-milk or formula progression. Codex's two routes are both acceptable; the second is the better fit to current evidence.",
+"If the item is rewritten, add a breast-milk or formula option so the evidence-consistent regimen is selectable, and re-derive the key and all four byChoice rationales.",
+"Consider moving the stage_postop timestamp earlier so that a first feed on the operative day is the natural question; if the postoperative day 1 framing is retained, the stem should ask about advancing rather than initiating feeds.",
+"Do not alter distractors B, C or D except as required by a full rewrite.",
+"Anchor to stage_postop after repair."],
+"criticalNote":"stage_postop is terminal, so the approved anchor hides nothing and the rendered surface is unchanged by anchoring. This row cannot be closed by the anchor repair. The Campaign-16 checker's baseline proposal is untenable: the entire item rests on the postoperative state, which exists only in the final stage.",
+"codexProposedDisposition":"CONTENT_REPAIR_REQUIRED","codexProposedBoundary":"stage_postop",
+"agreementWithCodex":"AGREE_WITH_ADDITIONS",
+"agreementReasoning":"I independently doubted the 12-to-24-hour claim while reading the item and confirmed it false against three primary sources; Codex had flagged the same 'unsupported universal 12-24-hour/clear-liquid/dilution claims' and offered the tolerance-based rewrite as an alternative, which my evidence supports as the better route. I add: quantified evidence that feeding starts at about two hours with full feeds by roughly 19-23 hours; the observation that the option set omits breast milk and formula entirely, so the evidence-consistent answer is not selectable; the finding that the postoperative day 1 premise is itself stale; and the sequencing constraint that q3's anchor must be set before stage_postop is edited.",
+"producerIndependent":true
+}
+]

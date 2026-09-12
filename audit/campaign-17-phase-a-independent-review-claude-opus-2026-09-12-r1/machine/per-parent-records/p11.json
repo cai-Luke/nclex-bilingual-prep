@@ -1,0 +1,39 @@
+[{
+"rowKey":"__FILL__","packetId":"parent-11","bankPath":"banks/hard-cases-canonical.json",
+"parentCaseId":"cs_thyroid_storm_main","partId":"cs_thyroid_storm_q2",
+"reviewerDerivedProposition":"In thyroid storm the sequence that is genuinely constrained is: a beta-blocker first to blunt life-threatening sympathetic overstimulation, then a thionamide to block new hormone synthesis, then iodine only after the thionamide has taken effect, because iodine given first supplies substrate for a surge of new hormone synthesis. Corticosteroid is part of the same bundle but its position in the sequence is not constrained.",
+"requiredFacts":[
+"The five 0830 orders including propranolol, PTU, Lugol's iodine and hydrocortisone - stage_0830 ONLY.",
+"Atrial fibrillation with rapid ventricular response and the triage HR of 152, which justify the beta-blocker going first - ECG in stage_0830 and vitals at baseline.",
+"Hydrocortisone is ordered STAT, exactly as PTU is ordered STAT - stage_0830. Nothing in the chart delays it.",
+"Nothing in stage_1200 is required; it reports that the drugs were given as prescribed and the client improved."],
+"earliestDefensibleBoundary":"stage_0830",
+"boundaryIsTerminalStage":false,
+"stagesVisibleAtBoundary":["stage_0830"],
+"stagesHiddenAtBoundary":["stage_1200"],
+"prefixDisclosesAnswer":true,
+"disclosureEvidence":"The stage_0830 orders exhibit enumerates the medications in a numbered list whose sequence is exactly the keyed answer: 1 sodium chloride, 2 propranolol, 3 propylthiouracil, 4 Lugol's iodine, 5 hydrocortisone. Dropping the fluid, items 2-3-4-5 reproduce the key opt_bb, opt_ptu, opt_iodine, opt_steroid in order. A learner can obtain full credit by transcribing the order list top to bottom without knowing any pharmacology. The Chinese exhibit carries the same numbering. Neither Campaign-16 seat nor the Campaign-17 producer records this.",
+"reviewerDisposition":"CONTENT_REPAIR_REQUIRED",
+"clinicalVerdict":"The pharmacological teaching is largely correct but the key is NOT UNIQUE, and the item concedes this itself. Verified against StatPearls Thyroid Storm: 'Always administer thionamide before starting iodine solution (SSKI) therapy', with iodine given about an hour after the thionamide to prevent the increase in synthesis from the iodine load, and 'After initial supportive measures, a beta-blocker should be started for any case of a suspected thyroid storm'. Those two constraints are real and the item states them accurately. The corticosteroid is different: the source lists hydrocortisone among concurrent treatments rather than as a sequenced step, and its timing relative to thionamide and iodine is not rigidly fixed. The chart agrees - hydrocortisone is ordered STAT, the same urgency as PTU, with nothing deferring it. The item's own byChoice for opt_steroid says outright that it 'can be given concurrently or after the primary sequence is initiated'. An ordered_response item scored on a single permutation therefore marks wrong a learner who places the STAT steroid earlier, on the strength of the item's own rationale and the order set's own wording. Additionally the key's fourth position is the ONLY position the scoring accepts, so the concession and the key are in direct contradiction.",
+"contentDefects":[
+"PRIMARY: non-unique ordered-response key. Hydrocortisone's keyed fourth position is contradicted by its STAT order and by the item's own byChoice text admitting concurrent administration.",
+"PRIMARY: the boundary stage discloses the key. The numbered order list at stage_0830 presents the four medications in exactly the keyed sequence, in both languages.",
+"NOTE for the repair: the rationale's claim that iodine 'must be delayed for 1-2 hours AFTER PTU' is slightly stronger than the source's about one hour. Harmless as written but should be reconciled if the text is touched."],
+"bilingualVerdict":"PARALLEL - stem, four options, key, rationale, four byChoice entries, strategy and glossary are semantically equivalent EN/ZH. The concession about concurrent steroid administration appears in ZH as well ('它可以与主要顺序同时进行或在其启动后给予'), so the contradiction between rationale and key exists identically in both languages.",
+"confidence":"HIGH",
+"sourcesChecked":[
+"StatPearls Thyroid Storm (https://www.ncbi.nlm.nih.gov/books/NBK448095/) - read directly. Verbatim: 'Always administer thionamide before starting iodine solution (SSKI) therapy'; 'An hour after administering propylthiouracil or methimazole, give 5 drops of SSKI'; 'After initial supportive measures, a beta-blocker should be started for any case of a suspected thyroid storm'; and hydrocortisone 100 mg IV every 8 hours listed among concurrent treatments rather than as a fixed sequence position. This both confirms the two real constraints and establishes that the steroid's position is not one of them."],
+"siblingImpact":"LOW. Editing the stage_0830 orders exhibit to remove the answer-shaped numbering is a stage surface visible to this part only in practice, since siblings q1, q3 and q4 are all baseline-anchored and non-residual and cannot see stage_0830 once anchors resolve. The orders content must be PRESERVED in substance because the item depends on it; only its presentation as an ordered enumeration should change. Confirm no sibling depends on the numbering before editing.",
+"repairConstraints":[
+"Remove the non-uniqueness rather than defending the current key. The cleanest route is to drop opt_steroid from the ordering set and score the genuinely constrained three-step sequence: beta-blocker, then thionamide, then iodine. That sequence IS unique and well sourced, and the steroid can be taught in the rationale as a concurrent measure.",
+"Do NOT repair by delaying the STAT steroid in the order set to make the existing key fit. That would invent a clinical instruction the source does not support.",
+"Break the disclosure. The stage_0830 orders must stop presenting the medications in the keyed sequence - for example by grouping them non-sequentially or removing the ordinal numbering - while preserving every drug, dose and route. Apply in EN and ZH.",
+"Reconcile the '1-2 hours' wording with the sourced approximately one hour.",
+"Preserve the parent and part identity; nothing is deleted.",
+"Anchor to stage_0830 after repair."],
+"criticalNote":"I DECLINE the producer's REPLACEMENT_CANDIDATE label. Under P23's application an embedded leaf should be rewritten in place where a coherent repair exists, and one does: removing the single floating element leaves a clinically important, uniquely ordered, well-sourced three-step item. Replacement with a narrower thionamide-before-iodine question, as Codex proposes, remains permissible and would also be sound, but it is not required, and recording this row as a replacement overstates the damage. The disclosure defect must be fixed under either route.",
+"codexProposedDisposition":"REPLACEMENT_CANDIDATE","codexProposedBoundary":null,
+"agreementWithCodex":"PARTIAL_DISAGREE",
+"agreementReasoning":"I independently identified the non-unique key from the item's own steroid rationale and the STAT order before reading the frozen judgments, matching the Campaign-16 producer's exception, and I endorse Codex's explicit instruction not to delay the STAT steroid to rescue the old key. I differ on severity: Codex proposes replacement, and I find the item repairable in place by removing the one element whose position is unconstrained, which preserves a genuinely valuable and uniquely ordered teaching point. I also add a defect neither prior seat recorded: the stage_0830 numbered order list reproduces the keyed sequence exactly, so the boundary stage supplies the answer and the row could not have been closed by anchoring even if the key had been unique.",
+"producerIndependent":true
+}]

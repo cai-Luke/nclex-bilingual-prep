@@ -1,0 +1,38 @@
+[{
+"rowKey":"25b7ff4311e66f43","packetId":"parent-01","bankPath":"banks/claude-canonical.json",
+"parentCaseId":"opus1_case_tha_discharge_lep_01","partId":"opus1_case_tha_discharge_lep_01_q6",
+"sourceParentSha256":"7fcb92fbcbb54c494a875474fc2887c8193ecc62c0f51a0d3fcb7d9948a3a066",
+"reviewerDerivedProposition":"A verbal SBAR handoff to the receiving home health nurse must transmit the transition-critical continuity risks: LEP/interpreter dependence (A), rivaroxaban 10 mg x35d with adherence and bleeding surveillance (B), the transient creatinine rise that returned to baseline in a client on a renally cleared anticoagulant (C), living alone in a second-floor walk-up once the son leaves with home-safety/stair assessment outstanding (D), and confirmed equipment/functional status/follow-up appointment/son-as-phone-contact (F). A personal beverage preference is not transition-safety information (E excluded).",
+"requiredFacts":[
+"A: Mandarin primary language, cannot reliably discuss medications or read English documents - ESTABLISHED at baseline_record.",
+"B: rivaroxaban 10 mg PO daily x35 days ordered - baseline_record; adherence uncertainty - stage_pod1 barrier list.",
+"C: 'trended up transiently AND returned to baseline' requires the full series cr 1.4/eGFR38 (baseline) -> 1.5/eGFR36 (pod1) -> 1.4/eGFR39 (pod2) -> 1.3/eGFR42 (pod3). The return-to-baseline conjunct is ONLY true at stage_pod3.",
+"D: lives alone, second-floor walk-up, son 2 h away - baseline; 'after the son leaves' (son available discharge day +1 only) - stage_pod2.",
+"F: 'follow-up appointment ... confirmed' is false at pod1 ('no confirmed follow-up appointment') and still unconfirmed at pod2; the surgeon's office confirmation and son-as-contact confirmation occur ONLY at stage_pod3."],
+"earliestDefensibleBoundary":"stage_pod3",
+"boundaryIsTerminalStage":true,
+"stagesVisibleAtBoundary":["stage_pod1","stage_pod2","stage_pod3"],
+"stagesHiddenAtBoundary":[],
+"prefixDisclosesAnswer":true,
+"disclosureEvidence":"stage_pod3 exhibit pod3_update states verbatim: 'The nurse calls the receiving home health nurse using SBAR and communicates language needs, the need for an interpreter for teaching, social situation, functional status, equipment, rivaroxaban dose/duration and adherence concerns, renal-function trend, bleeding surveillance, son's role as the communication contact, and the confirmed follow-up appointment.' This enumerates keyed A,B,C,D,F and by omission also resolves distractor E. ZH mirrors it exactly.",
+"reviewerDisposition":"CONTENT_REPAIR_REQUIRED",
+"clinicalVerdict":"Clinically sound. Keyed set A,B,C,D,F is correct NCLEX handoff content; renal-clearance concern for rivaroxaban in CKD is accurate (rivaroxaban is contraindicated/dose-adjusted at low CrCl; awareness is warranted at eGFR 36-42).",
+"contentDefects":[
+"PRIMARY: terminal stage prose enumerates the keyed handoff set almost verbatim in both languages; the item measures exhibit recall rather than clinical selection.",
+"SECONDARY: distractor E asserts 'preferred hot tea during hospitalization', a fact the chart never establishes anywhere. The option hypothesizes an unestablished fact and pairs it with an established one (declined last two oxycodone doses, pod3), making E double-barrelled and its falsity partly dependent on invented content. Flag for repair alongside the primary defect."],
+"bilingualVerdict":"PARALLEL - stem, all six options, key rationale and all six byChoice rationales are semantically equivalent EN/ZH. The answer-supplying enumeration is equally present in ZH, so the defect and the repair are bilingually symmetric.",
+"confidence":"HIGH",
+"sourcesChecked":["Internal chart arithmetic only; no external clinical premise was load-bearing for the boundary. Rivaroxaban renal-clearance premise checked against FDA label (see sources record)."],
+"siblingImpact":"LOW. Siblings q1-q5 all carry answerableAfterStageId={kind:baseline} and resolve, so they render baseline only and cannot see stage_pod3. Editing pod3_update is invisible to every sibling part. No title/summary/global-exhibit change is required.",
+"repairConstraints":[
+"Edit stage_pod3 exhibit pod3_update (EN and ZH together). Retain the factual discharge-readiness data that options C and F depend on: creatinine 1.3/eGFR 42, VNA acceptance and next-day first visit, the confirmed 2-week surgeon follow-up, son present as contact, equipment leaving with client.",
+"Remove the enumerated list of what the SBAR call communicated. State that an SBAR handoff call was placed and completed without itemising its contents.",
+"Do not alter q6 options, key, or rationale except for the separate option-E repair.",
+"Option E repair: replace the unestablished 'preferred hot tea' conjunct with a chart-established but non-essential detail, keeping E incorrect, and mirror in ZH. Key remains A,B,C,D,F.",
+"Anchor must still be set to stage_pod3 after the content repair."],
+"criticalNote":"Anchoring alone cannot remediate this row. stage_pod3 is the terminal stage, so an approved stage_pod3 anchor hides nothing (stagesHidden=[]) and renders exactly what the current fail-open branch already renders. The learner-visible surface would be byte-identical before and after an anchor-only fix. The entire remedy is the content edit.",
+"codexProposedDisposition":"CONTENT_REPAIR_REQUIRED","codexProposedBoundary":"stage_pod3",
+"agreementWithCodex":"AGREE_WITH_ADDITIONS",
+"agreementReasoning":"Independently derived the same boundary (stage_pod3) and the same primary defect (terminal stage enumerates the keyed set) before reading the proposal. Codex's boundary defense is correct: baseline cannot establish the pod3-only conjuncts in C and F. I add two things Codex omitted: (1) the un-established 'hot tea' fact in distractor E, and (2) the explicit observation that the anchor repair is a no-op on rendered output here, so this row must not be closed by anchoring.",
+"producerIndependent":true
+}]

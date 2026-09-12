@@ -1,0 +1,41 @@
+[{
+"rowKey":"f9ac2b9add5ea7c9","packetId":"parent-02","bankPath":"banks/claude-canonical.json",
+"parentCaseId":"opus2_case_code_status_01","partId":"opus2_case_code_status_q5",
+"reviewerDerivedProposition":"At 1130, after a DNAR/DNI order exists, evaluating the advocacy process means confirming the order actually propagated into the systems responders rely on (EHR entry, policy-required visual identifiers), communicating the change to the involved family contact, and recognising the delayed-provider system failure for institutional follow-up. A single retrospective end-of-shift note is not contemporaneous documentation and is excluded.",
+"requiredFacts":[
+"A: DNAR/DNI order entered by Dr. Anand - stage_3 (1100-1230).",
+"B: policy-based visual code-status identification - general standard, no chart fact required.",
+"C: existence of a person with decision-making authority to notify - NOT ESTABLISHED anywhere. Baseline states explicitly 'no advance directive, POLST, or healthcare power of attorney'; daughter Keisha is only the emergency contact. stage_3 says social work 'completes the advance directive with the daughter', which does not appoint her.",
+"D: delayed provider response - stage_1 (attending unavailable to 1400; Reeves promises 1100) and stage_2 (Reeves pages back 'as soon as I can' and never arrives).",
+"E: contemporaneous-documentation standard - general."],
+"earliestDefensibleBoundary":"stage_3",
+"boundaryIsTerminalStage":true,
+"stagesVisibleAtBoundary":["stage_1","stage_2","stage_3"],
+"stagesHiddenAtBoundary":[],
+"prefixDisclosesAnswer":false,
+"disclosureEvidence":"stage_3 narrates the DNAR/DNI entry, AD completion, palliative consult and effective comfort measures. It does not enumerate any keyed evaluation action (EHR verification, wristband/door signage, contact notification, incident report). The stem's own premise (order entered) is legitimately disclosed. No answer-supplying prose found.",
+"reviewerDisposition":"CONTENT_REPAIR_REQUIRED",
+"clinicalVerdict":"DEFECTIVE on option C, on two independent grounds both verified against primary sources. (1) No healthcare proxy exists: a healthcare proxy is named only by a durable power of attorney for health care, an instrument distinct from a living will, so completing 'the advance directive' with a daughter present does not appoint her; baseline affirmatively negates any HCPOA. (2) Even reframed as family notification, the patient is present and retains full decision-making capacity at 1130 (baseline documents full capacity; he speaks for himself at 1100 in stage_3). Under 45 CFR 164.510(b)(2) disclosure to a family member in that situation is permitted only where the entity obtains the individual's agreement, provides an opportunity to object with no objection expressed, or reasonably infers no objection by professional judgment. The 164.510(b)(3) best-interest pathway applies only when the individual is absent or incapacitated and is unavailable here. Keying C as an unconditional nursing action teaches an incorrect disclosure rule. Separately, proxy authority activates only on incapacity, so a capacitated patient has no operative proxy to notify.",
+"contentDefects":[
+"PRIMARY: option C 'Notifying the healthcare proxy' hypothesises a decision-maker the chart never establishes and, as written, asserts an unconditional disclosure that 45 CFR 164.510(b)(2) does not permit for a present, capacitated patient.",
+"SECONDARY (MEDIUM confidence): option D construct fit. The stem asks which actions 'evaluate the effectiveness of the advocacy process'; filing an incident report is a downstream reporting/QI action rather than an evaluation. Defensible under the evaluate_outcomes skill because identifying the system gap is itself evaluative, so I do not require removal, but if the item is reopened the stem could be widened to 'evaluate and follow up on' to remove the mismatch.",
+"NOTE: the parent title says 'code status escalation' for what is a de-escalation to DNAR/DNI. Cosmetic, global-surface, affects all siblings; not a validity defect and not required for this repair."],
+"bilingualVerdict":"PARALLEL - stem, five options and all rationale text are semantically equivalent EN/ZH. The proxy defect is present identically in ZH, so the repair must be applied in both languages together.",
+"confidence":"HIGH",
+"sourcesChecked":[
+"45 CFR 164.510(b)(2)-(b)(3) full text read at https://www.law.cornell.edu/cfr/text/45/164.510 - verified the agreement / opportunity-to-object / reasonable-inference conditions for a present, capacitated individual, and that the best-interest pathway is limited to absence or incapacity. HHS FAQ 2087 returned HTTP 403 and eCFR redirected to an unblock gateway; Cornell LII used as the primary-text substitute.",
+"NIA advance care planning materials, reached via search after the NIA page returned HTTP 405 - verified that a durable power of attorney for health care is the instrument naming a health care proxy, that it is distinct from a living will, and that proxy authority operates when the patient cannot communicate decisions."],
+"siblingImpact":"NONE for the required repair. Siblings q1-q4 all carry answerableAfterStageId={kind:baseline} and resolve to baseline, so they cannot see stage_3. The repair is confined to q5's own option C and its byChoice rationale; no stage, exhibit, title or summary text changes. The optional title correction noted above WOULD be a shared global surface touching q1-q4 and must not be bundled into this row's repair.",
+"repairConstraints":[
+"Repair confined to option C and its paired byChoice rationale, EN and ZH together.",
+"Option C must not assert a healthcare proxy. Recast as communication with the client-designated daughter/emergency contact, explicitly conditioned on the capacitated client's agreement or non-objection.",
+"The rationale must distinguish emergency-contact status from decision-making authority and must not imply that completing an advance directive appointed the daughter.",
+"Key remains A,B,C,D with C retained as correct only in its permission-conditioned form; if the repair instead makes C incorrect, the key and distractor balance must be re-derived and re-reviewed.",
+"Do not alter the stem's 1130 timing or any stage prose.",
+"Anchor to stage_3 after the content repair."],
+"criticalNote":"stage_3 is terminal, so the approved anchor hides nothing and the rendered surface is unchanged by anchoring. This row cannot be closed by the anchor repair; the content repair is the whole remedy.",
+"codexProposedDisposition":"CONTENT_REPAIR_REQUIRED","codexProposedBoundary":"stage_3",
+"agreementWithCodex":"AGREE_WITH_ADDITIONS",
+"agreementReasoning":"I derived the boundary (stage_3) and the option-C proxy defect independently before reading either frozen judgment or the Codex proposal. Codex's disposition, boundary and repair direction ('after permission', distinguish contact from decision authority) match my conclusion. I add: the capacity-based leg verified against the primary regulation rather than the registry paraphrase, the finding that proxy authority activates only on incapacity, the MEDIUM-confidence construct-fit concern on option D, and the warning that the title misnomer is a shared surface that must NOT be folded into this row.",
+"producerIndependent":true
+}]

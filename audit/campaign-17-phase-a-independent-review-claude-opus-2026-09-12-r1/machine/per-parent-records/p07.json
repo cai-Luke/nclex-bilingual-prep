@@ -1,0 +1,78 @@
+[
+{
+"rowKey":"__FILL__","packetId":"parent-07","bankPath":"banks/gpt-canonical.json",
+"parentCaseId":"gpt_case_neutropenic_fever_nadir_01","partId":"gpt_case_neutropenic_fever_nadir_01_q5",
+"reviewerDerivedProposition":"After fluid resuscitation and broadened antibiotics the perfusion and systemic-response markers are all reversing - falling temperature and heart rate, recovering blood pressure, rising urine output, falling lactate and improving alertness - so the trajectory is improving. The newly reported Gram-positive organism from the PICC lumen does not reverse that trend but is a result that must be communicated because it may signal a catheter-related bloodstream infection and may change the plan once speciation returns.",
+"requiredFacts":[
+"Deterioration baseline for every trend row: 1745 T 102.9 F (39.4 C), HR 118, BP 92/58, urine 60 mL over 4 h (15 mL/hr), 1800 lactate 3.2, slower responses - stage_2 ONLY.",
+"Recovery values: 1930 T 101.5 F (38.6 C), HR 106, BP 100/64; 2200 T 100.6 F (38.1 C), HR 96, BP 106/68; urine 90 mL then 110 mL per 2 h (45-55 mL/hr); 2100 lactate 2.0; alert and conversational - stage_3 ONLY.",
+"Preliminary Gram-positive organism in the PICC lumen bottle at 20 hours - stage_3 ONLY.",
+"Arithmetic check performed: 60 mL/4 h = 15 mL/hr and 90 mL/2 h = 45, 110 mL/2 h = 55 mL/hr. Row r4 is arithmetically correct."],
+"earliestDefensibleBoundary":"stage_3",
+"boundaryIsTerminalStage":true,
+"stagesVisibleAtBoundary":["stage_1","stage_2","stage_3"],
+"stagesHiddenAtBoundary":[],
+"prefixDisclosesAnswer":false,
+"disclosureEvidence":"stage_3 reports the recovering values and the preliminary culture but never characterises the trajectory as improving and never says which findings support improvement versus require follow-up. The classification work is left to the learner. No answer-supplying prose.",
+"reviewerDisposition":"CONTENT_REPAIR_REQUIRED",
+"clinicalVerdict":"The intended classification is clinically correct - the trend is genuinely improving and a positive PICC-lumen culture genuinely requires communication rather than a deterioration verdict. Two structural defects nevertheless make the item unsound as written. FIRST, row r1 mixes units within a single trend: 'Temperature trend: 39.4 -> 38.6 -> 100.6 °F (38.1 °C)'. The first two values are bare Celsius with no unit marker while the third is Fahrenheit-first with Celsius in parentheses. Read literally the row shows 39.4, then 38.6, then 100.6, which presents as a steep RISE and inverts the very trend the row is keyed to demonstrate. Every other temperature in this parent is written Fahrenheit-first with Celsius in parentheses, so the row is also internally inconsistent with its own case. SECOND, the three columns are not mutually exclusive but selectionMode is single_per_row. 'Supports improving response' and 'Needs continued follow-up/communication' overlap for at least rows r1 and r5: at 100.6 F (38.1 C) the client is still febrile and at 2.0 mmol/L the lactate is still abnormal, so both rows simultaneously support improvement AND require continued follow-up. The item's own byChoice text concedes this - 'The temperature is still abnormal, but the downward trend ...' and 'The lactate is not fully normal, but the downward trend ...'. Forcing one column per row against overlapping categories makes the key defensible only by an unstated convention that the learner is never told.",
+"contentDefects":[
+"PRIMARY: row r1 temperature trend mixes bare Celsius with a Fahrenheit-first pair, producing a sequence that reads as a rise rather than the keyed fall. Present identically in ZH.",
+"PRIMARY: single_per_row selection over non-exclusive columns c1 and c2, where the item's own rationales acknowledge that improving rows remain abnormal and therefore still need follow-up."],
+"bilingualVerdict":"PARALLEL - stem, seven rows, three columns, key, rationale, seven byChoice entries, strategy and glossary are semantically equivalent EN/ZH. The defective r1 unit mixing is reproduced exactly in ZH ('体温趋势：39.4 → 38.6 → 100.6 °F (38.1 °C)'), so the repair is bilingual.",
+"confidence":"HIGH",
+"sourcesChecked":["No external clinical premise was load-bearing for this row; the classification rests on internal trend arithmetic, which I recomputed from the stage_2 and stage_3 exhibits and confirmed. The temperature-presentation convention was checked against the repository's own pinned adjudication in scripts/audit/temperature-prose-residual-adjudication.ts, which establishes Fahrenheit-first with Celsius in parentheses."],
+"siblingImpact":"NONE. The repair is confined to q5's matrix rows, columns, selection mode and rationales. Siblings q1-q4 are baseline-anchored and non-residual; q6 shares no surface with q5. No stage, exhibit, title or summary text changes.",
+"repairConstraints":[
+"Rewrite row r1 to use the existing matched chart values in the parent's established convention: 102.9 °F (39.4 °C) -> 101.5 °F (38.6 °C) -> 100.6 °F (38.1 °C), in EN and ZH.",
+"Resolve the column overlap. Either relabel c1 to express the best single interpretation of the trajectory so that choosing it does not deny continued monitoring, or widen selectionMode so a row may carry both c1 and c2 and re-derive the key accordingly. Do not leave single_per_row over overlapping categories.",
+"Whichever route is taken, the byChoice text must stop conceding the overlap it currently concedes.",
+"Do not alter rows r2-r7 values; they are arithmetically verified and correctly keyed.",
+"Anchor to stage_3 after repair."],
+"criticalNote":"stage_3 is terminal, so the approved anchor hides nothing and the rendered surface is unchanged by anchoring. This row cannot be closed by the anchor repair.",
+"codexProposedDisposition":"CONTENT_REPAIR_REQUIRED","codexProposedBoundary":"baseline",
+"agreementWithCodex":"AGREE_ON_DISPOSITION_DISAGREE_ON_BOUNDARY",
+"agreementReasoning":"I independently found both defects Codex names - the temperature presentation and the single-choice column overlap - and agree the row needs content repair. I reject Codex's proposed baseline boundary. The stem reads 'At Stage 3' and every one of the seven rows is built from stage_2 and stage_3 values; hiding all three stages would leave the learner unable to verify a single trend and would strand the stem's own stage reference. My independent numeric-dependency screen flagged this row with eleven stage-only values cited by the part and absent from the visible prefix, the largest stranding in the population. The correct boundary is stage_3, which is also the terminal stage. The Campaign-16 producer's stage_3 was right and the Campaign-16 checker's baseline was wrong.",
+"producerIndependent":true
+},
+{
+"rowKey":"__FILL__","packetId":"parent-07","bankPath":"banks/gpt-canonical.json",
+"parentCaseId":"gpt_case_neutropenic_fever_nadir_01","partId":"gpt_case_neutropenic_fever_nadir_01_q6",
+"reviewerDerivedProposition":"Discharge teaching for future nadir periods must give the client the oncology plan's own action thresholds - a single oral temperature at or above the single-reading threshold, or 100.4 F (38.0 C) sustained over one hour - tell her to use oral rather than rectal measurement during neutropenia, and tell her to seek immediate evaluation for systemic cues such as rigors, shaking chills, lightheadedness, confusion or tachycardia even before a temperature is confirmed. Self-treating with an antipyretic and waiting, or waiting for a higher temperature or localising symptoms, are both unsafe because neutropenic clients may mount no local inflammatory signs.",
+"requiredFacts":[
+"The standing-order thresholds - baseline global exhibit baseline_orders.",
+"Neutropenic state and nadir context - baseline global exhibit and summary.",
+"Rigors as a presenting systemic cue - global exhibit initial_assessment_labs (1415 rigors), which is a global exhibit and therefore always visible.",
+"No rectal temperatures during neutropenia - stated as a precaution in stage_1, but it is standard neutropenic teaching and is not chart-dependent.",
+"The discharge-readiness teaching moment itself occurs in stage_3, though the item is forward-looking about future cycles."],
+"earliestDefensibleBoundary":"baseline",
+"boundaryIsTerminalStage":false,
+"stagesVisibleAtBoundary":[],
+"stagesHiddenAtBoundary":["stage_1","stage_2","stage_3"],
+"prefixDisclosesAnswer":false,
+"disclosureEvidence":"The global exhibits legitimately carry the thresholds the teaching must transmit, which is the premise rather than the answer; the item asks which teaching points to give, and no exhibit enumerates them. My numeric-dependency screen found NO stage-only value cited by this part, confirming that baseline strands nothing. No answer-supplying prose.",
+"reviewerDisposition":"CONTENT_REPAIR_REQUIRED",
+"clinicalVerdict":"The key q6_a, q6_b, q6_d, q6_e is clinically correct and the distractors q6_c and q6_f are correctly unsafe. Verified: IDSA defines febrile neutropenia by a single oral temperature at or above 38.3 C, or 38.0 C sustained over one hour, in a client with ANC at or below 500/uL - this client's ANC is 180/uL. The defect is not the key but an unresolved internal conflict about the single-reading threshold's Fahrenheit counterpart. The case summary states the standing order as 'a single oral temperature >= 100.9 °F (38.3 °C)', while the global exhibit baseline_orders states the same order as '>= 101 °F (38.3 °C)' and keyed option q6_a states '101 °F (38.3 °C) or higher'. 100.9 F is the direct arithmetic conversion of 38.3 C; 101 F is the published ASCO/IDSA pairing. Both figures are visible to the learner simultaneously, because global exhibits and the summary are always rendered, so the client-facing action number the item keys is contradicted on the same screen by the summary.",
+"contentDefects":[
+"PRIMARY: the summary and the standing-order exhibit state different Fahrenheit values for the same single-reading threshold, and the keyed option follows the exhibit. The conflict is visible at every boundary because both surfaces are global.",
+"ROOT CAUSE IDENTIFIED: the repository's pinned adjudication scripts/audit/temperature-prose-residual-adjudication.ts, adjudication 03 'temperature-residual-03-neutropenic-fever-threshold', correctly classifies this as a source-pinned threshold rather than an ordinary measured vital and fixes the published pairing at 101 °F (38.3 °C). Its occurrence list covers four sites - questions[286].caseStudy.exhibits[0].content.en and .zh, and questions[286].caseStudy.questions[5].options[4].en and .zh. It does NOT cover caseStudy.summary.en or .zh. The summary occurrence of the same threshold was simply never brought into the adjudication and so retains the ordinary-conversion value of 100.9 F. This is a coverage gap in the pinned occurrence list, not a disagreement with the pin."],
+"bilingualVerdict":"PARALLEL but bilingually defective in the same way. The EN summary says '>= 100.9 °F (38.3 °C)' and the ZH summary says '单次口温 ≥ 100.9 °F (38.3 °C)'. Both must be corrected together. All six options, the key, all six byChoice entries and the strategy are semantically equivalent EN/ZH; keyed option q6_a reads '101 °F (38.3 °C) or higher' in EN and '达到或超过 101 °F (38.3 °C)' in ZH, which correctly expresses the at-or-above relation in both languages.",
+"confidence":"HIGH",
+"sourcesChecked":[
+"IDSA febrile-neutropenia definition verified via NIH-domain search: fever is a single oral temperature at or above 38.3 C, or above 38.0 C maintained over one hour, with ANC at or below 500/uL. This confirms both keyed thresholds and the ANC context.",
+"The repository's own pinned adjudication scripts/audit/temperature-prose-residual-adjudication.ts read directly at the review commit, including its verbatim rationale 'ASCO/IDSA publishes the single-reading threshold as >=38.3 °C (101 °F). This is a source-pinned clinical threshold, not an ordinary measured vital, so the published pairing is retained with Fahrenheit first', and its four-occurrence target list, which I enumerated to locate the uncovered summary occurrence."],
+"siblingImpact":"LOW BUT REAL - the summary is a global shared surface visible to all six parts. I checked every sibling directly: none of q1, q2, q3 or q4 mentions 100.9, 101, 38.3 or 100.4 anywhere in its stem, options, key or rationale, so no sibling key depends on the summary figure and correcting it cannot invalidate an accepted sibling. The change is nonetheless a shared-surface edit and must be recorded as such.",
+"repairConstraints":[
+"Correct the summary threshold to the source-pinned pairing '>= 101 °F (38.3 °C)' in EN and ZH, matching the standing-order exhibit and keyed option q6_a.",
+"Do not rewrite the exhibit or the key downward to 100.9 F. The 101 F pairing is published ASCO/IDSA text and is already pinned by adjudication 03; P8 places clinical truth upstream and forbids a downstream arithmetic rewrite of a published threshold.",
+"Extend adjudication 03's occurrence list to include the summary sites so the pin covers every occurrence of this threshold in this parent, rather than leaving the summary outside the pinned set where it can drift again.",
+"Do not alter any of the six option texts, the key, or the byChoice rationales.",
+"Independent review must approve the exact client-facing action threshold before promotion, since this is learner-facing advice about when to seek emergency care.",
+"Anchor to baseline after repair."],
+"criticalNote":"This is the one row in Tranche 1 where the repair touches a globally visible shared surface, and the correction direction is fixed by an existing repository pin rather than open to redetermination.",
+"codexProposedDisposition":"CONTENT_REPAIR_REQUIRED","codexProposedBoundary":"baseline",
+"agreementWithCodex":"AGREE_WITH_ADDITIONS",
+"agreementReasoning":"I read the summary and the standing-order exhibit blind and found the 100.9 versus 101 conflict myself before opening the frozen judgments; the Campaign-16 producer had raised it and Codex carried it forward with the correct instruction to preserve the pinned 101 F pairing and correct the summary. I independently confirmed the boundary is safely baseline by verifying that no part-level value depends on a hidden stage. I add three things: verification of the IDSA definition from the guideline literature rather than the registry paraphrase; the precise root cause, namely that adjudication 03's occurrence list covers four sites and omits the summary, with the recommendation that the pin be extended rather than the summary merely patched; and a direct check of all four non-residual siblings confirming none depends on the threshold figure, which bounds the shared-surface risk.",
+"producerIndependent":true
+}
+]

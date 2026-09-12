@@ -1,0 +1,32 @@
+[{
+"rowKey":"__FILL__","packetId":"parent-21","bankPath":"banks/gpt-canonical.json",
+"parentCaseId":"gpt_case_infection_control_clustered_care_01","partId":"gpt_case_infection_control_clustered_care_01_q3",
+"reviewerDerivedProposition":"A family caregiver found providing hands-on care without personal protective equipment was never oriented, which is a system failure rather than her fault. The nurse acknowledges that gap without blaming her, explains that an open draining MRSA wound spreads organisms by contact with hands, clothing and linens, teaches that gown and gloves are required for room entry and direct contact with the client or bed linens, shows where the equipment is and verifies the teaching with a return demonstration of donning, doffing and hand hygiene. Barring her from touching her father until the wound heals is needlessly restrictive, and a surgical mask is not the protection this situation calls for.",
+"requiredFacts":[
+"Client C's large draining MRSA pressure injury and contact precautions - baseline_client_snapshot.",
+"The daughter in street clothes with no gown or gloves, having repositioned her father, saying nobody told her - stage_1 exhibit stage_1_shared_equipment_and_visitor.",
+"The unit policy that visitors are offered a precautions orientation at the first visit of each shift, which is what makes the miss a system gap and grounds keyed option q3_a - baseline_unit_policy rule 4.",
+"Nothing in stage_2 or stage_3 is required."],
+"earliestDefensibleBoundary":"stage_1",
+"boundaryIsTerminalStage":false,
+"stagesVisibleAtBoundary":["stage_1"],
+"stagesHiddenAtBoundary":["stage_2","stage_3"],
+"prefixDisclosesAnswer":false,
+"disclosureEvidence":"stage_1 presents the daughter's situation and her statement but prescribes no teaching and names no personal protective equipment. Hiding stage_3 is NECESSARY: stage_3 records that 'Client C's daughter correctly demonstrates gown and glove donning and doffing', which discloses keyed option q3_e's return demonstration and confirms the gown-and-glove answer in q3_c. The current fail-open render therefore discloses this item, and the anchor genuinely repairs it. Hiding stage_2 is incidental, since its breaches concern other clients.",
+"reviewerDisposition":"ANCHOR_ONLY_REPAIR_CANDIDATE",
+"clinicalVerdict":"Correct. Verified against CDC and HICPAC isolation guidance that contact precautions require gown and gloves on every entry into the room, donned at the entry point before contact with the patient or the patient's environment, which is exactly what keyed option q3_c states. Verified also that masks are not part of contact precautions for MRSA, because MRSA is transmitted by direct or indirect contact rather than by the respiratory route, which makes distractor q3_f genuinely and instructively wrong rather than filler. Distractor q3_d is correctly wrong on a different axis: excluding the family caregiver is more restrictive than the situation requires and would remove a repositioning resource this client needs. Keyed options q3_a, q3_b and q3_e are sound, and q3_a is specifically grounded in the unit's own policy that visitors are offered orientation at the first visit, so it corrects a documented system gap rather than merely being kind. The option set contains four correct options and two genuine errors, so discrimination is sound and it is not the all-correct degeneracy found elsewhere in this population. I found no invented fact, no stranded value and no key ambiguity.",
+"contentDefects":[],
+"bilingualVerdict":"PARALLEL - I read the Chinese against the English for the stem, all six options and all six byChoice rationales. Each pair is semantically equivalent, including the load-bearing distinction in q3_c between room entry and direct contact and the negative framing of distractor q3_f. No language-specific defect.",
+"confidence":"HIGH",
+"sourcesChecked":[
+"CDC and HICPAC isolation-precautions guidance located via cdc.gov domain search - confirms gown and gloves on every room entry for contact precautions, donned at the entry point before contact with the patient or the patient's environment, and confirms that masks are not part of contact precautions for MRSA because transmission is by direct or indirect contact. The direct contact-precautions page returned HTTP 404, so the guidance was reached through the isolation-precautions and STRIVE materials on the same domain."],
+"siblingImpact":"NONE. This is an anchor-only repair; no learner-facing text changes. Siblings q1, q2, q4, q5 and q6 are all baseline-anchored and non-residual.",
+"repairConstraints":[
+"Set answerableAfterStageId to stage_1. No content change is required or authorised by this row.",
+"Do not anchor at baseline: the daughter's unprotected presence and her statement, which the stem builds on, exist only in stage_1."],
+"criticalNote":"This row survives affirmative scrutiny as a true anchor-only repair, and the anchor does real work by hiding a stage that demonstrates the keyed return demonstration.",
+"codexProposedDisposition":"ANCHOR_ONLY_REPAIR_CANDIDATE","codexProposedBoundary":"stage_1",
+"agreementWithCodex":"AGREE",
+"agreementReasoning":"I derived stage_1 independently and independently identified stage_3's return demonstration as the disclosure the anchor must hide. Codex reached the same boundary with no content work. I tested rather than accepted the no-defect claim: I verified the contact-precautions PPE rule and the MRSA mask question against CDC guidance rather than assuming them, checked the option set for the all-correct degeneracy found elsewhere, confirmed keyed option q3_a is grounded in the unit's own written policy rather than being a bare civility, and read the Chinese in full. The Campaign-16 producer's stage_1 was correct and the checker's baseline was too early.",
+"producerIndependent":true
+}]
