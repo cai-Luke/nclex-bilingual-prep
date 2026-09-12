@@ -1,0 +1,562 @@
+
+> nclex-bilingual-prep@0.1.0 audit:stage-refs
+> tsx scripts/audit/audit-stage-refs.ts --strict
+
+[FAIL] audit:stage-refs
+141 finding(s) across 13 bank file(s): 0 unresolved, 66 revealsAllStages (leak), 75 missingRequiredAnchor.
+claude-canonical.json: opus_case_lithium_toxicity_01 > opus_case_lithium_toxicity_q1 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+claude-canonical.json: opus_case_lithium_toxicity_01 > opus_case_lithium_toxicity_q2 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+claude-canonical.json: opus_case_lithium_toxicity_01 > opus_case_lithium_toxicity_q3 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+claude-canonical.json: opus_case_lithium_toxicity_01 > opus_case_lithium_toxicity_q4 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+claude-canonical.json: opus1_case_tha_discharge_lep_01 > opus1_case_tha_discharge_lep_01_q6 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_pod1,stage_pod2,stage_pod3
+claude-canonical.json: opus2_case_code_status_01 > opus2_case_code_status_q5 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+claude-canonical.json: opus24_case_elder_neglect_med_mismanagement_01 > opus24_case_elder_neglect_med_mismanagement_01_q4 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1_home_visit_action,stage_2_ed_initial,stage_3_six_hours_ed
+claude-canonical.json: opus25_case_tb_airborne_treatment_monitoring_01 > opus25_case_tb_airborne_treatment_monitoring_01_q1 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage1".
+  valid stage ids: stage1,stage2,stage3,stage4
+claude-canonical.json: opus25_case_tb_airborne_treatment_monitoring_01 > opus25_case_tb_airborne_treatment_monitoring_01_q2 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage1".
+  valid stage ids: stage1,stage2,stage3,stage4
+claude-canonical.json: opus25_case_tb_airborne_treatment_monitoring_01 > opus25_case_tb_airborne_treatment_monitoring_01_q3 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage2".
+  valid stage ids: stage1,stage2,stage3,stage4
+claude-canonical.json: opus25_case_tb_airborne_treatment_monitoring_01 > opus25_case_tb_airborne_treatment_monitoring_01_q4 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage2".
+  valid stage ids: stage1,stage2,stage3,stage4
+claude-canonical.json: opus25_case_tb_airborne_treatment_monitoring_01 > opus25_case_tb_airborne_treatment_monitoring_01_q5 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage4".
+  valid stage ids: stage1,stage2,stage3,stage4
+claude-canonical.json: opus25_case_tb_airborne_treatment_monitoring_01 > opus25_case_tb_airborne_treatment_monitoring_01_q6 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage3".
+  valid stage ids: stage1,stage2,stage3,stage4
+gemini-canonical.json: gemini_gap_case_cirrhosis_homecare_04 > gemini_gap_case_cirrhosis_homecare_04_q2 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_adherence_issue
+gemini-canonical.json: gemini_gap_case_lead_poisoning_01 > gemini_gap_case_lead_poisoning_01_q2 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_lead_labs,stage_lead_education
+gemini-canonical.json: gemini_gap_case_palliative_care_03 > gemini_gap_case_palliative_care_03_q2 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_hospice_followup
+gemini-canonical.json: gemini_gap_case_pyloric_stenosis_01 > gemini_gap_case_pyloric_stenosis_01_q3 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_labs,stage_postop
+gemini-canonical.json: gemini_gap_case_pyloric_stenosis_01 > gemini_gap_case_pyloric_stenosis_01_q4 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_labs,stage_postop
+gemini-canonical.json: opus_agvd_case_agvhd_01 > opus_agvd_case_agvhd_01_q6 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_2026_06_16_case_postpartum_preeclampsia_severe_01 > gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q3 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage1,stage2,stage3
+gpt-canonical.json: gpt_case_caregiver_role_strain_dementia_01 > gpt_case_caregiver_role_strain_dementia_01_q3 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_caregiver_role_strain_dementia_01 > gpt_case_caregiver_role_strain_dementia_01_q4 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_clozapine_toxicity_01 > gpt_case_clozapine_toxicity_01_q2 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_clozapine_toxicity_01 > gpt_case_clozapine_toxicity_01_q3 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_clozapine_toxicity_01 > gpt_case_clozapine_toxicity_01_q4 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_clozapine_toxicity_01 > gpt_case_clozapine_toxicity_01_q6 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_gap_2026_06_11_case_adhf_01 > gpt_case_gap_2026_06_11_adhf_cloze_02 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="adhf_stage2".
+  valid stage ids: adhf_stage2,adhf_stage3
+gpt-canonical.json: gpt_case_gap_2026_06_11_case_adhf_01 > gpt_case_gap_2026_06_11_adhf_fib_04 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="adhf_stage3".
+  valid stage ids: adhf_stage2,adhf_stage3
+gpt-canonical.json: gpt_case_gap_2026_06_11_case_adhf_01 > gpt_case_gap_2026_06_11_adhf_or_03 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="adhf_stage2".
+  valid stage ids: adhf_stage2,adhf_stage3
+gpt-canonical.json: gpt_case_gap_2026_06_11_case_adrenal_crisis_04 > gpt_case_gap_2026_06_11_adrenal_cloze_02 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="adrenal_stage2".
+  valid stage ids: adrenal_stage2,adrenal_stage3
+gpt-canonical.json: gpt_case_gap_2026_06_11_case_adrenal_crisis_04 > gpt_case_gap_2026_06_11_adrenal_fib_04 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="adrenal_stage2".
+  valid stage ids: adrenal_stage2,adrenal_stage3
+gpt-canonical.json: gpt_case_gap_2026_06_11_case_adrenal_crisis_04 > gpt_case_gap_2026_06_11_adrenal_or_03 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="adrenal_stage2".
+  valid stage ids: adrenal_stage2,adrenal_stage3
+gpt-canonical.json: gpt_case_gap_2026_06_11_case_aki_02 > gpt_case_gap_2026_06_11_aki_cloze_02 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="aki_stage2".
+  valid stage ids: aki_stage2,aki_stage3
+gpt-canonical.json: gpt_case_gap_2026_06_11_case_aki_02 > gpt_case_gap_2026_06_11_aki_fib_04 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="aki_stage2".
+  valid stage ids: aki_stage2,aki_stage3
+gpt-canonical.json: gpt_case_gap_2026_06_11_case_aki_02 > gpt_case_gap_2026_06_11_aki_or_03 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="aki_stage2".
+  valid stage ids: aki_stage2,aki_stage3
+gpt-canonical.json: gpt_case_gap_2026_06_11_case_anticoag_bleeding_06 > gpt_case_gap_2026_06_11_anticoag_cloze_02 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="anticoag_stage2".
+  valid stage ids: anticoag_stage2,anticoag_stage3
+gpt-canonical.json: gpt_case_gap_2026_06_11_case_anticoag_bleeding_06 > gpt_case_gap_2026_06_11_anticoag_fib_04 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="anticoag_stage3".
+  valid stage ids: anticoag_stage2,anticoag_stage3
+gpt-canonical.json: gpt_case_gap_2026_06_11_case_anticoag_bleeding_06 > gpt_case_gap_2026_06_11_anticoag_or_03 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="anticoag_stage2".
+  valid stage ids: anticoag_stage2,anticoag_stage3
+gpt-canonical.json: gpt_case_gap_2026_06_11_case_pancreatitis_03 > gpt_case_gap_2026_06_11_panc_cloze_02 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="panc_stage2".
+  valid stage ids: panc_stage2,panc_stage3
+gpt-canonical.json: gpt_case_gap_2026_06_11_case_pancreatitis_03 > gpt_case_gap_2026_06_11_panc_fib_04 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="panc_stage3".
+  valid stage ids: panc_stage2,panc_stage3
+gpt-canonical.json: gpt_case_gap_2026_06_11_case_pancreatitis_03 > gpt_case_gap_2026_06_11_panc_or_03 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="panc_stage2".
+  valid stage ids: panc_stage2,panc_stage3
+gpt-canonical.json: gpt_case_gap_2026_06_11_case_urosepsis_05 > gpt_case_gap_2026_06_11_sepsis_cloze_02 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="sepsis_stage2".
+  valid stage ids: sepsis_stage2,sepsis_stage3
+gpt-canonical.json: gpt_case_gap_2026_06_11_case_urosepsis_05 > gpt_case_gap_2026_06_11_sepsis_fib_04 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="sepsis_stage3".
+  valid stage ids: sepsis_stage2,sepsis_stage3
+gpt-canonical.json: gpt_case_gap_2026_06_11_case_urosepsis_05 > gpt_case_gap_2026_06_11_sepsis_or_03 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="sepsis_stage2".
+  valid stage ids: sepsis_stage2,sepsis_stage3
+gpt-canonical.json: gpt_case_hipaa_disclosure_breach_01 > gpt_case_hipaa_disclosure_breach_01_q2 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_hipaa_disclosure_breach_01 > gpt_case_hipaa_disclosure_breach_01_q4 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_infection_control_clustered_care_01 > gpt_case_infection_control_clustered_care_01_q3 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_lateral_incivility_01 > gpt_case_lateral_incivility_01_q3 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_lateral_incivility_01 > gpt_case_lateral_incivility_01_q4 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_lateral_incivility_01 > gpt_case_lateral_incivility_01_q5 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_neutropenic_fever_nadir_01 > gpt_case_neutropenic_fever_nadir_01_q5 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_neutropenic_fever_nadir_01 > gpt_case_neutropenic_fever_nadir_01_q6 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_nine_month_well_child_safety_01 > gpt_case_nine_month_well_child_safety_01_q2 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_nine_month_well_child_safety_01 > gpt_case_nine_month_well_child_safety_01_q4 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_nine_month_well_child_safety_01 > gpt_case_nine_month_well_child_safety_01_q6 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_opioid_recovery_relapse_risk_01 > gpt_case_opioid_recovery_relapse_risk_01_q2 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_opioid_recovery_relapse_risk_01 > gpt_case_opioid_recovery_relapse_risk_01_q3 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_opioid_recovery_relapse_risk_01 > gpt_case_opioid_recovery_relapse_risk_01_q4 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_opioid_recovery_relapse_risk_01 > gpt_case_opioid_recovery_relapse_risk_01_q5 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_premium_next_case_caregiver_adaptation_dementia_03 > gpt_case_premium_next_case_caregiver_adaptation_dementia_03_cloze_risk [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="support_plan".
+  valid stage ids: support_plan
+gpt-canonical.json: gpt_case_premium_next_case_caregiver_adaptation_dementia_03 > gpt_case_premium_next_case_caregiver_adaptation_dementia_03_fib_respite [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="support_plan".
+  valid stage ids: support_plan
+gpt-canonical.json: gpt_case_premium_next_case_caregiver_adaptation_dementia_03 > gpt_case_premium_next_case_caregiver_adaptation_dementia_03_or_plan [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="support_plan".
+  valid stage ids: support_plan
+gpt-canonical.json: gpt_case_premium_next_case_health_literacy_diabetes_01 > gpt_case_premium_next_case_health_literacy_diabetes_01_fib_activity [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="planning".
+  valid stage ids: planning
+gpt-canonical.json: gpt_case_premium_next_case_health_literacy_diabetes_01 > gpt_case_premium_next_case_health_literacy_diabetes_01_or_teachback [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="planning".
+  valid stage ids: planning
+gpt-canonical.json: gpt_case_premium_next_case_health_literacy_diabetes_01 > gpt_case_premium_next_case_health_literacy_diabetes_01_sata_referrals [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="planning".
+  valid stage ids: planning
+gpt-canonical.json: gpt_case_premium_next_case_ipv_safety_planning_06 > gpt_case_premium_next_case_ipv_safety_planning_06_cloze_privacy [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="resource_planning".
+  valid stage ids: resource_planning
+gpt-canonical.json: gpt_case_premium_next_case_ipv_safety_planning_06 > gpt_case_premium_next_case_ipv_safety_planning_06_fib_gobag [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="resource_planning".
+  valid stage ids: resource_planning
+gpt-canonical.json: gpt_case_premium_next_case_ipv_safety_planning_06 > gpt_case_premium_next_case_ipv_safety_planning_06_or_actions [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="resource_planning".
+  valid stage ids: resource_planning
+gpt-canonical.json: gpt_case_premium_next_case_occupational_exposure_vaccine_04 > gpt_case_premium_next_case_occupational_exposure_vaccine_04_fib_supplies [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="qi_review".
+  valid stage ids: qi_review
+gpt-canonical.json: gpt_case_premium_next_case_occupational_exposure_vaccine_04 > gpt_case_premium_next_case_occupational_exposure_vaccine_04_matrix_practices [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="qi_review".
+  valid stage ids: qi_review
+gpt-canonical.json: gpt_case_premium_next_case_occupational_exposure_vaccine_04 > gpt_case_premium_next_case_occupational_exposure_vaccine_04_sata_qi [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="qi_review".
+  valid stage ids: qi_review
+gpt-canonical.json: gpt_case_premium_next_case_preventive_screening_vaccine_05 > gpt_case_premium_next_case_preventive_screening_vaccine_05_fib_activity [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="shared_planning".
+  valid stage ids: shared_planning
+gpt-canonical.json: gpt_case_premium_next_case_preventive_screening_vaccine_05 > gpt_case_premium_next_case_preventive_screening_vaccine_05_or_teaching [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="shared_planning".
+  valid stage ids: shared_planning
+gpt-canonical.json: gpt_case_premium_next_case_preventive_screening_vaccine_05 > gpt_case_premium_next_case_preventive_screening_vaccine_05_sata_plan [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="shared_planning".
+  valid stage ids: shared_planning
+gpt-canonical.json: gpt_case_premium_next_case_rehab_pressure_bowel_02 > gpt_case_premium_next_case_rehab_pressure_bowel_02_matrix_delegation [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="discharge_planning".
+  valid stage ids: discharge_planning
+gpt-canonical.json: gpt_case_pressure_injury_prevention_mobility_01 > gpt_case_pressure_injury_prevention_mobility_01_q3 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_pressure_injury_prevention_mobility_01 > gpt_case_pressure_injury_prevention_mobility_01_q4 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_pressure_injury_prevention_mobility_01 > gpt_case_pressure_injury_prevention_mobility_01_q5 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_refeeding_syndrome_tpn_01 > gpt_case_refeeding_syndrome_tpn_01_q2 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_refeeding_syndrome_tpn_01 > gpt_case_refeeding_syndrome_tpn_01_q3 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_refeeding_syndrome_tpn_01 > gpt_case_refeeding_syndrome_tpn_01_q4 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_refeeding_syndrome_tpn_01 > gpt_case_refeeding_syndrome_tpn_01_q5 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+gpt-canonical.json: gpt_case_taco_vs_trali_01 > gpt_case_taco_vs_trali_01_q2 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3,stage_4
+gpt-canonical.json: gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01 > gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q3 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1_pre_dose,stage_2_after_dose,stage_3_stabilized
+gpt-canonical.json: gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03 > gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03_q1 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1_triage,stage_2_teaching,stage_3_home
+gpt-canonical.json: gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04 > gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q2 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1_observation,stage_2_teachback,stage_3_followup
+gpt-canonical.json: gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01 > gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1_home,stage_2_teaching,stage_3_equipment
+gpt-canonical.json: gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02 > gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1_found,stage_2_assessment,stage_3_review
+hard-cases-canonical.json: case_ami_01 > case_ami_01_q2 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1
+hard-cases-canonical.json: cs_stemi_vfib_04 > cs_stemi_vfib_04_part_2 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1415
+hard-cases-canonical.json: cs_thyroid_storm_main > cs_thyroid_storm_q2 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_0830,stage_1200
+hard-cases-canonical.json: gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01 > gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q4 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage1,stage2,stage3
+hard-cases-canonical.json: gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01 > gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q5 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage1,stage2,stage3
+hard-cases-canonical.json: gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01 > gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q6 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage1,stage2,stage3
+hard-cases-canonical.json: gpt_case_gallstone_pancreatitis_01 > gpt_case_gallstone_pancreatitis_01_q1 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage_1".
+  valid stage ids: stage_1,stage_2,stage_3
+hard-cases-canonical.json: gpt_case_gallstone_pancreatitis_01 > gpt_case_gallstone_pancreatitis_01_q2 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage_1".
+  valid stage ids: stage_1,stage_2,stage_3
+hard-cases-canonical.json: gpt_case_gallstone_pancreatitis_01 > gpt_case_gallstone_pancreatitis_01_q3 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage_2".
+  valid stage ids: stage_1,stage_2,stage_3
+hard-cases-canonical.json: gpt_case_gallstone_pancreatitis_01 > gpt_case_gallstone_pancreatitis_01_q4 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage_2".
+  valid stage ids: stage_1,stage_2,stage_3
+hard-cases-canonical.json: gpt_case_gallstone_pancreatitis_01 > gpt_case_gallstone_pancreatitis_01_q5 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage_3".
+  valid stage ids: stage_1,stage_2,stage_3
+hard-cases-canonical.json: gpt_case_gallstone_pancreatitis_01 > gpt_case_gallstone_pancreatitis_01_q6 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage_3".
+  valid stage ids: stage_1,stage_2,stage_3
+hard-cases-canonical.json: gpt_case_major_burn_inhalation_fluid_creep_01 > gpt_case_major_burn_inhalation_fluid_creep_01_q1 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage1".
+  valid stage ids: stage1,stage2,stage3
+hard-cases-canonical.json: gpt_case_major_burn_inhalation_fluid_creep_01 > gpt_case_major_burn_inhalation_fluid_creep_01_q2 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage1".
+  valid stage ids: stage1,stage2,stage3
+hard-cases-canonical.json: gpt_case_major_burn_inhalation_fluid_creep_01 > gpt_case_major_burn_inhalation_fluid_creep_01_q3 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage1".
+  valid stage ids: stage1,stage2,stage3
+hard-cases-canonical.json: gpt_case_major_burn_inhalation_fluid_creep_01 > gpt_case_major_burn_inhalation_fluid_creep_01_q4 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage2".
+  valid stage ids: stage1,stage2,stage3
+hard-cases-canonical.json: gpt_case_major_burn_inhalation_fluid_creep_01 > gpt_case_major_burn_inhalation_fluid_creep_01_q5 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage3".
+  valid stage ids: stage1,stage2,stage3
+hard-cases-canonical.json: gpt_case_pe_2026_06_16_case_pulmonary_embolism_01 > gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_q1 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage1".
+  valid stage ids: stage1,stage2,stage3
+hard-cases-canonical.json: gpt_case_pe_2026_06_16_case_pulmonary_embolism_01 > gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_q2 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage2".
+  valid stage ids: stage1,stage2,stage3
+hard-cases-canonical.json: gpt_case_pe_2026_06_16_case_pulmonary_embolism_01 > gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_q3 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage2".
+  valid stage ids: stage1,stage2,stage3
+hard-cases-canonical.json: gpt_case_pe_2026_06_16_case_pulmonary_embolism_01 > gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_q4 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage2".
+  valid stage ids: stage1,stage2,stage3
+hard-cases-canonical.json: gpt_case_pe_2026_06_16_case_pulmonary_embolism_01 > gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_q5 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage2".
+  valid stage ids: stage1,stage2,stage3
+hard-cases-canonical.json: gpt_case_pe_2026_06_16_case_pulmonary_embolism_01 > gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_q6 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage3".
+  valid stage ids: stage1,stage2,stage3
+hard-cases-canonical.json: gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01 > gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_q1 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage1".
+  valid stage ids: stage1,stage2,stage3
+hard-cases-canonical.json: gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01 > gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_q2 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage1".
+  valid stage ids: stage1,stage2,stage3
+hard-cases-canonical.json: gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01 > gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_q3 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage1".
+  valid stage ids: stage1,stage2,stage3
+hard-cases-canonical.json: gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01 > gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_q4 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage1".
+  valid stage ids: stage1,stage2,stage3
+hard-cases-canonical.json: gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01 > gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_q5 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage2".
+  valid stage ids: stage1,stage2,stage3
+hard-cases-canonical.json: gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01 > gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_q6 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage3".
+  valid stage ids: stage1,stage2,stage3
+hard-cases-canonical.json: gpt_pph_2026_06_16_case_01 > gpt_pph_2026_06_16_case_01_q1 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage_1".
+  valid stage ids: stage_1,stage_2,stage_3
+hard-cases-canonical.json: gpt_pph_2026_06_16_case_01 > gpt_pph_2026_06_16_case_01_q2 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage_1".
+  valid stage ids: stage_1,stage_2,stage_3
+hard-cases-canonical.json: gpt_pph_2026_06_16_case_01 > gpt_pph_2026_06_16_case_01_q3 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage_2".
+  valid stage ids: stage_1,stage_2,stage_3
+hard-cases-canonical.json: gpt_pph_2026_06_16_case_01 > gpt_pph_2026_06_16_case_01_q4 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage_2".
+  valid stage ids: stage_1,stage_2,stage_3
+hard-cases-canonical.json: gpt_pph_2026_06_16_case_01 > gpt_pph_2026_06_16_case_01_q5 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage_3".
+  valid stage ids: stage_1,stage_2,stage_3
+hard-cases-canonical.json: gpt_pph_2026_06_16_case_01 > gpt_pph_2026_06_16_case_01_q6 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage_3".
+  valid stage ids: stage_1,stage_2,stage_3
+hard-cases-canonical.json: gpt_r1_regen_case_celiac_01 > gpt_r1_regen_case_celiac_01_q1 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="initial".
+  valid stage ids: initial,stage1,stage2,stage3
+hard-cases-canonical.json: gpt_r1_regen_case_celiac_01 > gpt_r1_regen_case_celiac_01_q2 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage1".
+  valid stage ids: initial,stage1,stage2,stage3
+hard-cases-canonical.json: gpt_r1_regen_case_celiac_01 > gpt_r1_regen_case_celiac_01_q3 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage1".
+  valid stage ids: initial,stage1,stage2,stage3
+hard-cases-canonical.json: gpt_r1_regen_case_celiac_01 > gpt_r1_regen_case_celiac_01_q4 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage2".
+  valid stage ids: initial,stage1,stage2,stage3
+hard-cases-canonical.json: gpt_r1_regen_case_celiac_01 > gpt_r1_regen_case_celiac_01_q5 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage2".
+  valid stage ids: initial,stage1,stage2,stage3
+hard-cases-canonical.json: gpt_r1_regen_case_celiac_01 > gpt_r1_regen_case_celiac_01_q6 [missingRequiredAnchor]
+  answerableAfterStageId is absent (required by the producer contract); this part currently resolves only via legacy stageId="stage3".
+  valid stage ids: initial,stage1,stage2,stage3
+hard-cases-canonical.json: gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01 > gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_q2 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3,stage_4
+hard-cases-canonical.json: gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01 > gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_q4 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3,stage_4
+hard-cases-canonical.json: opus_icit_case_01 > opus_icit_case_01_q2 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: opus_icit_stage_1,opus_icit_stage_2,opus_icit_stage_3
+hard-cases-canonical.json: opus_icit_case_01 > opus_icit_case_01_q3 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: opus_icit_stage_1,opus_icit_stage_2,opus_icit_stage_3
+hard-cases-canonical.json: opus_scc_case_01 > opus_scc_case_01_q2 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+hard-cases-canonical.json: opus_tpn_case_mucositis_01 > opus_tpn_case_mucositis_01_q1 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+hard-cases-canonical.json: opus_tpn_case_mucositis_01 > opus_tpn_case_mucositis_01_q3 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+hard-cases-canonical.json: opus_tpn_case_mucositis_01 > opus_tpn_case_mucositis_01_q6 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+hard-cases-canonical.json: opus12_case_inpatient_suicide_risk_01 > opus12_case_inpatient_suicide_risk_01_q3 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage1,stage2,stage3
+hard-cases-canonical.json: opus3_iv_potassium_safety_case_01 > opus3_iv_potassium_safety_case_01_q6 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage1,stage2,stage3
+hard-cases-canonical.json: opus4_case_postop_sbar_01 > opus4_case_postop_sbar_01_q3 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1_0900_1100,stage_2_1115_1200,stage_3_1315_1500
+hard-cases-canonical.json: opus5_case_consent_interpreter_01 > opus5_case_consent_interpreter_01_q1 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1_consent_concern,stage_2_hold_interpreter,stage_3_valid_consent
+Related IDs: opus_case_lithium_toxicity_01, opus1_case_tha_discharge_lep_01, opus2_case_code_status_01, opus24_case_elder_neglect_med_mismanagement_01, opus25_case_tb_airborne_treatment_monitoring_01, gemini_gap_case_cirrhosis_homecare_04, gemini_gap_case_lead_poisoning_01, gemini_gap_case_palliative_care_03, gemini_gap_case_pyloric_stenosis_01, opus_agvd_case_agvhd_01, gpt_2026_06_16_case_postpartum_preeclampsia_severe_01, gpt_case_caregiver_role_strain_dementia_01, gpt_case_clozapine_toxicity_01, gpt_case_gap_2026_06_11_case_adhf_01, gpt_case_gap_2026_06_11_case_adrenal_crisis_04, gpt_case_gap_2026_06_11_case_aki_02, gpt_case_gap_2026_06_11_case_anticoag_bleeding_06, gpt_case_gap_2026_06_11_case_pancreatitis_03, gpt_case_gap_2026_06_11_case_urosepsis_05, gpt_case_hipaa_disclosure_breach_01, gpt_case_infection_control_clustered_care_01, gpt_case_lateral_incivility_01, gpt_case_neutropenic_fever_nadir_01, gpt_case_nine_month_well_child_safety_01, gpt_case_opioid_recovery_relapse_risk_01, gpt_case_premium_next_case_caregiver_adaptation_dementia_03, gpt_case_premium_next_case_health_literacy_diabetes_01, gpt_case_premium_next_case_ipv_safety_planning_06, gpt_case_premium_next_case_occupational_exposure_vaccine_04, gpt_case_premium_next_case_preventive_screening_vaccine_05, gpt_case_premium_next_case_rehab_pressure_bowel_02, gpt_case_pressure_injury_prevention_mobility_01, gpt_case_refeeding_syndrome_tpn_01, gpt_case_taco_vs_trali_01, gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01, gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03, gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04, gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01, gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02, case_ami_01, cs_stemi_vfib_04, cs_thyroid_storm_main, gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01, gpt_case_gallstone_pancreatitis_01, gpt_case_major_burn_inhalation_fluid_creep_01, gpt_case_pe_2026_06_16_case_pulmonary_embolism_01, gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01, gpt_pph_2026_06_16_case_01, gpt_r1_regen_case_celiac_01, gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01, opus_icit_case_01, opus_scc_case_01, opus_tpn_case_mucositis_01, opus12_case_inpatient_suicide_risk_01, opus3_iv_potassium_safety_case_01, opus4_case_postop_sbar_01, opus5_case_consent_interpreter_01

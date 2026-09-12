@@ -1,0 +1,58 @@
+{
+  "terminal": "CAMPAIGN17_LEGACY_PRIMARY_SURVEY_READY",
+  "phaseAFrozenSha256": "cae51fbd56aafcae1598134e59602ef228adb44c2dc0a464e00cd6c78329dcd6",
+  "liveStrictCounts": {
+    "revealsAllStages": 66,
+    "missingRequiredAnchor": 75
+  },
+  "legacyRows": 75,
+  "legacyParents": 19,
+  "deterministicCandidates": 75,
+  "semanticHolds": 0,
+  "affectedBanks": [
+    "banks/claude-canonical.json",
+    "banks/gpt-canonical.json",
+    "banks/hard-cases-canonical.json"
+  ],
+  "schemaVersions": {
+    "banks/claude-canonical.json": "2.1",
+    "banks/gpt-canonical.json": "2.1",
+    "banks/hard-cases-canonical.json": "2.1"
+  },
+  "proposedStrictCounts": {
+    "revealsAllStages": 66
+  },
+  "defaultFindingPayloadUnchanged": true,
+  "allCurrentPartVisibleStagePayloadsUnchanged": true,
+  "allNonAddedValuesUnchanged": true,
+  "noSchemaVersionChange": true,
+  "legacyValuesRetained": true,
+  "negativeControls": [
+    "present primary null",
+    "present primary \"stale-primary\"",
+    "present primary {\"kind\":\"baseline\"}",
+    "unresolved legacy",
+    "missing legacy",
+    "duplicate stage topology",
+    "dropped plan",
+    "changed proposed boundary",
+    "reordered live topology",
+    "learner content mutation",
+    "legacy deletion",
+    "part deletion",
+    "different resolving primary changes visible prefix",
+    "validator rejects malformed primary object"
+  ],
+  "independentReviewStillRequired": true,
+  "canonicalMutation": false,
+  "clinicalOrBoundaryCorrectnessCertified": false,
+  "codeHashes": {
+    "src/types.ts": "73638dc4fe16fffb6be414da72f36f84abfbb63df5d67390c5875916e60654b9",
+    "src/schema.ts": "0b88e83a048485e9732f175e2b47b4c46b1f79d449d523e49f9ff3ebfa692fad",
+    "src/caseVisibilityBoundary.ts": "b83c80c29949adba3e301cefa0e5785e1855567cf814ba5447c976100ecdcc7d",
+    "src/examLayout.ts": "6d8ccbd424351e10a5fc75266128539275efbdce5810f472ac1a1d79afd042e7",
+    "src/bankImport.ts": "14f2c7dbe592b387378fb22fa2bd4d67eaad4271deddfd8a09708f86ab8125fb",
+    "src/allowedKeys.ts": "5e60a0cbf5c6eba4f142ad858f778916e0db9a425dee4edde15a6a26d1c37dd8",
+    "scripts/audit/audit-stage-refs.ts": "9a2ce0ce9121046679bcd626b002a2c126ace707cbb5b09d33ea39da9420715b"
+  }
+}
