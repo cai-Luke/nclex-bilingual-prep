@@ -1,0 +1,63 @@
+{
+  "rawFile": "phase-c/raw/gpt-2026-09-12-0609-t1.json",
+  "producer": "Codex / GPT-6",
+  "status": "RAW_UNREVIEWED",
+  "items": [
+    {
+      "id": "gpt_2026_09_12_0609_t1_01",
+      "sourceIds": [
+        "arithmetic"
+      ],
+      "proposition": "Apply the explicit revised infusion order;675mL/4.5h=150mL/h.",
+      "fictionalInputs": "Bag amount, delivered amount and revised prescription are authored scenario inputs; no clinical dose recommendation.",
+      "formatDefense": "Two finite numeric outputs; no sequence or differential is forced."
+    },
+    {
+      "id": "gpt_2026_09_12_0609_t1_02",
+      "sourceIds": [
+        "ect-recovery",
+        "ect-side-effects"
+      ],
+      "proposition": "Identify two respiratory safety triggers during ECT recovery.",
+      "fictionalInputs": "The92% reassessment trigger is an explicit authored local protocol, not a universal ECT threshold.",
+      "formatDefense": "Two of five selectable findings; transient confusion is a clinically plausible near-miss."
+    },
+    {
+      "id": "gpt_2026_09_12_0609_t1_03",
+      "sourceIds": [
+        "cdc-chc"
+      ],
+      "proposition": "Apply stated estrogen-method eligibility exclusions.",
+      "formatDefense": "Two specific histories among five; family cancer history and superficial venous disease are real near-misses."
+    },
+    {
+      "id": "gpt_2026_09_12_0609_t1_04",
+      "sourceIds": [
+        "abg-ranges"
+      ],
+      "proposition": "Respiratory alkalosis; do not infer anxiety as sole cause.",
+      "rangeOwner": "src/visuals/kinds/lab_trend/defs.ts:ph,paco2,hco3_abg; audit/lab-reference-range-verification-2026-07-19.md:S20",
+      "physiologyCheck": "Henderson–Hasselbalch approximation6.1+log10(22/(0.03*30))≈7.49."
+    },
+    {
+      "id": "gpt_2026_09_12_0609_t1_05",
+      "sourceIds": [
+        "dka-consensus"
+      ],
+      "proposition": "Differentiate DKA using confirming labs; fluids+insulin; track blood ketones and pH.",
+      "differentialDefense": "Diabetes/dehydration overlaps DKA and HHS; five-day poor intake makes starvation ketosis plausible before laboratory synthesis. Marked hyperglycemia/ketonemia/acidosis resolve the differential.",
+      "parameterDefense": "INR/TSH are orthogonal to ketoacidosis resolution; potassium remains monitored for safety but is not offered as a wrong resolution parameter.",
+      "reviewAttention": "Independent reviewer must affirm all three conditions compete and the action distractors meet the semantic floor; numeric values are fictional, protocol thresholds are sourced."
+    },
+    {
+      "id": "gpt_2026_09_12_0609_t1_06",
+      "sourceIds": [
+        "acog-fhr",
+        "nice-fhr"
+      ],
+      "proposition": "Apply a conjunctive excessive-contractions/recurrent-late-decelerations trigger.",
+      "protocolBoundary": "Explicit US-style >5/10min averaged30min definition; do not substitute NICE’s differently worded frequency definition.",
+      "formatDefense": "Two of five findings; moderate variability/accelerations do not erase the triggered action. No tracing or visual is fabricated."
+    }
+  ]
+}

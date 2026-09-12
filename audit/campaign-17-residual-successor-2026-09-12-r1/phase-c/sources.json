@@ -1,0 +1,182 @@
+[
+  {
+    "id": "arithmetic",
+    "title": "Explicit authored orders and dimensional arithmetic",
+    "url": null,
+    "locator": "t1_01; t3_02",
+    "accessed": "2026-09-12",
+    "support": "675/4.5=150mL/hr; 500×20/200=50gtt/min.",
+    "limitations": "Scenario amounts and orders are fictional inputs, not treatment recommendations. No external conversion needed for minutes/hours."
+  },
+  {
+    "id": "ect-recovery",
+    "title": "RDaSH ECT clinical guidelines policy",
+    "url": "https://www.rdash.nhs.uk/policies/electroconvulsive-therapy-clinical-guidelines-policy/",
+    "locator": "Recovery monitoring; physical observations; memory and cognition during treatment",
+    "accessed": "2026-09-12",
+    "support": "Supports post-anesthetic monitoring and continued cognition assessment.",
+    "limitations": "The t1_02 numeric reassessment trigger is an explicit fictional unit rule, not an asserted universal ECT cutoff. Independent reviewer must assess its suitability."
+  },
+  {
+    "id": "ect-side-effects",
+    "title": "Oxford Health NHS ECT side effects",
+    "url": "https://oxfordhealth.nhs.uk/ips/ect/what-are-the-side-effects-of-ect/",
+    "locator": "Short-term effects; memory effects",
+    "accessed": "2026-09-12",
+    "support": "Mild headache, nausea and confusion can occur; some memory gaps persist. No incidence or guaranteed recovery time is imported.",
+    "limitations": "Supports the indicated clinical facts, not independent certification of the raw item."
+  },
+  {
+    "id": "cdc-chc",
+    "title": "CDC U.S. MEC combined hormonal contraceptives",
+    "url": "https://www.cdc.gov/contraception/hcp/usmec/combined-hormonal-contraceptives.html",
+    "locator": "DVT/PE without anticoagulation; migraine with aura; superficial venous disorders; breast disease",
+    "accessed": "2026-09-12",
+    "support": "Idiopathic prior DVT without current anticoagulation and migraine with aura are category 4; family breast-cancer history and uncomplicated varicose veins are not those exclusions.",
+    "limitations": "Supports the indicated clinical facts, not independent certification of the raw item."
+  },
+  {
+    "id": "abg-ranges",
+    "title": "MedlinePlus arterial blood gas test",
+    "url": "https://medlineplus.gov/lab-tests/arterial-blood-gas-abg-test/",
+    "locator": "Normal reference ranges; pH/PaCO2/HCO3 interpretation",
+    "accessed": "2026-09-12",
+    "support": "pH7.35–7.45, PaCO2 35–45mmHg and ABG HCO3 22–26mEq/L agree with the repository reference-range lane.",
+    "limitations": "Range owner cross-check: src/visuals/kinds/lab_trend/defs.ts ph/paco2/hco3_abg; audit/lab-reference-range-verification-2026-07-19.md S20. Arterial bicarbonate interval is distinct from chemistry bicarbonate."
+  },
+  {
+    "id": "dka-consensus",
+    "title": "ADA/EASD/JBDS/AACE/DTS 2024 hyperglycaemic crises consensus",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11343900/",
+    "locator": "Diagnostic criteria; fluids; insulin/potassium; bicarbonate; resolution; special populations",
+    "accessed": "2026-09-12",
+    "support": "DKA requires diabetes/hyperglycemia with ketosis and acidosis; euglycemic DKA has glucose<200mg/dL. Fluids and insulin with potassium safeguards treat DKA. Follow blood ketones and acidosis for resolution.",
+    "limitations": "Same consensus co-publication: https://pmc.ncbi.nlm.nih.gov/articles/PMC11272983/ . Direct PMC open intermittently returned a browser challenge; primary-source indexed sections were retrievable and checked. Do not count the two publications as independent evidence."
+  },
+  {
+    "id": "acog-fhr",
+    "title": "ACOG Countdown to Intern Year week4: fetal heart tracings",
+    "url": "https://www.acog.org/community/districts-and-sections/district-iv/whats-new/countdown-to-intern-year-week-4-fetal-heart-tracings",
+    "locator": "Definitions of baseline, variability, late decelerations and tachysystole",
+    "accessed": "2026-09-12",
+    "support": "US-style excessive frequency is >5 contractions/10min averaged over30min; delayed slowing relative to contraction describes late decelerations.",
+    "limitations": "Supports the indicated clinical facts, not independent certification of the raw item."
+  },
+  {
+    "id": "nice-fhr",
+    "title": "NICE NG229 fetal monitoring recommendations",
+    "url": "https://www.nice.org.uk/guidance/NG229/chapter/recommendations",
+    "locator": "Conservative measures; excessive contraction frequency",
+    "accessed": "2026-09-12",
+    "support": "Supports reducing/stopping oxytocin as part of response to contraction/fetal-heart concerns.",
+    "limitations": "Used for action support only; do not substitute NICE’s differently worded frequency definition for the explicit US-style rule in the question."
+  },
+  {
+    "id": "cpsc-battery",
+    "title": "US CPSC button cell and coin batteries",
+    "url": "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Button-Cell-Coin-Battery-Information-Center",
+    "locator": "Safety tips: compartments, damaged covers, storage",
+    "accessed": "2026-09-12",
+    "support": "Accessible batteries and damaged battery compartments require protection/removal from children’s reach.",
+    "limitations": "Supports the indicated clinical facts, not independent certification of the raw item."
+  },
+  {
+    "id": "aap-battery",
+    "title": "American Academy of Pediatrics battery safety",
+    "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/What-Parents-Need-to-Know-about-Button-and-Lithium-Coin-Batteries.aspx",
+    "locator": "Secure storage; used batteries",
+    "accessed": "2026-09-12",
+    "support": "Used/depleted batteries can remain dangerous; secure compartments and inaccessible storage matter.",
+    "limitations": "Supports the indicated clinical facts, not independent certification of the raw item."
+  },
+  {
+    "id": "palliative-breathlessness",
+    "title": "Scottish Palliative Care Guidelines: breathlessness",
+    "url": "https://www.rightdecisions.scot.nhs.uk/scottish-palliative-care-guidelines/symptom-management/breathlessness/",
+    "locator": "Non-drug measures; opioid therapeutic trial",
+    "accessed": "2026-09-12",
+    "support": "Supports fan/positioning and a monitored opioid trial with response/side-effect assessment.",
+    "limitations": "No claim that low-dose opioids cannot cause respiratory depression; no dose imported."
+  },
+  {
+    "id": "morphine-warning",
+    "title": "DailyMed morphine sulfate oral solution label",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=ca359246-4674-4b32-b8b2-673d32b7112f",
+    "locator": "Boxed warning; respiratory depression and sedation",
+    "accessed": "2026-09-12",
+    "support": "Opioid initiation and dose increases require attention to respiratory depression and sedation.",
+    "limitations": "Label supports adverse-effect monitoring, not an on-label claim for breathlessness."
+  },
+  {
+    "id": "ssc-2026",
+    "title": "Surviving Sepsis Campaign 2026 adult guidelines",
+    "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-management-of-sepsis-and-septic-shock-2026",
+    "locator": "Perfusion assessment; lactate; capillary refill; clinical diagnosis",
+    "accessed": "2026-09-12",
+    "support": "Use multiple perfusion measures; capillary refill is an adjunct, and sepsis is not established/excluded by a single biomarker.",
+    "limitations": "Authored trend values are scenario measurements, not new universal thresholds."
+  },
+  {
+    "id": "lab-ranges",
+    "title": "Repository source-verified adult lab reference lane",
+    "url": null,
+    "locator": "src/visuals/kinds/lab_trend/defs.ts; audit/lab-reference-range-verification-2026-07-19.md",
+    "accessed": "2026-09-12",
+    "support": "Cross-checked phosphate2.5–4.5mg/dL, K3.5–5.0mEq/L, Mg1.7–2.3mg/dL and lactate0.5–2.0mmol/L.",
+    "limitations": "These explicit intervals do not imply every laboratory uses identical intervals."
+  },
+  {
+    "id": "aspen-refeeding",
+    "title": "ASPEN consensus recommendations for refeeding syndrome",
+    "url": "https://aspenjournals.onlinelibrary.wiley.com/doi/10.1002/ncp.10474",
+    "locator": "Definition; Table6 adult treatment and monitoring",
+    "accessed": "2026-09-12",
+    "support": "Rapid phosphate/potassium/magnesium decline after caloric reintroduction supports refeeding. Replace deficits; individualize caloric reduction/cessation according to severity.",
+    "limitations": "The question uses an explicit nutrition-team prescription; the producer does not assert an autonomous or universally appropriate50% PN adjustment."
+  },
+  {
+    "id": "nice-nutrition",
+    "title": "NICE CG32 nutrition support",
+    "url": "https://www.nice.org.uk/guidance/cg32/chapter/recommendations",
+    "locator": "1.4.6–1.4.8; Table2 monitoring",
+    "accessed": "2026-09-12",
+    "support": "Prolonged low intake increases refeeding risk; skilled nutrition management and electrolyte monitoring/repletion are needed.",
+    "limitations": "Supports the indicated clinical facts, not independent certification of the raw item."
+  },
+  {
+    "id": "nhlbi-apnea",
+    "title": "NHLBI sleep apnea symptoms",
+    "url": "https://www.nhlbi.nih.gov/health/sleep-apnea/symptoms",
+    "locator": "Symptoms and diagnosis",
+    "accessed": "2026-09-12",
+    "support": "Breathing pauses/gasping and daytime sleepiness support evaluation; symptoms alone do not substitute for diagnostic testing.",
+    "limitations": "Supports the indicated clinical facts, not independent certification of the raw item."
+  },
+  {
+    "id": "alcohol-withdrawal",
+    "title": "MedlinePlus alcohol withdrawal",
+    "url": "https://www.medlineplus.gov/ency/article/000764.htm",
+    "locator": "Symptoms; severe withdrawal; emergency assessment",
+    "accessed": "2026-09-12",
+    "support": "New severe confusion, hallucinations or seizures can indicate severe withdrawal and require urgent assessment.",
+    "limitations": "Supports the indicated clinical facts, not independent certification of the raw item."
+  },
+  {
+    "id": "cdc-hand-hygiene",
+    "title": "CDC clinical safety: hand hygiene for healthcare workers",
+    "url": "https://www.cdc.gov/clean-hands/hcp/clinical-safety/index.html",
+    "locator": "Indications; after glove removal",
+    "accessed": "2026-09-12",
+    "support": "Hand hygiene is required after glove/PPE removal; gloves do not replace it.",
+    "limitations": "Supports the indicated clinical facts, not independent certification of the raw item."
+  },
+  {
+    "id": "cdc-lam",
+    "title": "CDC U.S. MEC lactational amenorrhea method",
+    "url": "https://www.cdc.gov/contraception/hcp/usmec/lactational-amenorrhea-method.html",
+    "locator": "All three eligibility conditions",
+    "accessed": "2026-09-12",
+    "support": "All required: amenorrhea, <6months postpartum and fully/nearly fully breastfeeding without intervals beyond4h by day/6h at night.",
+    "limitations": "Supports the indicated clinical facts, not independent certification of the raw item."
+  }
+]

@@ -1,0 +1,667 @@
+{
+  "meta": {
+    "schemaVersion": "2.0",
+    "exam": "NCLEX-RN",
+    "topic": "Campaign 17 priority-topic expansion",
+    "category": "mixed",
+    "difficulty": "mixed",
+    "count": 6
+  },
+  "questions": [
+    {
+      "id": "gpt_2026_09_12_0609_t1_01",
+      "itemType": "fill_in_blank",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "IV Fluid Calculations",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A 1,000-mL bag of 0.9% sodium chloride has delivered 325 mL. After reassessing the client, the prescriber orders the remaining volume to infuse over the next 4 hours 30 minutes. Enter the remaining volume and the pump rate for this new order. Use whole numbers.",
+        "zh": "一袋 1,000 mL 的 0.9% 氯化钠溶液已输入 325 mL。重新评估患者后，处方者开具新医嘱：将剩余液体在接下来的 4 小时 30 分钟内输完。填写剩余液量和执行新医嘱所需的输液泵速度，均用整数。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "Remaining volume is 1,000 − 325 = 675 mL. The new interval is 4.5 hours, so 675 ÷ 4.5 = 150 mL/hr. The calculation follows a newly prescribed interval; it is not an automatic catch-up adjustment.",
+          "zh": "剩余液量为 1,000 − 325 = 675 mL。新的输注时长为 4.5 小时，因此 675 ÷ 4.5 = 150 mL/hr。这是依据新医嘱计算速度，并非自行加速以补回延误。"
+        },
+        "byChoice": [
+          {
+            "refId": "volume",
+            "en": "The original bag volume includes the 325 mL already delivered; subtract it once.",
+            "zh": "原袋液量包含已输入的 325 mL，应将其减去一次。"
+          },
+          {
+            "refId": "rate",
+            "en": "Thirty minutes equals half an hour, not 0.30 hour; divide 675 by 4.5.",
+            "zh": "30 分钟等于半小时，不是 0.30 小时；用 675 除以 4.5。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Subtract the amount already infused, then convert the entire remaining interval to hours.",
+        "zh": "先减去已输入的液量，再把新的输注时长统一换算为小时。"
+      },
+      "glossary": [
+        {
+          "termEn": "remaining volume",
+          "termZh": "剩余液量",
+          "defZh": "尚未输入患者体内的液体量。"
+        },
+        {
+          "termEn": "infusion rate",
+          "termZh": "输注速度",
+          "defZh": "单位时间内输入的液量。"
+        }
+      ],
+      "blanks": [
+        {
+          "id": "volume",
+          "prompt": {
+            "en": "Remaining mL",
+            "zh": "剩余 mL"
+          },
+          "numeric": {
+            "value": 675,
+            "tolerance": 0,
+            "unit": "mL"
+          }
+        },
+        {
+          "id": "rate",
+          "prompt": {
+            "en": "Pump rate in mL/hr",
+            "zh": "泵速，mL/hr"
+          },
+          "numeric": {
+            "value": 150,
+            "tolerance": 0,
+            "unit": "mL/hr"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_09_12_0609_t1_02",
+      "itemType": "highlight",
+      "category": "Psychosocial Integrity",
+      "topic": "Electroconvulsive Therapy (ECT)",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "An adult is in supervised recovery immediately after ECT under general anesthesia. The recovery protocol calls for immediate anesthesia reassessment for recurrent airway obstruction or oxygen saturation below 92%. Highlight the findings that meet these criteria, rather than expected transient recovery effects.",
+        "zh": "一名成人在全身麻醉下接受电休克治疗（ECT）后，正在有人监护的恢复区观察。恢复区规程要求：若出现反复气道梗阻或血氧饱和度低于 92%，立即请麻醉团队重新评估。标出符合这些标准的表现，而不是预期的短暂恢复期反应。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "Recurrent obstruction and saturation of 88% require prompt airway/oxygenation reassessment. Brief disorientation, mild headache and mild nausea can occur after ECT and anesthesia, but still need observation and symptom care.",
+          "zh": "反复气道梗阻和血氧饱和度 88% 需要立即重新评估气道与氧合。短暂定向障碍、轻度头痛和轻度恶心可见于 ECT 及麻醉后，但仍须观察并给予相应护理。"
+        },
+        "byChoice": [
+          {
+            "refId": "s1",
+            "en": "Asking where the client is while awakening can reflect transient confusion; it does not meet the stated respiratory trigger.",
+            "zh": "苏醒时询问自己在哪里可属于短暂意识混乱，不符合题干规定的呼吸警示标准。"
+          },
+          {
+            "refId": "s2",
+            "en": "Repeated snoring obstruction despite repositioning is an airway problem, not simply normal sleepiness.",
+            "zh": "调整体位后仍反复出现鼾声伴气流受阻提示气道问题，不能仅归为正常困倦。"
+          },
+          {
+            "refId": "s3",
+            "en": "A mild headache can follow ECT and warrants comfort measures without being the specified anesthesia emergency.",
+            "zh": "ECT 后可出现轻度头痛，应采取舒适护理，但这并非所列麻醉急症标准。"
+          },
+          {
+            "refId": "s4",
+            "en": "Saturation of 88% is below the explicit 92% trigger and requires immediate reassessment.",
+            "zh": "血氧饱和度 88% 低于题干明确规定的 92% 警示值，需要立即重新评估。"
+          },
+          {
+            "refId": "s5",
+            "en": "Mild nausea without vomiting can be treated and monitored; it is not either specified breathing criterion.",
+            "zh": "无呕吐的轻度恶心可给予处理并观察，不符合题干列出的两项呼吸标准。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Separate threats to breathing from common short-lived discomforts.",
+        "zh": "区分危及呼吸的表现与常见的短暂不适。"
+      },
+      "glossary": [
+        {
+          "termEn": "airway obstruction",
+          "termZh": "气道梗阻",
+          "defZh": "气流通过气道受到阻碍。"
+        },
+        {
+          "termEn": "disorientation",
+          "termZh": "定向障碍",
+          "defZh": "对时间、地点或人物的辨认暂时受损。"
+        }
+      ],
+      "highlight": {
+        "segments": [
+          {
+            "id": "intro",
+            "en": "Recovery note:",
+            "zh": "恢复区记录："
+          },
+          {
+            "id": "s1",
+            "en": "The client awakens to voice and asks where they are.",
+            "zh": "患者听到呼唤后醒来，询问自己在哪里。",
+            "selectable": true
+          },
+          {
+            "id": "s2",
+            "en": "Snoring with obstructed airflow recurs after repositioning; the nurse is supporting the airway.",
+            "zh": "调整体位后再次出现鼾声伴气流受阻；护士正在维持气道通畅。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "The client rates a headache 2/10.",
+            "zh": "患者自述头痛评分为 2/10。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "Oxygen saturation is 88% with a reliable pulse-oximeter waveform.",
+            "zh": "脉搏血氧仪波形可靠，血氧饱和度为 88%。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "The client reports mild nausea without vomiting.",
+            "zh": "患者诉轻度恶心，无呕吐。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s2",
+          "s4"
+        ]
+      }
+    },
+    {
+      "id": "gpt_2026_09_12_0609_t1_03",
+      "itemType": "highlight",
+      "category": "Health Promotion and Maintenance",
+      "topic": "Reproductive & Endocrine Health",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "A 28-year-old requests a combined estrogen-progestin contraceptive pill. The clinic follows U.S. MEC guidance: migraine with aura and a prior unprovoked deep-vein thrombosis in a person no longer taking anticoagulation make this method an unacceptable health risk. Highlight the history findings that meet those criteria.",
+        "zh": "一名 28 岁女性希望使用雌激素与孕激素复方口服避孕药。诊所遵循美国避孕医学适用标准：有先兆偏头痛，以及既往发生无明确诱因的深静脉血栓且目前未接受抗凝治疗，均使此类避孕方法具有不可接受的健康风险。标出符合这些标准的病史。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "The documented visual aura and prior unprovoked DVT require a different contraceptive plan. A family history of breast cancer, treated menstrual cramps and stable uncomplicated varicose veins do not equal those contraindicating histories.",
+          "zh": "有记录的视觉先兆及既往无明确诱因的深静脉血栓提示需要选择其他避孕方案。乳腺癌家族史、经处理的痛经及稳定且无并发症的静脉曲张，不等同于有先兆偏头痛或深静脉血栓病史。"
+        },
+        "byChoice": [
+          {
+            "refId": "s1",
+            "en": "A mother’s breast cancer is family history, not the client having current breast cancer.",
+            "zh": "母亲患乳腺癌属于家族史，不等于患者本人当前患乳腺癌。"
+          },
+          {
+            "refId": "s2",
+            "en": "A neurologist-documented visual aura meets the migraine-with-aura criterion.",
+            "zh": "神经科医生记录的视觉先兆符合有先兆偏头痛这一标准。"
+          },
+          {
+            "refId": "s3",
+            "en": "Uncomplicated stable varicose veins are distinct from a history of deep venous thrombosis.",
+            "zh": "稳定且无并发症的静脉曲张不同于深静脉血栓病史。"
+          },
+          {
+            "refId": "s4",
+            "en": "The unprovoked deep clot with completed anticoagulation meets the stated high-risk history.",
+            "zh": "既往无明确诱因的深静脉血栓，且已结束抗凝治疗，符合题干所述高风险病史。"
+          },
+          {
+            "refId": "s5",
+            "en": "Menstrual cramps responsive to ibuprofen do not establish either listed contraindication.",
+            "zh": "布洛芬可缓解的痛经并不符合题干列出的禁忌标准。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Distinguish the client’s own vascular/neurologic history from family history or superficial vein changes.",
+        "zh": "区分患者本人的血管及神经系统病史、家族史与浅表静脉改变。"
+      },
+      "glossary": [
+        {
+          "termEn": "migraine with aura",
+          "termZh": "有先兆偏头痛",
+          "defZh": "头痛前后伴特定局灶性神经症状的偏头痛类型。"
+        },
+        {
+          "termEn": "unprovoked DVT",
+          "termZh": "无明确诱因的深静脉血栓",
+          "defZh": "未发现手术、创伤等暂时诱因的深静脉血栓。"
+        }
+      ],
+      "highlight": {
+        "segments": [
+          {
+            "id": "intro",
+            "en": "Contraceptive history:",
+            "zh": "避孕咨询病史："
+          },
+          {
+            "id": "s2",
+            "en": "My neurologist diagnosed migraine with visual aura: zigzag lights precede the headache.",
+            "zh": "神经科医生诊断我有视觉先兆偏头痛：头痛前会看到锯齿状闪光。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "I had an unprovoked DVT two years ago and completed anticoagulation; I take no anticoagulant now.",
+            "zh": "两年前我曾发生无明确诱因的深静脉血栓，已完成抗凝疗程，目前不服抗凝药。",
+            "selectable": true
+          },
+          {
+            "id": "s1",
+            "en": "My mother was treated for breast cancer at age 60; I have never had breast cancer.",
+            "zh": "我母亲 60 岁时接受过乳腺癌治疗，我本人从未患乳腺癌。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "I have longstanding painless varicose veins with no superficial clot or inflammation.",
+            "zh": "我长期有无痛性静脉曲张，没有浅表血栓或炎症。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "My regular menstrual cramps improve with ibuprofen.",
+            "zh": "我平时的痛经服用布洛芬后可缓解。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s2",
+          "s4"
+        ]
+      }
+    },
+    {
+      "id": "gpt_2026_09_12_0609_t1_04",
+      "itemType": "dropdown_cloze",
+      "category": "Reduction of Risk Potential",
+      "topic": "ABG & Acid-Base Interpretation",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "An adult breathing rapidly before a procedure has an arterial blood gas: pH 7.49, PaCO₂30 mmHg, HCO₃⁻22 mEq/L. The laboratory reference intervals are pH 7.35–7.45, PaCO₂35–45 mmHg and HCO₃⁻22–26 mEq/L. Interpret the primary acid-base pattern.",
+        "zh": "一名成人在操作前呼吸急促。动脉血气结果：pH 7.49、PaCO₂ 30 mmHg、HCO₃⁻ 22 mEq/L。实验室参考范围为 pH 7.35–7.45、PaCO₂ 35–45 mmHg、HCO₃⁻ 22–26 mEq/L。判断主要酸碱紊乱类型。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "The elevated pH indicates alkalemia, and the reduced PaCO₂ identifies a respiratory alkalosis. Bicarbonate is within the supplied interval; there is no bicarbonate elevation to explain a primary metabolic alkalosis.",
+          "zh": "pH 升高提示碱血症，PaCO₂ 降低提示呼吸性碱中毒。碳酸氢根位于题干给定范围内，未见可解释原发性代谢性碱中毒的升高。"
+        },
+        "byChoice": [
+          {
+            "refId": "pattern",
+            "en": "Respiratory alkalosis fits alkalemia with low PaCO₂. Respiratory acidosis requires an acidifying CO₂ rise; metabolic alkalosis would be driven by elevated bicarbonate.",
+            "zh": "碱血症伴 PaCO₂ 降低符合呼吸性碱中毒。呼吸性酸中毒应由二氧化碳升高导致酸化；代谢性碱中毒则由碳酸氢根升高驱动。"
+          },
+          {
+            "refId": "driver",
+            "en": "Reduced PaCO₂ explains the alkaline shift. The pH indicates its direction, while bicarbonate 22 is not elevated and cannot be the proposed metabolic driver.",
+            "zh": "PaCO₂ 降低解释了向碱性的变化。pH 说明变化方向；碳酸氢根 22 并未升高，不能作为所述代谢性驱动因素。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Classify the pH first, then identify which component moves in the direction that explains it.",
+        "zh": "先判断 pH 的方向，再找出能解释这一变化的成分。"
+      },
+      "glossary": [
+        {
+          "termEn": "alkalemia",
+          "termZh": "碱血症",
+          "defZh": "血液 pH 高于正常范围。"
+        },
+        {
+          "termEn": "PaCO₂",
+          "termZh": "动脉血二氧化碳分压",
+          "defZh": "反映肺部二氧化碳排出情况的指标。"
+        }
+      ],
+      "clozeStem": {
+        "en": "The primary pattern is {{pattern}}, supported by {{driver}}.",
+        "zh": "主要紊乱为 {{pattern}}，其依据是 {{driver}}。"
+      },
+      "dropdowns": [
+        {
+          "id": "pattern",
+          "options": [
+            {
+              "id": "ralk",
+              "en": "respiratory alkalosis",
+              "zh": "呼吸性碱中毒"
+            },
+            {
+              "id": "racid",
+              "en": "respiratory acidosis",
+              "zh": "呼吸性酸中毒"
+            },
+            {
+              "id": "malk",
+              "en": "metabolic alkalosis",
+              "zh": "代谢性碱中毒"
+            }
+          ],
+          "correct": "ralk"
+        },
+        {
+          "id": "driver",
+          "options": [
+            {
+              "id": "co2",
+              "en": "the PaCO₂ below its reference interval",
+              "zh": "PaCO₂ 低于参考范围"
+            },
+            {
+              "id": "hco3",
+              "en": "an elevated bicarbonate concentration",
+              "zh": "碳酸氢根浓度升高"
+            },
+            {
+              "id": "ph",
+              "en": "an acidic pH",
+              "zh": "pH 呈酸性"
+            }
+          ],
+          "correct": "co2"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_09_12_0609_t1_05",
+      "itemType": "bowtie",
+      "category": "Physiological Adaptation",
+      "topic": "Diabetic Ketoacidosis (DKA)",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "An adult with type 2 diabetes reports five days of poor intake, thirst, frequent urination and worsening nausea. The client is alert with dry mucosa, pulse 112/min and BP 102/64 mmHg; there is no heart or kidney failure. Labs show glucose 480 mg/dL, β-hydroxybutyrate 5.8 mmol/L, venous pH 7.20, bicarbonate 12 mEq/L and potassium 4.2 mEq/L; urine output is present. The emergency protocol uses isotonic crystalloid and IV insulin for ketoacidosis; insulin is delayed if potassium is below 3.5 mEq/L, and bicarbonate is considered only for pH below 7.0. Applicable orders are available. Select the best-supported condition, two immediate treatment actions and two parameters that track resolution of ketoacidosis.",
+        "zh": "一名 2 型糖尿病成人诉近五天进食少、口渴、尿频和逐渐加重的恶心。患者神志清楚，黏膜干燥，脉搏 112 次/分，血压 102/64 mmHg，无心力衰竭或肾衰竭。化验：血糖 480 mg/dL、β-羟丁酸 5.8 mmol/L、静脉血 pH 7.20、碳酸氢根 12 mEq/L、血钾 4.2 mEq/L；患者仍有尿量。急诊规程规定，酮症酸中毒使用等渗晶体液和静脉胰岛素治疗；血钾低于 3.5 mEq/L 时延迟胰岛素治疗，仅在 pH 低于 7.0 时考虑碳酸氢盐。相关医嘱已开具。选择证据最充分的病情、两项立即治疗措施，以及两项用于追踪酮症酸中毒消退的指标。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "Hyperglycemia with marked ketonemia and acidosis supports DKA. Isotonic fluid and prescribed insulin address volume depletion and ketone production with potassium monitoring. Falling blood ketones and recovery of venous pH track resolution; glucose improvement alone is insufficient.",
+          "zh": "高血糖、显著酮血症及酸中毒支持 DKA。等渗补液与医嘱胰岛素分别处理容量不足及酮体生成，同时需监测血钾。血酮下降与静脉血 pH 恢复可追踪病情消退；仅血糖改善并不充分。"
+        },
+        "byChoice": [
+          {
+            "refId": "c_dka",
+            "en": "Marked ketonemia plus acidosis in diabetes supports DKA.",
+            "zh": "糖尿病患者显著酮血症合并酸中毒支持 DKA。"
+          },
+          {
+            "refId": "c_hhs",
+            "en": "HHS also causes thirst and dehydration, but this marked ketosis/acidosis is inconsistent with isolated HHS.",
+            "zh": "HHS 也会导致口渴和脱水，但如此明显的酮症及酸中毒不符合单纯 HHS。"
+          },
+          {
+            "refId": "c_starve",
+            "en": "Poor intake can produce starvation ketosis, but marked hyperglycemia in diabetes with this degree of ketonemia favors DKA.",
+            "zh": "摄入不足可引起饥饿性酮症，但糖尿病患者的明显高血糖及这一程度的酮血症更支持 DKA。"
+          },
+          {
+            "refId": "a_fluid",
+            "en": "Isotonic fluid treats the documented volume deficit.",
+            "zh": "等渗液可纠正已记录的容量不足。"
+          },
+          {
+            "refId": "a_insulin",
+            "en": "Insulin suppresses ketone production; current potassium meets the supplied start criterion.",
+            "zh": "胰岛素抑制酮体生成；当前血钾符合给定的启动标准。"
+          },
+          {
+            "refId": "a_bicarb",
+            "en": "The current pH does not meet the stated bicarbonate criterion.",
+            "zh": "当前 pH 未达到所列使用碳酸氢盐的标准。"
+          },
+          {
+            "refId": "a_delay",
+            "en": "Waiting for oral tolerance leaves active ketoacidosis untreated.",
+            "zh": "等到能口服进食才开始治疗，会使正在发生的酮症酸中毒得不到处理。"
+          },
+          {
+            "refId": "p_ketone",
+            "en": "Blood β-hydroxybutyrate directly follows the ketone burden.",
+            "zh": "血 β-羟丁酸直接反映酮体负荷。"
+          },
+          {
+            "refId": "p_ph",
+            "en": "Venous pH follows recovery from acidemia.",
+            "zh": "静脉血 pH 可追踪酸血症的改善。"
+          },
+          {
+            "refId": "p_inr",
+            "en": "INR assesses coagulation rather than ketoacidosis resolution.",
+            "zh": "INR 评估凝血情况，不用于判断酮症酸中毒是否消退。"
+          },
+          {
+            "refId": "p_tsh",
+            "en": "TSH evaluates thyroid signaling, not clearance of ketones or correction of this acidosis.",
+            "zh": "TSH 反映甲状腺调控情况，不用于判断酮体清除或本次酸中毒纠正。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Use the laboratory pattern to distinguish overlapping dehydration symptoms, then match treatment and resolution measures.",
+        "zh": "用实验室结果区分具有相似脱水症状的疾病，再匹配治疗和缓解指标。"
+      },
+      "glossary": [
+        {
+          "termEn": "ketonemia",
+          "termZh": "酮血症",
+          "defZh": "血液中酮体增多。"
+        },
+        {
+          "termEn": "isotonic crystalloid",
+          "termZh": "等渗晶体液",
+          "defZh": "用于细胞外液及血管内容量补充的一类溶液。"
+        }
+      ],
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Most likely condition",
+            "zh": "最可能的病情"
+          },
+          "tokens": [
+            {
+              "id": "c_dka",
+              "en": "Diabetic ketoacidosis",
+              "zh": "糖尿病酮症酸中毒"
+            },
+            {
+              "id": "c_hhs",
+              "en": "Isolated hyperosmolar hyperglycemic state",
+              "zh": "单纯高渗高血糖状态"
+            },
+            {
+              "id": "c_starve",
+              "en": "Starvation ketosis",
+              "zh": "饥饿性酮症"
+            }
+          ],
+          "correct": "c_dka"
+        },
+        "actions": {
+          "tokens": [
+            {
+              "id": "a_fluid",
+              "en": "Begin the prescribed isotonic crystalloid",
+              "zh": "开始医嘱的等渗晶体液输注"
+            },
+            {
+              "id": "a_insulin",
+              "en": "Begin the prescribed IV insulin with electrolyte monitoring",
+              "zh": "开始医嘱的静脉胰岛素并监测电解质"
+            },
+            {
+              "id": "a_bicarb",
+              "en": "Request bicarbonate now to normalize pH rapidly",
+              "zh": "立即申请碳酸氢盐以迅速使 pH 正常"
+            },
+            {
+              "id": "a_delay",
+              "en": "Delay metabolic treatment until nausea resolves and oral intake resumes",
+              "zh": "待恶心消退、恢复口服进食后再开始代谢治疗"
+            }
+          ],
+          "correct": [
+            "a_fluid",
+            "a_insulin"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Track resolution of ketoacidosis",
+            "zh": "追踪酮症酸中毒消退"
+          },
+          "tokens": [
+            {
+              "id": "p_ketone",
+              "en": "Blood β-hydroxybutyrate",
+              "zh": "血 β-羟丁酸"
+            },
+            {
+              "id": "p_ph",
+              "en": "Venous pH",
+              "zh": "静脉血 pH"
+            },
+            {
+              "id": "p_inr",
+              "en": "INR",
+              "zh": "国际标准化比值（INR）"
+            },
+            {
+              "id": "p_tsh",
+              "en": "Thyroid-stimulating hormone",
+              "zh": "促甲状腺激素"
+            }
+          ],
+          "correct": [
+            "p_ketone",
+            "p_ph"
+          ]
+        }
+      }
+    },
+    {
+      "id": "gpt_2026_09_12_0609_t1_06",
+      "itemType": "highlight",
+      "category": "Reduction of Risk Potential",
+      "topic": "Intrapartum Fetal Monitoring",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "A term client is receiving oxytocin during labor. The unit protocol requires stopping oxytocin and starting intrauterine resuscitation when excessive contractions occur with recurrent late decelerations. It defines excessive contractions as more than five in 10 minutes, averaged over 30 minutes. Highlight the findings that together meet this trigger.",
+        "zh": "一名足月产妇在分娩过程中接受缩宫素输注。科室规程规定，若宫缩过频并伴反复晚期减速，应停止缩宫素并开始宫内复苏。宫缩过频定义为：以 30 分钟为观察窗口，平均每 10 分钟超过 5 次宫缩。标出共同满足这一触发条件的表现。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "Six contractions per 10 minutes across 30 minutes meets the stated frequency threshold. Gradual decelerations that begin after contractions start, reach their lowest point after the contraction peak and recover after contractions end describe late decelerations. Their recurrence with the excessive contractions triggers the protocol.",
+          "zh": "连续 30 分钟内平均每 10 分钟 6 次宫缩，达到题干规定的频率标准。胎心率逐渐下降，始于宫缩开始之后，最低点晚于宫缩高峰，宫缩结束后才恢复，描述的是晚期减速。此类减速反复出现且伴宫缩过频，符合规程的处理条件。"
+        },
+        "byChoice": [
+          {
+            "refId": "s1",
+            "en": "A baseline of 145/min is within the usual 110–160/min range and does not supply either trigger.",
+            "zh": "胎心基线 145 次/分位于常用的 110–160 次/分范围，不构成题干所列触发条件。"
+          },
+          {
+            "refId": "s2",
+            "en": "Moderate variability is a reassuring feature, although it does not cancel the need to respond to recurrent late decelerations with excessive contractions.",
+            "zh": "中等变异通常提示胎儿状况较好，但不能抵消对宫缩过频伴反复晚期减速进行处理的需要。"
+          },
+          {
+            "refId": "s3",
+            "en": "Six contractions per 10 minutes across the 30-minute window exceeds the explicit limit.",
+            "zh": "在 30 分钟窗口内平均每 10 分钟 6 次宫缩，超过了题干规定的频率上限。"
+          },
+          {
+            "refId": "s4",
+            "en": "The delayed timing on most contractions identifies recurrent late decelerations.",
+            "zh": "多数宫缩伴随这种滞后的减速时相，提示反复晚期减速。"
+          },
+          {
+            "refId": "s5",
+            "en": "Accelerations with movement are not late decelerations and do not establish excessive contraction frequency.",
+            "zh": "胎动时出现的加速不是晚期减速，也不能证明宫缩过频。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Assess contraction frequency and the timing of fetal slowing together.",
+        "zh": "结合宫缩频率与胎心减慢相对宫缩的时相关系进行判断。"
+      },
+      "glossary": [
+        {
+          "termEn": "late deceleration",
+          "termZh": "晚期减速",
+          "defZh": "胎心率减速的时相滞后于宫缩。"
+        },
+        {
+          "termEn": "tachysystole",
+          "termZh": "宫缩过频",
+          "defZh": "按规定观察窗口计算的宫缩频率过高。"
+        }
+      ],
+      "highlight": {
+        "segments": [
+          {
+            "id": "intro",
+            "en": "Continuous monitoring note:",
+            "zh": "持续监护记录："
+          },
+          {
+            "id": "s1",
+            "en": "Fetal heart rate baseline is 145/min.",
+            "zh": "胎心率基线为 145 次/分。",
+            "selectable": true
+          },
+          {
+            "id": "s2",
+            "en": "Baseline variability is moderate.",
+            "zh": "基线变异为中等。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "There are six contractions in each of the last three 10-minute intervals.",
+            "zh": "最近连续三个 10 分钟时段中，每个时段均有 6 次宫缩。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "With most contractions, gradual fetal slowing begins after the contraction starts, reaches its nadir after the contraction peak, and returns to baseline after the contraction ends.",
+            "zh": "多数宫缩时，胎心率在宫缩开始后逐渐减慢，最低点出现在宫缩高峰之后，宫缩结束后才恢复至基线。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "Two accelerations occur with fetal movement.",
+            "zh": "胎动时出现两次胎心加速。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s3",
+          "s4"
+        ]
+      }
+    }
+  ]
+}
