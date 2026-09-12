@@ -1,0 +1,45 @@
+
+> nclex-bilingual-prep@0.1.0 test-visuals
+> tsx scripts/tests/rhythm-strip.ts && tsx scripts/tests/capnography.ts && tsx scripts/tests/vitals-trend.ts && tsx scripts/tests/lab-trend-reference-bands.ts && tsx scripts/tests/lab-trend.ts && tsx scripts/tests/io-record.ts && tsx scripts/tests/diverging-bars.ts && tsx scripts/tests/io-trend.ts && tsx scripts/tests/medication-label.ts && tsx scripts/tests/device-screen.ts && tsx scripts/tests/burn-map.ts && tsx scripts/tests/fetal-monitoring.ts && tsx scripts/tests/injection-site.ts && tsx scripts/tests/mar.ts && tsx scripts/tests/visuals-conformance.ts && tsx scripts/tests/registry-mechanics.ts && tsx scripts/tests/visual-parity.ts && tsx scripts/tests/visual-parity-promoted.ts && tsx scripts/tests/promoted-visual-parity-survey.ts && tsx scripts/tests/session-sampler.ts && tsx scripts/tests/rationale-visual-schema-floor.ts
+
+rhythm-strip tests passed
+capnography tests passed
+vitals-trend tests passed
+lab trend reference-band tests passed
+lab trend dual-series presentation tests passed
+io-record tests passed
+diverging-bars tests passed
+io-trend tests passed
+medication-label tests passed
+device-screen tests passed
+burn-map tests passed
+fetal-monitoring tests passed
+injection-site tests passed
+
+=== Promoted corpus and forcing identity ===
+  ✓ 11 promoted top-level MARs found; forcing identity present; all remain 600 units wide
+  ✓ validation/selfCheck behavior and deterministic rendering remain load-bearing
+
+=== Wrapping policy and row/header metrics ===
+  ✓ wide glyphs, hyphens, hard breaks, and exact 28/42/56/header metrics verified
+
+=== Status, bold, source preservation, and geometry ===
+  ✓ exact flag fill, multiline medication bold, per-cell bounds, and root geometry verified
+
+=== Width and promoted source-model preservation ===
+  ✓ five/six-slot widths and all 11 promoted source/line/status models verified
+
+=== Shared primitive and CSS non-regression ===
+  ✓ frozen legacy SVG, variable measurement, containment, and ordinary/focus CSS width contracts verified
+
+✅ All MAR tests passed.
+
+visuals-conformance tests passed (12 kind(s): rhythm_strip, capnography, vitals_trend, lab_trend, mar, io_record, medication_label, device_screen, burn_map, fetal_monitoring, injection_site, io_trend)
+registry-mechanics tests passed
+visual-parity tests passed (11 reason cases)
+Preparing worktree (detached HEAD 2d94da8)
+Preparing worktree (detached HEAD 2d94da8)
+promoted visual parity tests passed (199 snapshots, bootstrap/steady-state mechanics, clean before-ref worktree)
+promoted visual parity survey tests passed (defect fixes, six-location routing, proof surfaces, corpus null)
+session sampler: weighting, floors, diversity, reservation, borrowing, explicit populations passed
+rationale-visual-schema-floor tests passed (synthetic traversal + schema floor)

@@ -1,0 +1,5 @@
+PASS Browser archive abort preserves previous durable Last set and active record; idempotent Retry save succeeds
+PASS Learner hydration barrier disables session starts until durable progress, flags and uploads load
+PASS Real blocked DB v5→v6 upgrade is explicit, closes cleanly and recovers on reload
+PASS Built file://: bundled bank, durable submit, Last set archive and full reload rendering
+PASS Built file:// with IndexedDB and localStorage denied remains usable and explicitly memory-only
