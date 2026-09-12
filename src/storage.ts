@@ -102,12 +102,18 @@ const getDb = (): Promise<IDBPDatabase<PrepDb>> => {
       if (!db.objectStoreNames.contains("completedSets"))
         db.createObjectStore("completedSets", { keyPath: "id" });
       // v6 deliberately neither touches nor deletes the four retired stores.
+      void tx.done.catch(() => {});
       if (oldVersion < 6) {
-        const events = await tx.objectStore("answerEvents").getAll();
-        let cursor = await tx.objectStore("progress").openCursor();
-        while (cursor) {
-          await cursor.update(migrateProgress(cursor.value, events));
-          cursor = await cursor.continue();
+        try {
+          const events = await tx.objectStore("answerEvents").getAll();
+          let cursor = await tx.objectStore("progress").openCursor();
+          while (cursor) {
+            await cursor.update(migrateProgress(cursor.value, events));
+            cursor = await cursor.continue();
+          }
+        } catch {
+          // The opening request reports failure; never leave a partially migrated v6 database.
+          try { tx.abort(); } catch { /* The request may already have aborted the transaction. */ }
         }
       }
     },

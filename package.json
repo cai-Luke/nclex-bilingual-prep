@@ -111,7 +111,7 @@
     "reconcile:decisions-migration-target": "tsx scripts/decisions-migration-target-reconcile.ts",
     "conform:decisions": "tsx scripts/decisions-format-conform.ts --root . --decisions DECISIONS.md --archive Archive/DECISIONS-ARCHIVE-2026-08-18.md",
     "tts-queue": "tsx scripts/audio/build-tts-queue.ts",
-    "test:review-memory": "tsx scripts/tests/completed-memory.ts && tsx scripts/tests/review-storage.ts",
+    "test:review-memory": "tsx scripts/tests/completed-memory.ts && tsx scripts/tests/review-storage.ts && tsx scripts/tests/review-migration-failure.ts",
     "test:session-sampler": "tsx scripts/tests/session-sampler.ts"
   },
   "dependencies": {

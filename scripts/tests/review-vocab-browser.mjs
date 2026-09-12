@@ -220,6 +220,15 @@ try {
     "historical miss remains after current clearing",
   );
   pass("Remediation clears Needs review without replacing Last set; historical Not fully correct remains");
+  await page.locator(".summary-review-toggle").click();
+  await page.evaluate(()=>Object.defineProperty(navigator,"clipboard",{configurable:true,value:{writeText:async text=>{window.__copiedQuestion=text;}}}));
+  await page.getByRole("button",{name:"Copy question for GPT / 复制问题给 GPT",exact:true}).click();
+  assert.ok((await page.evaluate(()=>window.__copiedQuestion)).includes(q.stem.en));
+  await btn("Save question").click();
+  await page.getByRole("group",{name:"Your answers scope"}).getByRole("button",{name:"Saved",exact:true}).click();
+  await btn("Remove from Saved").click();await page.waitForTimeout(60);
+  assert.equal(await page.getByRole("heading",{name:"Your answers / 本次作答"}).evaluate(el=>el===document.activeElement),true);
+  pass("Copy-for-GPT captures the actual question; Saved-filter removal restores completed-view focus");
   // Compatibility mismatch and deletion degrade per entry while stored score remains readable.
   const mismatched = structuredClone(primary);
   mismatched.entries[0].fingerprint = "changed";
@@ -356,6 +365,10 @@ try {
         await nav("Home").click();
       }
   pass("390×844 and desktop; both themes; 100/125/150/200% text without page overflow");
+  await page.evaluate(()=>{document.documentElement.style.fontSize="16px";document.documentElement.dataset.theme="light";window.scrollTo(0,0);});
+  await page.setViewportSize({width:1440,height:1000});await shot("desktop-home");
+  await page.setViewportSize({width:390,height:844});await shot("mobile-home");
+  await page.locator(".last-set-entry").click();await page.evaluate(()=>window.scrollTo(0,0));await shot("mobile-summary");
   assert.deepEqual(errors, [], "no page errors");
   writeFileSync(`${out}/browser-results.json`, JSON.stringify({ checks, errors }, null, 2));
 } finally {
