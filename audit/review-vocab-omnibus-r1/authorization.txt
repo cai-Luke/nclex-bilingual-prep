@@ -1,0 +1,245 @@
+Implement the Review redesign + Vocabulary retirement as one omnibus production pass.
+
+The governing specification is:
+
+`PROJECT-SHRIMP-REVIEW-VOCAB-OMNIBUS-BRIEF-2026-09-12.md`
+
+Treat that document as the implementation baseline, subject to the owner amendments below.
+
+This is now an **implementation authorization**, not another architecture review. Read live disk first, follow `AGENTS.md` and the runbook, and resolve implementation detail from the repository rather than resurrecting superseded concepts from older audits/specs.
+
+Do not preserve dead machinery merely because it already exists.
+
+## Owner amendments
+
+### A. Review-seat distribution: global with borrowing
+
+Accept the brief's recommended global reservation model.
+
+Ordinary Study with `Revisit missed questions` enabled must reliably recycle missed material even when the learner's Needs-review backlog is concentrated in one category.
+
+Reserved remediation questions may therefore borrow category capacity as §7 describes.
+
+This intentionally permits the remediation slice to distort the ordinary Study category mix.
+
+Because current P10 binds ordinary Study to NCLEX category weighting, record the architectural exception explicitly rather than silently violating it:
+
+* add the narrowest appropriate P10 application/amendment;
+* ordinary non-remediation seats continue to follow NCLEX weighting;
+* a bounded remediation reservation may deviate from that weighting based on learner Needs-review state;
+* the exception exists because strict unseen-first category sampling can indefinitely suppress missed-question recurrence while the unseen bank continues expanding;
+* this does not redefine strict exam simulation or authorize broader adaptive category weighting.
+
+Do not broaden P10 beyond this forcing incident.
+
+### B. Small-set reservation
+
+Replace the proposed rounding rule with:
+
+* toggle off → `R = 0`;
+* empty review pool → `R = 0`;
+* `N < 5` → `R = 0`;
+* otherwise `R = min(reviewPoolSize, max(1, floor(N / 5)))`.
+
+Examples:
+
+* N=2 → 0
+* N=4 → 0
+* N=5 → 1
+* N=10 → 2
+* N=25 → 5
+* N=50 → 10
+
+The reserved remediation share therefore never exceeds the intended one-in-five proportion merely because of rounding.
+
+Ordinary tier-1 backfill after unseen exhaustion remains allowed exactly as the brief specifies and is not counted against `R`.
+
+### C. `seedFromString`
+
+Delete it if live-disk dependency confirmation still matches the current checkout.
+
+Owner verification immediately before this authorization found its only production consumer to be `relatedPracticePool`, which retires with `buildTargetedReviewPool`. The other live references are sampler tests for that retiring behavior.
+
+Do not retain it as speculative utility.
+
+## Implementation posture
+
+Use the hatchet.
+
+The intended end state really is subtraction:
+
+* no Review destination;
+* no Vocabulary destination;
+* no Vocab Rescue;
+* no flashcard pass;
+* no term SRS;
+* no question SRS/due concept;
+* no `Missed because of the English`;
+* no `languageMisses`;
+* no translation-reveal telemetry;
+* no case-part telemetry;
+* no targeted related-practice engine;
+* no retry-history graph;
+* no question snapshots/historical renderer;
+* no fake compatibility layer around retired concepts.
+
+Contextual glossary help, Chinese reveal behavior itself, Copy-question-for-GPT, ordinary `answerEvents`, Saved, Needs review, Last set, active-session protection, grading, and deterministic clinical rendering survive as specified.
+
+If a supposedly shared utility has no surviving consumer after the prune, delete it rather than preserving it prophylactically.
+
+## Worktree discipline
+
+Start from the pinned live state specified by the omnibus brief. The source branch was clean at owner preflight.
+
+Create an isolated implementation branch/worktree for this commission rather than accumulating the omnibus rewrite directly on the UX-0C source branch.
+
+Do not push or merge.
+
+Leave unrelated work untouched.
+
+## Execution sequence
+
+Follow the dependency order in the brief, but do not stop between ordinary phases for owner confirmation.
+
+### 1. Establish baseline and reproduce the submit race
+
+Reproduce the repeated-submit race under delayed persistence before designing the locking fix.
+
+The negative/positive evidence must inspect duplicate `answerEvents`, not merely progress totals.
+
+Also independently verify and repair the collapsed Summary on-tap Chinese defect carried from Astra before treating it as closed.
+
+### 2. Perform the large subtraction
+
+Remove the retired destinations, launchers, metrics, controls, telemetry, Vocab/Rescue components, related-practice path, due-state UI, and their unreachable plumbing.
+
+Do not repair UI belonging exclusively to features being deleted.
+
+Chinese reveal behavior must continue functioning after its telemetry hooks disappear.
+
+### 3. Replace SRS state with binary Needs review
+
+Implement one binary top-level-question `needsReview` truth:
+
+* below full marks → true;
+* one later full-marks committed attempt → false;
+* Saved remains independent;
+* cases remain whole-case units.
+
+Perform the migration exactly as specified against the verified legacy two-success behavior.
+
+Do not derive the new state from lifetime incorrect counts.
+
+### 4. Make submission idempotent and durable
+
+Add an in-flight submit lock and durable unique submission identity.
+
+A single top-level question submission in a session must not double-count progress or produce duplicate answer events even under delayed/retried persistence.
+
+Preserve the existing desirable property that answer state is reconciled against durable storage rather than trusting stale React state.
+
+Expose durable-versus-memory persistence outcome instead of swallowing every failure.
+
+### 5. Add completed memory at DB v6
+
+Implement exactly one Last-set record.
+
+Use fingerprint-degrade, not full question snapshots.
+
+Fingerprint the answer-compatibility surface defined in the brief. Store the submitted answer payload captured at submission time and the historical earned/possible outcome. Never regrade history against a future question/grader.
+
+Ordinary primary Study may archive.
+
+Needs-review practice, Saved practice, Last-set retries, Library one-offs, and other remediation launches must not overwrite Last set.
+
+Completion ordering must never destroy the sole resumable active record before the archive commit succeeds.
+
+### 6. Implement passive review injection
+
+Implement the amended global `R` reservation before the existing tier loop.
+
+Keep the existing visual-floor minimum-tier behavior; Astra's proposed missed-before-unseen floor preference never existed in live source and must not be introduced.
+
+A review reservation that already satisfies a visual floor may satisfy that floor without selecting another item.
+
+Preserve uniqueness and the existing final presentation shuffle.
+
+### 7. Build the surviving learner surfaces
+
+Wire:
+
+* default-on `Revisit missed questions`;
+* Needs review;
+* Saved;
+* Last set;
+* shared completed-set viewer;
+* remediation completion/return paths;
+* simplified Summary;
+* factual Progress;
+* Library without Due state;
+* contextual glossary help;
+* Copy question/case part for GPT.
+
+Do not invent Saved Terms or any replacement Vocabulary application.
+
+### 8. Tests and cleanup
+
+Replace tests for retired behavior with tests for the surviving behavioral contract. Do not simply delete failing assertions to make the suite green.
+
+Run the risk-appropriate project gates from `AGENTS.md`, including typecheck/build and the relevant browser/file-protocol verification.
+
+Exercise at minimum:
+
+* every Needs-review transition;
+* Saved independence;
+* partial credit;
+* whole-case clearing;
+* duplicate submission with delayed I/O;
+* migration from one-correct legacy rows;
+* R at 5, 10, 25, and 50;
+* concentrated review backlog/category borrowing;
+* toggle off;
+* visual floors with and without reserved review items;
+* explicit Needs-review and Saved populations with no backfill;
+* remediation not replacing Last set;
+* fingerprint match/mismatch/deleted ID;
+* storage denial/failure;
+* blocked upgrade;
+* active-session crash/reload ordering;
+* Chinese on-tap/reveal after telemetry deletion;
+* glossary help with ambient language Off;
+* mobile, keyboard, large text;
+* built `file://` mode.
+
+## DB cleanup boundary
+
+**Stop physical database migration at DB v6 in this implementation.**
+
+It is authorized to stop reading/writing all retired stores and to delete their application code/types now.
+
+Do not yet issue DB v7 that physically deletes the legacy object stores.
+
+The destructive store cleanup follows only after the v6 migration, submit-idempotency work, and Last-set persistence survive independent review. Record the remaining v7 cleanup clearly in the completion receipt so it cannot be mistaken for forgotten work.
+
+## Completion evidence
+
+Produce a concise implementation receipt containing:
+
+* branch/worktree and commit(s);
+* major deletion inventory;
+* surviving storage schema;
+* migration behavior;
+* submit-race reproduction and negative control;
+* sampler before/after contract;
+* test/gate results;
+* browser and `file://` evidence;
+* explicit confirmation that reveal behavior survived telemetry deletion;
+* explicit confirmation that remediation cannot overwrite Last set;
+* remaining v7 physical-store cleanup;
+* any deviations from the omnibus contract.
+
+Do not self-certify independent conformance.
+
+Finish with:
+
+`REVIEW_VOCAB_OMNIBUS_R1_READY_FOR_INDEPENDENT_REVIEW`

@@ -5541,7 +5541,7 @@ function SummaryStemText({ pair, mode }: { pair: { en: string; zh: string }; mod
   return (
     <span className="bilingual-text">
       <span className="english-line">{pair.en}</span>
-      {mode !== "off" && <span className="chinese-line">{pair.zh}</span>}
+      {mode === "always" && <span className="chinese-line">{pair.zh}</span>}
     </span>
   );
 }
