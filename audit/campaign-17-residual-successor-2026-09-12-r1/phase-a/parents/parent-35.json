@@ -1,0 +1,1477 @@
+{
+  "packetId": "parent-35",
+  "bankPath": "banks/hard-cases-canonical.json",
+  "bankSha256": "8af1a86256278900b619f83812087dfb0e940ea349a00ceddef9fe2f079ca8e3",
+  "parentCaseId": "opus4_case_postop_sbar_01",
+  "currentParentSha256": "b9b9ce06e352be56004b20aedb684d7a340bc436018e2a4972d924cc59ac9506",
+  "currentParent": {
+    "id": "opus4_case_postop_sbar_01",
+    "itemType": "case_study",
+    "category": "Management of Care",
+    "topic": "Prioritization & Delegation",
+    "difficulty": "hard",
+    "ngnSkill": "take_action",
+    "stem": {
+      "en": "Review the client record and answer the case-study items about recognizing postoperative deterioration, communicating with SBAR, and escalating through the chain of command.",
+      "zh": "请查看患者病历，并回答关于识别术后病情恶化、使用 SBAR 沟通以及按指挥链升级处理的案例题。"
+    },
+    "caseStudy": {
+      "title": {
+        "en": "Unfolding case: SBAR escalation for postoperative deterioration after open cholecystectomy",
+        "zh": "展开案例：开腹胆囊切除术后病情恶化的 SBAR 升级沟通"
+      },
+      "summary": {
+        "en": "A 72-year-old client is postoperative day 1 after open cholecystectomy for acute cholecystitis with gangrenous changes. The nurse must determine whether subtle changes represent expected recovery or evolving hemorrhagic shock, communicate the trend clearly, and escalate when the initial provider response is inadequate.",
+        "zh": "一名 72 岁患者因急性胆囊炎伴坏疽性改变接受开腹胆囊切除术后第 1 天。护士需要判断细微变化是预期恢复还是逐渐发展的出血性休克，清楚沟通趋势，并在初始医嘱回应不足时及时升级。"
+      },
+      "exhibits": [
+        {
+          "id": "baseline_0700",
+          "title": {
+            "en": "0700 nurse assessment and orders",
+            "zh": "0700 护士评估与医嘱"
+          },
+          "content": {
+            "en": "Postoperative day 1 after open cholecystectomy for acute cholecystitis with gangrenous changes noted intraoperatively. History: type 2 diabetes mellitus; benign prostatic hyperplasia; mild chronic kidney disease with baseline creatinine 1.4 mg/dL; well-controlled atrial fibrillation. Metformin and apixaban are held perioperatively.\nOrders include: normal saline IV at 100 mL/hr; hydromorphone 0.5 mg IV every 4 hours as needed for pain; cefazolin IV; subcutaneous heparin prophylaxis; blood glucose checks with sliding-scale insulin; incentive spirometry; ambulation; Jackson-Pratt drain to bulb suction from the gallbladder fossa.\n0700 assessment: pleasant, conversational, oriented x4; incisional pain 4/10; mild nausea without vomiting; reports feeling a little foggy after sleeping poorly.\nVital signs: T 99.7 °F (37.6 °C) oral, HR 82 irregular, BP 134/78, RR 16, SpO₂ 95% on room air. Lungs diminished at right base. Abdomen soft and mildly distended with expected incisional tenderness; dressing dry and intact. Jackson-Pratt drain has 40 mL serosanguineous output from the past 8 hours. Foley output for the past 8 hours is 320 mL amber clear urine. Skin warm and dry; capillary refill 2 seconds; no calf tenderness or edema.",
+            "zh": "术后第 1 天，患者因急性胆囊炎伴术中发现坏疽性改变接受开腹胆囊切除术。病史：2 型糖尿病、良性前列腺增生、轻度慢性肾病（基线肌酐 1.4 mg/dL）、控制良好的心房颤动。围手术期暂停二甲双胍和阿哌沙班。\n医嘱包括：0.9% 氯化钠静脉输注 100 mL/hr；氢吗啡酮 0.5 mg IV 每 4 小时按需止痛；头孢唑林静脉给药；皮下肝素预防；血糖监测并按滑动量表使用胰岛素；激励性肺量计；下床活动；胆囊窝 Jackson-Pratt 引流管接负压球。\n0700 评估：患者态度友好、能交谈、定向力 x4；切口痛 4/10；轻度恶心但无呕吐；睡眠差后自述“有点迷糊”。\n生命体征：口温 99.7 °F (37.6 °C)，心率 82 次/分且不规则，血压 134/78，呼吸 16 次/分，室内空气 SpO₂ 95%。右肺底呼吸音减低。腹部柔软、轻度胀气，切口有预期压痛；敷料干燥完整。Jackson-Pratt 引流过去 8 小时为 40 mL 血清样液体。Foley 尿管过去 8 小时尿量 320 mL，清亮琥珀色。皮肤温暖干燥；毛细血管再充盈 2 秒；无小腿压痛或水肿。"
+          },
+          "structuredMeasurements": {
+            "panels": [
+              {
+                "kind": "vitals",
+                "columns": [
+                  {
+                    "id": "current",
+                    "label": {
+                      "en": "0700",
+                      "zh": "0700"
+                    }
+                  }
+                ],
+                "rows": [
+                  {
+                    "key": "temp",
+                    "label": {
+                      "en": "Temperature",
+                      "zh": "体温"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "37.6",
+                        "unit": "°C"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "hr",
+                    "label": {
+                      "en": "Heart rate",
+                      "zh": "心率"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "82",
+                        "unit": "bpm"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "sbp",
+                    "label": {
+                      "en": "Systolic BP",
+                      "zh": "收缩压"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "134",
+                        "unit": "mmHg"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "dbp",
+                    "label": {
+                      "en": "Diastolic BP",
+                      "zh": "舒张压"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "78",
+                        "unit": "mmHg"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "rr",
+                    "label": {
+                      "en": "Respiratory rate",
+                      "zh": "呼吸频率"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "16",
+                        "unit": "/min"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "spo2",
+                    "label": {
+                      "en": "SpO2",
+                      "zh": "脉搏血氧饱和度"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "95",
+                        "unit": "%"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "morning_labs_0600",
+          "title": {
+            "en": "0600 laboratory results",
+            "zh": "0600 实验室结果"
+          },
+          "content": {
+            "en": "WBC 13.8 ×10³/µL; hemoglobin 11.2 g/dL; platelets 188 ×10³/µL; sodium 138 mEq/L; potassium 4.2 mEq/L; chloride 101 mEq/L; bicarbonate 24 mEq/L; BUN 24 mg/dL; creatinine 1.5 mg/dL; glucose 162 mg/dL; lactate 1.2 mmol/L; INR 1.1. Fingerstick glucose 162 mg/dL was covered with 2 units regular insulin per sliding scale.",
+            "zh": "白细胞 13.8 ×10³/µL；血红蛋白 11.2 g/dL；血小板 188 ×10³/µL；钠 138 mEq/L；钾 4.2 mEq/L；氯 101 mEq/L；碳酸氢盐 24 mEq/L；BUN 24 mg/dL；肌酐 1.5 mg/dL；葡萄糖 162 mg/dL；乳酸 1.2 mmol/L；INR 1.1。指尖血糖 162 mg/dL，已按滑动量表给予普通胰岛素 2 单位。"
+          },
+          "structuredMeasurements": {
+            "panels": [
+              {
+                "kind": "labs",
+                "columns": [
+                  {
+                    "id": "current",
+                    "label": {
+                      "en": "0600",
+                      "zh": "0600"
+                    }
+                  }
+                ],
+                "rows": [
+                  {
+                    "key": "wbc",
+                    "label": {
+                      "en": "WBC",
+                      "zh": "白细胞"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "13,800",
+                        "unit": "/µL"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "hemoglobin",
+                    "label": {
+                      "en": "Hemoglobin",
+                      "zh": "血红蛋白"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "11.2",
+                        "unit": "g/dL"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "platelets",
+                    "label": {
+                      "en": "Platelets",
+                      "zh": "血小板"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "188,000",
+                        "unit": "/µL"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "sodium",
+                    "label": {
+                      "en": "Sodium",
+                      "zh": "血钠"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "138",
+                        "unit": "mEq/L"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "potassium",
+                    "label": {
+                      "en": "Potassium",
+                      "zh": "血钾"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "4.2",
+                        "unit": "mEq/L"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "chloride",
+                    "label": {
+                      "en": "Chloride",
+                      "zh": "血氯"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "101",
+                        "unit": "mEq/L"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "bicarbonate",
+                    "label": {
+                      "en": "Bicarbonate",
+                      "zh": "碳酸氢盐"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "24",
+                        "unit": "mEq/L"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "bun",
+                    "label": {
+                      "en": "BUN",
+                      "zh": "尿素氮"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "24",
+                        "unit": "mg/dL"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "creatinine",
+                    "label": {
+                      "en": "Creatinine",
+                      "zh": "肌酐"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "1.5",
+                        "unit": "mg/dL"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "glucose",
+                    "label": {
+                      "en": "Glucose",
+                      "zh": "血糖"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "162",
+                        "unit": "mg/dL"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "lactate",
+                    "label": {
+                      "en": "Lactate",
+                      "zh": "乳酸"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "1.2",
+                        "unit": "mmol/L"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "inr",
+                    "label": {
+                      "en": "INR",
+                      "zh": "国际标准化比值"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "1.1",
+                        "unit": "(ratio)"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "stages": [
+        {
+          "id": "stage_1_0900_1100",
+          "title": {
+            "en": "Stage 1: 0900–1100 change in status",
+            "zh": "阶段 1：0900–1100 状态变化"
+          },
+          "exhibits": [
+            {
+              "id": "stage1_progression",
+              "title": {
+                "en": "0900 and 1100 reassessments",
+                "zh": "0900 与 1100 复评"
+              },
+              "content": {
+                "en": "0900: During first ambulation attempt, the client becomes lightheaded and asks to lie back down. Vital signs: T 100.2 °F (37.9 °C), HR 94 irregular, BP 118/72, RR 18, SpO₂ 94% on room air. He is slower to respond and twice asks what day it is after being told. Pain 5/10; hydromorphone is administered as requested. Jackson-Pratt drain has 65 mL since it was emptied at 0700, darker and more sanguineous than earlier. Foley output over the past 2 hours is 60 mL. Dressing has new 3-cm serous staining.\n1100: Vital signs: T 100.8 °F (38.2 °C), HR 102 irregular, BP 112/68, RR 20, SpO₂ 93% on room air. The client is intermittently confused, asks for his wife while she is beside him, and asks whether surgery has occurred. Foley output from 1000–1100 is 20 mL. Jackson-Pratt drain has added 45 mL of frankly sanguineous fluid over 2 hours. Dressing stain has expanded to 6 cm. Fingerstick glucose is 198 mg/dL.",
+                "zh": "0900：第一次尝试下床活动时，患者头晕并要求躺回床上。生命体征：T 100.2 °F (37.9 °C)，心率 94 次/分且不规则，血压 118/72，呼吸 18 次/分，室内空气 SpO₂ 94%。回答问题变慢，被告知日期后又两次询问今天星期几。疼痛 5/10；按患者要求给予氢吗啡酮。Jackson-Pratt 引流自 0700 清空后已有 65 mL，颜色较前更深、更偏血性。过去 2 小时 Foley 尿量 60 mL。敷料新出现约 3 cm 浆液性渗染。\n1100：生命体征：T 100.8 °F (38.2 °C)，心率 102 次/分且不规则，血压 112/68，呼吸 20 次/分，室内空气 SpO₂ 93%。患者间歇性意识混乱，妻子坐在旁边时仍询问妻子在哪里，并问自己是否已做手术。1000–1100 Foley 尿量 20 mL。Jackson-Pratt 引流过去 2 小时新增 45 mL 明显血性液体。敷料渗染扩大至 6 cm。指尖血糖 198 mg/dL。"
+              }
+            }
+          ]
+        },
+        {
+          "id": "stage_2_1115_1200",
+          "title": {
+            "en": "Stage 2: SBAR call and continued deterioration",
+            "zh": "阶段 2：SBAR 电话沟通与持续恶化"
+          },
+          "exhibits": [
+            {
+              "id": "stage2_provider_response",
+              "title": {
+                "en": "1115 resident call and 1200 reassessment",
+                "zh": "1115 住院医师电话与 1200 复评"
+              },
+              "content": {
+                "en": "The nurse prepares to call the surgical resident using SBAR, organizing the vital-sign trend, mental-status change, declining urine output, increasing and darkening drain output, expanding dressing stain, and fever trend. At 1115 the nurse calls the resident. The resident says the client had surgery yesterday and that some confusion and low-grade fever can occur postoperatively; the resident recommends acetaminophen and says they will check during afternoon rounds. No new orders are entered and no bedside assessment occurs.\n1200 reassessment: T 101.3 °F (38.5 °C), HR 110 irregular, BP 104/62, RR 24, SpO₂ 92% on room air. The client does not know where he is and is picking at his gown. Foley output for the past hour is 10 mL. Jackson-Pratt drain has added 55 mL dark sanguineous fluid. Dressing stain is 10 cm with a brownish-red center. Per standing postoperative deterioration protocol, CBC and lactate are obtained: lactate 3.8 mmol/L, hemoglobin 9.1 g/dL, WBC 16.4 ×10³/µL.",
+                "zh": "护士准备使用 SBAR 联系外科住院医师，并整理生命体征趋势、意识状态变化、尿量下降、引流量增加且颜色加深、敷料渗染扩大以及发热趋势。1115 护士致电住院医师。住院医师表示患者昨天刚手术，术后可能出现一定程度意识混乱和低热；建议给予对乙酰氨基酚，并称下午查房时再查看。未开立新医嘱，也未到床旁评估。\n1200 复评：T 101.3 °F (38.5 °C)，心率 110 次/分且不规则，血压 104/62，呼吸 24 次/分，室内空气 SpO₂ 92%。患者不知道自己在哪里，并抓扯病号服。过去 1 小时 Foley 尿量 10 mL。Jackson-Pratt 引流新增 55 mL 暗红色血性液体。敷料渗染 10 cm，中心呈棕红色。根据术后病情恶化的常规预案，采集 CBC 和乳酸：乳酸 3.8 mmol/L，血红蛋白 9.1 g/dL，白细胞 16.4 ×10³/µL。"
+              },
+              "structuredMeasurements": {
+                "panels": [
+                  {
+                    "kind": "vitals",
+                    "columns": [
+                      {
+                        "id": "vitals_1200",
+                        "label": {
+                          "en": "1200",
+                          "zh": "1200"
+                        }
+                      }
+                    ],
+                    "rows": [
+                      {
+                        "key": "temp",
+                        "label": {
+                          "en": "Temperature",
+                          "zh": "体温"
+                        },
+                        "values": [
+                          {
+                            "columnId": "vitals_1200",
+                            "value": "38.5",
+                            "unit": "°C"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "hr",
+                        "label": {
+                          "en": "Heart rate",
+                          "zh": "心率"
+                        },
+                        "values": [
+                          {
+                            "columnId": "vitals_1200",
+                            "value": "110",
+                            "unit": "bpm"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "sbp",
+                        "label": {
+                          "en": "Systolic BP",
+                          "zh": "收缩压"
+                        },
+                        "values": [
+                          {
+                            "columnId": "vitals_1200",
+                            "value": "104",
+                            "unit": "mmHg"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "dbp",
+                        "label": {
+                          "en": "Diastolic BP",
+                          "zh": "舒张压"
+                        },
+                        "values": [
+                          {
+                            "columnId": "vitals_1200",
+                            "value": "62",
+                            "unit": "mmHg"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "rr",
+                        "label": {
+                          "en": "Respiratory rate",
+                          "zh": "呼吸频率"
+                        },
+                        "values": [
+                          {
+                            "columnId": "vitals_1200",
+                            "value": "24",
+                            "unit": "/min"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "spo2",
+                        "label": {
+                          "en": "SpO2",
+                          "zh": "脉搏血氧饱和度"
+                        },
+                        "values": [
+                          {
+                            "columnId": "vitals_1200",
+                            "value": "92",
+                            "unit": "%"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "labs",
+                    "columns": [
+                      {
+                        "id": "labs_1200",
+                        "label": {
+                          "en": "1200",
+                          "zh": "1200"
+                        }
+                      }
+                    ],
+                    "rows": [
+                      {
+                        "key": "lactate",
+                        "label": {
+                          "en": "Lactate",
+                          "zh": "乳酸"
+                        },
+                        "values": [
+                          {
+                            "columnId": "labs_1200",
+                            "value": "3.8",
+                            "unit": "mmol/L"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "hemoglobin",
+                        "label": {
+                          "en": "Hemoglobin",
+                          "zh": "血红蛋白"
+                        },
+                        "values": [
+                          {
+                            "columnId": "labs_1200",
+                            "value": "9.1",
+                            "unit": "g/dL"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "wbc",
+                        "label": {
+                          "en": "WBC",
+                          "zh": "白细胞"
+                        },
+                        "values": [
+                          {
+                            "columnId": "labs_1200",
+                            "value": "16,400",
+                            "unit": "/µL"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "stage_3_1315_1500",
+          "title": {
+            "en": "Stage 3: attending evaluation and OR transfer",
+            "zh": "阶段 3：主治医师评估与转入手术室"
+          },
+          "exhibits": [
+            {
+              "id": "stage3_interventions",
+              "title": {
+                "en": "Orders, imaging, and pre-transport status",
+                "zh": "医嘱、影像与转运前状态"
+              },
+              "content": {
+                "en": "After the nurse invokes the chain of command, the attending surgeon arrives at 1315 and examines the client. Orders include CT abdomen with IV contrast; type and crossmatch for 2 units packed red blood cells; 500 mL normal saline bolus; broaden antibiotics to piperacillin-tazobactam; and transfer to the surgical intermediate care unit while preparing for operative management. CT shows moderate hemoperitoneum with active extravasation near the cystic artery stump, and the client is taken to the operating room for re-exploration.\nPre-transport status: T 101.1 °F (38.4 °C), HR 116 irregular, BP 98/58, RR 26, SpO₂ 93% on 4 L nasal cannula after oxygen was applied for SpO₂ below 92%. Foley output for the past hour is 5 mL. The client responds only to voice and cannot state his name. The nurse verifies that the surgeon has initiated the appropriate consent, surrogate, or emergency-consent process per policy; verifies blood-product availability; and gives the OR nurse an SBAR handoff with the documented trends.",
+                "zh": "护士按指挥链升级后，主治外科医师于 1315 到床旁评估。医嘱包括：腹部 CT 增强；交叉配血备 2 单位浓缩红细胞；0.9% 氯化钠 500 mL 快速输注；抗生素升级为哌拉西林-他唑巴坦；转入外科中级监护单元，同时准备手术处理。CT 显示中等量血腹，胆囊管动脉残端附近有活动性外渗，患者被送往手术室再次探查。\n转运前状态：T 101.1 °F (38.4 °C)，心率 116 次/分且不规则，血压 98/58，呼吸 26 次/分；因 SpO₂ 低于 92% 已给予氧气，现鼻导管 4 L/min 下 SpO₂ 93%。过去 1 小时 Foley 尿量 5 mL。患者仅对声音有反应，不能说出自己的姓名。护士核实外科医师已按政策启动合适的知情同意、代理人同意或紧急同意流程；核实血制品可用；并用 SBAR 向手术室护士交接记录完整的趋势。"
+              },
+              "structuredMeasurements": {
+                "panels": [
+                  {
+                    "kind": "vitals",
+                    "columns": [
+                      {
+                        "id": "current",
+                        "label": {
+                          "en": "1315",
+                          "zh": "1315"
+                        }
+                      }
+                    ],
+                    "rows": [
+                      {
+                        "key": "temp",
+                        "label": {
+                          "en": "Temperature",
+                          "zh": "体温"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "38.4",
+                            "unit": "°C",
+                            "context": "post_intervention"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "hr",
+                        "label": {
+                          "en": "Heart rate",
+                          "zh": "心率"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "116",
+                            "unit": "bpm",
+                            "context": "post_intervention"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "sbp",
+                        "label": {
+                          "en": "Systolic BP",
+                          "zh": "收缩压"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "98",
+                            "unit": "mmHg",
+                            "context": "post_intervention"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "dbp",
+                        "label": {
+                          "en": "Diastolic BP",
+                          "zh": "舒张压"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "58",
+                            "unit": "mmHg",
+                            "context": "post_intervention"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "rr",
+                        "label": {
+                          "en": "Respiratory rate",
+                          "zh": "呼吸频率"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "26",
+                            "unit": "/min",
+                            "context": "post_intervention"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "spo2",
+                        "label": {
+                          "en": "SpO2",
+                          "zh": "脉搏血氧饱和度"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "93",
+                            "unit": "%",
+                            "context": "post_intervention"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "opus4_case_postop_sbar_01_q1",
+          "itemType": "matrix",
+          "category": "Reduction of Risk Potential",
+          "topic": "Perioperative Care",
+          "difficulty": "hard",
+          "ngnSkill": "recognize_cues",
+          "stem": {
+            "en": "Stage 1: For each finding, classify whether it is a cue supporting escalation for clinical deterioration or a finding that can be managed/monitored when not accompanied by other concerning changes.",
+            "zh": "阶段 1：请判断每项发现是支持因临床恶化而升级处理的线索，还是在没有其他危险变化时可处理/监测的发现。"
+          },
+          "matrix": {
+            "rows": [
+              {
+                "id": "r1",
+                "en": "Heart rate increases from 82 to 102 while blood pressure falls from 134/78 to 112/68",
+                "zh": "心率从 82 增至 102，同时血压从 134/78 降至 112/68"
+              },
+              {
+                "id": "r2",
+                "en": "New intermittent confusion in a client who was oriented and conversational at 0700",
+                "zh": "0700 时定向力正常且能交谈的患者出现新的间歇性意识混乱"
+              },
+              {
+                "id": "r3",
+                "en": "Jackson-Pratt output becomes increasingly sanguineous and the dressing stain expands",
+                "zh": "Jackson-Pratt 引流越来越血性，敷料渗染扩大"
+              },
+              {
+                "id": "r4",
+                "en": "Urine output declines to 20 mL in the 1000–1100 hour",
+                "zh": "1000–1100 这一小时尿量降至 20 mL"
+              },
+              {
+                "id": "r5",
+                "en": "Hypoactive bowel sounds on postoperative day 1 after open abdominal surgery",
+                "zh": "开腹手术后第 1 天肠鸣音减弱"
+              },
+              {
+                "id": "r6",
+                "en": "Incisional pain rated 5/10 during the first ambulation attempt",
+                "zh": "首次尝试下床活动时切口痛评分 5/10"
+              }
+            ],
+            "columns": [
+              {
+                "id": "c1",
+                "en": "Supports escalation for deterioration",
+                "zh": "支持因恶化而升级处理"
+              },
+              {
+                "id": "c2",
+                "en": "Manage/monitor if isolated",
+                "zh": "若单独出现可处理/监测"
+              }
+            ],
+            "selectionMode": "single_per_row"
+          },
+          "correct": [
+            {
+              "rowId": "r1",
+              "columnIds": [
+                "c1"
+              ]
+            },
+            {
+              "rowId": "r2",
+              "columnIds": [
+                "c1"
+              ]
+            },
+            {
+              "rowId": "r3",
+              "columnIds": [
+                "c1"
+              ]
+            },
+            {
+              "rowId": "r4",
+              "columnIds": [
+                "c1"
+              ]
+            },
+            {
+              "rowId": "r5",
+              "columnIds": [
+                "c2"
+              ]
+            },
+            {
+              "rowId": "r6",
+              "columnIds": [
+                "c2"
+              ]
+            }
+          ],
+          "rationale": {
+            "correct": {
+              "en": "The priority cues are not isolated postoperative discomforts; they show worsening perfusion and possible bleeding. Tachycardia with falling blood pressure, acute mental-status change, increasing sanguineous drainage with expanding staining, and declining urine output require prompt escalation. Hypoactive bowel sounds and moderate incisional pain can occur after open abdominal surgery and should be managed and monitored, but they do not by themselves explain the broader deterioration.",
+              "zh": "优先线索不是孤立的术后不适，而是显示灌注恶化和可能出血。心率增快伴血压下降、急性意识改变、血性引流增加且敷料渗染扩大、尿量下降，都需要迅速升级处理。开腹手术后肠鸣音减弱和中等切口痛可以出现，应处理并监测，但单独并不能解释整体恶化。"
+            },
+            "byChoice": [
+              {
+                "refId": "r1",
+                "en": "A simultaneous rise in heart rate and fall in blood pressure suggests a compensatory response to reduced circulating volume and supports escalation.",
+                "zh": "心率升高同时血压下降，提示可能对循环血容量减少的代偿反应，支持升级处理。"
+              },
+              {
+                "refId": "r2",
+                "en": "New confusion is an acute change from baseline and may reflect impaired cerebral perfusion, hypoxemia, infection, medication effect, or a combination; in this trend it is unsafe to dismiss.",
+                "zh": "新的意识混乱是相对基线的急性改变，可能反映脑灌注不足、低氧、感染、药物影响或多因素；在此趋势中不能轻视。"
+              },
+              {
+                "refId": "r3",
+                "en": "Increasing sanguineous drain output and expanding wound staining are direct postoperative bleeding cues.",
+                "zh": "血性引流增加和伤口敷料渗染扩大是术后出血的直接线索。"
+              },
+              {
+                "refId": "r4",
+                "en": "Urine output of 20 mL/hr after a declining trend suggests decreased renal perfusion and is a shock cue.",
+                "zh": "尿量在下降趋势后降至 20 mL/hr，提示肾灌注减少，是休克线索。"
+              },
+              {
+                "refId": "r5",
+                "en": "Hypoactive bowel sounds can be expected early after open abdominal surgery and are not the main deterioration cue unless paired with other concerning findings.",
+                "zh": "开腹手术早期可出现肠鸣音减弱；除非伴随其他危险发现，否则不是主要恶化线索。"
+              },
+              {
+                "refId": "r6",
+                "en": "Pain of 5/10 during first ambulation needs assessment and comfort measures, but moderate incisional pain alone does not explain hypotension, oliguria, confusion, and bloody output.",
+                "zh": "首次下床时 5/10 的疼痛需要评估和舒适护理，但单独的中等切口痛不能解释低血压、少尿、意识混乱和血性引流。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "Trend beats snapshot. Mark findings as concerning when they show acute change from baseline or end-organ hypoperfusion, especially when several cues move together.",
+            "zh": "趋势比单次数据更重要。若发现相对基线急性改变或终末器官低灌注，尤其多个线索同时变化，应判为危险。"
+          },
+          "glossary": [
+            {
+              "termEn": "sanguineous",
+              "termZh": "血性",
+              "defZh": "含有较多血液的引流或分泌物。"
+            },
+            {
+              "termEn": "hypoperfusion",
+              "termZh": "低灌注",
+              "defZh": "组织获得的血流或氧输送不足。"
+            },
+            {
+              "termEn": "acute mental-status change",
+              "termZh": "急性意识状态改变",
+              "defZh": "相对原有认知或定向力突然发生变化。"
+            }
+          ],
+          "answerableAfterStageId": {
+            "kind": "baseline"
+          }
+        },
+        {
+          "id": "opus4_case_postop_sbar_01_q2",
+          "itemType": "multiple_choice",
+          "category": "Physiological Adaptation",
+          "topic": "Cardiovascular Disorders",
+          "difficulty": "hard",
+          "ngnSkill": "analyze_cues",
+          "stem": {
+            "en": "Stage 1: Which hypothesis best explains the overall pattern of findings at 1100?",
+            "zh": "阶段 1：哪一项假设最能解释 1100 时的整体发现模式？"
+          },
+          "options": [
+            {
+              "id": "B",
+              "en": "Opioid-related sedation as the primary cause of the client’s change",
+              "zh": "阿片类药物相关镇静是患者变化的主要原因"
+            },
+            {
+              "id": "A",
+              "en": "Expected inflammatory response after open abdominal surgery",
+              "zh": "开腹手术后的预期炎症反应"
+            },
+            {
+              "id": "C",
+              "en": "Postoperative hemorrhage with evolving hypovolemic shock",
+              "zh": "术后出血并逐渐进展为低血容量性休克"
+            },
+            {
+              "id": "D",
+              "en": "Pulmonary embolism as the most likely immediate explanation",
+              "zh": "肺栓塞是最可能的即时解释"
+            }
+          ],
+          "correct": [
+            "C"
+          ],
+          "rationale": {
+            "correct": {
+              "en": "The cluster of falling blood pressure, rising heart rate, declining urine output, new confusion, expanding dressing staining, and increasing sanguineous drain output is most consistent with postoperative bleeding and evolving hypovolemic shock. A low-grade fever and leukocytosis may coexist after surgery or with infection risk, but they do not explain the hemorrhagic drainage and hemoperfusion pattern. Opioids can contribute to sedation, but they should not be accepted as the primary explanation when perfusion indicators are worsening.",
+              "zh": "血压下降、心率升高、尿量减少、新发意识混乱、敷料渗染扩大以及血性引流增加这一组表现，最符合术后出血并逐渐进展为低血容量性休克。低热和白细胞升高可在术后或感染风险中同时存在，但不能解释血性引流和低灌注模式。阿片类药物可导致镇静，但当灌注指标恶化时，不应把它作为主要解释。"
+            },
+            "byChoice": [
+              {
+                "refId": "A",
+                "en": "Some inflammation is expected after surgery, but this option fails to account for the blood pressure decline, oliguria, mental-status change, and increasingly bloody drain output.",
+                "zh": "术后可有一定炎症反应，但此选项无法解释血压下降、少尿、意识改变和血性引流增加。"
+              },
+              {
+                "refId": "D",
+                "en": "Pulmonary embolism can cause tachycardia, hypoxemia, and dyspnea, but this client’s dominant cues are abdominal wound/drain bleeding, falling hemoglobin risk, and oliguria.",
+                "zh": "肺栓塞可导致心动过速、低氧和呼吸困难，但本例主导线索是腹部伤口/引流出血、血红蛋白下降风险和少尿。"
+              },
+              {
+                "refId": "B",
+                "en": "Hydromorphone can cause drowsiness, but medication effect alone does not explain the concurrent hemodynamic decline and increasing hemorrhagic output.",
+                "zh": "氢吗啡酮可导致嗜睡，但单纯药物作用不能解释同时出现的血流动力学下降和出血性引流增加。"
+              },
+              {
+                "refId": "C",
+                "en": "This is correct because the cues point to active bleeding with reduced circulating volume and end-organ hypoperfusion.",
+                "zh": "此项正确，因为这些线索指向活动性出血、循环血容量减少以及终末器官低灌注。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "Choose the hypothesis that explains the most dangerous findings with the fewest assumptions. Do not let a plausible benign explanation override direct bleeding and perfusion cues.",
+            "zh": "选择能用最少假设解释最多危险发现的假设。不要让看似合理的良性解释掩盖直接出血和灌注线索。"
+          },
+          "glossary": [
+            {
+              "termEn": "hypovolemic shock",
+              "termZh": "低血容量性休克",
+              "defZh": "循环血容量不足导致组织灌注不足的休克状态。"
+            },
+            {
+              "termEn": "hemorrhage",
+              "termZh": "出血",
+              "defZh": "血液从血管或手术部位异常流出。"
+            },
+            {
+              "termEn": "leukocytosis",
+              "termZh": "白细胞增多",
+              "defZh": "白细胞计数升高，可见于感染、炎症、应激或术后反应。"
+            }
+          ],
+          "answerableAfterStageId": "stage_1_0900_1100"
+        },
+        {
+          "id": "opus4_case_postop_sbar_01_q3",
+          "itemType": "select_all",
+          "category": "Management of Care",
+          "topic": "Discharge Planning & Handoff",
+          "difficulty": "hard",
+          "ngnSkill": "generate_solutions",
+          "stem": {
+            "en": "Stage 2: Which information should the nurse include in an SBAR call to communicate urgency to the surgical resident? Select all that apply.",
+            "zh": "阶段 2：护士在使用 SBAR 致电外科住院医师时，应包括哪些信息以传达紧急性？选择所有适用项。"
+          },
+          "options": [
+            {
+              "id": "C",
+              "en": "Assessment: present the trend in vital signs from 0700 to 1100 rather than only the most recent values",
+              "zh": "评估：呈现 0700 到 1100 的生命体征趋势，而不只是最新数值"
+            },
+            {
+              "id": "E",
+              "en": "Recommendation: request bedside assessment now and discuss stat labs, imaging, IV access, or other orders appropriate to the provider’s scope",
+              "zh": "建议：请求立即床旁评估，并讨论急查实验室、影像、静脉通路或其他属于医嘱范围的处理"
+            },
+            {
+              "id": "B",
+              "en": "Background: emphasize that mild confusion and low-grade fever can be common after surgery",
+              "zh": "背景：强调术后轻度意识混乱和低热可能常见"
+            },
+            {
+              "id": "D",
+              "en": "Assessment: report the mental-status change, falling urine output, increasing sanguineous drain output, and expanding dressing stain",
+              "zh": "评估：报告意识状态改变、尿量下降、血性引流增加和敷料渗染扩大"
+            },
+            {
+              "id": "A",
+              "en": "Situation: state that the postoperative client is actively deteriorating and that bleeding is a concern",
+              "zh": "情况：说明术后患者正在恶化，并担心出血"
+            },
+            {
+              "id": "F",
+              "en": "Recommendation: ask for acetaminophen only and wait for afternoon rounds if the resident is busy",
+              "zh": "建议：只请求对乙酰氨基酚；如果住院医师忙，就等下午查房"
+            }
+          ],
+          "correct": [
+            "A",
+            "C",
+            "D",
+            "E"
+          ],
+          "rationale": {
+            "correct": {
+              "en": "Effective SBAR communicates the nurse’s concern, relevant background, objective assessment trends, and a specific request for timely provider action. In this case the urgent message is not merely fever or confusion; it is a trajectory of possible bleeding and hypoperfusion. The nurse should request immediate bedside assessment and discuss provider-scope diagnostics or interventions, while avoiding language that minimizes the concern or delays evaluation.",
+              "zh": "有效的 SBAR 应传达护士的担忧、相关背景、客观评估趋势以及明确的及时处理请求。本例紧急信息不只是发热或意识混乱，而是可能出血和低灌注的病情轨迹。护士应请求立即床旁评估，并讨论属于医嘱范围的诊断或处理，同时避免使用淡化风险或延误评估的措辞。"
+            },
+            "byChoice": [
+              {
+                "refId": "A",
+                "en": "This is appropriate because SBAR begins with a concise situation statement and the nurse’s immediate safety concern.",
+                "zh": "此项适当，因为 SBAR 从简洁的情况陈述和护士的即时安全担忧开始。"
+              },
+              {
+                "refId": "C",
+                "en": "This is appropriate because the trend makes deterioration clearer than a single set of values.",
+                "zh": "此项适当，因为趋势比单组数值更能显示恶化。"
+              },
+              {
+                "refId": "E",
+                "en": "This is appropriate because SBAR should end with a specific recommendation while respecting provider-scope decisions.",
+                "zh": "此项适当，因为 SBAR 应以明确建议结束，同时尊重医嘱范围的决策。"
+              },
+              {
+                "refId": "B",
+                "en": "This minimizes the deterioration and frames abnormal cues as expected; it does not communicate the urgent pattern.",
+                "zh": "此项会淡化恶化，把异常线索描述为预期现象；不能传达紧急模式。"
+              },
+              {
+                "refId": "D",
+                "en": "This is appropriate because it links end-organ perfusion, neurologic status, and direct bleeding cues.",
+                "zh": "此项适当，因为它把终末器官灌注、神经状态和直接出血线索联系起来。"
+              },
+              {
+                "refId": "F",
+                "en": "Waiting for rounds and focusing only on acetaminophen delays evaluation of a potentially unstable postoperative client.",
+                "zh": "等查房且只关注退热会延误对可能不稳定术后患者的评估。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "For SBAR questions, select content that states the concern, gives relevant context, presents objective trends, and asks for a clear next step.",
+            "zh": "遇到 SBAR 题时，选择能说明担忧、提供相关背景、呈现客观趋势并提出明确下一步的内容。"
+          },
+          "glossary": [
+            {
+              "termEn": "Situation",
+              "termZh": "情况",
+              "defZh": "SBAR 的第一部分，简要说明正在发生什么以及为什么现在联系。"
+            },
+            {
+              "termEn": "Assessment",
+              "termZh": "评估",
+              "defZh": "SBAR 中护士对客观数据和临床意义的组织性陈述。"
+            },
+            {
+              "termEn": "Recommendation",
+              "termZh": "建议",
+              "defZh": "SBAR 中提出需要对方采取或讨论的下一步。"
+            }
+          ]
+        },
+        {
+          "id": "opus4_case_postop_sbar_01_q4",
+          "itemType": "multiple_choice",
+          "category": "Management of Care",
+          "topic": "Discharge Planning & Handoff",
+          "difficulty": "hard",
+          "ngnSkill": "take_action",
+          "stem": {
+            "en": "Stage 2: The resident dismisses the nurse’s concern and does not come to assess the client. At 1200, the client is more confused, hypotensive, tachycardic, nearly anuric, and has a lactate of 3.8 mmol/L with hemoglobin down to 9.1 g/dL. What is the nurse’s priority action?",
+            "zh": "阶段 2：住院医师未重视护士的担忧，也未到床旁评估。1200 时患者意识更混乱、低血压、心动过速、几乎无尿，乳酸 3.8 mmol/L，血红蛋白降至 9.1 g/dL。护士的优先行动是什么？"
+          },
+          "options": [
+            {
+              "id": "A",
+              "en": "Invoke the chain of command per policy, involving the charge nurse and contacting the attending surgeon while continuing close monitoring",
+              "zh": "按政策启动指挥链，联系责任护士/护士长并联系主治外科医师，同时继续严密监测"
+            },
+            {
+              "id": "C",
+              "en": "Document the resident’s response fully before making any further calls",
+              "zh": "先完整记录住院医师的回应，再进行任何进一步电话联系"
+            },
+            {
+              "id": "D",
+              "en": "Hold all opioid medication and reassess in 1 hour to see whether the confusion improves",
+              "zh": "暂停所有阿片类药物，1 小时后复评意识是否改善"
+            },
+            {
+              "id": "B",
+              "en": "Wait for afternoon rounds because the resident has already been notified",
+              "zh": "等待下午查房，因为住院医师已经被通知"
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "rationale": {
+            "correct": {
+              "en": "The client has objective signs of evolving shock: worsening vital signs, altered mental status, near-anuria, elevated lactate, falling hemoglobin, and ongoing sanguineous drainage. When the initial provider response is inadequate for the clinical situation, the nurse should follow the facility chain of command without delay while continuing safety monitoring and documenting the sequence. Documentation is required, but it should not precede urgent escalation.",
+              "zh": "患者有逐渐进展为休克的客观证据：生命体征恶化、意识状态改变、接近无尿、乳酸升高、血红蛋白下降以及持续血性引流。当初始医嘱回应与临床情况严重程度不匹配时，护士应立即按机构指挥链升级，同时继续安全监测并记录过程。记录是必要的，但不应排在紧急升级之前。"
+            },
+            "byChoice": [
+              {
+                "refId": "B",
+                "en": "Waiting delays care for a client with shock indicators and an acute hemoglobin drop.",
+                "zh": "等待会延误对有休克指标和急性血红蛋白下降患者的处理。"
+              },
+              {
+                "refId": "D",
+                "en": "Opioid reassessment alone is unsafe because the confusion occurs with hemodynamic instability, oliguria, and evidence of bleeding.",
+                "zh": "仅复评阿片药物影响并不安全，因为意识混乱同时伴有血流动力学不稳定、少尿和出血证据。"
+              },
+              {
+                "refId": "C",
+                "en": "Documentation is important, but completing it before escalation delays urgent intervention.",
+                "zh": "记录很重要，但在升级前先完成记录会延误紧急干预。"
+              },
+              {
+                "refId": "A",
+                "en": "This is correct because chain-of-command escalation is a patient-safety obligation when deterioration continues and the initial response is inadequate.",
+                "zh": "此项正确，因为当患者持续恶化且初始回应不足时，按指挥链升级是患者安全责任。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "When a client is objectively deteriorating and the first response is inadequate, choose escalation through policy rather than waiting, repeating the same ineffective call, or charting first.",
+            "zh": "当患者客观恶化且首次回应不足时，应选择按政策升级，而不是等待、重复同样无效的电话或先记录。"
+          },
+          "glossary": [
+            {
+              "termEn": "anuria",
+              "termZh": "无尿",
+              "defZh": "尿量极少或无尿；可提示严重低灌注或肾功能问题。"
+            },
+            {
+              "termEn": "lactate",
+              "termZh": "乳酸",
+              "defZh": "组织低氧或灌注不足时可能升高的实验室指标。"
+            },
+            {
+              "termEn": "attending surgeon",
+              "termZh": "主治外科医师",
+              "defZh": "对患者外科治疗负最终责任的医师。"
+            }
+          ],
+          "answerableAfterStageId": {
+            "kind": "baseline"
+          }
+        },
+        {
+          "id": "opus4_case_postop_sbar_01_q5",
+          "itemType": "ordered_response",
+          "category": "Management of Care",
+          "topic": "Discharge Planning & Handoff",
+          "difficulty": "hard",
+          "ngnSkill": "prioritize_hypotheses",
+          "stem": {
+            "en": "Stage 2: Place the nurse’s priority actions in order. Use each option once.",
+            "zh": "阶段 2：请按优先顺序排列护士行动。每个选项使用一次。"
+          },
+          "options": [
+            {
+              "id": "D",
+              "en": "Document objective findings, communication times, provider responses, and escalation after urgent safety actions are underway",
+              "zh": "在紧急安全行动已启动后，记录客观发现、沟通时间、医务人员回应和升级过程"
+            },
+            {
+              "id": "B",
+              "en": "Invoke the chain of command and request immediate attending-level evaluation because the client is worsening",
+              "zh": "因患者正在恶化，启动指挥链并请求主治层级立即评估"
+            },
+            {
+              "id": "C",
+              "en": "Obtain or delegate ordered/protocol labs and prepare for anticipated interventions without delaying the escalation call",
+              "zh": "在不延误升级电话的前提下，采集或委托采集医嘱/预案所需实验室检查，并为预期干预做准备"
+            },
+            {
+              "id": "A",
+              "en": "Keep the client safe in bed, repeat focused ABC/perfusion assessment, start close monitoring, and confirm a patent IV line",
+              "zh": "确保患者安全卧床，重复重点 ABC/灌注评估，开始严密监测，并确认静脉通路通畅"
+            }
+          ],
+          "correct": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "rationale": {
+            "correct": {
+              "en": "The nurse first protects the client and reassesses immediate stability while ensuring monitoring and IV access. Next, escalation is required because definitive evaluation and treatment are provider-level and the resident response was inadequate. Labs and preparation for likely interventions are important and may be delegated, but they should not delay escalation. Thorough documentation follows or occurs concurrently once urgent actions are underway.",
+              "zh": "护士首先保护患者并重新评估即时稳定性，同时确保监测和静脉通路。随后必须升级，因为明确评估和治疗属于医嘱层级，且住院医师回应不足。实验室检查和为可能干预做准备很重要，可适当委托，但不应延误升级。完整记录应在紧急行动启动后进行或同步进行。"
+            },
+            "byChoice": [
+              {
+                "refId": "B",
+                "en": "Escalation follows promptly because the nurse has evidence of worsening shock and needs a timely provider response.",
+                "zh": "随后应迅速升级，因为护士已有休克恶化证据，需要及时医务人员回应。"
+              },
+              {
+                "refId": "D",
+                "en": "Documentation is essential for continuity and accountability, but it should not delay urgent safety and escalation actions.",
+                "zh": "记录对连续照护和责任追踪很重要，但不应延误紧急安全和升级行动。"
+              },
+              {
+                "refId": "A",
+                "en": "Immediate safety, ABC/perfusion assessment, monitoring, and IV access come first because they address current instability.",
+                "zh": "即时安全、ABC/灌注评估、监测和静脉通路优先，因为它们处理当前不稳定状态。"
+              },
+              {
+                "refId": "C",
+                "en": "Labs and preparation support diagnosis and treatment, but the wording specifies they must not delay the escalation call.",
+                "zh": "实验室检查和准备有助于诊断与治疗，但题干措辞明确不能延误升级电话。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "In ordered-response deterioration items, separate life-preserving actions from administrative tasks. Stabilize/monitor and escalate before documentation or routine care.",
+            "zh": "做病情恶化的排序题时，要区分保命行动和行政性任务。先稳定/监测和升级，再记录或进行常规护理。"
+          },
+          "glossary": [
+            {
+              "termEn": "ABC assessment",
+              "termZh": "ABC 评估",
+              "defZh": "优先评估气道、呼吸、循环的安全框架。"
+            },
+            {
+              "termEn": "delegation",
+              "termZh": "委托",
+              "defZh": "将适合的任务交给合格团队成员完成，同时护士保留监督责任。"
+            },
+            {
+              "termEn": "patent IV line",
+              "termZh": "通畅静脉通路",
+              "defZh": "可用于输液、给药或抽血的可用静脉通道。"
+            }
+          ],
+          "answerableAfterStageId": {
+            "kind": "baseline"
+          }
+        },
+        {
+          "id": "opus4_case_postop_sbar_01_q6",
+          "itemType": "matrix",
+          "category": "Reduction of Risk Potential",
+          "topic": "Perioperative Care",
+          "difficulty": "hard",
+          "ngnSkill": "evaluate_outcomes",
+          "stem": {
+            "en": "Stage 3: For each nursing action or interpretation before OR transfer, select whether it is appropriate or unsafe/incomplete.",
+            "zh": "阶段 3：对于转入手术室前的每项护理行动或判断，请选择它是适当的，还是不安全/不完整的。"
+          },
+          "matrix": {
+            "rows": [
+              {
+                "id": "r1",
+                "en": "Reassess vital signs, urine output, and mental status after the 500 mL fluid bolus",
+                "zh": "500 mL 补液后复评生命体征、尿量和意识状态"
+              },
+              {
+                "id": "r2",
+                "en": "Interpret HR 116, BP 98/58, urine output 5 mL/hr, and worsening responsiveness as lack of stabilization",
+                "zh": "将 HR 116、BP 98/58、尿量 5 mL/hr 和反应性变差判断为尚未稳定"
+              },
+              {
+                "id": "r3",
+                "en": "Verify that the surgeon has initiated the consent, surrogate, or emergency-consent process per policy",
+                "zh": "核实外科医师已按政策启动知情同意、代理人同意或紧急同意流程"
+              },
+              {
+                "id": "r4",
+                "en": "Provide the OR nurse only the current vital signs and CT result because the prior trend is already documented",
+                "zh": "只向手术室护士交接当前生命体征和 CT 结果，因为之前趋势已记录在病历中"
+              },
+              {
+                "id": "r5",
+                "en": "Delay transport until the confused client can personally sign the surgical consent",
+                "zh": "延迟转运，直到意识混乱的患者能亲自签署手术同意书"
+              },
+              {
+                "id": "r6",
+                "en": "Communicate blood availability, IV access, allergies if known, last vital signs, interventions performed, and the full deterioration timeline",
+                "zh": "交接血制品可用情况、静脉通路、已知过敏史、最后一次生命体征、已执行干预以及完整恶化时间线"
+              }
+            ],
+            "columns": [
+              {
+                "id": "c2",
+                "en": "Unsafe or incomplete",
+                "zh": "不安全或不完整"
+              },
+              {
+                "id": "c1",
+                "en": "Appropriate",
+                "zh": "适当"
+              }
+            ],
+            "selectionMode": "single_per_row"
+          },
+          "correct": [
+            {
+              "rowId": "r1",
+              "columnIds": [
+                "c1"
+              ]
+            },
+            {
+              "rowId": "r2",
+              "columnIds": [
+                "c1"
+              ]
+            },
+            {
+              "rowId": "r3",
+              "columnIds": [
+                "c1"
+              ]
+            },
+            {
+              "rowId": "r4",
+              "columnIds": [
+                "c2"
+              ]
+            },
+            {
+              "rowId": "r5",
+              "columnIds": [
+                "c2"
+              ]
+            },
+            {
+              "rowId": "r6",
+              "columnIds": [
+                "c1"
+              ]
+            }
+          ],
+          "rationale": {
+            "correct": {
+              "en": "The nurse evaluates whether initial resuscitation is effective by reassessing perfusion indicators. Persistent tachycardia, hypotension, oliguria, and worsening mental status show that the client has not stabilized with crystalloid alone and needs definitive source control and blood availability. The nurse should verify that the responsible provider has addressed the appropriate consent pathway per policy, not attempt to obtain consent from a confused client or delay emergency transport for personal signature. A safe OR handoff includes the full deterioration timeline and interventions, not just the latest snapshot.",
+              "zh": "护士通过复评灌注指标来判断初始复苏是否有效。持续心动过速、低血压、少尿和意识恶化说明患者仅靠晶体液尚未稳定，需要明确控制出血源并确保血制品可用。护士应核实负责医师已按政策处理合适的同意路径，而不是试图让意识混乱的患者签署同意书或因个人签名延误紧急转运。安全的手术室交接应包括完整恶化时间线和已执行干预，而不只是最新数据。"
+            },
+            "byChoice": [
+              {
+                "refId": "r1",
+                "en": "Reassessment after an intervention is required to evaluate response and guide next priorities.",
+                "zh": "干预后复评是评估反应并指导下一步优先事项所必需的。"
+              },
+              {
+                "refId": "r2",
+                "en": "These findings indicate persistent hypoperfusion and failure to stabilize, supporting urgent operative management.",
+                "zh": "这些发现提示持续低灌注和未能稳定，支持紧急手术处理。"
+              },
+              {
+                "refId": "r3",
+                "en": "The nurse can verify that the appropriate policy-based consent process has been initiated, while the provider handles surgical consent requirements.",
+                "zh": "护士可以核实已启动符合政策的同意流程，而外科同意要求由医务人员处理。"
+              },
+              {
+                "refId": "r4",
+                "en": "This handoff is incomplete because the receiving team needs the trend, failed initial response, interventions, and current status to anticipate instability.",
+                "zh": "此交接不完整，因为接收团队需要趋势、初始回应不足、已执行干预和当前状态来预判不稳定。"
+              },
+              {
+                "refId": "r5",
+                "en": "A confused client cannot provide valid informed consent, and emergency/surrogate consent pathways should be followed per policy rather than delaying necessary care.",
+                "zh": "意识混乱的患者不能提供有效知情同意，应按政策使用紧急或代理同意路径，而不是延误必要治疗。"
+              },
+              {
+                "refId": "r6",
+                "en": "This is appropriate because it provides the OR team the information needed to continue high-acuity care safely.",
+                "zh": "此项适当，因为它向手术室团队提供继续安全高危护理所需的信息。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "Evaluate outcomes by asking whether perfusion improved after the intervention. For handoff, choose the option that transfers the trajectory, not only the latest values.",
+            "zh": "评估结果时要问：干预后灌注是否改善？交接时应选择能传递病情轨迹的选项，而不只是最新数值。"
+          },
+          "glossary": [
+            {
+              "termEn": "source control",
+              "termZh": "控制病灶/出血源",
+              "defZh": "通过手术或其他方法处理导致休克或感染的根本原因。"
+            },
+            {
+              "termEn": "informed consent",
+              "termZh": "知情同意",
+              "defZh": "患者或合法代理人在理解风险、获益和替代方案后同意治疗。"
+            },
+            {
+              "termEn": "handoff",
+              "termZh": "交接",
+              "defZh": "将患者关键信息和责任从一个照护者转交给另一照护者的过程。"
+            }
+          ],
+          "answerableAfterStageId": {
+            "kind": "baseline"
+          }
+        }
+      ]
+    },
+    "rationale": {
+      "correct": {
+        "en": "This case requires the nurse to synthesize multiple subtle but converging cues rather than normalizing each cue in isolation. The worsening tachycardia, falling blood pressure, declining oxygen saturation, new confusion, oliguria, expanding dressing stain, increasingly sanguineous drain output, rising lactate, and falling hemoglobin form a coherent picture of postoperative hemorrhage with evolving shock. The nurse appropriately uses SBAR to present the trajectory, requests timely bedside assessment, and invokes the chain of command when the first provider response does not match the client’s deterioration. Subsequent evaluation shows persistent hypoperfusion despite initial fluid, supporting urgent blood availability and operative source control. Safe nursing care includes monitoring, maintaining IV access, escalating promptly, avoiding delay for routine charting or tasks, verifying that the appropriate consent process is handled by the surgical team or per policy, and giving a complete SBAR handoff to the OR team.",
+        "zh": "本案例要求护士综合多个细微但方向一致的线索，而不是把每个异常单独解释为术后常见现象。心率逐渐增快、血压下降、血氧饱和度下降、新发意识混乱、少尿、敷料渗染扩大、引流液越来越血性、乳酸升高和血红蛋白下降，共同构成术后出血并逐渐进展为休克的图像。护士应使用 SBAR 呈现病情轨迹，请求及时床旁评估；当初始医嘱回应与患者恶化程度不匹配时，应按指挥链升级。后续评估显示初始补液后仍存在低灌注，因此需要确保血制品可用并进行手术控制出血源。安全护理包括持续监测、维持静脉通路、及时升级、避免因常规记录或任务延误处理、核实外科团队或政策规定的同意流程已启动，并向手术室团队进行完整的 SBAR 交接。"
+      }
+    },
+    "testTakingStrategy": {
+      "en": "In unfolding cases, compare each new finding with the client’s baseline and look for several systems changing in the same direction. A provider’s reassurance does not override objective deterioration; choose the action that protects the client and escalates the concern.",
+      "zh": "做展开案例时，要把每个新发现与患者基线比较，并寻找多个系统是否朝同一方向变化。医务人员的安慰性回应不能取代客观恶化证据；应选择保护患者并升级关注的行动。"
+    },
+    "glossary": [
+      {
+        "termEn": "SBAR",
+        "termZh": "SBAR 沟通",
+        "defZh": "一种结构化沟通方式：Situation 情况、Background 背景、Assessment 评估、Recommendation 建议。"
+      },
+      {
+        "termEn": "chain of command",
+        "termZh": "指挥链",
+        "defZh": "当初始回应不足以保障患者安全时，按机构政策逐级联系更高层级人员的患者安全流程。"
+      },
+      {
+        "termEn": "hemoperitoneum",
+        "termZh": "血腹",
+        "defZh": "血液积聚在腹腔内，可导致低血容量和休克。"
+      },
+      {
+        "termEn": "oliguria",
+        "termZh": "少尿",
+        "defZh": "尿量低于预期，可能提示肾灌注不足或休克。"
+      }
+    ]
+  },
+  "frozenExceptions": [
+    {
+      "rowKey": "8b3faa785726d8b1",
+      "stage0QueueIndex": 425,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus4_case_postop_sbar_01",
+      "partId": "opus4_case_postop_sbar_01_q3",
+      "repairPacketId": "repair-026",
+      "disposition": "EXCEPTION",
+      "exceptionReason": "BOUNDARY_DISPOSITION_DISAGREEMENT",
+      "reasonCodes": [
+        "BOUNDARY_DISPOSITION_DISAGREEMENT"
+      ],
+      "producer": {
+        "disposition": "STAGE",
+        "proposedBoundary": "stage_1_0900_1100",
+        "confidence": "HIGH",
+        "bilingualRelation": "PARALLEL",
+        "exceptionReason": null
+      },
+      "checker": {
+        "disposition": "BASELINE",
+        "proposedBoundary": {
+          "kind": "baseline"
+        },
+        "confidence": "HIGH",
+        "bilingualRelation": "PARALLEL",
+        "exceptionReason": null
+      },
+      "documentaryGroup": "baseline_stage_disagreement"
+    }
+  ],
+  "frozenJudgments": {
+    "producer": [
+      {
+        "sourcePath": "audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/producer/repair-026.json",
+        "sourceSha256": "96f06c6b1152980d9638b4fe31b05e3c28a47745ec0de4f1e6d9736896a0cf07",
+        "judgment": {
+          "rowKey": "8b3faa785726d8b1",
+          "stage0QueueIndex": 425,
+          "bankPath": "banks/hard-cases-canonical.json",
+          "parentCaseId": "opus4_case_postop_sbar_01",
+          "partId": "opus4_case_postop_sbar_01_q3",
+          "proposedBoundary": "stage_1_0900_1100",
+          "disposition": "STAGE",
+          "earliestBoundaryEvidence": "The SBAR options propose competing accounts of urgency and normalization, while the stem does not give the actual findings. stage_1_0900_1100 establishes the 0700-to-1100 trend and bleeding/perfusion changes that make the urgent report accurate. The globally posed diagnostic question alone does not establish those unquoted observations.",
+          "laterStageLeakCheck": "Although the part is labeled Stage 2, the first update already contains every observation to communicate on the initial call. stage_2_1115_1200 narrates the call and subsequent decline, and stage_3_1315_1500 confirms the source; neither is required for preparing that call.",
+          "bilingualRelation": "PARALLEL",
+          "confidence": "HIGH",
+          "exceptionReason": null
+        }
+      }
+    ],
+    "checker": [
+      {
+        "sourcePath": "audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/checker/repair-026.json",
+        "sourceSha256": "4bdf6a4fa8e731ff8fde0e6cfec55aa5b5af39692a551493b442de4810959fc4",
+        "judgment": {
+          "rowKey": "8b3faa785726d8b1",
+          "stage0QueueIndex": 425,
+          "bankPath": "banks/hard-cases-canonical.json",
+          "parentCaseId": "opus4_case_postop_sbar_01",
+          "partId": "opus4_case_postop_sbar_01_q3",
+          "proposedBoundary": {
+            "kind": "baseline"
+          },
+          "disposition": "BASELINE",
+          "earliestBoundaryEvidence": "Every option states its own SBAR content, including the two that carry the clinical findings - presenting the vital-sign trend from 0700 to 1100, and reporting the mental-status change, falling urine output, increasing sanguineous drain output and expanding dressing stain. Baseline supplies the 0700 values that anchor the trend. Selecting urgency-conveying content and rejecting the normalising background statement and the wait-for-rounds recommendation is communication knowledge.",
+          "laterStageLeakCheck": "stage_1_0900_1100 supplies the findings the options restate, and stage_2 is the call itself; neither states which elements belong in the report. BASELINE is the earliest answerable boundary.",
+          "bilingualRelation": "PARALLEL",
+          "confidence": "HIGH",
+          "exceptionReason": null
+        }
+      }
+    ]
+  },
+  "residualPartsEqualCampaign16": true,
+  "priorParentSource": "audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/source-packets/repair-026.json",
+  "priorParentSourceSha256": "d330f872463af060f2e9164c53756803d4354de4c980ad347c62854254d7b0ad"
+}

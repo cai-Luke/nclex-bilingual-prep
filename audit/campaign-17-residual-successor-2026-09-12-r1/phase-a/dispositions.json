@@ -1,0 +1,1801 @@
+[
+  {
+    "rowKey": "25b7ff4311e66f43",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_pod3",
+    "answerProposition": "Discharge handoff must communicate the actual postoperative course, LEP communication needs, medication teaching, follow-up and renal recovery, including keyed F.",
+    "establishingSurfaces": "Baseline history; POD1/POD2 course; POD3 renal recovery and confirmed discharge arrangements.",
+    "laterInformationToHide": "POD3 completed SBAR enumeration currently supplies the selected handoff contents; no subsequent stage exists.",
+    "boundaryDefense": "Baseline cannot establish the later recovery/confirmed follow-up; the necessary POD3 prefix must first cease spelling out the answer.",
+    "requiredContentWork": "Revise bilingual POD3 exhibit to retain factual readiness/contact/appointment/renal data while removing the completed-SBAR answer enumeration. Preserve q6 options/key pending independent review.",
+    "sourceIds": [],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-01",
+    "bankPath": "banks/claude-canonical.json",
+    "parentCaseId": "opus1_case_tha_discharge_lep_01",
+    "partId": "opus1_case_tha_discharge_lep_01_q6",
+    "sourceParentSha256": "7fcb92fbcbb54c494a875474fc2887c8193ecc62c0f51a0d3fcb7d9948a3a066",
+    "stagesVisibleIfApproved": [
+      "stage_pod1",
+      "stage_pod2",
+      "stage_pod3"
+    ],
+    "stagesHiddenIfApproved": [],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "f9ac2b9add5ea7c9",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_3",
+    "answerProposition": "After the client reaffirms wishes, verify/document the code-status order, communicate with the authorized contact, and report the earlier delay.",
+    "establishingSurfaces": "Baseline expressly lacks an appointed proxy; stage_1/stage_2 show delay; stage_3 records completed orders and an advance directive with daughter present.",
+    "laterInformationToHide": "No later stage. The mere completion of an advance directive must not be treated as appointment of the daughter as proxy.",
+    "boundaryDefense": "Stage_3 establishes completed documentation but cannot repair the unsupported proxy premise in option C.",
+    "requiredContentWork": "Replace healthcare-proxy assumption in option C and corresponding rationale with communication to the client-designated daughter/contact after permission; explicitly distinguish emergency contact from decision-making authority.",
+    "sourceIds": [
+      "advance-directives",
+      "hipaa-family"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-02",
+    "bankPath": "banks/claude-canonical.json",
+    "parentCaseId": "opus2_case_code_status_01",
+    "partId": "opus2_case_code_status_q5",
+    "sourceParentSha256": "486af7ea8bc349ac15744a40b030a53b9fa6c761fedf645ad6cfefb8fa52bd81",
+    "stagesVisibleIfApproved": [
+      "stage_1",
+      "stage_2",
+      "stage_3"
+    ],
+    "stagesHiddenIfApproved": [],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "069feba96b2b8325",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": null,
+    "answerProposition": "Identify a newly added thiazide as a contributor to lithium accumulation in a dehydrated patient with impaired renal clearance.",
+    "establishingSurfaces": "Admission data contain renal impairment/dehydration and lithium 2.8, but no thiazide medication chronology. Stage_1 names holding HCTZ and a new blood-pressure pill.",
+    "laterInformationToHide": "Stage_1 treatment decision to stop HCTZ and stage_2 dialysis explanation should not substitute for a pretreatment medication history.",
+    "boundaryDefense": "The admission-time causal question requires a history absent at admission; rationale also invents years of therapeutic stability.",
+    "requiredContentWork": "Add an explicitly authored, reviewer-approved pretreatment medication reconciliation with drug/start chronology to baseline, or rewrite the causal question and remove unsupported chronic stability claims. Reassess baseline only after that choice.",
+    "sourceIds": [
+      "lithium-label"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-03",
+    "bankPath": "banks/claude-canonical.json",
+    "parentCaseId": "opus_case_lithium_toxicity_01",
+    "partId": "opus_case_lithium_toxicity_q1",
+    "sourceParentSha256": "38d46d6673f35637af805b7f14afa291992737cc2c2a5130cf8aab7187b8e959",
+    "stagesVisibleIfApproved": null,
+    "stagesHiddenIfApproved": null,
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "e16efeb234f31534",
+    "disposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+    "proposedBoundary": "baseline",
+    "answerProposition": "Vomiting with deteriorating consciousness creates an immediate airway/aspiration priority; position laterally and prepare suction.",
+    "establishingSurfaces": "Part stem explicitly supplies vomiting, declining consciousness and instability; baseline establishes lithium toxicity and depressed consciousness.",
+    "laterInformationToHide": "stage_1 performed lateral positioning/suction; stage_2 dialysis and stage_3 recovery.",
+    "boundaryDefense": "The decision inputs are in the stem; actual later chart execution supplies the action rather than a missing determinant. No later numerical result is needed.",
+    "requiredContentWork": "",
+    "sourceIds": [
+      "aspiration"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-03",
+    "bankPath": "banks/claude-canonical.json",
+    "parentCaseId": "opus_case_lithium_toxicity_01",
+    "partId": "opus_case_lithium_toxicity_q2",
+    "sourceParentSha256": "38d46d6673f35637af805b7f14afa291992737cc2c2a5130cf8aab7187b8e959",
+    "stagesVisibleIfApproved": [],
+    "stagesHiddenIfApproved": [
+      "stage_1",
+      "stage_2",
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": false
+  },
+  {
+    "rowKey": "117e92a832582184",
+    "disposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+    "proposedBoundary": "baseline",
+    "answerProposition": "Among the fully specified offered indications, neurologic toxicity with impaired elimination/persistent toxicity is the strongest justification for recommended extracorporeal treatment.",
+    "establishingSurfaces": "Stem states a dialysis recommendation; answer options supply the candidate indication combinations; baseline confirms severe lithium poisoning.",
+    "laterInformationToHide": "stage_2 nephrologist explicitly recites the selected indication triad; stage_3 post-dialysis response.",
+    "boundaryDefense": "This asks which offered indication most strongly justifies an already stated recommendation, not which new laboratory value occurred. Decreased consciousness is itself a recognized indication; reviewer must confirm this reading in both languages.",
+    "requiredContentWork": "",
+    "sourceIds": [
+      "extrip"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-03",
+    "bankPath": "banks/claude-canonical.json",
+    "parentCaseId": "opus_case_lithium_toxicity_01",
+    "partId": "opus_case_lithium_toxicity_q3",
+    "sourceParentSha256": "38d46d6673f35637af805b7f14afa291992737cc2c2a5130cf8aab7187b8e959",
+    "stagesVisibleIfApproved": [],
+    "stagesHiddenIfApproved": [
+      "stage_1",
+      "stage_2",
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": false
+  },
+  {
+    "rowKey": "6a1c2b0d2f2252a6",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": null,
+    "answerProposition": "Compare the prescribed potassium concentration/rate against an explicitly applicable peripheral-infusion protocol and query a nonconforming order.",
+    "establishingSurfaces": "q4 order 20 mEq/100 mL over one hour; Chinese duration means longer than one hour; rationale asserts an unsupplied universal peripheral limit.",
+    "laterInformationToHide": "stage_2 order/response and stage_3 outcomes cannot resolve the absent protocol or translation.",
+    "boundaryDefense": "No existing anchor makes conflicting durations and an unspecified concentration ceiling determinate.",
+    "requiredContentWork": "Harmonize English/Chinese duration in stem and matching exhibit; provide a sourced product/facility-specific limit as case context, revise rationale against it, then use baseline if the stem is self-contained. Do not invent a universal 10 mEq/100 mL ceiling.",
+    "sourceIds": [
+      "kcl-label"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-03",
+    "bankPath": "banks/claude-canonical.json",
+    "parentCaseId": "opus_case_lithium_toxicity_01",
+    "partId": "opus_case_lithium_toxicity_q4",
+    "sourceParentSha256": "38d46d6673f35637af805b7f14afa291992737cc2c2a5130cf8aab7187b8e959",
+    "stagesVisibleIfApproved": null,
+    "stagesHiddenIfApproved": null,
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "a47ec00ef1455a0c",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_adherence_issue",
+    "answerProposition": "Recognize excessive lactulose-associated watery diarrhea and seek dose adjustment while monitoring fluid/electrolyte losses.",
+    "establishingSurfaces": "stage_adherence_issue provides 5–6 watery stools daily for three days, cramps, wish to stop, and no new confusion; baseline medications.",
+    "laterInformationToHide": "No later stage; keep the symptom report without adding an explicit clinician answer.",
+    "boundaryDefense": "Actual stool burden is absent at baseline and needed; anchor cannot repair the erroneous spironolactone explanation or absolute no-stopping rule.",
+    "requiredContentWork": "Correct rationale/strategy: spironolactone retains potassium, not a cause of worsening potassium loss by its usual mechanism; remove blanket never-stop claim and align excessive-diarrhea management with prescribed plan/label.",
+    "sourceIds": [
+      "lactulose-label",
+      "spironolactone-label"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-04",
+    "bankPath": "banks/gemini-canonical.json",
+    "parentCaseId": "gemini_gap_case_cirrhosis_homecare_04",
+    "partId": "gemini_gap_case_cirrhosis_homecare_04_q2",
+    "sourceParentSha256": "2ae25d6f0e8cafd61b76e7e066e6e6f7efb74560812ef044ed37ce4269b2d01a",
+    "stagesVisibleIfApproved": [
+      "stage_adherence_issue"
+    ],
+    "stagesHiddenIfApproved": [],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "7fe104dccf843914",
+    "disposition": "REPLACEMENT_CANDIDATE",
+    "proposedBoundary": null,
+    "answerProposition": "Select safe symptom-directed low-dose opioid care for refractory dyspnea with reassessment for benefit and adverse effects.",
+    "establishingSurfaces": "Baseline end-stage heart failure, severe dyspnea and comfort goals; current cloze distractors include both CO2 and low-O2 responses while rationale endorses both.",
+    "laterInformationToHide": "stage_hospice_followup easier breathing after morphine and somnolence would give the treatment response.",
+    "boundaryDefense": "A different anchor cannot make two rationale-supported mechanisms an exclusive cloze choice.",
+    "requiredContentWork": "Replace this embedded part in place with a clinically sourced symptom-management/monitoring construct and a natural answer structure. Preserve parent/part identity pending replacement plan review; avoid overclaiming oral morphine venodilation or absence of respiratory risk.",
+    "sourceIds": [
+      "morphine-label",
+      "palliative-dyspnea"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-05",
+    "bankPath": "banks/gemini-canonical.json",
+    "parentCaseId": "gemini_gap_case_palliative_care_03",
+    "partId": "gemini_gap_case_palliative_care_03_q2",
+    "sourceParentSha256": "3bab0ed71df34271c44e811d47a991086f57048607c1492758b0cb02acc8635c",
+    "stagesVisibleIfApproved": null,
+    "stagesHiddenIfApproved": null,
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "8248ef708b75727a",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_labs",
+    "answerProposition": "Stabilize dehydration/electrolyte abnormalities and maintain NPO before pyloromyotomy; add potassium only with adequate urine output and an appropriate order.",
+    "establishingSurfaces": "Baseline dehydration and vomiting; stage_labs K 3.1 and alkalosis; neither supplies urine-output adequacy for keyed potassium-containing fluids.",
+    "laterInformationToHide": "stage_postop surgery/feeding outcome.",
+    "boundaryDefense": "Labs support electrolyte correction, but potassium-safety prerequisites are missing from every prefix.",
+    "requiredContentWork": "Either supply measured adequate urine output and a prescribed potassium fluid after resuscitation as authored context, or change the keyed initial-fluid option to isotonic resuscitation without premature potassium. Re-review options and rationale.",
+    "sourceIds": [
+      "rch-pyloric"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-06",
+    "bankPath": "banks/gemini-canonical.json",
+    "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+    "partId": "gemini_gap_case_pyloric_stenosis_01_q3",
+    "sourceParentSha256": "3674a7cbd80f47605cbe38e5641097e15099d5eade1cceb3d2190006be239f33",
+    "stagesVisibleIfApproved": [
+      "stage_labs"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_postop"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "9729bf71edce3119",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_postop",
+    "answerProposition": "Resume postoperative feeds according to the specified surgical feeding order and the awake infant’s tolerance.",
+    "establishingSurfaces": "stage_postop supplies stable awake infant after surgery, but no feeding regimen; key requires clear liquids.",
+    "laterInformationToHide": "No later stage.",
+    "boundaryDefense": "Postoperative status is necessary but does not establish a universal clear-liquid-first schedule.",
+    "requiredContentWork": "Provide a specific prescribed feeding progression if retaining the current key; revise unsupported universal 12–24-hour/clear-liquid/dilution claims. Alternatively rewrite to tolerance-based prescribed breastmilk/formula feeding with independent review.",
+    "sourceIds": [
+      "chop-pyloric"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-06",
+    "bankPath": "banks/gemini-canonical.json",
+    "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+    "partId": "gemini_gap_case_pyloric_stenosis_01_q4",
+    "sourceParentSha256": "3674a7cbd80f47605cbe38e5641097e15099d5eade1cceb3d2190006be239f33",
+    "stagesVisibleIfApproved": [
+      "stage_labs",
+      "stage_postop"
+    ],
+    "stagesHiddenIfApproved": [],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "b8f6c34736ed2d5d",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "baseline",
+    "answerProposition": "Classify supplied physiologic trends as improvement or findings that still warrant active follow-up, including the positive line culture.",
+    "establishingSurfaces": "Each matrix row supplies the trend; first row mixes unlabelled Celsius values with Fahrenheit; case has matched Fahrenheit/Celsius measurements.",
+    "laterInformationToHide": "All stages, especially stage_3 improvement narrative, repeat the row interpretations.",
+    "boundaryDefense": "Self-contained rows support baseline after unit repair; a later chart is not necessary to classify a fully stated trend.",
+    "requiredContentWork": "Make each temperature Fahrenheit first with Celsius parentheses using the existing matched chart values. Clarify single-choice columns as best trajectory interpretation so improvement does not deny continued monitoring.",
+    "sourceIds": [
+      "idsa-fever"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-07",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_neutropenic_fever_nadir_01",
+    "partId": "gpt_case_neutropenic_fever_nadir_01_q5",
+    "sourceParentSha256": "7121905fd242c28d43d48f7c8850483b779a961e39220cab19f56e299d977bbc",
+    "stagesVisibleIfApproved": [],
+    "stagesHiddenIfApproved": [
+      "stage_1",
+      "stage_2",
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "7f1db592e0bf40fd",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "baseline",
+    "answerProposition": "Teach the patient to report the oncology plan’s fever threshold and infection symptoms promptly after chemotherapy.",
+    "establishingSurfaces": "Baseline oncology instructions and q6 supplied warning options; current 101 °F (38.3 °C) conflicts with 100.9 °F (38.3 °C).",
+    "laterInformationToHide": "stage_1 treatment, stage_2 culture and stage_3 recovery are unnecessary to prospective fever teaching.",
+    "boundaryDefense": "The intended safety threshold is already baseline, but the numeric inconsistency needs repair before boundary approval.",
+    "requiredContentWork": "Preserve the published ASCO/IDSA101°F(38.3°C) threshold already pinned in scripts/audit/temperature-prose-residual-adjudication.ts. Propose correcting the conflicting summary100.9°F threshold to the same sourced101°F pairing in both languages; do not arithmetically rewrite the source-pinned order/key. Independent review must approve the exact action threshold.",
+    "sourceIds": [
+      "idsa-fever"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-07",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_neutropenic_fever_nadir_01",
+    "partId": "gpt_case_neutropenic_fever_nadir_01_q6",
+    "sourceParentSha256": "7121905fd242c28d43d48f7c8850483b779a961e39220cab19f56e299d977bbc",
+    "stagesVisibleIfApproved": [],
+    "stagesHiddenIfApproved": [
+      "stage_1",
+      "stage_2",
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "c9ddb715599fbf07",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_1",
+    "answerProposition": "Identify assessed caregiver learning needs from the stated unsafe practices, without inventing the source of advice or inferring intent.",
+    "establishingSurfaces": "stage_1 reports unsafe practices and warm engagement; informal advice/neighbor/online videos claimed in the keyed explanation are not established there.",
+    "laterInformationToHide": "stage_2 emotional history and stage_3 teach-back outcomes.",
+    "boundaryDefense": "The actual practices begin at stage_1; later sympathy does not prove the current rationale’s unsupported causal history.",
+    "requiredContentWork": "Remove unsupported neighbor/online advice claims and conclusions that warmth excludes neglect; align the key/rationale to demonstrated learning needs, or explicitly author the required history at stage_1 for review.",
+    "sourceIds": [],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-08",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_nine_month_well_child_safety_01",
+    "partId": "gpt_case_nine_month_well_child_safety_01_q2",
+    "sourceParentSha256": "58703198c3dac5028f6ecb6e6826eaa24a5514ef0967b737f0f3b9e71e26666a",
+    "stagesVisibleIfApproved": [
+      "stage_1"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_2",
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "bb9ff3ab3ff079ec",
+    "disposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+    "proposedBoundary": "stage_2",
+    "answerProposition": "Respond to the caregiver’s distress without judgment, address immediate medication danger, and connect her with practical support/resources.",
+    "establishingSurfaces": "stage_2 directly supplies tearfulness, lack of prior guidance/support, diphenhydramine suggestion and medication error concern; baseline infant assessment and stage_1 hazards.",
+    "laterInformationToHide": "stage_3 teach-back and planned home changes.",
+    "boundaryDefense": "The individualized response requires the newly disclosed distress/support and medication context; the stage reports the problem, while the later stage reports the teaching outcome.",
+    "requiredContentWork": "",
+    "sourceIds": [
+      "poison-help"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-08",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_nine_month_well_child_safety_01",
+    "partId": "gpt_case_nine_month_well_child_safety_01_q4",
+    "sourceParentSha256": "58703198c3dac5028f6ecb6e6826eaa24a5514ef0967b737f0f3b9e71e26666a",
+    "stagesVisibleIfApproved": [
+      "stage_1",
+      "stage_2"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": false
+  },
+  {
+    "rowKey": "68e5df7960d1bb86",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "baseline",
+    "answerProposition": "Distinguish correct teach-back, unsafe practices needing reteaching, and explicit access barriers requiring resources.",
+    "establishingSurfaces": "Matrix rows are self-contained except the gate/lock statement only says try this weekend; it does not establish inability to obtain equipment.",
+    "laterInformationToHide": "stage_3 repeats the same ambiguous quote; later visibility cannot establish an absent resource barrier.",
+    "boundaryDefense": "Baseline is defensible only once the row itself supplies the determinant for its resource key.",
+    "requiredContentWork": "Revise the gate/lock matrix row and matching stage_3 quote to an explicit affordability/transport barrier with requested equipment help and an interim protection plan; update bilingual rationale. This is proposed fiction requiring review, not recovered history.",
+    "sourceIds": [],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-08",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_nine_month_well_child_safety_01",
+    "partId": "gpt_case_nine_month_well_child_safety_01_q6",
+    "sourceParentSha256": "58703198c3dac5028f6ecb6e6826eaa24a5514ef0967b737f0f3b9e71e26666a",
+    "stagesVisibleIfApproved": [],
+    "stagesHiddenIfApproved": [
+      "stage_1",
+      "stage_2",
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "c827f2ece4ba697c",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "baseline",
+    "answerProposition": "Classify hypothetical pediatric dehydration findings into oral-rehydration teaching versus urgent evaluation using discriminating red flags.",
+    "establishingSurfaces": "Matrix supplies each hypothetical cue; isolated no-tears is currently keyed urgent, although it does not alone establish severe dehydration.",
+    "laterInformationToHide": "stage_1 actual assessment, stage_2 teaching and stage_3 improvement are not necessary for hypothetical cue classification.",
+    "boundaryDefense": "No stage repairs a nondiscriminating row; baseline is sufficient after the row is made clinically discriminating.",
+    "requiredContentWork": "Explicitly frame rows as possible findings. Replace isolated absent tears with a sourced composite including lethargy/poor perfusion, or rekey with full review; do not invent those findings in the current child’s chart.",
+    "sourceIds": [
+      "nice-dehydration"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-09",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03",
+    "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03_q1",
+    "sourceParentSha256": "7faf7c0a2e144226685967f09f4a7adfde0082e5d56b5d97b708799d56dc1e3a",
+    "stagesVisibleIfApproved": [],
+    "stagesHiddenIfApproved": [
+      "stage_1_triage",
+      "stage_2_teaching",
+      "stage_3_home"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "74147c736cbdfe8d",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_2_teaching",
+    "answerProposition": "Recognize the patient’s unsafe self-adjustment of prescribed oxygen and teach use of the prescribed rate plus seeking help for symptoms.",
+    "establishingSurfaces": "The unsafe patient quote occurs at stage_2_teaching; stage_1_home describes adherence to 2 L; stem incorrectly points to Stage 1.",
+    "laterInformationToHide": "stage_3_equipment maintenance and subsequent outcome.",
+    "boundaryDefense": "Stage_2 supplies the actual misconception, without an anchor solving the contradictory stage reference.",
+    "requiredContentWork": "Change both stem languages from Stage 1 to Stage 2, then propose stage_2_teaching; preserve the existing prescribed oxygen value and verify related rationale against that local plan.",
+    "sourceIds": [],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-10",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+    "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+    "sourceParentSha256": "baf1220daf1ba5e5f787e9d4bd24d67bee52f48fb8ffde1e0f3f6ef34cb20026",
+    "stagesVisibleIfApproved": [
+      "stage_1_home",
+      "stage_2_teaching"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_3_equipment"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "545d112ac11f8548",
+    "disposition": "REPLACEMENT_CANDIDATE",
+    "proposedBoundary": null,
+    "answerProposition": "Give a thionamide before iodine in thyroid storm without inventing a total order for therapies that can start concurrently.",
+    "establishingSurfaces": "stage_0830 orders hydrocortisone STAT; ordered key places it after iodine despite rationale permitting concurrent steroid treatment.",
+    "laterInformationToHide": "stage_1200 completed drug sequence and improved vitals.",
+    "boundaryDefense": "The necessary partial-order rule cannot justify a uniquely scored total order across all four actions.",
+    "requiredContentWork": "Replace the embedded ordered-response construct with a focused thionamide-before-iodine question, preserving the parent and ID via reviewed replacement. Do not delay STAT steroid to make the old key fit.",
+    "sourceIds": [
+      "endotext-storm"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-11",
+    "bankPath": "banks/hard-cases-canonical.json",
+    "parentCaseId": "cs_thyroid_storm_main",
+    "partId": "cs_thyroid_storm_q2",
+    "sourceParentSha256": "fe8320c10f7240708c23d4a0cb745b939fc81c9615d9abe9749c37241e6ed00b",
+    "stagesVisibleIfApproved": null,
+    "stagesHiddenIfApproved": null,
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "cc1132738316b540",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage2",
+    "answerProposition": "Recognize unsafe oral resin administration in the lethargic patient and query the route while executing time-critical hyperkalemia orders safely.",
+    "establishingSurfaces": "stage2 supplies worsening ECG/K, lethargy, nausea and actual orders; present vomiting is asserted by q4 but not documented (vomiting occurred before admission).",
+    "laterInformationToHide": "stage3 stabilization and retrospective management summary.",
+    "boundaryDefense": "Stage2 is the first actual drug/order context, but cannot prove present vomiting.",
+    "requiredContentWork": "Remove unsupported current-vomiting assertions from stem/rationale and matching parent prose; frame the concern around actual alertness and ability to swallow safely, with clinician review of route/urgency and resin appropriateness.",
+    "sourceIds": [
+      "sps-label",
+      "ukka-hyperk"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-12",
+    "bankPath": "banks/hard-cases-canonical.json",
+    "parentCaseId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01",
+    "partId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q4",
+    "sourceParentSha256": "ad609b8cc9daecf0e2ddf4bfc0f0e0d3b3aca731c05e585ce176334ecc73c835",
+    "stagesVisibleIfApproved": [
+      "stage1",
+      "stage2"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "0f5aac8326dc6ee2",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage2",
+    "answerProposition": "Apply monitoring, administration and escalation safeguards to the newly prescribed emergency hyperkalemia therapies.",
+    "establishingSurfaces": "stage2 actual calcium/insulin-dextrose and other orders plus ECG instability; q5 rationale inherits the unsupported current-vomiting claim.",
+    "laterInformationToHide": "stage3 improved rhythm, potassium and perfusion.",
+    "boundaryDefense": "The ordered medications are not available earlier; their desired effects are later. Content repair remains needed even if stage2 is the likely boundary.",
+    "requiredContentWork": "Correct current-vomiting claims consistently with q4 and parent rationale; independently check each selected safeguard against the stage2 order set and current source guidance.",
+    "sourceIds": [
+      "sps-label",
+      "ukka-hyperk"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-12",
+    "bankPath": "banks/hard-cases-canonical.json",
+    "parentCaseId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01",
+    "partId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q5",
+    "sourceParentSha256": "ad609b8cc9daecf0e2ddf4bfc0f0e0d3b3aca731c05e585ce176334ecc73c835",
+    "stagesVisibleIfApproved": [
+      "stage1",
+      "stage2"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "73df80f9cc831a0e",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "baseline",
+    "answerProposition": "Recognize improving trends while continuing surveillance during unresolved AKI/hyperkalemia.",
+    "establishingSurfaces": "Matrix explicitly supplies trends. Multiple-per-row key marks both improvement/monitoring for four rows but only improvement for BP/HR and orientation.",
+    "laterInformationToHide": "stage3 narrative repeats those improvements; no later chart eliminates ongoing monitoring needs.",
+    "boundaryDefense": "Baseline can support row interpretation; it cannot justify the inconsistent monitoring key.",
+    "requiredContentWork": "Add ongoing-monitoring selections for BP/HR and orientation with matching rationale, or redesign mutually exclusive trajectory columns. Require independent key review for the chosen repair.",
+    "sourceIds": [
+      "kdigo-aki"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-12",
+    "bankPath": "banks/hard-cases-canonical.json",
+    "parentCaseId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01",
+    "partId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q6",
+    "sourceParentSha256": "ad609b8cc9daecf0e2ddf4bfc0f0e0d3b3aca731c05e585ce176334ecc73c835",
+    "stagesVisibleIfApproved": [],
+    "stagesHiddenIfApproved": [
+      "stage1",
+      "stage2",
+      "stage3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "802896cb6a9c1b8e",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_1",
+    "answerProposition": "Recognize likely sepsis/systemic infection with worsening hypotension after fluid, rather than attributing the whole febrile neutropenic deterioration to a local line lesion.",
+    "establishingSurfaces": "stage_1 supplies post-bolus hypotension, rising lactate and oliguria; baseline neutropenic fever and PICC changes.",
+    "laterInformationToHide": "stage_2 cultures/antibiotic escalation and stage_3 confirmation/source control.",
+    "boundaryDefense": "Actual post-bolus deterioration first exists at stage_1; its raw findings do not require showing later confirmation. Rationale overstates exclusion of dehydration.",
+    "requiredContentWork": "Revise opt_B rationale and strategy: severe dehydration can cause hypotension and elevated lactate; the combined fever/neutropenia/line findings require urgent sepsis evaluation, not a categorical physiologic impossibility.",
+    "sourceIds": [
+      "sepsis-guideline"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-13",
+    "bankPath": "banks/hard-cases-canonical.json",
+    "parentCaseId": "opus_tpn_case_mucositis_01",
+    "partId": "opus_tpn_case_mucositis_01_q1",
+    "sourceParentSha256": "32294e4bc4a2dc8631daeb8804bc4e98dba50ee694990d44a958867f7255076a",
+    "stagesVisibleIfApproved": [
+      "stage_1"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_2",
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "a0e42e1a6716455d",
+    "disposition": "REPLACEMENT_CANDIDATE",
+    "proposedBoundary": null,
+    "answerProposition": "Escalate concerning preliminary line culture, ensure prompt antimicrobial therapy, and coordinate safe source control/essential infusion access.",
+    "establishingSurfaces": "stage_2 includes preliminary results and new vancomycin order; current total-order key assumes report-before-verification and mandates source control last.",
+    "laterInformationToHide": "stage_3 confirmed CRBSI, removal and replacement/access outcome.",
+    "boundaryDefense": "Concurrent verification, escalation and access planning cannot be uniquely ordered from this chart; earlier visibility omits the drug order while later visibility supplies outcomes.",
+    "requiredContentWork": "Replace ordered-response with SATA or another natural format assessing safe coordination without arbitrary ranking. Correct >2-hour versus at-least-2-hour diagnostic wording consistently; do not mandate unnecessary source-control delay for new central placement.",
+    "sourceIds": [
+      "idsa-crbsi",
+      "sepsis-guideline"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-13",
+    "bankPath": "banks/hard-cases-canonical.json",
+    "parentCaseId": "opus_tpn_case_mucositis_01",
+    "partId": "opus_tpn_case_mucositis_01_q3",
+    "sourceParentSha256": "32294e4bc4a2dc8631daeb8804bc4e98dba50ee694990d44a958867f7255076a",
+    "stagesVisibleIfApproved": null,
+    "stagesHiddenIfApproved": null,
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "664554d731c00372",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "baseline",
+    "answerProposition": "Tolerating spit-out mouth rinses does not demonstrate readiness to replace prescribed nutrition with oral intake.",
+    "establishingSurfaces": "q6 stem explicitly supplies rinse tolerance and inability to swallow; baseline severe oral/esophageal mucositis and existing PN.",
+    "laterInformationToHide": "stage_3 line replacement/clinical improvement does not determine whether a tube-feeding route is possible.",
+    "boundaryDefense": "Self-contained oral-capability data support baseline, but inability to swallow does not make all enteral tube feeding impossible.",
+    "requiredContentWork": "Narrow stem/options/rationale from enteral nutrition generally to resuming oral nutrition and stopping PN on rinse tolerance alone; remove blanket tube-enteral impossibility and have the team reassess the feeding route.",
+    "sourceIds": [
+      "nice-nutrition"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-13",
+    "bankPath": "banks/hard-cases-canonical.json",
+    "parentCaseId": "opus_tpn_case_mucositis_01",
+    "partId": "opus_tpn_case_mucositis_01_q6",
+    "sourceParentSha256": "32294e4bc4a2dc8631daeb8804bc4e98dba50ee694990d44a958867f7255076a",
+    "stagesVisibleIfApproved": [],
+    "stagesHiddenIfApproved": [
+      "stage_1",
+      "stage_2",
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "ee56ac60cc709ab2",
+    "disposition": "REVIEW_HOLD",
+    "proposedBoundary": null,
+    "answerProposition": "Implement the prescribed peripheral potassium safely, including the actually ordered magnesium and ED-required monitoring.",
+    "establishingSurfaces": "Baseline establishes low magnesium and potassium; q4 supplies the potassium prescription; stage_2_ed_initial alone supplies the magnesium order and ED telemetry/pump protocol.",
+    "laterInformationToHide": "stage_3_six_hours_ed response; stage_2 also explicitly lists several keyed safety actions.",
+    "boundaryDefense": "Baseline cannot prove an existing magnesium order from hypomagnesemia alone. Stage_2 is complete but substantially supplies the tested protocol actions. Whether this is legitimate order-implementation reasoning or answer retrieval needs construct adjudication.",
+    "requiredContentWork": "Independent reviewer should choose a revised self-contained administration stem or approve stage_2 as a protocol-application construct with an explicit rationale. Do not resolve by calling all potassium monitoring universally identical.",
+    "sourceIds": [
+      "kcl-label"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-14",
+    "bankPath": "banks/claude-canonical.json",
+    "parentCaseId": "opus24_case_elder_neglect_med_mismanagement_01",
+    "partId": "opus24_case_elder_neglect_med_mismanagement_01_q4",
+    "sourceParentSha256": "42b9640355cb214077da0ee904484568f290fbd64401631cc3c7b461838a3b32",
+    "stagesVisibleIfApproved": null,
+    "stagesHiddenIfApproved": null,
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "4170e57ae9a4c3ec",
+    "disposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+    "proposedBoundary": "stage_lead_labs",
+    "answerProposition": "Manage an asymptomatic toddler’s confirmed venous BLL 18 with exposure education and early repeat venous testing rather than emergency chelation or no follow-up.",
+    "establishingSurfaces": "Baseline asymptomatic child/exposure history; stage_lead_labs identifies the specimen as venous; q2 supplies 18.",
+    "laterInformationToHide": "stage_lead_education describes the subsequent education plan.",
+    "boundaryDefense": "Specimen type determines confirmation versus follow-up timing; an untyped screening value in the stem is insufficient. The lab stage gives the result/reference value but not the selected 1–3-month follow-up plan.",
+    "requiredContentWork": "",
+    "sourceIds": [
+      "cdc-lead"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-15",
+    "bankPath": "banks/gemini-canonical.json",
+    "parentCaseId": "gemini_gap_case_lead_poisoning_01",
+    "partId": "gemini_gap_case_lead_poisoning_01_q2",
+    "sourceParentSha256": "12fe26dde8611b95b7009d0e08d242c98e092da1977892397ec37bb62c3b439f",
+    "stagesVisibleIfApproved": [
+      "stage_lead_labs"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_lead_education"
+    ],
+    "boundaryConditionalOnContentReview": false
+  },
+  {
+    "rowKey": "47e8dfe5f72a69a4",
+    "disposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+    "proposedBoundary": "baseline",
+    "answerProposition": "Interpret explicitly decreased stool/bilirubin and fading rash as disease-response directions, while monitoring glucose and infection risk under the named immunosuppressants.",
+    "establishingSurfaces": "q6 stem names treatment and duration; every row supplies its finding and, where needed, direction of change; baseline supplies transplant/GVHD context.",
+    "laterInformationToHide": "stage_3 labels the course improved; stage_2 deterioration values are not required to calculate a trend already expressly stated in the rows.",
+    "boundaryDefense": "The row says decreased, not compare this isolated number to admission. Extrapolating one baseline eight-hour stool output to a full day is not warranted. Absence of fever under immunosuppression needs vigilance without a prior fever.",
+    "requiredContentWork": "",
+    "sourceIds": [
+      "ruxolitinib-label"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-16",
+    "bankPath": "banks/gemini-canonical.json",
+    "parentCaseId": "opus_agvd_case_agvhd_01",
+    "partId": "opus_agvd_case_agvhd_01_q6",
+    "sourceParentSha256": "aad9ebb09073d70cc930ad337f15e12c6267771dace3589a6559b826ce784a74",
+    "stagesVisibleIfApproved": [],
+    "stagesHiddenIfApproved": [
+      "stage_1",
+      "stage_2",
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": false
+  },
+  {
+    "rowKey": "f9808a51e6bb06d4",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage2",
+    "answerProposition": "Use the current postpartum clinical and laboratory pattern to identify severe-feature preeclampsia and explain why the HELLP triad is not demonstrated.",
+    "establishingSurfaces": "stage1 current BP/CNS findings and stage2 current platelet/AST/ALT/LDH results; delivery-admission baseline labs are several days old.",
+    "laterInformationToHide": "stage3 treatment response; baseline case title currently spells out the diagnosis blank.",
+    "boundaryDefense": "Current lab exclusion requires stage2 even though options suggest the pattern. A boundary alone cannot hide the always-visible diagnostic title.",
+    "requiredContentWork": "Neutralize the bilingual parent title to a presenting-symptom title before proposing stage2. Preserve actual clinical data and independent review of all three dropdown keys; survey sibling impact of the shared-title change.",
+    "sourceIds": [
+      "acog-preeclampsia"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-17",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01",
+    "partId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q3",
+    "sourceParentSha256": "56b10d94482beff6d6c231673a1f1b0b370e318dbada2b0103c112a7eff39bd0",
+    "stagesVisibleIfApproved": [
+      "stage1",
+      "stage2"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "5e6cd8254c891c72",
+    "disposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+    "proposedBoundary": "stage_2",
+    "answerProposition": "Before the caregiver leaves, address the real wandering/fire hazards, orient temporary supervision, and notify the provider about disclosed diphenhydramine use.",
+    "establishingSurfaces": "Baseline noon departure/neighbor and unsafe home; stage_1 actual burner event; stage_2 actual three-week diphenhydramine exposure with more confusion.",
+    "laterInformationToHide": "stage_3 completed medication discontinuation, alarms and community follow-through.",
+    "boundaryDefense": "The selected bundled plan addresses an actual medication exposure not asserted in the stem. A proposed action naming that drug is not evidence it has been used; stage_2 supplies the missing determinant without performing the plan.",
+    "requiredContentWork": "",
+    "sourceIds": [
+      "nia-dementia-safety"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-18",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_caregiver_role_strain_dementia_01",
+    "partId": "gpt_case_caregiver_role_strain_dementia_01_q3",
+    "sourceParentSha256": "c2481adfd6a03b6acbe15d69c1a084ce440432f3fe0ba307261cbd849844a642",
+    "stagesVisibleIfApproved": [
+      "stage_1",
+      "stage_2"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": false
+  },
+  {
+    "rowKey": "d92f499014ea0870",
+    "disposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+    "proposedBoundary": "stage_2",
+    "answerProposition": "Build a cue-specific safety/support plan covering wandering, stove, falls, chemicals, uncertain medication ingestion and caregiver capacity.",
+    "establishingSurfaces": "Baseline environmental/functional hazards; stage_1 unsafe stove behavior; stage_2 crushed tablets, uncertain intake, missed doses and diphenhydramine.",
+    "laterInformationToHide": "stage_3 pharmacy formulations, provider discontinuation and implemented safety measures.",
+    "boundaryDefense": "The medication/formulation component requires the private disclosure. stage_2 contains problems and history rather than completed referrals or the keyed plan.",
+    "requiredContentWork": "",
+    "sourceIds": [
+      "nia-dementia-safety"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-18",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_caregiver_role_strain_dementia_01",
+    "partId": "gpt_case_caregiver_role_strain_dementia_01_q4",
+    "sourceParentSha256": "c2481adfd6a03b6acbe15d69c1a084ce440432f3fe0ba307261cbd849844a642",
+    "stagesVisibleIfApproved": [
+      "stage_1",
+      "stage_2"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": false
+  },
+  {
+    "rowKey": "3db55ace83b191ac",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_2",
+    "answerProposition": "Interpret the actual febrile ANC 980 and new cardiac biomarker/exam cluster as concurrent neutropenia with infection risk and suspected myocarditis.",
+    "establishingSurfaces": "stage_2 actual fever, ANC decline, chest symptoms, troponin/CRP/BNP and heart-failure findings; baseline comparators.",
+    "laterInformationToHide": "stage_3 echo confirmation; always-visible title currently names both diagnoses.",
+    "boundaryDefense": "The stem asks what the actual Stage 2 findings support, not merely what hypothetical combinations mean. stage_2 supplies them, but the title pre-answers the diagnostic construct.",
+    "requiredContentWork": "Neutralize bilingual parent title to clozapine initiation with an acute change; preserve stage_2 raw findings. Review sibling impact of shared-title repair.",
+    "sourceIds": [
+      "clozapine-label"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-19",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_clozapine_toxicity_01",
+    "partId": "gpt_case_clozapine_toxicity_01_q2",
+    "sourceParentSha256": "ca88a9a07af6452917a4e235e73a8447e50cc050be9bdee5a714c6cc8a5a293c",
+    "stagesVisibleIfApproved": [
+      "stage_1",
+      "stage_2"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "e091c2e5e7c356f8",
+    "disposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+    "proposedBoundary": "stage_2",
+    "answerProposition": "Recognize that current fever/neutropenia and suspected myocarditis activate the supplied facility hold-and-notify policy.",
+    "establishingSurfaces": "Baseline gives conditional policy; stage_2 first supplies actual policy-triggering fever, ANC and cardiac findings.",
+    "laterInformationToHide": "stage_3 records the hold and notification already performed.",
+    "boundaryDefense": "Knowing a conditional policy does not establish its trigger at a normal baseline. stage_2 supplies the abnormal assessment, not the later hold/notification; naming a toxicity in the title cannot replace timing-specific assessment.",
+    "requiredContentWork": "",
+    "sourceIds": [
+      "clozapine-label"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-19",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_clozapine_toxicity_01",
+    "partId": "gpt_case_clozapine_toxicity_01_q3",
+    "sourceParentSha256": "ca88a9a07af6452917a4e235e73a8447e50cc050be9bdee5a714c6cc8a5a293c",
+    "stagesVisibleIfApproved": [
+      "stage_1",
+      "stage_2"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": false
+  },
+  {
+    "rowKey": "53abf6daaaf8fd16",
+    "disposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+    "proposedBoundary": "stage_2",
+    "answerProposition": "After hold/notification, anticipate both urgent infection evaluation/treatment and cardiac monitoring/workup appropriate to this client’s concurrent findings.",
+    "establishingSurfaces": "Stem supplies hold/notification; stage_2 supplies febrile neutropenia and cardiac injury; baseline supplies policy.",
+    "laterInformationToHide": "stage_3 culture/antibiotic execution, echo diagnosis and follow-up plan.",
+    "boundaryDefense": "A hold could have one of several causes; the combined infection and cardiac pathways require stage_2 evidence. Initiated precautions in stage_2 do not supply the remaining diagnostic/treatment bundle.",
+    "requiredContentWork": "",
+    "sourceIds": [
+      "clozapine-label",
+      "idsa-fever"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-19",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_clozapine_toxicity_01",
+    "partId": "gpt_case_clozapine_toxicity_01_q4",
+    "sourceParentSha256": "ca88a9a07af6452917a4e235e73a8447e50cc050be9bdee5a714c6cc8a5a293c",
+    "stagesVisibleIfApproved": [
+      "stage_1",
+      "stage_2"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": false
+  },
+  {
+    "rowKey": "05e76aac6f75e2cb",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_3",
+    "answerProposition": "Distinguish partial improvement in supported vital signs from unresolved toxicity, and identify appropriate recovery trends and escalation triggers.",
+    "establishingSurfaces": "stage_2 initial biomarkers; stage_3 repeat ANC/troponin/CRP, symptoms, oxygen-supported vitals and echo; hypothetical options B/C/E state future indicators.",
+    "laterInformationToHide": "No later stage. Stage_3 gives measurements, not a claim that toxicity resolved.",
+    "boundaryDefense": "Actual-state option A needs current trajectory, unlike hypothetical recovery options. Its absolute not-yet-improving wording conflicts with acknowledged partial clinical improvement.",
+    "requiredContentWork": "Revise option A in both languages to relatively stable with toxicities not yet resolved rather than not yet improving, and align rationale; retain stage_3 for actual trajectory evaluation.",
+    "sourceIds": [
+      "clozapine-label"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-19",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_clozapine_toxicity_01",
+    "partId": "gpt_case_clozapine_toxicity_01_q6",
+    "sourceParentSha256": "ca88a9a07af6452917a4e235e73a8447e50cc050be9bdee5a714c6cc8a5a293c",
+    "stagesVisibleIfApproved": [
+      "stage_1",
+      "stage_2",
+      "stage_3"
+    ],
+    "stagesHiddenIfApproved": [],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "816f8ee32a25b1ca",
+    "disposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+    "proposedBoundary": "stage_1",
+    "answerProposition": "Classify actual unauthorized curiosity access/photo creation, requests requiring verification, and overheard communication without safeguards.",
+    "establishingSurfaces": "Baseline contact/policy; stage_1 establishes no care role, absent photo consent with visible wristband, employer request and visitor earshot.",
+    "laterInformationToHide": "stage_2 mitigation and stage_3 formal breach determination.",
+    "boundaryDefense": "Abbreviated matrix labels alone omit consent and safeguarding facts. The stage provides event facts, not final legal breach adjudication or the completed response.",
+    "requiredContentWork": "",
+    "sourceIds": [
+      "hhs-incidental",
+      "hhs-workers-comp",
+      "hipaa-family"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-20",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_hipaa_disclosure_breach_01",
+    "partId": "gpt_case_hipaa_disclosure_breach_01_q2",
+    "sourceParentSha256": "c8782809cc0d0f2d03819289755812ed5e01a9c6f83d00f2462a8c853ddb2a58",
+    "stagesVisibleIfApproved": [
+      "stage_1"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_2",
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": false
+  },
+  {
+    "rowKey": "081b3b885639d73b",
+    "disposition": "REVIEW_HOLD",
+    "proposedBoundary": null,
+    "answerProposition": "Contain the actual privacy exposures, route requests/reporting correctly, and handle the personal-device image under an authorized incident-response process.",
+    "establishingSurfaces": "stage_1 event details and baseline reporting policy establish most actions; option D mandates irreversible local/recently-deleted image removal before Privacy Officer review.",
+    "laterInformationToHide": "stage_2 performs the keyed deletion/other containment and stage_3 reviews cloud transmission.",
+    "boundaryDefense": "stage_1 is the likely event boundary, but no supplied policy establishes evidence-preserving authority for immediate permanent deletion. Later performance is not proof that the action is sound.",
+    "requiredContentWork": "Obtain a specific approved institutional photo-incident procedure or revise D and matching stage/rationale to contain sharing and follow Privacy Officer/security direction while preserving required incident evidence. Do not present HIPAA as universally mandating immediate permanent deletion.",
+    "sourceIds": [
+      "hhs-breach"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-20",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_hipaa_disclosure_breach_01",
+    "partId": "gpt_case_hipaa_disclosure_breach_01_q4",
+    "sourceParentSha256": "c8782809cc0d0f2d03819289755812ed5e01a9c6f83d00f2462a8c853ddb2a58",
+    "stagesVisibleIfApproved": null,
+    "stagesHiddenIfApproved": null,
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "1e12ffbae816c10e",
+    "disposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+    "proposedBoundary": "stage_1",
+    "answerProposition": "Teach contact precautions nonjudgmentally, acknowledge the daughter’s reported lack of orientation, and verify gown/glove/hand-hygiene performance.",
+    "establishingSurfaces": "Baseline MRSA/draining wound and local visitor policy; stage_1 daughter’s unprotected repositioning and explicit nobody-told-me report.",
+    "laterInformationToHide": "stage_3 successful return demonstration; stage_2 unrelated breaches.",
+    "boundaryDefense": "The acknowledgment option asserts a particular teaching gap, not merely a universal need for orientation. stage_1 supplies that gap without showing subsequent successful teaching.",
+    "requiredContentWork": "",
+    "sourceIds": [
+      "cdc-contact"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-21",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_infection_control_clustered_care_01",
+    "partId": "gpt_case_infection_control_clustered_care_01_q3",
+    "sourceParentSha256": "807e551601c080f256f0b459714260a3361d663224874a8457353e654dccea0b",
+    "stagesVisibleIfApproved": [
+      "stage_1"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_2",
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": false
+  },
+  {
+    "rowKey": "f56f69400453dee6",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_2",
+    "answerProposition": "Prioritize a symptomatic BP 186/102 and missed monitoring that cross the actual provider call parameter over interpersonal mediation.",
+    "establishingSurfaces": "q3 supplies BP/headache/missed check; stage_2 supplies the hospitalist SBP >180 call rule.",
+    "laterInformationToHide": "stage_3 call, medication and response; stage_2 last sentence currently tells the learner Marcus has verified the threshold is crossed.",
+    "boundaryDefense": "The numerical call rule is necessary to establish the full keyed proposition, but the completed interpretation must be removed from the same prefix.",
+    "requiredContentWork": "Remove the bilingual stage_2 sentence that pre-interprets the threshold; retain measured BP, symptom and verbatim local order. Also correct the accompanying ECG description of HR 92 as sinus tachycardia after clinical review.",
+    "sourceIds": [
+      "aha-tachycardia"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-22",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_lateral_incivility_01",
+    "partId": "gpt_case_lateral_incivility_01_q3",
+    "sourceParentSha256": "2837abd93700e202b79833c552033a51fb441c854202987c053068f1c7dea25e",
+    "stagesVisibleIfApproved": [
+      "stage_1",
+      "stage_2"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "b1d86a48db7dac8f",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_2",
+    "answerProposition": "Address the active symptomatic care gap now, then conduct private behavior-focused feedback/coaching and appropriate safety/conduct reporting.",
+    "establishingSurfaces": "stage_1 observed handoff and conduct; stage_2 current BP, headache, missed check and call parameter.",
+    "laterInformationToHide": "stage_3 executes the whole proposed response; stage_2 pre-interprets the call threshold.",
+    "boundaryDefense": "Baseline is stable and cannot establish urgency now. stage_2 raw findings suffice once the interpretation sentence is removed.",
+    "requiredContentWork": "Apply the shared stage_2 interpretation/ECG corrections specified for q3; preserve q4 actions and require joint parent review.",
+    "sourceIds": [
+      "aha-tachycardia"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-22",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_lateral_incivility_01",
+    "partId": "gpt_case_lateral_incivility_01_q4",
+    "sourceParentSha256": "2837abd93700e202b79833c552033a51fb441c854202987c053068f1c7dea25e",
+    "stagesVisibleIfApproved": [
+      "stage_1",
+      "stage_2"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "a8982658716e5dd4",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_2",
+    "answerProposition": "Ensure prompt hospitalist notification through the primary nurse using the current symptomatic BP and stated call parameter before paperwork or conduct follow-up.",
+    "establishingSurfaces": "stage_2 actual BP/headache/missed monitoring and hospitalist order; baseline absence of PRN antihypertensive.",
+    "laterInformationToHide": "stage_3 Marcus explicitly directs the selected action; stage_2 currently confirms threshold crossing.",
+    "boundaryDefense": "An answer option naming current BP does not supply its value or actual trigger. stage_2 is needed, with its answer-supplying interpretation removed.",
+    "requiredContentWork": "Apply shared stage_2 interpretation/ECG corrections; retain current role-specific q5 options pending independent review.",
+    "sourceIds": [
+      "aha-tachycardia"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-22",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_lateral_incivility_01",
+    "partId": "gpt_case_lateral_incivility_01_q5",
+    "sourceParentSha256": "2837abd93700e202b79833c552033a51fb441c854202987c053068f1c7dea25e",
+    "stagesVisibleIfApproved": [
+      "stage_1",
+      "stage_2"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "dcf2dbbe0f27ca65",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_1",
+    "answerProposition": "Recognize acute relapse vulnerability from pain, fear and withdrawal from supports, while exploring ambiguous self-harm language rather than assigning a legal hold from one sentence.",
+    "establishingSurfaces": "Baseline OUD/pain and absence of objective withdrawal; stage_1 improved vitals, isolation, catastrophic relapse statement and denial of hurting himself.",
+    "laterInformationToHide": "stage_2 interpersonal crisis and stage_3 explicit craving/logistical barriers.",
+    "boundaryDefense": "The actual support withdrawal/clarification are stage_1 additions. The rationale overstates the documented assessment as a formal denial of both intent and plan.",
+    "requiredContentWork": "Replace unsupported intent-and-plan-denied assertions with the exact documented denial and the need for a complete continuing safety assessment; do not imply that denial alone rules out a crisis or governs involuntary-hold law.",
+    "sourceIds": [
+      "samhsa-safe-t"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-23",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+    "partId": "gpt_case_opioid_recovery_relapse_risk_01_q2",
+    "sourceParentSha256": "d016aa0e833851594d6354a23e2d36a1b94c2eb81cdde3093eb6a1fcd748529f",
+    "stagesVisibleIfApproved": [
+      "stage_1"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_2",
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "18d46f73fa754220",
+    "disposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+    "proposedBoundary": "stage_2",
+    "answerProposition": "Prioritize worsening hopelessness/isolation and safety reassessment after the MAT prescriber has already been contacted, while protecting confidentiality.",
+    "establishingSurfaces": "stage_2 privately supplied collateral, client distress, and documented provider contact resolving the previously open MAT question.",
+    "laterInformationToHide": "stage_3 worsening pain, craving and discharge barriers.",
+    "boundaryDefense": "Earlier records still have an unresolved MAT plan, making distractor D potentially appropriate. stage_2 supplies its resolution and the new psychosocial priority without assigning the nursing response.",
+    "requiredContentWork": "",
+    "sourceIds": [
+      "samhsa-safe-t",
+      "hipaa-family"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-23",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+    "partId": "gpt_case_opioid_recovery_relapse_risk_01_q3",
+    "sourceParentSha256": "d016aa0e833851594d6354a23e2d36a1b94c2eb81cdde3093eb6a1fcd748529f",
+    "stagesVisibleIfApproved": [
+      "stage_1",
+      "stage_2"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": false
+  },
+  {
+    "rowKey": "b02619cc0abe50fd",
+    "disposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+    "proposedBoundary": "stage_2",
+    "answerProposition": "Reflect distress, explore meaning and safety, offer support contact, and obtain permission for partner participation without deploying private collateral as confrontation.",
+    "establishingSurfaces": "Stem quotes distress; stage_2 establishes Tanya’s private hallway report and the client’s mistrust/isolation; baseline identifies supports.",
+    "laterInformationToHide": "stage_3 later craving and discharge planning.",
+    "boundaryDefense": "The quoted feeling is self-contained, but the rejection of the private-collateral option requires its actual conversational context; stage_2 provides it without the nurse’s selected response.",
+    "requiredContentWork": "",
+    "sourceIds": [
+      "samhsa-safe-t",
+      "hipaa-family"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-23",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+    "partId": "gpt_case_opioid_recovery_relapse_risk_01_q4",
+    "sourceParentSha256": "d016aa0e833851594d6354a23e2d36a1b94c2eb81cdde3093eb6a1fcd748529f",
+    "stagesVisibleIfApproved": [
+      "stage_1",
+      "stage_2"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": false
+  },
+  {
+    "rowKey": "73a1a25cd88535fd",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_3",
+    "answerProposition": "Respond to disclosed craving, reinforce a reconciled prescribed pain/OUD regimen, activate support/follow-up/transportation and review naloxone readiness.",
+    "establishingSurfaces": "stage_3 explicit craving, wearing-off block, sponsor/transport/appointment gaps and kit question; stage_2 analgesic/OUD orders.",
+    "laterInformationToHide": "No later stage; discharge readiness data are the input, not a completed safe-discharge outcome.",
+    "boundaryDefense": "Earlier stages lack the full individualized barriers. However, baseline says the daily buprenorphine dose was already taken this morning, while stage_2 orders the full daily dose again tonight and stage_3 records it given.",
+    "requiredContentWork": "Reconcile actual daily buprenorphine timing with prescriber/source review across baseline and stages2/3 before reinforcing the plan; do not silently endorse a second full same-day dose. Clarify authorized timing or next scheduled dose, and obtain client permission for shared teaching.",
+    "sourceIds": [
+      "buprenorphine-label",
+      "samhsa-overdose"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-23",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+    "partId": "gpt_case_opioid_recovery_relapse_risk_01_q5",
+    "sourceParentSha256": "d016aa0e833851594d6354a23e2d36a1b94c2eb81cdde3093eb6a1fcd748529f",
+    "stagesVisibleIfApproved": [
+      "stage_1",
+      "stage_2",
+      "stage_3"
+    ],
+    "stagesHiddenIfApproved": [],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "0eb41edc4fe6849b",
+    "disposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+    "proposedBoundary": "stage_2",
+    "answerProposition": "Facilitate safe assisted toileting for current urgency after Foley removal while addressing pain and orthostatic fall risk, using the retention pathway if unsuccessful.",
+    "establishingSurfaces": "stage_2 Foley removal, urgency, bladder scan 420 and symptomatic failed standing; baseline hip precautions and pain risk.",
+    "laterInformationToHide": "stage_3 successful commode voids and improved orthostasis.",
+    "boundaryDefense": "At baseline the Foley remains in place. The frozen checker rationale discusses respiratory-sedation prioritization rather than this actual toileting question and cannot govern. stage_2 gives the relevant current need without showing the successful intervention.",
+    "requiredContentWork": "",
+    "sourceIds": [
+      "cdc-cauti"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-24",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+    "partId": "gpt_case_pressure_injury_prevention_mobility_01_q3",
+    "sourceParentSha256": "d5a215ff08434ec45062d0cd28506ffbd240bc119e63d196ceeff0a791d1db05",
+    "stagesVisibleIfApproved": [
+      "stage_1",
+      "stage_2"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": false
+  },
+  {
+    "rowKey": "375aacb3f6469581",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_2",
+    "answerProposition": "Integrate pain-enabled mobility, orthostatic precautions, nutrition, moisture/offloading and prompted toileting around actual current needs.",
+    "establishingSurfaces": "Baseline skin/intake/pain; stage_1 supportive measures; stage_2 Foley removal, urgency and orthostatic failure.",
+    "laterInformationToHide": "stage_3 successful transfers and new device injury.",
+    "boundaryDefense": "The urgency-driven voiding component first arises at stage_2. The option also assumes hearing aids and ordered ice not established anywhere in the current record.",
+    "requiredContentWork": "Remove the unsupported hearing-aid/ordered-ice specifics from option A and matching rationale, or explicitly establish their indication/order as reviewed fictional context. Preserve reassessment of sedation and orthostasis before activity.",
+    "sourceIds": [
+      "pressure-guideline"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-24",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+    "partId": "gpt_case_pressure_injury_prevention_mobility_01_q4",
+    "sourceParentSha256": "d5a215ff08434ec45062d0cd28506ffbd240bc119e63d196ceeff0a791d1db05",
+    "stagesVisibleIfApproved": [
+      "stage_1",
+      "stage_2"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "2e075b7d68f40f7b",
+    "disposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+    "proposedBoundary": "stage_3",
+    "answerProposition": "Recognize intact nonblanchable heel erythema at the shifted boot strap as a new device-related Stage1 injury and remove the pressure source, assess/document/offload and notify per protocol.",
+    "establishingSurfaces": "stage_3 supplies intact skin, warmth, size, location and shifted strap mechanism; stem only says new nonblanchable redness.",
+    "laterInformationToHide": "No later stage. Other stage_3 improvements are not determinants of the heel response.",
+    "boundaryDefense": "Earlier heels were intact without the lesion; redness alone cannot establish the complete device-related staging proposition. stage_3 supplies raw appearance and mechanical history rather than the corrective action.",
+    "requiredContentWork": "",
+    "sourceIds": [
+      "pressure-guideline"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-24",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+    "partId": "gpt_case_pressure_injury_prevention_mobility_01_q5",
+    "sourceParentSha256": "d5a215ff08434ec45062d0cd28506ffbd240bc119e63d196ceeff0a791d1db05",
+    "stagesVisibleIfApproved": [
+      "stage_1",
+      "stage_2",
+      "stage_3"
+    ],
+    "stagesHiddenIfApproved": [],
+    "boundaryConditionalOnContentReview": false
+  },
+  {
+    "rowKey": "3547d5f076446b1e",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_1",
+    "answerProposition": "Connect the new simultaneous phosphate/potassium/magnesium decline after PN with refeeding physiology, while treating glucose as a concurrent concern.",
+    "establishingSurfaces": "Baseline prolonged poor intake and PN risk; stage_1 actual electrolyte declines and glucose rise with a benign site.",
+    "laterInformationToHide": "stage_2 severe organ dysfunction and stage_3 response; the always-visible title presently names refeeding syndrome as already occurring.",
+    "boundaryDefense": "A risk label at baseline does not establish the realized post-PN pattern. stage_1 gives measurements; the diagnostic title must first stop supplying the diagnosis blank.",
+    "requiredContentWork": "Neutralize bilingual parent title to nutrition initiation after prolonged poor intake; retain the legitimate high-risk assessment in baseline and review sibling effects.",
+    "sourceIds": [
+      "aspen-refeeding",
+      "nice-nutrition"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-25",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_refeeding_syndrome_tpn_01",
+    "partId": "gpt_case_refeeding_syndrome_tpn_01_q2",
+    "sourceParentSha256": "2c2b83e21f4b25c02292d139046437746494716183dee4902aae91cba9a46818",
+    "stagesVisibleIfApproved": [
+      "stage_1"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_2",
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "e7820c89234bfb5d",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_2",
+    "answerProposition": "Prioritize active dysrhythmia/respiratory compromise with severe electrolyte decline while concurrently escalating possible catheter infection.",
+    "establishingSurfaces": "stage_2 actual low phosphate/K/Mg, PVCs/QT, shallow breathing, altered mentation and purulent site; earlier phases lack this competing acute cluster.",
+    "laterInformationToHide": "stage_3 ordered treatment and improvement.",
+    "boundaryDefense": "Stage_2 establishes current organ compromise without stating the answer, but rationale categorically excludes infection as a contributor to rhythm/respiratory findings.",
+    "requiredContentWork": "Soften causal certainty in correct/choice rationale: electrolyte decline strongly supports urgent correction; infection may coexist or contribute and needs timely parallel evaluation. Correct impossible shared PICC timeline: stage_2 at30h claims dressing changed24h earlier although line was placed at18h.",
+    "sourceIds": [
+      "aspen-refeeding",
+      "sepsis-guideline"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-25",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_refeeding_syndrome_tpn_01",
+    "partId": "gpt_case_refeeding_syndrome_tpn_01_q3",
+    "sourceParentSha256": "2c2b83e21f4b25c02292d139046437746494716183dee4902aae91cba9a46818",
+    "stagesVisibleIfApproved": [
+      "stage_1",
+      "stage_2"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "0620f6656c0e487d",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_2",
+    "answerProposition": "Escalate persistent electrolyte decline with organ effects and new drainage; anticipate supervised nutrition adjustment/repletion and prompt paired cultures with antimicrobial treatment.",
+    "establishingSurfaces": "stage_2 failed prior repletion, current thresholds and new PICC drainage; baseline replacement protocol.",
+    "laterInformationToHide": "stage_3 actual reduced-rate/antibiotic orders and response.",
+    "boundaryDefense": "Baseline protocol alone cannot establish current thresholds or a new infection. stage_2 provides indications but the shared line timeline is internally impossible.",
+    "requiredContentWork": "Correct stage_2 PICC dressing timing using an explicitly reviewed chronology; clarify culture-before-antibiotic wording as conditional on prompt collection without material treatment delay. Avoid a universal prohibition on prescribed PN cessation in life-threatening refeeding.",
+    "sourceIds": [
+      "aspen-refeeding",
+      "sepsis-guideline",
+      "idsa-crbsi"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-25",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_refeeding_syndrome_tpn_01",
+    "partId": "gpt_case_refeeding_syndrome_tpn_01_q4",
+    "sourceParentSha256": "2c2b83e21f4b25c02292d139046437746494716183dee4902aae91cba9a46818",
+    "stagesVisibleIfApproved": [
+      "stage_1",
+      "stage_2"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "c8306bb54be5fce7",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_2",
+    "answerProposition": "Distinguish immediate nutrition/electrolyte actions from timely culture/antibiotic coordination and ongoing glucose support in the current crisis.",
+    "establishingSurfaces": "Stem supplies received orders and matrix names actions; stage_2 establishes actual dysrhythmia/respiratory urgency relative to infection workup.",
+    "laterInformationToHide": "stage_3 repeats orders and reports their outcome.",
+    "boundaryDefense": "No need to wait for stage_3 order transcription, but baseline has no active organ compromise. Current columns make cultures an unconditional prerequisite despite byChoice allowing a prompt-collection exception.",
+    "requiredContentWork": "Revise culture/antibiotic timing columns and rationale to preserve prompt treatment if cultures cannot be obtained without significant delay; correct shared stage_2 line chronology. Review selection-mode uniqueness after wording repair.",
+    "sourceIds": [
+      "sepsis-guideline",
+      "idsa-crbsi"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-25",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_refeeding_syndrome_tpn_01",
+    "partId": "gpt_case_refeeding_syndrome_tpn_01_q5",
+    "sourceParentSha256": "2c2b83e21f4b25c02292d139046437746494716183dee4902aae91cba9a46818",
+    "stagesVisibleIfApproved": [
+      "stage_1",
+      "stage_2"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "b87b748b0a8fe610",
+    "disposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+    "proposedBoundary": "stage_2",
+    "answerProposition": "Identify the actual acute transfusion reaction from the new overload-sign cluster, not merely the patient’s pre-existing susceptibility.",
+    "establishingSurfaces": "Baseline chronic heart/kidney disease and mild unchanged crackles; stage_1 remains stable; stage_2 new hypertension, hypoxemia, S3, JVD, spreading crackles, edema and low urine output.",
+    "laterInformationToHide": "stage_3 BNP/imaging and diuretic response; stage_4 explicit TACO diagnosis and resolution.",
+    "boundaryDefense": "The four evidence alternatives describe different possible clusters. Risk factors do not establish which occurred. stage_2 reports the actual discriminatory findings without naming the selected diagnosis; the title names both competing reactions.",
+    "requiredContentWork": "",
+    "sourceIds": [
+      "taco"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-26",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_case_taco_vs_trali_01",
+    "partId": "gpt_case_taco_vs_trali_01_q2",
+    "sourceParentSha256": "5cc86103aea1ed9d6cc9c5b54e180ded21816bfd2f552d20c2e72a7554a4e1e3",
+    "stagesVisibleIfApproved": [
+      "stage_1",
+      "stage_2"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_3",
+      "stage_4"
+    ],
+    "boundaryConditionalOnContentReview": false
+  },
+  {
+    "rowKey": "5042b7fcf52e7d99",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_2_after_dose",
+    "answerProposition": "Respond to current opioid-associated sedation/respiratory compromise with immediate airway assessment/support, cessation of further opioid, help and indicated oxygen/reversal, then documentation.",
+    "establishingSurfaces": "stage_2_after_dose supplies RR10, SpO2 90%, repeated stimulation and score3; baseline/stage_1 are stable.",
+    "laterInformationToHide": "stage_3_stabilized records the performed actions and recovery.",
+    "boundaryDefense": "The current emergency first occurs at stage_2, but its unique A-B-C-D-E ordering is not established: calling for assistance, oxygen and escalation overlap, and preparing naloxone need not await oxygen attachment.",
+    "requiredContentWork": "Replace the strict total ordering with an initial-response set plus post-stabilization documentation, or a narrower sourced dependency. Correct stage_2 structured-measurement column label from0900 to0930 to match observation time. Review the case’s 15-minute protocol versus recorded30-minute reassessment; do not portray the interval as compliant without explanation.",
+    "sourceIds": [
+      "aha-opioid",
+      "morphine-label"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-27",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01",
+    "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q3",
+    "sourceParentSha256": "f9dd908dc194393deb85b6d4c579054e103ab8f6b650425b6dadc5f3bb46fe93",
+    "stagesVisibleIfApproved": [
+      "stage_1_pre_dose",
+      "stage_2_after_dose"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_3_stabilized"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "1f137477204f33f1",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_2_teachback",
+    "answerProposition": "Compare the spouse’s peroxide/tight-packing teach-back with the ordered saline/dressing method and identify the need for coached reteaching.",
+    "establishingSurfaces": "Baseline actual dressing orders; stage_2_teachback quotes the incorrect method. Global stem and summary currently label teach-back failed/unsafe before the learner sees it.",
+    "laterInformationToHide": "stage_3_followup gives the reteaching sequence and successful return demonstration.",
+    "boundaryDefense": "stage_2 is the earliest actual teach-back evidence; global answer labels must be removed before the boundary tests interpretation rather than recognition of the label.",
+    "requiredContentWork": "Neutralize bilingual parent stem and summary to describe a home wound-care teaching visit without announcing failure or unsafe understanding. Preserve quoted stage_2 response and prescribed method; review sibling effects.",
+    "sourceIds": [
+      "ahrq-teachback"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-28",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04",
+    "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q2",
+    "sourceParentSha256": "d742c62a9f0c02e459a30e88fdb66fc26489e52cb8aeefe90ab94d34e96f05e8",
+    "stagesVisibleIfApproved": [
+      "stage_1_observation",
+      "stage_2_teachback"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_3_followup"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "4a1fb7e61c0936a2",
+    "disposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+    "proposedBoundary": "stage_2_assessment",
+    "answerProposition": "Report the combined concern for intracranial injury and hip fracture following the completed fall assessment, maintaining movement precautions pending evaluation.",
+    "establishingSurfaces": "Baseline anticoagulant and prior orientation; stage_1 unwitnessed fall/hip pain; stage_2 new disorientation, vomiting, unequal pupils and shortened externally rotated leg.",
+    "laterInformationToHide": "stage_3 retrospective environmental/medication prevention review.",
+    "boundaryDefense": "stage_1 warrants evaluation and precautions, but the part refers to the completed fall assessment and its rationale specifically prioritizes new neurologic changes together with fracture findings. stage_2 establishes that combined actual finding set without naming the diagnosis or directing treatment. This semantic distinction needs independent adjudication; distractor elimination alone is not evidence of the completed assessment.",
+    "requiredContentWork": "",
+    "sourceIds": [
+      "nice-head-injury",
+      "hip-fracture"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-29",
+    "bankPath": "banks/gpt-canonical.json",
+    "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+    "partId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+    "sourceParentSha256": "9a1b07c0d9611efee3436935da6033613bbcd54b1e2e8b3ed422ea6220e6e31c",
+    "stagesVisibleIfApproved": [
+      "stage_1_found",
+      "stage_2_assessment"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_3_review"
+    ],
+    "boundaryConditionalOnContentReview": false
+  },
+  {
+    "rowKey": "921c126c050de4ee",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_1",
+    "answerProposition": "Infer pump-failure shock from new hypotension and diffuse congestion in AMI and anticipate clinician-directed circulatory support.",
+    "establishingSurfaces": "Baseline ECG establishes anterior infarction; only stage_1 supplies BP80/50, HR110 and diffuse crackles. Always-visible title currently names cardiogenic shock.",
+    "laterInformationToHide": "No later stage; hide the diagnostic answer presently supplied in the global title.",
+    "boundaryDefense": "stage_1 raw deterioration data are required, but no existing anchor can suppress the global answer label.",
+    "requiredContentWork": "Neutralize the bilingual title; review the categorical immediate-inotropic-support wording against current shock guidance, supplying a specific prescribed support plan or broader hemodynamic-support choice if needed. Preserve urgent reperfusion framing and avoid suggesting inotropes alone are definitive.",
+    "sourceIds": [
+      "acc-shock"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-30",
+    "bankPath": "banks/hard-cases-canonical.json",
+    "parentCaseId": "case_ami_01",
+    "partId": "case_ami_01_q2",
+    "sourceParentSha256": "236fd826f97514ce9a22391dd3a62bb465afecb87da6b4f3fef98dcabd975c4a",
+    "stagesVisibleIfApproved": [
+      "stage_1"
+    ],
+    "stagesHiddenIfApproved": [],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "b922586401896706",
+    "disposition": "REPLACEMENT_CANDIDATE",
+    "proposedBoundary": null,
+    "answerProposition": "Recognize confirmed pulseless VF and prioritize CPR/early defibrillation with minimal interruptions and correctly timed medication during ongoing resuscitation.",
+    "establishingSurfaces": "Stem gives unresponsiveness/chaotic rhythm; stage_1415 supplies absent carotid pulse and waveform; no device-availability or staffing context makes every listed preparatory action uniquely sequential.",
+    "laterInformationToHide": "No later stage. Parent title supplies broad arrest context but is not a pulse assessment.",
+    "boundaryDefense": "Anchoring to stage_1415 repairs missing pulse evidence, not the sequence ambiguity: preparing epinephrine can occur concurrently, and rationale implies administration after the first shock without qualifying the shockable-rhythm algorithm.",
+    "requiredContentWork": "Replace the total-order part in place with a narrower current-algorithm decision, such as immediate CPR resumption after shock, or explicitly bounded steps with justified dependencies. Include confirmed pulse assessment in the new stimulus. Independently review all epinephrine timing/dose language; preserve identity/parent pending replacement approval.",
+    "sourceIds": [
+      "aha-arrest"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-31",
+    "bankPath": "banks/hard-cases-canonical.json",
+    "parentCaseId": "cs_stemi_vfib_04",
+    "partId": "cs_stemi_vfib_04_part_2",
+    "sourceParentSha256": "033fb913a7a2ab12c807c8d8bc3227e36a101d0fed1654d2c1970d71527c109f",
+    "stagesVisibleIfApproved": null,
+    "stagesHiddenIfApproved": null,
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "74b943503fa2ab41",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_1",
+    "answerProposition": "Apply the chart’s explicit INR>1.7 exclusion rule to the current INR1.8 and support timely alternative reperfusion evaluation.",
+    "establishingSurfaces": "Stem supplies INR/CT/time/BP, but explicitly requires the institutional protocol; that protocol first appears in stage_1 together with the neurologist’s already-completed eligibility conclusion.",
+    "laterInformationToHide": "stage_2 CTA/candidacy; stage_3 reperfusion/deterioration; stage_4 hemorrhage treatment. Also remove stage_1 application of the exact eligibility answer.",
+    "boundaryDefense": "Baseline numbers alone do not supply the requested local rule; stage_1 presently provides both rule and answer, so anchor-only cannot meet the non-answer-revealing criterion.",
+    "requiredContentWork": "Keep the institutional threshold as a rule in stage_1, remove the neurologist’s statement that this patient is excluded because of INR and the already-selected next step from the decision-time exhibit; preserve chronology through a reviewed chart reorganization. Alternatively move only the governing protocol to baseline and re-review baseline boundary.",
+    "sourceIds": [
+      "alteplase-label"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-32",
+    "bankPath": "banks/hard-cases-canonical.json",
+    "parentCaseId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01",
+    "partId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_q2",
+    "sourceParentSha256": "0ae1c5eaceb419be75225753ac8e0d714ab412678d4e2d48368c4b6bcf59b816",
+    "stagesVisibleIfApproved": [
+      "stage_1"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_2",
+      "stage_3",
+      "stage_4"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "b99d09e91cc81278",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_2",
+    "answerProposition": "Prepare this thrombectomy candidate under the specific IV BP-control order, swallowing precautions, access/monitoring requirements and a valid decision-specific consent determination.",
+    "establishingSurfaces": "stage_2 contains the nicardipine order and wife’s documented authorization; baseline aphasia does not establish incapacity. Current stage_2 equates aphasia with inability to consent and narrates completed preparation.",
+    "laterInformationToHide": "stage_2 post-titration BP and completed-preparation statements supply actions being selected; stages_3/4 have different postprocedure BP goals and outcomes.",
+    "boundaryDefense": "Earlier prefixes lack the actual prescribed agent and decision-specific capacity facts; stage_2 requires substantive revision to avoid aphasia=incapacity and completed-answer disclosure.",
+    "requiredContentWork": "Specify an assessed inability to make this urgent decision despite supported communication, with the authorized proxy’s role; revise optionD and both rationales to match. Separate preprocedure orders/assessment from completed titration/access/monitoring execution, keeping only needed decision inputs visible. Review shared-stage effects.",
+    "sourceIds": [
+      "aphasia-capacity",
+      "nicardipine-label"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-32",
+    "bankPath": "banks/hard-cases-canonical.json",
+    "parentCaseId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01",
+    "partId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_q4",
+    "sourceParentSha256": "0ae1c5eaceb419be75225753ac8e0d714ab412678d4e2d48368c4b6bcf59b816",
+    "stagesVisibleIfApproved": [
+      "stage_1",
+      "stage_2"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_3",
+      "stage_4"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "05bb74f900e8b04e",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage2",
+    "answerProposition": "Choose removal, protocol mitigation or monitored retention according to each object’s risk and the patient-specific safety assessment while preserving necessary care.",
+    "establishingSurfaces": "Rows name hazards/needed equipment; stage1 establishes high acute risk; stage2 supplies continuous-observation order and the assessed suitability of retaining pole/table, but also spells out the completed sweep.",
+    "laterInformationToHide": "stage2 item-by-item completed removal/modification/retention gives the matrix answers; stage3 later calm behavior and consultation do not determine the sweep.",
+    "boundaryDefense": "Baseline identifies several hazards but does not establish the full conditional retention assessment. stage2 needs its completed-answer list separated from pre-sweep constraints.",
+    "requiredContentWork": "Retain required-care/observation and contextual equipment-risk facts in a decision-time exhibit; move or remove the completed disposition of each listed item from that boundary. Make any equipment modification conditional on approved clinical/device policy, not improvised shortening. Re-review all affected siblings, including agitation during the sweep.",
+    "sourceIds": [
+      "jointcommission-suicide"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-33",
+    "bankPath": "banks/hard-cases-canonical.json",
+    "parentCaseId": "opus12_case_inpatient_suicide_risk_01",
+    "partId": "opus12_case_inpatient_suicide_risk_01_q3",
+    "sourceParentSha256": "23b887f2a94b096f46b1db7747f904d410384ca35e2428c6b6ef17d51715b375",
+    "stagesVisibleIfApproved": [
+      "stage1",
+      "stage2"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "7b93b19069276111",
+    "disposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+    "proposedBoundary": "stage3",
+    "answerProposition": "Respond to new burning and vein redness during peripheral potassium infusion by stopping and assessing the site, maintaining safe access and escalating.",
+    "establishingSurfaces": "stage3 is the first actual site complaint/redness while infusion is running; earlier stages describe the indication and revised order, not a site complication.",
+    "laterInformationToHide": "No later stage. stage3 reports partial electrolyte improvement but does not perform the selected site-safety action.",
+    "boundaryDefense": "The response alternatives do not establish that a new infusion-site complication occurred. stage3 supplies that new determinant; prior medication risk alone cannot select the next action for the present assessment.",
+    "requiredContentWork": "",
+    "sourceIds": [
+      "kcl-label"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-34",
+    "bankPath": "banks/hard-cases-canonical.json",
+    "parentCaseId": "opus3_iv_potassium_safety_case_01",
+    "partId": "opus3_iv_potassium_safety_case_01_q6",
+    "sourceParentSha256": "3c6c2974213456843ae7687a71decdee6f848dff870883a0629a2599559c0197",
+    "stagesVisibleIfApproved": [
+      "stage1",
+      "stage2",
+      "stage3"
+    ],
+    "stagesHiddenIfApproved": [],
+    "boundaryConditionalOnContentReview": false
+  },
+  {
+    "rowKey": "8b3faa785726d8b1",
+    "disposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+    "proposedBoundary": "stage_1_0900_1100",
+    "answerProposition": "Communicate the actual0700–1100 deterioration and possible bleeding in an urgent SBAR, requesting current bedside evaluation rather than normalizing findings or waiting.",
+    "establishingSurfaces": "Baseline0700 comparison; stage_1_0900_1100 supplies worsening vitals, confusion, urine decline, sanguineous drainage and expanding stain.",
+    "laterInformationToHide": "stage_2_1115_1200 explicitly lists the prepared SBAR, records the call and refusal, and gives1200 labs; stage_3 confirms hemorrhage.",
+    "boundaryDefense": "This is preparation for the first call, so the Stage2 task label does not require reading the later call transcript. stage_1 supplies every requested trend without the already-composed SBAR; baseline alone does not establish deterioration.",
+    "requiredContentWork": "",
+    "sourceIds": [
+      "ahrq-sbar"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-35",
+    "bankPath": "banks/hard-cases-canonical.json",
+    "parentCaseId": "opus4_case_postop_sbar_01",
+    "partId": "opus4_case_postop_sbar_01_q3",
+    "sourceParentSha256": "b9b9ce06e352be56004b20aedb684d7a340bc436018e2a4972d924cc59ac9506",
+    "stagesVisibleIfApproved": [
+      "stage_1_0900_1100"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_2_1115_1200",
+      "stage_3_1315_1500"
+    ],
+    "boundaryConditionalOnContentReview": false
+  },
+  {
+    "rowKey": "8fdddc13883a4a38",
+    "disposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+    "proposedBoundary": "stage_1_consent_concern",
+    "answerProposition": "Recognize that proceeding on the signed form is inappropriate because understanding of risks and voluntariness are not established by the patient’s stated experience.",
+    "establishingSurfaces": "Global summary reports no risk understanding; stage_1 adds that she signed because the doctor seemed to want her to, establishing the pressure component of the selected compound answer.",
+    "laterInformationToHide": "stage_2 hold/interpreter/provider escalation and stage_3 corrected consent outcome.",
+    "boundaryDefense": "Language background or an absent interpreter notation cannot alone prove invalid consent or pressure. stage_1 provides the actual expressed comprehension/voluntariness concerns without labeling the selected conclusion.",
+    "requiredContentWork": "",
+    "sourceIds": [
+      "ama-consent",
+      "hhs-language"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-36",
+    "bankPath": "banks/hard-cases-canonical.json",
+    "parentCaseId": "opus5_case_consent_interpreter_01",
+    "partId": "opus5_case_consent_interpreter_01_q1",
+    "sourceParentSha256": "bedb27b2fac6ce426c3f8a99abafab929635263e99ccc8ac3053ed85cdd9255e",
+    "stagesVisibleIfApproved": [
+      "stage_1_consent_concern"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_2_hold_interpreter",
+      "stage_3_valid_consent"
+    ],
+    "boundaryConditionalOnContentReview": false
+  },
+  {
+    "rowKey": "b174c7627b0e9957",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "opus_icit_stage_1",
+    "answerProposition": "Consider ICI-associated myocarditis with possible concurrent immune hepatitis from the new ECG/conduction findings plus cardiac and liver injury markers, while evaluating alternatives.",
+    "establishingSurfaces": "Baseline symptoms and biomarker abnormalities; opus_icit_stage_1 new diffuse ST changes and PR prolongation. Global title already states myocarditis with hepatotoxicity.",
+    "laterInformationToHide": "opus_icit_stage_2 specialist diagnosis/LVEF decline; stage3 response. Also remove global diagnostic answer.",
+    "boundaryDefense": "The requested Stage1 constellation includes new conduction/ECG findings absent earlier; neither a diagnostic title nor liver-enzyme elevation alone establishes the combined etiology.",
+    "requiredContentWork": "Neutralize bilingual title. Qualify hepatic attribution and viral exclusion in rationale: known hepatic metastases and other causes require assessment; present immune-mediated hepatitis as a leading suspicion, not proved by transaminases. Align option/rationale wording and preserve cardiology evaluation of ACS.",
+    "sourceIds": [
+      "sitc-ici"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-37",
+    "bankPath": "banks/hard-cases-canonical.json",
+    "parentCaseId": "opus_icit_case_01",
+    "partId": "opus_icit_case_01_q2",
+    "sourceParentSha256": "3f6a53dd9882da536c8cf56b56976445b9aeeb6ffa915a0504948a8a7c9c38a6",
+    "stagesVisibleIfApproved": [
+      "opus_icit_stage_1"
+    ],
+    "stagesHiddenIfApproved": [
+      "opus_icit_stage_2",
+      "opus_icit_stage_3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "5b9a3f652e7815e8",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "opus_icit_stage_2",
+    "answerProposition": "Promptly implement ordered oxygen for93% below the case target, monitoring/access and urgent corticosteroids, with timely higher-acuity transfer coordination.",
+    "establishingSurfaces": "opus_icit_stage_2 first supplies93% room-air saturation, rest dyspnea, worsening cardiac findings and the specific treatment orders.",
+    "laterInformationToHide": "stage2 already-administered methylprednisolone and oxygen response; stage3 later therapeutic response.",
+    "boundaryDefense": "stage2 supplies the required oxygen trigger/order; a boundary cannot prove the unique order of oxygen versus existing telemetry/access checks or require transfer preparation to await steroid delivery.",
+    "requiredContentWork": "Replace the forced total order with justified prerequisites/concurrent actions; remove the completed administration/oxygen-response sentence from the decision-time exhibit. Correct Chinese step-down unit translation (currently implies lowering acuity despite escalation) and avoid calling steroids invariably definitive or corrective. Independent format/key review required.",
+    "sourceIds": [
+      "sitc-ici"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-37",
+    "bankPath": "banks/hard-cases-canonical.json",
+    "parentCaseId": "opus_icit_case_01",
+    "partId": "opus_icit_case_01_q3",
+    "sourceParentSha256": "3f6a53dd9882da536c8cf56b56976445b9aeeb6ffa915a0504948a8a7c9c38a6",
+    "stagesVisibleIfApproved": [
+      "opus_icit_stage_1",
+      "opus_icit_stage_2"
+    ],
+    "stagesHiddenIfApproved": [
+      "opus_icit_stage_3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  },
+  {
+    "rowKey": "818efa64297eb1f4",
+    "disposition": "CONTENT_REPAIR_REQUIRED",
+    "proposedBoundary": "stage_1",
+    "answerProposition": "Prioritize the newly prescribed urgent IV dexamethasone regimen for progressive cord compression over routine assessment, catheter preparation or reassurance.",
+    "establishingSurfaces": "Baseline prior oral dexamethasone4mg/day and neurologic concern; stage_1 new IV bolus/order, MRI confirmation and additional deterioration; bladder scan420mL follows three hours without voiding.",
+    "laterInformationToHide": "stage_2 says bolus already given and reports further decline; stage_3 postoperative response.",
+    "boundaryDefense": "The specific current prescription first exists at stage_1. An urgent order is legitimate care context, but q2 rationale incorrectly calls the420mL scan a post-void residual when no void occurred.",
+    "requiredContentWork": "Correct q2 catheter-choice rationale in both languages from post-void residual to current bladder volume with inability to void, checking the matching sibling phrasing. Keep the immediate prescription as the case order; do not imply steroids should await MRI in general or guarantee prevention of further deficit.",
+    "sourceIds": [
+      "nice-mscc"
+    ],
+    "authority": "Fresh producer proposal; independent clinical/bilingual and boundary review required",
+    "deterministic": false,
+    "packetId": "parent-38",
+    "bankPath": "banks/hard-cases-canonical.json",
+    "parentCaseId": "opus_scc_case_01",
+    "partId": "opus_scc_case_01_q2",
+    "sourceParentSha256": "6244f0bfe21bd6b9114437c91c3792656e4d51d2ed4abe38a1595725ae277782",
+    "stagesVisibleIfApproved": [
+      "stage_1"
+    ],
+    "stagesHiddenIfApproved": [
+      "stage_2",
+      "stage_3"
+    ],
+    "boundaryConditionalOnContentReview": true
+  }
+]

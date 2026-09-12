@@ -1,0 +1,670 @@
+{
+  "packetId": "parent-06",
+  "bankPath": "banks/gemini-canonical.json",
+  "bankSha256": "fd98f560f93851c82b6c691aeeb3f3897aee3c2bf7a9268d973a0c7c7fff2901",
+  "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+  "currentParentSha256": "3674a7cbd80f47605cbe38e5641097e15099d5eade1cceb3d2190006be239f33",
+  "currentParent": {
+    "id": "gemini_gap_case_pyloric_stenosis_01",
+    "itemType": "case_study",
+    "category": "Physiological Adaptation",
+    "topic": "Renal & Gastrointestinal Disorders",
+    "difficulty": "medium",
+    "stem": {
+      "en": "Review the client record and answer the case study questions.",
+      "zh": "审查客户记录并回答案例研究问题。"
+    },
+    "caseStudy": {
+      "title": {
+        "en": "Unfolding Case: 6-Week-Old Infant with Projectile Vomiting",
+        "zh": "展开式案例：伴有喷射性呕吐的6周龄婴儿"
+      },
+      "summary": {
+        "en": "A 6-week-old male infant is brought to the pediatric clinic by his mother due to persistent vomiting after feeding for the past 5 days.",
+        "zh": "一名6周龄的男婴因过去5天进食后持续呕吐被母亲带到儿科诊所就诊。"
+      },
+      "exhibits": [
+        {
+          "id": "ex1_triage",
+          "title": {
+            "en": "Triage Assessment",
+            "zh": "分诊评估"
+          },
+          "content": {
+            "en": "Maternal Report: The infant vomits after almost every feed. The vomiting has become increasingly forceful, projectile, and non-bilious. He is constantly hungry and eagerly sucks on his pacifier or bottle immediately after vomiting.\n\nPhysical Examination:\n- Weight: 3.8 kg (Birth weight: 4.1 kg)\n- Fontanelle: Depressed\n- Mucous membranes: Dry\n- Skin turgor: Decreased\n- Abdomen: Mildly distended in the epigastric region. A small, firm, olive-shaped mass is palpable to the right of the umbilicus.",
+            "zh": "母亲主诉：婴儿几乎每次喂奶后都会呕吐。呕吐变得越来越用力、呈喷射性且不含胆汁。他经常感到饥饿，在呕吐后立即急切地吸吮奶嘴或奶瓶。\n\n体格检查：\n- 体重：3.8 kg（出生体重：4.1 kg）\n- 前囟：凹陷\n- 黏膜：干燥\n- 皮肤弹性：降低\n- 腹部：上腹部轻度饱满。在脐右侧可触及一个小的、质硬的、橄榄样肿块。"
+          }
+        }
+      ],
+      "stages": [
+        {
+          "id": "stage_labs",
+          "title": {
+            "en": "Laboratory Results",
+            "zh": "实验室检查结果"
+          },
+          "exhibits": [
+            {
+              "id": "ex2_labs",
+              "title": {
+                "en": "Serum Chemistries",
+                "zh": "血清化学检查"
+              },
+              "content": {
+                "en": "- Sodium: 133 mEq/L (Reference: 135-145 mEq/L)\n- Potassium: 3.1 mEq/L (Reference: 3.5-5.0 mEq/L)\n- Chloride: 88 mEq/L (Reference: 96-106 mEq/L)\n- Carbon Dioxide (HCO3): 34 mEq/L (Reference: 22-26 mEq/L)\n- pH: 7.51 (Reference: 7.35-7.45)",
+                "zh": "- 钠：133 mEq/L（参考值：135-145 mEq/L）\n- 钾：3.1 mEq/L（参考值：3.5-5.0 mEq/L）\n- 氯：88 mEq/L（参考值：96-106 mEq/L）\n- 二氧化碳 (HCO3)：34 mEq/L（参考值：22-26 mEq/L）\n- pH值：7.51（参考值：7.35-7.45）"
+              },
+              "structuredMeasurements": {
+                "population": "peds_infant",
+                "panels": [
+                  {
+                    "kind": "labs",
+                    "columns": [
+                      {
+                        "id": "current",
+                        "label": {
+                          "en": "Current",
+                          "zh": "当前"
+                        }
+                      }
+                    ],
+                    "rows": [
+                      {
+                        "key": "sodium",
+                        "label": {
+                          "en": "Sodium",
+                          "zh": "血钠"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "133",
+                            "unit": "mEq/L"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "potassium",
+                        "label": {
+                          "en": "Potassium",
+                          "zh": "血钾"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "3.1",
+                            "unit": "mEq/L"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "chloride",
+                        "label": {
+                          "en": "Chloride",
+                          "zh": "血氯"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "88",
+                            "unit": "mEq/L"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "bicarbonate",
+                        "label": {
+                          "en": "Bicarbonate",
+                          "zh": "碳酸氢盐"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "34",
+                            "unit": "mEq/L"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "ph",
+                        "label": {
+                          "en": "pH",
+                          "zh": "酸碱度"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "7.51",
+                            "unit": "(unitless)"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "stage_postop",
+          "title": {
+            "en": "Postoperative Progress",
+            "zh": "术后进展"
+          },
+          "exhibits": [
+            {
+              "id": "ex3_postop",
+              "title": {
+                "en": "Postoperative Day 1 Progress Note",
+                "zh": "术后第1天病程记录"
+              },
+              "content": {
+                "en": "The infant underwent a successful laparoscopic pyloromyotomy yesterday. Vital signs are stable. The incision sites are clean, dry, and intact with no erythema or drainage. The infant is alert and crying for feeds. The provider has written orders to initiate postoperative feedings.",
+                "zh": "婴儿昨日成功接受了腹腔镜下幽门肌切开术。生命体征平稳。切口干净、干燥、完整，无红斑或引流物。婴儿神志清楚，因要吃奶而哭闹。医生已开出开始术后喂养的医嘱。"
+              }
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "gemini_gap_case_pyloric_stenosis_01_q1",
+          "itemType": "select_all",
+          "category": "Physiological Adaptation",
+          "topic": "Renal & Gastrointestinal Disorders",
+          "difficulty": "medium",
+          "stem": {
+            "en": "Based on the triage assessment, which clinical findings support a diagnosis of pyloric stenosis and dehydration? Select all that apply.",
+            "zh": "根据分诊评估，哪些临床发现支持幽门狭窄和脱水诊断？选择所有适用项。"
+          },
+          "options": [
+            {
+              "id": "D",
+              "en": "Constant hunger immediately after vomiting",
+              "zh": "呕吐后立即出现持续饥饿感"
+            },
+            {
+              "id": "B",
+              "en": "Palpable olive-shaped epigastric mass",
+              "zh": "上腹部触及橄榄样肿块"
+            },
+            {
+              "id": "E",
+              "en": "Weight gain from birth weight",
+              "zh": "体重较出生体重增加"
+            },
+            {
+              "id": "A",
+              "en": "Projectile, non-bilious vomiting after feeding",
+              "zh": "喂食后喷射性、非胆汁性呕吐"
+            },
+            {
+              "id": "C",
+              "en": "Depressed fontanelle and dry mucous membranes",
+              "zh": "前囟凹陷和黏膜干燥"
+            }
+          ],
+          "correct": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "rationale": {
+            "correct": {
+              "en": "Projectile non-bilious vomiting, a palpable olive-shaped mass in the epigastric region, and hunger immediately after vomiting are classic signs of hypertrophic pyloric stenosis. Depressed fontanelles and dry mucous membranes are signs of moderate-to-severe dehydration resulting from excessive vomiting. Weight loss (not weight gain) is expected due to the inability to retain nutrients.",
+              "zh": "喷射性非胆汁性呕吐、上腹部触及橄榄样肿块以及呕吐后立即出现饥饿感是肥厚性幽门狭窄的典型体征。前囟凹陷和黏膜干燥是过度呕吐导致的中重度脱水征象。由于无法保留营养，预期会出现体重减轻（而非增加）。"
+            },
+            "byChoice": [
+              {
+                "refId": "D",
+                "en": "Infants are typically starved and show 'hungry vomiter' behavior, wanting to feed again immediately after vomiting.",
+                "zh": "婴儿通常极度饥饿，表现为“饥饿的呕吐者”行为，在呕吐后立即要求再次喂食。"
+              },
+              {
+                "refId": "A",
+                "en": "Projectile, non-bilious vomiting is the hallmark symptom of pyloric stenosis as food cannot pass into the duodenum.",
+                "zh": "喷射性、非胆汁性呕吐是幽门狭窄的特征性症状，因为食物无法进入十二指肠。"
+              },
+              {
+                "refId": "E",
+                "en": "Weight loss, not gain, is expected due to persistent caloric deficit from vomiting.",
+                "zh": "由于呕吐导致持续的能量缺乏，预期会出现体重减轻而不是增加。"
+              },
+              {
+                "refId": "B",
+                "en": "An olive-shaped mass represents the hypertrophied pyloric muscle, which is pathognomonic for pyloric stenosis.",
+                "zh": "橄榄形肿块代表肥厚的幽门肌，是幽门狭窄的特异性体征。"
+              },
+              {
+                "refId": "C",
+                "en": "Depressed fontanelle and dry mucous membranes reflect significant fluid volume deficit/dehydration.",
+                "zh": "前囟凹陷和黏膜干燥反映了显著的体液量不足/脱水。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "Identify characteristics unique to pyloric stenosis (projectile, non-bilious vomiting, olive-shaped mass) and signs of dehydration (depressed fontanelle, dry membranes) while rejecting clinical anomalies (weight gain in a vomiting infant).",
+            "zh": "识别幽门狭窄独有的特征（喷射性非胆汁性呕吐、橄榄样肿块）和脱水体征（前囟凹陷、黏膜干燥），同时排除临床异常表现（呕吐婴儿体重增加）。"
+          },
+          "glossary": [],
+          "answerableAfterStageId": {
+            "kind": "baseline"
+          }
+        },
+        {
+          "id": "gemini_gap_case_pyloric_stenosis_01_q2",
+          "itemType": "matrix",
+          "category": "Physiological Adaptation",
+          "topic": "Renal & Gastrointestinal Disorders",
+          "difficulty": "medium",
+          "stem": {
+            "en": "The nurse considers the acid-base and electrolyte changes that occur with severe, persistent vomiting. For each laboratory value below, click to specify whether it would be an expected finding or an unexpected finding in an infant with pyloric stenosis.",
+            "zh": "护士考虑严重、持续呕吐时发生的酸碱和电解质变化。对于下列每项实验室数值，点击以指定它在幽门狭窄婴儿中是预期表现还是非预期表现。"
+          },
+          "matrix": {
+            "rows": [
+              {
+                "id": "r1",
+                "en": "pH 7.25",
+                "zh": "pH 7.25"
+              },
+              {
+                "id": "r2",
+                "en": "Potassium 3.1 mEq/L",
+                "zh": "血清钾 3.1 mEq/L"
+              },
+              {
+                "id": "r3",
+                "en": "Chloride 88 mEq/L",
+                "zh": "血清氯 88 mEq/L"
+              }
+            ],
+            "columns": [
+              {
+                "id": "c1",
+                "en": "Expected finding for severe vomiting",
+                "zh": "严重呕吐的预期表现"
+              },
+              {
+                "id": "c2",
+                "en": "Unexpected finding",
+                "zh": "非预期表现"
+              }
+            ],
+            "selectionMode": "single_per_row"
+          },
+          "correct": [
+            {
+              "rowId": "r1",
+              "columnIds": [
+                "c2"
+              ]
+            },
+            {
+              "rowId": "r2",
+              "columnIds": [
+                "c1"
+              ]
+            },
+            {
+              "rowId": "r3",
+              "columnIds": [
+                "c1"
+              ]
+            }
+          ],
+          "rationale": {
+            "correct": {
+              "en": "A pH of 7.25 indicates acidosis, which is an unexpected finding in pyloric stenosis (infants with severe, persistent vomiting typically present with hypokalemic, hypochloremic metabolic alkalosis, with a pH >7.45). Potassium of 3.1 mEq/L (hypokalemia) and Chloride of 88 mEq/L (hypochloremia) are expected findings due to the loss of potassium, hydrogen, and chloride ions in gastric secretions.",
+              "zh": "pH 7.25 提示酸中毒，这在幽门狭窄中是非预期表现（有严重、持续呕吐的婴儿通常表现为低钾、低氯性代谢性碱中毒，pH >7.45）。血清钾 3.1 mEq/L（低钾血症）和血清氯 88 mEq/L（低氯血症）由于胃液中钾、氢和氯离子的流失，是符合预期的表现。"
+            },
+            "byChoice": [
+              {
+                "refId": "r1",
+                "en": "pH of 7.25 indicates acidosis, whereas vomiting gastric acid causes metabolic alkalosis.",
+                "zh": "pH 7.25 提示酸中毒，而呕吐胃酸会导致代谢性碱中毒。"
+              },
+              {
+                "refId": "r2",
+                "en": "Potassium of 3.1 mEq/L represents hypokalemia, expected due to renal wasting and vomiting.",
+                "zh": "血钾 3.1 mEq/L 代表低钾血症，由于肾脏排泄和呕吐，这是预料之中的。"
+              },
+              {
+                "refId": "r3",
+                "en": "Chloride of 88 mEq/L represents hypochloremia, directly resulting from vomiting gastric hydrochloric acid.",
+                "zh": "血氯 88 mEq/L 代表低氯血症，直接由呕吐胃盐酸所致。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "Recall the classic acid-base and electrolyte abnormalities of vomiting (hypokalemic, hypochloremic metabolic alkalosis). Relate these to the chemistry values shown in Stage 2.",
+            "zh": "回忆呕吐经典的酸碱和电解质异常（低钾、低氯性代谢性碱中毒）。将这些与阶段2中显示的化学值联系起来。"
+          },
+          "glossary": [],
+          "answerableAfterStageId": {
+            "kind": "baseline"
+          }
+        },
+        {
+          "id": "gemini_gap_case_pyloric_stenosis_01_q3",
+          "itemType": "dropdown_cloze",
+          "category": "Physiological Adaptation",
+          "topic": "Renal & Gastrointestinal Disorders",
+          "difficulty": "medium",
+          "stem": {
+            "en": "The nurse is preparing the client for a surgical pyloromyotomy. Select the appropriate options from the dropdown menus to complete the clinical plan.",
+            "zh": "护士正准备协助患者进行幽门肌切开术。从下拉菜单中选择合适的选项以完成临床计划。"
+          },
+          "clozeStem": {
+            "en": "To prepare the client for surgery, the nurse should prioritize administering {{1}} and maintaining {{2}} status.",
+            "zh": "为了使患者做好手术准备，护士应优先给予 {{1}} 并维持 {{2}} 状态。"
+          },
+          "dropdowns": [
+            {
+              "id": "1",
+              "options": [
+                {
+                  "id": "o2",
+                  "en": "oral rehydration therapy",
+                  "zh": "口服补液疗法"
+                },
+                {
+                  "id": "o1",
+                  "en": "intravenous fluids containing potassium",
+                  "zh": "含钾的静脉补液"
+                },
+                {
+                  "id": "o3",
+                  "en": "bolus dose of potassium chloride IV push",
+                  "zh": "静脉直接推注靶剂量的氯化钾"
+                }
+              ],
+              "correct": "o1"
+            },
+            {
+              "id": "2",
+              "options": [
+                {
+                  "id": "o1",
+                  "en": "nothing by mouth (NPO)",
+                  "zh": "禁食水 (NPO)"
+                },
+                {
+                  "id": "o2",
+                  "en": "frequent, small volume breast milk feed",
+                  "zh": "频繁、小量的母乳喂养"
+                },
+                {
+                  "id": "o3",
+                  "en": "clear liquid diet",
+                  "zh": "流质饮食"
+                }
+              ],
+              "correct": "o1"
+            }
+          ],
+          "rationale": {
+            "correct": {
+              "en": "Preoperative management of pyloric stenosis focuses on correcting dehydration and electrolyte imbalances (specifically hypokalemia and hypochloremia) and maintaining NPO status to prevent further vomiting and aspiration risk. IV fluids with potassium chloride are key, but potassium must never be given IV push as it is lethal. Oral intake is contraindicated once the diagnosis is made.",
+              "zh": "幽门狭窄的术前处理重点是纠正脱水和电解质紊乱（特别是低钾血症和低氯血症），并保持禁食（NPO）状态以防止进一步呕吐和误吸风险。使用含有氯化钾的静脉液体是关键，但绝不能静脉推注钾，因为这是致命的。一旦确诊，禁止口服摄入。"
+            },
+            "byChoice": [
+              {
+                "refId": "1",
+                "en": "Intravenous fluids containing potassium are required to correct fluid volume deficit and hypokalemia before general anesthesia. Potassium must never be pushed directly.",
+                "zh": "在全麻前需要给予含钾的静脉补液以纠正体液量不足和低钾血症。绝不能直接推注钾。"
+              },
+              {
+                "refId": "2",
+                "en": "Maintaining NPO status is vital to prevent gastric distension, further vomiting, and aspiration during surgical induction.",
+                "zh": "保持禁食 (NPO) 状态对于防止胃扩张、进一步呕吐以及手术诱导期间的误吸至关重要。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "Recognize that surgery (pyloromyotomy) requires the patient to have stable electrolytes and an empty stomach. Select IV fluid resuscitation over oral options, and NPO status over feeding options.",
+            "zh": "认识到手术（幽门肌切开术）要求患者电解质稳定且胃排空。选择静脉补液而非口服选项，选择禁食 (NPO) 状态而非喂食选项。"
+          },
+          "glossary": []
+        },
+        {
+          "id": "gemini_gap_case_pyloric_stenosis_01_q4",
+          "itemType": "multiple_choice",
+          "category": "Physiological Adaptation",
+          "topic": "Renal & Gastrointestinal Disorders",
+          "difficulty": "medium",
+          "stem": {
+            "en": "The nurse is reviewing orders for postoperative feedings on Postoperative Day 1. Which action should the nurse implement first?",
+            "zh": "护士正在审查术后第1天术后喂养的医嘱。护士应首先执行哪项操作？"
+          },
+          "options": [
+            {
+              "id": "A",
+              "en": "Initiate feedings with small amounts of clear liquids or oral rehydration solution",
+              "zh": "从少量流质或口服补液开始喂食"
+            },
+            {
+              "id": "D",
+              "en": "Administer prescribed antiemetics and delay feeding",
+              "zh": "给予医嘱的止吐药并延迟喂食"
+            },
+            {
+              "id": "B",
+              "en": "Administer a full bottle of standard infant formula",
+              "zh": "喂食一整瓶标准婴儿配方奶"
+            },
+            {
+              "id": "C",
+              "en": "Keep the infant strictly NPO for another 24 hours",
+              "zh": "使婴儿继续严格禁食24小时"
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "rationale": {
+            "correct": {
+              "en": "Postoperative feedings following a pyloromyotomy typically begin 12 to 24 hours after surgery. Feeding is introduced gradually, starting with small amounts of clear liquids (such as sterile water or electrolyte solution) or diluted formula/breast milk. If tolerated, the volume and concentration are gradually increased. Spitting up is common initially but feeding is not discontinued. Full feeds immediately are contraindicated. Strict NPO is unnecessary unless complications occur.",
+              "zh": "幽门肌切开术后的术后喂养通常在术后 12 至 24 小时开始。喂养是逐步引入的，从少量流质（如无菌水或电解质溶液）或稀释的配方奶/母乳开始。如果耐受良好，则逐渐增加量和浓度。开始时吐奶很常见，但不需要停止喂养。立即进行全量喂养是禁忌的。除非出现并发症，否则没有必要严格禁食。"
+            },
+            "byChoice": [
+              {
+                "refId": "D",
+                "en": "Spitting up is normal initially and does not require routine antiemetics or feeding delays unless persistent and severe.",
+                "zh": "开始时吐奶是正常的，不需要常规使用止吐药或延迟喂食，除非吐奶持续且严重。"
+              },
+              {
+                "refId": "B",
+                "en": "A full feed immediately post-op is highly likely to cause severe vomiting and tension on the suture line.",
+                "zh": "术后立即进行全量喂养极有可能导致严重呕吐和缝合线张力增加。"
+              },
+              {
+                "refId": "C",
+                "en": "Prolonged NPO is not indicated, as early feeding promotes GI healing and hydration once surgical pyloric obstruction is resolved.",
+                "zh": "不适用延长禁食，因为一旦手术解除幽门梗阻，早期喂养可促进胃肠道愈合和补充水分。"
+              },
+              {
+                "refId": "A",
+                "en": "Gradual reintroduction of fluids prevents gastric distention and vomiting as the pylorus heals.",
+                "zh": "随着幽门愈合，逐渐重新引入体液可防止胃扩张和呕吐。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "Focus on nursing care guidelines for postoperative gastrointestinal recovery. Select the gradual feeding protocol (clear liquids, small amounts) as the safest initial action.",
+            "zh": "关注术后胃肠道恢复的护理指南。选择逐步喂养方案（清流质、少量）作为最安全的初始操作。"
+          },
+          "glossary": [
+            {
+              "termEn": "pyloromyotomy",
+              "termZh": "幽门肌切开术",
+              "defZh": "一种切开肥厚的幽门肌以缓解梗阻的手术程序。"
+            }
+          ]
+        }
+      ]
+    },
+    "rationale": {
+      "correct": {
+        "en": "This unfolding case study guides the learner through the care of an infant with hypertrophic pyloric stenosis, assessing baseline cues, recognizing chemical alterations (hypokalemic, hypochloremic metabolic alkalosis), prioritizing preoperative fluid and electrolyte resuscitation, and implementing the postoperative feeding protocol.",
+        "zh": "此展开式案例研究指导学习者护理患有肥厚性幽门狭窄的婴儿，包括评估基线迹象、识别化学改变（低钾低氯性代谢性碱中毒）、优先考虑术前液体和电解质复苏以及执行术后喂养方案。"
+      }
+    },
+    "testTakingStrategy": {
+      "en": "Focus on identifying fluid and electrolyte disturbances in pediatric GI obstruction cases and postoperative pediatric care principles.",
+      "zh": "重点识别儿科胃肠道梗阻病例中的液体和电解质紊乱以及术后儿科护理原则。"
+    },
+    "glossary": []
+  },
+  "frozenExceptions": [
+    {
+      "rowKey": "8248ef708b75727a",
+      "stage0QueueIndex": 87,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+      "partId": "gemini_gap_case_pyloric_stenosis_01_q3",
+      "repairPacketId": "repair-006",
+      "disposition": "EXCEPTION",
+      "exceptionReason": "PRODUCER_EXCEPTION; PRODUCER_NON_HIGH; BOUNDARY_DISPOSITION_DISAGREEMENT",
+      "reasonCodes": [
+        "PRODUCER_EXCEPTION",
+        "PRODUCER_NON_HIGH",
+        "BOUNDARY_DISPOSITION_DISAGREEMENT"
+      ],
+      "producer": {
+        "disposition": "EXCEPTION",
+        "proposedBoundary": null,
+        "confidence": "MEDIUM",
+        "bilingualRelation": "PARALLEL",
+        "exceptionReason": "Clinical/answer-correctness uncertainty: potassium-containing IV fluid is keyed for a markedly dehydrated infant without visible urine-output/renal-clearance confirmation or a specific preoperative replacement order; resolving that uncertainty would require information outside the authorized field."
+      },
+      "checker": {
+        "disposition": "BASELINE",
+        "proposedBoundary": {
+          "kind": "baseline"
+        },
+        "confidence": "HIGH",
+        "bilingualRelation": "PARALLEL",
+        "exceptionReason": null
+      },
+      "documentaryGroup": "explicit_semantic_exception"
+    },
+    {
+      "rowKey": "9729bf71edce3119",
+      "stage0QueueIndex": 88,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+      "partId": "gemini_gap_case_pyloric_stenosis_01_q4",
+      "repairPacketId": "repair-006",
+      "disposition": "EXCEPTION",
+      "exceptionReason": "BOUNDARY_DISPOSITION_DISAGREEMENT",
+      "reasonCodes": [
+        "BOUNDARY_DISPOSITION_DISAGREEMENT"
+      ],
+      "producer": {
+        "disposition": "STAGE",
+        "proposedBoundary": "stage_postop",
+        "confidence": "HIGH",
+        "bilingualRelation": "PARALLEL",
+        "exceptionReason": null
+      },
+      "checker": {
+        "disposition": "BASELINE",
+        "proposedBoundary": {
+          "kind": "baseline"
+        },
+        "confidence": "HIGH",
+        "bilingualRelation": "PARALLEL",
+        "exceptionReason": null
+      },
+      "documentaryGroup": "baseline_stage_disagreement"
+    }
+  ],
+  "frozenJudgments": {
+    "producer": [
+      {
+        "sourcePath": "audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/producer/repair-006.json",
+        "sourceSha256": "c96fd2ac44ae44fc4f900753699a25998b2d1afb7b565da11ed0797b3136d8d8",
+        "judgment": {
+          "rowKey": "8248ef708b75727a",
+          "stage0QueueIndex": 87,
+          "bankPath": "banks/gemini-canonical.json",
+          "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+          "partId": "gemini_gap_case_pyloric_stenosis_01_q3",
+          "proposedBoundary": null,
+          "disposition": "EXCEPTION",
+          "earliestBoundaryEvidence": "The global record shows significant infant dehydration, and stage_labs supplies low potassium, but no visible boundary gives urine output, established renal clearance or a potassium-containing-fluid order. The key asks to prioritize potassium-containing IV fluids without that safety prerequisite in either language.",
+          "laterStageLeakCheck": "The postoperative stage shows later stable recovery but cannot retrospectively establish that potassium administration was safe during initial dehydration. A boundary field cannot add the missing preoperative safety condition.",
+          "bilingualRelation": "PARALLEL",
+          "confidence": "MEDIUM",
+          "exceptionReason": "Clinical/answer-correctness uncertainty: potassium-containing IV fluid is keyed for a markedly dehydrated infant without visible urine-output/renal-clearance confirmation or a specific preoperative replacement order; resolving that uncertainty would require information outside the authorized field."
+        }
+      },
+      {
+        "sourcePath": "audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/producer/repair-006.json",
+        "sourceSha256": "c96fd2ac44ae44fc4f900753699a25998b2d1afb7b565da11ed0797b3136d8d8",
+        "judgment": {
+          "rowKey": "9729bf71edce3119",
+          "stage0QueueIndex": 88,
+          "bankPath": "banks/gemini-canonical.json",
+          "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+          "partId": "gemini_gap_case_pyloric_stenosis_01_q4",
+          "proposedBoundary": "stage_postop",
+          "disposition": "STAGE",
+          "earliestBoundaryEvidence": "The prompt names postoperative feeding orders but provides no recovery assessment. stage_postop first establishes successful pyloromyotomy, stable vitals, clean incisions, alertness and an order to initiate feeds; earlier records describe active obstructive vomiting and preoperative dehydration in both languages.",
+          "laterStageLeakCheck": "The chosen stage supplies current postoperative readiness rather than a successful feeding outcome. No feeding tolerance outcome is assumed; the requested first small-volume feeding still precedes that assessment.",
+          "bilingualRelation": "PARALLEL",
+          "confidence": "HIGH",
+          "exceptionReason": null
+        }
+      }
+    ],
+    "checker": [
+      {
+        "sourcePath": "audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/checker/repair-006.json",
+        "sourceSha256": "59b6dfbfcb5e830ea98229afa075dc3084c77a4af2fd57668c4209a814ff8670",
+        "judgment": {
+          "rowKey": "8248ef708b75727a",
+          "stage0QueueIndex": 87,
+          "bankPath": "banks/gemini-canonical.json",
+          "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+          "partId": "gemini_gap_case_pyloric_stenosis_01_q3",
+          "proposedBoundary": {
+            "kind": "baseline"
+          },
+          "disposition": "BASELINE",
+          "earliestBoundaryEvidence": "Baseline supplies the preoperative problem directly: five days of forceful vomiting with a depressed fontanelle, dry mucous membranes, decreased skin turgor and weight loss below birth weight. Correcting dehydration and electrolyte losses with intravenous fluid containing potassium, and keeping the infant nil by mouth to stop further vomiting and aspiration risk, follows from that; potassium is never given by intravenous push, and oral rehydration is excluded by the nil-by-mouth requirement, so both distractor sets fail on knowledge.",
+          "laterStageLeakCheck": "stage_labs would supply the measured hypokalaemia and hypochloraemia, which reinforces the potassium-containing fluid choice but is not needed once the vomiting history and dehydration signs are visible, and it belongs to a different part. stage_postop is after surgery. BASELINE is the earliest answerable boundary.",
+          "bilingualRelation": "PARALLEL",
+          "confidence": "HIGH",
+          "exceptionReason": null
+        }
+      },
+      {
+        "sourcePath": "audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/checker/repair-006.json",
+        "sourceSha256": "59b6dfbfcb5e830ea98229afa075dc3084c77a4af2fd57668c4209a814ff8670",
+        "judgment": {
+          "rowKey": "9729bf71edce3119",
+          "stage0QueueIndex": 88,
+          "bankPath": "banks/gemini-canonical.json",
+          "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+          "partId": "gemini_gap_case_pyloric_stenosis_01_q4",
+          "proposedBoundary": {
+            "kind": "baseline"
+          },
+          "disposition": "BASELINE",
+          "earliestBoundaryEvidence": "The stem is self-contained: it establishes that this is postoperative day one and that orders for postoperative feeding have been written. Graded refeeding after pyloromyotomy - beginning with small volumes of clear liquid or oral rehydration solution and advancing as tolerated - is paediatric surgical nursing knowledge, and the distractors fail on it, since a full bottle of standard formula immediately is contraindicated, further strict nil by mouth is unnecessary without complications, and there is no indication to delay feeding for antiemetics.",
+          "laterStageLeakCheck": "stage_postop states that the pyloromyotomy was successful, that vital signs are stable and that 'The provider has written orders to initiate postoperative feedings', all of which the stem restates; it does not describe the feeding regimen, so it supplies nothing the answer needs. BASELINE is the earliest answerable boundary.",
+          "bilingualRelation": "PARALLEL",
+          "confidence": "HIGH",
+          "exceptionReason": null
+        }
+      }
+    ]
+  },
+  "residualPartsEqualCampaign16": true,
+  "priorParentSource": "audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/source-packets/repair-006.json",
+  "priorParentSourceSha256": "34f1834dd1a97e19fa2757ce09709449693d0b5579cb536402e96308aada73ef"
+}

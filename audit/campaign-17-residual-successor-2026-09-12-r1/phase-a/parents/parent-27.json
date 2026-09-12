@@ -1,0 +1,910 @@
+{
+  "packetId": "parent-27",
+  "bankPath": "banks/gpt-canonical.json",
+  "bankSha256": "a4b7d10a7c0a0e6bdb9bbbc4cb34c726a889ee35b6340171e6015f6e8af27004",
+  "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01",
+  "currentParentSha256": "f9dd908dc194393deb85b6d4c579054e103ab8f6b650425b6dadc5f3bb46fe93",
+  "currentParent": {
+    "id": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01",
+    "itemType": "case_study",
+    "category": "Pharmacological and Parenteral Therapies",
+    "topic": "Medication Safety & Admin",
+    "difficulty": "hard",
+    "ngnSkill": "take_action",
+    "stem": {
+      "en": "Review the unfolding case about a postoperative client receiving IV opioid analgesia.",
+      "zh": "查看一名术后患者接受静脉阿片类镇痛的展开病例。"
+    },
+    "rationale": {
+      "correct": {
+        "en": "The case emphasizes balancing pain control with respiratory safety: assess baseline risk, reassess after IV opioids, respond to oversedation promptly, teach PCA safety, and apply the stated reassessment interval.",
+        "zh": "本病例强调在镇痛和呼吸安全之间取得平衡：评估基础风险、静脉使用阿片类后复查、及时处理过度镇静、宣教 PCA 安全，并应用题干给出的复查间隔。"
+      },
+      "byChoice": []
+    },
+    "testTakingStrategy": {
+      "en": "When pain medicine helps pain but worsens breathing or alertness, prioritize airway and breathing over additional analgesia.",
+      "zh": "当止痛药缓解疼痛但使呼吸或清醒程度恶化时，应优先处理气道和呼吸，而不是继续加药。"
+    },
+    "glossary": [
+      {
+        "termEn": "Respiratory depression",
+        "termZh": "呼吸抑制",
+        "defZh": "呼吸频率或通气不足，可能由阿片类药物引起。"
+      },
+      {
+        "termEn": "PRN",
+        "termZh": "按需",
+        "defZh": "根据患者需要和医嘱条件使用药物。"
+      }
+    ],
+    "caseStudy": {
+      "title": {
+        "en": "Unfolding case: IV opioid safety after surgery",
+        "zh": "展开病例：术后静脉阿片类药物安全"
+      },
+      "summary": {
+        "en": "A postoperative older adult with sleep apnea receives PRN IV opioid medication for severe pain and then develops oversedation cues.",
+        "zh": "一名有睡眠呼吸暂停的术后老年患者因重度疼痛接受按需静脉阿片类药物，随后出现过度镇静线索。"
+      },
+      "exhibits": [
+        {
+          "id": "baseline_order",
+          "title": {
+            "en": "Baseline postoperative orders",
+            "zh": "术后基础医嘱"
+          },
+          "content": {
+            "en": "Age 72. Open reduction and internal fixation of hip fracture this morning. Opioid-naive. History of obstructive sleep apnea; home CPAP is at bedside. Order: morphine 2 mg IV every 2 hours PRN severe pain. Current pain 8/10. Respiratory rate 16/min, SpO2 95% on room air, sedation score 1 (awake and alert). Last opioid dose was 5 hours ago.",
+            "zh": "72 岁。今晨行髋部骨折切开复位内固定术。既往未长期使用阿片类药物。有阻塞性睡眠呼吸暂停病史；家用 CPAP 在床旁。医嘱：吗啡 2 mg 静脉注射，每 2 小时按需用于重度疼痛。目前疼痛 8/10。呼吸频率 16 次/分，室内空气 SpO2 95%，镇静评分 1（清醒警觉）。上次使用阿片类药物为 5 小时前。"
+          },
+          "structuredMeasurements": {
+            "panels": [
+              {
+                "kind": "vitals",
+                "columns": [
+                  {
+                    "id": "current",
+                    "label": {
+                      "en": "Current",
+                      "zh": "当前"
+                    }
+                  }
+                ],
+                "rows": [
+                  {
+                    "key": "rr",
+                    "label": {
+                      "en": "Respiratory rate",
+                      "zh": "呼吸频率"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "16",
+                        "unit": "/min"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "spo2",
+                    "label": {
+                      "en": "SpO2",
+                      "zh": "脉搏血氧饱和度"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "95",
+                        "unit": "%"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "stages": [
+        {
+          "id": "stage_1_pre_dose",
+          "title": {
+            "en": "Stage 1: Pre-dose assessment",
+            "zh": "第 1 阶段：给药前评估"
+          },
+          "exhibits": [
+            {
+              "id": "pre_dose",
+              "title": {
+                "en": "Nursing assessment before PRN morphine",
+                "zh": "PRN 吗啡给药前护理评估"
+              },
+              "content": {
+                "en": "Client reports sharp incisional pain 8/10 and splints the hip when turning. Respiratory rate 16/min, SpO2 95% on room air, blood pressure 132/76 mm Hg. Sedation score 1. Client says, 'I have never taken strong pain medicine before.' CPAP mask is clean and available.",
+                "zh": "患者诉切口锐痛 8/10，翻身时保护髋部。呼吸频率 16 次/分，室内空气 SpO2 95%，血压 132/76 mm Hg。镇静评分 1。患者说：“我以前从没用过强效止痛药。”CPAP 面罩清洁且可用。"
+              },
+              "structuredMeasurements": {
+                "panels": [
+                  {
+                    "kind": "vitals",
+                    "columns": [
+                      {
+                        "id": "current",
+                        "label": {
+                          "en": "Current",
+                          "zh": "当前"
+                        }
+                      }
+                    ],
+                    "rows": [
+                      {
+                        "key": "rr",
+                        "label": {
+                          "en": "Respiratory rate",
+                          "zh": "呼吸频率"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "16",
+                            "unit": "/min"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "spo2",
+                        "label": {
+                          "en": "SpO2",
+                          "zh": "脉搏血氧饱和度"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "95",
+                            "unit": "%"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "sbp",
+                        "label": {
+                          "en": "Systolic BP",
+                          "zh": "收缩压"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "132",
+                            "unit": "mmHg"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "dbp",
+                        "label": {
+                          "en": "Diastolic BP",
+                          "zh": "舒张压"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "76",
+                            "unit": "mmHg"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "stage_2_after_dose",
+          "title": {
+            "en": "Stage 2: Thirty minutes after IV morphine",
+            "zh": "第 2 阶段：静脉给吗啡 30 分钟后"
+          },
+          "exhibits": [
+            {
+              "id": "post_dose",
+              "title": {
+                "en": "Focused reassessment",
+                "zh": "重点再评估"
+              },
+              "content": {
+                "en": "Morphine 2 mg IV was given at 0900. At 0930, pain is 4/10. Respiratory rate 10/min, SpO2 90% on room air. The client drifts to sleep during conversation and needs repeated verbal stimulation to answer. Sedation score 3 (frequently drowsy, arousable, drifts off during conversation).",
+                "zh": "0900 静脉给吗啡 2 mg。0930 疼痛 4/10。呼吸频率 10 次/分，室内空气 SpO2 90%。患者交谈中不断入睡，需要反复言语刺激才回答。镇静评分 3（频繁嗜睡，可唤醒，交谈中又睡着）。"
+              },
+              "structuredMeasurements": {
+                "panels": [
+                  {
+                    "kind": "vitals",
+                    "columns": [
+                      {
+                        "id": "current",
+                        "label": {
+                          "en": "0900",
+                          "zh": "0900"
+                        }
+                      }
+                    ],
+                    "rows": [
+                      {
+                        "key": "rr",
+                        "label": {
+                          "en": "Respiratory rate",
+                          "zh": "呼吸频率"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "10",
+                            "unit": "/min"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "spo2",
+                        "label": {
+                          "en": "SpO2",
+                          "zh": "脉搏血氧饱和度"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "90",
+                            "unit": "%"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "stage_3_stabilized",
+          "title": {
+            "en": "Stage 3: Stabilized and planning ongoing pain control",
+            "zh": "第 3 阶段：病情稳定并计划后续镇痛"
+          },
+          "exhibits": [
+            {
+              "id": "ongoing_plan",
+              "title": {
+                "en": "Later reassessment and family question",
+                "zh": "稍后再评估与家属问题"
+              },
+              "content": {
+                "en": "At 1015 after stimulation, oxygen 2 L/min by nasal cannula, and provider notification, respiratory rate is 14/min and SpO2 is 95%. Sedation score is 1. Pain is 6/10 with turning. The adult child asks, 'Can I press the pain button for Dad if he is sleeping so he stays ahead of the pain?' Unit protocol requires respiratory rate and sedation reassessment 15 minutes after each IV opioid dose.",
+                "zh": "经过刺激、鼻导管吸氧 2 L/分并通知医护团队后，1015 呼吸频率 14 次/分，SpO2 95%。镇静评分 1。翻身时疼痛 6/10。成年子女问：“如果爸爸睡着了，我能帮他按止痛按钮，让疼痛不要加重吗？”科室流程要求每次静脉使用阿片类药物后 15 分钟复查呼吸频率和镇静情况。"
+              },
+              "structuredMeasurements": {
+                "panels": [
+                  {
+                    "kind": "vitals",
+                    "columns": [
+                      {
+                        "id": "current",
+                        "label": {
+                          "en": "1015",
+                          "zh": "1015"
+                        }
+                      }
+                    ],
+                    "rows": [
+                      {
+                        "key": "rr",
+                        "label": {
+                          "en": "Respiratory rate",
+                          "zh": "呼吸频率"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "14",
+                            "unit": "/min",
+                            "context": "post_intervention"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "spo2",
+                        "label": {
+                          "en": "SpO2",
+                          "zh": "脉搏血氧饱和度"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "95",
+                            "unit": "%",
+                            "context": "post_intervention"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q1",
+          "itemType": "matrix",
+          "category": "Reduction of Risk Potential",
+          "topic": "Perioperative Care",
+          "difficulty": "medium",
+          "ngnSkill": "recognize_cues",
+          "stem": {
+            "en": "Using Stage 1 data, classify each finding as increasing risk for opioid-related respiratory depression or supporting safe PRN opioid administration.",
+            "zh": "根据第 1 阶段资料，将每项发现分类为增加阿片类相关呼吸抑制风险，或支持安全按需给药。"
+          },
+          "rationale": {
+            "correct": {
+              "en": "Opioid-naive status and sleep apnea increase risk, while an acceptable baseline respiratory rate, alert sedation score, severe pain report, and available CPAP support giving the ordered PRN opioid with close reassessment.",
+              "zh": "未长期使用阿片类药物和睡眠呼吸暂停会增加风险；基础呼吸频率可接受、镇静评分清醒、重度疼痛以及 CPAP 可用，支持在密切复评下给予按需阿片类药物。"
+            },
+            "byChoice": [
+              {
+                "refId": "r1",
+                "en": "Lack of opioid tolerance increases sensitivity to respiratory and sedation effects.",
+                "zh": "缺乏阿片耐受性会增加对呼吸和镇静作用的敏感性。"
+              },
+              {
+                "refId": "r2",
+                "en": "Sleep apnea increases risk for hypoventilation after opioids.",
+                "zh": "睡眠呼吸暂停会增加使用阿片类后低通气风险。"
+              },
+              {
+                "refId": "r3",
+                "en": "A normal baseline respiratory rate and alert sedation score do not require holding the dose by themselves.",
+                "zh": "基础呼吸频率正常且清醒，本身不需要停用该剂量。"
+              },
+              {
+                "refId": "r4",
+                "en": "Severe postoperative pain is an appropriate indication for ordered PRN analgesia.",
+                "zh": "重度术后疼痛是按医嘱给予 PRN 镇痛药的适当指征。"
+              },
+              {
+                "refId": "r5",
+                "en": "Available CPAP supports safe sleep-apnea management during recovery.",
+                "zh": "CPAP 可用有助于恢复期间安全管理睡眠呼吸暂停。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "Separate risk factors from current instability; risk calls for closer monitoring, while instability calls for holding and escalating.",
+            "zh": "区分风险因素和当前不稳定。风险提示加强监测；不稳定则需要暂停并升级处理。"
+          },
+          "glossary": [
+            {
+              "termEn": "Opioid-naive",
+              "termZh": "未使用过阿片类/无耐受",
+              "defZh": "没有长期规律使用阿片类药物，较容易发生镇静和呼吸抑制。"
+            },
+            {
+              "termEn": "Sedation score",
+              "termZh": "镇静评分",
+              "defZh": "用于评估患者清醒程度以及阿片类药物安全性的量表。"
+            }
+          ],
+          "matrix": {
+            "rows": [
+              {
+                "id": "r1",
+                "en": "Opioid-naive older adult",
+                "zh": "未长期使用阿片类药物的老年患者"
+              },
+              {
+                "id": "r2",
+                "en": "History of obstructive sleep apnea",
+                "zh": "有阻塞性睡眠呼吸暂停病史"
+              },
+              {
+                "id": "r3",
+                "en": "Respiratory rate 16/min and sedation score 1",
+                "zh": "呼吸频率 16 次/分且镇静评分 1"
+              },
+              {
+                "id": "r4",
+                "en": "Pain 8/10 with guarding during turning",
+                "zh": "翻身时保护动作且疼痛 8/10"
+              },
+              {
+                "id": "r5",
+                "en": "CPAP available at bedside",
+                "zh": "CPAP 在床旁可用"
+              }
+            ],
+            "columns": [
+              {
+                "id": "c1",
+                "en": "Increases respiratory-depression risk",
+                "zh": "增加呼吸抑制风险"
+              },
+              {
+                "id": "c2",
+                "en": "Supports safe administration with monitoring",
+                "zh": "在监测下支持安全给药"
+              }
+            ],
+            "selectionMode": "single_per_row"
+          },
+          "correct": [
+            {
+              "rowId": "r1",
+              "columnIds": [
+                "c1"
+              ]
+            },
+            {
+              "rowId": "r2",
+              "columnIds": [
+                "c1"
+              ]
+            },
+            {
+              "rowId": "r3",
+              "columnIds": [
+                "c2"
+              ]
+            },
+            {
+              "rowId": "r4",
+              "columnIds": [
+                "c2"
+              ]
+            },
+            {
+              "rowId": "r5",
+              "columnIds": [
+                "c2"
+              ]
+            }
+          ],
+          "answerableAfterStageId": {
+            "kind": "baseline"
+          }
+        },
+        {
+          "id": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q2",
+          "itemType": "dropdown_cloze",
+          "category": "Pharmacological and Parenteral Therapies",
+          "topic": "Medication Safety & Admin",
+          "difficulty": "medium",
+          "ngnSkill": "analyze_cues",
+          "stem": {
+            "en": "Stage 2 describes the client's condition 30 minutes after IV morphine.",
+            "zh": "第 2 阶段描述静脉给吗啡 30 分钟后的患者情况。"
+          },
+          "rationale": {
+            "correct": {
+              "en": "A respiratory rate of 10/min, oxygen saturation of 90%, and sedation score 3 after IV opioid indicate oversedation and hypoventilation requiring holding further opioids, stimulation, oxygen per order, and escalation.",
+              "zh": "静脉使用阿片类后呼吸频率 10 次/分、氧饱和度 90%、镇静评分 3，提示过度镇静和低通气，需要暂停继续使用阿片类、刺激患者、按医嘱给氧并升级处理。"
+            },
+            "byChoice": [
+              {
+                "refId": "1",
+                "en": "The combination of low respiratory rate, decreased oxygen saturation, and frequent drowsiness is not expected pain relief alone.",
+                "zh": "呼吸频率低、氧饱和度下降和频繁嗜睡的组合，并非单纯预期镇痛。"
+              },
+              {
+                "refId": "2",
+                "en": "The immediate nursing response is to prevent further respiratory depression and activate help rather than give more opioid.",
+                "zh": "立即护理反应是防止进一步呼吸抑制并寻求协助，而不是再给吗啡类药物。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "After IV opioids, compare pain relief with respiratory and sedation findings; improved pain does not override respiratory compromise.",
+            "zh": "静脉使用阿片类后，要同时比较镇痛效果、呼吸和镇静情况；疼痛改善不能掩盖呼吸受损。"
+          },
+          "glossary": [
+            {
+              "termEn": "Hypoventilation",
+              "termZh": "低通气",
+              "defZh": "通气不足，可能导致氧饱和度下降和二氧化碳潴留。"
+            },
+            {
+              "termEn": "Oversedation",
+              "termZh": "过度镇静",
+              "defZh": "药物作用导致过度嗜睡、反应变慢，可能伴随呼吸抑制。"
+            }
+          ],
+          "clozeStem": {
+            "en": "The nurse should interpret the findings as {{1}} and should {{2}}.",
+            "zh": "护士应将这些发现判断为 {{1}}，并应 {{2}}。"
+          },
+          "dropdowns": [
+            {
+              "id": "1",
+              "options": [
+                {
+                  "id": "o2",
+                  "en": "possible opioid-related oversedation and hypoventilation",
+                  "zh": "可能为阿片类相关过度镇静和低通气"
+                },
+                {
+                  "id": "o3",
+                  "en": "acute withdrawal from inadequate analgesia",
+                  "zh": "镇痛不足导致急性戒断"
+                },
+                {
+                  "id": "o1",
+                  "en": "expected pain relief only",
+                  "zh": "仅为预期镇痛效果"
+                }
+              ],
+              "correct": "o2"
+            },
+            {
+              "id": "2",
+              "options": [
+                {
+                  "id": "o1",
+                  "en": "hold additional opioid doses and stimulate the client while initiating ordered oxygen and escalation",
+                  "zh": "暂停追加阿片类药物，刺激患者，同时开始医嘱氧疗并升级处理"
+                },
+                {
+                  "id": "o3",
+                  "en": "give the next PRN dose early because pain remains 4/10",
+                  "zh": "因疼痛仍为 4/10 而提前给予下一次 PRN 剂量"
+                },
+                {
+                  "id": "o2",
+                  "en": "allow the client to sleep because pain improved",
+                  "zh": "因疼痛改善而让患者继续睡眠"
+                }
+              ],
+              "correct": "o1"
+            }
+          ],
+          "answerableAfterStageId": "stage_2_after_dose"
+        },
+        {
+          "id": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q3",
+          "itemType": "ordered_response",
+          "category": "Reduction of Risk Potential",
+          "topic": "Perioperative Care",
+          "difficulty": "hard",
+          "ngnSkill": "take_action",
+          "stem": {
+            "en": "Place the nursing actions for the Stage 2 change in the correct order.",
+            "zh": "将针对第 2 阶段变化的护理行动按正确顺序排列。"
+          },
+          "rationale": {
+            "correct": {
+              "en": "The sequence starts with immediate airway/breathing support and stopping further opioid exposure, then oxygen and monitoring, escalation and possible reversal, and documentation after the client is stabilized.",
+              "zh": "顺序应从立即支持气道/呼吸和停止继续使用阿片类开始，然后给氧和监测，升级处理并可能使用拮抗剂，最后在患者稳定后记录。"
+            },
+            "byChoice": [
+              {
+                "refId": "B",
+                "en": "Further opioid exposure should stop once oversedation and low respirations are recognized.",
+                "zh": "一旦发现过度镇静和呼吸减慢，应停止继续使用阿片类。"
+              },
+              {
+                "refId": "C",
+                "en": "Oxygen and continuous monitoring support oxygenation while help is activated.",
+                "zh": "给氧和连续监测可在求助过程中支持氧合。"
+              },
+              {
+                "refId": "D",
+                "en": "Provider or rapid-response escalation is needed because reversal or additional orders may be required.",
+                "zh": "可能需要拮抗剂或额外医嘱，因此需通知提供者或快速反应资源。"
+              },
+              {
+                "refId": "E",
+                "en": "Documentation follows safety interventions and reassessment of response.",
+                "zh": "记录应在安全干预和疗效复评之后进行。"
+              },
+              {
+                "refId": "A",
+                "en": "Airway and breathing assessment with stimulation addresses the immediate physiologic threat.",
+                "zh": "刺激并评估气道和呼吸可处理最紧急的生理威胁。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "For medication-related respiratory compromise, stabilize breathing before paperwork or routine education.",
+            "zh": "遇到药物相关呼吸受损时，先稳定呼吸，再做文书或常规宣教。"
+          },
+          "glossary": [
+            {
+              "termEn": "Naloxone",
+              "termZh": "纳洛酮",
+              "defZh": "阿片类药物拮抗剂，用于逆转严重阿片类相关呼吸抑制。"
+            },
+            {
+              "termEn": "Rapid response",
+              "termZh": "快速反应",
+              "defZh": "针对病情突然恶化而启动的紧急团队或流程。"
+            }
+          ],
+          "options": [
+            {
+              "id": "B",
+              "en": "Stop additional opioid administration and call for immediate assistance.",
+              "zh": "停止追加阿片类药物并立即呼叫协助。"
+            },
+            {
+              "id": "E",
+              "en": "Document the reassessment findings and the client's response after stabilization.",
+              "zh": "病情稳定后记录复评结果和患者反应。"
+            },
+            {
+              "id": "A",
+              "en": "Stimulate the client, raise the head of the bed, and assess airway and breathing.",
+              "zh": "刺激患者，抬高床头，并评估气道和呼吸。"
+            },
+            {
+              "id": "D",
+              "en": "Notify the provider or rapid-response resource and prepare naloxone if prescribed or protocol-directed.",
+              "zh": "通知医护提供者或快速反应资源，并在有医嘱或流程要求时准备纳洛酮。"
+            },
+            {
+              "id": "C",
+              "en": "Apply oxygen as ordered and attach continuous pulse oximetry.",
+              "zh": "按医嘱给氧并连接连续脉搏血氧监测。"
+            }
+          ],
+          "correct": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ]
+        },
+        {
+          "id": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q4",
+          "itemType": "select_all",
+          "category": "Pharmacological and Parenteral Therapies",
+          "topic": "Medication Safety & Admin",
+          "difficulty": "medium",
+          "ngnSkill": "generate_solutions",
+          "stem": {
+            "en": "The adult child asks about pressing a pain-control button for the client. Which teaching points should the nurse include? Select all that apply.",
+            "zh": "成年子女询问是否可以替患者按止痛按钮。护士应包括哪些宣教？选择所有适用项。"
+          },
+          "rationale": {
+            "correct": {
+              "en": "PCA safety requires that only the alert client activates dosing; family should report oversedation signs and support nonpharmacologic pain relief. Pain improvement does not eliminate respiratory monitoring.",
+              "zh": "PCA 安全要求只有清醒的患者本人触发给药；家属应报告过度镇静迹象，并支持非药物镇痛。疼痛改善并不取消呼吸监测。"
+            },
+            "byChoice": [
+              {
+                "refId": "B",
+                "en": "Family activation can cause dangerous opioid dosing when the client cannot self-assess sedation.",
+                "zh": "家属代按可能在患者无法自评镇静时导致危险给药。"
+              },
+              {
+                "refId": "D",
+                "en": "Nonpharmacologic measures can lower opioid needs and support comfort.",
+                "zh": "非药物措施可减少阿片类需求并促进舒适。"
+              },
+              {
+                "refId": "C",
+                "en": "These are warning signs of opioid-related respiratory compromise.",
+                "zh": "这些是阿片类相关呼吸受损的警示征象。"
+              },
+              {
+                "refId": "E",
+                "en": "Respiratory and sedation monitoring remains necessary after opioid use even when pain improves.",
+                "zh": "即使疼痛改善，使用阿片类后仍需监测呼吸和镇静。"
+              },
+              {
+                "refId": "A",
+                "en": "Patient-only activation reduces accidental dosing when the client is too sedated.",
+                "zh": "仅由患者本人按压可减少患者过度镇静时的意外给药。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "For PCA questions, protect the lockout concept: the client must be awake enough to press the button personally.",
+            "zh": "遇到 PCA 题，抓住安全锁定概念：患者必须足够清醒并亲自按压。"
+          },
+          "glossary": [
+            {
+              "termEn": "PCA",
+              "termZh": "患者自控镇痛",
+              "defZh": "患者在安全锁定范围内自行触发止痛药给药的装置。"
+            },
+            {
+              "termEn": "Nonpharmacologic pain relief",
+              "termZh": "非药物镇痛",
+              "defZh": "不用药物帮助缓解疼痛的方法，如体位调整、冷敷或放松。"
+            }
+          ],
+          "options": [
+            {
+              "id": "E",
+              "en": "A lower pain score means sedation and breathing no longer need monitoring.",
+              "zh": "疼痛评分降低表示不再需要监测镇静和呼吸。"
+            },
+            {
+              "id": "A",
+              "en": "Only the client should press a patient-controlled analgesia button when awake enough to do so.",
+              "zh": "只有患者本人在足够清醒时才应按患者自控镇痛按钮。"
+            },
+            {
+              "id": "C",
+              "en": "Call the nurse if the client becomes hard to wake, breathes slowly, or snores unusually.",
+              "zh": "如果患者难以叫醒、呼吸变慢或打鼾异常，应呼叫护士。"
+            },
+            {
+              "id": "B",
+              "en": "Family members may press the button while the client sleeps to prevent pain.",
+              "zh": "家属可在患者睡觉时按按钮以预防疼痛。"
+            },
+            {
+              "id": "D",
+              "en": "Use repositioning, splinting, ice if ordered, and relaxation along with medication.",
+              "zh": "配合药物使用体位调整、支托、按医嘱冰敷和放松技巧。"
+            }
+          ],
+          "correct": [
+            "A",
+            "C",
+            "D"
+          ],
+          "answerableAfterStageId": {
+            "kind": "baseline"
+          }
+        },
+        {
+          "id": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q5",
+          "itemType": "fill_in_blank",
+          "category": "Reduction of Risk Potential",
+          "topic": "Perioperative Care",
+          "difficulty": "easy",
+          "ngnSkill": "evaluate_outcomes",
+          "stem": {
+            "en": "Unit protocol in Stage 3 requires respiratory rate and sedation reassessment 15 minutes after each IV opioid dose. If an IV opioid dose is given at 1110, at what time should the nurse complete the reassessment? Use 24-hour time.",
+            "zh": "第 3 阶段的科室流程要求每次静脉使用阿片类药物后 15 分钟复查呼吸频率和镇静情况。如果 1110 给予一次静脉阿片类药物，护士应在什么时间完成复查？请使用 24 小时时间。"
+          },
+          "rationale": {
+            "correct": {
+              "en": "1110 plus 15 minutes equals 1125.",
+              "zh": "1110 加 15 分钟等于 1125。"
+            },
+            "byChoice": [
+              {
+                "refId": "b1",
+                "en": "The timing is based on the protocol stated in the stem: reassess 15 minutes after IV opioid administration.",
+                "zh": "时间依据题干给出的流程：静脉使用阿片类药物后 15 分钟复查。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "When a timing rule is supplied in the stem, use that rule rather than memorizing a facility-specific policy.",
+            "zh": "题干给出时间规则时，应使用该规则，而不是依赖某个机构政策记忆。"
+          },
+          "glossary": [
+            {
+              "termEn": "Reassessment",
+              "termZh": "复评",
+              "defZh": "干预或给药后再次评估患者状态和反应。"
+            },
+            {
+              "termEn": "24-hour time",
+              "termZh": "24 小时时间",
+              "defZh": "用 0000–2359 表示时间的方式。"
+            }
+          ],
+          "blanks": [
+            {
+              "id": "b1",
+              "prompt": {
+                "en": "reassessment time",
+                "zh": "复查时间"
+              },
+              "acceptable": [
+                "1125",
+                "11:25",
+                "1125 hours",
+                "11:25 AM"
+              ],
+              "numeric": {
+                "value": 1125,
+                "tolerance": 0,
+                "unit": "time"
+              }
+            }
+          ],
+          "answerableAfterStageId": {
+            "kind": "baseline"
+          }
+        }
+      ]
+    }
+  },
+  "frozenExceptions": [
+    {
+      "rowKey": "5042b7fcf52e7d99",
+      "stage0QueueIndex": 193,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01",
+      "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q3",
+      "repairPacketId": "repair-012",
+      "disposition": "EXCEPTION",
+      "exceptionReason": "BOUNDARY_DISPOSITION_DISAGREEMENT",
+      "reasonCodes": [
+        "BOUNDARY_DISPOSITION_DISAGREEMENT"
+      ],
+      "producer": {
+        "disposition": "STAGE",
+        "proposedBoundary": "stage_2_after_dose",
+        "confidence": "HIGH",
+        "bilingualRelation": "PARALLEL",
+        "exceptionReason": null
+      },
+      "checker": {
+        "disposition": "BASELINE",
+        "proposedBoundary": {
+          "kind": "baseline"
+        },
+        "confidence": "HIGH",
+        "bilingualRelation": "PARALLEL",
+        "exceptionReason": null
+      },
+      "documentaryGroup": "baseline_stage_disagreement"
+    }
+  ],
+  "frozenJudgments": {
+    "producer": [
+      {
+        "sourcePath": "audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/producer/repair-012.json",
+        "sourceSha256": "70693de067efd90f70424d26686db0f32829b33374c79688b81386a643e002a5",
+        "judgment": {
+          "rowKey": "5042b7fcf52e7d99",
+          "stage0QueueIndex": 193,
+          "bankPath": "banks/gpt-canonical.json",
+          "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01",
+          "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q3",
+          "proposedBoundary": "stage_2_after_dose",
+          "disposition": "STAGE",
+          "earliestBoundaryEvidence": "This ordering prompt names the Stage 2 change without restating it. The stage_2_after_dose record first establishes current low respirations/oxygenation with frequent drowsiness, making the emergency breathing-support and escalation sequence appropriate in both languages. Earlier visible detailed assessments are stable and do not justify that acuity.",
+          "laterStageLeakCheck": "stage_3_stabilized narrates stimulation, oxygen and provider notification followed by recovery, confirming actions the learner must order from the earlier compromise; no later response is needed.",
+          "bilingualRelation": "PARALLEL",
+          "confidence": "HIGH",
+          "exceptionReason": null
+        }
+      }
+    ],
+    "checker": [
+      {
+        "sourcePath": "audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/checker/repair-012.json",
+        "sourceSha256": "b7ea3f95ab7dd5f445e3588ce6191b7f4f2587d7cc92c50a82c9ed489a577ce3",
+        "judgment": {
+          "rowKey": "5042b7fcf52e7d99",
+          "stage0QueueIndex": 193,
+          "bankPath": "banks/gpt-canonical.json",
+          "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01",
+          "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q3",
+          "proposedBoundary": {
+            "kind": "baseline"
+          },
+          "disposition": "BASELINE",
+          "earliestBoundaryEvidence": "The task is ordering, and the option set itself establishes the emergency - stopping opioid administration, applying oxygen, preparing naloxone - so the sequence follows opioid-oversedation response logic: stimulate the client, raise the head of the bed and assess airway and breathing; stop further opioid and call for immediate assistance; apply ordered oxygen with continuous pulse oximetry; notify the provider or rapid-response resource and prepare naloxone per protocol; document after stabilisation. Baseline supplies the opioid order and the sleep-apnoea risk that make this the expected emergency.",
+          "laterStageLeakCheck": "stage_3_stabilized must not be the boundary: it states that at 1015, 'after stimulation, oxygen 2 L/min by nasal cannula, and provider notification', the client had recovered, which discloses steps A, C and D in the keyed order. stage_2_after_dose supplies the values that a different part interprets. BASELINE is earliest and non-leaking.",
+          "bilingualRelation": "PARALLEL",
+          "confidence": "HIGH",
+          "exceptionReason": null
+        }
+      }
+    ]
+  },
+  "residualPartsEqualCampaign16": true,
+  "priorParentSource": "audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/source-packets/repair-012.json",
+  "priorParentSourceSha256": "c0da6ef9bad82a33966bacb29064f52f98f1de41d7b188b6d60e9701ed6d9286"
+}

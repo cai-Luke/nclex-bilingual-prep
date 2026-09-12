@@ -1,0 +1,549 @@
+{
+  "packetId": "parent-05",
+  "bankPath": "banks/gemini-canonical.json",
+  "bankSha256": "fd98f560f93851c82b6c691aeeb3f3897aee3c2bf7a9268d973a0c7c7fff2901",
+  "parentCaseId": "gemini_gap_case_palliative_care_03",
+  "currentParentSha256": "3bab0ed71df34271c44e811d47a991086f57048607c1492758b0cb02acc8635c",
+  "currentParent": {
+    "id": "gemini_gap_case_palliative_care_03",
+    "itemType": "case_study",
+    "category": "Basic Care and Comfort",
+    "topic": "Palliative & Supportive Care",
+    "difficulty": "medium",
+    "stem": {
+      "en": "Review the client record and answer the case study questions.",
+      "zh": "审查客户记录并回答案例研究问题。"
+    },
+    "caseStudy": {
+      "title": {
+        "en": "Unfolding Case: Palliative Dyspnea Management in Hospice Care",
+        "zh": "展开式案例：安宁疗护中的缓和性呼吸困难管理"
+      },
+      "summary": {
+        "en": "A 78-year-old male with end-stage heart failure is admitted to inpatient hospice care due to worsening dyspnea and fatigue.",
+        "zh": "一名患有终末期心力衰竭的78岁男性因呼吸困难和疲劳加重收治入安宁疗护病房。"
+      },
+      "exhibits": [
+        {
+          "id": "ex1_hospice_baseline",
+          "title": {
+            "en": "Hospice Admission Assessment",
+            "zh": "安宁疗护入院评估"
+          },
+          "content": {
+            "en": "Subjective: Client reports severe breathlessness at rest. Feels like he 'cannot catch his breath' and expresses anxiety about suffocating. Denies pain. Comfort is the primary goal of care.\n\nObjective:\n- Respiratory rate: 28 breaths/min, shallow.\n- Heart rate: 96 bpm.\n- Oxygen saturation: 92% on room air.\n- Lungs: Crackles audible in bilateral bases.\n- General: Anxious facial expression, using intercostal accessory muscles for breathing. Alert and able to swallow.",
+            "zh": "主观资料：患者诉静息时严重气促。感觉“喘不过气来”，并对窒息感到焦虑。否认疼痛。舒适是主要的护理目标。\n\n客观资料：\n- 呼吸频率：28次/分，浅快。\n- 心率：96次/分。\n- 血氧饱和度：吸入空气下为 92%。\n- 肺部：双侧肺底可闻及湿啰音。\n- 一般状况：表情焦虑，呼吸时使用肋间辅助肌。神志清楚，能够吞咽。"
+          },
+          "structuredMeasurements": {
+            "panels": [
+              {
+                "kind": "vitals",
+                "columns": [
+                  {
+                    "id": "current",
+                    "label": {
+                      "en": "Current",
+                      "zh": "当前"
+                    }
+                  }
+                ],
+                "rows": [
+                  {
+                    "key": "rr",
+                    "label": {
+                      "en": "Respiratory rate",
+                      "zh": "呼吸频率"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "28",
+                        "unit": "/min"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "hr",
+                    "label": {
+                      "en": "Heart rate",
+                      "zh": "心率"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "96",
+                        "unit": "bpm"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "spo2",
+                    "label": {
+                      "en": "SpO2",
+                      "zh": "脉搏血氧饱和度"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "92",
+                        "unit": "%"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "stages": [
+        {
+          "id": "stage_hospice_followup",
+          "title": {
+            "en": "Nursing Progress Note (4 Hours Later)",
+            "zh": "护理病程记录（4小时后）"
+          },
+          "exhibits": [
+            {
+              "id": "ex2_hospice_reassess",
+              "title": {
+                "en": "Nursing Reassessment Note",
+                "zh": "护理重新评估记录"
+              },
+              "content": {
+                "en": "The client has received two doses of prescribed oral morphine liquid (2.5 mg every 2 hours). Currently resting in semi-Fowler's position with a personal cooling fan blowing gently across his face. The client states his breathing feels much easier. His face is relaxed, and he is sleeping occasionally.",
+                "zh": "患者已接受两次医嘱口服吗啡液（每2小时 2.5 mg）。目前在半卧位休息，床边风扇吹拂面部。患者自诉呼吸感觉轻松了许多。面部表情放松，偶尔入睡。"
+              }
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "gemini_gap_case_palliative_care_03_q1",
+          "itemType": "multiple_choice",
+          "category": "Basic Care and Comfort",
+          "topic": "Palliative & Supportive Care",
+          "difficulty": "medium",
+          "stem": {
+            "en": "Which medication should the nurse expect to administer as the priority pharmacologic intervention to relieve the client's dyspnea?",
+            "zh": "护士应预料到将哪种药物作为缓解患者呼吸困难的首选药物干预措施？"
+          },
+          "options": [
+            {
+              "id": "A",
+              "en": "Prescribed low-dose oral or sublingual liquid morphine",
+              "zh": "医嘱的低剂量口服或舌下含服吗啡液"
+            },
+            {
+              "id": "B",
+              "en": "High-dose intravenous furosemide",
+              "zh": "大剂量静脉注射呋塞米"
+            },
+            {
+              "id": "D",
+              "en": "Intravenous lorazepam bolus",
+              "zh": "静脉注射劳拉西泮"
+            },
+            {
+              "id": "C",
+              "en": "Prescribed albuterol nebulizer therapy",
+              "zh": "医嘱的沙丁胺醇雾化吸入治疗"
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "rationale": {
+            "correct": {
+              "en": "In palliative and hospice care, low-dose opioids (especially oral/sublingual liquid morphine) are the gold standard and priority drug for managing severe dyspnea ('air hunger'). Morphine reduces respiratory rate, decreases the perception of breathlessness, dilates pulmonary vessels, and reduces heart failure preload, without causing significant respiratory depression in these carefully titrated doses. While furosemide treats fluid overload, morphine directly targets the symptom of air hunger. Albuterol is for bronchospasm, not cardiac congestion. Lorazepam reduces anxiety but is secondary to morphine for dyspnea.",
+              "zh": "在姑息治疗和安宁疗护中，低剂量阿片类药物（尤其是口服/舌下吗啡液）是管理严重呼吸困难（“气饥”）的金标准和首选药物。吗啡可减慢呼吸频率，减轻呼吸困难的主观感受，扩张肺血管并降低心力衰竭前负荷，且在这些仔细调整的剂量下不会引起明显的呼吸抑制。虽然呋塞米可治疗液体超负荷，但吗啡直接针对气饥的症状。沙丁胺醇适用于支气管痉挛，而非心脏性淤血。劳拉西泮可减轻焦虑，但在缓解呼吸困难方面其次于吗啡。"
+            },
+            "byChoice": [
+              {
+                "refId": "B",
+                "en": "Intravenous loop diuretics may be used, but they do not provide the immediate, central symptomatic relief of air hunger that morphine does.",
+                "zh": "可能使用静脉注射袢利尿剂，但它们不能像吗啡那样提供对气饥的即刻、中枢性症状缓解。"
+              },
+              {
+                "refId": "A",
+                "en": "Morphine liquid is highly effective in hospice care for reducing air hunger and relieving systemic venous congestion.",
+                "zh": "吗啡液在安宁疗护中非常有效，可减少气饥并缓解全身静脉淤血。"
+              },
+              {
+                "refId": "D",
+                "en": "Anxiolytics like lorazepam are useful for dyspnea-related panic, but opioids are the first-line treatment for the dyspnea itself.",
+                "zh": "劳拉西泮等抗焦虑药对呼吸困难相关的恐慌有用，但阿片类药物是呼吸困难本身的一线治疗药物。"
+              },
+              {
+                "refId": "C",
+                "en": "Albuterol is a bronchodilator; it does not relieve pulmonary crackles or cardiac congestion in end-stage heart failure.",
+                "zh": "沙丁胺醇是支气管扩张剂；它不能缓解终末期心力衰竭中的肺部湿啰音或心脏淤血。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "Associate hospice dyspnea (air hunger) with low-dose morphine as the primary comfort intervention. Distinguish this symptomatic palliative practice from acute clinical curing strategies (high-dose diuretics).",
+            "zh": "将安宁疗护的呼吸困难（气饥）与低剂量吗啡联系起来作为首要舒适干预。将这种症状性缓和医疗实践与急性的临床治愈策略（大剂量利尿剂）区分开来。"
+          },
+          "glossary": [],
+          "answerableAfterStageId": {
+            "kind": "baseline"
+          }
+        },
+        {
+          "id": "gemini_gap_case_palliative_care_03_q2",
+          "itemType": "dropdown_cloze",
+          "category": "Basic Care and Comfort",
+          "topic": "Palliative & Supportive Care",
+          "difficulty": "medium",
+          "stem": {
+            "en": "The nurse monitors the client's response to morphine. Select the appropriate options from the dropdown menus to complete the explanation of the drug's action in palliative care.",
+            "zh": "护士监测患者对吗啡的反应。从下拉菜单中选择合适的选项，以完成对吗啡在缓和医疗中作用的解释。"
+          },
+          "clozeStem": {
+            "en": "In a hospice client with dyspnea, morphine relieves breathlessness by reducing the brain's sensitivity to {{1}} and by causing {{2}} to decrease cardiac workload.",
+            "zh": "在有呼吸困难的安宁疗护患者中，吗啡通过降低大脑对 {{1}} 的敏感性以及通过引起 {{2}} 来减轻心脏负荷，从而缓解呼吸困难。"
+          },
+          "dropdowns": [
+            {
+              "id": "1",
+              "options": [
+                {
+                  "id": "o3",
+                  "en": "bicarbonate levels",
+                  "zh": "碳酸氢盐水平"
+                },
+                {
+                  "id": "o2",
+                  "en": "decreased oxygen levels",
+                  "zh": "氧气水平降低"
+                },
+                {
+                  "id": "o1",
+                  "en": "elevated carbon dioxide levels",
+                  "zh": "二氧化碳水平升高"
+                }
+              ],
+              "correct": "o1"
+            },
+            {
+              "id": "2",
+              "options": [
+                {
+                  "id": "o2",
+                  "en": "peripheral vasoconstriction and arterial narrowing",
+                  "zh": "外周血管收缩和动脉变窄"
+                },
+                {
+                  "id": "o1",
+                  "en": "systemic vasodilation and pooling of blood",
+                  "zh": "全身血管舒张和血液淤积"
+                },
+                {
+                  "id": "o3",
+                  "en": "bronchial constriction",
+                  "zh": "支气管收缩"
+                }
+              ],
+              "correct": "o1"
+            }
+          ],
+          "rationale": {
+            "correct": {
+              "en": "In dyspnea, morphine blunts the respiratory center's response to hypercapnia (elevated carbon dioxide) and hypoxia, reducing the frantic drive to breathe. Hemodynamically, morphine causes systemic vasodilation (venodilation), which pools blood in the periphery, reducing venous return (preload) to the heart and easing pulmonary congestion. It does not cause vasoconstriction or bronchoconstriction.",
+              "zh": "在呼吸困难中，吗啡减弱了呼吸中枢对高碳酸血症（二氧化碳升高）和缺氧的反应，减少了惊慌的呼吸驱动。血流动力学上，吗啡引起全身血管舒张（静脉舒张），使血液淤积在外周，减少回心血量（前负荷）并缓解肺淤血。它不引起血管收缩或支气管收缩。"
+            },
+            "byChoice": [
+              {
+                "refId": "1",
+                "en": "Morphine decreases the respiratory drive's hypercapnic response, reducing the subjective panic of suffocating.",
+                "zh": "吗啡降低呼吸驱动对高碳酸血症的反应，减轻窒息的主观恐慌感。"
+              },
+              {
+                "refId": "2",
+                "en": "Vasodilation decreases venous return and ventricular wall tension, relieving hydrostatic pressure in the pulmonary bed.",
+                "zh": "血管舒张可减少回心血量和心室壁张力，缓解肺血管床的流体静力压。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "Recall the dual action of morphine in dyspnea: blunting hypercapnic chemoreceptor drive (central) and promoting venodilation to reduce venous return (hemodynamic).",
+            "zh": "记住吗啡在呼吸困难中的双重作用：减弱高碳酸血症化学感受器驱动（中枢）和促进静脉舒张以减少回心血量（血流动力学）。"
+          },
+          "glossary": []
+        },
+        {
+          "id": "gemini_gap_case_palliative_care_03_q3",
+          "itemType": "matrix",
+          "category": "Basic Care and Comfort",
+          "topic": "Palliative & Supportive Care",
+          "difficulty": "medium",
+          "stem": {
+            "en": "The nurse implements non-pharmacological comfort measures for the client. For each nursing action, click to specify if it is indicated or contraindicated for this client.",
+            "zh": "护士为患者实施非药物舒适护理措施。对于每项护理操作，点击以指定它是适用于该患者还是属于禁忌。"
+          },
+          "matrix": {
+            "rows": [
+              {
+                "id": "r1",
+                "en": "Position a fan to blow cool air directly across the client's face",
+                "zh": "将风扇对准患者面部轻轻吹冷风"
+              },
+              {
+                "id": "r2",
+                "en": "Maintain the client in a flat supine position",
+                "zh": "保持患者处于平卧仰卧位"
+              },
+              {
+                "id": "r3",
+                "en": "Apply low-flow oxygen via nasal cannula only if symptomatic and hypoxic",
+                "zh": "仅在有症状且缺氧时通过鼻导管给予低流量氧气"
+              }
+            ],
+            "columns": [
+              {
+                "id": "c2",
+                "en": "Contraindicated",
+                "zh": "禁用"
+              },
+              {
+                "id": "c1",
+                "en": "Indicated",
+                "zh": "适用"
+              }
+            ],
+            "selectionMode": "single_per_row"
+          },
+          "correct": [
+            {
+              "rowId": "r1",
+              "columnIds": [
+                "c1"
+              ]
+            },
+            {
+              "rowId": "r2",
+              "columnIds": [
+                "c2"
+              ]
+            },
+            {
+              "rowId": "r3",
+              "columnIds": [
+                "c1"
+              ]
+            }
+          ],
+          "rationale": {
+            "correct": {
+              "en": "Blowing cool air across the face stimulates the trigeminal nerve (V2/V3 branches), which centrally decreases the sensation of dyspnea; this is highly indicated. Flat supine positioning is contraindicated as it increases venous return, worsening pulmonary congestion and dyspnea. Oxygen therapy in palliative care is indicated for documented hypoxemia with symptomatic distress; if oxygen saturation is normal, air/fan therapy is just as effective and causes less mucosal drying.",
+              "zh": "将冷风吹拂面部可刺激三叉神经（V2/V3分支），从而在中枢减轻呼吸困难感；这非常适用。平卧位属于禁忌，因为它会增加回心血量，加重肺淤血和呼吸困难。缓和医疗中的氧气治疗适用于有临床表现且有记录的缺氧；如果氧饱和度正常，空气/风扇治疗同样有效，且引起黏膜干燥较少。"
+            },
+            "byChoice": [
+              {
+                "refId": "r1",
+                "en": "A cool draft on the face stimulates receptors that send inhibitory signals to the brain's dyspnea centers.",
+                "zh": "脸上的凉风会刺激受体，向大脑的呼吸困难中枢发送抑制信号。"
+              },
+              {
+                "refId": "r2",
+                "en": "Supine positioning pools blood in the chest and raises the diaphragm, severely aggravating dyspnea.",
+                "zh": "仰卧位使血液淤积在胸腔并抬高膈肌，会严重加重呼吸困难。"
+              },
+              {
+                "refId": "r3",
+                "en": "Oxygen should be targeted to relieve documented hypoxemia and subjective air hunger, not routinely given to non-hypoxic clients.",
+                "zh": "给氧应旨在缓解已证实的缺氧和主观气饥，而不是常规给予非缺氧患者。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "Understand hospice-specific comfort protocols. Support sensory triggers that reduce dyspnea (cool air fan) and elevation to ease breathing, while avoiding flat positioning.",
+            "zh": "理解安宁疗护特异性的舒适方案。支持减少呼吸困难的感觉触发因素（冷风扇）和抬高体位以促进呼吸，同时避免平卧位。"
+          },
+          "glossary": [],
+          "answerableAfterStageId": {
+            "kind": "baseline"
+          }
+        },
+        {
+          "id": "gemini_gap_case_palliative_care_03_q4",
+          "itemType": "select_all",
+          "category": "Basic Care and Comfort",
+          "topic": "Palliative & Supportive Care",
+          "difficulty": "medium",
+          "stem": {
+            "en": "The nurse reassesses the client 4 hours later. Which findings indicate a successful therapeutic response to the palliative dyspnea management? Select all that apply.",
+            "zh": "护士在4小时后重新评估患者。哪些发现表明对缓和性呼吸困难管理有成功的治疗反应？选择所有适用项。"
+          },
+          "options": [
+            {
+              "id": "E",
+              "en": "Oxygen saturation increased to 100% on high-flow face mask",
+              "zh": "使用高流量面罩时氧饱和度升至100%"
+            },
+            {
+              "id": "D",
+              "en": "Absence of intercostal accessory muscle use",
+              "zh": "无肋间辅助肌使用"
+            },
+            {
+              "id": "C",
+              "en": "Client statement that breathing feels much easier",
+              "zh": "患者主诉呼吸感觉轻松了许多"
+            },
+            {
+              "id": "A",
+              "en": "Respiratory rate of 18 breaths/min, deep and regular",
+              "zh": "呼吸频率为 18 次/分，深而规律"
+            },
+            {
+              "id": "B",
+              "en": "Relaxed facial expression and sleeping occasionally",
+              "zh": "表情放松，偶尔入睡"
+            }
+          ],
+          "correct": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "rationale": {
+            "correct": {
+              "en": "Signs of successful relief of dyspnea include normalization of respiratory rate (18/min), relaxed facial features (no grimacing or nasal flaring), occasional restful sleep, subjective reports of comfort, and resolved accessory muscle use. High-flow oxygen to achieve 100% saturation is not a goal in palliative end-stage heart failure; it is unnecessary, drying, invasive, and can cause discomfort.",
+              "zh": "成功缓解呼吸困难的体征包括呼吸频率恢复正常 (18次/分)、面部表情放松（无痛苦表情或鼻翼扇动）、偶尔安静入睡、主观舒适的主诉以及辅助肌使用消失。在缓和期终末期心力衰竭中，使用高流量氧气以达到100%的饱和度不是目标；这是不必要的、干燥的、有创的，并且可能引起不适。"
+            },
+            "byChoice": [
+              {
+                "refId": "E",
+                "en": "Targeting 100% saturation with a high-flow mask is invasive and not indicated for a dying heart failure patient unless severe hypoxemic distress is present.",
+                "zh": "除非存在严重的缺氧性呼吸困难，否则通过高流量面罩将氧饱和度作为100%的目标是有创的，不适用于濒死的心力衰竭患者。"
+              },
+              {
+                "refId": "A",
+                "en": "Reduction of respiratory rate from tachypneic 28 to 18/min indicates decreased respiratory effort.",
+                "zh": "呼吸频率从呼吸急促的28次/分降至18次/分表明呼吸做功减少。"
+              },
+              {
+                "refId": "C",
+                "en": "Subjective feedback from the client is the primary indicator of comfort in palliative care.",
+                "zh": "患者的主观反馈是安宁疗护中舒适感的主要指标。"
+              },
+              {
+                "refId": "D",
+                "en": "Absence of accessory muscle use confirms decrease in the physical workload of breathing.",
+                "zh": "无辅助肌使用证实了呼吸体能负荷的下降。"
+              },
+              {
+                "refId": "B",
+                "en": "Relaxed facial features and sleep indicate reduction in anxiety and the distressing work of breathing.",
+                "zh": "面部表情放松和入睡提示焦虑减轻以及艰苦呼吸过程的缓解。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "Identify indicators of patient comfort and reduced breathing effort. Avoid interventions that focus on aggressive lab parameters (100% saturation) over comfort goals.",
+            "zh": "确定患者舒适和呼吸做功减少的指标。避免选择偏向于积极的实验室指标（100%饱和度）而不是舒适目标的干预措施。"
+          },
+          "glossary": [],
+          "answerableAfterStageId": {
+            "kind": "baseline"
+          }
+        }
+      ]
+    },
+    "rationale": {
+      "correct": {
+        "en": "This case study reviews basic comfort and palliative support, testing the role of low-dose morphine in air hunger, its central and systemic mechanism of action, cooling fan and positioning interventions, and clinical reassessment indicators of comfortable breathing.",
+        "zh": "该案例研究审查了基本舒适和缓和支持，测试了低剂量吗啡在气饥中的作用、其中枢和全身作用机制、冷却风扇和体位干预，以及舒适呼吸的临床重新评估指标。"
+      }
+    },
+    "testTakingStrategy": {
+      "en": "Focus on palliative and comfort goals, avoiding aggressive ICU-level curative measures.",
+      "zh": "关注缓和和舒适目标，避免采取积极的ICU级别治愈性措施。"
+    },
+    "glossary": []
+  },
+  "frozenExceptions": [
+    {
+      "rowKey": "7fe104dccf843914",
+      "stage0QueueIndex": 74,
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_palliative_care_03",
+      "partId": "gemini_gap_case_palliative_care_03_q2",
+      "repairPacketId": "repair-005",
+      "disposition": "EXCEPTION",
+      "exceptionReason": "PRODUCER_EXCEPTION; BOUNDARY_DISPOSITION_DISAGREEMENT",
+      "reasonCodes": [
+        "PRODUCER_EXCEPTION",
+        "BOUNDARY_DISPOSITION_DISAGREEMENT"
+      ],
+      "producer": {
+        "disposition": "EXCEPTION",
+        "proposedBoundary": null,
+        "confidence": "HIGH",
+        "bilingualRelation": "PARALLEL",
+        "exceptionReason": "Answer-correctness risk: the authored mechanism rationale supports both hypercapnia and hypoxia response blunting while the first dropdown accepts only elevated carbon dioxide."
+      },
+      "checker": {
+        "disposition": "BASELINE",
+        "proposedBoundary": {
+          "kind": "baseline"
+        },
+        "confidence": "HIGH",
+        "bilingualRelation": "PARALLEL",
+        "exceptionReason": null
+      },
+      "documentaryGroup": "explicit_semantic_exception"
+    }
+  ],
+  "frozenJudgments": {
+    "producer": [
+      {
+        "sourcePath": "audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/producer/repair-005.json",
+        "sourceSha256": "b35f5dd9412a071d20c4d12d20eb02964dc4510f716beb953057c2d5caa02856",
+        "judgment": {
+          "rowKey": "7fe104dccf843914",
+          "stage0QueueIndex": 74,
+          "bankPath": "banks/gemini-canonical.json",
+          "parentCaseId": "gemini_gap_case_palliative_care_03",
+          "partId": "gemini_gap_case_palliative_care_03_q2",
+          "proposedBoundary": null,
+          "disposition": "EXCEPTION",
+          "earliestBoundaryEvidence": "The first dropdown offers both elevated carbon dioxide and decreased oxygen as alternative sensitivities. The authored rationale explicitly says morphine blunts the response to hypercapnia and hypoxia in both languages, yet only carbon dioxide is keyed. No visible case datum distinguishes those competing mechanism choices.",
+          "laterStageLeakCheck": "The follow-up stage shows symptom relief after morphine but supplies no respiratory-drive finding that could resolve the two alternatives. Selecting a visibility boundary cannot repair this answer-correctness ambiguity.",
+          "bilingualRelation": "PARALLEL",
+          "confidence": "HIGH",
+          "exceptionReason": "Answer-correctness risk: the authored mechanism rationale supports both hypercapnia and hypoxia response blunting while the first dropdown accepts only elevated carbon dioxide."
+        }
+      }
+    ],
+    "checker": [
+      {
+        "sourcePath": "audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/checker/repair-005.json",
+        "sourceSha256": "1cedad5696df7851c838b0f3afea94d24e7b2f26be839d6c353a4dc364dbeda3",
+        "judgment": {
+          "rowKey": "7fe104dccf843914",
+          "stage0QueueIndex": 74,
+          "bankPath": "banks/gemini-canonical.json",
+          "parentCaseId": "gemini_gap_case_palliative_care_03",
+          "partId": "gemini_gap_case_palliative_care_03_q2",
+          "proposedBoundary": {
+            "kind": "baseline"
+          },
+          "disposition": "BASELINE",
+          "earliestBoundaryEvidence": "Both dropdowns are opioid pharmacology in palliative dyspnoea: morphine blunts the respiratory centre's sensitivity to elevated carbon dioxide, reducing the drive to breathe, and produces systemic venodilation with peripheral pooling that lowers preload and eases pulmonary congestion. Baseline supplies the clinical setting - end-stage heart failure with bibasilar crackles and air hunger - that makes both mechanisms relevant. No case value is required.",
+          "laterStageLeakCheck": "stage_hospice_followup records that morphine was given and that breathing feels easier, but it offers no mechanism and names neither carbon dioxide sensitivity nor vasodilation, so it supplies nothing either blank needs. BASELINE is the earliest answerable boundary.",
+          "bilingualRelation": "PARALLEL",
+          "confidence": "HIGH",
+          "exceptionReason": null
+        }
+      }
+    ]
+  },
+  "residualPartsEqualCampaign16": true,
+  "priorParentSource": "audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/source-packets/repair-005.json",
+  "priorParentSourceSha256": "3f3861f510b428f9078263dad2a3d64ba1cfd1c2d1deaecb37bd3d3142d5d559"
+}

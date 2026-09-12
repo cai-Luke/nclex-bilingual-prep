@@ -1,0 +1,1756 @@
+{
+  "packetId": "parent-26",
+  "bankPath": "banks/gpt-canonical.json",
+  "bankSha256": "a4b7d10a7c0a0e6bdb9bbbc4cb34c726a889ee35b6340171e6015f6e8af27004",
+  "parentCaseId": "gpt_case_taco_vs_trali_01",
+  "currentParentSha256": "5cc86103aea1ed9d6cc9c5b54e180ded21816bfd2f552d20c2e72a7554a4e1e3",
+  "currentParent": {
+    "id": "gpt_case_taco_vs_trali_01",
+    "itemType": "case_study",
+    "category": "Safety and Infection Prevention and Control",
+    "topic": "Transfusion & Blood Products",
+    "difficulty": "hard",
+    "ngnSkill": "analyze_cues",
+    "stem": {
+      "en": "Review the client record and answer the case-study items.",
+      "zh": "请查看患者病历，并回答本病例题组。"
+    },
+    "caseStudy": {
+      "title": {
+        "en": "Transfusion-associated circulatory overload versus transfusion-related acute lung injury in a client with chronic kidney disease",
+        "zh": "慢性肾病患者输血相关循环超负荷与输血相关急性肺损伤的鉴别"
+      },
+      "summary": {
+        "en": "A 74-year-old woman with chronic kidney disease stage 3b, compensated heart failure with preserved ejection fraction, type 2 diabetes, and symptomatic anemia is admitted for packed red blood cell transfusion. Two units are ordered sequentially. Facility protocol requires bedside verification by two RNs, vital-sign monitoring during transfusion, and provider-directed IV furosemide between units if signs of fluid overload occur.",
+        "zh": "一名74岁女性因症状性贫血入院，既往有3b期慢性肾病、代偿期射血分数保留型心力衰竭和2型糖尿病。医嘱连续输注2单位浓缩红细胞。机构流程要求两名注册护士床旁核对、输血期间监测生命体征；若出现液体负荷过重表现，由医嘱给予单位间IV呋塞米。"
+      },
+      "exhibits": [
+        {
+          "id": "baseline_history_protocol",
+          "title": {
+            "en": "Baseline history and transfusion orders",
+            "zh": "基线病史和输血医嘱"
+          },
+          "content": {
+            "en": "History: chronic kidney disease stage 3b with baseline eGFR 38 mL/min/1.73 m2; compensated heart failure with preserved ejection fraction, EF 52%, grade I diastolic dysfunction; type 2 diabetes. Home medications include furosemide 40 mg daily, lisinopril 10 mg daily, metformin 500 mg twice daily, and insulin glargine 18 units at bedtime.\n\nReason for admission: progressive fatigue, exertional dyspnea on one flight of stairs, lightheadedness, outpatient hemoglobin 6.4 g/dL. No prior transfusion reactions.\n\nOrders/protocol: two units packed red blood cells sequentially; each unit over 2 hours, not to exceed 4 hours per unit. Vital signs at baseline, 15 minutes after initiation, every 30 minutes during infusion, and at completion. Furosemide 20 mg IV between units if signs of fluid overload occur. Blood product verification by two RNs: client identity, ABO/Rh, unit number, crossmatch information, and expiration date.",
+            "zh": "病史：3b期慢性肾病，基线eGFR 38 mL/min/1.73 m2；代偿期射血分数保留型心力衰竭，EF 52%，I级舒张功能障碍；2型糖尿病。居家用药包括呋塞米40 mg每日一次、赖诺普利10 mg每日一次、二甲双胍500 mg每日两次、甘精胰岛素睡前18单位。\n\n入院原因：进行性疲乏、上一层楼即活动后气短、头晕，门诊血红蛋白6.4 g/dL。无既往输血反应史。\n\n医嘱/流程：连续输注2单位浓缩红细胞；每单位输注2小时，单单位不得超过4小时。生命体征在基线、开始后15分钟、输注期间每30分钟和输注结束时测量。若出现液体负荷过重表现，单位间给予呋塞米20 mg IV。由两名RN核对血制品：患者身份、ABO/Rh、单位号、交叉配血信息和有效期。"
+          },
+          "structuredMeasurements": {
+            "panels": [
+              {
+                "kind": "labs",
+                "columns": [
+                  {
+                    "id": "current",
+                    "label": {
+                      "en": "Current",
+                      "zh": "当前"
+                    }
+                  }
+                ],
+                "rows": [
+                  {
+                    "key": "hemoglobin",
+                    "label": {
+                      "en": "Hemoglobin",
+                      "zh": "血红蛋白"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "6.4",
+                        "unit": "g/dL"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "baseline_assessment_labs",
+          "title": {
+            "en": "Pre-transfusion assessment and laboratory data",
+            "zh": "输血前评估和实验室资料"
+          },
+          "content": {
+            "en": "At start of transfusion: resting comfortably at 30 degrees; tired but denies chest pain, shortness of breath at rest, or new symptoms. Alert, oriented, conversational, no acute distress.\n\nVital signs: T 36.8 C, HR 92, BP 138/82, RR 16, SpO2 96% on room air. Weight 78 kg, near outpatient dry weight 77 kg. Lungs clear bilaterally with faint bibasilar crackles reported as chronic and unchanged. Regular S1/S2, no S3 or S4. No JVD at 45 degrees. Trace bilateral ankle edema at baseline. Skin warm, dry, pale. Capillary refill 3 seconds. No rash, urticaria, or pruritus. Abdomen soft, non-distended. Urine output: 200 mL clear yellow urine in past 4 hours.\n\nLabs: Hgb 6.4 g/dL, Hct 19.2%, WBC 7.2 ×10³/µL, platelets 188 ×10³/µL. BUN 34 mg/dL, creatinine 1.4 mg/dL, eGFR 38 mL/min/1.73 m2. K 4.6 mEq/L, Na 139 mEq/L, Cl 102 mEq/L, CO2 22 mEq/L. BNP 280 pg/mL. Albumin 3.0 g/dL. Blood type A-positive, antibody screen negative, crossmatch compatible.",
+            "zh": "输血开始时：患者以床头抬高30度休息，感觉疲乏，但否认胸痛、静息时气短或新症状。神志清楚，能交谈，无急性痛苦表现。\n\n生命体征：T 36.8 C，HR 92，BP 138/82，RR 16，室内空气SpO2 96%。体重78 kg，接近门诊干体重77 kg。双肺清，双侧肺底有轻微湿啰音，患者称为慢性且无变化。心律规则，S1/S2存在，无S3或S4。床头45度时无颈静脉怒张。双踝基线为轻度凹陷性水肿。皮肤温暖、干燥、苍白。毛细血管再充盈3秒。无皮疹、荨麻疹或瘙痒。腹软、无膨隆。尿量：过去4小时清黄色尿200 mL。\n\n实验室：Hgb 6.4 g/dL，Hct 19.2%，WBC 7.2 ×10³/µL，血小板188 ×10³/µL。BUN 34 mg/dL，肌酐1.4 mg/dL，eGFR 38 mL/min/1.73 m2。K 4.6 mEq/L，Na 139 mEq/L，Cl 102 mEq/L，CO2 22 mEq/L。BNP 280 pg/mL。白蛋白3.0 g/dL。血型A阳性，抗体筛查阴性，交叉配血相合。"
+          },
+          "structuredMeasurements": {
+            "panels": [
+              {
+                "kind": "vitals",
+                "columns": [
+                  {
+                    "id": "current",
+                    "label": {
+                      "en": "Current",
+                      "zh": "当前"
+                    }
+                  }
+                ],
+                "rows": [
+                  {
+                    "key": "temp",
+                    "label": {
+                      "en": "Temperature",
+                      "zh": "体温"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "36.8",
+                        "unit": "°C"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "hr",
+                    "label": {
+                      "en": "Heart rate",
+                      "zh": "心率"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "92",
+                        "unit": "bpm"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "sbp",
+                    "label": {
+                      "en": "Systolic BP",
+                      "zh": "收缩压"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "138",
+                        "unit": "mmHg"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "dbp",
+                    "label": {
+                      "en": "Diastolic BP",
+                      "zh": "舒张压"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "82",
+                        "unit": "mmHg"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "rr",
+                    "label": {
+                      "en": "Respiratory rate",
+                      "zh": "呼吸频率"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "16",
+                        "unit": "/min"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "spo2",
+                    "label": {
+                      "en": "SpO2",
+                      "zh": "脉搏血氧饱和度"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "96",
+                        "unit": "%"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "labs",
+                "columns": [
+                  {
+                    "id": "current",
+                    "label": {
+                      "en": "Current",
+                      "zh": "当前"
+                    }
+                  }
+                ],
+                "rows": [
+                  {
+                    "key": "hemoglobin",
+                    "label": {
+                      "en": "Hemoglobin",
+                      "zh": "血红蛋白"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "6.4",
+                        "unit": "g/dL"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "hematocrit",
+                    "label": {
+                      "en": "Hematocrit",
+                      "zh": "血细胞比容"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "19.2",
+                        "unit": "%"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "wbc",
+                    "label": {
+                      "en": "WBC",
+                      "zh": "白细胞"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "7,200",
+                        "unit": "/uL"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "platelets",
+                    "label": {
+                      "en": "Platelets",
+                      "zh": "血小板"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "188,000",
+                        "unit": "/uL"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "bun",
+                    "label": {
+                      "en": "BUN",
+                      "zh": "尿素氮"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "34",
+                        "unit": "mg/dL"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "creatinine",
+                    "label": {
+                      "en": "Creatinine",
+                      "zh": "肌酐"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "1.4",
+                        "unit": "mg/dL"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "potassium",
+                    "label": {
+                      "en": "Potassium",
+                      "zh": "血钾"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "4.6",
+                        "unit": "mEq/L"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "sodium",
+                    "label": {
+                      "en": "Sodium",
+                      "zh": "血钠"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "139",
+                        "unit": "mEq/L"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "chloride",
+                    "label": {
+                      "en": "Chloride",
+                      "zh": "血氯"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "102",
+                        "unit": "mEq/L"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "bicarbonate",
+                    "label": {
+                      "en": "Bicarbonate",
+                      "zh": "碳酸氢盐"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "22",
+                        "unit": "mEq/L"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "bnp",
+                    "label": {
+                      "en": "BNP",
+                      "zh": "脑钠肽"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "280",
+                        "unit": "pg/mL"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "stages": [
+        {
+          "id": "stage_1",
+          "title": {
+            "en": "Stage 1: first unit, 15 minutes through completion",
+            "zh": "阶段1：第一单位，15分钟至输注结束"
+          },
+          "exhibits": [
+            {
+              "id": "stage_1_update",
+              "title": {
+                "en": "First-unit monitoring",
+                "zh": "第一单位监测"
+              },
+              "content": {
+                "en": "Fifteen-minute vital signs: T 36.9 C, HR 90, BP 140/84, RR 16, SpO2 96%. No complaints. First unit infuses over 2 hours without incident. End-of-unit vital signs: T 37.1 C, HR 88, BP 142/86, RR 18, SpO2 96%. The client feels slightly less fatigued. Lung sounds remain clear with the same faint bibasilar crackles. No JVD, no change in edema. Urine output during the 2-hour infusion: 90 mL. The provider is updated. Furosemide between units is not triggered because there is no new dyspnea, edema, JVD, or desaturation. The second unit is verified by two RNs and initiated.",
+                "zh": "15分钟生命体征：T 36.9 C，HR 90，BP 140/84，RR 16，SpO2 96%。无不适。第一单位在2小时内顺利输完。单位结束生命体征：T 37.1 C，HR 88，BP 142/86，RR 18，SpO2 96%。患者感觉疲乏稍有减轻。肺音仍清，仅有原有轻微双肺底湿啰音。无颈静脉怒张，水肿无变化。2小时输注期间尿量90 mL。已更新告知医嘱者。因无新发气短、水肿、颈静脉怒张或氧饱和度下降，单位间呋塞米未触发。第二单位由两名RN核对后开始输注。"
+              }
+            }
+          ]
+        },
+        {
+          "id": "stage_2",
+          "title": {
+            "en": "Stage 2: second unit, 45 minutes into transfusion",
+            "zh": "阶段2：第二单位，输注45分钟"
+          },
+          "exhibits": [
+            {
+              "id": "stage_2_reaction",
+              "title": {
+                "en": "Acute change during second unit",
+                "zh": "第二单位输注期间急性变化"
+              },
+              "content": {
+                "en": "The client uses the call light and reports shortness of breath and that she cannot get comfortable. She is sitting upright, gripping the side rails. Vital signs: T 37.2 C, HR 110, BP 168/96, RR 28, SpO2 89% on room air. New bilateral crackles extend from the bases to the mid-lung fields, markedly different from baseline. A new S3 gallop is audible. JVD is visible at 45 degrees. Lower-extremity edema has increased to 2+ bilateral pitting. Face is flushed, but there is no urticaria, hives, angioedema, or wheezing. She denies itching, throat tightness, and abdominal cramping. She has a new nonproductive cough. Urine output over the past 45 minutes is 15 mL. She says, 'I feel like I am drowning.'",
+                "zh": "患者按铃，诉气短并表示怎么都不舒服。她坐直，抓着床栏。生命体征：T 37.2 C，HR 110，BP 168/96，RR 28，室内空气SpO2 89%。新出现双侧湿啰音，从肺底延伸至中肺野，与基线明显不同。可闻及新的S3奔马律。床头45度时可见颈静脉怒张。下肢水肿增至双侧2+凹陷性水肿。面部潮红，但无荨麻疹、风团、血管性水肿或喘鸣。否认瘙痒、喉咙发紧和腹部绞痛。新出现干咳。过去45分钟尿量15 mL。患者说：“我感觉像要被淹死。”"
+              },
+              "structuredMeasurements": {
+                "panels": [
+                  {
+                    "kind": "vitals",
+                    "columns": [
+                      {
+                        "id": "current",
+                        "label": {
+                          "en": "Current",
+                          "zh": "当前"
+                        }
+                      }
+                    ],
+                    "rows": [
+                      {
+                        "key": "temp",
+                        "label": {
+                          "en": "Temperature",
+                          "zh": "体温"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "37.2",
+                            "unit": "°C"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "hr",
+                        "label": {
+                          "en": "Heart rate",
+                          "zh": "心率"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "110",
+                            "unit": "bpm"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "sbp",
+                        "label": {
+                          "en": "Systolic BP",
+                          "zh": "收缩压"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "168",
+                            "unit": "mmHg"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "dbp",
+                        "label": {
+                          "en": "Diastolic BP",
+                          "zh": "舒张压"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "96",
+                            "unit": "mmHg"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "rr",
+                        "label": {
+                          "en": "Respiratory rate",
+                          "zh": "呼吸频率"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "28",
+                            "unit": "/min"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "spo2",
+                        "label": {
+                          "en": "SpO2",
+                          "zh": "脉搏血氧饱和度"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "89",
+                            "unit": "%"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "stage_3",
+          "title": {
+            "en": "Stage 3: 30 minutes after stopping transfusion and initial interventions",
+            "zh": "阶段3：停止输血并初步处理后30分钟"
+          },
+          "exhibits": [
+            {
+              "id": "stage_3_interventions",
+              "title": {
+                "en": "Initial treatment and reassessment",
+                "zh": "初步处理和再评估"
+              },
+              "content": {
+                "en": "The transfusion was stopped immediately. The IV line was kept patent with normal saline using new tubing at a keep-vein-open rate. The client was placed in high Fowler's position. Oxygen was applied by non-rebreather mask at 15 L/min. The provider was notified and arrived at the bedside. Furosemide 40 mg IV was administered by stat order. The blood bank was notified; the remaining blood bag and old tubing were sent with a post-transfusion blood sample and urine sample per protocol.\n\nThirty minutes later: T 37.1 C, HR 98, BP 152/88, RR 22, SpO2 94% on non-rebreather. The client reports feeling a little better and less like drowning. Crackles are still present at the bases and lower-mid fields but have receded. JVD is less prominent. Urine output since furosemide: 180 mL clear yellow urine. S3 remains but is softer. Edema remains 2+ and is not worsening.",
+                "zh": "立即停止输血。更换新输液管，以生理盐水维持静脉通路通畅，速度为KVO。患者取高Fowler体位。给予非再呼吸面罩15 L/min吸氧。通知医嘱者，医嘱者到床旁。按立即医嘱给予呋塞米40 mg IV。通知血库；按流程将剩余血袋、旧输血管、输血后血样和尿样送检。\n\n30分钟后：T 37.1 C，HR 98，BP 152/88，RR 22，非再呼吸面罩下SpO2 94%。患者表示稍好一些，不再那么像被淹死。肺底和中下肺野仍有湿啰音，但范围已缩小。颈静脉怒张减轻。呋塞米后尿量：清黄色尿180 mL。S3仍可闻及但较轻。水肿仍为2+，未继续加重。"
+              },
+              "structuredMeasurements": {
+                "panels": [
+                  {
+                    "kind": "vitals",
+                    "columns": [
+                      {
+                        "id": "current",
+                        "label": {
+                          "en": "Current",
+                          "zh": "当前"
+                        }
+                      }
+                    ],
+                    "rows": [
+                      {
+                        "key": "temp",
+                        "label": {
+                          "en": "Temperature",
+                          "zh": "体温"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "37.1",
+                            "unit": "°C",
+                            "context": "post_intervention"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "hr",
+                        "label": {
+                          "en": "Heart rate",
+                          "zh": "心率"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "98",
+                            "unit": "bpm",
+                            "context": "post_intervention"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "sbp",
+                        "label": {
+                          "en": "Systolic BP",
+                          "zh": "收缩压"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "152",
+                            "unit": "mmHg",
+                            "context": "post_intervention"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "dbp",
+                        "label": {
+                          "en": "Diastolic BP",
+                          "zh": "舒张压"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "88",
+                            "unit": "mmHg",
+                            "context": "post_intervention"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "rr",
+                        "label": {
+                          "en": "Respiratory rate",
+                          "zh": "呼吸频率"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "22",
+                            "unit": "/min",
+                            "context": "post_intervention"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "spo2",
+                        "label": {
+                          "en": "SpO2",
+                          "zh": "脉搏血氧饱和度"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "94",
+                            "unit": "%",
+                            "context": "post_intervention"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "id": "stage_3_diagnostics",
+              "title": {
+                "en": "Diagnostic data",
+                "zh": "诊断资料"
+              },
+              "content": {
+                "en": "Portable chest X-ray: bilateral pulmonary vascular congestion, small bilateral pleural effusions, cardiomegaly, and widened vascular pedicle, consistent with hydrostatic pulmonary edema. No bilateral patchy infiltrates characteristic of non-cardiogenic pulmonary edema are seen. BNP: 890 pg/mL, up from 280 pg/mL baseline. Post-transfusion hemoglobin: 8.1 g/dL.",
+                "zh": "床旁胸片：双肺肺血管淤血、双侧少量胸腔积液、心影增大、血管蒂增宽，符合静水压性肺水肿。未见非心源性肺水肿常见的双侧斑片状浸润。BNP 890 pg/mL，较基线280 pg/mL升高。输血后血红蛋白8.1 g/dL。"
+              },
+              "structuredMeasurements": {
+                "panels": [
+                  {
+                    "kind": "labs",
+                    "columns": [
+                      {
+                        "id": "current",
+                        "label": {
+                          "en": "Current",
+                          "zh": "当前"
+                        }
+                      }
+                    ],
+                    "rows": [
+                      {
+                        "key": "bnp",
+                        "label": {
+                          "en": "BNP",
+                          "zh": "脑钠肽"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "890",
+                            "unit": "pg/mL"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "hemoglobin",
+                        "label": {
+                          "en": "Hemoglobin",
+                          "zh": "血红蛋白"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "8.1",
+                            "unit": "g/dL"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "stage_4",
+          "title": {
+            "en": "Stage 4: 4 hours after transfusion stopped",
+            "zh": "阶段4：停止输血后4小时"
+          },
+          "exhibits": [
+            {
+              "id": "stage_4_resolution",
+              "title": {
+                "en": "Response to continued treatment",
+                "zh": "继续治疗后的反应"
+              },
+              "content": {
+                "en": "A second dose of furosemide 20 mg IV was given 2 hours after the first dose for continued but improving fluid overload. Current vital signs: T 36.9 C, HR 84, BP 136/78, RR 18, SpO2 96% on 4 L nasal cannula after weaning from the non-rebreather. The client is resting comfortably at 45 degrees and says she can breathe much more easily. Lung sounds have returned to faint bibasilar crackles only, similar to admission baseline. JVD is no longer visible. Edema has returned to trace bilaterally. S3 is no longer audible. Total urine output since the initial furosemide dose: 1,400 mL over 4 hours. Repeat BNP: 420 pg/mL. Provider documentation: transfusion-associated circulatory overload; hold remaining packed red blood cells pending reassessment; repeat hemoglobin in 6 hours; consult nephrology for future transfusion planning such as slower rate, pre-transfusion diuretic, and single-unit strategy. Transfusion reaction report completed per policy.",
+                "zh": "因液体超负荷仍存在但正在改善，在首次呋塞米后2小时给予第二剂呋塞米20 mg IV。当前生命体征：T 36.9 C，HR 84，BP 136/78，RR 18；已从非再呼吸面罩降至鼻导管4 L，SpO2 96%。患者以床头45度安静休息，表示呼吸轻松很多。肺音恢复为仅有轻微双肺底湿啰音，类似入院基线。颈静脉怒张消失。双侧水肿恢复至轻度。S3不再可闻及。首次呋塞米后4小时总尿量1,400 mL。复查BNP 420 pg/mL。医嘱者记录为输血相关循环超负荷；暂停剩余浓缩红细胞，待重新评估；6小时后复查血红蛋白；请肾内科会诊规划后续输血，如更慢速度、输血前利尿剂和单单位策略。已按政策完成输血反应报告。"
+              },
+              "structuredMeasurements": {
+                "panels": [
+                  {
+                    "kind": "vitals",
+                    "columns": [
+                      {
+                        "id": "current",
+                        "label": {
+                          "en": "Current",
+                          "zh": "当前"
+                        }
+                      }
+                    ],
+                    "rows": [
+                      {
+                        "key": "temp",
+                        "label": {
+                          "en": "Temperature",
+                          "zh": "体温"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "36.9",
+                            "unit": "°C"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "hr",
+                        "label": {
+                          "en": "Heart rate",
+                          "zh": "心率"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "84",
+                            "unit": "bpm",
+                            "context": "post_intervention"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "sbp",
+                        "label": {
+                          "en": "Systolic BP",
+                          "zh": "收缩压"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "136",
+                            "unit": "mmHg",
+                            "context": "post_intervention"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "dbp",
+                        "label": {
+                          "en": "Diastolic BP",
+                          "zh": "舒张压"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "78",
+                            "unit": "mmHg",
+                            "context": "post_intervention"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "rr",
+                        "label": {
+                          "en": "Respiratory rate",
+                          "zh": "呼吸频率"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "18",
+                            "unit": "/min",
+                            "context": "post_intervention"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "spo2",
+                        "label": {
+                          "en": "SpO2",
+                          "zh": "脉搏血氧饱和度"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "96",
+                            "unit": "%",
+                            "context": "post_intervention"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "labs",
+                    "columns": [
+                      {
+                        "id": "current",
+                        "label": {
+                          "en": "Current",
+                          "zh": "当前"
+                        }
+                      }
+                    ],
+                    "rows": [
+                      {
+                        "key": "bnp",
+                        "label": {
+                          "en": "BNP",
+                          "zh": "脑钠肽"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "value": "420",
+                            "unit": "pg/mL",
+                            "context": "post_intervention"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "gpt_case_taco_vs_trali_01_q1",
+          "itemType": "highlight",
+          "category": "Safety and Infection Prevention and Control",
+          "topic": "Transfusion & Blood Products",
+          "difficulty": "hard",
+          "ngnSkill": "recognize_cues",
+          "stem": {
+            "en": "Highlight the Stage 2 findings that are significant new cues compared with the pre-transfusion baseline.",
+            "zh": "请标出阶段2中相较输血前基线具有临床意义的新线索。"
+          },
+          "highlight": {
+            "segments": [
+              {
+                "id": "s1",
+                "en": "The client reports acute shortness of breath and cannot get comfortable.",
+                "zh": "患者诉突发气短，并表示怎么都不舒服。",
+                "selectable": true
+              },
+              {
+                "id": "s2",
+                "en": "Temperature is 99 °F (37.2 °C), compared with 98.2 °F (36.8 °C) before transfusion.",
+                "zh": "体温99 °F (37.2 °C)，输血前为98.2 °F (36.8 °C)。",
+                "selectable": true
+              },
+              {
+                "id": "s3",
+                "en": "Heart rate is 110/min, increased from 92/min.",
+                "zh": "心率110次/分，较92次/分升高。",
+                "selectable": true
+              },
+              {
+                "id": "s4",
+                "en": "Blood pressure is 168/96 mm Hg, increased from 138/82 mm Hg.",
+                "zh": "血压168/96 mm Hg，较138/82 mm Hg升高。",
+                "selectable": true
+              },
+              {
+                "id": "s5",
+                "en": "Respiratory rate is 28/min, increased from 16/min.",
+                "zh": "呼吸频率28次/分，较16次/分升高。",
+                "selectable": true
+              },
+              {
+                "id": "s6",
+                "en": "SpO2 is 89% on room air, decreased from 96%.",
+                "zh": "室内空气SpO2为89%，较96%下降。",
+                "selectable": true
+              },
+              {
+                "id": "s7",
+                "en": "Bilateral crackles now extend from the bases to the mid-lung fields.",
+                "zh": "双侧湿啰音现在从肺底延伸至中肺野。",
+                "selectable": true
+              },
+              {
+                "id": "s8",
+                "en": "Faint bibasilar crackles were present at baseline.",
+                "zh": "基线时已有轻微双肺底湿啰音。",
+                "selectable": true
+              },
+              {
+                "id": "s9",
+                "en": "A new S3 gallop is audible.",
+                "zh": "新出现可闻及S3奔马律。",
+                "selectable": true
+              },
+              {
+                "id": "s10",
+                "en": "JVD is visible at 45 degrees.",
+                "zh": "床头45度时可见颈静脉怒张。",
+                "selectable": true
+              },
+              {
+                "id": "s11",
+                "en": "Lower-extremity edema has increased from trace to 2+ bilateral pitting.",
+                "zh": "下肢水肿从轻度增至双侧2+凹陷性水肿。",
+                "selectable": true
+              },
+              {
+                "id": "s12",
+                "en": "The client's face is flushed without urticaria, hives, angioedema, or wheezing.",
+                "zh": "患者面部潮红，但无荨麻疹、风团、血管性水肿或喘鸣。",
+                "selectable": true
+              },
+              {
+                "id": "s13",
+                "en": "Urine output is 15 mL over the past 45 minutes.",
+                "zh": "过去45分钟尿量为15 mL。",
+                "selectable": true
+              },
+              {
+                "id": "s14",
+                "en": "The client has a new nonproductive cough.",
+                "zh": "患者新出现干咳。",
+                "selectable": true
+              }
+            ],
+            "correct": [
+              "s1",
+              "s3",
+              "s4",
+              "s5",
+              "s6",
+              "s7",
+              "s9",
+              "s10",
+              "s11",
+              "s13",
+              "s14"
+            ]
+          },
+          "rationale": {
+            "correct": {
+              "en": "The significant new cues are acute dyspnea, tachycardia, hypertension, tachypnea, oxygen desaturation, crackles extending beyond baseline, new S3, new JVD, worsening edema, oliguria, and new cough. The small temperature change and isolated flushing without allergic features are not the main cue cluster.",
+              "zh": "有意义的新线索包括突发气短、心动过速、高血压、呼吸急促、氧饱和度下降、湿啰音超过基线范围、新S3、新颈静脉怒张、水肿加重、少尿和新咳嗽。轻微体温变化以及无过敏特征的单纯潮红不是主要线索组合。"
+            },
+            "byChoice": [
+              {
+                "refId": "s1",
+                "en": "This is a significant new cue compared with baseline and supports acute respiratory compromise with volume overload during transfusion.",
+                "zh": "这是相较基线的显著新线索，支持输血期间出现急性呼吸受损并伴容量超负荷。"
+              },
+              {
+                "refId": "s2",
+                "en": "This small temperature drift is not a meaningful febrile cue in this case.",
+                "zh": "这种轻微体温变化在本病例中不是有意义的发热线索。"
+              },
+              {
+                "refId": "s3",
+                "en": "This is a significant new cue compared with baseline and supports acute respiratory compromise with volume overload during transfusion.",
+                "zh": "这是相较基线的显著新线索，支持输血期间出现急性呼吸受损并伴容量超负荷。"
+              },
+              {
+                "refId": "s4",
+                "en": "This is a significant new cue compared with baseline and supports acute respiratory compromise with volume overload during transfusion.",
+                "zh": "这是相较基线的显著新线索，支持输血期间出现急性呼吸受损并伴容量超负荷。"
+              },
+              {
+                "refId": "s5",
+                "en": "This is a significant new cue compared with baseline and supports acute respiratory compromise with volume overload during transfusion.",
+                "zh": "这是相较基线的显著新线索，支持输血期间出现急性呼吸受损并伴容量超负荷。"
+              },
+              {
+                "refId": "s6",
+                "en": "This is a significant new cue compared with baseline and supports acute respiratory compromise with volume overload during transfusion.",
+                "zh": "这是相较基线的显著新线索，支持输血期间出现急性呼吸受损并伴容量超负荷。"
+              },
+              {
+                "refId": "s7",
+                "en": "The key change is extension of crackles beyond the chronic faint bibasilar baseline, indicating new pulmonary congestion.",
+                "zh": "关键变化是湿啰音从原有轻微肺底范围向上延伸，提示新发肺淤血。"
+              },
+              {
+                "refId": "s8",
+                "en": "Faint bibasilar crackles alone were already present at baseline; the new cue is their extension upward.",
+                "zh": "轻微双肺底湿啰音本来就存在；新的线索是湿啰音范围向上扩大。"
+              },
+              {
+                "refId": "s9",
+                "en": "This is a significant new cue compared with baseline and supports acute respiratory compromise with volume overload during transfusion.",
+                "zh": "这是相较基线的显著新线索，支持输血期间出现急性呼吸受损并伴容量超负荷。"
+              },
+              {
+                "refId": "s10",
+                "en": "This is a significant new cue compared with baseline and supports acute respiratory compromise with volume overload during transfusion.",
+                "zh": "这是相较基线的显著新线索，支持输血期间出现急性呼吸受损并伴容量超负荷。"
+              },
+              {
+                "refId": "s11",
+                "en": "This is a significant new cue compared with baseline and supports acute respiratory compromise with volume overload during transfusion.",
+                "zh": "这是相较基线的显著新线索，支持输血期间出现急性呼吸受损并伴容量超负荷。"
+              },
+              {
+                "refId": "s12",
+                "en": "Flushing without hives, pruritus, angioedema, or wheezing is nonspecific and does not by itself identify the acute problem.",
+                "zh": "单纯潮红且无风团、瘙痒、血管性水肿或喘鸣，是非特异性表现，不能单独确定急性问题。"
+              },
+              {
+                "refId": "s13",
+                "en": "This is a significant new cue compared with baseline and supports acute respiratory compromise with volume overload during transfusion.",
+                "zh": "这是相较基线的显著新线索，支持输血期间出现急性呼吸受损并伴容量超负荷。"
+              },
+              {
+                "refId": "s14",
+                "en": "This is a significant new cue compared with baseline and supports acute respiratory compromise with volume overload during transfusion.",
+                "zh": "这是相较基线的显著新线索，支持输血期间出现急性呼吸受损并伴容量超负荷。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "For recognize-cues items, compare each finding to the client's own baseline rather than treating every abnormal-looking value as new.",
+            "zh": "做识别线索题时，要把每个发现与患者自身基线比较，不要把所有看起来异常的数值都当作新问题。"
+          },
+          "glossary": [
+            {
+              "termEn": "Cue",
+              "termZh": "线索",
+              "defZh": "评估资料中能帮助判断问题、风险或优先级的信息。"
+            },
+            {
+              "termEn": "S3 gallop",
+              "termZh": "S3奔马律",
+              "defZh": "第三心音，成人新出现时可提示容量负荷过重或心衰。"
+            },
+            {
+              "termEn": "Oliguria",
+              "termZh": "少尿",
+              "defZh": "尿量减少，可提示肾灌注下降、容量/循环问题或肾功能问题。"
+            }
+          ],
+          "answerableAfterStageId": {
+            "kind": "baseline"
+          }
+        },
+        {
+          "id": "gpt_case_taco_vs_trali_01_q2",
+          "itemType": "dropdown_cloze",
+          "category": "Safety and Infection Prevention and Control",
+          "topic": "Transfusion & Blood Products",
+          "difficulty": "hard",
+          "ngnSkill": "analyze_cues",
+          "stem": {
+            "en": "Use the Stage 2 findings to identify the most likely transfusion reaction and the strongest differentiating cue cluster.",
+            "zh": "根据阶段2表现判断最可能的输血反应及最能鉴别的线索组合。"
+          },
+          "clozeStem": {
+            "en": "The most likely reaction is {{reaction}} because the client has {{evidence}} during the transfusion.",
+            "zh": "最可能的反应是 {{reaction}}，因为患者在输血期间出现 {{evidence}}。"
+          },
+          "dropdowns": [
+            {
+              "id": "reaction",
+              "options": [
+                {
+                  "id": "r_anaphylaxis",
+                  "en": "anaphylactic transfusion reaction",
+                  "zh": "过敏性休克型输血反应"
+                },
+                {
+                  "id": "r_taco",
+                  "en": "transfusion-associated circulatory overload",
+                  "zh": "输血相关循环超负荷"
+                },
+                {
+                  "id": "r_trali",
+                  "en": "transfusion-related acute lung injury",
+                  "zh": "输血相关急性肺损伤"
+                },
+                {
+                  "id": "r_fnhtr",
+                  "en": "febrile non-hemolytic transfusion reaction",
+                  "zh": "发热性非溶血性输血反应"
+                }
+              ],
+              "correct": "r_taco"
+            },
+            {
+              "id": "evidence",
+              "options": [
+                {
+                  "id": "e_airway_allergy",
+                  "en": "angioedema, wheezing, urticaria, hypotension, and throat tightness",
+                  "zh": "血管性水肿、喘鸣、荨麻疹、低血压和喉咙发紧"
+                },
+                {
+                  "id": "e_overload",
+                  "en": "hypertension with JVD, new S3, worsening edema, pulmonary crackles, oliguria, and high-risk cardiac/renal history",
+                  "zh": "高血压伴颈静脉怒张、新S3、水肿加重、肺部湿啰音、少尿，以及心肾高危病史"
+                },
+                {
+                  "id": "e_isolated_injury",
+                  "en": "hypoxemia with bilateral infiltrates but no evidence of circulatory overload",
+                  "zh": "低氧并伴双侧浸润，但无循环超负荷证据"
+                },
+                {
+                  "id": "e_fever",
+                  "en": "fever and chills without respiratory compromise",
+                  "zh": "发热和寒战，但无呼吸受损"
+                }
+              ],
+              "correct": "e_overload"
+            }
+          ],
+          "rationale": {
+            "correct": {
+              "en": "The client has acute respiratory distress during transfusion, but the differentiating pattern is circulatory overload: hypertension, JVD, S3, worsening edema, decreased urine output, crackles, older age, CKD, heart failure history, and low albumin. TRALI remains a competing respiratory transfusion reaction, but the presence of multiple volume-overload signs points away from isolated noncardiogenic lung injury.",
+              "zh": "患者在输血期间出现急性呼吸困难，但最能鉴别的是循环超负荷模式：高血压、颈静脉怒张、S3、水肿加重、尿量减少、湿啰音、高龄、慢性肾病、心衰病史和低白蛋白。TRALI也是呼吸性输血反应的鉴别诊断，但多项容量超负荷体征使单纯非心源性肺损伤的可能性降低。"
+            },
+            "byChoice": [
+              {
+                "refId": "reaction",
+                "en": "The reaction dropdown should be TACO because the case clusters acute dyspnea with volume-overload findings rather than fever, isolated allergy, or isolated noncardiogenic lung injury.",
+                "zh": "反应下拉框应选择TACO，因为病例把急性气短与容量超负荷表现组合在一起，而不是发热、单纯过敏或单纯非心源性肺损伤。"
+              },
+              {
+                "refId": "evidence",
+                "en": "The evidence dropdown should identify the overload cluster: hypertension, elevated venous/filling-pressure findings, peripheral edema, pulmonary congestion, oliguria, and cardiac/renal risk factors.",
+                "zh": "证据下拉框应识别超负荷组合：高血压、静脉/充盈压升高表现、外周水肿、肺淤血、少尿以及心肾危险因素。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "When two transfusion reactions both cause dyspnea, look for the mechanism: volume-overload signs favor TACO; absence of circulatory overload with bilateral infiltrates favors TRALI.",
+            "zh": "当两种输血反应都可导致气短时，要寻找机制：容量超负荷体征支持TACO；无循环超负荷而有双侧浸润更支持TRALI。"
+          },
+          "glossary": [
+            {
+              "termEn": "Hydrostatic pulmonary edema",
+              "termZh": "静水压性肺水肿",
+              "defZh": "由血管内压力或容量负荷过高导致液体进入肺间质/肺泡。"
+            },
+            {
+              "termEn": "Noncardiogenic pulmonary edema",
+              "termZh": "非心源性肺水肿",
+              "defZh": "不是由心脏充盈压升高引起的肺水肿，如TRALI相关肺损伤。"
+            },
+            {
+              "termEn": "Febrile non-hemolytic reaction",
+              "termZh": "发热性非溶血性反应",
+              "defZh": "以发热、寒战为主的输血反应，通常不是以容量超负荷为主。"
+            }
+          ]
+        },
+        {
+          "id": "gpt_case_taco_vs_trali_01_q3",
+          "itemType": "multiple_choice",
+          "category": "Safety and Infection Prevention and Control",
+          "topic": "Transfusion & Blood Products",
+          "difficulty": "medium",
+          "ngnSkill": "prioritize_hypotheses",
+          "stem": {
+            "en": "At Stage 2, which problem requires the nurse's most immediate response?",
+            "zh": "在阶段2，哪一个问题最需要护士立即处理？"
+          },
+          "options": [
+            {
+              "id": "q3_oliguria",
+              "en": "Decreased urine output during the second unit",
+              "zh": "第二单位输注期间尿量减少"
+            },
+            {
+              "id": "q3_hypertension",
+              "en": "Hypertension of 168/96 mm Hg",
+              "zh": "血压168/96 mm Hg"
+            },
+            {
+              "id": "q3_oxygenation",
+              "en": "Acute hypoxemia with respiratory distress",
+              "zh": "急性低氧伴呼吸窘迫"
+            },
+            {
+              "id": "q3_anemia",
+              "en": "Ongoing symptomatic anemia after only partial transfusion",
+              "zh": "仅部分输血后仍有症状性贫血"
+            }
+          ],
+          "correct": [
+            "q3_oxygenation"
+          ],
+          "rationale": {
+            "correct": {
+              "en": "The immediate threat is impaired oxygenation: SpO2 89%, RR 28, acute dyspnea, and the client's feeling of drowning. The hypertension, oliguria, and anemia matter, but oxygenation and breathing take priority while the transfusion is stopped and volume overload is treated.",
+              "zh": "最直接的威胁是氧合受损：SpO2 89%、RR 28、突发气短，以及患者感觉像被淹死。高血压、少尿和贫血都重要，但在停止输血并处理容量超负荷时，氧合和呼吸优先。"
+            },
+            "byChoice": [
+              {
+                "refId": "q3_oliguria",
+                "en": "Low urine output supports fluid-overload physiology and will guide diuretic response, but it is not the first immediate threat.",
+                "zh": "尿量低支持液体超负荷的生理机制，并可用于观察利尿反应，但不是首先的即时威胁。"
+              },
+              {
+                "refId": "q3_hypertension",
+                "en": "Hypertension supports the overload mechanism, but it is not more urgent than active hypoxemia and respiratory distress.",
+                "zh": "高血压支持超负荷机制，但其紧急性不高于正在发生的低氧和呼吸窘迫。"
+              },
+              {
+                "refId": "q3_oxygenation",
+                "en": "Correct. Hypoxemia with respiratory distress is an immediate ABC threat and must be addressed first.",
+                "zh": "正确。低氧伴呼吸窘迫是立即的ABC威胁，必须首先处理。"
+              },
+              {
+                "refId": "q3_anemia",
+                "en": "Anemia is the reason for transfusion, but continuing transfusion during a reaction would be unsafe; respiratory compromise now takes priority.",
+                "zh": "贫血是输血原因，但发生反应时继续输血不安全；当前应优先处理呼吸受损。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "Use ABCs for acute deterioration. Treat the cause, but first stabilize breathing and oxygenation.",
+            "zh": "遇到急性恶化时使用ABC原则。要处理病因，但首先稳定呼吸和氧合。"
+          },
+          "glossary": [
+            {
+              "termEn": "Hypoxemia",
+              "termZh": "低氧血症",
+              "defZh": "血液氧含量或氧饱和度低，可能迅速进展为呼吸衰竭。"
+            },
+            {
+              "termEn": "ABCs",
+              "termZh": "ABC原则",
+              "defZh": "优先评估和处理气道、呼吸、循环。"
+            },
+            {
+              "termEn": "Respiratory distress",
+              "termZh": "呼吸窘迫",
+              "defZh": "呼吸费力、呼吸频率增快或主观气短等提示通气/氧合受损的表现。"
+            }
+          ],
+          "answerableAfterStageId": {
+            "kind": "baseline"
+          }
+        },
+        {
+          "id": "gpt_case_taco_vs_trali_01_q4",
+          "itemType": "select_all",
+          "category": "Safety and Infection Prevention and Control",
+          "topic": "Transfusion & Blood Products",
+          "difficulty": "hard",
+          "ngnSkill": "generate_solutions",
+          "stem": {
+            "en": "Which actions belong in the management plan for this suspected TACO episode? Select all that apply.",
+            "zh": "针对这次疑似TACO，哪些措施应纳入处理计划？选择所有适用项。"
+          },
+          "options": [
+            {
+              "id": "q4_provider_diuresis_io",
+              "en": "Notify the provider, anticipate ordered IV furosemide, and monitor intake and output closely.",
+              "zh": "通知医嘱者，预期按医嘱给予IV呋塞米，并密切监测出入量。"
+            },
+            {
+              "id": "q4_stop_kvo",
+              "en": "Stop the transfusion and keep the IV line patent with normal saline using new tubing at a keep-vein-open rate.",
+              "zh": "停止输血，并用新管路以生理盐水KVO维持静脉通路通畅。"
+            },
+            {
+              "id": "q4_high_fowler",
+              "en": "Place the client in high Fowler's position.",
+              "zh": "协助患者取高Fowler体位。"
+            },
+            {
+              "id": "q4_oxygen",
+              "en": "Apply supplemental oxygen and monitor pulse oximetry.",
+              "zh": "给予补充氧并监测脉搏氧饱和度。"
+            },
+            {
+              "id": "q4_restart_slow",
+              "en": "Restart the unit at a slower rate once the SpO2 begins to improve.",
+              "zh": "一旦SpO2开始改善，就以更慢速度重新开始该单位输血。"
+            },
+            {
+              "id": "q4_fluid_bolus",
+              "en": "Administer a rapid IV fluid bolus to support circulation.",
+              "zh": "快速给予IV快速补液 以支持循环。"
+            }
+          ],
+          "correct": [
+            "q4_stop_kvo",
+            "q4_high_fowler",
+            "q4_oxygen",
+            "q4_provider_diuresis_io"
+          ],
+          "rationale": {
+            "correct": {
+              "en": "TACO management begins with stopping the transfusion, maintaining IV access with new tubing, positioning upright, supporting oxygenation, notifying the provider, and using ordered diuresis with close intake/output monitoring. Restarting the transfusion or giving a fluid bolus would worsen the volume problem.",
+              "zh": "TACO处理首先包括停止输血、用新管路维持静脉通路、取坐位、支持氧合、通知医嘱者，并按医嘱利尿且密切监测出入量。重新输血或快速补液会加重容量问题。"
+            },
+            "byChoice": [
+              {
+                "refId": "q4_high_fowler",
+                "en": "Correct. High Fowler's position reduces preload and improves chest expansion and breathing mechanics.",
+                "zh": "正确。高Fowler体位有助于降低前负荷，并改善胸廓扩张和呼吸力学。"
+              },
+              {
+                "refId": "q4_restart_slow",
+                "en": "Incorrect. A transfusion reaction with respiratory compromise requires stopping the transfusion, not slowing or restarting it during the reaction.",
+                "zh": "错误。伴呼吸受损的输血反应需要停止输血，不能在反应期间减慢或重新开始。"
+              },
+              {
+                "refId": "q4_provider_diuresis_io",
+                "en": "Correct. Diuresis treats hydrostatic overload in TACO when ordered, and urine output confirms response.",
+                "zh": "正确。按医嘱利尿可处理TACO的静水压性超负荷，尿量可确认反应。"
+              },
+              {
+                "refId": "q4_oxygen",
+                "en": "Correct. The client is hypoxemic, so oxygen and close SpO2 monitoring are immediate priorities.",
+                "zh": "正确。患者低氧，因此吸氧和密切监测SpO2是立即优先事项。"
+              },
+              {
+                "refId": "q4_fluid_bolus",
+                "en": "Incorrect. The client is hypertensive and volume overloaded; additional IV fluid would worsen pulmonary congestion.",
+                "zh": "错误。患者高血压且容量超负荷，额外IV补液会加重肺淤血。"
+              },
+              {
+                "refId": "q4_stop_kvo",
+                "en": "Correct. The transfusion must be stopped; new tubing with normal saline maintains access without infusing more blood through the reaction tubing.",
+                "zh": "正确。必须停止输血；用新管路和生理盐水维持通路，避免继续通过反应相关输血管路输入血液。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "Match treatment to mechanism. TACO is hydrostatic volume overload, so oxygenation support and ordered diuresis fit; fluids and restarting the transfusion do not.",
+            "zh": "处理措施要匹配机制。TACO是静水压性容量超负荷，因此支持氧合和按医嘱利尿合适；补液和重新输血不合适。"
+          },
+          "glossary": [
+            {
+              "termEn": "Keep-vein-open",
+              "termZh": "KVO",
+              "defZh": "以最低速度维持静脉通路通畅的输液方式。"
+            },
+            {
+              "termEn": "Furosemide",
+              "termZh": "呋塞米",
+              "defZh": "袢利尿剂，可促进排尿以减少容量负荷。"
+            },
+            {
+              "termEn": "Preload",
+              "termZh": "前负荷",
+              "defZh": "心脏舒张末期充盈量或容量负荷。"
+            }
+          ],
+          "answerableAfterStageId": {
+            "kind": "baseline"
+          }
+        },
+        {
+          "id": "gpt_case_taco_vs_trali_01_q5",
+          "itemType": "matrix",
+          "category": "Safety and Infection Prevention and Control",
+          "topic": "Transfusion & Blood Products",
+          "difficulty": "medium",
+          "ngnSkill": "take_action",
+          "stem": {
+            "en": "At Stage 2, classify each action as part of the first-priority concurrent RN response or as a next/protocol step after immediate stabilization begins.",
+            "zh": "在阶段2，请将每项措施分类为护士第一优先、可同时进行的立即反应，或为即时稳定开始后的后续/流程步骤。"
+          },
+          "matrix": {
+            "rows": [
+              {
+                "id": "r_stop",
+                "en": "Stop the transfusion immediately.",
+                "zh": "立即停止输血。"
+              },
+              {
+                "id": "r_position",
+                "en": "Position the client in high Fowler's.",
+                "zh": "协助患者取高Fowler体位。"
+              },
+              {
+                "id": "r_oxygen",
+                "en": "Apply high-flow oxygen for SpO2 89% with dyspnea.",
+                "zh": "因SpO2 89%且气短，给予高流量氧。"
+              },
+              {
+                "id": "r_provider",
+                "en": "Notify the provider for assessment and diuretic orders.",
+                "zh": "通知医嘱者进行评估并开具利尿剂医嘱。"
+              },
+              {
+                "id": "r_bloodbank",
+                "en": "Notify the blood bank and send the blood product, tubing, and ordered samples per protocol.",
+                "zh": "通知血库，并按流程送回血制品、管路和规定样本。"
+              },
+              {
+                "id": "r_paperwork",
+                "en": "Complete the transfusion reaction report.",
+                "zh": "完成输血反应报告。"
+              }
+            ],
+            "columns": [
+              {
+                "id": "c_first",
+                "en": "First-priority concurrent response",
+                "zh": "第一优先、同时进行的反应"
+              },
+              {
+                "id": "c_next",
+                "en": "Next/protocol step",
+                "zh": "后续/流程步骤"
+              }
+            ],
+            "selectionMode": "single_per_row"
+          },
+          "correct": [
+            {
+              "rowId": "r_stop",
+              "columnIds": [
+                "c_first"
+              ]
+            },
+            {
+              "rowId": "r_position",
+              "columnIds": [
+                "c_first"
+              ]
+            },
+            {
+              "rowId": "r_oxygen",
+              "columnIds": [
+                "c_first"
+              ]
+            },
+            {
+              "rowId": "r_provider",
+              "columnIds": [
+                "c_next"
+              ]
+            },
+            {
+              "rowId": "r_bloodbank",
+              "columnIds": [
+                "c_next"
+              ]
+            },
+            {
+              "rowId": "r_paperwork",
+              "columnIds": [
+                "c_next"
+              ]
+            }
+          ],
+          "rationale": {
+            "correct": {
+              "en": "The first-priority concurrent RN actions are stopping the transfusion, placing the client upright, and applying oxygen because they require no new order and directly address ongoing exposure and hypoxemia. Provider notification, blood bank notification/sample handling, and reaction reporting are essential, but they do not replace immediate stabilization.",
+              "zh": "护士第一优先、可同时进行的措施是停止输血、让患者坐起和给氧，因为这些不需要新医嘱，并直接处理持续暴露和低氧。通知医嘱者、通知血库/处理样本和填写反应报告都很重要，但不能取代立即稳定患者。"
+            },
+            "byChoice": [
+              {
+                "refId": "r_stop",
+                "en": "Stopping the transfusion removes the ongoing source of added intravascular volume and is an immediate RN action.",
+                "zh": "停止输血可移除继续增加血管内容量的来源，是RN可立即执行的措施。"
+              },
+              {
+                "refId": "r_position",
+                "en": "High Fowler's can be done immediately and helps ventilation and venous return in acute pulmonary congestion.",
+                "zh": "高Fowler体位可立即执行，有助于急性肺淤血时改善通气并减少静脉回流负荷。"
+              },
+              {
+                "refId": "r_oxygen",
+                "en": "Oxygen directly addresses SpO2 89% and acute dyspnea, so it belongs in the first response set.",
+                "zh": "给氧直接处理SpO2 89%和突发气短，因此属于第一反应组合。"
+              },
+              {
+                "refId": "r_provider",
+                "en": "Provider notification is urgent and enables ordered therapy, but the nurse should not delay stopping, positioning, or oxygenating to make the call first.",
+                "zh": "通知医嘱者很紧急，并可启动医嘱治疗，但护士不应为先打电话而延迟停止输血、摆体位或给氧。"
+              },
+              {
+                "refId": "r_bloodbank",
+                "en": "Blood bank notification and sample handling are required for reaction investigation, but they follow immediate stabilization actions.",
+                "zh": "通知血库和处理样本是反应调查所需，但应在立即稳定措施之后进行。"
+              },
+              {
+                "refId": "r_paperwork",
+                "en": "Documentation is required but is lower priority than stopping the reaction exposure and correcting hypoxemia.",
+                "zh": "文书记录是必需的，但优先级低于停止反应暴露和纠正低氧。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "When steps are simultaneous, avoid forcing a rigid order. Identify which actions are independent, immediate, and harm-reducing, then separate protocol work that can follow.",
+            "zh": "当措施几乎同时进行时，不要强行排序。先找出独立、立即、能减少伤害的措施，再区分可随后完成的流程性工作。"
+          },
+          "glossary": [
+            {
+              "termEn": "Transfusion reaction report",
+              "termZh": "输血反应报告",
+              "defZh": "记录和上报疑似输血不良反应的机构文件/流程。"
+            },
+            {
+              "termEn": "Blood bank notification",
+              "termZh": "通知血库",
+              "defZh": "向输血服务部门报告疑似反应，以便调查血制品和患者样本。"
+            },
+            {
+              "termEn": "Concurrent actions",
+              "termZh": "同时进行的措施",
+              "defZh": "在急症中几乎同时执行的一组优先护理操作。"
+            }
+          ],
+          "answerableAfterStageId": {
+            "kind": "baseline"
+          }
+        },
+        {
+          "id": "gpt_case_taco_vs_trali_01_q6",
+          "itemType": "select_all",
+          "category": "Safety and Infection Prevention and Control",
+          "topic": "Transfusion & Blood Products",
+          "difficulty": "medium",
+          "ngnSkill": "evaluate_outcomes",
+          "stem": {
+            "en": "Which Stage 3 and Stage 4 findings best show that the TACO episode is resolving? Select all that apply.",
+            "zh": "阶段3和阶段4哪些发现最能说明TACO正在缓解？选择所有适用项。"
+          },
+          "options": [
+            {
+              "id": "q6_hemoglobin",
+              "en": "Post-transfusion hemoglobin is 8.1 g/dL.",
+              "zh": "输血后血红蛋白为8.1 g/dL。"
+            },
+            {
+              "id": "q6_vitals_baseline",
+              "en": "RR, HR, and BP trend back toward baseline.",
+              "zh": "RR、HR和BP向基线回归。"
+            },
+            {
+              "id": "q6_bnp_downtrend",
+              "en": "BNP trends down from 890 pg/mL to 420 pg/mL after treatment.",
+              "zh": "治疗后BNP从890 pg/mL下降至420 pg/mL。"
+            },
+            {
+              "id": "q6_congestion_resolves",
+              "en": "JVD resolves, S3 is no longer audible, edema returns to trace, and lung sounds return to baseline.",
+              "zh": "颈静脉怒张消失、S3不再可闻及、水肿恢复至轻度、肺音回到基线。"
+            },
+            {
+              "id": "q6_spo2_wean",
+              "en": "SpO2 improves from 89% to 96% while oxygen is weaned from non-rebreather to nasal cannula.",
+              "zh": "SpO2从89%改善至96%，同时氧疗从非再呼吸面罩降至鼻导管。"
+            },
+            {
+              "id": "q6_urine_output",
+              "en": "Urine output reaches 1,400 mL over 4 hours after furosemide.",
+              "zh": "呋塞米后4小时尿量达到1,400 mL。"
+            }
+          ],
+          "correct": [
+            "q6_spo2_wean",
+            "q6_vitals_baseline",
+            "q6_urine_output",
+            "q6_congestion_resolves",
+            "q6_bnp_downtrend"
+          ],
+          "rationale": {
+            "correct": {
+              "en": "Resolution of TACO is shown by improving oxygenation with oxygen weaning, normalized respiratory and hemodynamic trends, brisk diuresis after furosemide, disappearance of congestion findings, and a falling BNP trend. Hemoglobin shows transfusion effect, not resolution of pulmonary congestion.",
+              "zh": "TACO缓解表现为氧合改善并能降阶氧疗、呼吸和血流动力学趋势恢复、呋塞米后明显利尿、淤血体征消退，以及BNP下降趋势。血红蛋白反映输血效果，而不是肺淤血是否缓解。"
+            },
+            "byChoice": [
+              {
+                "refId": "q6_bnp_downtrend",
+                "en": "Correct. BNP is supportive when interpreted with the whole clinical picture; the downward trend is consistent with improving cardiac stretch/volume load.",
+                "zh": "正确。BNP需要结合整体临床情况解读；下降趋势符合心脏牵张/容量负荷改善。"
+              },
+              {
+                "refId": "q6_vitals_baseline",
+                "en": "Correct. RR, HR, and BP returning toward baseline show reduced acute distress and less overload physiology.",
+                "zh": "正确。RR、HR和BP回归基线说明急性应激减轻，超负荷生理状态改善。"
+              },
+              {
+                "refId": "q6_hemoglobin",
+                "en": "Incorrect. Hemoglobin shows red cell transfusion efficacy, not whether hydrostatic pulmonary edema has resolved.",
+                "zh": "错误。血红蛋白显示红细胞输注效果，不说明静水压性肺水肿是否缓解。"
+              },
+              {
+                "refId": "q6_urine_output",
+                "en": "Correct. Brisk urine output after furosemide confirms removal of excess volume, the mechanism needed for TACO resolution.",
+                "zh": "正确。呋塞米后尿量明显增加，确认多余容量正在排出，这是TACO缓解所需机制。"
+              },
+              {
+                "refId": "q6_congestion_resolves",
+                "en": "Correct. Resolution of JVD, S3, edema, and crackles shows the physical signs of congestion are reversing.",
+                "zh": "正确。颈静脉怒张、S3、水肿和湿啰音消退，说明淤血体征正在逆转。"
+              },
+              {
+                "refId": "q6_spo2_wean",
+                "en": "Correct. Stable saturation while oxygen support is reduced is stronger evidence of true respiratory improvement than SpO2 alone on high-flow oxygen.",
+                "zh": "正确。在降低氧支持的同时氧饱和度仍稳定，比单纯在高流量氧下SpO2正常更能说明呼吸真正改善。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "Evaluate the outcome that matches the problem. For overload, look for removal of volume and reversal of congestion, not just a successful hemoglobin rise.",
+            "zh": "评价结果要对应问题。对于容量超负荷，要看容量排出和淤血逆转，而不只是血红蛋白上升。"
+          },
+          "glossary": [
+            {
+              "termEn": "Oxygen weaning",
+              "termZh": "氧疗降阶",
+              "defZh": "在患者能维持氧合时逐步降低氧流量或氧疗装置强度。"
+            },
+            {
+              "termEn": "Diuretic response",
+              "termZh": "利尿反应",
+              "defZh": "给予利尿剂后尿量增加，提示多余液体被排出。"
+            },
+            {
+              "termEn": "Cardiomegaly",
+              "termZh": "心影增大",
+              "defZh": "胸片中心脏影像增大，可支持心源性/容量相关问题。"
+            }
+          ],
+          "answerableAfterStageId": {
+            "kind": "baseline"
+          }
+        }
+      ]
+    },
+    "rationale": {
+      "correct": {
+        "en": "The case shows an acute respiratory transfusion reaction during the second unit of packed red blood cells. The new cue cluster is not simply chronic crackles: it includes abrupt dyspnea, hypoxemia, tachypnea, hypertension, new S3, JVD, worsening peripheral edema, oliguria, pulmonary vascular congestion, cardiomegaly, BNP rise, and rapid improvement with diuresis. Those findings support transfusion-associated circulatory overload rather than TRALI, allergic reaction, anaphylaxis, or a febrile non-hemolytic reaction. The safe nursing arc is to stop the transfusion, support oxygenation and positioning, notify the provider and blood bank, preserve the line with new tubing, administer ordered diuretic therapy for TACO, and evaluate improvement by oxygen weaning, vital-sign trends, urine output, and resolution of congestion.",
+        "zh": "本病例显示患者在第二单位浓缩红细胞输注期间发生急性呼吸性输血反应。新的线索并不只是慢性肺底湿啰音，而是包括突发气短、低氧、呼吸急促、高血压、新S3、颈静脉怒张、外周水肿加重、少尿、肺血管淤血、心影增大、BNP升高，以及利尿后迅速改善。这些表现支持输血相关循环超负荷，而不是TRALI、过敏反应、过敏性休克或发热性非溶血性输血反应。安全的护理思路是立即停止输血，改善氧合和体位，通知医嘱者和血库，用新管路维持静脉通路，针对TACO给予医嘱利尿治疗，并通过氧气降阶、生命体征趋势、尿量和淤血体征消退来评价疗效。"
+      },
+      "byChoice": []
+    },
+    "testTakingStrategy": {
+      "en": "In transfusion reactions, first compare current findings with baseline, then separate respiratory distress caused by volume overload from noncardiogenic lung injury or allergy. Management follows the identified mechanism.",
+      "zh": "处理输血反应题时，先把当前表现与基线比较，再区分由容量超负荷导致的呼吸困难、非心源性肺损伤和过敏反应。处理措施要跟随病理机制。"
+    },
+    "glossary": [
+      {
+        "termEn": "TACO",
+        "termZh": "输血相关循环超负荷",
+        "defZh": "输血后发生的容量/循环负荷过重，可导致静水压性肺水肿、低氧和淤血体征。"
+      },
+      {
+        "termEn": "TRALI",
+        "termZh": "输血相关急性肺损伤",
+        "defZh": "输血期间或输血后短时间内出现的急性非心源性肺损伤，通常没有循环超负荷证据。"
+      },
+      {
+        "termEn": "Jugular venous distension",
+        "termZh": "颈静脉怒张",
+        "defZh": "颈静脉充盈明显，可提示中心静脉压升高或容量负荷过重。"
+      },
+      {
+        "termEn": "BNP",
+        "termZh": "B型钠尿肽",
+        "defZh": "心室压力或容量负荷增加时可升高的心脏相关标志物；需结合临床判断。"
+      },
+      {
+        "termEn": "High Fowler's position",
+        "termZh": "高Fowler体位",
+        "defZh": "床头高抬的坐位，有助于胸廓扩张和改善呼吸。"
+      }
+    ]
+  },
+  "frozenExceptions": [
+    {
+      "rowKey": "b87b748b0a8fe610",
+      "stage0QueueIndex": 259,
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_taco_vs_trali_01",
+      "partId": "gpt_case_taco_vs_trali_01_q2",
+      "repairPacketId": "repair-016",
+      "disposition": "EXCEPTION",
+      "exceptionReason": "BOUNDARY_DISPOSITION_DISAGREEMENT",
+      "reasonCodes": [
+        "BOUNDARY_DISPOSITION_DISAGREEMENT"
+      ],
+      "producer": {
+        "disposition": "STAGE",
+        "proposedBoundary": "stage_2",
+        "confidence": "HIGH",
+        "bilingualRelation": "PARALLEL",
+        "exceptionReason": null
+      },
+      "checker": {
+        "disposition": "BASELINE",
+        "proposedBoundary": {
+          "kind": "baseline"
+        },
+        "confidence": "HIGH",
+        "bilingualRelation": "PARALLEL",
+        "exceptionReason": null
+      },
+      "documentaryGroup": "baseline_stage_disagreement"
+    }
+  ],
+  "frozenJudgments": {
+    "producer": [
+      {
+        "sourcePath": "audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/producer/repair-016.json",
+        "sourceSha256": "6d232ae41838399dffbc133ec6717a20913bc4bf903ebe861ae4b15daa23d84c",
+        "judgment": {
+          "rowKey": "b87b748b0a8fe610",
+          "stage0QueueIndex": 259,
+          "bankPath": "banks/gpt-canonical.json",
+          "parentCaseId": "gpt_case_taco_vs_trali_01",
+          "partId": "gpt_case_taco_vs_trali_01_q2",
+          "proposedBoundary": "stage_2",
+          "disposition": "STAGE",
+          "earliestBoundaryEvidence": "Baseline supplies cardiac/renal susceptibility and stable chronic findings, and stage_1 remains stable. The dropdown offers several coherent reaction/evidence pairs rather than asserting which actually occurred. stage_2 first establishes new hypertension, JVD, S3, edema extension, oliguria and pulmonary congestion needed to select TACO instead of the competing respiratory/allergic reactions in both languages.",
+          "laterStageLeakCheck": "stage_3 imaging/BNP and diuretic response strengthen the TACO diagnosis but are unnecessary once the stage_2 overload cluster is visible. stage_4 provider confirmation is later validation and must remain hidden.",
+          "bilingualRelation": "PARALLEL",
+          "confidence": "HIGH",
+          "exceptionReason": null
+        }
+      }
+    ],
+    "checker": [
+      {
+        "sourcePath": "audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/checker/repair-016.json",
+        "sourceSha256": "c933329dad582ecf312aec7f70765344efa95b34f5e43c52267a1b2b1ab31f94",
+        "judgment": {
+          "rowKey": "b87b748b0a8fe610",
+          "stage0QueueIndex": 259,
+          "bankPath": "banks/gpt-canonical.json",
+          "parentCaseId": "gpt_case_taco_vs_trali_01",
+          "partId": "gpt_case_taco_vs_trali_01_q2",
+          "proposedBoundary": {
+            "kind": "baseline"
+          },
+          "disposition": "BASELINE",
+          "earliestBoundaryEvidence": "The evidence dropdown enumerates its own cue clusters, so the discrimination is inside the part, and baseline supplies the element that makes circulatory overload the fit rather than acute lung injury: chronic kidney disease stage 3b with eGFR 38, heart failure with preserved ejection fraction and grade I diastolic dysfunction, a BNP of 280 before transfusion, and a weight at dry weight. Hypertension with jugular distension, a new S3 and worsening oedema is the overload signature, while the anaphylactic, febrile non-haemolytic and lung-injury clusters are each paired with their own distinguishing features.",
+          "laterStageLeakCheck": "stage_2 supplies the findings the evidence option enumerates, and the later stages narrate the diuretic response, which would confirm the diagnosis retrospectively. The case title already names both candidate reactions at BASELINE. BASELINE is the earliest answerable boundary.",
+          "bilingualRelation": "PARALLEL",
+          "confidence": "HIGH",
+          "exceptionReason": null
+        }
+      }
+    ]
+  },
+  "residualPartsEqualCampaign16": true,
+  "priorParentSource": "audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/source-packets/repair-016.json",
+  "priorParentSourceSha256": "76e482290aba53e4a8579dc673e52ab86b3a49f1c782558b93a8cabc20e78789"
+}

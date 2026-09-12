@@ -1,0 +1,992 @@
+{
+  "packetId": "parent-36",
+  "bankPath": "banks/hard-cases-canonical.json",
+  "bankSha256": "8af1a86256278900b619f83812087dfb0e940ea349a00ceddef9fe2f079ca8e3",
+  "parentCaseId": "opus5_case_consent_interpreter_01",
+  "currentParentSha256": "bedb27b2fac6ce426c3f8a99abafab929635263e99ccc8ac3053ed85cdd9255e",
+  "currentParent": {
+    "id": "opus5_case_consent_interpreter_01",
+    "itemType": "case_study",
+    "category": "Management of Care",
+    "topic": "Legal & Ethical Principles",
+    "difficulty": "hard",
+    "ngnSkill": "take_action",
+    "stem": {
+      "en": "Review the client record and answer the case-study items about informed consent, language access, and the nurse's advocacy role before surgery.",
+      "zh": "查阅患者记录，并回答有关术前知情同意、语言服务以及护士倡导职责的案例题。"
+    },
+    "caseStudy": {
+      "title": {
+        "en": "Unfolding case: informed consent before elective cholecystectomy",
+        "zh": "展开案例：择期胆囊切除术前的知情同意"
+      },
+      "summary": {
+        "en": "A Spanish-speaking client with limited English has signed an elective surgical consent, but tells the nurse she did not understand the surgical risks. Her adult daughter offers to interpret.",
+        "zh": "一名以西班牙语为主要语言、英语有限的患者已签署择期手术同意书，但告诉护士她并不理解手术风险。成年女儿提出代为翻译。"
+      },
+      "exhibits": [
+        {
+          "id": "background",
+          "title": {
+            "en": "Patient background",
+            "zh": "患者背景"
+          },
+          "content": {
+            "en": "58-year-old woman admitted to same-day surgery for elective laparoscopic cholecystectomy. Primary language is Spanish; she speaks limited conversational English. History: type 2 diabetes managed with metformin, hypertension treated with lisinopril, symptomatic cholelithiasis with two prior episodes of biliary colic. No known drug allergies. Preoperative orders: NPO since midnight; 0.9% sodium chloride at 75 mL/hr; capillary blood glucose every 4 hours; hold the morning metformin dose. A surgical resident presented the consent form about 30 minutes before the nurse's first contact. The consent form is signed.",
+            "zh": "58岁女性，因择期腹腔镜胆囊切除术入住日间手术单元。主要语言为西班牙语；只能进行有限的日常英语交流。病史：2型糖尿病，使用二甲双胍控制；高血压，服用赖诺普利；有症状性胆石症，既往两次胆绞痛发作。无已知药物过敏。术前医嘱：午夜后禁食禁水；0.9%氯化钠以75 mL/hr静脉输注；每4小时监测指尖血糖；早晨二甲双胍暂停。护士首次接触患者前约30分钟，外科住院医向患者出示了手术同意书。同意书已签名。"
+          }
+        },
+        {
+          "id": "initial_assessment",
+          "title": {
+            "en": "Initial preoperative assessment",
+            "zh": "初始术前评估"
+          },
+          "content": {
+            "en": "The nurse enters the preoperative bay to complete pre-procedure verification. The client is upright on the stretcher, calm, and greets the nurse in English. Her adult daughter, who is fluently bilingual, is at the bedside and has been helping communicate with staff. Baseline findings: T 98.2 °F (36.8 °C), HR 78/min, BP 138/82 mm Hg, RR 14/min, SpO₂ 99% on room air. Alert and oriented x4. Abdomen soft with mild right upper quadrant tenderness; no rebound or guarding. Surgical site marked on the right upper abdomen. Left forearm IV patent and infusing without redness or swelling. Capillary blood glucose 142 mg/dL.",
+            "zh": "护士进入术前隔间完成操作前核对。患者端坐在担架上，表现平静，并用英语向护士打招呼。其成年女儿在床旁，能流利使用双语，整个上午一直协助患者与工作人员沟通。基线评估：体温98.2 °F (36.8 °C)，心率78次/分，血压138/82 mm Hg，呼吸14次/分，室内空气下SpO₂ 99%。神志清楚，定向力（人、地点、时间、情况）均正常。腹部柔软，右上腹轻度压痛，无反跳痛或肌紧张。右上腹已做手术部位标记。左前臂静脉通路通畅，正在输液，无发红或肿胀。指尖血糖142 mg/dL。"
+          },
+          "structuredMeasurements": {
+            "panels": [
+              {
+                "kind": "vitals",
+                "columns": [
+                  {
+                    "id": "current",
+                    "label": {
+                      "en": "Current",
+                      "zh": "当前"
+                    }
+                  }
+                ],
+                "rows": [
+                  {
+                    "key": "temp",
+                    "label": {
+                      "en": "Temperature",
+                      "zh": "体温"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "36.8",
+                        "unit": "°C"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "hr",
+                    "label": {
+                      "en": "Heart rate",
+                      "zh": "心率"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "78",
+                        "unit": "bpm"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "sbp",
+                    "label": {
+                      "en": "Systolic BP",
+                      "zh": "收缩压"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "138",
+                        "unit": "mmHg"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "dbp",
+                    "label": {
+                      "en": "Diastolic BP",
+                      "zh": "舒张压"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "82",
+                        "unit": "mmHg"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "rr",
+                    "label": {
+                      "en": "Respiratory rate",
+                      "zh": "呼吸频率"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "14",
+                        "unit": "/min"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "spo2",
+                    "label": {
+                      "en": "SpO2",
+                      "zh": "脉搏血氧饱和度"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "99",
+                        "unit": "%"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "labs",
+                "columns": [
+                  {
+                    "id": "current",
+                    "label": {
+                      "en": "Current",
+                      "zh": "当前"
+                    }
+                  }
+                ],
+                "rows": [
+                  {
+                    "key": "glucose",
+                    "label": {
+                      "en": "Glucose",
+                      "zh": "血糖"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "142",
+                        "unit": "mg/dL"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "preop_labs",
+          "title": {
+            "en": "Preoperative laboratory results",
+            "zh": "术前实验室结果"
+          },
+          "content": {
+            "en": "Labs drawn the previous day: WBC 7.2 ×10³/µL; Hgb 13.1 g/dL; platelets 238 ×10³/µL; INR 1.0; BUN 18 mg/dL; creatinine 0.9 mg/dL; potassium 4.2 mEq/L; fasting glucose 148 mg/dL; HbA1c 7.1%.",
+            "zh": "前一日抽血结果：白细胞7.2 ×10³/µL；血红蛋白13.1 g/dL；血小板238 ×10³/µL；INR 1.0；BUN 18 mg/dL；肌酐0.9 mg/dL；钾4.2 mEq/L；空腹血糖148 mg/dL；HbA1c 7.1%。"
+          },
+          "structuredMeasurements": {
+            "panels": [
+              {
+                "kind": "labs",
+                "columns": [
+                  {
+                    "id": "current",
+                    "label": {
+                      "en": "Current",
+                      "zh": "当前"
+                    }
+                  }
+                ],
+                "rows": [
+                  {
+                    "key": "wbc",
+                    "label": {
+                      "en": "WBC",
+                      "zh": "白细胞"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "7,200",
+                        "unit": "/µL"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "hemoglobin",
+                    "label": {
+                      "en": "Hemoglobin",
+                      "zh": "血红蛋白"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "13.1",
+                        "unit": "g/dL"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "platelets",
+                    "label": {
+                      "en": "Platelets",
+                      "zh": "血小板"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "238,000",
+                        "unit": "/µL"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "inr",
+                    "label": {
+                      "en": "INR",
+                      "zh": "国际标准化比值"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "1.0",
+                        "unit": "(ratio)"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "bun",
+                    "label": {
+                      "en": "BUN",
+                      "zh": "尿素氮"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "18",
+                        "unit": "mg/dL"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "creatinine",
+                    "label": {
+                      "en": "Creatinine",
+                      "zh": "肌酐"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "0.9",
+                        "unit": "mg/dL"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "potassium",
+                    "label": {
+                      "en": "Potassium",
+                      "zh": "血钾"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "4.2",
+                        "unit": "mEq/L"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "glucose",
+                    "label": {
+                      "en": "Glucose",
+                      "zh": "血糖"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "value": "148",
+                        "unit": "mg/dL"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "stages": [
+        {
+          "id": "stage_1_consent_concern",
+          "title": {
+            "en": "Stage 1: consent concern during verification",
+            "zh": "阶段1：核对时发现同意过程疑虑"
+          },
+          "exhibits": [
+            {
+              "id": "stage_1_note",
+              "title": {
+                "en": "Nurse's pre-procedure verification note",
+                "zh": "护士操作前核对记录"
+              },
+              "content": {
+                "en": "During pre-procedure verification, the nurse asks the client to describe in her own words what procedure she is having and what the surgeon explained about risks and alternatives. The daughter begins interpreting. The client speaks at length in Spanish. The daughter summarizes: \"She knows they're taking out her gallbladder.\" When the nurse asks what risks were discussed, the daughter pauses and then says, \"She says she doesn't really understand what could go wrong — the doctor spoke English very fast and used medical words. She signed because the doctor seemed to want her to.\" The daughter adds, \"I can just explain it to her myself — I'm pre-med, I know what a lap chole is.\" The client looks at the nurse and says in English, \"I trust my daughter.\" The surgical team pages the nurse asking whether the client is ready for transport to the operating room. Vital signs are unchanged.",
+                "zh": "在操作前核对时，护士请患者用自己的话说明将接受什么手术，以及外科医生解释了哪些风险和替代方案。女儿开始翻译。患者用西班牙语说了较长一段话。女儿概括说：\"她知道要把胆囊取出来。\" 护士询问讨论过哪些风险时，女儿停顿后说：\"她说她其实不太明白会出什么问题——医生英语说得很快，而且用了很多医学词。她签字是因为医生似乎希望她签。\" 女儿又说：\"我可以自己给她解释——我是医学预科，我知道腹腔镜胆囊切除术是什么。\" 患者看着护士，用英语说：\"我相信我女儿。\" 外科团队呼叫护士，询问患者是否可以送往手术室。生命体征无变化。"
+              }
+            }
+          ]
+        },
+        {
+          "id": "stage_2_hold_interpreter",
+          "title": {
+            "en": "Stage 2: hold for qualified interpreter and provider re-explanation",
+            "zh": "阶段2：暂停流程，等待合格口译员和医生重新说明"
+          },
+          "exhibits": [
+            {
+              "id": "stage_2_note",
+              "title": {
+                "en": "Interdisciplinary update",
+                "zh": "跨专业更新"
+              },
+              "content": {
+                "en": "The nurse declines the daughter's offer to serve as interpreter for the consent discussion and contacts the hospital qualified medical interpreter service. A certified Spanish-language interpreter arrives by video remote interpreting (VRI) within 8 minutes. The nurse notifies the surgical resident that the consent process must be repeated because the client stated she did not understand the explanation of risks. The resident initially says, \"She already signed — we're going to lose our OR time.\" The charge nurse supports the bedside nurse, and the resident agrees to return. While waiting, the daughter says, \"This is going to delay everything. I could have explained it in two minutes.\" The client appears anxious, fidgets with her gown, and asks her daughter in Spanish whether the surgery is being canceled. BP 148/90 mm Hg, HR 86/min.",
+                "zh": "护士拒绝让女儿担任同意讨论的口译员，并联系医院的合格医学口译服务。8分钟内，一名认证西班牙语医学口译员通过视频远程口译（VRI）接入。护士通知外科住院医，由于患者表示不理解手术风险说明，必须重新进行知情同意过程。住院医起初说：\"她已经签了——我们会错过手术室时间。\" 责任护士支持床旁护士，住院医同意返回。等待期间，女儿说：\"这样会耽误所有事情。我两分钟就能解释完。\" 患者显得焦虑，摆弄手术衣，并用西班牙语问女儿手术是不是被取消了。血压148/90 mm Hg，心率86次/分。"
+              }
+            }
+          ]
+        },
+        {
+          "id": "stage_3_valid_consent",
+          "title": {
+            "en": "Stage 3: repeated consent with qualified interpreter",
+            "zh": "阶段3：使用合格口译员重新完成同意"
+          },
+          "exhibits": [
+            {
+              "id": "stage_3_note",
+              "title": {
+                "en": "Outcome update",
+                "zh": "结果更新"
+              },
+              "content": {
+                "en": "The surgical resident returns and, using the certified VRI interpreter, re-explains the procedure, risks of bleeding, infection, bile duct injury and possible conversion to open surgery, benefits, alternatives including continued conservative management, and the right to refuse. The interpreter relays each segment. The client asks whether she will have a large scar and how long she will stay in the hospital. The resident answers both questions. The client states through the interpreter, \"Now I understand. I want to have the surgery today.\" A new consent form is completed with the interpreter's name and identification number documented. The nurse witnesses the client's signature after confirming that the client verbalized understanding and that a qualified interpreter was used. BP 136/84 mm Hg, HR 78/min, SpO₂ 99% on room air. The client appears calmer and is cleared for transport to the operating room.",
+                "zh": "外科住院医返回，并通过认证VRI口译员重新说明手术、出血、感染、胆管损伤以及可能转为开放手术等风险、益处、包括继续保守治疗在内的替代方案，以及拒绝手术的权利。口译员逐段传达。患者询问是否会留下很大的疤痕，以及住院多久。住院医回答了两个问题。患者通过口译员表示：\"现在我明白了。我今天想做手术。\" 新的同意书已完成，并记录了口译员姓名和识别号码。护士在确认患者已表述理解且使用了合格口译员后，见证患者签名。血压136/84 mm Hg，心率78次/分，室内空气下SpO₂ 99%。患者看起来更平静，可送往手术室。"
+              }
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "opus5_case_consent_interpreter_01_q1",
+          "itemType": "multiple_choice",
+          "category": "Management of Care",
+          "topic": "Legal & Ethical Principles",
+          "difficulty": "medium",
+          "ngnSkill": "analyze_cues",
+          "stem": {
+            "en": "At Stage 1, how should the nurse interpret the signed consent form?",
+            "zh": "在阶段1，护士应如何理解这份已签名的同意书？"
+          },
+          "options": [
+            {
+              "id": "B",
+              "en": "The consent is not valid for proceeding because the client states she did not understand the risks and felt pressure to sign.",
+              "zh": "不能据此推进手术，因为患者表示自己不理解风险，并感到被催促签字。"
+            },
+            {
+              "id": "D",
+              "en": "The consent can be accepted if the nurse documents that the client speaks some English.",
+              "zh": "只要护士记录患者会说一些英语，就可以接受该同意。"
+            },
+            {
+              "id": "C",
+              "en": "The consent is valid if the daughter confirms that the client knows the gallbladder will be removed.",
+              "zh": "只要女儿确认患者知道要切除胆囊，同意就有效。"
+            },
+            {
+              "id": "A",
+              "en": "The consent is valid because the form is signed and the client appears calm.",
+              "zh": "同意有效，因为表格已签名且患者看起来平静。"
+            }
+          ],
+          "correct": [
+            "B"
+          ],
+          "rationale": {
+            "correct": {
+              "en": "A signature is evidence of a consent process, not proof that informed consent is valid. The client's statement that she did not understand the risks and signed because the physician seemed to want her to is a direct cue that comprehension and voluntariness are not established. The nurse should not treat this form as sufficient for transport to the operating room.",
+              "zh": "签名只是同意过程的证据，并不能证明知情同意有效。患者表示不理解风险，并且因为医生似乎希望她签而签字，这是理解和自愿性尚未成立的直接线索。护士不应把这份表格视为足以送往手术室的依据。"
+            },
+            "byChoice": [
+              {
+                "refId": "C",
+                "en": "Knowing the procedure name is not enough; the client must understand the material risks, benefits, alternatives, and right to refuse.",
+                "zh": "知道手术名称并不足够；患者还必须理解主要风险、益处、替代方案以及拒绝权。"
+              },
+              {
+                "refId": "B",
+                "en": "This correctly recognizes that informed consent requires understanding and voluntary agreement, not just a signed document.",
+                "zh": "这正确指出知情同意需要理解和自愿同意，而不仅是签署文件。"
+              },
+              {
+                "refId": "A",
+                "en": "A calm appearance and a signature do not override the client's later statement that she did not understand the risk discussion.",
+                "zh": "外表平静和签名不能推翻患者随后表示不理解风险说明这一事实。"
+              },
+              {
+                "refId": "D",
+                "en": "Conversational English does not establish comprehension of a medical-legal consent discussion, especially when the client reports not understanding medical words.",
+                "zh": "日常英语交流能力不能证明其理解医学法律性质的同意讨论，尤其患者已表示不理解医学术语。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "In consent questions, separate the physical signature from the informed-consent process. A patient statement showing confusion, pressure, or lack of understanding is the priority cue.",
+            "zh": "遇到知情同意题时，要把“签名”与“知情同意过程”区分开。患者表达困惑、受压力或不理解，是优先线索。"
+          },
+          "glossary": [
+            {
+              "termEn": "informed consent",
+              "termZh": "知情同意",
+              "defZh": "患者在获得足够信息、理解信息并自愿同意后授权治疗或操作的过程。"
+            },
+            {
+              "termEn": "comprehension",
+              "termZh": "理解",
+              "defZh": "患者能够说明所接受的信息并理解其意义。"
+            },
+            {
+              "termEn": "voluntariness",
+              "termZh": "自愿性",
+              "defZh": "患者在没有胁迫或不当压力的情况下作出决定。"
+            }
+          ]
+        },
+        {
+          "id": "opus5_case_consent_interpreter_01_q2",
+          "itemType": "select_all",
+          "category": "Management of Care",
+          "topic": "Legal & Ethical Principles",
+          "difficulty": "hard",
+          "ngnSkill": "generate_solutions",
+          "stem": {
+            "en": "Which nursing actions are appropriate at Stage 1? Select all that apply.",
+            "zh": "阶段1中，哪些护理措施是适当的？请选择所有适用项。"
+          },
+          "options": [
+            {
+              "id": "D",
+              "en": "Ask the daughter to interpret the risks because the client trusts her and the daughter is pre-med.",
+              "zh": "请女儿翻译风险，因为患者信任她且女儿是医学预科。"
+            },
+            {
+              "id": "C",
+              "en": "Notify the surgical resident that the client did not understand the risk explanation and needs the provider to repeat the consent discussion through an interpreter.",
+              "zh": "通知外科住院医患者不理解风险说明，需要医生通过口译员重新进行同意讨论。"
+            },
+            {
+              "id": "E",
+              "en": "Independently explain the surgical risks, benefits, and alternatives and obtain a new signature.",
+              "zh": "护士自行解释手术风险、益处和替代方案，并取得新的签名。"
+            },
+            {
+              "id": "F",
+              "en": "Allow the daughter to remain for emotional support if the client wants, while using the qualified interpreter for clinical interpretation.",
+              "zh": "若患者愿意，可让女儿留下提供情感支持，同时由合格口译员进行临床口译。"
+            },
+            {
+              "id": "B",
+              "en": "Arrange a qualified medical interpreter for the consent discussion.",
+              "zh": "为同意讨论安排合格医学口译员。"
+            },
+            {
+              "id": "A",
+              "en": "Hold transport to the operating room until valid informed consent is established.",
+              "zh": "在有效知情同意成立之前，暂停送往手术室。"
+            }
+          ],
+          "correct": [
+            "A",
+            "B",
+            "C",
+            "F"
+          ],
+          "rationale": {
+            "correct": {
+              "en": "The nurse should pause the process, obtain a qualified interpreter, and notify the provider that the consent discussion must be repeated because the client has not demonstrated understanding. The daughter may remain as support if the client wants, but she should not serve as the interpreter for this surgical consent discussion.",
+              "zh": "护士应暂停流程，取得合格口译员，并通知医生必须重新进行同意讨论，因为患者尚未表现出理解。若患者愿意，女儿可作为支持者留在床旁，但不应担任此次手术同意讨论的口译员。"
+            },
+            "byChoice": [
+              {
+                "refId": "C",
+                "en": "Correct. The provider is responsible for explaining risks, benefits, alternatives, and the right to refuse; the nurse must communicate the barrier.",
+                "zh": "正确。医生负责解释风险、益处、替代方案和拒绝权；护士必须沟通这一障碍。"
+              },
+              {
+                "refId": "F",
+                "en": "Correct. Family presence for support can be appropriate, but it is separate from the clinical interpretation role.",
+                "zh": "正确。家属在场提供支持可以适当，但这与临床口译职责不同。"
+              },
+              {
+                "refId": "B",
+                "en": "Correct. A qualified medical interpreter is needed for accurate language access during the consent process.",
+                "zh": "正确。知情同意过程需要合格医学口译员提供准确语言服务。"
+              },
+              {
+                "refId": "D",
+                "en": "Incorrect. Trust and pre-medical education do not make the daughter a qualified medical interpreter, and she has already summarized rather than interpreted fully.",
+                "zh": "不正确。信任和医学预科背景并不等同于合格医学口译员，而且她已经表现出概括而非完整翻译。"
+              },
+              {
+                "refId": "E",
+                "en": "Incorrect. The nurse may reinforce information and witness the process, but obtaining informed consent for surgery is the provider's responsibility.",
+                "zh": "不正确。护士可以强化信息并见证过程，但取得手术知情同意是医生职责。"
+              },
+              {
+                "refId": "A",
+                "en": "Correct. Proceeding to the operating room would facilitate a procedure without valid informed consent.",
+                "zh": "正确。继续送往手术室会促成在无有效知情同意下进行操作。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "For language-access questions, do not equate bilingual family support with qualified medical interpretation. Also ask who is responsible for the consent explanation: provider explains; nurse advocates and witnesses.",
+            "zh": "遇到语言服务题时，不要把双语家属支持等同于合格医学口译。同时要判断谁负责同意说明：医生解释；护士倡导并见证。"
+          },
+          "glossary": [
+            {
+              "termEn": "qualified medical interpreter",
+              "termZh": "合格医学口译员",
+              "defZh": "具备医学口译能力、伦理规范和准确传达能力的专业口译人员。"
+            },
+            {
+              "termEn": "provider responsibility",
+              "termZh": "医生职责",
+              "defZh": "由执行或负责操作的医务人员说明操作、风险、益处、替代方案和拒绝权。"
+            },
+            {
+              "termEn": "family support",
+              "termZh": "家属支持",
+              "defZh": "家属在场提供情绪支持或陪伴，但不替代专业临床口译。"
+            }
+          ],
+          "answerableAfterStageId": {
+            "kind": "baseline"
+          }
+        },
+        {
+          "id": "opus5_case_consent_interpreter_01_q3",
+          "itemType": "ordered_response",
+          "category": "Management of Care",
+          "topic": "Legal & Ethical Principles",
+          "difficulty": "hard",
+          "ngnSkill": "take_action",
+          "stem": {
+            "en": "Place the nursing actions in the best order after the Stage 1 consent concern is identified.",
+            "zh": "在阶段1发现同意过程疑虑后，将护理措施按最佳顺序排列。"
+          },
+          "options": [
+            {
+              "id": "B",
+              "en": "Arrange a qualified medical interpreter rather than using the daughter for the consent discussion.",
+              "zh": "安排合格医学口译员，而不是让女儿担任同意讨论的口译员。"
+            },
+            {
+              "id": "D",
+              "en": "Use the interpreter to explain the reason for the delay, reassure the client that the goal is understanding, and assess for questions or ambivalence.",
+              "zh": "通过口译员解释延迟原因，安抚患者说明目标是确保理解，并评估是否有问题或犹豫。"
+            },
+            {
+              "id": "C",
+              "en": "Notify the surgical resident that the consent discussion must be repeated through the interpreter.",
+              "zh": "通知外科住院医必须通过口译员重新进行同意讨论。"
+            },
+            {
+              "id": "A",
+              "en": "Hold transport to the operating room because the signed form is not sufficient after the client's statement.",
+              "zh": "暂停送往手术室，因为在患者作出该陈述后，已签名表格不足以作为依据。"
+            },
+            {
+              "id": "E",
+              "en": "Witness the new consent only after the provider re-explains the procedure and the client verbalizes understanding and voluntary agreement.",
+              "zh": "只有在医生重新解释且患者表述理解并自愿同意后，才见证新的同意书。"
+            }
+          ],
+          "correct": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "rationale": {
+            "correct": {
+              "en": "The nurse first prevents an unsafe/legal process error by holding transport, then obtains qualified language access, communicates the barrier to the provider, supports the client during the delay, and witnesses a new consent only after the provider repeats the consent discussion and the client demonstrates understanding and voluntary agreement.",
+              "zh": "护士首先通过暂停转运来防止不安全和法律流程错误，然后取得合格语言服务，向医生沟通障碍，在等待期间支持患者，最后只有在医生重新进行同意讨论且患者表现出理解和自愿同意后，才见证新的同意书。"
+            },
+            "byChoice": [
+              {
+                "refId": "B",
+                "en": "After holding the process, the nurse obtains the language-access resource needed for a valid discussion.",
+                "zh": "暂停流程后，护士取得有效讨论所需的语言服务资源。"
+              },
+              {
+                "refId": "A",
+                "en": "This is first because the immediate risk is proceeding to surgery with invalid consent.",
+                "zh": "这是第一步，因为眼前风险是在同意无效的情况下推进手术。"
+              },
+              {
+                "refId": "C",
+                "en": "The provider must repeat the consent explanation; the nurse communicates this need and escalates if there is resistance.",
+                "zh": "医生必须重新说明同意内容；护士沟通这一需求，如遇阻力则升级处理。"
+              },
+              {
+                "refId": "E",
+                "en": "This is last because witnessing is appropriate only after the valid consent process has occurred.",
+                "zh": "这是最后一步，因为只有在有效同意过程完成后，见证签名才适当。"
+              },
+              {
+                "refId": "D",
+                "en": "While waiting, the nurse protects voluntariness by reducing confusion and assessing whether anxiety reflects unanswered questions or ambivalence.",
+                "zh": "等待期间，护士通过减少困惑并评估焦虑是否反映未解答问题或犹豫，来保护自愿性。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "In ordered-response items, remove the immediate unsafe step first, then secure required resources, notify the responsible provider, support the patient, and document only after the process is valid.",
+            "zh": "排序题中，先排除眼前不安全流程，再取得必要资源，通知负责医生，支持患者，最后在流程有效后再记录/见证。"
+          },
+          "glossary": [
+            {
+              "termEn": "chain of command",
+              "termZh": "指挥链/层级上报",
+              "defZh": "当医嘱或团队压力与患者安全或法律要求冲突时，按机构流程向上级寻求支持。"
+            },
+            {
+              "termEn": "witness signature",
+              "termZh": "见证签名",
+              "defZh": "护士对签署过程、患者身份和自愿理解等要素的见证记录；不等同于护士亲自取得手术同意。"
+            },
+            {
+              "termEn": "ambivalence",
+              "termZh": "犹豫不决",
+              "defZh": "患者对治疗决定存在混合感受或不确定，需要进一步澄清和支持。"
+            }
+          ],
+          "answerableAfterStageId": {
+            "kind": "baseline"
+          }
+        },
+        {
+          "id": "opus5_case_consent_interpreter_01_q4",
+          "itemType": "multiple_choice",
+          "category": "Management of Care",
+          "topic": "Legal & Ethical Principles",
+          "difficulty": "medium",
+          "ngnSkill": "take_action",
+          "stem": {
+            "en": "At Stage 2, the resident says, \"She already signed — we're going to lose our OR time.\" What is the nurse's best response?",
+            "zh": "阶段2中，住院医说：\"她已经签了——我们会错过手术室时间。\" 护士最佳回应是什么？"
+          },
+          "options": [
+            {
+              "id": "D",
+              "en": "Give an anxiolytic medication so the client's blood pressure returns to baseline before transport.",
+              "zh": "给予抗焦虑药，使患者血压恢复基线后再转运。"
+            },
+            {
+              "id": "C",
+              "en": "Ask the daughter to quickly explain the risks so the OR schedule is not disrupted.",
+              "zh": "请女儿快速解释风险，以免影响手术室安排。"
+            },
+            {
+              "id": "A",
+              "en": "Send the client to the operating room and document that the resident accepted responsibility for consent.",
+              "zh": "将患者送往手术室，并记录住院医愿意对同意负责。"
+            },
+            {
+              "id": "B",
+              "en": "State that the procedure cannot proceed on the current consent, request provider re-explanation through the interpreter, and involve the charge nurse or chain of command if pressure continues.",
+              "zh": "说明不能依据当前同意推进手术，要求医生通过口译员重新解释；若压力持续，则请责任护士或按层级上报。"
+            }
+          ],
+          "correct": [
+            "B"
+          ],
+          "rationale": {
+            "correct": {
+              "en": "The nurse has an independent advocacy obligation not to facilitate a procedure when the patient has indicated lack of understanding. Scheduling pressure does not override informed-consent requirements. The correct action is to maintain the hold, request provider re-explanation through the qualified interpreter, and use the charge nurse or chain of command if needed.",
+              "zh": "当患者已表示不理解时，护士有独立的倡导义务，不能促成该操作。排班压力不能凌驾于知情同意要求之上。正确做法是继续暂停流程，要求医生通过合格口译员重新解释，必要时请责任护士或按层级上报。"
+            },
+            "byChoice": [
+              {
+                "refId": "D",
+                "en": "Incorrect. The mild vital-sign change is consistent with situational anxiety and the priority is clear interpreted information, not sedating the client to complete transport.",
+                "zh": "不正确。轻度生命体征变化符合情境性焦虑，优先事项是通过口译提供清楚信息，而不是镇静患者以完成转运。"
+              },
+              {
+                "refId": "A",
+                "en": "Incorrect. The nurse should not knowingly facilitate surgery under a defective consent process, even if the resident is willing to proceed.",
+                "zh": "不正确。即使住院医愿意推进，护士也不应明知同意过程有缺陷仍促成手术。"
+              },
+              {
+                "refId": "C",
+                "en": "Incorrect. Speed and convenience do not make a family member an appropriate interpreter for this consent discussion.",
+                "zh": "不正确。速度和方便不能使家属成为此次同意讨论的适当口译员。"
+              },
+              {
+                "refId": "B",
+                "en": "Correct. This protects patient autonomy, follows the provider/nurse role boundary, and uses appropriate escalation for conflict.",
+                "zh": "正确。这保护患者自主权，符合医生与护士职责边界，并在冲突时使用适当升级。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "When a provider's request conflicts with patient autonomy or legal safety, choose the option that clearly states the concern, maintains the safety hold, and escalates through the chain of command.",
+            "zh": "当医生要求与患者自主权或法律安全要求冲突时，选择能清楚说明问题、保持安全暂停并按层级上报的选项。"
+          },
+          "glossary": [
+            {
+              "termEn": "patient advocacy",
+              "termZh": "患者倡导",
+              "defZh": "护士维护患者安全、权利和知情决策的专业职责。"
+            },
+            {
+              "termEn": "operating room time",
+              "termZh": "手术室时间",
+              "defZh": "手术排程资源；不能凌驾于患者安全和知情同意要求之上。"
+            },
+            {
+              "termEn": "situational anxiety",
+              "termZh": "情境性焦虑",
+              "defZh": "由当前环境、等待或不确定性引起的焦虑反应。"
+            }
+          ],
+          "answerableAfterStageId": {
+            "kind": "baseline"
+          }
+        },
+        {
+          "id": "opus5_case_consent_interpreter_01_q5",
+          "itemType": "dropdown_cloze",
+          "category": "Management of Care",
+          "topic": "Legal & Ethical Principles",
+          "difficulty": "medium",
+          "ngnSkill": "evaluate_outcomes",
+          "stem": {
+            "en": "At Stage 3, the provider has repeated the consent discussion through the certified VRI interpreter, and the client states she understands and wants surgery. Complete the documentation statement.",
+            "zh": "阶段3中，医生已通过认证VRI口译员重新进行同意讨论，患者表示理解并希望手术。请完成记录陈述。"
+          },
+          "clozeStem": {
+            "en": "The nurse may witness the new consent because {{1}}. Documentation should include {{2}}.",
+            "zh": "护士可以见证新的同意书，因为 {{1}}。记录应包括 {{2}}。"
+          },
+          "dropdowns": [
+            {
+              "id": "1",
+              "options": [
+                {
+                  "id": "o3",
+                  "en": "the daughter confirmed that the client trusts her",
+                  "zh": "女儿确认患者信任她"
+                },
+                {
+                  "id": "o2",
+                  "en": "the original signed form was already in the chart",
+                  "zh": "原先已签名表格已经在病历中"
+                },
+                {
+                  "id": "o1",
+                  "en": "the client verbalized understanding and voluntary agreement after the provider's interpreted explanation",
+                  "zh": "患者在医生通过口译解释后表述理解并自愿同意"
+                }
+              ],
+              "correct": "o1"
+            },
+            {
+              "id": "2",
+              "options": [
+                {
+                  "id": "o3",
+                  "en": "that the nurse personally explained all surgical risks and alternatives",
+                  "zh": "记录护士亲自解释了所有手术风险和替代方案"
+                },
+                {
+                  "id": "o2",
+                  "en": "only the time the operating room was delayed and the resident's objection",
+                  "zh": "仅记录手术室延误时间和住院医的异议"
+                },
+                {
+                  "id": "o1",
+                  "en": "the qualified interpreter's name or identification number, the VRI mode, and that the prior form was superseded according to facility policy",
+                  "zh": "合格口译员姓名或识别号码、VRI方式，以及按机构政策注明先前表格已被取代"
+                }
+              ],
+              "correct": "o1"
+            }
+          ],
+          "rationale": {
+            "correct": {
+              "en": "After the provider repeats the consent discussion through a qualified interpreter and the client verbalizes understanding and voluntary agreement, the nurse may witness the new consent. Documentation should identify the interpreter and mode used and accurately show that the earlier defective consent was superseded or handled according to facility policy, without backdating or implying that the nurse provided the surgical consent explanation.",
+              "zh": "在医生通过合格口译员重新进行同意讨论，且患者表述理解并自愿同意后，护士可以见证新的同意书。记录应说明口译员身份和使用方式，并准确反映先前有缺陷的同意书已被取代或按机构政策处理，不应倒签日期，也不应暗示由护士完成手术同意说明。"
+            },
+            "byChoice": [
+              {
+                "refId": "1",
+                "en": "Dropdown 1 tests the criterion for witnessing: the client demonstrated understanding and voluntary agreement after the provider's interpreted explanation, not merely a signature or family reassurance.",
+                "zh": "下拉项1考查见证标准：患者在医生通过口译说明后表现出理解和自愿同意，而不仅是签名或家属保证。"
+              },
+              {
+                "refId": "2",
+                "en": "Dropdown 2 tests documentation: identify the qualified interpreter and mode of interpretation and accurately handle the superseded prior form per policy.",
+                "zh": "下拉项2考查记录：注明合格口译员及口译方式，并按政策准确处理被取代的先前表格。"
+              }
+            ]
+          },
+          "testTakingStrategy": {
+            "en": "For documentation questions, choose the record that accurately reflects what occurred and who performed each role. Avoid backdating, blame-focused notes, or statements that imply the nurse obtained provider-level consent.",
+            "zh": "遇到记录题时，选择能准确反映发生经过以及各自职责的记录。避免倒签、以指责为中心的记录，或暗示护士完成了医生层级同意说明的说法。"
+          },
+          "glossary": [
+            {
+              "termEn": "video remote interpreting",
+              "termZh": "视频远程口译",
+              "defZh": "通过视频平台提供实时专业口译服务的方式。"
+            },
+            {
+              "termEn": "superseded consent",
+              "termZh": "被取代的同意书",
+              "defZh": "先前文件不再作为当前有效同意依据，由新的、有效完成的同意文件替代。"
+            },
+            {
+              "termEn": "documentation integrity",
+              "termZh": "记录完整性",
+              "defZh": "病历记录应真实、及时、准确反映临床过程，不能倒签或歪曲时间线。"
+            }
+          ],
+          "answerableAfterStageId": {
+            "kind": "baseline"
+          }
+        }
+      ]
+    },
+    "rationale": {
+      "correct": {
+        "en": "This case centers on the difference between a signed form and valid informed consent. The nurse recognizes that the client's lack of understanding of material surgical risks invalidates the current process, pauses transport, obtains a qualified medical interpreter instead of relying on family interpretation, requires the provider to repeat the risk-benefit-alternative discussion, supports the anxious client during the delay, and documents the new consent process accurately once understanding and voluntariness are demonstrated.",
+        "zh": "本案例的核心是区分“已签名表格”和“有效知情同意”。护士识别到患者不理解主要手术风险，说明当前同意过程无效；暂停转运；取得合格医学口译员而不是依赖家属翻译；要求医生重新说明风险、益处和替代方案；在等待期间支持焦虑患者；并在患者表现出理解和自愿性后，准确记录新的同意过程。"
+      },
+      "byChoice": []
+    },
+    "testTakingStrategy": {
+      "en": "For consent cases, prioritize autonomy and role clarity: provider explains the procedure, the qualified interpreter enables accurate language access, and the nurse advocates, pauses unsafe workflow, witnesses appropriately, and documents truthfully.",
+      "zh": "处理知情同意案例时，优先考虑患者自主权和职责清晰：医生解释操作，合格口译员确保准确语言沟通，护士负责倡导、暂停不安全流程、适当见证并真实记录。"
+    },
+    "glossary": [
+      {
+        "termEn": "informed consent",
+        "termZh": "知情同意",
+        "defZh": "患者在获得充分信息、理解信息并自愿决定后授权治疗或操作的过程。"
+      },
+      {
+        "termEn": "qualified interpreter",
+        "termZh": "合格口译员",
+        "defZh": "能准确、完整、保密地进行医疗口译的专业人员。"
+      },
+      {
+        "termEn": "scope of nursing practice",
+        "termZh": "护理执业范围",
+        "defZh": "护士依法和按机构政策可执行的职责范围；不包括替代医生取得手术知情同意。"
+      },
+      {
+        "termEn": "patient autonomy",
+        "termZh": "患者自主权",
+        "defZh": "患者在充分理解相关信息后自主作出医疗决定的权利。"
+      }
+    ]
+  },
+  "frozenExceptions": [
+    {
+      "rowKey": "8fdddc13883a4a38",
+      "stage0QueueIndex": 429,
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus5_case_consent_interpreter_01",
+      "partId": "opus5_case_consent_interpreter_01_q1",
+      "repairPacketId": "repair-026",
+      "disposition": "EXCEPTION",
+      "exceptionReason": "BOUNDARY_DISPOSITION_DISAGREEMENT",
+      "reasonCodes": [
+        "BOUNDARY_DISPOSITION_DISAGREEMENT"
+      ],
+      "producer": {
+        "disposition": "STAGE",
+        "proposedBoundary": "stage_1_consent_concern",
+        "confidence": "HIGH",
+        "bilingualRelation": "PARALLEL",
+        "exceptionReason": null
+      },
+      "checker": {
+        "disposition": "BASELINE",
+        "proposedBoundary": {
+          "kind": "baseline"
+        },
+        "confidence": "HIGH",
+        "bilingualRelation": "PARALLEL",
+        "exceptionReason": null
+      },
+      "documentaryGroup": "baseline_stage_disagreement"
+    }
+  ],
+  "frozenJudgments": {
+    "producer": [
+      {
+        "sourcePath": "audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/producer/repair-026.json",
+        "sourceSha256": "96f06c6b1152980d9638b4fe31b05e3c28a47745ec0de4f1e6d9736896a0cf07",
+        "judgment": {
+          "rowKey": "8fdddc13883a4a38",
+          "stage0QueueIndex": 429,
+          "bankPath": "banks/hard-cases-canonical.json",
+          "parentCaseId": "opus5_case_consent_interpreter_01",
+          "partId": "opus5_case_consent_interpreter_01_q1",
+          "proposedBoundary": "stage_1_consent_concern",
+          "disposition": "STAGE",
+          "earliestBoundaryEvidence": "The global summary establishes lack of risk understanding, but the selected interpretation also asserts that the client felt pressured to sign. stage_1_consent_concern first supplies the statement that she signed because the doctor seemed to want her to, supporting the full compound factual answer in both languages. The option itself is not evidence that this additional event occurred.",
+          "laterStageLeakCheck": "stage_2_hold_interpreter and stage_3_valid_consent supply the response and corrected process. They are unnecessary to interpret the original consent once the first update establishes both comprehension and voluntariness concerns.",
+          "bilingualRelation": "PARALLEL",
+          "confidence": "HIGH",
+          "exceptionReason": null
+        }
+      }
+    ],
+    "checker": [
+      {
+        "sourcePath": "audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/checker/repair-026.json",
+        "sourceSha256": "4bdf6a4fa8e731ff8fde0e6cfec55aa5b5af39692a551493b442de4810959fc4",
+        "judgment": {
+          "rowKey": "8fdddc13883a4a38",
+          "stage0QueueIndex": 429,
+          "bankPath": "banks/hard-cases-canonical.json",
+          "parentCaseId": "opus5_case_consent_interpreter_01",
+          "partId": "opus5_case_consent_interpreter_01_q1",
+          "proposedBoundary": {
+            "kind": "baseline"
+          },
+          "disposition": "BASELINE",
+          "earliestBoundaryEvidence": "Baseline already establishes the defect: a client whose primary language is Spanish with only limited conversational English, a consent form presented by a surgical resident about thirty minutes before the nurse's first contact and already signed, with no qualified interpreter documented and a bilingual family member serving as the communication channel. A signature under those conditions does not establish informed consent, and the option set carries the client's own disclosure. The three alternatives are defeated by the same baseline facts - a signature alone, a family member's confirmation, and 'speaks some English' are none of them adequate.",
+          "laterStageLeakCheck": "stage_1_consent_concern is where the client voices the concern, which the keyed option states; the stage draws no conclusion about validity. BASELINE is earliest and answerable.",
+          "bilingualRelation": "PARALLEL",
+          "confidence": "HIGH",
+          "exceptionReason": null
+        }
+      }
+    ]
+  },
+  "residualPartsEqualCampaign16": true,
+  "priorParentSource": "audit/campaign-16-anchor-boundary-repair-2026-09-09-r1/source-packets/repair-026.json",
+  "priorParentSourceSha256": "d330f872463af060f2e9164c53756803d4354de4c980ad347c62854254d7b0ad"
+}
