@@ -1,0 +1,36 @@
+[{
+"rowKey":"__FILL__","packetId":"parent-27","bankPath":"banks/gpt-canonical.json",
+"parentCaseId":"gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01","partId":"gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q3",
+"reviewerDerivedProposition":"An opioid-naive older adult with obstructive sleep apnoea who is at a sedation score of 3 with a respiratory rate of 10 and a saturation of 90 percent thirty minutes after morphine needs breathing supported and further exposure stopped before anything else, then oxygen and continuous monitoring, then escalation with naloxone readied if prescribed or protocol-directed, with documentation after stabilisation. Only two constraints in that chain are genuinely fixed: the immediate airway and exposure actions come first, and documentation comes last.",
+"requiredFacts":[
+"The Stage 2 deterioration - sedation score 3, respiratory rate 10, SpO2 90 percent on room air, drifting off mid-conversation - stage_2_after_dose.",
+"Risk context making this predictable - age 72, opioid-naive, obstructive sleep apnoea with CPAP at the bedside - baseline_order and stage_1_pre_dose.",
+"Nothing in stage_3_stabilized is required."],
+"earliestDefensibleBoundary":"stage_2_after_dose",
+"boundaryIsTerminalStage":false,
+"stagesVisibleAtBoundary":["stage_1_pre_dose","stage_2_after_dose"],
+"stagesHiddenAtBoundary":["stage_3_stabilized"],
+"prefixDisclosesAnswer":true,
+"disclosureEvidence":"Hiding stage_3_stabilized is necessary: it records the actions as already performed and their result - 'after stimulation, oxygen 2 L/min by nasal cannula, and provider notification' - which names keyed steps A, C and D in sequence. The current fail-open render therefore discloses most of the ordering.",
+"reviewerDisposition":"CONTENT_REPAIR_REQUIRED",
+"clinicalVerdict":"The five actions are all correct and the clinical priorities are right, but THREE DEFECTS sit in this row, two of them in the shared stage_2 exhibit. FIRST, the key is not unique. This is the third ordered-response item in this population scored on a single permutation where the clinical constraints are weaker than the scoring. Stimulating the client and assessing airway and breathing (A) and stopping further opioid and calling for immediate assistance (B) are concurrent responses to the same recognition, not a sequence, and a learner who calls for help before completing an airway assessment is not wrong; likewise applying oxygen with continuous oximetry (C) and escalating with naloxone readied (D) are not strictly ordered. Only two constraints are defensible: the immediate actions precede the rest, and documentation (E) comes last. SECOND, a data-labelling error I verified directly: the stage_2 structured-measurement panel labels its column '0900' while carrying the values respiratory rate 10 and SpO2 90. The narrative establishes that morphine was given at 0900 and that those values were observed at 0930, and the pre-dose panel records 16 and 95 percent. As labelled, the panel asserts the client was already bradypnoeic and desaturating at the moment of administration, which inverts the causal story the whole case rests on. THIRD, an internal protocol conflict: stage_3 states 'Unit protocol requires respiratory rate and sedation reassessment 15 minutes after each IV opioid dose', yet the case depicts the reassessment at 30 minutes and never flags the gap.",
+"contentDefects":[
+"PRIMARY: non-unique ordered-response key; the A-before-B and C-before-D adjacencies are not clinically constrained.",
+"PRIMARY, SHARED SURFACE: the stage_2 structured-measurement column is labelled 0900 but carries the 0930 values, contradicting the narrative and reversing the implied causation.",
+"SECONDARY: the 15-minute reassessment protocol stated in stage_3 conflicts with the 30-minute reassessment the case depicts, and the discrepancy is presented as unremarkable."],
+"bilingualVerdict":"PARALLEL - stem, five options, key, rationale, five byChoice entries and strategy are semantically equivalent EN/ZH. The mislabelled column is '0900' in both languages, so the correction is bilingual.",
+"confidence":"HIGH",
+"sourcesChecked":["No external fetch was load-bearing. The ordering finding rests on clinical reasoning about which adjacencies are constrained; the labelling error and the protocol conflict were both established by reading the structured measurements and the stage narratives against each other in the frozen packet, which I did directly."],
+"siblingImpact":"MODERATE. The column-label correction touches the stage_2 exhibit, which is also the declared boundary of non-residual sibling q2 (answerableAfterStageId is already set to stage_2_after_dose). q2 is accepted content and reads the same panel, so it must be re-reviewed after the label is corrected - this is the one row in this parent where a repair reaches an accepted sibling. Siblings q1, q4 and q5 are baseline-anchored and unaffected.",
+"repairConstraints":[
+"Correct the stage_2 structured-measurement column label from 0900 to 0930 in EN and ZH so it matches the observation time in the narrative, then re-review non-residual sibling q2, which reads the same panel.",
+"Replace the strict total ordering. Either convert to an initial-response set plus post-stabilisation documentation, or retain ordering only across the adjacencies that are genuinely constrained. Do not retain a five-way permutation key.",
+"Reconcile the 15-minute protocol against the 30-minute reassessment depicted. Do not portray the interval as compliant if the protocol says 15 minutes; either align the timings or have the case acknowledge the delay as a finding.",
+"Preserve all five action texts; each is clinically correct.",
+"Anchor to stage_2_after_dose after repair."],
+"criticalNote":"This is the third ordered-response item in the 66-row population whose key is not unique, after the thyroid-storm and TPN-mucositis rows. Three of the population's ordered-response items have now shown the same defect, which I consider strong enough to recommend a systematic review of the item type rather than three isolated repairs.",
+"codexProposedDisposition":"CONTENT_REPAIR_REQUIRED","codexProposedBoundary":"stage_2_after_dose",
+"agreementWithCodex":"AGREE",
+"agreementReasoning":"I derived the boundary independently and reached all three of Codex's findings: the strict ordering, the 0900 column label, and the 15-versus-30-minute protocol conflict. I verified the label error myself by reading the structured-measurement panels against the narrative rather than accepting the claim, and established that the pre-dose panel carries 16 and 95 percent, which is what makes the mislabel causally misleading rather than merely untidy. I add the sibling-impact finding Codex does not record: non-residual sibling q2 is already anchored at this same stage and reads the same panel, so the correction reaches accepted content and requires its re-review.",
+"producerIndependent":true
+}]

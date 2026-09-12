@@ -1,0 +1,33 @@
+[{
+"rowKey":"__FILL__","packetId":"parent-29","bankPath":"banks/gpt-canonical.json",
+"parentCaseId":"gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02","partId":"gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+"reviewerDerivedProposition":"An 84-year-old on apixaban after an unwitnessed fall who now has unequal pupils, has vomited once, and has dropped from baseline orientation to person and place down to person only, must be reported as a concern for intracranial injury; the shortened, externally rotated right leg simultaneously indicates a probable hip fracture. Until evaluation the resident is kept still with spinal and limb precautions. Ambulating to test weight-bearing or performing range-of-motion would be actively harmful, and neither a chronic-dementia reading nor a low-risk-bruising reading survives the documented acute change.",
+"requiredFacts":[
+"Anisocoria (right 5 mm, left 3 mm), one episode of vomiting, and orientation to person only - stage_2_assessment ONLY.",
+"Right leg shortened and externally rotated - stage_2_assessment ONLY.",
+"Baseline orientation to person AND place, which is what makes the Stage 2 finding an ACUTE change and defeats the chronic-dementia distractor - baseline. I checked this specifically because a distractor that cannot be defeated on chart evidence is a recurring defect in this population; here the baseline supplies it explicitly.",
+"Apixaban on the medication list, which is what raises the intracranial concern from possible to urgent - baseline.",
+"That the fall was unwitnessed, defeating the 'witnessed low-risk fall' distractor - stage_1_found.",
+"Nothing in stage_3_review is required."],
+"earliestDefensibleBoundary":"stage_2_assessment",
+"boundaryIsTerminalStage":false,
+"stagesVisibleAtBoundary":["stage_1_found","stage_2_assessment"],
+"stagesHiddenAtBoundary":["stage_3_review"],
+"prefixDisclosesAnswer":false,
+"disclosureEvidence":"stage_2_assessment reports raw findings with no interpretation, no diagnosis and no precaution order; the stem's premise that the nurse is preparing to notify the provider is legitimately given. Hiding stage_3_review is appropriate though modestly load-bearing: stage_3 reviews anticoagulant use and the recent trazodone start as contributors, which would nudge a learner toward the intracranial reading in dropdown 1. No answer-supplying prose.",
+"reviewerDisposition":"ANCHOR_ONLY_REPAIR_CANDIDATE",
+"clinicalVerdict":"Correct on both blanks. The triad of new anisocoria, vomiting and a fall in level of orientation after an unwitnessed fall in an anticoagulated older adult is the classic presentation demanding urgent evaluation for intracranial haemorrhage, and the case supplies each element rather than implying it. A shortened, externally rotated limb is the textbook sign of a displaced proximal femoral fracture, so the conjunction keyed in dropdown 1 is right. Keyed dropdown 2 is right and is the safe nursing action: with a suspected fracture and a possible head injury the resident is kept still under spinal and limb precautions pending imaging. All four distractors are genuinely and specifically wrong rather than filler, and each is defeated by a fact the chart establishes - the chronic-dementia option by the documented baseline orientation, the low-risk-bruising option by the unwitnessed fall and the neurologic findings, and both action distractors by the fracture signs. I found no invented fact, no stranded value, no key ambiguity and no all-correct degeneracy.",
+"contentDefects":[],
+"bilingualVerdict":"PARALLEL - I read the Chinese against the English for the stem, the clozeStem, all six dropdown options, both keys, the key rationale and both byChoice entries. Each pair is semantically equivalent, including the conjunction in dropdown 1 ('颅内损伤和可能髋部骨折') and the immobilisation wording in dropdown 2 ('脊柱和肢体防护，保持住民不动'). No language-specific defect.",
+"confidence":"HIGH",
+"sourcesChecked":["No external fetch proved load-bearing. The two clinical premises - that new anisocoria with vomiting and reduced orientation after head trauma in an anticoagulated patient demands urgent intracranial evaluation, and that a shortened externally rotated limb indicates proximal femoral fracture - are standard and uncontested, and the item's correctness turns on whether the chart supplies each element, which I verified fact by fact against the baseline and stage_2 exhibits."],
+"siblingImpact":"NONE. This is an anchor-only repair; no learner-facing text changes. Siblings q1, q2, q4 and q5 are all baseline-anchored and non-residual.",
+"repairConstraints":[
+"Set answerableAfterStageId to stage_2_assessment. No content change is required or authorised by this row.",
+"Do not anchor at stage_1_found: that stage establishes only the unwitnessed fall and hip pain, and neither the neurologic findings nor the limb deformity that both blanks depend on exists there."],
+"criticalNote":"This row survives affirmative scrutiny as a true anchor-only repair. This is a different_stage_ids row, where the two Campaign-16 seats disagreed about WHICH stage rather than whether to use one; the producer's stage_2_assessment is correct and the checker's stage_1_found is demonstrably too early.",
+"codexProposedDisposition":"ANCHOR_ONLY_REPAIR_CANDIDATE","codexProposedBoundary":"stage_2_assessment",
+"agreementWithCodex":"AGREE",
+"agreementReasoning":"I derived stage_2_assessment independently by locating each fact the two blanks require, which also resolves the Campaign-16 stage disagreement against the checker. Codex reached the same boundary with no content work. I tested rather than accepted the no-defect claim: I checked each distractor for the unestablished-premise defect found elsewhere in this population and confirmed all four are defeated by documented chart facts, checked the parent title and summary for the diagnostic-leak pattern that has now appeared in four parents and found neither names the injury, and read the Chinese in full.",
+"producerIndependent":true
+}]

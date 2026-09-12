@@ -1,0 +1,531 @@
+{
+ "reviewSeat": "Claude Opus 5, producer-independent",
+ "policy": "Clinical and legal premises were checked against primary or authoritative sources whenever a verdict depended on them. Source-registry summaries in the producer packet were treated as evidence pointers only and were never relied on as the basis of a verdict.",
+ "distinctSourcesConsulted": 85,
+ "fetchFailuresEncounteredAndHandled": [
+  "HHS HIPAA FAQ 2087 returned HTTP 403 and eCFR redirected to an unblock gateway; 45 CFR 164.510/164.402/164.512 were read instead at Cornell LII as primary text.",
+  "CDC contact-precautions page returned HTTP 404; guidance reached via CDC isolation-precautions and STRIVE materials on the same domain.",
+  "NIA advance-directives page returned HTTP 405; reached via NIH-domain search.",
+  "Three StatPearls IDs returned unrelated articles (NSAID toxicity, hip injection, PEEP, Rh blood group, EMS incident command) and were discarded rather than cited; correct sources were located by domain-restricted search.",
+  "All discarded fetches are recorded here so no verdict rests on a source that was not actually read."
+ ],
+ "sources": [
+  {
+   "citation": "Internal chart arithmetic only; no external clinical premise was load-bearing for the boundary. Rivaroxaban renal-clearance premise checked against FDA label (see sources record).",
+   "usedForRows": [
+    "opus1_case_tha_discharge_lep_01_q6"
+   ]
+  },
+  {
+   "citation": "45 CFR 164.510(b)(2)-(b)(3) full text read at https://www.law.cornell.edu/cfr/text/45/164.510",
+   "usedForRows": [
+    "opus2_case_code_status_q5"
+   ]
+  },
+  {
+   "citation": "NIA advance care planning materials, reached via search after the NIA page returned HTTP 405",
+   "usedForRows": [
+    "opus2_case_code_status_q5"
+   ]
+  },
+  {
+   "citation": "StatPearls Lithium Toxicity (https://www.ncbi.nlm.nih.gov/books/NBK519062/)",
+   "usedForRows": [
+    "opus_case_lithium_toxicity_q1",
+    "opus_case_lithium_toxicity_q3"
+   ]
+  },
+  {
+   "citation": "Peer-reviewed renal-mechanism literature located via NIH-domain search",
+   "usedForRows": [
+    "opus_case_lithium_toxicity_q1"
+   ]
+  },
+  {
+   "citation": "No external clinical premise was load-bearing; airway-before-everything in an obtunded vomiting client is a standard prioritisation taught throughout NCLEX preparation and is not in dispute. Adjudication rests on internal chart evidence.",
+   "usedForRows": [
+    "opus_case_lithium_toxicity_q2"
+   ]
+  },
+  {
+   "citation": "StatPearls Hypokalemia (https://www.ncbi.nlm.nih.gov/books/NBK482465/)",
+   "usedForRows": [
+    "opus_case_lithium_toxicity_q4",
+    "opus24_case_elder_neglect_med_mismanagement_01_q4"
+   ]
+  },
+  {
+   "citation": "StatPearls Spironolactone (https://www.ncbi.nlm.nih.gov/books/NBK554421/)",
+   "usedForRows": [
+    "gemini_gap_case_cirrhosis_homecare_04_q2"
+   ]
+  },
+  {
+   "citation": "Intra-parent cross-check of sibling q4 text in the same frozen packet, which independently states the correct pharmacology.",
+   "usedForRows": [
+    "gemini_gap_case_cirrhosis_homecare_04_q2"
+   ]
+  },
+  {
+   "citation": "Peer-reviewed palliative and respiratory-pharmacology literature located via NIH-domain search, including 'Managing breathlessness in advanced disease' and Cochrane-linked work on opioids for refractory breathlessness",
+   "usedForRows": [
+    "gemini_gap_case_palliative_care_03_q2"
+   ]
+  },
+  {
+   "citation": "The same literature establishes the central/perceptual mechanism for breathlessness relief",
+   "usedForRows": [
+    "gemini_gap_case_palliative_care_03_q2"
+   ]
+  },
+  {
+   "citation": "StatPearls NBK526006 was fetched but proved to be NSAID toxicity, not opioid pharmacology; it contributed nothing and was discarded rather than cited.",
+   "usedForRows": [
+    "gemini_gap_case_palliative_care_03_q2"
+   ]
+  },
+  {
+   "citation": "Royal Children's Hospital Melbourne clinical guideline, Pyloric stenosis (https://www.rch.org.au/clinicalguide/guideline_index/Pyloric_stenosis/)",
+   "usedForRows": [
+    "gemini_gap_case_pyloric_stenosis_01_q3"
+   ]
+  },
+  {
+   "citation": "Prospective randomised trial of protocol versus ad libitum feeding after laparoscopic pyloromyotomy (PubMed 24439596)",
+   "usedForRows": [
+    "gemini_gap_case_pyloric_stenosis_01_q4"
+   ]
+  },
+  {
+   "citation": "Retrospective comparative series (PubMed 17484656)",
+   "usedForRows": [
+    "gemini_gap_case_pyloric_stenosis_01_q4"
+   ]
+  },
+  {
+   "citation": "Feeding Post-Pyloromyotomy meta-analysis (PubMed 26719292)",
+   "usedForRows": [
+    "gemini_gap_case_pyloric_stenosis_01_q4"
+   ]
+  },
+  {
+   "citation": "The Royal Children's Hospital guideline read for the sibling row confirms it is silent on postoperative feeding, so it cannot be cited for the 12-to-24-hour claim.",
+   "usedForRows": [
+    "gemini_gap_case_pyloric_stenosis_01_q4"
+   ]
+  },
+  {
+   "citation": "No external clinical premise was load-bearing for this row; the classification rests on internal trend arithmetic, which I recomputed from the stage_2 and stage_3 exhibits and confirmed. The temperature-presentation convention was checked against the repository's own pinned adjudication in scripts/audit/temperature-prose-residual-adjudication.ts, which establishes Fahrenheit-first with Celsius in parentheses.",
+   "usedForRows": [
+    "gpt_case_neutropenic_fever_nadir_01_q5"
+   ]
+  },
+  {
+   "citation": "IDSA febrile-neutropenia definition verified via NIH-domain search: fever is a single oral temperature at or above 38.3 C, or above 38.0 C maintained over one hour, with ANC at or below 500/uL. This confirms both keyed thresholds and the ANC context.",
+   "usedForRows": [
+    "gpt_case_neutropenic_fever_nadir_01_q6"
+   ]
+  },
+  {
+   "citation": "The repository's own pinned adjudication scripts/audit/temperature-prose-residual-adjudication.ts read directly at the review commit, including its verbatim rationale 'ASCO/IDSA publishes the single-reading threshold as >=38.3 °C (101 °F). This is a source-pinned clinical threshold, not an ordinary measured vital, so the published pairing is retained with Fahrenheit first', and its four-occurrence target list, which I enumerated to locate the uncovered summary occurrence.",
+   "usedForRows": [
+    "gpt_case_neutropenic_fever_nadir_01_q6"
+   ]
+  },
+  {
+   "citation": "No external clinical premise was load-bearing. The finding rests on an exhaustive internal search of the frozen parent for the asserted facts, which I ran directly against the packet JSON.",
+   "usedForRows": [
+    "gpt_case_nine_month_well_child_safety_01_q2"
+   ]
+  },
+  {
+   "citation": "No external clinical premise was load-bearing; the keyed approaches are general patient-education practice and the item's correctness turns on internal chart support, which I verified fact by fact against the visible prefix.",
+   "usedForRows": [
+    "gpt_case_nine_month_well_child_safety_01_q4"
+   ]
+  },
+  {
+   "citation": "No external source was required for the keyed classifications; the choking-shape and Poison-Control-versus-911 premises are standard anticipatory guidance and are not in dispute. The acetaminophen row was verified by direct arithmetic against the case's own concentration, weight and weight-band dose rather than against an external reference.",
+   "usedForRows": [
+    "gpt_case_nine_month_well_child_safety_01_q6"
+   ]
+  },
+  {
+   "citation": "StatPearls Pediatric Dehydration (https://www.ncbi.nlm.nih.gov/books/NBK436022/)",
+   "usedForRows": [
+    "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03_q1"
+   ]
+  },
+  {
+   "citation": "No external clinical premise was load-bearing. The unsafe-self-titration teaching point and the hazard of targeting 100 percent saturation in COPD are standard and undisputed; the finding rests on the internal contradiction between the stem's named stage and the location of the keyed evidence, which I verified directly against the stage exhibits.",
+   "usedForRows": [
+    "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2"
+   ]
+  },
+  {
+   "citation": "StatPearls Thyroid Storm (https://www.ncbi.nlm.nih.gov/books/NBK448095/)",
+   "usedForRows": [
+    "cs_thyroid_storm_q2"
+   ]
+  },
+  {
+   "citation": "No external source was load-bearing for this finding, which rests on a direct comparison of the keyed assertion against the Stage 2 exhibit text. The calcium-first hyperkalaemia sequence is standard and undisputed and I did not treat it as contested.",
+   "usedForRows": [
+    "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q4"
+   ]
+  },
+  {
+   "citation": "No external source was load-bearing; each of the six actions is standard practice and none is in dispute. The discrimination finding rests on a census I computed directly over all thirteen canonical banks at the pinned commit.",
+   "usedForRows": [
+    "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q5"
+   ]
+  },
+  {
+   "citation": "No external source was load-bearing. The finding rests on the internal contradiction between the r5/r6 key and the nephrology monitoring plan recorded in the same stage, which I read directly.",
+   "usedForRows": [
+    "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q6"
+   ]
+  },
+  {
+   "citation": "No external fetch was required. The finding is that a universal negative claim is asserted where only a comparative claim is warranted, which is established by the internal contradiction with the item's own testTakingStrategy and by uncontested basic physiology (hypoperfusion of any aetiology raises lactate). I did not treat the sepsis/CRBSI reasoning itself as contested, since it is correct.",
+   "usedForRows": [
+    "opus_tpn_case_mucositis_01_q1"
+   ]
+  },
+  {
+   "citation": "The differential-time-to-positivity criterion and the principle that catheter salvage versus removal is a judgement rather than a fixed sequence are standard catheter-infection material; I treated the ordering question as decidable on internal evidence, since the case's own stage_3 contradicts any claim that replacement must follow removal. No external fetch was load-bearing for the disposition.",
+   "usedForRows": [
+    "opus_tpn_case_mucositis_01_q3"
+   ]
+  },
+  {
+   "citation": "No external fetch was load-bearing. The finding is definitional",
+   "usedForRows": [
+    "opus_tpn_case_mucositis_01_q6"
+   ]
+  },
+  {
+   "citation": "CDC clinical guidance on childhood lead poisoning prevention (https://www.cdc.gov/lead-prevention/hcp/clinical-guidance/index.html)",
+   "usedForRows": [
+    "gemini_gap_case_lead_poisoning_01_q2"
+   ]
+  },
+  {
+   "citation": "No external fetch was load-bearing, because the decisive evidence is internal: the case supplies its own organ-staging thresholds in stage_1 and the keyed values fall inside them. I used those thresholds rather than an external grading system precisely so the finding rests on the authored source. The pharmacological premises",
+   "usedForRows": [
+    "opus_agvd_case_agvhd_01_q6"
+   ]
+  },
+  {
+   "citation": "No external fetch was load-bearing. The HELLP exclusion was verified arithmetically against the Stage 2 panel in the frozen packet",
+   "usedForRows": [
+    "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q3"
+   ]
+  },
+  {
+   "citation": "AGS Beers Criteria literature located via NIH and americangeriatrics.org domain search",
+   "usedForRows": [
+    "gpt_case_caregiver_role_strain_dementia_01_q3"
+   ]
+  },
+  {
+   "citation": "Internal search of the frozen parent for albumin and prealbumin, to test whether distractor q3_b hypothesised an unestablished fact. It does not; both values are in the baseline labs.",
+   "usedForRows": [
+    "gpt_case_caregiver_role_strain_dementia_01_q3"
+   ]
+  },
+  {
+   "citation": "AGS Beers Criteria literature as cited for the sibling row, which underwrites the diphenhydramine limb of distractor q4_f. No further external premise was load-bearing; the remaining interventions are standard dementia home-safety and caregiver-support measures tied directly to cues in the chart, which I checked individually.",
+   "usedForRows": [
+    "gpt_case_caregiver_role_strain_dementia_01_q4"
+   ]
+  },
+  {
+   "citation": "StatPearls clozapine monitoring (https://www.ncbi.nlm.nih.gov/books/NBK535399/)",
+   "usedForRows": [
+    "gpt_case_clozapine_toxicity_01_q2"
+   ]
+  },
+  {
+   "citation": "FDA clozapine monitoring guidance located via fda.gov domain search",
+   "usedForRows": [
+    "gpt_case_clozapine_toxicity_01_q2"
+   ]
+  },
+  {
+   "citation": "FDA clozapine monitoring guidance as cited for the sibling q2 row, confirming interruption for an ANC below 1,000/uL with suspected clozapine-induced neutropenia, which underwrites the keyed hold. No further external premise was load-bearing.",
+   "usedForRows": [
+    "gpt_case_clozapine_toxicity_01_q3"
+   ]
+  },
+  {
+   "citation": "StatPearls clozapine monitoring, as cited for the sibling q2 row, for the serial troponin/CRP/BNP and echocardiography monitoring recommendation underwriting keyed option D. The febrile-neutropenia principle that empiric antibiotics follow promptly after cultures was verified earlier in this review against the IDSA definition and management material used for the neutropenic-fever parent.",
+   "usedForRows": [
+    "gpt_case_clozapine_toxicity_01_q4"
+   ]
+  },
+  {
+   "citation": "No external fetch was load-bearing for this finding, which rests on arithmetic comparison of the stage_2 and stage_3 values in the frozen packet and on the internal conflict between keyed option A and its own key rationale. The rechallenge premise underlying distractor F is consistent with the clozapine myocarditis material verified for the sibling q2 row.",
+   "usedForRows": [
+    "gpt_case_clozapine_toxicity_01_q6"
+   ]
+  },
+  {
+   "citation": "45 CFR 164.512(l) read at https://www.law.cornell.edu/cfr/text/45/164.512",
+   "usedForRows": [
+    "gpt_case_hipaa_disclosure_breach_01_q2"
+   ]
+  },
+  {
+   "citation": "45 CFR 164.510(b)(2) read at https://www.law.cornell.edu/cfr/text/45/164.510 earlier in this review",
+   "usedForRows": [
+    "gpt_case_hipaa_disclosure_breach_01_q2"
+   ]
+  },
+  {
+   "citation": "45 CFR 164.402 read at https://www.law.cornell.edu/cfr/text/45/164.402",
+   "usedForRows": [
+    "gpt_case_hipaa_disclosure_breach_01_q2",
+    "gpt_case_hipaa_disclosure_breach_01_q4"
+   ]
+  },
+  {
+   "citation": "45 CFR 164.512(l) at https://www.law.cornell.edu/cfr/text/45/164.512",
+   "usedForRows": [
+    "gpt_case_hipaa_disclosure_breach_01_q4"
+   ]
+  },
+  {
+   "citation": "I searched the parent for any supplied photo-incident or evidence-preservation procedure and found none; the baseline policy's requirement is limited to immediate mitigation, charge-nurse notification, an electronic incident report and same-shift escalation.",
+   "usedForRows": [
+    "gpt_case_hipaa_disclosure_breach_01_q4"
+   ]
+  },
+  {
+   "citation": "CDC and HICPAC isolation-precautions guidance located via cdc.gov domain search",
+   "usedForRows": [
+    "gpt_case_infection_control_clustered_care_01_q3"
+   ]
+  },
+  {
+   "citation": "StatPearls Sinus Tachycardia (https://www.ncbi.nlm.nih.gov/books/NBK553128/)",
+   "usedForRows": [
+    "gpt_case_lateral_incivility_01_q3"
+   ]
+  },
+  {
+   "citation": "StatPearls Sinus Tachycardia as cited for row q3, for the inherited ECG mislabel. No further external premise was load-bearing; the conduct-management actions are standard and each is tied to an observed event in the chart, which I checked individually.",
+   "usedForRows": [
+    "gpt_case_lateral_incivility_01_q4"
+   ]
+  },
+  {
+   "citation": "StatPearls Sinus Tachycardia as cited for row q3, for the inherited ECG mislabel. No further external premise was load-bearing; the first-action prioritisation rests on the case's own documented call parameter, which I read verbatim from the stage_2 exhibit.",
+   "usedForRows": [
+    "gpt_case_lateral_incivility_01_q5"
+   ]
+  },
+  {
+   "citation": "No external fetch was load-bearing. The finding rests on comparing the rationale's assertion against the verbatim stage_1 exchange in the frozen packet, and on the uncontested point that involuntary-hold criteria are jurisdictional. The withdrawal exclusion was checked against the enumerated absent signs in the baseline exhibit rather than against an external scale.",
+   "usedForRows": [
+    "gpt_case_opioid_recovery_relapse_risk_01_q2"
+   ]
+  },
+  {
+   "citation": "45 CFR 164.510(b)(2), read in full at https://www.law.cornell.edu/cfr/text/45/164.510 earlier in this review, underwrites the confidentiality basis for distractor b. No further external premise was load-bearing; the prioritisation rests on the trajectory documented in the chart, which I traced from stage_1 to stage_2.",
+   "usedForRows": [
+    "gpt_case_opioid_recovery_relapse_risk_01_q3"
+   ]
+  },
+  {
+   "citation": "45 CFR 164.510(b)(2) as cited for the sibling q3 row, which underwrites the consent condition in keyed option d and the wrongness of distractor e. No further external premise was load-bearing.",
+   "usedForRows": [
+    "gpt_case_opioid_recovery_relapse_risk_01_q4"
+   ]
+  },
+  {
+   "citation": "No external fetch was load-bearing for the finding, which rests on reading the three chart surfaces against each other in the frozen packet. The partial-agonist analgesic property underlying keyed option c and the ceiling effect relevant to judging the severity of the duplicate dose are standard buprenorphine pharmacology and were not treated as contested; the defect is the unreconciled instruction, not a claim that the dose is lethal.",
+   "usedForRows": [
+    "gpt_case_opioid_recovery_relapse_risk_01_q5"
+   ]
+  },
+  {
+   "citation": "No external premise was load-bearing for the prioritisation, which rests on chart findings I verified individually against the stage_2 exhibit. The catheter-avoidance principle underlying distractor q3_b is standard CAUTI-prevention practice and the item's rationale states it without overreaching.",
+   "usedForRows": [
+    "gpt_case_pressure_injury_prevention_mobility_01_q3"
+   ]
+  },
+  {
+   "citation": "Pressure-injury prevention guidance located via NIH and AHRQ domain search",
+   "usedForRows": [
+    "gpt_case_pressure_injury_prevention_mobility_01_q4",
+    "gpt_case_pressure_injury_prevention_mobility_01_q5"
+   ]
+  },
+  {
+   "citation": "Internal search of the frozen parent for any ice order and any hearing-related finding, which returned none.",
+   "usedForRows": [
+    "gpt_case_pressure_injury_prevention_mobility_01_q4"
+   ]
+  },
+  {
+   "citation": "StatPearls pressure-injury staging (https://www.ncbi.nlm.nih.gov/books/NBK553107/)",
+   "usedForRows": [
+    "gpt_case_pressure_injury_prevention_mobility_01_q5"
+   ]
+  },
+  {
+   "citation": "No external fetch was load-bearing for this row. The mechanism keyed in d2 is standard refeeding pathophysiology and is not contested; the discriminating judgement in d3 rests on the internal fact that a single hyperglycaemia cannot produce a simultaneous three-ion decline, and the infection exclusion rests on the absence of fever and the benign site documented in stage_1, which I read directly.",
+   "usedForRows": [
+    "gpt_case_refeeding_syndrome_tpn_01_q2"
+   ]
+  },
+  {
+   "citation": "Sepsis management guidance (https://www.ncbi.nlm.nih.gov/books/NBK430939/)",
+   "usedForRows": [
+    "gpt_case_refeeding_syndrome_tpn_01_q3",
+    "gpt_case_refeeding_syndrome_tpn_01_q4",
+    "gpt_case_refeeding_syndrome_tpn_01_q5"
+   ]
+  },
+  {
+   "citation": "Internal check of the baseline replacement protocol against the Stage 2 values to confirm the higher tier is derivable without stage_3.",
+   "usedForRows": [
+    "gpt_case_refeeding_syndrome_tpn_01_q4"
+   ]
+  },
+  {
+   "citation": "Internal trace of the order text across the stage_2 and stage_3 exhibits to establish the placement problem.",
+   "usedForRows": [
+    "gpt_case_refeeding_syndrome_tpn_01_q5"
+   ]
+  },
+  {
+   "citation": "Transfusion reaction literature located via NIH and AABB domain search, including the AABB association bulletin on TACO and peer-reviewed TACO/TRALI differentiation work",
+   "usedForRows": [
+    "gpt_case_taco_vs_trali_01_q2"
+   ]
+  },
+  {
+   "citation": "Direct inspection of all five sibling parts for mentions of the diagnosis, which produced the decisive finding.",
+   "usedForRows": [
+    "gpt_case_taco_vs_trali_01_q2"
+   ]
+  },
+  {
+   "citation": "No external fetch was load-bearing. The ordering finding rests on clinical reasoning about which adjacencies are constrained; the labelling error and the protocol conflict were both established by reading the structured measurements and the stage narratives against each other in the frozen packet, which I did directly.",
+   "usedForRows": [
+    "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q3"
+   ]
+  },
+  {
+   "citation": "Comparative wound-cleanser toxicity literature located via NIH domain search, including an in vitro toxicity index for skin and wound cleansers",
+   "usedForRows": [
+    "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q2"
+   ]
+  },
+  {
+   "citation": "Wound-packing literature via the same search",
+   "usedForRows": [
+    "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q2"
+   ]
+  },
+  {
+   "citation": "No external fetch proved load-bearing. The two clinical premises",
+   "usedForRows": [
+    "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3"
+   ]
+  },
+  {
+   "citation": "StatPearls Cardiogenic Shock (https://www.ncbi.nlm.nih.gov/books/NBK482255/)",
+   "usedForRows": [
+    "case_ami_01_q2"
+   ]
+  },
+  {
+   "citation": "American Heart Association resuscitation literature located via ahajournals.org and cpr.heart.org domain search",
+   "usedForRows": [
+    "cs_stemi_vfib_04_part_2"
+   ]
+  },
+  {
+   "citation": "StatPearls NBK441904 was fetched but proved to be PEEP in mechanical ventilation, not resuscitation; it contributed nothing and was discarded rather than cited.",
+   "usedForRows": [
+    "cs_stemi_vfib_04_part_2"
+   ]
+  },
+  {
+   "citation": "No external fetch was load-bearing. The item is explicitly a protocol-application question governed by the institutional threshold the case itself supplies, and I verified the application arithmetically (1.8 exceeds 1.7) and confirmed the chart supplies both the rule and the current value. I deliberately did not substitute an external alteplase threshold, since doing so would change the item's construct.",
+   "usedForRows": [
+    "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_q2"
+   ]
+  },
+  {
+   "citation": "Aphasia and decision-making capacity literature located via NIH domain search, including a scoping review of communication strategies to support decision-making by persons with aphasia and a scoping review of informed consent in patients with aphasia",
+   "usedForRows": [
+    "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_q4"
+   ]
+  },
+  {
+   "citation": "Direct trace of each keyed option against the stage_2 exhibit text to establish the disclosure.",
+   "usedForRows": [
+    "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_q4"
+   ]
+  },
+  {
+   "citation": "Joint Commission National Patient Safety Goal FAQ material on ligature and suicide risk reduction in non-psychiatric units of general hospitals, located via jointcommission.org domain search",
+   "usedForRows": [
+    "opus12_case_inpatient_suicide_risk_01_q3"
+   ]
+  },
+  {
+   "citation": "The peripheral potassium rate threshold was verified earlier in this review at StatPearls Hypokalemia (https://www.ncbi.nlm.nih.gov/books/NBK482465/), which states that pain and phlebitis usually occur with peripheral infusions when rates exceed 10 mmol per hour. I applied it here as a cross-check on the parent's own arithmetic rather than as a premise of the keyed answer, which rests on the observed site findings. No further external premise was load-bearing.",
+   "usedForRows": [
+    "opus3_iv_potassium_safety_case_01_q6"
+   ]
+  },
+  {
+   "citation": "No external premise was load-bearing. The SBAR structure and the principle that trends communicate deterioration better than isolated values are standard escalation practice and are not in dispute; the item's correctness turns on whether each keyed element is supported by the visible prefix, which I verified option by option against the baseline and stage_1 exhibits.",
+   "usedForRows": [
+    "opus4_case_postop_sbar_01_q3"
+   ]
+  },
+  {
+   "citation": "Informed-consent and language-access literature located via NIH, HHS and AMA domain search, including the AMA Journal of Ethics on clinicians' obligations to use qualified medical interpreters and peer-reviewed work on interpreter access and informed consent for patients with limited English proficiency",
+   "usedForRows": [
+    "opus5_case_consent_interpreter_01_q1"
+   ]
+  },
+  {
+   "citation": "Immune checkpoint inhibitor myocarditis literature located via NIH and oncology-journal domain search",
+   "usedForRows": [
+    "opus_icit_case_01_q2"
+   ]
+  },
+  {
+   "citation": "The competing-cause finding rests on the parent's own summary, which documents hepatic metastases; I located it by reading the case rather than by external reference.",
+   "usedForRows": [
+    "opus_icit_case_01_q2"
+   ]
+  },
+  {
+   "citation": "Immune checkpoint inhibitor myocarditis treatment literature located via NIH and oncology-journal domain search",
+   "usedForRows": [
+    "opus_icit_case_01_q3"
+   ]
+  },
+  {
+   "citation": "NICE guidance on metastatic spinal cord compression, located via nice.org.uk and NIH domain search (CG75 and NG234 and the associated NCBI Bookshelf evidence reviews)",
+   "usedForRows": [
+    "opus_scc_case_01_q2"
+   ]
+  },
+  {
+   "citation": "The mislabel finding rests on reading the stage_1 exhibit directly against the opt_c rationale, and on locating the parent's genuine post-void residual at baseline.",
+   "usedForRows": [
+    "opus_scc_case_01_q2"
+   ]
+  }
+ ],
+ "frozenAt": "2026-09-12T21:08:30.068625+00:00"
+}

@@ -1,0 +1,39 @@
+[{
+"rowKey":"__FILL__","packetId":"parent-33","bankPath":"banks/hard-cases-canonical.json",
+"parentCaseId":"opus12_case_inpatient_suicide_risk_01","partId":"opus12_case_inpatient_suicide_risk_01_q3",
+"reviewerDerivedProposition":"A safety sweep for a high-risk client on a non-psychiatric unit is graded rather than all-or-nothing. Personal items that are ligature or sharps hazards and serve no care purpose - the belt, the charger cord, the razor - are removed and secured. Environmental and equipment risks that cannot simply be removed - a bathroom door that locks from inside, and the tubing and cable required for monitoring and infusion - are modified or secured under protocol. Equipment genuinely needed for treatment and meals that is not readily convertible to a means of self-harm in this context stays, on the strength of assessment plus continuous observation.",
+"requiredFacts":[
+"The specific personal belongings - leather belt, phone charger cord, razor in a toiletry bag - morning_assessment global exhibit.",
+"High acute risk established by the assessment - stage1.",
+"That 1:1 continuous observation is in place, which is what licenses retaining anything at all - stage2.",
+"That the IV tubing, pulse oximetry cable, IV pole and overbed table are needed for care - stage2.",
+"Nothing in stage3 is required."],
+"earliestDefensibleBoundary":"stage2",
+"boundaryIsTerminalStage":false,
+"stagesVisibleAtBoundary":["stage1","stage2"],
+"stagesHiddenAtBoundary":["stage3"],
+"prefixDisclosesAnswer":true,
+"disclosureEvidence":"The boundary stage discloses ALL SIX rows, with the reasoning attached. I traced each: 'The belt, charger cord, razor, and a plastic bag are removed with the client's knowledge and locked at the nurses' station' gives r1, r2 and r3 as remove-and-secure; 'The bathroom door is adjusted so it cannot lock from inside' gives r4 as modify; 'IV tubing and pulse oximetry cable are shortened and secured to reduce ligature length' gives r5 as modify; and 'The IV pole and overbed table are assessed and left in place because they are needed for care and not readily convertible to self-harm means in this context' gives r6 as assess-and-retain, in almost the exact words of column c3. This is the most complete matrix disclosure I found in the population - six of six rows, each with its justification.",
+"reviewerDisposition":"CONTENT_REPAIR_REQUIRED",
+"clinicalVerdict":"The keyed classifications are correct and the item's underlying model is well founded. Verified against Joint Commission guidance for non-psychiatric units in general hospitals: such units need not be ligature resistant, but organisations should routinely assess clinical areas to identify objects usable for self-harm and remove them where possible from around a high-risk patient, with mitigation including one-to-one monitoring and 'removing objects that pose a risk for self-harm IF THEY CAN BE REMOVED WITHOUT ADVERSELY AFFECTING THE PATIENT'S MEDICAL CARE', and continuous 1:1 observation where a high-risk patient is in an area that still contains safety risks. That is precisely the three-tier logic the matrix encodes, and the strategy states it well - do not choose an all-or-nothing sweep. The four columns are genuinely distinct dispositions, so single_per_row is appropriate here and I found none of the false-exclusivity defect that affected other matrices in this population. THE DEFECTS ARE DISCLOSURE AND ONE WORDING ISSUE, NOT THE CLINICAL MODEL.",
+"contentDefects":[
+"PRIMARY: the boundary stage narrates the completed disposition of every row, converting the item from a judgement task into transcription.",
+"SECONDARY: the stage describes IV tubing and the pulse oximetry cable as 'shortened and secured', which reads as improvised alteration of medical devices. Any equipment modification should be conditional on approved clinical and device policy rather than presented as a nurse shortening tubing at the bedside."],
+"bilingualVerdict":"PARALLEL - stem, four column labels, six rows, the key, the rationale and all six byChoice entries are semantically equivalent EN/ZH. The disclosing stage_2 narration is equally explicit in Chinese, so the repair is bilingual.",
+"confidence":"HIGH",
+"sourcesChecked":[
+"Joint Commission National Patient Safety Goal FAQ material on ligature and suicide risk reduction in non-psychiatric units of general hospitals, located via jointcommission.org domain search - verified that such units need not be ligature resistant, that objects usable for self-harm should be removed where this does not adversely affect medical care, and that continuous 1:1 observation is required where a high-risk patient remains in an area containing safety risks. This underwrites all three keyed tiers, including the retain-with-observation tier that is the item's most distinctive teaching point."],
+"siblingImpact":"MODERATE. The stage2 edit is a shared stage surface. Siblings q1, q2, q4, q5 and q6 are all baseline-anchored and non-residual, so once this anchor is set none of them renders stage2 - but Codex is right that they should be re-reviewed, because the stage2 text also contains the agitation episode that other parts may reason about. Confirm no sibling depends on the agitation narrative before editing.",
+"repairConstraints":[
+"Edit stage2 in EN and ZH to retain the DECISION INPUTS - that 1:1 observation is in place, which items are present, and which equipment is required for care and why it is not readily convertible to a means of self-harm - while removing the completed item-by-item disposition that currently answers every row.",
+"Preserve the agitation episode and vital signs; they belong to the stage and other parts may rely on them.",
+"Reword the tubing and cable modification so it is conditional on approved clinical and device policy rather than improvised shortening at the bedside.",
+"Do not alter the matrix rows, columns or key; the classifications are correct and well sourced.",
+"Re-review all affected siblings after the stage edit, per Codex's instruction, with particular attention to any part reasoning about the agitation.",
+"Anchor to stage2 after repair."],
+"criticalNote":"This row is a clean example of the dominant failure mode in this population: clinically excellent content whose boundary stage narrates the answer. The repair is subtractive and should not disturb the item itself.",
+"codexProposedDisposition":"CONTENT_REPAIR_REQUIRED","codexProposedBoundary":"stage2",
+"agreementWithCodex":"AGREE",
+"agreementReasoning":"I traced each matrix row against the stage2 text and found the six-for-six disclosure before opening the proposal, and I derived stage2 as the boundary independently. Codex identifies the same disclosure, the same boundary, and the same device-policy concern about improvised shortening, and correctly asks for sibling re-review including the agitation content. I verified the item's three-tier clinical model against the Joint Commission material rather than the registry pointer, which confirms the key is not merely plausible but matches the governing standard's own wording about removal without adversely affecting medical care.",
+"producerIndependent":true
+}]

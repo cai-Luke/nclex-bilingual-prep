@@ -1,0 +1,184 @@
+{
+ "reviewSeat": "Claude Opus 5, producer-independent",
+ "producer": "Codex / GPT-6 Phase-A proposals",
+ "note": "Producer dispositions were treated as proposals. Every row was independently derived from the current parent before the producer proposal or either Campaign-16 judgment was read.",
+ "counts": {
+  "reviewer": {
+   "CONTENT_REPAIR_REQUIRED": 47,
+   "REPLACEMENT_CANDIDATE": 2,
+   "ANCHOR_ONLY_REPAIR_CANDIDATE": 17
+  },
+  "producer": {
+   "CONTENT_REPAIR_REQUIRED": 40,
+   "ANCHOR_ONLY_REPAIR_CANDIDATE": 20,
+   "REPLACEMENT_CANDIDATE": 4,
+   "REVIEW_HOLD": 2
+  }
+ },
+ "agreement": {
+  "AGREE_WITH_ADDITIONS": 26,
+  "AGREE": 28,
+  "DISAGREE": 5,
+  "AGREE_ON_DISPOSITION_DISAGREE_ON_BOUNDARY": 4,
+  "PARTIAL_DISAGREE": 1,
+  "RESOLVED_HOLD": 2
+ },
+ "dispositionChanges": [
+  {
+   "partId": "opus_case_lithium_toxicity_q2",
+   "packetId": "parent-03",
+   "from": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+   "to": "CONTENT_REPAIR_REQUIRED",
+   "why": "Codex proposes baseline with no content work, reasoning that hiding stage_1 removes the disclosure. I derived the boundary and the disclosure independently and agree stage_1 is answer-supplying, but the proposed cure creates a new defect the producer did not check for: distractor D ('the continuous normal saline infusion') and its rationale depend on a fluid order that exists only in the stage the"
+  },
+  {
+   "partId": "opus_case_lithium_toxicity_q3",
+   "packetId": "parent-03",
+   "from": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+   "to": "CONTENT_REPAIR_REQUIRED",
+   "why": "Codex proposes baseline with no content work. I independently derived stage_2 as the earliest boundary at which the keyed findings exist, and independently found the stage_2 recitation of the answer triad, before reading any proposal. The producer's own record acknowledges that 'stage_2 nephrologist explicitly recites the selected indication triad' yet still assigns ANCHOR_ONLY, which is internall"
+  },
+  {
+   "partId": "cs_thyroid_storm_q2",
+   "packetId": "parent-11",
+   "from": "REPLACEMENT_CANDIDATE",
+   "to": "CONTENT_REPAIR_REQUIRED",
+   "why": "I independently identified the non-unique key from the item's own steroid rationale and the STAT order before reading the frozen judgments, matching the Campaign-16 producer's exception, and I endorse Codex's explicit instruction not to delay the STAT steroid to rescue the old key. I differ on severity: Codex proposes replacement, and I find the item repairable in place by removing the one element"
+  },
+  {
+   "partId": "opus24_case_elder_neglect_med_mismanagement_01_q4",
+   "packetId": "parent-14",
+   "from": "REVIEW_HOLD",
+   "to": "CONTENT_REPAIR_REQUIRED",
+   "why": "I inspected the parent and derived the disclosure and the magnesium-order dependency independently before reading the hold. Codex's diagnosis of the tension is accurate and its two constraints are both correct - baseline cannot prove an existing magnesium order, and stage_2 substantially supplies the tested actions. What Codex treated as an unresolvable fork I find resolvable, because the two cons"
+  },
+  {
+   "partId": "opus_agvd_case_agvhd_01_q6",
+   "packetId": "parent-16",
+   "from": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+   "to": "CONTENT_REPAIR_REQUIRED",
+   "why": "Codex proposes baseline with no content work. I reject both the boundary and the disposition. The boundary is untenable and the evidence is unusually clear: every row describes a CHANGE, and at baseline the comparators do not exist and two rows actively invert. Baseline bilirubin is 2.1 mg/dL, so a row reading 'Total bilirubin decreased to 2.4 mg/dL' would present as a RISE; baseline rash is about"
+  },
+  {
+   "partId": "gpt_case_hipaa_disclosure_breach_01_q4",
+   "packetId": "parent-20",
+   "from": "REVIEW_HOLD",
+   "to": "CONTENT_REPAIR_REQUIRED",
+   "why": "I read the parent and identified the irreversible-deletion problem independently, including the fact that the case's policy exhibit specifies escalation and reporting but is silent on photo handling and evidence preservation. Codex's diagnosis is accurate and its constraint against presenting HIPAA as mandating deletion is right. Where Codex stopped at a hold, I resolve it: I verified against the "
+  },
+  {
+   "partId": "gpt_case_taco_vs_trali_01_q2",
+   "packetId": "parent-26",
+   "from": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+   "to": "CONTENT_REPAIR_REQUIRED",
+   "why": "Codex proposes stage_2 with no content work, and its stage reasoning is right as far as it goes - stage_3's imaging and BNP and stage_4's explicit diagnosis must indeed be hidden. I reach the same boundary independently. But the producer treated stage hiding as sufficient and did not survey the sibling surfaces. I did, and found that two baseline-anchored sibling stems name TACO in plain text and "
+  },
+  {
+   "partId": "cs_stemi_vfib_04_part_2",
+   "packetId": "parent-31",
+   "from": "REPLACEMENT_CANDIDATE",
+   "to": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+   "why": "Codex proposes replacing the total-order construct in place, on the grounds that it needs a narrower current-algorithm decision with explicitly bounded dependencies, plus a confirmed pulse assessment in the stimulus and independent review of the epinephrine language. I reach a different conclusion on each. First, the ordering: I independently mounted the shock-first challenge that would make a tot"
+  }
+ ],
+ "boundaryChanges": [
+  {
+   "partId": "opus_case_lithium_toxicity_q1",
+   "producer": null,
+   "reviewer": "HOLD_PENDING_CONTENT_DECISION"
+  },
+  {
+   "partId": "opus_case_lithium_toxicity_q2",
+   "producer": "baseline",
+   "reviewer": "stage_1"
+  },
+  {
+   "partId": "opus_case_lithium_toxicity_q3",
+   "producer": "baseline",
+   "reviewer": "stage_2"
+  },
+  {
+   "partId": "opus_case_lithium_toxicity_q4",
+   "producer": null,
+   "reviewer": "stage_2"
+  },
+  {
+   "partId": "gemini_gap_case_palliative_care_03_q2",
+   "producer": null,
+   "reviewer": "HOLD_PENDING_REPLACEMENT"
+  },
+  {
+   "partId": "gpt_case_neutropenic_fever_nadir_01_q5",
+   "producer": "baseline",
+   "reviewer": "stage_3"
+  },
+  {
+   "partId": "gpt_case_nine_month_well_child_safety_01_q6",
+   "producer": "baseline",
+   "reviewer": "stage_3"
+  },
+  {
+   "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03_q1",
+   "producer": "baseline",
+   "reviewer": "HOLD_PENDING_CONTENT_DECISION"
+  },
+  {
+   "partId": "cs_thyroid_storm_q2",
+   "producer": null,
+   "reviewer": "stage_0830"
+  },
+  {
+   "partId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q6",
+   "producer": "baseline",
+   "reviewer": "stage3"
+  },
+  {
+   "partId": "opus_tpn_case_mucositis_01_q3",
+   "producer": null,
+   "reviewer": "HOLD_PENDING_REPLACEMENT"
+  },
+  {
+   "partId": "opus24_case_elder_neglect_med_mismanagement_01_q4",
+   "producer": null,
+   "reviewer": "stage_2_ed_initial"
+  },
+  {
+   "partId": "opus_agvd_case_agvhd_01_q6",
+   "producer": "baseline",
+   "reviewer": "stage_3"
+  },
+  {
+   "partId": "gpt_case_hipaa_disclosure_breach_01_q4",
+   "producer": null,
+   "reviewer": "stage_1"
+  },
+  {
+   "partId": "cs_stemi_vfib_04_part_2",
+   "producer": null,
+   "reviewer": "stage_1415"
+  }
+ ],
+ "anchorOnlyAudit": {
+  "producerProposed": 20,
+  "survivedAffirmativeScrutiny": 16,
+  "convertedToContentRepair": [
+   "opus_case_lithium_toxicity_q2",
+   "opus_case_lithium_toxicity_q3",
+   "opus_agvd_case_agvhd_01_q6",
+   "gpt_case_taco_vs_trali_01_q2"
+  ]
+ },
+ "holdsResolved": [
+  {
+   "partId": "opus24_case_elder_neglect_med_mismanagement_01_q4",
+   "resolvedTo": "CONTENT_REPAIR_REQUIRED",
+   "boundary": "stage_2_ed_initial"
+  },
+  {
+   "partId": "gpt_case_hipaa_disclosure_breach_01_q4",
+   "resolvedTo": "CONTENT_REPAIR_REQUIRED",
+   "boundary": "stage_1"
+  }
+ ],
+ "frozenAt": "2026-09-12T21:08:30.069333+00:00"
+}

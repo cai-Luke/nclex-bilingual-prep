@@ -1,0 +1,37 @@
+[{
+"rowKey":"__FILL__","packetId":"parent-28","bankPath":"banks/gpt-canonical.json",
+"parentCaseId":"gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04","partId":"gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q2",
+"reviewerDerivedProposition":"The caregiver's teach-back describes two unsafe departures from the ordered method - hydrogen peroxide instead of normal saline, and tight packing - so this is a failed teach-back with unsafe steps rather than a wording preference or evidence of readiness. The nurse stops the independent return demonstration, re-teaches using the ordered supplies, and coaches a further return demonstration.",
+"requiredFacts":[
+"The ordered method - cleanse with normal saline, apply the prescribed dressing daily, offload with the boot - baseline_wound.",
+"The caregiver's quoted teach-back response naming hydrogen peroxide and tight packing - stage_2_teachback ONLY.",
+"Nothing in stage_3_followup is required."],
+"earliestDefensibleBoundary":"stage_2_teachback",
+"boundaryIsTerminalStage":false,
+"stagesVisibleAtBoundary":["stage_1_observation","stage_2_teachback"],
+"stagesHiddenAtBoundary":["stage_3_followup"],
+"prefixDisclosesAnswer":true,
+"disclosureEvidence":"TWO disclosures. The decisive one is the always-visible SUMMARY, which states that 'the caregiver initially demonstrates unsafe wound-care understanding', and in Chinese '照护者最初显示出不安全的伤口护理理解'. Keyed dropdown 1 is 'teach-back failure with unsafe wound-care steps'. The summary is a global surface rendered at every boundary, so no anchor reaches it, and it hands the learner the first blank almost verbatim. Separately, stage_3_followup supplies the second blank: it records that the nurse 're-teaches hand hygiene, clean field setup ... offloading boot use' and that the 'Spouse performs a correct return demonstration after coaching', which is keyed dropdown 2. Hiding stage_3 is therefore necessary but not sufficient.",
+"reviewerDisposition":"CONTENT_REPAIR_REQUIRED",
+"clinicalVerdict":"Both keys are correct and the distractors are genuinely wrong. Verified that hydrogen peroxide is markedly cytotoxic to skin cells while saline is among the least toxic cleansers - a published toxicity index places saline at 0 and hydrogen peroxide at 100,000 for keratinocytes, with hydrogen peroxide reducing fibroblast proliferation and increasing necrosis - so substituting it for the ordered saline is a real harm, not a supply preference. Verified also that loose packing is appropriate while tight packing causes complications by obstructing drainage and expanding wound cavities, so the caregiver's 'pack the gauze tightly so it closes faster' is unsafe and rests on an incorrect healing model. The strategy is well framed, teaching that a failed teach-back is a signal to change the teaching method rather than a learner failure. THE DEFECT IS DISCLOSURE BY THE SUMMARY, NOT CLINICAL.",
+"contentDefects":[
+"PRIMARY: the bilingual case summary announces the answer to dropdown 1 by describing the caregiver as demonstrating unsafe wound-care understanding. Being a global surface, it is unreachable by any anchor.",
+"OBSERVATION, MEDIUM confidence, out of scope: non-residual sibling q5 is baseline-anchored yet asks the learner to order 'the nurse's teaching actions ... during the Stage 3 home visit', which both cites a stage its own boundary hides and covers the same re-teaching sequence keyed in this row's dropdown 2. Non-residual sibling q4 likewise quotes Stage 3 measurements from a baseline anchor. I make no finding on either, but the integration seat will be in this parent and should look at them."],
+"bilingualVerdict":"PARALLEL - stem, clozeStem, all six dropdown options, both keys, rationale, both byChoice entries and strategy are semantically equivalent EN/ZH. The summary discloses equally in both languages, so the repair is bilingual.",
+"confidence":"HIGH",
+"sourcesChecked":[
+"Comparative wound-cleanser toxicity literature located via NIH domain search, including an in vitro toxicity index for skin and wound cleansers - confirms saline as least toxic to fibroblasts and hydrogen peroxide as highly toxic, with reduced fibroblast proliferation and increased necrosis. This underwrites the first unsafe step.",
+"Wound-packing literature via the same search - confirms loose packing as appropriate and documents complications from tight packing including fluid cavity formation and impaired healing. This underwrites the second unsafe step."],
+"siblingImpact":"MODERATE. The summary is a global surface visible to all five parts, but the change removes an editorial characterisation rather than clinical data, so it cannot strand any sibling. I checked each sibling stem and none depends on the summary's 'unsafe' framing. No clinical value changes.",
+"repairConstraints":[
+"Neutralise the bilingual parent summary so it describes a home wound-care teaching visit without announcing that the caregiver's understanding is unsafe or that teach-back failed. Apply in EN and ZH.",
+"Preserve the quoted stage_2 caregiver response verbatim and the prescribed method in baseline_wound; those are the evidence the item turns on and must not be softened.",
+"Preserve both dropdown keys and all six option texts.",
+"Anchor to stage_2_teachback after repair; hiding stage_3_followup is required because it supplies dropdown 2.",
+"Review the sibling observations above before touching the parent."],
+"criticalNote":"This is the first row in the review where the leaking global surface is the SUMMARY rather than the title. The remediation class is the same, and I recommend the integration seat's diagnostic-surface survey cover titles AND summaries.",
+"codexProposedDisposition":"CONTENT_REPAIR_REQUIRED","codexProposedBoundary":"stage_2_teachback",
+"agreementWithCodex":"AGREE",
+"agreementReasoning":"I read the summary against keyed dropdown 1 and found the disclosure before opening the proposal, and I derived stage_2_teachback independently. Codex identifies the same surface and the same boundary and correctly instructs that the quoted response and prescribed method be preserved while the announcing language is neutralised. I verified both clinical premises - peroxide cytotoxicity and tight packing - against primary literature rather than accepting them, and I add the sibling observations about q4 and q5, which Codex's sibling-effects instruction asks for but does not itself supply. Note the Campaign-16 seats were inverted here relative to most of this population: the producer said baseline and the checker said stage_2; the checker was right.",
+"producerIndependent":true
+}]

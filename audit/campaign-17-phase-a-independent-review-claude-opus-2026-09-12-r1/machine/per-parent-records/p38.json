@@ -1,0 +1,40 @@
+[{
+"rowKey":"__FILL__","packetId":"parent-38","bankPath":"banks/hard-cases-canonical.json",
+"parentCaseId":"opus_scc_case_01","partId":"opus_scc_case_01_q2",
+"reviewerDerivedProposition":"The MRI has confirmed cord compression and the neurological examination is deteriorating hour by hour - strength falling, the sensory level rising, new perineal numbness, new retention. A time-critical corticosteroid has been prescribed to reduce the vasogenic oedema around the compressed cord. Administering it is the immediate priority: a full head-to-toe assessment is routine work that would delay it, catheterisation for the retention follows immediately but does not protect the cord, and emotional support, though genuinely part of the nurse's role, does not alter the trajectory.",
+"requiredFacts":[
+"The MRI confirmation of an epidural mass at T7 with greater than 50 percent canal narrowing and cord oedema - stage_1 ONLY.",
+"The prescribed urgent regimen - dexamethasone 10 mg IV bolus now then 4 mg IV every 6 hours - stage_1 ONLY.",
+"The documented deterioration between baseline and Stage 1 - strength 4/5 falling to 3/5, sensory level rising from T8 to T7, new perineal numbness, foot drop - baseline global exhibit and stage_1.",
+"The bladder finding that distractor opt_c turns on - stage_1: a repeat bladder scan showing 420 mL, performed BECAUSE THE PATIENT HAS NOT VOIDED despite adequate intake over three hours.",
+"Nothing in stage_2 or stage_3 is required."],
+"earliestDefensibleBoundary":"stage_1",
+"boundaryIsTerminalStage":false,
+"stagesVisibleAtBoundary":["stage_1"],
+"stagesHiddenAtBoundary":["stage_2","stage_3"],
+"prefixDisclosesAnswer":true,
+"disclosureEvidence":"Hiding the later stages is necessary: stage_2 opens 'The dexamethasone bolus was administered and the scheduled doses are running', which is keyed option opt_a as an accomplished fact, and also records that the nurse obtained an order for and placed an indwelling catheter, which resolves distractor opt_c. Within the boundary stage the disclosure is partial rather than total: stage_1 states the order as an immediate bolus 'now' under an 'urgent MSCC dexamethasone protocol', which signals urgency strongly, but it does not rank the four candidate actions against one another, which is the judgement the item asks for.",
+"reviewerDisposition":"CONTENT_REPAIR_REQUIRED",
+"clinicalVerdict":"The key is correct and well supported. Verified against NICE guidance for metastatic spinal cord compression: dexamethasone should be offered as soon as possible to people with neurological symptoms or signs, given promptly as initial management and not held for imaging, with the intent of reducing cord swelling and relieving pressure. The item's framing that time is critical and that a routine full assessment must not delay the prescribed dose is therefore right, and the rationale is appropriately hedged - it says the steroid 'can halt or slow' deterioration rather than guaranteeing prevention, so Codex's caution on that point is already satisfied by the text. All three distractors name genuinely appropriate nursing actions that are simply not the immediate priority, which makes this a clean prioritisation item rather than one with filler. THE DEFECT IS A MEASUREMENT MISLABEL IN THE opt_c RATIONALE, which reads 'Catheter insertion is indicated for the patient's urinary retention (420 mL post-void residual)'. The 420 mL is NOT a post-void residual. stage_1 states the scan was performed precisely because the patient HAS NOT VOIDED over three hours, so the figure is a retained bladder volume in a client unable to void. The parent does contain a true post-void residual - 280 mL at baseline - so the item conflates two distinct measurements that both appear in this case. The distinction is clinically meaningful, because inability to void with a rising bladder volume in evolving cord compression is a more ominous finding than an elevated residual after voiding.",
+"contentDefects":[
+"PRIMARY: the opt_c rationale describes the Stage 1 bladder volume of 420 mL as a post-void residual when the patient had not voided; the true post-void residual in this parent is the 280 mL recorded at baseline.",
+"OBSERVATION, not a defect: the case's regimen of 10 mg IV then 4 mg every 6 hours differs from the 16 mg initial dose NICE describes, but the case explicitly frames it as an institutional urgent protocol and the keyed action is to administer as prescribed, so the item does not depend on the dose matching any external standard. I record it so the integration seat is not surprised by the difference."],
+"bilingualVerdict":"PARALLEL - stem, four options, key, rationale, four byChoice entries and strategy are semantically equivalent EN/ZH. The mislabel is reproduced in Chinese, so the correction must be applied in both languages.",
+"confidence":"HIGH",
+"sourcesChecked":[
+"NICE guidance on metastatic spinal cord compression, located via nice.org.uk and NIH domain search (CG75 and NG234 and the associated NCBI Bookshelf evidence reviews) - verified that dexamethasone is offered as soon as possible for neurological symptoms or signs, is given promptly as initial management without awaiting imaging, and is intended to reduce cord swelling and relieve pressure. This underwrites the key and the urgency framing.",
+"The mislabel finding rests on reading the stage_1 exhibit directly against the opt_c rationale, and on locating the parent's genuine post-void residual at baseline."],
+"siblingImpact":"LOW BUT REAL. The repair is confined to q2's opt_c rationale. Codex correctly flags that the matching sibling phrasing should be checked, since the same bladder finding is likely referenced elsewhere in the parent - note that sibling q6 carries a resolving stage_2 anchor and other siblings are baseline-anchored, so any parallel mislabel in those parts would be accepted content requiring its own review rather than something this row may change.",
+"repairConstraints":[
+"Correct the opt_c rationale in EN and ZH so the 420 mL is described as a retained bladder volume in a client unable to void, rather than as a post-void residual.",
+"Check the sibling parts for the same conflation and, if present, route those corrections separately as changes to accepted content.",
+"Keep the immediate prescription as the case's own order; do not rewrite the regimen to match an external guideline dose.",
+"Do not imply that corticosteroids should await MRI in general, and do not strengthen the rationale into a guarantee that further deficit is prevented - the current hedged wording is correct and should be preserved.",
+"Preserve the key and all four option texts.",
+"Anchor to stage_1 after repair."],
+"criticalNote":"This is the final row of the 66-row population. Its defect is the smallest I adjudicated - a single mislabelled measurement - but it is a genuine clinical-terminology error inside a rationale, and the parent itself contains both measurements, so the conflation is demonstrable from the artifact alone.",
+"codexProposedDisposition":"CONTENT_REPAIR_REQUIRED","codexProposedBoundary":"stage_1",
+"agreementWithCodex":"AGREE",
+"agreementReasoning":"I derived stage_1 independently and found the post-void-residual mislabel by reading the opt_c rationale against the stage_1 exhibit before opening the proposal; Codex names the same correction and the same boundary. I verified the MSCC steroid premise against NICE rather than the registry pointer. I record two refinements: Codex's caution against implying steroids must await MRI or guaranteeing prevention of further deficit is ALREADY satisfied by the existing hedged wording, so it is a constraint on the repair rather than a defect to fix; and the parent contains a genuine post-void residual of 280 mL at baseline, which is what makes the Stage 1 conflation demonstrable rather than merely imprecise.",
+"producerIndependent":true
+}]

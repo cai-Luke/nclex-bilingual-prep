@@ -1,0 +1,1330 @@
+[
+ {
+  "rowKey": "ee56ac60cc709ab2",
+  "packetId": "parent-14",
+  "bankPath": "banks/claude-canonical.json",
+  "parentCaseId": "opus24_case_elder_neglect_med_mismanagement_01",
+  "partId": "opus24_case_elder_neglect_med_mismanagement_01_q4",
+  "reviewerDerivedProposition": "Peripheral intravenous potassium is never given by push. The nurse controls the rate with an infusion pump, confirms continuous cardiac monitoring is running before starting because hypokalaemia is already producing conduction change, watches the peripheral site for the phlebitis and infiltration that potassium characteristically causes, ensures the co-ordered magnesium is actually being given because potassium replacement fails while magnesium is depleted, and continues rhythm and laboratory surveillance afterwards including for overcorrection.",
+  "requiredFacts": [
+   "The potassium order with dose, diluent, duration and route - stage_2_ed_initial, BUT the q4 stem restates it in full, so this much is self-carrying.",
+   "Existing conduction abnormality justifying telemetry - stage_2 (sinus bradycardia with prominent U waves, flattened T waves, prolonged QT).",
+   "The magnesium order that keyed option E asks the nurse to confirm - stage_2_ed_initial ONLY. Baseline establishes magnesium 1.4 mEq/L (low) but an existing ORDER cannot be inferred from a low value.",
+   "The repeat-laboratory order underlying keyed option F - stage_2_ed_initial ('Repeat labs after potassium infusion').",
+   "Nothing in stage_3_six_hours_ed is required."
+  ],
+  "earliestDefensibleBoundary": "stage_2_ed_initial",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage_1_home_visit_action",
+   "stage_2_ed_initial"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage_3_six_hours_ed"
+  ],
+  "prefixDisclosesAnswer": true,
+  "disclosureEvidence": "The stage_2 order sentence supplies four of the five keyed actions almost verbatim. It reads: 'potassium chloride 10 mEq in 100 mL NS IV over 1 hour through a peripheral line USING AN INFUSION PUMP; ED protocol limits peripheral potassium to 10 mEq/hr and no more than 10 mEq/100 mL WITH CONTINUOUS TELEMETRY. MAGNESIUM SULFATE 2 g IV over 1 hour. ... REPEAT LABS AFTER POTASSIUM INFUSION.' Keyed A is the pump, keyed B is the telemetry, keyed E is the magnesium, and keyed F's laboratory limb is the repeat-labs order. Only keyed C, site monitoring, is genuinely undisclosed, and distractor D is already excluded by the stem's own 'over 1 hour'. A learner who reads the stage can score four of five by transcription. The ZH exhibit carries the identical enumeration.",
+  "reviewerDisposition": "CONTENT_REPAIR_REQUIRED",
+  "clinicalVerdict": "Clinically the item is sound and I found no error. The order itself is safe and, unlike the superficially similar potassium item in parent-03, correctly complies with a stated limit: 10 mEq in 100 mL over one hour is 10 mEq/hr at 100 mEq/L, within both the ED protocol the case states and the general peripheral threshold, above which phlebitis is expected. Keyed option E is well founded: verified that 'Potassium replacement alone may be ineffective if hypokalemia occurs concurrently with hypomagnesemia', that low magnesium increases urinary potassium loss and hinders replacement, and that concomitant hypomagnesaemia should be corrected - and this client's magnesium is 1.4 mEq/L. Distractor D is correctly and importantly wrong. The option set also discriminates properly, containing one genuinely incorrect option. THE DEFECT IS NOT CLINICAL BUT CONSTRUCTIONAL: at the only boundary that supports the magnesium and repeat-laboratory limbs, the stage narrates the very nursing actions the item asks the learner to choose.",
+  "contentDefects": [
+   "PRIMARY: the boundary stage prescribes four of the five keyed actions in its own order text, converting the item from a nursing-judgement task into exhibit retrieval."
+  ],
+  "bilingualVerdict": "PARALLEL - stem, six options, key, rationale and all six byChoice entries are semantically equivalent EN/ZH. I checked the Chinese order text in stage_2 specifically, given the answer-affecting Chinese dosing-duration defect found elsewhere in this population, and found no such divergence here: the Chinese renders the one-hour infusion correctly. No language-specific defect.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "StatPearls Hypokalemia (https://www.ncbi.nlm.nih.gov/books/NBK482465/) - read directly for the magnesium premise. Verbatim: 'Potassium replacement alone may be ineffective if hypokalemia occurs concurrently with hypomagnesemia'; 'Low serum magnesium levels can also increase urine potassium loss, exacerbating hypokalemia and hindering replacement efforts'; 'Concomitant hypomagnesemia should also be corrected if present.' The same source's peripheral-rate threshold, read earlier in this review, confirms that this order is within safe peripheral limits."
+  ],
+  "siblingImpact": "LOW. The repair edits the stage_2 order sentence, a stage surface. Every sibling in this parent - q1, q2, q3, q5 and q6 - is baseline-anchored and non-residual, so none can see stage_2 once anchors resolve, and none is affected. The edit removes prescriptive detail only and cannot newly disclose anything.",
+  "repairConstraints": [
+   "Edit the stage_2 order text in EN and ZH so it states the potassium order's dose, diluent, route and duration and the numeric ED protocol limits, but does NOT prescribe the infusion pump or continuous telemetry as part of the narrative. Those are the nursing actions under test.",
+   "PRESERVE the magnesium sulfate order and the repeat-laboratory order in stage_2. Keyed options E and F depend on them and would be stranded without them. This is why the boundary cannot retreat to baseline.",
+   "PRESERVE telemetry as a clinical finding - the sinus bradycardia with U waves and prolonged QT must remain - so that keyed option B is supported as a clinical inference rather than as a copied instruction.",
+   "PRESERVE the numeric protocol limits (10 mEq/hr, 10 mEq/100 mL); they let the learner verify the order complies and are not themselves keyed actions.",
+   "Do not alter the q4 stem, options, key or rationales; the item is clinically correct as written.",
+   "Anchor to stage_2_ed_initial after repair."
+  ],
+  "criticalNote": "RESOLUTION OF PRODUCER REVIEW_HOLD. Codex held this row and asked the independent reviewer to choose between a revised self-contained administration stem and approving stage_2 as a protocol-application construct. I resolve it and take neither option exactly. Approving stage_2 as it stands is not available: four of five keyed actions are written into the stage, so the construct would be retrieval rather than application, and Codex's own caution against resolving this by declaring all potassium monitoring universally identical is correct. A fully self-contained stem with a baseline anchor is also not available, because keyed options E and F depend on the magnesium and repeat-laboratory ORDERS, and an order cannot be inferred from a low magnesium value alone - Codex identifies this obstacle correctly. The resolution is the third route: keep the boundary at stage_2, which is the only boundary that supports the full key, and remove from the stage narrative the two modalities that constitute the answer. That converts the item into the genuine protocol-application construct Codex hoped to approve, without stranding anything. The row therefore leaves HOLD and becomes an ordinary content repair with a determined boundary.",
+  "codexProposedDisposition": "REVIEW_HOLD",
+  "codexProposedBoundary": null,
+  "agreementWithCodex": "RESOLVED_HOLD",
+  "agreementReasoning": "I inspected the parent and derived the disclosure and the magnesium-order dependency independently before reading the hold. Codex's diagnosis of the tension is accurate and its two constraints are both correct - baseline cannot prove an existing magnesium order, and stage_2 substantially supplies the tested actions. What Codex treated as an unresolvable fork I find resolvable, because the two constraints bind different parts of the stage text: the magnesium and repeat-laboratory orders must stay, while the pump and telemetry prescriptions can go. Separating them dissolves the dilemma. I also add the affirmative clinical verification of keyed option E, the observation that this order correctly complies with its stated protocol in contrast to the parent-03 potassium item, and a targeted check of the Chinese dosing duration that found no counterpart to the bilingual defect found elsewhere. The Campaign-16 producer's stage_2_ed_initial boundary was right and the checker's baseline was wrong.",
+  "producerIndependent": true,
+  "sourceParentSha256": "42b9640355cb214077da0ee904484568f290fbd64401631cc3c7b461838a3b32"
+ },
+ {
+  "rowKey": "4170e57ae9a4c3ec",
+  "packetId": "parent-15",
+  "bankPath": "banks/gemini-canonical.json",
+  "parentCaseId": "gemini_gap_case_lead_poisoning_01",
+  "partId": "gemini_gap_case_lead_poisoning_01_q2",
+  "reviewerDerivedProposition": "A confirmed venous blood lead level of 18 mcg/dL is elevated but well below the chelation threshold. The correct response is environmental and nutritional education aimed at removing the exposure and reducing absorption, together with scheduled repeat venous testing. It is neither a normal result, nor an indication for inpatient chelation, nor a situation in which activated charcoal has any role.",
+  "requiredFacts": [
+   "The venous blood lead level of 18 mcg/dL and the CDC reference value - stage_lead_labs. The q2 stem restates the value itself, so the stem is partly self-carrying, but the reference value that makes 18 interpretable is in the stage.",
+   "The exposure source supporting the environmental limb of the keyed action - baseline (1950 rental home, peeling paint on playroom windowsills, hand-to-mouth behaviour, positive risk questionnaire).",
+   "Nothing in stage_lead_education is required to answer."
+  ],
+  "earliestDefensibleBoundary": "stage_lead_labs",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage_lead_labs"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage_lead_education"
+  ],
+  "prefixDisclosesAnswer": false,
+  "disclosureEvidence": "stage_lead_labs contains only the laboratory value and the CDC reference value; it prescribes no action and names no management option. Hiding stage_lead_education is NECESSARY rather than cosmetic: that stage states 'The nurse is developing an educational plan for the parents to reduce lead exposure and absorption. The focus is on environmental control in the home and dietary changes that reduce lead uptake', which is keyed option A restated. The current fail-open render therefore discloses this item's answer, and the anchor genuinely repairs it.",
+  "reviewerDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "clinicalVerdict": "Correct and verified against the CDC clinical guidance for childhood lead exposure. For a confirmed venous level in the 10-19 mcg/dL band, CDC's follow-up table specifies early follow-up testing at 1-3 months and later follow-up at 3-6 months, with management including environmental investigation, iron-deficiency screening, nutritional counselling, developmental assessment and health-department reporting. Keyed option A states exactly the 1-to-3-month repeat venous test plus environmental education and is correct. Chelation is reserved for levels at or above 45 mcg/dL, so distractor B is correctly excluded and the rationale's threshold is right. The CDC blood lead reference value of 3.5 mcg/dL cited in the stage exhibit is current, so distractor C is correctly wrong. Activated charcoal does not bind lead, so distractor D is correctly wrong and is a genuine error rather than filler. The item's rationale also correctly frames education plus retesting as the standard for the 3.5 to 44 mcg/dL range. I found no clinical error, no invented fact and no unsupported premise.",
+  "contentDefects": [],
+  "bilingualVerdict": "PARALLEL - I read the Chinese against the English for the stem, all four options, the key rationale, all four byChoice entries and the strategy. Each pair is semantically equivalent, including the numerically load-bearing thresholds: option A's '1至3个月内复查静脉血铅', the rationale's '≥45 mcg/dL' chelation threshold and the '≥3.5 mcg/dL' reference value all match their English counterparts exactly. No language-specific defect.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "CDC clinical guidance on childhood lead poisoning prevention (https://www.cdc.gov/lead-prevention/hcp/clinical-guidance/index.html) - read directly. Table 2 gives early follow-up testing at 1-3 months for a confirmed venous level of 10-19 mcg/dL, which is the band containing this client's 18 mcg/dL, and confirms the management bundle and the chelation threshold at or above 45 mcg/dL. This verifies the specific numeric interval keyed in option A rather than merely the general management direction."
+  ],
+  "siblingImpact": "NONE. This is an anchor-only repair; no learner-facing text changes, so no sibling can be affected. Siblings q1, q3 and q4 are baseline-anchored and non-residual.",
+  "repairConstraints": [
+   "Set answerableAfterStageId to stage_lead_labs. No content change of any kind is required or authorised by this row.",
+   "Do not anchor at baseline. Although the stem restates the value of 18 mcg/dL, the CDC reference value that makes it interpretable lives in stage_lead_labs, and at baseline no blood lead result exists at all."
+  ],
+  "criticalNote": "This row survives affirmative scrutiny as a true anchor-only repair. I applied the adversarial tests that converted other proposed anchor-only rows in this review to content repairs - stranded option values under the proposed boundary, dangling stage citations, undisclosed or unestablished premises, non-unique keys, and bilingual divergence in a load-bearing number - and this row passes all of them. The anchor also does real work, hiding a stage that currently restates the keyed option.",
+  "codexProposedDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "codexProposedBoundary": "stage_lead_labs",
+  "agreementWithCodex": "AGREE",
+  "agreementReasoning": "I derived stage_lead_labs independently as the earliest boundary at which the result and its reference value exist, and independently confirmed that stage_lead_education restates keyed option A and must be hidden. Codex reached the same boundary with no content work. I treated the absence of proposed edits as a claim to test rather than accept, verified the keyed retest interval and the chelation threshold against the CDC guidance rather than assuming them, and read the Chinese in full. The Campaign-16 producer's stage_lead_labs was correct; the checker's baseline was too early because no lead result exists at baseline.",
+  "producerIndependent": true,
+  "sourceParentSha256": "12fe26dde8611b95b7009d0e08d242c98e092da1977892397ec37bb62c3b439f"
+ },
+ {
+  "rowKey": "47e8dfe5f72a69a4",
+  "packetId": "parent-16",
+  "bankPath": "banks/gemini-canonical.json",
+  "parentCaseId": "opus_agvd_case_agvhd_01",
+  "partId": "opus_agvd_case_agvhd_01_q6",
+  "reviewerDerivedProposition": "Forty-eight hours after ruxolitinib was added to corticosteroids, the falling stool volume with resolution of bleeding, the stabilising and fading rash, and the declining bilirubin are all evidence that the graft-versus-host disease is responding. The hyperglycaemia is an iatrogenic corticosteroid effect rather than disease response, and the absence of fever cannot be read as absence of infection in a client rendered profoundly immunosuppressed by combined corticosteroid and JAK-inhibitor therapy, which blunts the febrile response.",
+  "requiredFacts": [
+   "Every one of the five rows is built on stage_3 content: stool 900 mL/24h without blood, rash stabilised and fading at about 40 percent body surface area, glucose 162 mg/dL, total bilirubin 2.4 mg/dL, and the fact that the client is on ruxolitinib plus high-dose corticosteroids and is afebrile.",
+   "The comparators that make the rows read as improvement are in stage_2: stool 2,200 mL with visible blood, rash about 50 percent body surface area, total bilirubin 3.6 mg/dL.",
+   "Methylprednisolone, which makes the glucose row iatrogenic, is started in stage_1; ruxolitinib is added at the end of stage_2. NEITHER DRUG EXISTS AT BASELINE.",
+   "The organ staging thresholds the case itself supplies - gastrointestinal stage 1 is a diarrhoea volume of 500-999 mL/day, and liver stage 1 is a bilirubin of 2.0-3.0 mg/dL - are stated in stage_1."
+  ],
+  "earliestDefensibleBoundary": "stage_3",
+  "boundaryIsTerminalStage": true,
+  "stagesVisibleAtBoundary": [
+   "stage_1",
+   "stage_2",
+   "stage_3"
+  ],
+  "stagesHiddenAtBoundary": [],
+  "prefixDisclosesAnswer": true,
+  "disclosureEvidence": "stage_3 opens 'The patient has shown early but measurable improvement', which characterises the trajectory the item asks the learner to evaluate and directly supports the three rows keyed to therapeutic response. The genuinely discriminating work - recognising the glucose as a steroid effect and the absent fever as a masked signal - is not disclosed, so the disclosure is partial rather than total.",
+  "reviewerDisposition": "CONTENT_REPAIR_REQUIRED",
+  "clinicalVerdict": "The intended clinical reading is correct: the disease is responding, steroid hyperglycaemia is iatrogenic, and an afebrile state under corticosteroids plus a JAK inhibitor must not be equated with absence of infection - that last point is the item's best teaching moment and is well argued. THE DEFECT IS THAT THE KEY FORCES A FALSE EXCLUSIVITY, and the case's own staging criteria prove it. selectionMode is single_per_row across the columns 'Indicates Therapeutic Response' and 'Requires Continued Vigilance', and rows row_stool and row_bili are keyed to response ONLY. But stage_1 states the grading thresholds this very case uses: gastrointestinal stage 1 is 500-999 mL/day and liver stage 1 is bilirubin 2.0-3.0 mg/dL. At stage_3 the stool volume is 900 mL/day and the bilirubin is 2.4 mg/dL - both still inside the active-disease bands the case defined. A client with ongoing stage 1 gut and liver graft-versus-host disease plainly still requires continued vigilance. The key therefore marks wrong a learner who recognises that these values are simultaneously improving and still abnormal, and it does so against the case's own published criteria. The rash row is in the same position, at about 40 percent body surface area.",
+  "contentDefects": [
+   "PRIMARY: single_per_row exclusivity over two non-exclusive columns, with rows row_stool, row_bili and row_rash keyed response-only while the case's own staging thresholds place all three still within active disease.",
+   "SECONDARY: stage_3's opening sentence characterises the trajectory as improvement, partially supplying the three response rows."
+  ],
+  "bilingualVerdict": "PARALLEL - stem, both columns, all five rows, the key, the rationale and all five byChoice entries are semantically equivalent EN/ZH. The load-bearing numbers in the rows (900 mL, 162 mg/dL, 2.4 mg/dL) match exactly across languages. No language-specific defect.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "No external fetch was load-bearing, because the decisive evidence is internal: the case supplies its own organ-staging thresholds in stage_1 and the keyed values fall inside them. I used those thresholds rather than an external grading system precisely so the finding rests on the authored source. The pharmacological premises - corticosteroid hyperglycaemia and blunting of the febrile response by corticosteroids and JAK inhibition - are standard and I did not treat them as contested."
+  ],
+  "siblingImpact": "NONE for the key repair, which is confined to q6. Note that sibling q5 is already anchored at stage_2 and siblings q1-q4 at baseline, so no sibling sees stage_3. If the optional stage_3 opening-sentence edit is made to remove the trajectory characterisation, it likewise touches no sibling.",
+  "repairConstraints": [
+   "Resolve the exclusivity. Either widen selectionMode so a row may carry both columns and re-key row_stool, row_bili and row_rash as both improving and warranting continued vigilance, or redesign the columns so they are genuinely mutually exclusive - for example 'primary evidence of disease response' versus 'iatrogenic or masked finding' - and re-derive the key.",
+   "Whichever route is taken, the repaired key must be consistent with the organ-staging thresholds stated in stage_1; do not leave a keyed response-only row whose value sits inside the case's own active-disease band.",
+   "Preserve rows row_glucose and row_immuno and their rationales; both are correctly keyed and the immunosuppression row is the item's strongest content.",
+   "Optionally soften stage_3's opening 'has shown early but measurable improvement' so the stage reports the findings without grading the trajectory.",
+   "Anchor to stage_3 after repair."
+  ],
+  "criticalNote": "stage_3 is terminal, so the approved anchor hides nothing and the rendered surface is unchanged by anchoring. This row cannot be closed by the anchor repair.",
+  "codexProposedDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "codexProposedBoundary": "baseline",
+  "agreementWithCodex": "DISAGREE",
+  "agreementReasoning": "Codex proposes baseline with no content work. I reject both the boundary and the disposition. The boundary is untenable and the evidence is unusually clear: every row describes a CHANGE, and at baseline the comparators do not exist and two rows actively invert. Baseline bilirubin is 2.1 mg/dL, so a row reading 'Total bilirubin decreased to 2.4 mg/dL' would present as a RISE; baseline rash is about 30 percent body surface area, so a rash at 40 percent would present as spreading; baseline glucose is 118 mg/dL with no corticosteroid yet prescribed, so the steroid-hyperglycaemia reasoning has no basis; and row row_immuno names ruxolitinib and high-dose corticosteroids, neither of which exists at baseline. Hiding all three stages would therefore invert the intended key on three of five rows. My independent numeric-dependency screen flagged this row on four stage-only values before I read the proposal. Separately, the row is not repairable by anchoring at all, because the single-choice key forces an exclusivity that the case's own stage_1 staging thresholds contradict. Disposition changed from ANCHOR_ONLY_REPAIR_CANDIDATE to CONTENT_REPAIR_REQUIRED and boundary set to stage_3.",
+  "producerIndependent": true,
+  "sourceParentSha256": "aad9ebb09073d70cc930ad337f15e12c6267771dace3589a6559b826ce784a74"
+ },
+ {
+  "rowKey": "f9808a51e6bb06d4",
+  "packetId": "parent-17",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01",
+  "partId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q3",
+  "reviewerDerivedProposition": "Severe-range blood pressure confirmed on repeat after delivery, together with central nervous system features - headache, scotomata, hyperreflexia with clonus - and proteinuria, establishes postpartum preeclampsia with severe features. HELLP is excluded because the defining haemolysis, transaminase and platelet pattern is absent. Hypertension without severe features is excluded because severe-range pressures are paired with neurologic findings; a normotensive prenatal course and the absence of right upper quadrant pain are not what makes that distinction.",
+  "requiredFacts": [
+   "Severe-range BP on repeat, CNS symptoms, hyperreflexia with clonus, 3+ proteinuria - stage1.",
+   "The laboratory panel that excludes HELLP - stage2 ONLY: platelets 195 x10^3/uL, AST 34 U/L, ALT 28 U/L, LDH 198 U/L, plus urine protein-to-creatinine ratio 0.42 and uric acid 6.8 mg/dL which the two HELLP distractors cite.",
+   "Delivery-admission comparators - baseline_labs global exhibit.",
+   "Nothing in stage3 is required."
+  ],
+  "earliestDefensibleBoundary": "stage2",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage1",
+   "stage2"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage3"
+  ],
+  "prefixDisclosesAnswer": true,
+  "disclosureEvidence": "The parent TITLE is 'Late postpartum preeclampsia with severe features presenting after discharge', and the Chinese title likewise reads '出院后出现的迟发性产后子痫前期伴重度特征'. The title states the keyed answer of the dx dropdown verbatim. A title is a global surface rendered at every boundary, so no anchor can hide it. MORE SERIOUSLY, the disclosure is not confined to the title. Sibling q1's STEM reads 'highlight the findings that form the urgent preeclampsia-with-severe-features cluster requiring immediate emergency evaluation', and sibling q2's rationale states that the presentation classifies 'as preeclampsia with severe features'. Under P23 a case study is one top-level question with one aggregate submit and true unfolding reveal is deferred, so every part is presented together and q1's stem is visible to a learner answering q3.",
+  "reviewerDisposition": "CONTENT_REPAIR_REQUIRED",
+  "clinicalVerdict": "All three keys are clinically correct and I verified each against the Stage 2 panel. Keyed dx_pre is right: repeat severe-range pressures after delivery with headache, scotomata, hyperreflexia and clonus plus proteinuria is postpartum preeclampsia with severe features, and the neurologic findings alone suffice for the severe classification. Keyed hellp_normal is right and is directly supported by the numbers: platelets 195 x10^3/uL are normal, AST 34 and ALT 28 U/L are essentially normal, and LDH 198 U/L is normal, so none of the three HELLP components is present. The two HELLP distractors are properly wrong - a urine protein-to-creatinine ratio of 0.42 speaks to preeclampsia rather than to HELLP, and an elevated uric acid of 6.8 mg/dL is an associated finding that forms no part of the HELLP definition, which is exactly the trap the testTakingStrategy warns against. Keyed sev_bp_cns is right, and the distractors are properly wrong since absence of right upper quadrant pain and a normotensive prenatal course do not bear on severity classification. THE DEFECT IS NOT CLINICAL BUT A DISCLOSURE OF THE DIAGNOSIS ACROSS SHARED AND SIBLING SURFACES.",
+  "contentDefects": [
+   "PRIMARY: the bilingual parent title names the keyed diagnosis. Because the title is global it is visible at every boundary and cannot be repaired by anchoring.",
+   "PRIMARY AND MORE CONSEQUENTIAL: sibling q1's stem names 'the urgent preeclampsia-with-severe-features cluster'. Since all parts of a case render together under P23, neutralising the title alone would leave the dx dropdown disclosed by a sibling stem. Codex's proposed repair is therefore necessary but NOT SUFFICIENT.",
+   "CONTRIBUTING: four further siblings (q2, q4, q5, q6) name preeclampsia in their stems, options or rationales, so the diagnosis pervades the parent."
+  ],
+  "bilingualVerdict": "PARALLEL - stem, clozeStem, all nine dropdown options, all three keys, rationale, three byChoice entries, strategy and glossary are semantically equivalent EN/ZH. The title discloses the diagnosis equally in both languages, so any title repair must be bilingual.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "No external fetch was load-bearing. The HELLP exclusion was verified arithmetically against the Stage 2 panel in the frozen packet - normal platelets, normal transaminases, normal LDH - rather than against an external criterion set, so the finding rests on the authored source. The severe-features classification by severe-range BP plus CNS findings is standard obstetric criteria and was not contested."
+  ],
+  "siblingImpact": "HIGH - THE HIGHEST IN THIS TRANCHE. The title is a global surface visible to all six parts. I checked every sibling directly: q1, q2, q4, q5 and q6 all name preeclampsia in their own text, and q1 does so in its STEM, which is pre-submit visible. All five are non-residual and already accepted, so any repair that reaches them is a change to accepted content and needs its own review. This is why I record the title fix as insufficient: the sibling surface, not the title, is the binding constraint.",
+  "repairConstraints": [
+   "Neutralise the bilingual parent title to a presenting-symptom title that does not name the diagnosis, for example a postpartum readmission for severe headache and elevated blood pressure. Apply in EN and ZH.",
+   "THEN address the sibling disclosure, which the title change does not fix. Either neutralise sibling q1's stem so it does not name the diagnostic cluster, which is a change to accepted content requiring its own independent review, OR re-scope q3 so it no longer asks the learner to name the diagnosis and instead assesses only the differential-exclusion reasoning in the hellp_evidence and severity_evidence dropdowns. The second route is confined to the residual row and is my recommendation.",
+   "Preserve all actual clinical data; no laboratory value, vital sign or finding may change.",
+   "Preserve all three dropdown keys if the dx dropdown is retained; each is independently verified correct.",
+   "Survey and record the impact on all five siblings before any shared-surface edit is applied.",
+   "Anchor to stage2 after repair. Baseline is not available because the HELLP exclusion rests entirely on the Stage 2 panel."
+  ],
+  "criticalNote": "This row is the clearest instance in the review of a defect that anchoring cannot touch. The leak is through a global title and a sibling stem, both of which render regardless of this part's boundary, so the boundary question and the disclosure question are independent here.",
+  "codexProposedDisposition": "CONTENT_REPAIR_REQUIRED",
+  "codexProposedBoundary": "stage2",
+  "agreementWithCodex": "AGREE_WITH_ADDITIONS",
+  "agreementReasoning": "I noticed the diagnostic title while reading the parent and reached stage2 as the boundary independently; Codex identifies the same title defect, proposes the same boundary, and correctly instructs that the sibling impact of the shared-title change be surveyed. I performed that survey and it returned a result that changes the repair: the diagnosis is named not only in the title but in five sibling parts, including q1's pre-submit stem, and because P23 renders all parts of a case together the title fix alone leaves q3 disclosed. I therefore record Codex's proposed repair as necessary but insufficient and supply the additional constraint, with a recommended route that keeps the fix inside the residual row rather than editing accepted sibling content. I also verified all three dropdown keys against the Stage 2 panel rather than accepting them.",
+  "producerIndependent": true,
+  "sourceParentSha256": "56b10d94482beff6d6c231673a1f1b0b370e318dbada2b0103c112a7eff39bd0"
+ },
+ {
+  "rowKey": "5e6cd8254c891c72",
+  "packetId": "parent-18",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_caregiver_role_strain_dementia_01",
+  "partId": "gpt_case_caregiver_role_strain_dementia_01_q3",
+  "reviewerDerivedProposition": "The caregiver leaves at noon and an informal neighbour takes over, so the nurse must close the immediate life-safety gaps before that handoff: replace the chair barricade, which is an unsafe restriction, with a nonrestrictive exit alert; prevent unsupervised stove access after a burner was already left on; orient the temporary caregiver to monitoring and emergency contacts; and notify the prescriber about the nightly diphenhydramine, which is worsening confusion and compounding wandering and fall risk. Nutrition, blood-pressure recheck, pill-organiser correction and caregiver support are all genuine needs but none is the most immediate threat to life before supervision drops.",
+  "requiredFacts": [
+   "The Stage 2 disclosures the stem names - diphenhydramine 25 mg nightly for three weeks with worsening morning confusion, missed doses, the unreported bathroom fall, and the pill-organiser day confusion - stage_2.",
+   "The demonstrated stove hazard - stage_1 (Margaret turned on a burner; a burner was left on for 20 minutes last week).",
+   "The elopement risk and the barricade - baseline (up four times, tried to go outside at 2 AM, chair propped under the bedroom doorknob, front deadbolt Margaret can unlock, stove knobs not covered).",
+   "The supervision handoff - baseline (Diane must leave by noon; the neighbour is an informal favour).",
+   "Distractor q3_b's premise - VERIFIED PRESENT. I searched the parent specifically because the option asserts low albumin and prealbumin; the baseline labs exhibit does record albumin 3.1 g/dL and prealbumin 14 mg/dL, so the distractor rests on established facts and is not an invented premise.",
+   "Nothing in stage_3 is required."
+  ],
+  "earliestDefensibleBoundary": "stage_2",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage_1",
+   "stage_2"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage_3"
+  ],
+  "prefixDisclosesAnswer": false,
+  "disclosureEvidence": "stage_1 and stage_2 supply the hazards and the disclosures but prescribe no nursing action and set no priority. Hiding stage_3 is NECESSARY, not cosmetic: stage_3 records that the nurse 'contacted the primary care provider about diphenhydramine use, the unreported fall' and that Diane 'removed the chair from the bedroom door and installed a front-door alarm that chimes when the door opens'. Those are three of the five elements of keyed option q3_a, narrated as accomplished. The current fail-open render therefore discloses this item's answer and the anchor genuinely repairs it.",
+  "reviewerDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "clinicalVerdict": "Correct. The keyed priority is the one that prevents the most immediate serious harm before a period of reduced supervision, and each of its five elements is tied to an established cue. The barricade is correctly treated as an unsafe restriction rather than a wandering strategy. The diphenhydramine element is well founded: verified that the AGS Beers Criteria strongly recommends avoiding first-generation antihistamines in patients with dementia or cognitive impairment because of central nervous system adverse effects, with sedation, cognitive impairment and fall risk, and that the 2023 update expanded the rationale to cumulative anticholinergic burden. All four distractors name real and appropriate concerns that are simply not the immediate priority, so none is filler, and each byChoice rationale correctly explains the ranking rather than dismissing the option. I found no invented fact, no unsupported premise and no key ambiguity.",
+  "contentDefects": [],
+  "bilingualVerdict": "PARALLEL - I read the Chinese against the English for the stem, all five options and all five byChoice rationales. Each pair is semantically equivalent with no omission or shift in strength; keyed option q3_a's five-element compound is rendered completely in Chinese. No language-specific defect.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "AGS Beers Criteria literature located via NIH and americangeriatrics.org domain search - confirms first-generation antihistamines including diphenhydramine are potentially inappropriate in older adults, that avoidance is strongly recommended in dementia or cognitive impairment because of CNS adverse effects, and that fall risk and cumulative anticholinergic burden are the stated concerns. This underwrites the diphenhydramine element of the keyed option and the q4_f distractor in the sibling row.",
+   "Internal search of the frozen parent for albumin and prealbumin, to test whether distractor q3_b hypothesised an unestablished fact. It does not; both values are in the baseline labs."
+  ],
+  "siblingImpact": "NONE. This is an anchor-only repair; no learner-facing text changes, so no sibling can be affected.",
+  "repairConstraints": [
+   "Set answerableAfterStageId to stage_2. No content change is required or authorised by this row.",
+   "Do not anchor at baseline: the stem turns on 'the Stage 2 disclosures', and the diphenhydramine element of the keyed option exists only in stage_2.",
+   "If the sibling q4 anchor is set in the same change, the two are independent and may be applied together."
+  ],
+  "criticalNote": "This row survives affirmative scrutiny as a true anchor-only repair. I applied the adversarial tests that converted other proposed anchor-only rows in this review to content repairs - stranded option values under the proposed boundary, dangling stage citations, distractors resting on unestablished facts, non-unique keys, category overlap and bilingual divergence - and it passes all of them. The anchor also does real work, hiding a stage that narrates three of the keyed option's five elements as already done.",
+  "codexProposedDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "codexProposedBoundary": "stage_2",
+  "agreementWithCodex": "AGREE",
+  "agreementReasoning": "I derived stage_2 independently as the earliest boundary carrying the disclosures the stem names, and independently identified stage_3 as answer-supplying. Codex reached the same boundary with no content work. I treated the absence of proposed edits as a claim to be tested: I specifically hunted for an unestablished-premise distractor, which this population has repeatedly contained, and cleared q3_b by finding the albumin and prealbumin values in the baseline labs; I verified the Beers premise rather than assuming it; and I read the Chinese in full. The Campaign-16 producer's stage_2 was correct and the checker's baseline was too early.",
+  "producerIndependent": true,
+  "sourceParentSha256": "c2481adfd6a03b6acbe15d69c1a084ce440432f3fe0ba307261cbd849844a642"
+ },
+ {
+  "rowKey": "d92f499014ea0870",
+  "packetId": "parent-18",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_caregiver_role_strain_dementia_01",
+  "partId": "gpt_case_caregiver_role_strain_dementia_01_q4",
+  "reviewerDerivedProposition": "A sustainable plan must address both halves of the dyad. For the client: a nonrestrictive exit-alert strategy in place of the barricade with identification and a wandering-response programme, stove control, removal of fall and poisoning hazards with physical-therapy gait assessment, and prescriber and pharmacist involvement in medication formulation, the diphenhydramine, and a simplified administration routine. For the caregiver: nutrition, continence and skin support plus social work, area-agency and adult-day respite, a support group, and Diane's own primary care. Continuing the diphenhydramine at a lower dose and keeping the barricade perpetuates the two unsafe workarounds the plan exists to replace.",
+  "requiredFacts": [
+   "Medication problems requiring prescriber and pharmacist involvement - stage_2 (crushing tablets into applesauce with uncertain ingestion, missed doses, organiser confusion, three weeks of nightly diphenhydramine).",
+   "The unreported fall establishing fall-risk referral - stage_2.",
+   "Stove hazard - stage_1 and baseline.",
+   "Environmental hazards, caregiver strain and the absent respite knowledge - baseline.",
+   "Nutrition and continence cues - baseline (8 lb loss over 3 months, albumin 3.1, prealbumin 14, incontinence 2-3 times daily, erythematous perineal skin).",
+   "Nothing in stage_3 is required."
+  ],
+  "earliestDefensibleBoundary": "stage_2",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage_1",
+   "stage_2"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage_3"
+  ],
+  "prefixDisclosesAnswer": false,
+  "disclosureEvidence": "The visible prefix supplies the cues but no plan. Hiding stage_3 is ESSENTIAL here - more so than for any other row in this parent - because stage_3 is effectively an answer key: it records the social-work referral, the Area Agency on Aging and support-group contacts, the provider contact about diphenhydramine, the discontinuation of diphenhydramine, the pharmacy consultation for alternative formulations, the physical-therapy fall-risk referral, the dietitian referral, the removed barricade, the installed door alarm, the phone-alarm medication routine and the adult day programme. That enumeration covers keyed options q4_a, q4_c, q4_d and q4_e almost item for item. The current fail-open render hands the learner this item.",
+  "reviewerDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "clinicalVerdict": "Correct. All five keyed interventions are appropriate, specific and tied to established cues, and the single distractor q4_f is genuinely and importantly wrong on both of its limbs: continuing diphenhydramine is contrary to the Beers Criteria guidance verified for the sibling row, and retaining a chair barricade is an unsafe physical restriction rather than a wandering strategy. The option set discriminates properly, containing one real incorrect option rather than being an all-correct set, which is a failure mode I found elsewhere in this population. I found no invented fact and no key ambiguity. One stylistic observation, not a defect: the options are long compound bundles, with q4_e naming roughly ten distinct interventions, which makes the item coarse-grained; it does not affect correctness and I do not require a change.",
+  "bilingualVerdict": "PARALLEL - I read the Chinese against the English for the stem, all six options and all six byChoice rationales. Each pair is semantically equivalent, including the long compound options, and the distractor's two limbs are both rendered. No language-specific defect.",
+  "contentDefects": [],
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "AGS Beers Criteria literature as cited for the sibling row, which underwrites the diphenhydramine limb of distractor q4_f. No further external premise was load-bearing; the remaining interventions are standard dementia home-safety and caregiver-support measures tied directly to cues in the chart, which I checked individually."
+  ],
+  "siblingImpact": "NONE. This is an anchor-only repair; no learner-facing text changes.",
+  "repairConstraints": [
+   "Set answerableAfterStageId to stage_2. No content change is required or authorised by this row.",
+   "Do not anchor at baseline: the medication-formulation and diphenhydramine elements of keyed option q4_d, and the fall-risk referral in q4_c, rest on stage_2 disclosures."
+  ],
+  "criticalNote": "This row survives affirmative scrutiny as a true anchor-only repair, and it is the clearest case in the review of an anchor that is genuinely load-bearing: stage_3 currently enumerates four of the five keyed interventions as already implemented.",
+  "codexProposedDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "codexProposedBoundary": "stage_2",
+  "agreementWithCodex": "AGREE",
+  "agreementReasoning": "I derived stage_2 independently and independently identified stage_3's near-complete enumeration of the keyed plan. Codex reached the same boundary with no content work. I tested rather than assumed the no-defect claim: I checked the option set for the all-correct degeneracy found elsewhere in this population and confirmed a genuine distractor is present, verified the distractor's clinical basis, checked each keyed intervention against an established cue, and read the Chinese in full. The Campaign-16 producer's stage_2 was correct and the checker's baseline was too early.",
+  "producerIndependent": true,
+  "sourceParentSha256": "c2481adfd6a03b6acbe15d69c1a084ce440432f3fe0ba307261cbd849844a642"
+ },
+ {
+  "rowKey": "3db55ace83b191ac",
+  "packetId": "parent-19",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_clozapine_toxicity_01",
+  "partId": "gpt_case_clozapine_toxicity_01_q2",
+  "reviewerDerivedProposition": "The Day 18 findings support two concurrent clozapine emergencies rather than one. An ANC of 980/uL with fever and sore throat is moderate neutropenia carrying high infection risk, and the troponin, CRP and BNP elevations together with tachycardia, an S3 gallop, bibasilar crackles, ankle oedema and chest pressure indicate suspected clozapine-associated myocarditis. Neither process explains the other: the cardiac findings are not attributable to the falling ANC, and the neutropenia cannot be deferred because myocarditis is present.",
+  "requiredFacts": [
+   "Fever 101.7 F, HR 118, RR 22, S3, crackles, pharyngeal erythema, ankle oedema - stage_2.",
+   "ANC 980/uL, troponin I 0.48 ng/mL, CRP 68 mg/L, BNP 420 pg/mL - stage_2.",
+   "Baseline normality that makes these changes interpretable - baseline (ANC 4,100/uL, troponin <0.01, CRP 2.1, no cardiac disease).",
+   "Day 18 of therapy, which places the presentation in the myocarditis risk window - stage_2 heading and baseline start date.",
+   "Nothing in stage_3 is required; stage_3 supplies the echocardiographic confirmation."
+  ],
+  "earliestDefensibleBoundary": "stage_2",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage_1",
+   "stage_2"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage_3"
+  ],
+  "prefixDisclosesAnswer": true,
+  "disclosureEvidence": "The disclosure is in the always-visible parent TITLE, not in a stage. The title reads 'Clozapine-associated febrile neutropenia with early myocarditis', and the Chinese title reads '氯氮平相关发热性中性粒细胞减少伴早期心肌炎'. Keyed option A is the febrile neutropenia and keyed option B is the suspected clozapine-associated myocarditis; the title names both, in both languages. Because a title is a global surface rendered at every boundary, no anchor can hide it. Hiding stage_3 is separately appropriate, since stage_3 supplies the echocardiogram 'consistent with acute myocarditis'.",
+  "reviewerDisposition": "CONTENT_REPAIR_REQUIRED",
+  "clinicalVerdict": "All three keys are correct and all three distractors are genuinely and instructively wrong. Keyed A is sound: an ANC of 980/uL falls in the conventionally recognised 500-999/uL band, and current FDA guidance recommends interrupting clozapine for an ANC below 1,000/uL when clozapine-induced neutropenia is suspected, so the case's facility-policy framing is appropriate. Keyed B is sound and well timed: clozapine-induced myocarditis is dose-independent and appears most frequently during the first four weeks of treatment, which places Day 18 squarely in the risk window, and the recommended monitoring markers are precisely troponin, high-sensitivity CRP and BNP, all three of which are elevated here against normal baselines. Keyed E is sound. Distractor C is unsafe, distractor D names diagnostic overshadowing and its rationale teaches the point well, and distractor F correctly separates therapeutic response from toxicity. The item's testTakingStrategy - do not force one diagnosis to explain everything - is exactly right. THE DEFECT IS DISCLOSURE BY THE SHARED TITLE, NOT CLINICAL.",
+  "contentDefects": [
+   "PRIMARY: the bilingual parent title names both keyed diagnoses. It is a global surface, so the disclosure is unreachable by any boundary and must be repaired in content."
+  ],
+  "bilingualVerdict": "PARALLEL - stem, six options, key, rationale, six byChoice entries and strategy are semantically equivalent EN/ZH, including the numerically load-bearing option B, which carries troponin 0.48 ng/mL, CRP 68 mg/L and BNP 420 pg/mL identically. The title discloses equally in both languages, so the repair must be bilingual.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "StatPearls clozapine monitoring (https://www.ncbi.nlm.nih.gov/books/NBK535399/) - read directly. Confirms clozapine-induced myocarditis is dose-independent and 'appears more frequently during the first four weeks of treatment', and that baseline and serial troponin, high-sensitivity CRP and BNP plus echocardiography are the recommended monitoring markers. This underwrites keyed option B and its timing.",
+   "FDA clozapine monitoring guidance located via fda.gov domain search - confirms the recognised ANC band above 500 and below 1,000/uL and that treatment should be interrupted for an ANC below 1,000/uL where clozapine-induced neutropenia is suspected, which underwrites keyed option A and the sibling q3 key. I also noted that the FDA removed the mandatory clozapine REMS programme in February 2025; the case relies on facility policy rather than REMS, so it is not stale on that point."
+  ],
+  "siblingImpact": "HIGH - the title is a global surface visible to all six parts. I checked the effect on each: neutralising the title removes information only and therefore cannot create new disclosure anywhere. It does, however, MAKE SIBLING q3 HARDER, because q3's keyed option A names 'concurrent life-threatening clozapine toxicities' and the present title asserts exactly that pair. See the cross-row dependency recorded on q3.",
+  "repairConstraints": [
+   "Neutralise the bilingual parent title so it does not name either diagnosis - for example a title referring to clozapine initiation with an acute change during titration. Apply in EN and ZH.",
+   "Preserve all stage_2 raw findings; no vital sign, laboratory value or examination finding may change.",
+   "Preserve the key A, B, E and all six option texts.",
+   "Survey and record the effect on all five siblings before applying the shared-title change, and apply the q3 anchor in the same change set so the two do not diverge.",
+   "Anchor to stage_2 after repair."
+  ],
+  "criticalNote": "This is the second parent in the review whose title states the answer to one of its own parts, after the postpartum preeclampsia parent. I recommend the integration seat treat diagnostic parent titles as a systematic risk class rather than as isolated findings.",
+  "codexProposedDisposition": "CONTENT_REPAIR_REQUIRED",
+  "codexProposedBoundary": "stage_2",
+  "agreementWithCodex": "AGREE_WITH_ADDITIONS",
+  "agreementReasoning": "I noticed the diagnostic title while reading the parent and derived stage_2 independently; Codex identifies the same title defect, proposes the same boundary and correctly requires a sibling-impact survey. I performed that survey and add its result: unlike the postpartum preeclampsia parent, the diagnosis here is NOT restated in sibling stems, so title neutralisation is sufficient rather than merely necessary - a materially different conclusion from the other title case, reached by checking rather than assuming. I add the cross-row consequence for q3 and the verified clinical basis for all three keys.",
+  "producerIndependent": true,
+  "sourceParentSha256": "ca88a9a07af6452917a4e235e73a8447e50cc050be9bdee5a714c6cc8a5a293c"
+ },
+ {
+  "rowKey": "e091c2e5e7c356f8",
+  "packetId": "parent-19",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_clozapine_toxicity_01",
+  "partId": "gpt_case_clozapine_toxicity_01_q3",
+  "reviewerDerivedProposition": "When a medication is producing an acute dangerous reaction and policy permits, the first safe nursing move is to stop the exposure and escalate. Here two life-threatening clozapine toxicities are present at once, so the nurse holds clozapine under the facility policy and notifies the provider, because cultures, empiric antibiotics, echocardiography, cardiology consultation and higher-level monitoring all require orders or coordinated escalation.",
+  "requiredFacts": [
+   "Fever 101.7 F exceeding the policy trigger of 101.3 F, ANC 980/uL, and the myocarditis picture - stage_2.",
+   "The facility policy authorising the hold - baseline record and summary, both of which state it explicitly.",
+   "Nothing in stage_3 is required."
+  ],
+  "earliestDefensibleBoundary": "stage_2",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage_1",
+   "stage_2"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage_3"
+  ],
+  "prefixDisclosesAnswer": false,
+  "disclosureEvidence": "The visible prefix supplies the triggering data and the policy but records no nursing decision. Hiding stage_3 is NECESSARY: stage_3 opens 'Clozapine has been held, and the provider has been notified', which is keyed option A verbatim as an accomplished fact. The current fail-open render therefore hands the learner this item, and the anchor genuinely repairs it.",
+  "reviewerDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "clinicalVerdict": "Correct. Holding the drug and escalating is the right first action and is expressly authorised by the stated facility policy, which the fever of 101.7 F exceeds. This aligns with current FDA guidance that clozapine be interrupted for an ANC below 1,000/uL where clozapine-induced neutropenia is suspected. All four distractors are genuinely unsafe or misprioritised rather than filler, and two of them teach specific errors well: option C would add an anticholinergic to a client with clozapine-associated constipation, and option E is explicit diagnostic overshadowing on a psychiatric unit. The option set contains one correct answer and four real errors, so discrimination is sound. I found no invented fact, no stranded value and no key ambiguity within the part itself.",
+  "contentDefects": [],
+  "bilingualVerdict": "PARALLEL - I read the Chinese against the English for the stem, all five options and all five byChoice rationales. Each pair is semantically equivalent with no shift in strength. No language-specific defect.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "FDA clozapine monitoring guidance as cited for the sibling q2 row, confirming interruption for an ANC below 1,000/uL with suspected clozapine-induced neutropenia, which underwrites the keyed hold. No further external premise was load-bearing."
+  ],
+  "siblingImpact": "NONE from this row, which changes no text. BUT THIS ROW HAS A CROSS-ROW DEPENDENCY IN THE OTHER DIRECTION, recorded below.",
+  "repairConstraints": [
+   "Set answerableAfterStageId to stage_2. No content change is required or authorised by this row.",
+   "CROSS-ROW DEPENDENCY: this row is anchor-only only on the assumption that the shared-title repair required by sibling row q2 is applied. The present title, 'Clozapine-associated febrile neutropenia with early myocarditis', asserts exactly the pair of concurrent toxicities that keyed option A names, and the title is visible at every boundary. If the q2 title repair is deferred or rejected, this row must be reopened as a content repair rather than shipped as anchor-only. Apply both in the same change set.",
+   "Do not anchor at baseline: the triggering fever, ANC and cardiac findings all live in stage_2."
+  ],
+  "criticalNote": "This row passes affirmative part-level scrutiny but is NOT independently closable. I record it as anchor-only with an explicit dependency rather than silently accepting the producer's clean bill, because the disclosure that affects it lives on a shared surface assigned to a different row.",
+  "codexProposedDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "codexProposedBoundary": "stage_2",
+  "agreementWithCodex": "AGREE_WITH_ADDITIONS",
+  "agreementReasoning": "I derived stage_2 independently and confirmed that stage_3 states the keyed action as already performed, so the anchor does real work. Codex reached the same boundary with no content work, and at the part level I agree after testing for the defect patterns that disqualified other anchor-only proposals in this review. I add the cross-row dependency Codex's per-row treatment does not capture: Codex assigns the title defect to q2 alone, but the same title substantially supports q3's key, so q3's anchor-only status is conditional on that repair landing. Recording the two rows independently would allow q3 to close while the title still asserts its answer.",
+  "producerIndependent": true,
+  "sourceParentSha256": "ca88a9a07af6452917a4e235e73a8447e50cc050be9bdee5a714c6cc8a5a293c"
+ },
+ {
+  "rowKey": "53abf6daaaf8fd16",
+  "packetId": "parent-19",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_clozapine_toxicity_01",
+  "partId": "gpt_case_clozapine_toxicity_01_q4",
+  "reviewerDerivedProposition": "Two emergencies must be covered without either delaying the other. On the infection side the nurse implements facility neutropenic precautions and draws the ordered blood cultures before starting the prescribed empiric antibiotics, without letting culture collection delay therapy. On the cardiac side the client goes on continuous cardiac monitoring with oxygen as needed and surveillance for worsening hypotension, arrhythmia, dyspnoea and falling urine output, and the nurse anticipates serial troponins, ECGs, echocardiography and cardiology consultation. Waiting for ANC recovery before antibiotics and redosing the causative drug under antipyretic cover are both unsafe.",
+  "requiredFacts": [
+   "ANC 980/uL with fever and pharyngeal symptoms justifying neutropenic precautions and empiric therapy - stage_2.",
+   "The cardiac picture justifying monitoring and serial diagnostics - stage_2.",
+   "The stem's premise that clozapine has been held and the provider notified - the stem states it, so it is self-carrying.",
+   "Nothing in stage_3 is required."
+  ],
+  "earliestDefensibleBoundary": "stage_2",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage_1",
+   "stage_2"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage_3"
+  ],
+  "prefixDisclosesAnswer": false,
+  "disclosureEvidence": "stage_2 ends by noting that the nurse initiates neutropenic precautions on receiving the ANC, which touches keyed option A, but it does so as the trigger the stem builds on rather than as the full answer set. Hiding stage_3 is ESSENTIAL: stage_3 records that blood cultures were drawn and empiric broad-spectrum antipseudomonal antibiotics started, that the client is on continuous cardiac monitoring and oxygen at 2 L/min, that an echocardiogram was obtained, that cardiology recommended serial troponins every six hours, and that neutropenic precautions were implemented with a full enumeration. That covers keyed options A, B, C and D as accomplished facts. The current fail-open render hands the learner this item almost completely.",
+  "reviewerDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "clinicalVerdict": "Correct. All four keyed interventions are appropriate and each is tied to an established cue. The cultures-before-antibiotics phrasing is carefully done: the option says to draw cultures before starting prescribed empiric antibiotics and the rationale adds that this applies whenever it can be done without delaying therapy, which is the correct nuance for febrile neutropenia rather than an absolute rule that would delay treatment. Both distractors are genuinely and importantly unsafe - deferring antibiotics until ANC recovery, and redosing the causative drug under antipyretic cover - so the option set discriminates properly with two real errors. The anticipation of serial troponins, ECG, echocardiography and cardiology consultation matches the recommended clozapine myocarditis monitoring markers I verified for the sibling q2 row. I found no invented fact, no stranded value and no key ambiguity.",
+  "contentDefects": [],
+  "bilingualVerdict": "PARALLEL - I read the Chinese against the English for the stem, all six options and all six byChoice rationales. Each pair is semantically equivalent, including the conditional nuance in the culture option and the numeric threshold in distractor F. No language-specific defect.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "StatPearls clozapine monitoring, as cited for the sibling q2 row, for the serial troponin/CRP/BNP and echocardiography monitoring recommendation underwriting keyed option D. The febrile-neutropenia principle that empiric antibiotics follow promptly after cultures was verified earlier in this review against the IDSA definition and management material used for the neutropenic-fever parent."
+  ],
+  "siblingImpact": "NONE. This is an anchor-only repair; no learner-facing text changes. Unlike sibling q3, this row's key is not supported by the parent title, which names diagnoses rather than interventions, so it carries no dependency on the q2 title repair.",
+  "repairConstraints": [
+   "Set answerableAfterStageId to stage_2. No content change is required or authorised by this row.",
+   "Do not anchor at baseline: every keyed intervention is justified by stage_2 findings that baseline does not contain."
+  ],
+  "criticalNote": "This row survives affirmative scrutiny as a true anchor-only repair, and the anchor is strongly load-bearing: stage_3 currently narrates four of the four keyed interventions as already performed.",
+  "codexProposedDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "codexProposedBoundary": "stage_2",
+  "agreementWithCodex": "AGREE",
+  "agreementReasoning": "I derived stage_2 independently and independently identified stage_3's near-complete enumeration of the keyed interventions. Codex reached the same boundary with no content work. I tested the no-defect claim rather than accepting it: I checked the option set for the all-correct degeneracy found elsewhere in this population and confirmed two genuine distractors, examined the cultures-before-antibiotics wording for the absolutism that would make it clinically wrong and found it correctly qualified, checked each keyed intervention against a stage_2 cue, and read the Chinese in full. I also confirmed this row carries no dependency on the shared-title repair, distinguishing it from sibling q3.",
+  "producerIndependent": true,
+  "sourceParentSha256": "ca88a9a07af6452917a4e235e73a8447e50cc050be9bdee5a714c6cc8a5a293c"
+ },
+ {
+  "rowKey": "05e76aac6f75e2cb",
+  "packetId": "parent-19",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_clozapine_toxicity_01",
+  "partId": "gpt_case_clozapine_toxicity_01_q6",
+  "reviewerDerivedProposition": "Four hours after the drug was held is too early to declare resolution. The client is haemodynamically relatively stable and some parameters have eased with rest and oxygen, but the markers that track the two toxicities have not turned: troponin and CRP are still rising and the ANC remains in the moderate neutropenia range. Recovery is judged by a rising ANC trend, falling troponin and CRP with symptom improvement and recovering ejection fraction, and any haemodynamic, rhythm, respiratory, perfusion or new infection deterioration requires escalation. Restarting clozapine is not an acute-phase nursing decision.",
+  "requiredFacts": [
+   "The four-hour reassessment values - stage_3: T 101.1 F, HR 112, BP 106/68, SpO2 97% on 2 L, ANC 940/uL, troponin I 0.52 ng/mL, CRP 72 mg/L, LVEF 45% with mild global hypokinesis and small pericardial effusion.",
+   "The stage_2 comparators that make the trends readable - troponin 0.48, CRP 68, ANC 980, HR 118, SpO2 95% on room air. I verified the directions directly: troponin and CRP are rising, ANC is essentially unchanged and still low, while HR and oxygen saturation have improved.",
+   "Nothing later exists; stage_3 is terminal."
+  ],
+  "earliestDefensibleBoundary": "stage_3",
+  "boundaryIsTerminalStage": true,
+  "stagesVisibleAtBoundary": [
+   "stage_1",
+   "stage_2",
+   "stage_3"
+  ],
+  "stagesHiddenAtBoundary": [],
+  "prefixDisclosesAnswer": false,
+  "disclosureEvidence": "stage_3 reports measurements and the cardiology plan but makes no claim about whether the toxicities have resolved, which is the judgement the item asks for. Codex's characterisation is accurate on this point.",
+  "reviewerDisposition": "CONTENT_REPAIR_REQUIRED",
+  "clinicalVerdict": "The keyed set A, B, C, E is substantively correct and both distractors are properly wrong - distractor D is the classic error of mistaking response to supportive care for resolution, and distractor F correctly reflects that rechallenge is avoided where clozapine-related myocarditis is suspected or confirmed and is in any case not a nursing decision. THE DEFECT IS A WORDING IMPRECISION IN KEYED OPTION A, which states the client is 'hemodynamically stable but NOT YET IMPROVING'. That overstates the case and conflicts with the item's own rationale, which concedes that 'HR and oxygenation are slightly better with rest and oxygen'. The measurements agree with the rationale rather than the option: heart rate has fallen from 118 to 112, oxygen saturation has risen from 95 percent on room air to 97 percent on 2 L, and temperature has fallen from 101.7 to 101.1 F. Some parameters have improved; what has not happened is resolution of either toxicity, since troponin and CRP are still rising and the ANC remains low. A learner who reads the vital-sign trend accurately could reject option A on its literal wording while holding exactly the understanding the item means to reward. This is a real but bounded defect.",
+  "contentDefects": [
+   "PRIMARY: keyed option A's phrase 'not yet improving' is contradicted by the improving vital signs in the same stage and by the item's own key rationale, which acknowledges them. The intended meaning is that the toxicities have not yet resolved."
+  ],
+  "bilingualVerdict": "PARALLEL - stem, six options, key, rationale, six byChoice entries and strategy are semantically equivalent EN/ZH. The imprecise phrase is reproduced in ZH as '尚未改善', literally not yet improved, which carries the same overstatement, so the repair is bilingual.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "No external fetch was load-bearing for this finding, which rests on arithmetic comparison of the stage_2 and stage_3 values in the frozen packet and on the internal conflict between keyed option A and its own key rationale. The rechallenge premise underlying distractor F is consistent with the clozapine myocarditis material verified for the sibling q2 row."
+  ],
+  "siblingImpact": "NONE. The repair is confined to q6's option A and its byChoice rationale. No stage, exhibit, title or summary text changes, and this row is unaffected by the q2 title repair because the title names diagnoses rather than trajectory judgements.",
+  "repairConstraints": [
+   "Revise keyed option A in EN and ZH from 'not yet improving' to language expressing relative stability with the toxicities not yet resolved, and align the byChoice rationale to match.",
+   "Retain stage_3 as the boundary; the item is a trajectory evaluation and requires the four-hour data.",
+   "Do not alter options B, C, D, E or F, or the remainder of the key.",
+   "Anchor to stage_3 after repair."
+  ],
+  "criticalNote": "stage_3 is terminal, so the approved anchor hides nothing and the rendered surface is unchanged by anchoring. This row cannot be closed by the anchor repair, though the defect is the mildest of the content repairs in this tranche.",
+  "codexProposedDisposition": "CONTENT_REPAIR_REQUIRED",
+  "codexProposedBoundary": "stage_3",
+  "agreementWithCodex": "AGREE",
+  "agreementReasoning": "I compared the stage_2 and stage_3 values myself and found the same conflict between option A's wording and the measured trend, and I reached stage_3 as the boundary independently. Codex proposes the same correction, from 'not yet improving' to relatively stable with toxicities not yet resolved, and correctly declines to move the boundary, noting that stage_3 supplies measurements rather than a resolution claim. I add the specific internal contradiction with the item's own key rationale, which makes the defect demonstrable from the artifact alone rather than resting on reviewer preference, and I confirm the Chinese carries the same overstatement. The Campaign-16 producer's stage_3 was correct and the checker's baseline was wrong, since every row depends on four-hour values.",
+  "producerIndependent": true,
+  "sourceParentSha256": "ca88a9a07af6452917a4e235e73a8447e50cc050be9bdee5a714c6cc8a5a293c"
+ },
+ {
+  "rowKey": "816f8ee32a25b1ca",
+  "packetId": "parent-20",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_hipaa_disclosure_breach_01",
+  "partId": "gpt_case_hipaa_disclosure_breach_01_q2",
+  "reviewerDerivedProposition": "Each morning event is classified by its pathway and by whether the required authorisation, role or safeguard existed at the moment it occurred. Curiosity-driven record access and an identifiable photograph taken without consent are impermissible events already completed. The employer's records request and the unverified caller are external requests that may become permissible only after authorisation or a legal basis is verified through the proper process. The hallway report is a verbal disclosure risk that arises because reasonable safeguards were not used.",
+  "requiredFacts": [
+   "All five events, in the form the rows describe them - stage_1 ONLY.",
+   "The authorised-contact list naming only the daughter, which is what makes the caller's request unverified - baseline_profile_policy.",
+   "The facility breach-response policy - baseline_profile_policy.",
+   "Nothing in stage_2 or stage_3 is required; both come after the classification the item asks for."
+  ],
+  "earliestDefensibleBoundary": "stage_1",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage_1"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage_2",
+   "stage_3"
+  ],
+  "prefixDisclosesAnswer": false,
+  "disclosureEvidence": "stage_1 narrates the five events neutrally and classifies none of them. Hiding the later stages is NECESSARY and this is the strongest reason for the anchor: stage_2 states that 'The charge nurse confirms the access is unauthorized', which classifies row q2_r1, and that HIM 'states that release requires a signed authorization or valid legal basis', which classifies row q2_r3, and records the client's statement withdrawing any permission for Robert, which classifies row q2_r4; stage_3 adds that 'The student's photo is also reviewed as a potential breach', which classifies row q2_r2. Four of the five rows are therefore resolved by the later stages. The current fail-open render substantially hands the learner this item, and the anchor genuinely repairs it.",
+  "reviewerDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "clinicalVerdict": "Correct throughout, and the column wording is unusually careful. Row q2_r1 is right: curiosity is not a treatment, payment or health-care-operations purpose. Row q2_r2 is right: an identifiable image on a personal device without consent is a completed impermissible creation of a record. Row q2_r3 is right AND the column wording is what makes it right - I tested this specifically, because a workers' compensation request is a genuine trap. Verified at 45 CFR 164.512(l): a covered entity 'may disclose protected health information as authorized by and to the extent necessary to comply with laws relating to workers' compensation', without individual authorisation. Had the column read 'only after authorization', the key would have been wrong; it reads 'after authorization OR legal basis is verified through the proper process', which correctly accommodates the workers' compensation pathway while still denying the unit nurse the right to release. Row q2_r4 is right: spousal status does not itself authorise disclosure, and under 45 CFR 164.510(b)(2), which I read in full earlier in this review, disclosure to a family member for a present and capacitated patient requires the individual's agreement, an unobjected opportunity to object, or a reasonable professional inference - and here the caller's identity is not even verified. Row q2_r5 is right: incidental disclosures are permitted only where reasonable safeguards and minimum necessary are applied, and naming a patient and HIV status within visitor earshot fails that standard. I also checked the column set for the false-exclusivity defect found in several other matrices in this population and it is ABSENT here: the three columns describe genuinely disjoint pathways - internal access, external request, verbal communication - so single_per_row is appropriate.",
+  "contentDefects": [],
+  "bilingualVerdict": "PARALLEL - I read the Chinese against the English for the stem, all three column labels, all five rows and all five byChoice rationales. Each pair is semantically equivalent, and the load-bearing conditional wording of column q2_c2 is preserved in Chinese as '只有通过正确流程核实授权或法律依据后才可能允许', which carries the same authorisation-or-legal-basis disjunction. No language-specific defect.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "45 CFR 164.512(l) read at https://www.law.cornell.edu/cfr/text/45/164.512 - verified that workers' compensation disclosures are permitted as authorized by and to the extent necessary to comply with workers' compensation laws, without individual authorisation. This was the decisive check on row q2_r3's key.",
+   "45 CFR 164.510(b)(2) read at https://www.law.cornell.edu/cfr/text/45/164.510 earlier in this review - underwrites row q2_r4.",
+   "45 CFR 164.402 read at https://www.law.cornell.edu/cfr/text/45/164.402 - the breach definition and four-factor risk assessment, which frames rows q2_r1 and q2_r2 as completed events subject to breach determination."
+  ],
+  "siblingImpact": "NONE. This is an anchor-only repair; no learner-facing text changes.",
+  "repairConstraints": [
+   "Set answerableAfterStageId to stage_1. No content change is required or authorised by this row.",
+   "Do not anchor at baseline: all five classified events occur in stage_1 and none exists at baseline.",
+   "If the sibling q4 repair edits stage_2, that edit is invisible to this row once this anchor is set, but set this anchor first."
+  ],
+  "criticalNote": "This row survives affirmative scrutiny as a true anchor-only repair. It is also the row where affirmative scrutiny most nearly found a defect and did not: the workers' compensation row would have been mis-keyed under slightly different column wording, and I verified the governing regulation rather than accepting the classification.",
+  "codexProposedDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "codexProposedBoundary": "stage_1",
+  "agreementWithCodex": "AGREE",
+  "agreementReasoning": "I derived stage_1 independently as the only boundary containing the five events without their later resolutions, and independently identified that stage_2 and stage_3 classify four of the five rows. Codex reached the same boundary with no content work. I treated the absence of proposed edits as a claim to test: I checked the matrix for the column-exclusivity defect that converted three other matrices in this review to content repairs and found the columns genuinely disjoint, and I verified each of the three regulatory premises against primary text rather than the source registry. The Campaign-16 producer's stage_1 was correct and the checker's baseline was too early.",
+  "producerIndependent": true,
+  "sourceParentSha256": "c8782809cc0d0f2d03819289755812ed5e01a9c6f83d00f2462a8c853ddb2a58"
+ },
+ {
+  "rowKey": "081b3b885639d73b",
+  "packetId": "parent-20",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_hipaa_disclosure_breach_01",
+  "partId": "gpt_case_hipaa_disclosure_breach_01_q4",
+  "reviewerDerivedProposition": "The response to each morning event must contain the exposure, route the matter to the correct channel, and keep risk-management documents out of the clinical chart: withhold information from the unverified caller and establish the client's own wishes, stop the unauthorised access and report it through the facility sequence, refuse to release employer records from the unit and route the request to health information management, contain the student's photograph and report it for Privacy Officer follow-up, and move the hallway report to a private space. Documenting the filing of an incident report in the medical record is wrong because incident reports are quality-improvement documents held separately.",
+  "requiredFacts": [
+   "The five morning events - stage_1.",
+   "The facility policy sequence - mitigate, notify the charge nurse, file an electronic incident report, ensure same-shift unit-manager and Privacy Officer notification, and keep incident reports out of the medical record - baseline_profile_policy. This last clause is what makes distractor q4_f decidable, and it is explicit.",
+   "The authorised-contact list naming only the daughter - baseline_profile_policy.",
+   "A specific institutional procedure for handling an identifiable image on a personal device - NOT ESTABLISHED. The baseline policy requires the nurse to 'immediately mitigate exposure' but says nothing about deletion, device handling, or preservation of the image as evidence.",
+   "Nothing in stage_2 or stage_3 is required; both perform the actions the item asks the learner to choose."
+  ],
+  "earliestDefensibleBoundary": "stage_1",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage_1"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage_2",
+   "stage_3"
+  ],
+  "prefixDisclosesAnswer": false,
+  "disclosureEvidence": "stage_1 presents the events without any response. Hiding stage_2 is ESSENTIAL: stage_2 performs the keyed actions almost one for one - it records that RN Jordan does not release employer records and secures the fax, has the student delete the photo with the instructor present and reports it, moves the hallway report to a private area, and completes incident reporting without documenting it in the medical record. Keyed option q4_d in particular is narrated verbatim in stage_2, down to the recently-deleted storage and the instructor's presence. stage_3 adds the cloud-syncing review. The current fail-open render hands the learner this item.",
+  "reviewerDisposition": "CONTENT_REPAIR_REQUIRED",
+  "clinicalVerdict": "Four of the five keyed actions are clearly correct and the single distractor is correct and well grounded. Keyed q4_a, q4_b, q4_c and q4_e each contain the exposure and route the matter appropriately, and q4_c is right for the reason verified on the sibling row - a workers' compensation request may have a legal basis, but verifying it belongs to health information management rather than the unit nurse. Distractor q4_f is decisively wrong on the case's own stated policy, which says incident reports 'must not be referenced in the medical record'. THE DEFECT IS IN KEYED OPTION q4_d, which directs an irreversible act on evidence without any supplied procedure authorising it. The option has the nurse delete the identifiable photograph immediately, including recently deleted storage, on a personal device. Nothing in HIPAA mandates this, and the case's own policy does not specify it; the policy says only to mitigate exposure. The tension is real rather than academic. Under 45 CFR 164.402, read directly, whether this event is a reportable breach is settled by a four-factor risk assessment that considers the nature and extent of the protected health information involved including the types of identifiers, whether the information was actually acquired or viewed, the unauthorised recipient, and the extent to which the risk has been mitigated. Witnessed deletion serves the fourth factor, but destroying the image before the Privacy Officer's determination removes the primary evidence for the first and third. The item therefore teaches one specific irreversible institutional procedure as though it were the universally correct nursing action, in a case that never supplies that procedure, and it does so for the one action among the five that cannot be undone if wrong.",
+  "contentDefects": [
+   "PRIMARY: keyed option q4_d directs immediate permanent deletion including recently deleted storage, an irreversible destruction of potential breach evidence, with no institutional procedure supplied in the case to authorise it and no basis in HIPAA, which nowhere mandates deletion.",
+   "CONTRIBUTING: the same unsupported procedure is narrated as correct practice in the stage_2 exhibit, so the defect exists on two surfaces and must be repaired on both together.",
+   "OBSERVATION: the item's own byChoice for q4_d concedes the difficulty - 'Immediate deletion limits exposure, but reporting is still needed because cloud syncing or other retention must be investigated' - which acknowledges that the image's fate is not fully within the nurse's control and that investigation continues after the deletion."
+  ],
+  "bilingualVerdict": "PARALLEL - stem, six options, key, rationale and six byChoice entries are semantically equivalent EN/ZH. Keyed option q4_d's irreversible instruction is reproduced in Chinese including the recently-deleted-storage clause ('包括最近删除文件夹'), so the repair is bilingual and must reach the stage_2 exhibit in both languages as well.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "45 CFR 164.402 read at https://www.law.cornell.edu/cfr/text/45/164.402 - breach definition and the four-factor risk assessment, including factor four on the extent to which risk has been mitigated and factors one and three on the nature and extent of the information and whether it was actually acquired or viewed. This establishes both that mitigation is credited and that the destroyed artifact is evidence for the other factors.",
+   "45 CFR 164.512(l) at https://www.law.cornell.edu/cfr/text/45/164.512 - underwrites keyed option q4_c.",
+   "I searched the parent for any supplied photo-incident or evidence-preservation procedure and found none; the baseline policy's requirement is limited to immediate mitigation, charge-nurse notification, an electronic incident report and same-shift escalation."
+  ],
+  "siblingImpact": "LOW. The repair touches q4's option q4_d and the matching sentence in the stage_2 exhibit. stage_2 is a shared stage surface, but exposure is bounded: siblings q1, q3, q5 and q6 are baseline-anchored and non-residual, and q2 must be anchored at stage_1 with stage_2 hidden, so once anchors are set no part renders stage_2. SEQUENCING CONSTRAINT: set the q2 anchor before editing stage_2.",
+  "repairConstraints": [
+   "Choose one of two routes and apply it to BOTH the q4_d option and the stage_2 exhibit sentence, in EN and ZH.",
+   "Route A, confined and recommended: revise q4_d so the nurse contains the exposure and escalates without asserting irreversible destruction - stop any further sharing, secure the image and the device pending Privacy Officer or security direction, and report immediately - leaving the disposition of the image to the Privacy Officer. This preserves the teaching point (contain and report) and removes the unsupported procedure.",
+   "Route B, shared surface: author a specific institutional photo-incident procedure into the baseline policy exhibit, including how evidence is preserved for the breach determination, so that the keyed deletion is grounded in the case's own policy. This edits a global surface visible to all six parts and requires re-review of the four baseline-anchored siblings.",
+   "Under either route, do not present HIPAA as universally mandating immediate permanent deletion.",
+   "Preserve keyed options q4_a, q4_b, q4_c and q4_e and distractor q4_f unchanged; all are correct and q4_f is well grounded in the stated policy.",
+   "Set the q2 anchor before editing stage_2.",
+   "Anchor to stage_1 after repair."
+  ],
+  "criticalNote": "RESOLUTION OF PRODUCER REVIEW_HOLD. Codex held this row over whether a permanent-deletion response lacking a specified evidence-preserving incident procedure can be keyed. I resolve it as a content repair rather than leaving it open. The hold is well founded: the defect is real, it is confined to one option and its mirroring stage sentence, and it is repairable without redesigning the item. Codex's two routes are the right two, and its caution not to present HIPAA as universally mandating immediate permanent deletion is correct and I adopt it as a binding constraint. I select Route A as the recommendation because it is confined to the residual row's own surfaces and does not require authoring new institutional policy into a global exhibit that four accepted siblings can see. I also determine the boundary Codex left null: stage_1, which is where the events occur and which is the same boundary the sibling row requires.",
+  "codexProposedDisposition": "REVIEW_HOLD",
+  "codexProposedBoundary": null,
+  "agreementWithCodex": "RESOLVED_HOLD",
+  "agreementReasoning": "I read the parent and identified the irreversible-deletion problem independently, including the fact that the case's policy exhibit specifies escalation and reporting but is silent on photo handling and evidence preservation. Codex's diagnosis is accurate and its constraint against presenting HIPAA as mandating deletion is right. Where Codex stopped at a hold, I resolve it: I verified against the primary breach regulation that mitigation is a credited factor while the destroyed image is evidence for two other factors, which is what makes the current wording overreach rather than merely debatable; I confirmed the defect is duplicated in the stage_2 exhibit, which Codex's per-row record notes as context but does not bind into the repair; I selected between Codex's two routes on sibling-exposure grounds; and I supplied the boundary as stage_1. The Campaign-16 producer's stage_1 was correct and the checker's baseline was too early.",
+  "producerIndependent": true,
+  "sourceParentSha256": "c8782809cc0d0f2d03819289755812ed5e01a9c6f83d00f2462a8c853ddb2a58"
+ },
+ {
+  "rowKey": "1e12ffbae816c10e",
+  "packetId": "parent-21",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_infection_control_clustered_care_01",
+  "partId": "gpt_case_infection_control_clustered_care_01_q3",
+  "reviewerDerivedProposition": "A family caregiver found providing hands-on care without personal protective equipment was never oriented, which is a system failure rather than her fault. The nurse acknowledges that gap without blaming her, explains that an open draining MRSA wound spreads organisms by contact with hands, clothing and linens, teaches that gown and gloves are required for room entry and direct contact with the client or bed linens, shows where the equipment is and verifies the teaching with a return demonstration of donning, doffing and hand hygiene. Barring her from touching her father until the wound heals is needlessly restrictive, and a surgical mask is not the protection this situation calls for.",
+  "requiredFacts": [
+   "Client C's large draining MRSA pressure injury and contact precautions - baseline_client_snapshot.",
+   "The daughter in street clothes with no gown or gloves, having repositioned her father, saying nobody told her - stage_1 exhibit stage_1_shared_equipment_and_visitor.",
+   "The unit policy that visitors are offered a precautions orientation at the first visit of each shift, which is what makes the miss a system gap and grounds keyed option q3_a - baseline_unit_policy rule 4.",
+   "Nothing in stage_2 or stage_3 is required."
+  ],
+  "earliestDefensibleBoundary": "stage_1",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage_1"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage_2",
+   "stage_3"
+  ],
+  "prefixDisclosesAnswer": false,
+  "disclosureEvidence": "stage_1 presents the daughter's situation and her statement but prescribes no teaching and names no personal protective equipment. Hiding stage_3 is NECESSARY: stage_3 records that 'Client C's daughter correctly demonstrates gown and glove donning and doffing', which discloses keyed option q3_e's return demonstration and confirms the gown-and-glove answer in q3_c. The current fail-open render therefore discloses this item, and the anchor genuinely repairs it. Hiding stage_2 is incidental, since its breaches concern other clients.",
+  "reviewerDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "clinicalVerdict": "Correct. Verified against CDC and HICPAC isolation guidance that contact precautions require gown and gloves on every entry into the room, donned at the entry point before contact with the patient or the patient's environment, which is exactly what keyed option q3_c states. Verified also that masks are not part of contact precautions for MRSA, because MRSA is transmitted by direct or indirect contact rather than by the respiratory route, which makes distractor q3_f genuinely and instructively wrong rather than filler. Distractor q3_d is correctly wrong on a different axis: excluding the family caregiver is more restrictive than the situation requires and would remove a repositioning resource this client needs. Keyed options q3_a, q3_b and q3_e are sound, and q3_a is specifically grounded in the unit's own policy that visitors are offered orientation at the first visit, so it corrects a documented system gap rather than merely being kind. The option set contains four correct options and two genuine errors, so discrimination is sound and it is not the all-correct degeneracy found elsewhere in this population. I found no invented fact, no stranded value and no key ambiguity.",
+  "contentDefects": [],
+  "bilingualVerdict": "PARALLEL - I read the Chinese against the English for the stem, all six options and all six byChoice rationales. Each pair is semantically equivalent, including the load-bearing distinction in q3_c between room entry and direct contact and the negative framing of distractor q3_f. No language-specific defect.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "CDC and HICPAC isolation-precautions guidance located via cdc.gov domain search - confirms gown and gloves on every room entry for contact precautions, donned at the entry point before contact with the patient or the patient's environment, and confirms that masks are not part of contact precautions for MRSA because transmission is by direct or indirect contact. The direct contact-precautions page returned HTTP 404, so the guidance was reached through the isolation-precautions and STRIVE materials on the same domain."
+  ],
+  "siblingImpact": "NONE. This is an anchor-only repair; no learner-facing text changes. Siblings q1, q2, q4, q5 and q6 are all baseline-anchored and non-residual.",
+  "repairConstraints": [
+   "Set answerableAfterStageId to stage_1. No content change is required or authorised by this row.",
+   "Do not anchor at baseline: the daughter's unprotected presence and her statement, which the stem builds on, exist only in stage_1."
+  ],
+  "criticalNote": "This row survives affirmative scrutiny as a true anchor-only repair, and the anchor does real work by hiding a stage that demonstrates the keyed return demonstration.",
+  "codexProposedDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "codexProposedBoundary": "stage_1",
+  "agreementWithCodex": "AGREE",
+  "agreementReasoning": "I derived stage_1 independently and independently identified stage_3's return demonstration as the disclosure the anchor must hide. Codex reached the same boundary with no content work. I tested rather than accepted the no-defect claim: I verified the contact-precautions PPE rule and the MRSA mask question against CDC guidance rather than assuming them, checked the option set for the all-correct degeneracy found elsewhere, confirmed keyed option q3_a is grounded in the unit's own written policy rather than being a bare civility, and read the Chinese in full. The Campaign-16 producer's stage_1 was correct and the checker's baseline was too early.",
+  "producerIndependent": true,
+  "sourceParentSha256": "807e551601c080f256f0b459714260a3361d663224874a8457353e654dccea0b"
+ },
+ {
+  "rowKey": "f56f69400453dee6",
+  "packetId": "parent-22",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_lateral_incivility_01",
+  "partId": "gpt_case_lateral_incivility_01_q3",
+  "reviewerDerivedProposition": "Two problems coexist and one is active. The incivility is the upstream cause and the newly licensed nurse's learning needs are real, but at this moment a documented monitoring instruction has been missed and the client is symptomatic with a systolic pressure above the provider's stated call parameter. The priority the charge nurse must name is the client-safety communication breakdown with its missed monitoring and the current threshold-crossing pressure.",
+  "requiredFacts": [
+   "The 2200 measurements and symptom - BP 186/102 with a 3/10 headache - stage_2.",
+   "The hospitalist's written call parameter and the missed 1800 check - stage_2, which quotes the 1400 note verbatim.",
+   "The amlodipine increase and the q4h instruction that were never verbally handed off - baseline_client_record for the order, stage_1 for the failure to communicate it.",
+   "Nothing in stage_3 is required."
+  ],
+  "earliestDefensibleBoundary": "stage_2",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage_1",
+   "stage_2"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage_3"
+  ],
+  "prefixDisclosesAnswer": true,
+  "disclosureEvidence": "stage_2 closes with 'Marcus verifies that SBP > 180 crosses the call threshold.' That sentence performs the interpretive step this item asks the learner to make: keyed option B is precisely the framing that the current pressure is above the provider call threshold alongside the missed monitoring. The learner is told the conclusion rather than asked to reach it. Hiding stage_3 is separately necessary, since stage_3 records the notification, the hydralazine order and the response.",
+  "reviewerDisposition": "CONTENT_REPAIR_REQUIRED",
+  "clinicalVerdict": "The key and the distractors are correct. Keyed option B is right: 186 exceeds the documented parameter of SBP above 180 and the client is symptomatic, so the active safety gap outranks the conduct issue. Distractor A correctly fails by delaying notification to mediate a conflict, distractor C correctly fails by shifting blame onto the newly licensed nurse, and distractor D correctly fails by minimising a symptomatic threshold-crossing pressure as a documentation matter. TWO DEFECTS NEVERTHELESS SIT IN THE SHARED stage_2 EXHIBIT. The first is the pre-interpretation described above. The second is a clinical error: stage_2 states 'Telemetry shows sinus tachycardia at 92'. Verified that sinus tachycardia in adults requires a rate greater than 100 beats per minute, and that a normal adult resting rate is 60 to 100, so a sinus rhythm at 92 is NORMAL SINUS RHYTHM and not tachycardia. The parent's own baseline is consistent with this, recording normal sinus rhythm at a rate of 78. The mislabel does not change this item's key, but it is an incorrect clinical claim on a surface three residual parts depend on.",
+  "contentDefects": [
+   "PRIMARY, SHARED SURFACE: the closing sentence of stage_2 pre-interprets the call threshold, supplying the framing keyed in option B.",
+   "CLINICAL ERROR, SHARED SURFACE: stage_2 describes a rate of 92 as sinus tachycardia. It is normal sinus rhythm."
+  ],
+  "bilingualVerdict": "PARALLEL - stem, four options, key, rationale, four byChoice entries and strategy are semantically equivalent EN/ZH. Both stage_2 defects are reproduced in the Chinese exhibit, so both corrections must be bilingual.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "StatPearls Sinus Tachycardia (https://www.ncbi.nlm.nih.gov/books/NBK553128/) - read directly. Confirms sinus tachycardia in adults is a rate greater than 100 beats per minute and that the normal adult resting range is 60 to 100, which establishes that the case's description of 92 as sinus tachycardia is wrong."
+  ],
+  "siblingImpact": "HIGH AND SHARED WITH TWO OTHER RESIDUAL ROWS. Both defects live in the stage_2 exhibit, which is the boundary stage for residual rows q3, q4 AND q5. The three repairs are the same edit and must be applied once, as a single coordinated change, with all three parts re-reviewed together. Non-residual siblings q1, q2 and q6 are baseline-anchored and cannot see stage_2, so exposure beyond the three residual rows is nil.",
+  "repairConstraints": [
+   "Remove the sentence 'Marcus verifies that SBP > 180 crosses the call threshold' from the stage_2 exhibit in EN and ZH. Retain the measured blood pressure, the headache and the verbatim hospitalist call parameter, so the learner still has everything needed to make the judgement.",
+   "Correct 'sinus tachycardia at 92' to normal sinus rhythm at 92 in EN and ZH.",
+   "Apply both edits ONCE for rows q3, q4 and q5 together; do not make three separate edits to the same exhibit.",
+   "Do not alter the q3 stem, options, key or rationales; the item is clinically correct.",
+   "Anchor to stage_2 after repair."
+  ],
+  "criticalNote": "This parent is the clearest case in the review of one shared-surface repair serving three residual rows. Treating the rows independently risks either duplicate conflicting edits or a repair applied for one row while the other two still render the defective text.",
+  "codexProposedDisposition": "CONTENT_REPAIR_REQUIRED",
+  "codexProposedBoundary": "stage_2",
+  "agreementWithCodex": "AGREE",
+  "agreementReasoning": "I read stage_2 and flagged both the pre-interpreting closing sentence and the tachycardia mislabel before opening the proposal, and I derived stage_2 as the boundary independently. Codex names both defects and the same boundary, and correctly requires the shared stage_2 corrections to be applied across the three rows with joint parent review. I verified the rate criterion against a primary source rather than accepting the registry pointer, and I confirm the mislabel does not disturb this item's key, which bounds the repair.",
+  "producerIndependent": true,
+  "sourceParentSha256": "2837abd93700e202b79833c552033a51fb441c854202987c053068f1c7dea25e"
+ },
+ {
+  "rowKey": "b1d86a48db7dac8f",
+  "packetId": "parent-22",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_lateral_incivility_01",
+  "partId": "gpt_case_lateral_incivility_01_q4",
+  "reviewerDerivedProposition": "The charge nurse closes the active care gap first by having the primary nurse notify the hospitalist, then addresses the conduct and system failure through private behaviour-focused feedback to the senior nurse, coaching for the newly licensed nurse on obtaining a complete handoff and escalating an inadequate one, and formal safety and professional-conduct reporting with manager notification. Public reprimand is itself uncivil and worsens the culture the event exposed, and declining to document because no serious harm occurred removes accountability for a real missed-monitoring event.",
+  "requiredFacts": [
+   "The active clinical gap requiring notification - stage_2.",
+   "The observed incivility and the incomplete handoff - stage_1.",
+   "Nothing in stage_3 is required."
+  ],
+  "earliestDefensibleBoundary": "stage_2",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage_1",
+   "stage_2"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage_3"
+  ],
+  "prefixDisclosesAnswer": true,
+  "disclosureEvidence": "Two disclosures. First, the shared stage_2 pre-interpretation described for row q3 supplies the reasoning behind keyed option A. Second and more completely, stage_3 executes the ENTIRE keyed set: Marcus instructs Priya to notify the hospitalist, speaks privately with Renee naming observed behaviours and their impact, speaks privately with Priya and coaches her to ask direct questions or escalate, completes a safety report, documents the incivility through the professional-conduct pathway and notifies the nurse manager. That is keyed options A, B, C and D in order. Hiding stage_3 is therefore essential and the anchor does substantial work; the residual defect is the stage_2 sentence.",
+  "reviewerDisposition": "CONTENT_REPAIR_REQUIRED",
+  "clinicalVerdict": "All four keyed actions are correct and both distractors are genuinely wrong rather than filler: public reprimand is itself a civility breach and would model the behaviour being corrected, and withholding documentation because harm was averted is a recognised accountability failure. The option set contains four correct options and two real errors, so discrimination is sound. I found no invented fact and no key ambiguity WITHIN this part. The defects requiring repair are the two shared stage_2 problems identified on row q3 - the pre-interpreted call threshold and the mislabelling of a rate of 92 as sinus tachycardia - which this row inherits because stage_2 is its boundary.",
+  "contentDefects": [
+   "INHERITED, SHARED SURFACE: the stage_2 pre-interpretation of the call threshold, which supports keyed option A.",
+   "INHERITED, SHARED SURFACE: the sinus tachycardia mislabel at a rate of 92.",
+   "OBSERVATION, MEDIUM confidence, not raised by any prior seat: keyed option A of this item states the action that sibling residual row q5 asks the learner to identify as the FIRST action, almost verbatim. Under P23 a case study renders as one top-level question with one aggregate submit and no true unfolding reveal, so all parts are visible together and this option list is on screen while the learner answers q5. The three residual parts q3, q4 and q5 are all set at Stage 2 and converge on the same action, with q5 logically preceding q4. I do not require a change, because sequential parts legitimately build on one another, but the integration seat should consider whether q5 retains independent value once q4's option list is visible."
+  ],
+  "bilingualVerdict": "PARALLEL - stem, six options, key, rationale, six byChoice entries and strategy are semantically equivalent EN/ZH. No language-specific defect within the part; the shared stage_2 defects are bilingual and must be corrected in both languages.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "StatPearls Sinus Tachycardia as cited for row q3, for the inherited ECG mislabel. No further external premise was load-bearing; the conduct-management actions are standard and each is tied to an observed event in the chart, which I checked individually."
+  ],
+  "siblingImpact": "HIGH AND SHARED. This row's repair is the SAME stage_2 edit required by rows q3 and q5. Apply once and re-review all three parts jointly. Non-residual siblings q1, q2 and q6 are baseline-anchored and unaffected.",
+  "repairConstraints": [
+   "Apply the shared stage_2 corrections specified on row q3 - remove the pre-interpreting threshold sentence and correct the rhythm label - once, in EN and ZH, for all three residual rows.",
+   "Preserve the q4 stem, all six options, the key and the rationales; the part itself is sound.",
+   "Require joint parent review of q3, q4 and q5 after the shared edit.",
+   "Anchor to stage_2 after repair."
+  ],
+  "criticalNote": "This row carries no part-level defect of its own. It is a content repair solely because it shares a defective boundary stage with two other residual rows.",
+  "codexProposedDisposition": "CONTENT_REPAIR_REQUIRED",
+  "codexProposedBoundary": "stage_2",
+  "agreementWithCodex": "AGREE_WITH_ADDITIONS",
+  "agreementReasoning": "I derived stage_2 independently and independently found that stage_3 executes the whole keyed response, which is the strongest argument for the anchor. Codex assigns the same disposition and boundary and correctly directs that the shared stage_2 corrections specified for q3 be applied here with joint parent review. I add the observation that keyed option A of this part restates the answer to sibling residual row q5, which matters because P23 renders all parts together; neither Campaign-16 seat nor Codex records this cross-part overlap.",
+  "producerIndependent": true,
+  "sourceParentSha256": "2837abd93700e202b79833c552033a51fb441c854202987c053068f1c7dea25e"
+ },
+ {
+  "rowKey": "a8982658716e5dd4",
+  "packetId": "parent-22",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_lateral_incivility_01",
+  "partId": "gpt_case_lateral_incivility_01_q5",
+  "reviewerDerivedProposition": "The first action is the one that reduces the current risk without delay: have the primary nurse notify the hospitalist now, citing the stated call parameter and reporting the pressure, the headache and the missed monitoring. Hearing the senior nurse's account, completing the incident report, and waiting for the next scheduled check all defer care while the client sits above a documented call threshold with a symptom, and the charge nurse taking the call over entirely removes the primary nurse from her own role without necessity.",
+  "requiredFacts": [
+   "The 2200 pressure, the headache and the written call parameter - stage_2.",
+   "The missed 1800 check - stage_2.",
+   "Nothing in stage_3 is required."
+  ],
+  "earliestDefensibleBoundary": "stage_2",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage_1",
+   "stage_2"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage_3"
+  ],
+  "prefixDisclosesAnswer": true,
+  "disclosureEvidence": "stage_3 opens 'Marcus instructs Priya to notify the hospitalist now', which is keyed option A stated as an accomplished fact, so hiding stage_3 is essential. The shared stage_2 closing sentence additionally pre-interprets the threshold that keyed option A invokes.",
+  "reviewerDisposition": "CONTENT_REPAIR_REQUIRED",
+  "clinicalVerdict": "The key is correct and the distractor set is well constructed, including the nuanced distractor E in which the charge nurse takes over entirely; its rationale correctly allows that taking over may be right if the situation exceeds the primary nurse's ability despite support, which keeps the option from being a straw man. Distractors B, C and D each defer care for a different plausible-sounding reason and are correctly wrong. I found no invented fact and no key ambiguity WITHIN this part. The repairs required are the two shared stage_2 defects identified on row q3, which this row inherits.",
+  "contentDefects": [
+   "INHERITED, SHARED SURFACE: the stage_2 pre-interpretation of the call threshold, which directly supports keyed option A's reliance on the stated call parameter.",
+   "INHERITED, SHARED SURFACE: the sinus tachycardia mislabel at a rate of 92.",
+   "OBSERVATION, MEDIUM confidence: sibling residual row q4's keyed option A states this item's answer almost verbatim, and all parts render together under P23. See the corresponding note on q4."
+  ],
+  "bilingualVerdict": "PARALLEL - stem, five options, key, rationale, five byChoice entries and strategy are semantically equivalent EN/ZH. No language-specific defect within the part.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "StatPearls Sinus Tachycardia as cited for row q3, for the inherited ECG mislabel. No further external premise was load-bearing; the first-action prioritisation rests on the case's own documented call parameter, which I read verbatim from the stage_2 exhibit."
+  ],
+  "siblingImpact": "HIGH AND SHARED. This row's repair is the SAME stage_2 edit required by rows q3 and q4. Apply once and re-review all three parts jointly.",
+  "repairConstraints": [
+   "Apply the shared stage_2 corrections specified on row q3 once, in EN and ZH, for all three residual rows.",
+   "Retain the current role-specific option set and key; the part is sound as written.",
+   "Require joint parent review of q3, q4 and q5 after the shared edit.",
+   "Anchor to stage_2 after repair."
+  ],
+  "criticalNote": "Like q4, this row carries no part-level defect of its own and is a content repair solely by inheritance from the shared boundary stage.",
+  "codexProposedDisposition": "CONTENT_REPAIR_REQUIRED",
+  "codexProposedBoundary": "stage_2",
+  "agreementWithCodex": "AGREE",
+  "agreementReasoning": "I derived stage_2 independently and independently identified that stage_3 states the keyed action as already directed. Codex assigns the same disposition and boundary and directs the shared stage_2 corrections with the current option set retained pending independent review, which I have now performed and which I confirm: the options and key are sound, including the carefully qualified take-over distractor. I add the cross-part overlap observation shared with q4.",
+  "producerIndependent": true,
+  "sourceParentSha256": "2837abd93700e202b79833c552033a51fb441c854202987c053068f1c7dea25e"
+ },
+ {
+  "rowKey": "dcf2dbbe0f27ca65",
+  "packetId": "parent-23",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+  "partId": "gpt_case_opioid_recovery_relapse_risk_01_q2",
+  "reviewerDerivedProposition": "The Stage 1 cluster is acute relapse risk. Early recovery, two prior relapses including a reversed overdose, an acute painful injury, fear of opioid re-exposure, shame, and active withdrawal from his own supports converge on a high-risk moment. It is not withdrawal, because every objective withdrawal sign is documented absent and the urine screen shows buprenorphine without opiates; it is not drug seeking, because he is trying to avoid opioid exposure rather than obtain it; it is not primary cardiovascular instability, because the vital signs improved with analgesia; and the single passive statement, clarified immediately, does not by itself establish an acute suicidal crisis.",
+  "requiredFacts": [
+   "Recovery history, prior overdose, MAT regimen and named supports - baseline_background.",
+   "Absence of objective withdrawal signs and the urine drug screen result - baseline_assessment_labs, which lists diaphoresis, tremor, piloerection, rhinorrhoea, yawning, vomiting and GI distress as absent.",
+   "The Stage 1 statements, the clarification, the fear of fentanyl and the non-contact with Tanya and the sponsor - stage_1.",
+   "Improvement in vital signs after analgesia - stage_1.",
+   "WHAT THE CHART DOES NOT ESTABLISH: any assessment of a suicide PLAN. stage_1 records that he was asked to clarify and said 'I don't mean like that. I'm not going to hurt myself.' That is a denial of intent. No plan question and no plan denial is documented anywhere."
+  ],
+  "earliestDefensibleBoundary": "stage_1",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage_1"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage_2",
+   "stage_3"
+  ],
+  "prefixDisclosesAnswer": false,
+  "disclosureEvidence": "stage_1 presents the cue cluster without labelling it. Hiding the later stages is appropriate and substantive: stage_2 introduces the interpersonal crisis and stage_3 the explicit craving statement, either of which would change the cue picture the item asks the learner to interpret at Stage 1.",
+  "reviewerDisposition": "CONTENT_REPAIR_REQUIRED",
+  "clinicalVerdict": "The key is correct and the distractor set is strong, with rationales that teach well - in particular the withdrawal rationale enumerates the specific absent signs rather than asserting a conclusion, and the drug-seeking rationale correctly identifies that the option inverts the client's actual concern. THE DEFECT IS AN OVERSTATED ASSESSMENT CLAIM. The key rationale states 'He denied suicidal intent and plan', and the distractor rationale repeats 'denial of intent/plan'. The chart supports a denial of INTENT only; no plan assessment is documented. This matters more than a wording slip because the item is teaching suicide-risk assessment, and asserting that intent and plan were both assessed and denied models a completed risk assessment that did not occur. The rationale also reasons from that denial toward a conclusion about an involuntary hold, which is a legal threshold that varies by jurisdiction and should not be presented as settled by a denial.",
+  "contentDefects": [
+   "PRIMARY: the key rationale and the distractor-d rationale assert that both suicidal intent AND plan were denied; only intent is documented.",
+   "SECONDARY: the reasoning implies that denial plus protective factors resolves the question of an involuntary hold. The safer teaching is that a passive statement requires a complete and continuing safety assessment, whatever the local legal threshold."
+  ],
+  "bilingualVerdict": "PARALLEL - stem, five options, key, rationale, five byChoice entries and strategy are semantically equivalent EN/ZH. The overstated intent-and-plan claim is reproduced in ZH, so the repair is bilingual.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "No external fetch was load-bearing. The finding rests on comparing the rationale's assertion against the verbatim stage_1 exchange in the frozen packet, and on the uncontested point that involuntary-hold criteria are jurisdictional. The withdrawal exclusion was checked against the enumerated absent signs in the baseline exhibit rather than against an external scale."
+  ],
+  "siblingImpact": "NONE. The repair is confined to q2's key rationale and its distractor-d rationale. No stage, exhibit, title or summary text changes.",
+  "repairConstraints": [
+   "Replace the intent-and-plan assertion in EN and ZH with the exact documented denial - that he denied intent to harm himself when asked to clarify - and state that a complete and continuing safety assessment is still required.",
+   "Do not imply that a denial alone rules out a crisis or determines an involuntary hold; remove the legal conclusion rather than restating it.",
+   "Preserve the key and all five option texts, including distractor d, whose qualifier 'based only on the first statement' is what correctly makes it wrong.",
+   "Anchor to stage_1 after repair."
+  ],
+  "criticalNote": "The defect is in the explanation rather than the key, but it is safety-critical teaching content and should not be waved through on the strength of a correct key.",
+  "codexProposedDisposition": "CONTENT_REPAIR_REQUIRED",
+  "codexProposedBoundary": "stage_1",
+  "agreementWithCodex": "AGREE",
+  "agreementReasoning": "I compared the rationale against the stage_1 exchange and found the plan-denial unsupported before reading the proposal, and I derived stage_1 independently. Codex names the same defect and the same two constraints - use the exact documented denial, and do not imply that denial governs involuntary-hold law. I add the specific reason the overstatement matters in an item whose subject is suicide-risk assessment, and I confirm the withdrawal and drug-seeking distractor rationales are well grounded in enumerated chart findings.",
+  "producerIndependent": true,
+  "sourceParentSha256": "d016aa0e833851594d6354a23e2d36a1b94c2eb81cdde3093eb6a1fcd748529f"
+ },
+ {
+  "rowKey": "18d46f73fa754220",
+  "packetId": "parent-23",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+  "partId": "gpt_case_opioid_recovery_relapse_risk_01_q3",
+  "reviewerDerivedProposition": "Between Stage 1 and Stage 2 the client's trajectory changes from anxious but engaged to hopeless, ashamed and isolated, and that deterioration is the most immediate destabilising concern because it can precede either relapse or self-harm. The nurse prioritises therapeutic engagement and safety reassessment. Answering the partner's hallway question would breach confidentiality, repeating the drug screen would damage trust without addressing the deterioration, discharge teaching can wait, and the medication-assisted-treatment plan has already been clarified.",
+  "requiredFacts": [
+   "The emotional deterioration and its markers - stage_2 (the 'junkie' statement, red eyes, picking at the cast edge, 'I just feel really alone right now').",
+   "Tanya's hallway question and her reported observations - stage_2.",
+   "That the MAT plan is already resolved, which is what makes distractor d wrong - stage_2 states 'The ED provider has spoken with the MAT prescriber' and lists the resumed order. I checked this specifically, because a distractor whose premise is unestablished is a recurring defect in this population; here the premise IS established and the distractor is fairly defeated.",
+   "The Stage 1 baseline against which the trajectory is judged - stage_1.",
+   "Nothing in stage_3 is required."
+  ],
+  "earliestDefensibleBoundary": "stage_2",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage_1",
+   "stage_2"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage_3"
+  ],
+  "prefixDisclosesAnswer": false,
+  "disclosureEvidence": "stage_2 presents the competing demands - the partner's question, the client's distress, the discharge tasks - without ranking them, which is the work the item asks for. Hiding stage_3 is substantive: stage_3 escalates to an explicit craving statement and adds logistical barriers, which would change the priority calculus the item sets at Stage 2.",
+  "reviewerDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "clinicalVerdict": "Correct. The keyed priority follows the changing trajectory rather than the loudest task, which is the right psychosocial prioritisation principle and is what the strategy states. Every distractor is genuinely wrong and each for a different, instructive reason. Distractor b is wrong on confidentiality grounds that I verified independently earlier in this review at 45 CFR 164.510(b)(2): with a present, capacitated client, disclosure to a family member or partner requires the client's agreement, an unobjected opportunity to object, or a reasonable professional inference, so the nurse can neither confirm nor deny his status to Tanya. The item handles this correctly by validating her fear while withholding the information. Distractor d rests on a premise the chart refutes, and I confirmed the refutation in stage_2 rather than assuming it. I found no invented fact, no stranded value, no key ambiguity and no all-correct degeneracy.",
+  "contentDefects": [],
+  "bilingualVerdict": "PARALLEL - I read the Chinese against the English for the stem, all five options and all five byChoice rationales. Each pair is semantically equivalent. No language-specific defect.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "45 CFR 164.510(b)(2), read in full at https://www.law.cornell.edu/cfr/text/45/164.510 earlier in this review, underwrites the confidentiality basis for distractor b. No further external premise was load-bearing; the prioritisation rests on the trajectory documented in the chart, which I traced from stage_1 to stage_2."
+  ],
+  "siblingImpact": "NONE. This is an anchor-only repair; no learner-facing text changes.",
+  "repairConstraints": [
+   "Set answerableAfterStageId to stage_2. No content change is required or authorised by this row.",
+   "Do not anchor at baseline: the deterioration the item asks the learner to prioritise, and Tanya's arrival, both occur in stage_2."
+  ],
+  "criticalNote": "This row survives affirmative scrutiny as a true anchor-only repair. I specifically tested the distractor whose premise could have been unestablished and found it grounded in the boundary stage.",
+  "codexProposedDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "codexProposedBoundary": "stage_2",
+  "agreementWithCodex": "AGREE",
+  "agreementReasoning": "I derived stage_2 independently and independently confirmed that stage_3's escalation must be hidden. Codex reached the same boundary with no content work. I treated the absence of proposed edits as a claim to test: I verified the confidentiality premise against the primary regulation, checked the MAT distractor's premise against the stage text, checked the option set for the all-correct degeneracy found elsewhere in this population, and read the Chinese in full. The Campaign-16 producer's stage_2 was correct and the checker's baseline was too early.",
+  "producerIndependent": true,
+  "sourceParentSha256": "d016aa0e833851594d6354a23e2d36a1b94c2eb81cdde3093eb6a1fcd748529f"
+ },
+ {
+  "rowKey": "b02619cc0abe50fd",
+  "packetId": "parent-23",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+  "partId": "gpt_case_opioid_recovery_relapse_risk_01_q4",
+  "reviewerDerivedProposition": "The right responses to a statement of shame and hopelessness invite more disclosure and protect trust: reflect the feeling without judgement or argument, explore what 'what's the point' means and reassess for suicidal thinking if the answer suggests passive ideation, offer concrete help reconnecting with a recovery support, and seek the client's permission to bring his partner into safety planning while keeping her private disclosures confidential. Repeating what the partner said in the hallway betrays a confidence and confirms his fear that people are talking about him, and cheerful reassurance shuts the conversation down.",
+  "requiredFacts": [
+   "The client's statement, which the stem quotes verbatim - stage_2.",
+   "Tanya's private hallway disclosures, which distractor e proposes to repeat - stage_2, explicitly 'outside Marcus's hearing'.",
+   "The named recovery supports that keyed option c would activate - baseline_background.",
+   "Nothing in stage_3 is required."
+  ],
+  "earliestDefensibleBoundary": "stage_2",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage_1",
+   "stage_2"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage_3"
+  ],
+  "prefixDisclosesAnswer": false,
+  "disclosureEvidence": "stage_2 supplies the statement and the surrounding context but no nursing response. Hiding stage_3 is appropriate, since stage_3 contains the later craving disclosure and the discharge-planning conversation that the keyed responses are meant to make possible.",
+  "reviewerDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "clinicalVerdict": "Correct. The four keyed responses are sound therapeutic communication and each is tied to something the chart establishes. Keyed option d is notable for being correctly conditioned on the client's permission, which is consistent with the confidentiality rule I verified at 45 CFR 164.510(b)(2) and consistent with the way distractor b of the sibling q3 row is treated - the parent is internally coherent on this point. Both distractors are genuinely wrong: repeating the partner's private statement weaponises a confidence made outside the client's hearing, and the platitude in option f is textbook false reassurance. The option set contains four correct options and two real errors, so discrimination is sound. I found no invented fact, no stranded value and no key ambiguity.",
+  "contentDefects": [],
+  "bilingualVerdict": "PARALLEL - I read the Chinese against the English for the stem, all six options and all six byChoice rationales. Each pair is semantically equivalent, including the quoted client statement in the stem and the conditional permission clause in option d. No language-specific defect.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "45 CFR 164.510(b)(2) as cited for the sibling q3 row, which underwrites the consent condition in keyed option d and the wrongness of distractor e. No further external premise was load-bearing."
+  ],
+  "siblingImpact": "NONE. This is an anchor-only repair; no learner-facing text changes. Note for the integration seat: keyed option d here and keyed option e of sibling row q5 both involve including Tanya, and q5's version is NOT permission-conditioned. See the q5 record.",
+  "repairConstraints": [
+   "Set answerableAfterStageId to stage_2. No content change is required or authorised by this row.",
+   "Do not anchor at baseline: the quoted statement the item responds to occurs in stage_2."
+  ],
+  "criticalNote": "This row survives affirmative scrutiny as a true anchor-only repair.",
+  "codexProposedDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "codexProposedBoundary": "stage_2",
+  "agreementWithCodex": "AGREE",
+  "agreementReasoning": "I derived stage_2 independently and found no part-level defect after testing for the failure modes that converted other proposed anchor-only rows in this review. Codex reached the same boundary with no content work. I add the cross-row observation that this row's permission-conditioned inclusion of the partner sits in tension with sibling row q5's unconditioned version, which is recorded against q5 rather than here because q5 is the row that needs the change.",
+  "producerIndependent": true,
+  "sourceParentSha256": "d016aa0e833851594d6354a23e2d36a1b94c2eb81cdde3093eb6a1fcd748529f"
+ },
+ {
+  "rowKey": "73a1a25cd88535fd",
+  "packetId": "parent-23",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_opioid_recovery_relapse_risk_01",
+  "partId": "gpt_case_opioid_recovery_relapse_risk_01_q5",
+  "reviewerDerivedProposition": "Discharge planning must answer the barriers the client actually named. Thank him for disclosing craving and frame craving as manageable rather than as failure; teach the scheduled non-opioid analgesia with the paracetamol daily limit, duplicate-product safety and the spacing required after ketorolac; continue the prescribed buprenorphine/naloxone and explain that it both treats the disorder and contributes to analgesia; help him actually call his sponsor, confirm the follow-up appointment and solve the transport problem for the meeting; and review naloxone and overdose recognition, including checking the printed expiry date and replacing an out-of-date kit. Telling him to avoid the emergency department if pain becomes uncontrolled is unsafe, because uncontrolled pain is itself a relapse driver.",
+  "requiredFacts": [
+   "The craving statement, the increasing pain, and the three named barriers - no sponsor call, uncertain meeting attendance because he cannot drive, unconfirmed follow-up - stage_3.",
+   "His question about the roughly one-year-old naloxone kit - stage_3.",
+   "The discharge medication orders including the NSAID spacing instruction - stage_2.",
+   "BUPRENORPHINE TIMING, WHICH THE CHART RENDERS INCONSISTENT: baseline_assessment_labs records 'He reports taking buprenorphine/naloxone this morning'; stage_2 orders 'resume buprenorphine/naloxone 16 mg/4 mg sublingual daily tonight'; stage_3 records 'He took the evening buprenorphine/naloxone dose 30 minutes ago'. Read together the client receives two full 16 mg/4 mg doses within roughly twelve hours against an order written as once daily."
+  ],
+  "earliestDefensibleBoundary": "stage_3",
+  "boundaryIsTerminalStage": true,
+  "stagesVisibleAtBoundary": [
+   "stage_1",
+   "stage_2",
+   "stage_3"
+  ],
+  "stagesHiddenAtBoundary": [],
+  "prefixDisclosesAnswer": false,
+  "disclosureEvidence": "stage_3 poses the client's questions, which are the triggers the teaching answers, but supplies no teaching content and no safety plan. The questions cue the topics without giving the answers.",
+  "reviewerDisposition": "CONTENT_REPAIR_REQUIRED",
+  "clinicalVerdict": "The keyed set is clinically sound and the single distractor is genuinely unsafe and well chosen. Keyed option b is correct and is grounded in the case's own order, which already specifies beginning ibuprofen at the next scheduled NSAID interval to avoid overlap with ketorolac. Keyed option c is pharmacologically correct: buprenorphine is a partial mu agonist and does contribute analgesia as well as treating the disorder. Keyed option e is correct harm reduction, and its instruction to check the printed expiry date rather than to discard on age is the right teaching, since a kit about a year old may well still be in date. THE DEFECT IS A MEDICATION-TIMING INCONSISTENCY ACROSS THREE SURFACES, and it bears directly on keyed option c, which asks the learner to REINFORCE the ordered plan. As traced above, the client took a full daily dose in the morning before arrival, the provider's hold therefore held nothing that day, and the resumed order directs another full daily dose the same night, which stage_3 confirms he took. Asking a learner to reinforce a plan that contains an apparent same-day duplicate full dose is not safe teaching, whatever the ceiling effect on respiratory depression makes of the clinical risk.",
+  "contentDefects": [
+   "PRIMARY: unreconciled buprenorphine/naloxone timing. The morning self-administered dose, the order to resume the full daily dose that same night, and the stage_3 confirmation that the evening dose was taken together describe two full daily doses in one day under a once-daily order.",
+   "SECONDARY, INTERNAL INCONSISTENCY WITH A SIBLING: keyed option e directs the nurse to review naloxone with Marcus AND Tanya without any permission condition, whereas sibling residual row q4's keyed option d correctly conditions including Tanya on the client's permission. The same parent therefore teaches two different standards for involving the partner. Since Tanya is already present and already trained with a kit at home, joint teaching is entirely reasonable, but the permission framing should be consistent."
+  ],
+  "bilingualVerdict": "PARALLEL - stem, six options, key, rationale, six byChoice entries and strategy are semantically equivalent EN/ZH. The timing inconsistency lives in the exhibits rather than in the option text and is reproduced identically in the Chinese exhibits, so the reconciliation must be bilingual.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "No external fetch was load-bearing for the finding, which rests on reading the three chart surfaces against each other in the frozen packet. The partial-agonist analgesic property underlying keyed option c and the ceiling effect relevant to judging the severity of the duplicate dose are standard buprenorphine pharmacology and were not treated as contested; the defect is the unreconciled instruction, not a claim that the dose is lethal."
+  ],
+  "siblingImpact": "MODERATE. Reconciling the buprenorphine timing touches the baseline global exhibit and/or the stage_2 and stage_3 exhibits. baseline_assessment_labs is a global surface visible to every part including non-residual siblings q1 and q6, so a change there requires re-reviewing both. The least invasive reconciliation is confined to the stage_2 order wording, which only residual rows q3, q4 and q5 can see once anchors are set.",
+  "repairConstraints": [
+   "Reconcile the buprenorphine/naloxone timing across baseline, stage_2 and stage_3 in EN and ZH, so that the plan the learner is asked to reinforce does not contain a same-day duplicate full dose. Prefer clarifying the stage_2 order to name the next scheduled dose or the authorised timing, which keeps the edit off the global baseline exhibit.",
+   "Do not silently endorse a second full same-day dose, and do not resolve the problem by deleting the baseline statement that he took a morning dose, which is clinically important context for the hold.",
+   "Condition keyed option e's joint naloxone teaching on the client's permission, consistent with sibling row q4's option d.",
+   "Preserve the key a, b, c, d, e and distractor f; all are clinically correct.",
+   "If the baseline exhibit is touched, re-review non-residual siblings q1 and q6.",
+   "Anchor to stage_3 after repair."
+  ],
+  "criticalNote": "stage_3 is terminal, so the approved anchor hides nothing and the rendered surface is unchanged by anchoring. This row cannot be closed by the anchor repair.",
+  "codexProposedDisposition": "CONTENT_REPAIR_REQUIRED",
+  "codexProposedBoundary": "stage_3",
+  "agreementWithCodex": "AGREE_WITH_ADDITIONS",
+  "agreementReasoning": "I traced the buprenorphine timing across the three surfaces myself and reached the same conclusion Codex did, and I derived stage_3 as the boundary independently. Codex's constraints - reconcile the timing across baseline and stages 2 and 3, do not silently endorse a second full same-day dose, clarify the authorised timing, and obtain permission for shared teaching - are all correct and I adopt them. I add: the precise three-surface trace with the quoted text, so the integration seat can see exactly where the inconsistency arises; the recommendation to confine the reconciliation to the stage_2 order to avoid editing a global exhibit that two accepted siblings can see; and the identification of the permission inconsistency as an internal conflict with sibling row q4 rather than a free-standing preference.",
+  "producerIndependent": true,
+  "sourceParentSha256": "d016aa0e833851594d6354a23e2d36a1b94c2eb81cdde3093eb6a1fcd748529f"
+ },
+ {
+  "rowKey": "0eb41edc4fe6849b",
+  "packetId": "parent-24",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+  "partId": "gpt_case_pressure_injury_prevention_mobility_01_q3",
+  "reviewerDerivedProposition": "A 420 mL bladder with urgency in a frail postoperative client who just became lightheaded on standing is the need that can cause immediate harm, through either an unassisted attempt to get up or incontinence-driven moisture on already compromised sacral skin. The nurse facilitates safe voiding now - raised bedside commode, analgesia given as preparation for the transfer rather than as an end in itself, fall precautions with two-person assist, and orthostatic monitoring - rather than replacing the catheter that was removed six hours ago, waiting for pain to reach zero, or confining her to bed in a brief.",
+  "requiredFacts": [
+   "Foley removed at 0600, no void since, urgency and lower abdominal pressure, bladder scan 420 mL - stage_2.",
+   "The failed standing attempt and the orthostatic drop from 126/70 to 104/62 with a rise to 96 - stage_2.",
+   "Pain 5/10 with last hydromorphone at 0300, establishing that analgesia is available - stage_2.",
+   "The coccygeal non-blanchable erythema and moisture risk that make incontinence consequential - baseline and stage_2.",
+   "Nothing in stage_3 is required."
+  ],
+  "earliestDefensibleBoundary": "stage_2",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage_1",
+   "stage_2"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage_3"
+  ],
+  "prefixDisclosesAnswer": false,
+  "disclosureEvidence": "stage_2 presents the competing demands without ranking them or naming an approach. Hiding stage_3 is NECESSARY: stage_3 records that she 'transferred to a raised bedside commode with armrests using two-person assist' and 'voided twice on the commode', which is keyed option q3_a demonstrated as successful. The current fail-open render therefore discloses this item and the anchor genuinely repairs it.",
+  "reviewerDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "clinicalVerdict": "Correct. The keyed priority correctly treats analgesia as preparation for a safe transfer rather than as a competing goal, which is the subtlety that makes distractor q3_c wrong. Distractor q3_b is properly wrong on catheter-associated infection grounds: sensation and urgency are intact and returning bladder function should be facilitated before reinstrumentation, and the rationale correctly keeps the retention algorithm available if she cannot void, so the option is defeated without teaching that catheterisation is never appropriate at this volume. Distractor q3_e is properly wrong because bedrest with an absorbent brief increases moisture exposure over already compromised sacral skin, and q3_d correctly ranks nutrition below an immediate fall and moisture risk. I found no invented fact, no stranded value, no key ambiguity and no all-correct degeneracy.",
+  "contentDefects": [],
+  "bilingualVerdict": "PARALLEL - I read the Chinese against the English for the stem, all five options and all five byChoice rationales. Each pair is semantically equivalent, including the compound keyed option. No language-specific defect.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "No external premise was load-bearing for the prioritisation, which rests on chart findings I verified individually against the stage_2 exhibit. The catheter-avoidance principle underlying distractor q3_b is standard CAUTI-prevention practice and the item's rationale states it without overreaching."
+  ],
+  "siblingImpact": "NONE. This is an anchor-only repair; no learner-facing text changes.",
+  "repairConstraints": [
+   "Set answerableAfterStageId to stage_2. No content change is required or authorised by this row.",
+   "Do not anchor at baseline: the bladder volume, the urgency and the orthostatic episode all occur in stage_2.",
+   "If the sibling q4 repair edits stage_2, this row must be re-checked, though the q4 repair as scoped touches only option text."
+  ],
+  "criticalNote": "This row survives affirmative scrutiny as a true anchor-only repair, and the anchor does real work by hiding a stage that demonstrates the keyed approach succeeding.",
+  "codexProposedDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "codexProposedBoundary": "stage_2",
+  "agreementWithCodex": "AGREE",
+  "agreementReasoning": "I derived stage_2 independently and independently identified stage_3's successful commode voids as the disclosure the anchor must hide. Codex reached the same boundary with no content work. I tested rather than accepted the no-defect claim, checking in particular whether the catheter distractor was defeated by an overreaching absolute rule - it is not - and whether any option depended on an unestablished fact, which is the defect that converts the sibling q4 row. The Campaign-16 producer's stage_2 was correct and the checker's baseline was too early.",
+  "producerIndependent": true,
+  "sourceParentSha256": "d5a215ff08434ec45062d0cd28506ffbd240bc119e63d196ceeff0a791d1db05"
+ },
+ {
+  "rowKey": "375aacb3f6469581",
+  "packetId": "parent-24",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+  "partId": "gpt_case_pressure_injury_prevention_mobility_01_q4",
+  "reviewerDerivedProposition": "The plan must answer each active driver without solving one at another's expense: optimise analgesia before activity so pain stops limiting mobility, apply orthostatic and fall precautions that answer the failed standing attempt, support intake in a client with weight loss and low albumin, maintain the pressure and moisture regimen including verified heel suspension, and institute prompted voiding so urgency never again forces an unsafe transfer. Keeping the head of bed above forty-five degrees whenever supine would worsen sacral shear over skin that is already compromised.",
+  "requiredFacts": [
+   "The failed standing attempt and orthostatic values - stage_2.",
+   "Poor intake, the 7 lb loss, albumin 2.8 and prealbumin 14 - baseline.",
+   "The coccygeal Stage 1 area, the pressure regimen and heel suspension in place - baseline and stage_1.",
+   "The urgency-driven unsafe transfer risk - stage_2.",
+   "UNESTABLISHED FACTS ASSERTED BY KEYED OPTION q4_a: 'ordered ice' and 'hearing aids'. I searched the parent. The order set in baseline_record lists hip precautions, physical therapy evaluation, incentive spirometry, sequential compression devices, enoxaparin, clear liquids and Foley removal - there is no ice order. Nothing anywhere establishes hearing impairment or hearing aids; the baseline documents mild cognitive impairment, which is a different thing."
+  ],
+  "earliestDefensibleBoundary": "stage_2",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage_1",
+   "stage_2"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage_3"
+  ],
+  "prefixDisclosesAnswer": false,
+  "disclosureEvidence": "stage_2 supplies the drivers but no plan. Hiding stage_3 is substantive: stage_3 shows the successful transfers and introduces the new device-related heel injury, which would both confirm the keyed mobility interventions and pre-empt the sibling q5 row.",
+  "reviewerDisposition": "CONTENT_REPAIR_REQUIRED",
+  "clinicalVerdict": "Five of the six options are correctly keyed and the single distractor is correct and well grounded. Verified that head-of-bed elevation increases shear stress and that thirty-degree positioning is the recommended approach, so distractor q4_f is genuinely wrong rather than filler and its rationale is accurate. The remaining keyed interventions each map to a documented driver. THE DEFECT IS THE INVENTED DETAIL INSIDE KEYED OPTION q4_a, which directs the nurse to use 'ordered ice' and 'hearing aids'. Neither exists in this case. Asserting an ice order that the order set does not contain teaches the learner to act on a prescription that is not there, and equipping a client with hearing aids she is never documented to need or possess is a fabricated fact inside a keyed option. The substance of q4_a - premedicating twenty to thirty minutes before therapy or transfers, and using positioning and non-pharmacological supports to improve participation - is sound and should survive the repair.",
+  "contentDefects": [
+   "PRIMARY: keyed option q4_a and its byChoice rationale assert 'ordered ice' and 'hearing aids', neither of which the parent establishes. The option is keyed correct, so the learner is required to select a compound action containing two fabricated elements."
+  ],
+  "bilingualVerdict": "PARALLEL - stem, six options, key, rationale, six byChoice entries and strategy are semantically equivalent EN/ZH. The unestablished ice and hearing-aid elements are reproduced in ZH ('医嘱允许的冰敷' and '佩戴助听器'), so the repair is bilingual.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "Pressure-injury prevention guidance located via NIH and AHRQ domain search - confirms that head-of-bed elevation increases shear stress and that thirty-degree tilt positioning is recommended, and that heels should be lifted free of the bed surface. This underwrites distractor q4_f and keyed option q4_d.",
+   "Internal search of the frozen parent for any ice order and any hearing-related finding, which returned none."
+  ],
+  "siblingImpact": "NONE for the repair as scoped, which is confined to q4's option q4_a and its rationale. No stage, exhibit, title or summary text changes. If instead the alternative route is taken and an ice order plus a hearing-aid indication are authored into the baseline record, that is a global surface visible to all six parts and would require re-review of non-residual siblings q1, q2 and q6.",
+  "repairConstraints": [
+   "Remove 'ordered ice' and 'hearing aids' from keyed option q4_a and its byChoice rationale in EN and ZH, retaining the premedication timing and the non-pharmacological supports that the case does establish.",
+   "Alternatively, author an ice order and a documented hearing impairment with hearing aids into the baseline record as reviewed case context - but only with re-review of the three non-residual siblings, since baseline is a global surface. The confined route is preferred.",
+   "Preserve reassessment of sedation and orthostasis before activity, which is the clinically important content of the option.",
+   "Preserve the key q4_a through q4_e and distractor q4_f unchanged in substance.",
+   "Anchor to stage_2 after repair."
+  ],
+  "criticalNote": "This is the same invented-fact pattern found in several other rows of this population, but with a material difference: here the fabrication sits inside a KEYED option rather than a distractor, so the learner is obliged to endorse it.",
+  "codexProposedDisposition": "CONTENT_REPAIR_REQUIRED",
+  "codexProposedBoundary": "stage_2",
+  "agreementWithCodex": "AGREE",
+  "agreementReasoning": "I searched the parent for the ice order and any hearing-related documentation before reading the proposal and found neither; Codex names the same two unsupported specifics and the same two repair routes, and proposes the same boundary I derived. I add the verified basis for distractor q4_f, which neither prior seat examined, the point that this fabrication is inside a keyed rather than a distractor option, and the sibling-exposure asymmetry that makes the confined route preferable.",
+  "producerIndependent": true,
+  "sourceParentSha256": "d5a215ff08434ec45062d0cd28506ffbd240bc119e63d196ceeff0a791d1db05"
+ },
+ {
+  "rowKey": "2e075b7d68f40f7b",
+  "packetId": "parent-24",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_pressure_injury_prevention_mobility_01",
+  "partId": "gpt_case_pressure_injury_prevention_mobility_01_q5",
+  "reviewerDerivedProposition": "A protective device has become the source of injury. The nurse removes the boot and inspects the whole heel and surrounding skin, documents size, location, colour, warmth and skin integrity and identifies the finding as a new Stage 1 device-related pressure injury, corrects the offloading so no strap crosses the calcaneus or floats the heel on a pillow under the calf, notifies through the provider or wound-care pathway and adds the heel to two-hourly skin checks, and checks the opposite heel while teaching assistive staff to verify device position at every reposition. Massaging the area and tightening the strap would intensify the exact mechanism that caused the injury.",
+  "requiredFacts": [
+   "The new finding with its size, character and mechanism - stage_3: a 1.5 x 1 cm area of intact non-blanchable erythema with slight warmth on the posterior right heel where the boot strap crossed the calcaneus after shifting overnight.",
+   "The pre-existing heel-suspension boot and the left calf pillow - stage_1.",
+   "Nothing later exists; stage_3 is terminal."
+  ],
+  "earliestDefensibleBoundary": "stage_3",
+  "boundaryIsTerminalStage": true,
+  "stagesVisibleAtBoundary": [
+   "stage_1",
+   "stage_2",
+   "stage_3"
+  ],
+  "stagesHiddenAtBoundary": [],
+  "prefixDisclosesAnswer": false,
+  "disclosureEvidence": "stage_3 documents the finding and its anatomical relationship to the strap but prescribes no nursing action, stages nothing, and does not use the term pressure injury. I weighed whether naming the strap as the mechanism supplies keyed options q5_b and q5_c and concluded it does not: recording where a lesion sits relative to a device is ordinary assessment documentation that a real chart would contain, and the learner must still know that intact non-blanchable erythema is Stage 1, that device-related is a distinct classification, and that offloading must eliminate rather than redistribute the strap pressure.",
+  "reviewerDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "clinicalVerdict": "Correct. Verified that a Stage 1 pressure injury is intact skin with localised non-blanchable erythema, which is exactly the finding described, and that device-associated injuries are a recognised category arising where skin is exposed to rigid medical hardware - the heel-suspension boot strap qualifies. Verified separately that massage over bony prominences and over erythematous skin is to be avoided because it generates friction and shear that damage the microcirculation, which makes distractor q5_f genuinely and importantly wrong on both of its limbs, since tightening the strap also intensifies the causative pressure. The five keyed actions form a complete and correctly sequenced response and the option set contains one real error, so discrimination is sound. I found no invented fact, no stranded value and no key ambiguity.",
+  "contentDefects": [],
+  "bilingualVerdict": "PARALLEL - I read the Chinese against the English for the stem, all six options and all six byChoice rationales. Each pair is semantically equivalent, including the staging language in q5_b and the two-limbed distractor q5_f. No language-specific defect.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "StatPearls pressure-injury staging (https://www.ncbi.nlm.nih.gov/books/NBK553107/) - read directly. Confirms 'Stage 1: Intact skin with a localized, non-blanchable area of redness (erythema)' and the recognised category of device-associated injury arising where skin is exposed to rigid medical hardware.",
+   "Pressure-injury prevention guidance located via NIH and AHRQ domain search - confirms that massage over bony prominences may be harmful and that positioning on and massaging erythematous skin should be avoided because massage causes friction and shear damaging the microcirculation. This underwrites distractor q5_f."
+  ],
+  "siblingImpact": "NONE. This is an anchor-only repair; no learner-facing text changes.",
+  "repairConstraints": [
+   "Set answerableAfterStageId to stage_3. No content change is required or authorised by this row.",
+   "Record explicitly in the integration ledger that this anchor is a resolver correction with no effect on the rendered page, so it is not later mistaken for a remediated leak."
+  ],
+  "criticalNote": "IMPORTANT AND SPECIFIC TO THIS ROW. stage_3 is the terminal stage, so an approved stage_3 anchor hides nothing and the learner-visible surface is byte-identical before and after the repair. This is one of only two proposed anchor-only rows in the whole 66-row population whose anchor changes nothing that is rendered; I identified both structurally at the outset and examined this one on that basis. The consequence is that the audit's revealsAllStages finding here is NOMINAL: the renderer's fail-open branch happens to be showing exactly the set of stages the correct boundary would show. Setting the anchor makes the resolver agree with reality and clears the finding, which is legitimate bookkeeping, but it remediates no disclosure. The row is therefore closable ONLY because the content is sound at full visibility, which is why I examined the content rather than relying on the anchor. Had any defect been present, no anchor could have helped.",
+  "codexProposedDisposition": "ANCHOR_ONLY_REPAIR_CANDIDATE",
+  "codexProposedBoundary": "stage_3",
+  "agreementWithCodex": "AGREE_WITH_ADDITIONS",
+  "agreementReasoning": "I derived stage_3 independently and agree with Codex's boundary and disposition after affirmative content review. Codex's record correctly observes that there is no later stage and that other stage_3 improvements do not determine the heel response. I add the structural point Codex does not state: because stage_3 is terminal, this anchor is a render no-op, so the row cannot be justified by the anchor at all and rests entirely on the content being sound - which I therefore verified against primary staging and prevention sources rather than accepting. I also add the ledger note so the no-op character is recorded rather than lost.",
+  "producerIndependent": true,
+  "sourceParentSha256": "d5a215ff08434ec45062d0cd28506ffbd240bc119e63d196ceeff0a791d1db05"
+ },
+ {
+  "rowKey": "3547d5f076446b1e",
+  "packetId": "parent-25",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_refeeding_syndrome_tpn_01",
+  "partId": "gpt_case_refeeding_syndrome_tpn_01_q2",
+  "reviewerDerivedProposition": "Five weeks of negligible intake in a client at BMI 17.1 followed by carbohydrate-containing parenteral nutrition, then a simultaneous fall in phosphorus, potassium and magnesium within the expected early window, is refeeding syndrome. The mechanism is insulin-mediated intracellular shifting of those three ions when total body stores are already depleted. The rising glucose is a concurrent parenteral-nutrition complication that requires treatment but does not explain the electrolyte triad, and a catheter infection is not supported at this point because the client is afebrile and the insertion site is benign.",
+  "requiredFacts": [
+   "Five weeks of negligible intake, BMI 17.1, 11 kg loss, and the high-risk refeeding assessment - baseline_record.",
+   "The simultaneous declines - K 3.5 to 3.1, phosphorus 2.8 to 1.8, magnesium 1.8 to 1.4 - and glucose 198 rising to 204 - stage_1 ONLY.",
+   "The benign PICC site and absence of fever at this point, which defeat the infection option - stage_1.",
+   "Nothing in stage_2 or stage_3 is required."
+  ],
+  "earliestDefensibleBoundary": "stage_1",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage_1"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage_2",
+   "stage_3"
+  ],
+  "prefixDisclosesAnswer": true,
+  "disclosureEvidence": "The disclosure is in the always-visible parent TITLE, which reads 'Refeeding syndrome during parenteral nutrition initiation in a malnourished post-operative client' and in Chinese '营养不良术后患者开始肠外营养时发生再喂养综合征'. Keyed dropdown d1 asks the learner to identify refeeding syndrome; the title names it, in both languages, and asserts it as already occurring. A title is a global surface rendered at every boundary, so no anchor reaches it. Hiding stage_2 and stage_3 is separately necessary, since stage_2 brings severe organ dysfunction and stage_3 the treatment response.",
+  "reviewerDisposition": "CONTENT_REPAIR_REQUIRED",
+  "clinicalVerdict": "All three keys are correct and the cloze is well built, with every blank agreeing with one pathophysiologic chain as its own strategy requires. Keyed d2 is the correct mechanism: carbohydrate delivery raises insulin, which drives phosphate, potassium and magnesium intracellularly in a depleted client. Keyed d3 is the discriminating blank and is right - the hyperglycaemia is real and needs treatment but cannot explain a simultaneous three-ion fall, and the alternative that it is the primary cause inverts the causal direction. The infection distractor in d1 is properly defeated at Stage 1 by the absence of fever and the benign site, which the case establishes explicitly rather than leaving to inference. THE DEFECT IS THE TITLE, NOT THE CLINICAL CONTENT. Note that the baseline's own high-risk refeeding ASSESSMENT is legitimate and must be retained: identifying a client as high risk is the nutrition consult's documented judgement and is different from the title asserting that the syndrome has occurred.",
+  "contentDefects": [
+   "PRIMARY: the bilingual parent title names the keyed diagnosis of dropdown d1 and states it as an accomplished fact.",
+   "SIBLING SURFACE, AND THE REASON A TITLE FIX IS NOT SUFFICIENT: I surveyed every sibling. All five - q1, q3, q4, q5 and q6 - contain 'refeeding' in their own text, and q3's and q4's stems and rationales name refeeding syndrome directly. Under P23 a case study is one top-level question with one aggregate submit and true unfolding reveal is deferred, so all parts render together and a learner answering q2 can read the diagnosis off sibling parts even after the title is neutralised."
+  ],
+  "bilingualVerdict": "PARALLEL - stem, clozeStem, all nine dropdown options, all three keys, rationale, three byChoice entries and strategy are semantically equivalent EN/ZH. The title discloses equally in both languages, so the repair is bilingual.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "No external fetch was load-bearing for this row. The mechanism keyed in d2 is standard refeeding pathophysiology and is not contested; the discriminating judgement in d3 rests on the internal fact that a single hyperglycaemia cannot produce a simultaneous three-ion decline, and the infection exclusion rests on the absence of fever and the benign site documented in stage_1, which I read directly."
+  ],
+  "siblingImpact": "HIGH. The title is a global surface visible to all six parts, and the sibling survey above shows the disclosure is distributed across the parent rather than confined to the title. Siblings q1 and q6 are non-residual and already accepted, so any edit reaching them is a change to accepted content requiring its own review.",
+  "repairConstraints": [
+   "Neutralise the bilingual parent title so it does not name the syndrome - for example a title about nutrition initiation after prolonged poor intake. Apply in EN and ZH.",
+   "RETAIN the baseline nutrition consult's high-risk refeeding assessment; it is legitimate authored clinical judgement and removing it would strip the case of its reason for the monitoring plan.",
+   "Recognise that the title fix alone does NOT close the disclosure. Either re-scope q2 so it no longer asks the learner to name the syndrome and instead assesses the mechanism and the glucose interpretation, which is confined to the residual row and is my recommendation, or neutralise the diagnosis wording across the sibling parts, which touches accepted content and needs its own review.",
+   "Preserve all three dropdown keys and all nine option texts.",
+   "Anchor to stage_1 after repair."
+  ],
+  "criticalNote": "This is the THIRD parent in this review whose title states the answer to one of its own parts, after the postpartum preeclampsia and clozapine parents. Two of the three - this one and preeclampsia - additionally have the diagnosis restated in sibling parts, so a rename is insufficient in both. Only the clozapine parent was safely rename-only. I recommend the integration seat treat diagnostic titles as a class and run a whole-parent surface survey for each, rather than patching row-wise.",
+  "codexProposedDisposition": "CONTENT_REPAIR_REQUIRED",
+  "codexProposedBoundary": "stage_1",
+  "agreementWithCodex": "AGREE_WITH_ADDITIONS",
+  "agreementReasoning": "I noticed the diagnostic title while reading the parent and derived stage_1 independently; Codex names the same defect, proposes the same boundary, correctly instructs that the legitimate baseline high-risk assessment be retained, and asks for sibling effects to be reviewed. I performed that survey and it returns the finding that changes the repair: the diagnosis appears in all five siblings, so title neutralisation is necessary but not sufficient. I supply the confined alternative route and the cross-parent pattern across the three title cases.",
+  "producerIndependent": true,
+  "sourceParentSha256": "2c2b83e21f4b25c02292d139046437746494716183dee4902aae91cba9a46818"
+ },
+ {
+  "rowKey": "e7820c89234bfb5d",
+  "packetId": "parent-25",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_refeeding_syndrome_tpn_01",
+  "partId": "gpt_case_refeeding_syndrome_tpn_01_q3",
+  "reviewerDerivedProposition": "At Stage 2 the electrolyte derangement is no longer a laboratory abnormality but an active cause of organ failure - frequent premature ventricular contractions and a prolonged QT interval on telemetry, shallow respirations with proximal weakness severe enough that she cannot lift her arms, and a fall in orientation - against phosphorus 1.3, potassium 2.9 and magnesium 1.3 that kept falling through a first round of repletion. That carries near-term risk of lethal dysrhythmia and respiratory failure and is the priority. The new purulent PICC site is genuinely concerning and needs cultures and antibiotics in parallel, the hyperglycaemia needs coverage, and the fever needs a source rather than an antipyretic, but none of those is the proximate threat.",
+  "requiredFacts": [
+   "The Stage 2 laboratory values and their failure to respond to the first repletion round - stage_2.",
+   "The cardiac, respiratory and neurological findings - stage_2 telemetry with frequent PVCs and prolonged QT, shallow effort with bibasilar decrease, lethargy, proximal weakness.",
+   "The PICC site change with purulent drainage and T 38.2, which make distractor q3_B a serious rather than a straw-man alternative - stage_2.",
+   "Nothing in stage_3 is required."
+  ],
+  "earliestDefensibleBoundary": "stage_2",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage_1",
+   "stage_2"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage_3"
+  ],
+  "prefixDisclosesAnswer": false,
+  "disclosureEvidence": "stage_2 presents the competing problems without ranking them. Hiding stage_3 is necessary: stage_3 opens by recording that the provider was notified urgently of 'continued electrolyte decline despite repletion, cardiac rhythm changes, respiratory compromise, and PICC-site findings' and then lists the ordered response, which both ranks the problems and supplies the sibling rows' answers.",
+  "reviewerDisposition": "CONTENT_REPAIR_REQUIRED",
+  "clinicalVerdict": "The key is correct - the electrolyte-driven cardiorespiratory compromise is the immediate threat - and the distractors are well chosen, with q3_B in particular being a real competing diagnosis rather than filler. TWO DEFECTS. FIRST, a shared-surface chronology impossibility that I verified by arithmetic: the PICC is placed in stage_1 at 18 hours post-operatively; stage_2 is at 30 hours post-operatively and states 'The dressing was changed 24 hours ago per protocol', which places the dressing change at 6 hours post-operatively, twelve hours BEFORE the line existed. SECOND, the rationale overstates causal certainty. It says the PICC findings do 'not explain the established electrolyte triad or current rhythm instability', which is true of the electrolytes but too strong about the rhythm and the systemic picture: this client has T 38.2, HR 118, BP 98/58 and RR 22 with purulent drainage from a central line, so infection may well be coexisting and contributing, and the correct teaching is that the electrolyte problem is treated first while infection is evaluated in parallel, not that infection is excluded as a contributor.",
+  "contentDefects": [
+   "PRIMARY, SHARED SURFACE: impossible PICC dressing chronology in stage_2, as computed above. Affects residual rows q3, q4 and q5, all of which are anchored at stage_2.",
+   "SECONDARY: the key rationale and the q3_B rationale assert more causal separation than the findings support. Soften to parallel evaluation rather than exclusion."
+  ],
+  "bilingualVerdict": "PARALLEL - stem, four options, key, rationale, four byChoice entries and strategy are semantically equivalent EN/ZH. The chronology error is in the shared stage_2 exhibit and is reproduced in Chinese, so both corrections are bilingual.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "Sepsis management guidance (https://www.ncbi.nlm.nih.gov/books/NBK430939/) - read directly; confirms at least two sets of blood cultures prior to antibiotics with broad-spectrum antibiotics within one hour, which underwrites the parallel-evaluation framing and is the same source relied on for the sibling rows. The chronology finding rests on arithmetic over the stage headings and exhibit text in the frozen packet."
+  ],
+  "siblingImpact": "HIGH AND SHARED WITH TWO OTHER RESIDUAL ROWS. The chronology correction lives in the stage_2 exhibit, which is the boundary stage for residual rows q3, q4 AND q5. Apply once as a single coordinated edit and re-review the three parts together. Non-residual siblings q1 and q6 are baseline-anchored and cannot see stage_2.",
+  "repairConstraints": [
+   "Correct the PICC dressing chronology in stage_2 in EN and ZH using an explicitly reviewed timeline consistent with a line placed at 18 hours and a Stage 2 at 30 hours. Apply ONCE for rows q3, q4 and q5.",
+   "Soften the causal language in the key rationale and the q3_B rationale: the electrolyte decline strongly supports urgent correction, while infection may coexist or contribute and requires timely parallel evaluation.",
+   "Do not alter the key or the four option texts; the prioritisation is correct.",
+   "Anchor to stage_2 after repair."
+  ],
+  "criticalNote": "As in the lateral-incivility parent, one shared stage_2 edit serves three residual rows here. Treating them independently risks duplicate or conflicting corrections to the same exhibit.",
+  "codexProposedDisposition": "CONTENT_REPAIR_REQUIRED",
+  "codexProposedBoundary": "stage_2",
+  "agreementWithCodex": "AGREE",
+  "agreementReasoning": "I derived stage_2 independently and confirmed Codex's chronology finding by recomputing it from the stage headings rather than accepting it. Codex names both defects - the causal overstatement and the impossible line timeline - and proposes the same boundary. I add the specific arithmetic, the observation that the client's vital signs make the infection contribution a live possibility rather than a theoretical one, and the coordination requirement across the three rows sharing stage_2.",
+  "producerIndependent": true,
+  "sourceParentSha256": "2c2b83e21f4b25c02292d139046437746494716183dee4902aae91cba9a46818"
+ },
+ {
+  "rowKey": "0620f6656c0e487d",
+  "packetId": "parent-25",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_refeeding_syndrome_tpn_01",
+  "partId": "gpt_case_refeeding_syndrome_tpn_01_q4",
+  "reviewerDerivedProposition": "The nurse escalates urgently with the full picture, anticipates reducing the caloric load rather than independently stopping a high-dextrose infusion, gives the higher-tier potassium, phosphate and magnesium repletion under continuous cardiac monitoring, and obtains paired cultures before the first vancomycin dose. Treating the glucose aggressively with insulin ahead of the potassium would drive potassium further intracellularly and worsen the very derangement causing the dysrhythmia.",
+  "requiredFacts": [
+   "The Stage 2 values, the failed first repletion round and the organ findings - stage_2.",
+   "The unit electrolyte replacement protocol defining the higher tier - baseline_record, which gives KCl 40 mEq for K below 3.0, sodium phosphate 30 mmol for phosphorus below 1.5, and magnesium sulfate 2 g for magnesium below 1.5. I checked that the Stage 2 values (K 2.9, phosphorus 1.3, magnesium 1.3) all fall in those bands, so 'higher-tier' is derivable from baseline plus stage_2 without needing stage_3.",
+   "The PICC site findings motivating cultures - stage_2.",
+   "Nothing in stage_3 is required."
+  ],
+  "earliestDefensibleBoundary": "stage_2",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage_1",
+   "stage_2"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage_3"
+  ],
+  "prefixDisclosesAnswer": false,
+  "disclosureEvidence": "stage_2 supplies the deterioration but no plan. Hiding stage_3 is ESSENTIAL: stage_3 lists the actual orders - reduce TPN by 50 percent without abrupt discontinuation, higher-tier repletion, cultures from PICC and periphery before vancomycin, increased glucose monitoring - which is keyed options q4_B, q4_C and q4_D stated as accomplished orders.",
+  "reviewerDisposition": "CONTENT_REPAIR_REQUIRED",
+  "clinicalVerdict": "The four keyed actions are correct and both distractors are genuinely and instructively wrong, with q4_F teaching a real and dangerous error - insulin ahead of potassium correction. I specifically examined Codex's caution about a universal prohibition on stopping parenteral nutrition and find it already addressed in the text: distractor q4_E is conditioned as stopping TPN 'without a provider order or dextrose/glucose-monitoring backup plan', and its rationale repeats the qualifier, so the item does not teach that prescribed cessation is never appropriate. That concern therefore needs no change. THE DEFECTS ARE THE SHARED stage_2 CHRONOLOGY ERROR identified on row q3, and an unconditional culture-before-antibiotic instruction. Keyed option q4_D reads 'Draw blood cultures from the PICC and a peripheral site before starting the first ordered vancomycin dose' with no qualifier. Verified that at least two sets of blood cultures are recommended prior to antibiotics but that broad-spectrum antibiotics are to be given within one hour, so cultures must not substantially delay treatment. This client is febrile at 38.2 with hypotension, tachycardia and purulent central-line drainage, which is precisely the situation where an absolute culture-first rule could delay time-critical therapy.",
+  "contentDefects": [
+   "INHERITED, SHARED SURFACE: the impossible PICC dressing chronology in stage_2.",
+   "PRIMARY: keyed option q4_D states the culture-before-antibiotic sequence unconditionally, without the qualifier that antibiotics must not be materially delayed if cultures cannot be obtained promptly.",
+   "CHECKED AND CLEARED: the parenteral-nutrition cessation option is already properly conditioned and does not assert a universal prohibition."
+  ],
+  "bilingualVerdict": "PARALLEL - stem, six options, key, rationale, six byChoice entries and strategy are semantically equivalent EN/ZH, including the conditional clauses in distractor q4_E. The unconditional culture wording is unconditional in both languages, so the repair is bilingual.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "Sepsis management guidance (https://www.ncbi.nlm.nih.gov/books/NBK430939/) - read directly. Confirms 'At least two sets of blood cultures are recommended prior to administration of antibiotics' alongside 'Broad-spectrum antibiotics within one hour of diagnosis for all patients', establishing that cultures precede antibiotics but must not substantially delay them. This is the basis for the qualifier.",
+   "Internal check of the baseline replacement protocol against the Stage 2 values to confirm the higher tier is derivable without stage_3."
+  ],
+  "siblingImpact": "HIGH AND SHARED. The chronology correction is the SAME stage_2 edit required by rows q3 and q5. The culture-wording correction is confined to this row's option q4_D, but it should be made consistently with the parallel correction in sibling row q5's timing columns.",
+  "repairConstraints": [
+   "Apply the shared stage_2 chronology correction specified on row q3 once, in EN and ZH, for all three residual rows.",
+   "Qualify keyed option q4_D and its byChoice rationale so the culture-first instruction is conditional on prompt collection without material treatment delay. Keep the option keyed correct.",
+   "Make this qualification consistent with the corresponding change to sibling row q5's timing columns.",
+   "Do not change distractor q4_E; it is already correctly conditioned.",
+   "Preserve the key q4_A through q4_D.",
+   "Anchor to stage_2 after repair."
+  ],
+  "criticalNote": "The culture-timing wording is the one place in this parent where a clinically correct principle is stated so absolutely that following it could cause harm in the very scenario the case depicts.",
+  "codexProposedDisposition": "CONTENT_REPAIR_REQUIRED",
+  "codexProposedBoundary": "stage_2",
+  "agreementWithCodex": "AGREE_WITH_ADDITIONS",
+  "agreementReasoning": "I derived stage_2 independently and reached the same two live concerns Codex raises - the shared chronology error and the culture-before-antibiotic conditionality - verifying the latter against sepsis guidance rather than the registry pointer. I differ on one of Codex's three points: its instruction to avoid a universal prohibition on prescribed parenteral-nutrition cessation describes a defect this item does not have, since the option and its rationale are already conditioned on the absence of an order and a backup plan. I record that as checked and cleared rather than carrying it forward as required work, so the producer seat is not sent to fix something that is already correct. I also verified that the higher-tier repletion is derivable from baseline plus stage_2, which is what keeps the boundary at stage_2 rather than forcing stage_3.",
+  "producerIndependent": true,
+  "sourceParentSha256": "2c2b83e21f4b25c02292d139046437746494716183dee4902aae91cba9a46818"
+ },
+ {
+  "rowKey": "c8306bb54be5fce7",
+  "packetId": "parent-25",
+  "bankPath": "banks/gpt-canonical.json",
+  "parentCaseId": "gpt_case_refeeding_syndrome_tpn_01",
+  "partId": "gpt_case_refeeding_syndrome_tpn_01_q5",
+  "reviewerDerivedProposition": "Among the received orders, reducing the caloric load and giving the higher-tier repletion address the mechanism and the active dysrhythmia and respiratory risk, so neither waits on the infection workup. Paired cultures are time-critical because they precede the first antibiotic dose, and the vancomycin follows them. Increased glucose monitoring with sliding-scale coverage is ongoing supportive management that must not displace the acute electrolyte actions.",
+  "requiredFacts": [
+   "The Stage 2 clinical state justifying the urgency ranking - stage_2.",
+   "The orders themselves, WHICH ARE A PROBLEM. The stem says 'At Stage 2, orders have been received', and each of the five rows restates its order, so the item is self-carrying. But the orders are documented ONLY in the stage_3 exhibit, which retrospectively narrates 'At Stage 2, the provider was notified urgently ... Orders: reduce TPN rate by 50% ...'. At a stage_2 boundary the chart the learner can see contains no such orders.",
+   "The baseline replacement protocol, which lets the learner confirm the higher tier - baseline_record."
+  ],
+  "earliestDefensibleBoundary": "stage_2",
+  "boundaryIsTerminalStage": false,
+  "stagesVisibleAtBoundary": [
+   "stage_1",
+   "stage_2"
+  ],
+  "stagesHiddenAtBoundary": [
+   "stage_3"
+  ],
+  "prefixDisclosesAnswer": true,
+  "disclosureEvidence": "stage_3 both states the orders and reports their outcome, so leaving it visible would supply the premise and confirm the sequencing. Hiding it is necessary. The residual awkwardness is the mirror image: with stage_3 hidden, the orders the stem asserts have been received appear nowhere in the visible chart, and exist only in the stem's assertion and the rows' own restatement.",
+  "reviewerDisposition": "CONTENT_REPAIR_REQUIRED",
+  "clinicalVerdict": "The timing ranking is clinically sound and the four columns are, unusually for this population, genuinely distinct timing categories rather than overlapping labels - I checked for the false-exclusivity defect that converted several other matrices in this review and it is absent, so single_per_row is appropriate here. THE DEFECT IS THAT TWO COLUMNS STATE THE CULTURE-ANTIBIOTIC RELATIONSHIP ABSOLUTELY. Column q5_c2 reads 'Must occur before the first antibiotic dose' and column q5_c3 reads 'Give only after cultures are obtained'. Verified against sepsis guidance that cultures are recommended prior to antibiotics but that broad-spectrum antibiotics are to be given within one hour, so the sequence is a strong default rather than an absolute bar. In a client who is febrile at 38.2 with a blood pressure of 98/58, a rate of 118 and purulent central-line drainage, a learner taught that vancomycin may be given 'only after' cultures could defensibly withhold a time-critical antibiotic if cultures prove difficult to draw. Separately, the row set depends on orders documented only in a hidden stage, as recorded above.",
+  "contentDefects": [
+   "PRIMARY: columns q5_c2 and q5_c3 state the culture-before-antibiotic relationship as absolute, without preserving prompt treatment where cultures cannot be obtained without significant delay.",
+   "SECONDARY, PLACEMENT: the Stage 2 orders that all five rows act on are narrated only inside the stage_3 exhibit. My numeric-dependency screen flagged this row on the value 50, which appears in row q5_r1 and in stage_3 but nowhere in the visible prefix. The rows restate their own orders so the item remains answerable, but the chart and the stem disagree about where the orders live.",
+   "INHERITED, SHARED SURFACE: the impossible PICC dressing chronology in stage_2."
+  ],
+  "bilingualVerdict": "PARALLEL - stem, four column labels, five rows, the key and the rationale are semantically equivalent EN/ZH. The absolute wording of the two timing columns is equally absolute in Chinese ('必须在首次抗生素前完成' and '仅在抽取培养后给予'), so the repair is bilingual.",
+  "confidence": "HIGH",
+  "sourcesChecked": [
+   "Sepsis management guidance (https://www.ncbi.nlm.nih.gov/books/NBK430939/) - read directly, as for the sibling q4 row: cultures prior to antibiotics, antibiotics within one hour, and the principle that antimicrobial administration must not be substantially delayed by collection. This is what makes the absolute column wording unsafe.",
+   "Internal trace of the order text across the stage_2 and stage_3 exhibits to establish the placement problem."
+  ],
+  "siblingImpact": "HIGH AND SHARED. The chronology correction is the SAME stage_2 edit required by rows q3 and q4, and the culture-timing qualification must be made consistently with the corresponding change to sibling row q4's option q4_D. Non-residual siblings q1 and q6 are baseline-anchored and unaffected.",
+  "repairConstraints": [
+   "Revise columns q5_c2 and q5_c3 and the matching rationale in EN and ZH so they preserve prompt antibiotic treatment if cultures cannot be obtained without significant delay, rather than stating an absolute bar.",
+   "Make this consistent with the qualification applied to sibling row q4's option q4_D.",
+   "After the wording change, re-check that each row still maps to exactly one column, since widening the timing language could make q5_c1 and the revised q5_c3 both defensible for the vancomycin row. Codex asks for this re-check and I endorse it.",
+   "Resolve the placement problem: either move the Stage 2 orders into the stage_2 exhibit where the stem says they were received, or reword the stem so it does not assert that orders are already in hand at a point where the visible chart contains none.",
+   "Apply the shared stage_2 chronology correction once, coordinated with rows q3 and q4.",
+   "Anchor to stage_2 after repair."
+  ],
+  "criticalNote": "This row carries the only remaining structural oddity in the parent: the item is set at Stage 2 but acts on an order set the case documents in Stage 3. It is answerable because the rows restate the orders, which is why I do not hold the row, but the chart placement should be fixed rather than relied upon.",
+  "codexProposedDisposition": "CONTENT_REPAIR_REQUIRED",
+  "codexProposedBoundary": "stage_2",
+  "agreementWithCodex": "AGREE_WITH_ADDITIONS",
+  "agreementReasoning": "I derived stage_2 independently and reached Codex's two main points independently - the absolute culture and antibiotic timing columns, and the shared line chronology - verifying the timing principle against sepsis guidance. I endorse Codex's instruction to re-check selection-mode uniqueness after the wording repair, which is a genuinely sharp observation, and I confirm by inspection that the columns are currently disjoint so the risk arises only from the repair itself. I add the placement finding, which my own numeric-dependency screen surfaced and which neither Campaign-16 seat nor Codex records: all five rows act on orders that the case documents only in the hidden stage.",
+  "producerIndependent": true,
+  "sourceParentSha256": "2c2b83e21f4b25c02292d139046437746494716183dee4902aae91cba9a46818"
+ }
+]

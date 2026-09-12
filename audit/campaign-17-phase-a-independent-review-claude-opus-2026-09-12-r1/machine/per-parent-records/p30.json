@@ -1,0 +1,41 @@
+[{
+"rowKey":"__FILL__","packetId":"parent-30","bankPath":"banks/hard-cases-canonical.json",
+"parentCaseId":"case_ami_01","partId":"case_ami_01_q2",
+"reviewerDerivedProposition":"Hypotension at 80/50 with tachycardia and crackles in all lung fields, arising in a client with anterior ST-elevation myocardial infarction, is cardiogenic shock: a pump failure producing simultaneous systemic hypoperfusion and pulmonary congestion. It is not septic shock, which would not present with this degree of pulmonary oedema as the primary picture in this context. The support the client needs is haemodynamic rather than antimicrobial, but naming inotropic support as the required intervention understates what this client actually needs.",
+"requiredFacts":[
+"ST-segment elevation in leads V3-V4 establishing anterior myocardial infarction - ex_ecg, a global exhibit.",
+"BP 80/50, HR 110, RR 24 and crackles in all lung fields - stage_1 ONLY.",
+"Nothing later exists; stage_1 is the only stage."],
+"earliestDefensibleBoundary":"stage_1",
+"boundaryIsTerminalStage":true,
+"stagesVisibleAtBoundary":["stage_1"],
+"stagesHiddenAtBoundary":[],
+"prefixDisclosesAnswer":true,
+"disclosureEvidence":"The parent TITLE is 'AMI with Cardiogenic Shock', and in Chinese '伴有心源性休克的 AMI'. Keyed dropdown 1 is 'Cardiogenic shock'. The title states the answer in three words, in both languages, and a title is a global surface rendered at every boundary. Since stage_1 is the only stage, the anchor hides nothing at all, so the boundary mechanism is entirely unavailable here: this row is disclosed and no anchor can affect that.",
+"reviewerDisposition":"CONTENT_REPAIR_REQUIRED",
+"clinicalVerdict":"Keyed dropdown 1 is clinically correct. Keyed dropdown 2 is defensible only as the better of two poor options and materially misstates management. Verified that in cardiogenic shock complicating myocardial infarction 'Early restoration of coronary blood is the most important intervention and is the standard therapy', with the SHOCK trial confirming that early revascularisation combined with medical management is optimal; that vasopressors and inotropes are supportive rather than definitive; that norepinephrine is preferred over dopamine where hypotension is severe; and that medical therapy is often inadequate, with mechanical circulatory support sometimes required. The cloze therefore asks the learner to assert that this client 'requires immediate inotropic support' when the intervention that determines survival is emergent reperfusion, which the option set never offers. FOUR FURTHER CONSTRUCT PROBLEMS, none of them recorded by any prior seat. Both dropdowns are BINARY, so the item is answerable at 50 percent per blank by coin flip and the title removes even that. The item carries NO byChoice rationales at all - the rationale object has a correct entry and nothing else - so no distractor is explained, which is out of step with every other item I have reviewed in this population and leaves the septic-shock and antibiotic options unaddressed. The ngnSkill field is null while the item is marked difficulty hard. And the parent as a whole is extremely thin, with a single global exhibit of one ECG line and a single stage of four measurements, which is why the binary options have so little to discriminate on.",
+"contentDefects":[
+"PRIMARY: the bilingual parent title names the keyed answer of dropdown 1 outright, and because the parent has only one stage the anchor cannot hide anything, so the disclosure is irreducible by boundary.",
+"PRIMARY: dropdown 2 keys inotropic support as what the client 'requires immediately', which misstates cardiogenic-shock management; the definitive intervention is emergent revascularisation and the option set does not contain it.",
+"SECONDARY: both dropdowns are binary, giving a 50 percent per-blank guess rate and negligible discrimination.",
+"SECONDARY: byChoice rationales are entirely absent, so neither distractor is explained. This departs from the pattern of every other residual item reviewed.",
+"MINOR: ngnSkill is null on an item marked difficulty hard."],
+"bilingualVerdict":"PARALLEL - stem, clozeStem, all four dropdown options, both keys, the key rationale and the strategy are semantically equivalent EN/ZH. The title discloses equally in Chinese. Because byChoice is absent in both languages, the bilingual parity gap is symmetric rather than a translation defect.",
+"confidence":"HIGH",
+"sourcesChecked":[
+"StatPearls Cardiogenic Shock (https://www.ncbi.nlm.nih.gov/books/NBK482255/) - read directly. Verbatim: 'Early restoration of coronary blood is the most important intervention and is the standard therapy for patients with cardiogenic shock due to myocardial infarction'; the SHOCK trial finding that early revascularisation with medical management is optimal; 'Norepinephrine is preferred over dopamine in patients with severe hypotension'; and that medical therapy is often inadequate with mechanical circulatory support sometimes required. This establishes that inotropic support is supportive rather than definitive."],
+"siblingImpact":"MODERATE. The title is a global surface visible to all five parts. Neutralising it removes information only and cannot strand a sibling; I checked each sibling stem and none depends on the title. Note that sibling q4's stem already tells the learner the client 'underwent percutaneous coronary intervention (PCI) via the femoral artery', so reperfusion is established elsewhere in the parent - which strengthens the case that dropdown 2 should not present inotropes as the required intervention, since the parent itself shows the client going to PCI.",
+"repairConstraints":[
+"Neutralise the bilingual parent title to a presenting-problem framing that does not name cardiogenic shock - for example an anterior myocardial infarction with acute deterioration. Apply in EN and ZH.",
+"Revise dropdown 2. Either broaden the second blank to haemodynamic support alongside urgent reperfusion, or supply a specific prescribed support plan from the case. Do not leave a key asserting that inotropes alone are what the client immediately requires, and preserve the urgent reperfusion framing.",
+"Add a third option to each dropdown so the item is not a coin flip, and re-derive the keys.",
+"Add byChoice rationales for every option in both languages, consistent with the rest of the bank.",
+"Populate ngnSkill.",
+"Preserve the keyed cardiogenic-shock identification in dropdown 1; it is clinically correct.",
+"Anchor to stage_1 after repair, recording that the anchor hides nothing."],
+"criticalNote":"This row cannot be closed by anchoring under any circumstances: the parent has exactly one stage, so an approved stage_1 anchor renders the identical surface the fail-open branch already renders, while the disclosure sits in a global title. It is also the weakest-constructed item I have reviewed in this population, and I would encourage the integration seat to consider whether repair or replacement is the better route - I record it as a content repair because a coherent item is recoverable, but the number of separate defects is closer to the replacement cases than to the ordinary repairs.",
+"codexProposedDisposition":"CONTENT_REPAIR_REQUIRED","codexProposedBoundary":"stage_1",
+"agreementWithCodex":"AGREE_WITH_ADDITIONS",
+"agreementReasoning":"I found the title disclosure independently - my own keyed-answer vocabulary screen flagged this row on the title before I read the parent - and I reached the same boundary and the same two concerns Codex raises, verifying the inotrope point against primary source rather than the registry pointer. Codex's instruction to preserve urgent reperfusion framing and avoid suggesting inotropes alone are definitive is correct and I adopt it. I add four construct defects no prior seat records: the binary dropdowns, the complete absence of byChoice rationales, the null ngnSkill, and the observation that sibling q4 already establishes the client went to PCI, which is direct internal evidence against the inotropes-as-requirement framing. Both Campaign-16 seats agreed on stage_1 with MEDIUM checker confidence and neither examined the title or the option structure.",
+"producerIndependent":true
+}]

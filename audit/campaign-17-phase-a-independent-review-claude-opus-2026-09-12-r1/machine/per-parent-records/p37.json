@@ -1,0 +1,81 @@
+[
+{
+"rowKey":"__FILL__","packetId":"parent-37","bankPath":"banks/hard-cases-canonical.json",
+"parentCaseId":"opus_icit_case_01","partId":"opus_icit_case_01_q2",
+"reviewerDerivedProposition":"Diffuse rather than territory-specific ST changes, a new and progressing conduction delay, troponin and BNP elevation, a rising inflammatory marker and simultaneous transaminase elevation, arising in a client actively receiving combination anti-PD-1 and anti-CTLA-4 therapy, point to an immune checkpoint inhibitor-induced myocarditis occurring as part of a multi-organ immune-related adverse event. The multi-organ pattern is what distinguishes it from a single-organ cardiac or infectious cause, and the non-territorial electrocardiographic changes are what distinguish it from plaque-rupture acute coronary syndrome.",
+"requiredFacts":[
+"Combination nivolumab and ipilimumab therapy, third cycle - summary and background.",
+"Baseline troponin I 0.18, BNP 245, AST 88, ALT 112, CRP 3.8, all elevated - baseline global exhibit.",
+"The Stage 1 electrocardiographic changes: diffuse shallow ST depressions across I, II, aVL and V4-V6 and a NEW first-degree AV block with PR lengthening from 0.16 to 0.22 seconds, confirmed against the pre-treatment tracing - stage_1 ONLY.",
+"The pre-immunotherapy LVEF of 62 percent with no wall-motion abnormality - summary.",
+"A FACT THAT COMPLICATES THE KEYED RATIONALE: the client has KNOWN HEPATIC METASTASES, stated in the summary. Transaminase elevation therefore has a competing explanation the rationale does not address.",
+"Nothing in stage_2 or stage_3 is required."],
+"earliestDefensibleBoundary":"opus_icit_stage_1",
+"boundaryIsTerminalStage":false,
+"stagesVisibleAtBoundary":["opus_icit_stage_1"],
+"stagesHiddenAtBoundary":["opus_icit_stage_2","opus_icit_stage_3"],
+"prefixDisclosesAnswer":true,
+"disclosureEvidence":"The parent TITLE is 'Immune checkpoint inhibitor-induced myocarditis with concurrent hepatotoxicity', and in Chinese '免疫检查点抑制剂诱发的心肌炎并发肝毒性'. Keyed option opt_ici_myocarditis is 'Immune checkpoint inhibitor-induced myocarditis with concurrent immune-mediated hepatitis'. The title is the keyed answer with one word changed, in both languages, and being global it is rendered at every boundary. Hiding the later stages remains necessary too: stage_2 records that 'Cardiology and oncology jointly diagnose probable immune checkpoint inhibitor-induced myocarditis ... with concurrent immune-mediated hepatitis', which is the key verbatim.",
+"reviewerDisposition":"CONTENT_REPAIR_REQUIRED",
+"clinicalVerdict":"The key is correct and the reasoning pattern the item teaches - recognise multi-organ immune-related adverse events rather than independent primary diseases - is valuable and correctly argued. The electrocardiographic discrimination is well chosen, since diffuse non-territorial changes with a new conduction delay genuinely distinguish this from plaque-rupture acute coronary syndrome. TWO DEFECTS. FIRST, the title discloses the answer, as above. SECOND, the rationale over-attributes. It treats the transaminase elevation as establishing concurrent immune-mediated hepatitis and dismisses the alternatives too firmly, when this client has KNOWN HEPATIC METASTASES documented in the summary, giving the liver enzymes an obvious competing explanation that requires assessment rather than assumption. The metastatic-progression distractor rationale asserts that progression 'would not typically cause this acute, simultaneous elevation', which is defensible for the cardiac findings but glosses the hepatic ones. Similarly the viral-myocarditis rationale leans on the transaminases to exclude a viral cause, which is weak reasoning given the metastases. The correct framing is that immune-mediated hepatitis is the leading suspicion pending assessment, not a proved concurrent diagnosis, and that cardiology's evaluation for acute coronary syndrome properly continues.",
+"contentDefects":[
+"PRIMARY: the bilingual parent title states the keyed answer and is unreachable by any anchor.",
+"SECONDARY: the rationale presents immune-mediated hepatitis as established by transaminase elevation without acknowledging the client's known hepatic metastases as a competing cause, and uses that attribution to exclude the viral and metastatic alternatives."],
+"bilingualVerdict":"PARALLEL - stem, four options, key, rationale, four byChoice entries and strategy are semantically equivalent EN/ZH. The title discloses equally in Chinese, so the repair is bilingual.",
+"confidence":"HIGH",
+"sourcesChecked":[
+"Immune checkpoint inhibitor myocarditis literature located via NIH and oncology-journal domain search - confirms the entity, its presentation and that combination anti-PD-1 plus anti-CTLA-4 therapy is the relevant exposure. Used to confirm the key rather than to challenge it.",
+"The competing-cause finding rests on the parent's own summary, which documents hepatic metastases; I located it by reading the case rather than by external reference."],
+"siblingImpact":"HIGH. The title is global and visible to all six parts. I checked the siblings: q1's stem concerns the pre-infusion decision and does not name the diagnosis, so unlike the preeclampsia and TACO parents the disclosure here is confined to the title and to stage_2, which means title neutralisation IS sufficient for this parent. That is a material difference from the other title cases and I established it by checking rather than assuming.",
+"repairConstraints":[
+"Neutralise the bilingual parent title so it does not name the diagnosis - for example a presenting-problem framing about acute cardiac and hepatic abnormalities during combination immunotherapy. Apply in EN and ZH.",
+"Qualify the hepatic attribution in the rationale: present immune-mediated hepatitis as the leading suspicion requiring assessment, explicitly acknowledging the known hepatic metastases and other causes as alternatives, rather than as proved by transaminase elevation.",
+"Rewrite the viral and metastatic distractor rationales so they do not rest on the hepatic attribution, and preserve the statement that cardiology's evaluation for acute coronary syndrome appropriately continues.",
+"Preserve the key and all four option texts; align option wording with the corrected rationale.",
+"Anchor to opus_icit_stage_1 after repair."],
+"criticalNote":"This is the sixth parent in this review whose always-visible title or summary names the answer to one of its own parts. It is the second, after the clozapine parent, where a sibling survey shows the title fix IS sufficient.",
+"codexProposedDisposition":"CONTENT_REPAIR_REQUIRED","codexProposedBoundary":"opus_icit_stage_1",
+"agreementWithCodex":"AGREE",
+"agreementReasoning":"My keyed-answer vocabulary screen flagged this title before I read the parent, and reading confirmed it names the key almost verbatim; I derived stage_1 as the boundary independently. Codex identifies the same title defect and the same over-attribution concern, including the instruction to present immune-mediated hepatitis as a leading suspicion rather than proved and to preserve cardiology's acute coronary syndrome evaluation. I add the specific chart fact that grounds the objection - the documented hepatic metastases - and the sibling survey establishing that title neutralisation suffices here, which distinguishes this parent from two others in the same defect class.",
+"producerIndependent":true
+},
+{
+"rowKey":"__FILL__","packetId":"parent-37","bankPath":"banks/hard-cases-canonical.json",
+"parentCaseId":"opus_icit_case_01","partId":"opus_icit_case_01_q3",
+"reviewerDerivedProposition":"As written the part asks the learner to place four concurrent stabilisation activities in one strictly correct order. Oxygenation is defensibly first on airway-breathing-circulation grounds, and transfer defensibly last, but the intervening steps are prerequisites and time-critical therapy rather than a determinate sequence, so no single permutation is uniquely supportable.",
+"requiredFacts":[
+"The Stage 2 deterioration - LVEF fallen to 38 percent, troponin risen to 1.42, frequent PVCs, PR now 0.26 seconds, SpO2 93 percent on room air, dyspnoea at rest - opus_icit_stage_2.",
+"The order set itself - transfer to higher acuity, pulse methylprednisolone, supplemental oxygen to maintain SpO2 at or above 94 percent, two large-bore peripheral IVs - opus_icit_stage_2.",
+"Nothing in stage_3 is required."],
+"earliestDefensibleBoundary":"opus_icit_stage_2",
+"boundaryIsTerminalStage":false,
+"stagesVisibleAtBoundary":["opus_icit_stage_1","opus_icit_stage_2"],
+"stagesHiddenAtBoundary":["opus_icit_stage_3"],
+"prefixDisclosesAnswer":true,
+"disclosureEvidence":"The boundary stage ends: 'The nurse administers the first dose of methylprednisolone and titrates oxygen to 3 L/min via nasal cannula, achieving SpO2 95%.' That narrates two of the four ordered actions as already performed, together with the oxygen response, so the learner is told what was done rather than asked to sequence it. stage_2 also lists the full order set immediately before, which supplies the action inventory.",
+"reviewerDisposition":"CONTENT_REPAIR_REQUIRED",
+"clinicalVerdict":"The individual actions are correct and the underlying priorities are sound, but THREE DEFECTS. FIRST, the key is not unique. This is the fourth ordered-response item in this population scored on a single permutation where the clinical constraints are weaker than the scoring: oxygen first is defensible and transfer last is defensible, but ensuring telemetry and intravenous access is a prerequisite that runs concurrently with oxygenation rather than after it, and the item's own rationale concedes the concurrency by saying these steps 'should occur immediately and should not postpone the first steroid dose'. SECOND, the boundary stage narrates the administration and the oxygen response, as above. THIRD, the rationale overstates the therapy. It calls corticosteroids the 'definitive life-saving medication' and refers to 'definitively corrective medications'. Verified that high-dose corticosteroids are indeed the recommended first-line approach, with pulse intravenous methylprednisolone at 500 to 1,000 mg daily and evidence that 1 g daily reduces myocardial injury markers faster than lower doses - so the urgency the item teaches is right - BUT steroid-refractory ICI myocarditis is a recognised, life-threatening entity requiring escalation to additional immunosuppression such as infliximab, intravenous immunoglobulin, tacrolimus or abatacept, and ASCO guidance provides for exactly that. Steroids are first-line, not invariably definitive.",
+"contentDefects":[
+"PRIMARY: non-unique ordered-response key; the oxygen-before-access adjacency is not clinically constrained and the item's own rationale concedes concurrency.",
+"PRIMARY: the boundary stage states that the first methylprednisolone dose was given and oxygen titrated with its response, disclosing two of the four steps.",
+"SECONDARY: the rationale and strategy describe corticosteroids as definitive and corrective, which overstates first-line therapy for an entity with a recognised refractory phenotype.",
+"BILINGUAL: the Chinese stage_2 exhibit renders 'telemetry step-down' as '心电监护降级病房', a downgraded ward, inside a sentence that simultaneously directs transfer to '更高重症级别' - a higher acuity level. The Chinese reader is told to escalate the client to a downgraded unit, which is self-contradictory. The English term is a unit name rather than a direction of travel, and the translation has taken it literally."],
+"bilingualVerdict":"NOT PARALLEL IN THE SHARED STAGE EXHIBIT. The part's own stem, four options, key, rationale, byChoice entries and strategy are semantically equivalent EN/ZH, and option ord_transfer correctly reads '更高重症级别' in Chinese. The defect is in the stage_2 exhibit the item depends on, where the step-down unit name is mistranslated as a downgrade and contradicts the escalation in the same sentence. This is the second bilingual defect I have found in this population arising from a term-of-art rendered literally.",
+"confidence":"HIGH",
+"sourcesChecked":[
+"Immune checkpoint inhibitor myocarditis treatment literature located via NIH and oncology-journal domain search - verified that guidelines recommend timely high-dose corticosteroids as first-line with pulse methylprednisolone 500 to 1,000 mg daily, that 1 g daily produces faster reduction in troponin, CK and NT-proBNP than lower doses, that steroid-refractory disease is defined by persistent or progressive myocardial injury despite high-dose corticosteroids and requires escalation, and that ASCO guidance recommends additional immunosuppressive therapy where steroids fail. This both supports the item's urgency and establishes that 'definitive' overstates."],
+"siblingImpact":"MODERATE. The stage_2 edits - removing the completed administration sentence and correcting the Chinese unit name - touch a shared stage surface. Sibling residual row q2 is anchored at stage_1 and cannot see stage_2; siblings q1, q4, q5 and q6 are baseline-anchored. So once anchors are set no other part renders stage_2, but set the q2 anchor first.",
+"repairConstraints":[
+"Replace the forced total order with justified prerequisites and concurrent actions, or retain ordering only where a dependency is genuinely justified. Do not retain a four-way permutation key.",
+"Remove the sentence narrating the completed methylprednisolone administration and oxygen titration with its response from the decision-time exhibit, in EN and ZH, while preserving the order set the learner must act on.",
+"Correct the Chinese rendering of 'telemetry step-down' so it names an intermediate or monitored cardiac unit rather than a downgraded ward, resolving the contradiction with '更高重症级别' in the same sentence.",
+"Reword the rationale and strategy so corticosteroids are first-line and time-critical rather than definitive or invariably corrective; the urgency framing should be preserved.",
+"Set the q2 anchor before editing stage_2.",
+"Anchor to opus_icit_stage_2 after repair."],
+"criticalNote":"This is the fourth ordered-response item in the 66-row population whose key is not unique. Together with the thyroid-storm, TPN-mucositis and opioid-safety rows, that is four of the five ordered-response items I examined, which I consider strong enough to recommend a systematic review of the item type rather than four isolated repairs.",
+"codexProposedDisposition":"CONTENT_REPAIR_REQUIRED","codexProposedBoundary":"opus_icit_stage_2",
+"agreementWithCodex":"AGREE",
+"agreementReasoning":"I derived stage_2 independently and reached all four of Codex's findings - the forced total order, the completed-administration sentence, the Chinese step-down mistranslation and the overstatement of steroids as definitive. I verified each rather than accepting it: I located the administration sentence at the end of the stage_2 exhibit, read the Chinese and confirmed the '降级病房' contradiction with '更高重症级别' in the same sentence, and checked the steroid claim against the ICI-myocarditis treatment literature, which confirms first-line status while documenting a refractory phenotype requiring escalation. I add the observation that the item's own rationale concedes the concurrency that defeats its total order, and the cross-population finding on ordered-response keys.",
+"producerIndependent":true
+}
+]

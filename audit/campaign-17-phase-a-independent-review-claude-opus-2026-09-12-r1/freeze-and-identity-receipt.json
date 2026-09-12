@@ -1,0 +1,36 @@
+{
+ "reviewSeat": "Claude Opus 5",
+ "producerIndependent": true,
+ "pinnedSourceHead": "816272456fdf7062c5c62ed9845ac3f8166938df",
+ "headVerifiedAgainst": [
+  "local branch codex/campaign-17-residual-successor-2026-09-12",
+  "origin/codex/campaign-17-residual-successor-2026-09-12"
+ ],
+ "reviewBranch": "review/campaign-17-phase-a-independent-claude-opus-2026-09-12-r1",
+ "isolatedWorktree": true,
+ "phaseAFreezeArtifactsVerified": "83/83 sha256 match",
+ "liveAuditRerunAtPinnedHead": {
+  "command": "npx tsx scripts/audit/audit-stage-refs.ts --strict",
+  "exitCode": 1,
+  "result": "141 findings across 13 bank files: 0 unresolved, 66 revealsAllStages (leak), 75 missingRequiredAnchor",
+  "interpretation": "Independently reproduces the frozen population; exit 1 is expected and matches the producer's receipt."
+ },
+ "populationReconciliation": {
+  "rowsExpected": 66,
+  "rowsAdjudicated": 66,
+  "exactRowKeySetMatch": true,
+  "parentsExpected": 38,
+  "parentsCovered": 38,
+  "documentaryGrouping": {
+   "baseline_stage_disagreement": 48,
+   "different_stage_ids": 2,
+   "explicit_semantic_exception": 14,
+   "exact_stage_checker_medium": 2
+  },
+  "phaseBPopulationExcluded": "75 missingRequiredAnchor rows are out of scope and were not reviewed"
+ },
+ "parentHashVerification": "all 38 packet currentParent objects hash-match the live canonical banks at the pinned commit (object_sha over sorted-key compact JSON); all 66 rows carry the matching sourceParentSha256",
+ "canonicalMutation": false,
+ "scopeAssertion": "Review artifacts only. No canonical bank, raw content, runtime code, schema, ledger, census, Campaign 16 evidence, or frozen Campaign 17 producer artifact was modified.",
+ "frozenAt": "2026-09-12T21:08:07.105957+00:00"
+}
