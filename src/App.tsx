@@ -1,3 +1,6 @@
+import { captureAttempt, questionFingerprint, makeCompletedSet, entryCompatibility, answerFitsQuestion } from "./completedMemory";
+import { commitSubmission, completeSession, loadCompletedSet, subscribePersistence, type PersistenceStatus } from "./storage";
+import type { CompletedSet, LaunchIntent, SessionReturnView, SubmittedAttempt } from "./types";
 import { formatCaseVisibilityBoundary } from "./caseVisibilityBoundary";
 import {
   createContext,
@@ -9,13 +12,10 @@ import {
   useState,
   type CSSProperties,
   type MouseEvent,
-  type MutableRefObject,
 } from "react";
 import {
-  Activity,
   BarChart3,
   BookOpen,
-  Brain,
   Check,
   CheckCircle2,
   AudioLines,
@@ -28,7 +28,6 @@ import {
   Home,
   Import,
   Library,
-  ListChecks,
   Image,
   MoveDown,
   MoveUp,
@@ -63,23 +62,12 @@ import {
   type SweepManifestRow,
 } from "./devReview";
 import {
-  clearActiveSession,
-  isDueForReview,
   loadActiveSession,
   loadAnswerEvents,
-  loadCaseAnswerPartEvents,
   loadFlags,
-  loadFlashcardProgress,
-  loadLanguageMisses,
   loadProgress,
   loadSettings,
-  loadTranslationRevealEvents,
   loadUploadedRecords,
-  recordLanguageMiss,
-  recordFlashcardReview,
-  recordAnswer,
-  recordCaseAnswerPartEvent,
-  recordTranslationReveal,
   saveActiveSession,
   saveSettings,
   saveQuestionFlag,
@@ -91,17 +79,11 @@ import {
   findNextPendingQuestionIndex,
   findNextSkippedQuestionIndex,
 } from "./sessionNavigation";
-import { buildTargetedReviewPool, buildWeightedSession, seedFromString } from "./sessionSampler";
+import { buildWeightedSession, buildUnweightedSession, selectExplicitPopulation } from "./sessionSampler";
 import { buildSessionState, type SessionState } from "./sessionState";
 import { createOrderedSessionPersistence, createSessionStartGuard, type SessionStartStatus } from "./sessionStartGuard";
-import { advanceFlashcardPass, createFlashcardPass, currentFlashcardId, isFlashcardPassComplete, reconcileFlashcardPass, type FlashcardPass } from "./flashcardPass";
 import { formatItemType } from "./itemTypes";
 import { buildQuestionRescuePromptText } from "./reviewPrompt";
-import {
-  normalizeTranslationFrictionAttempts,
-  summarizeTranslationFriction,
-  summarizeTranslationRevealEvents,
-} from "./translationTelemetry";
 import { StructuredMeasurementsStimulus } from "./StructuredMeasurementsStimulus";
 import { ExamCalculator } from "./ExamCalculatorPanel";
 import { VisualStimulus } from "./visuals";
@@ -114,16 +96,13 @@ import type {
   AdaptiveSessionSnapshot,
   AnswerEvent,
   Category,
-  CaseAnswerPartEvent,
   CaseStudyQuestion,
   CaseStudyExhibit,
   Difficulty,
-  FlashcardProgress,
   GlossaryTerm,
   ImportSummary,
   ItemScore,
   ItemType,
-  LanguageMiss,
   LanguageMode,
   Option,
   OptionQuestion,
@@ -132,7 +111,6 @@ import type {
   QuestionProgress,
   QuestionRecord,
   QuestionVisual,
-  RevealBlock,
   SessionMode,
   SessionOrder,
   SessionStatusFilter,
@@ -141,41 +119,28 @@ import type {
   StoredSessionSnapshot,
   TextSizeMode,
   ThemeMode,
-  TranslationRevealEvent,
 } from "./types";
 
 type View =
   | "home"
   | "builder"
   | "dashboard"
-  | "flashcards"
   | "library"
   | "import"
   | "settings"
   | "previewLab"
   | "review"
-  | "telemetry"
   | "session"
-  | "summary";
+  | "summary"
+  | "needsReview"
+  | "saved"
+  | "lastSet"
+  | "inspect";
 
-type RevealTrackingContextValue = {
-  sessionId?: string;
-  sessionMode?: SessionMode;
-  languageMode: LanguageMode;
-  questionId: string;
-  partId?: string;
-  itemType: ItemType;
-  category: Category;
-  topic: string;
-  submitted: boolean;
-  answeredBeforeReveal: boolean;
-  revealAllSignal: number;
-  questionLoadedAtRef: MutableRefObject<number>;
-  revealCountRef: MutableRefObject<number>;
-  recordEvent?: (event: Omit<TranslationRevealEvent, "id" | "revealedAt">) => void;
-};
+const returnLabel = (view: SessionReturnView) => ({home:"Home",library:"Library",needsReview:"Needs review",saved:"Saved",lastSet:"Last set",builder:"Customize"}[view]);
 
-const RevealTrackingContext = createContext<RevealTrackingContextValue | null>(null);
+const RevealAllContext = createContext(0);
+const HistoricalAttemptContext = createContext<SubmittedAttempt | null>(null);
 
 type GptRescuePrompt = {
   label: string;
@@ -268,48 +233,6 @@ const makeCasePartRescuePrompts = (
   );
 };
 
-const recordRevealFromContext = (ctx: RevealTrackingContextValue | null, block: RevealBlock) => {
-  if (!ctx?.sessionId || !ctx.recordEvent) return;
-  ctx.revealCountRef.current += 1;
-  ctx.recordEvent({
-    sessionId: ctx.sessionId,
-    sessionMode: ctx.sessionMode,
-    languageModeAtReveal: ctx.languageMode,
-    questionId: ctx.questionId,
-    partId: ctx.partId,
-    block,
-    itemType: ctx.itemType,
-    category: ctx.category,
-    topic: ctx.topic,
-    elapsedMsOnQuestion: Date.now() - ctx.questionLoadedAtRef.current,
-    answeredBeforeReveal: ctx.answeredBeforeReveal,
-    submittedBeforeReveal: ctx.submitted,
-    revealCountForQuestion: ctx.revealCountRef.current,
-  });
-};
-
-const recordFullReveal = (ctx: RevealTrackingContextValue | null) => {
-  // Review and preview surfaces can reveal all Chinese without recording telemetry.
-  if (!ctx?.sessionId || !ctx.recordEvent) return;
-  ctx.revealCountRef.current += 1;
-  ctx.recordEvent({
-    sessionId: ctx.sessionId,
-    sessionMode: ctx.sessionMode,
-    languageModeAtReveal: ctx.languageMode,
-    questionId: ctx.questionId,
-    partId: ctx.partId,
-    block: "other",
-    fullQuestionReveal: true,
-    itemType: ctx.itemType,
-    category: ctx.category,
-    topic: ctx.topic,
-    elapsedMsOnQuestion: Date.now() - ctx.questionLoadedAtRef.current,
-    answeredBeforeReveal: ctx.answeredBeforeReveal,
-    submittedBeforeReveal: ctx.submitted,
-    revealCountForQuestion: ctx.revealCountRef.current,
-  });
-};
-
 type CaseStudyLayoutMode = "split" | "stacked";
 type TermSelectHandler = (term: GlossaryTerm, anchor?: HTMLElement) => void;
 type ActiveTermPopover = {
@@ -343,13 +266,6 @@ const blankBuilderFilters: BuilderFilters = {
   status: "all",
   mode: "study",
   withVisuals: false,
-};
-
-type FlashcardTerm = GlossaryTerm & {
-  id: string;
-  categories: string[];
-  topics: string[];
-  questionIds: string[];
 };
 
 const DEFAULT_SESSION_COUNT = 50;
@@ -390,16 +306,29 @@ export default function App() {
   const [uploadedLoaded, setUploadedLoaded] = useState(false);
   const [progress, setProgress] = useState<Record<string, QuestionProgress>>({});
   const [flags, setFlags] = useState<Record<string, QuestionFlag>>({});
-  const [languageMisses, setLanguageMisses] = useState<Record<string, LanguageMiss>>({});
   const [answerEvents, setAnswerEvents] = useState<AnswerEvent[]>([]);
-  const [caseAnswerPartEvents, setCaseAnswerPartEvents] = useState<CaseAnswerPartEvent[]>([]);
-  const [translationRevealEvents, setTranslationRevealEvents] = useState<TranslationRevealEvent[]>([]);
-  const [flashcardProgress, setFlashcardProgress] = useState<Record<string, FlashcardProgress>>({});
   const [settings, setSettings] = useState<Settings>(() => loadSettings());
   const [view, setView] = useState<View>(devStartup.openConsole ? "review" : "home");
-  const [session, setSession] = useState<SessionState | null>(null);
-  const [rescueFocusIds, setRescueFocusIds] = useState<string[] | null>(null);
-  const [sessionReturnView, setSessionReturnView] = useState<View>("home");
+  const [session, setSessionState] = useState<SessionState | null>(null);
+  const sessionRef = useRef<SessionState | null>(null);
+  const setSession = (update: SessionState | null | ((current: SessionState | null) => SessionState | null)) => {
+    const next = typeof update === "function" ? update(sessionRef.current) : update;
+    sessionRef.current = next;
+    setSessionState(next);
+  };
+  const [persistenceStatus, setPersistenceStatus] = useState<PersistenceStatus>({ durability: "durable" });
+  const [lastSet, setLastSet] = useState<CompletedSet | null>(null);
+  const [completion, setCompletion] = useState<CompletedSet | null>(null);
+  const [pendingCompletion, setPendingCompletion] = useState<{ snapshot: StoredSessionSnapshot; record: CompletedSet } | null>(null);
+  const [working, setWorking] = useState(false);
+  const submitPromiseRef = useRef<Promise<void> | null>(null);
+  const finishingRef = useRef(false);
+  const [inspection, setInspection] = useState<QuestionRecord | null>(null);
+  const [inspectionReturn, setInspectionReturn] = useState<SessionReturnView>("library");
+  const [launchNotice, setLaunchNotice] = useState("");
+  useEffect(() => subscribePersistence(setPersistenceStatus), []);
+  useEffect(() => { void loadCompletedSet().then(setLastSet); }, []);
+  const [sessionReturnView, setSessionReturnView] = useState<SessionReturnView>("home");
   const [showStudyDataDelayNotice, setShowStudyDataDelayNotice] = useState(false);
   const [filters, setFilters] = useState<Filters>(blankFilters);
   const [builderFilters, setBuilderFilters] = useState<BuilderFilters>(blankBuilderFilters);
@@ -408,7 +337,6 @@ export default function App() {
   const [sessionStartError, setSessionStartError] = useState(false);
   const [sessionPersistence] = useState(() => createOrderedSessionPersistence({
     save: saveActiveSession,
-    clear: clearActiveSession,
   }));
   const [sessionStartGuard] = useState(() => createSessionStartGuard({
     onStatusChange: setSessionStartStatus,
@@ -431,30 +359,18 @@ export default function App() {
       loadUploadedRecords(),
       loadProgress(),
       loadFlags(),
-      loadLanguageMisses(),
       loadAnswerEvents(),
-      loadCaseAnswerPartEvents(),
-      loadTranslationRevealEvents(),
-      loadFlashcardProgress(),
     ]).then(
       ([
         nextUploadedRecords,
         nextProgress,
         nextFlags,
-        nextLanguageMisses,
         nextAnswerEvents,
-        nextCaseAnswerPartEvents,
-        nextTranslationRevealEvents,
-        nextFlashcardProgress,
       ]) => {
         setUploadedRecords(nextUploadedRecords);
         setProgress(nextProgress);
         setFlags(nextFlags);
-        setLanguageMisses(nextLanguageMisses);
         setAnswerEvents(nextAnswerEvents);
-        setCaseAnswerPartEvents(nextCaseAnswerPartEvents);
-        setTranslationRevealEvents(nextTranslationRevealEvents);
-        setFlashcardProgress(nextFlashcardProgress);
         // Keep this as the final learner-data state update. Session starts are only allowed after this barrier opens.
         setUploadedLoaded(true);
       },
@@ -483,52 +399,16 @@ export default function App() {
     [allRecords, builderFilters, progress, flags],
   );
   const missedRecords = useMemo(
-    () => allRecords.filter((record) => progress[record.question.id]?.missed),
+    () => allRecords.filter((record) => progress[record.question.id]?.needsReview),
     [progress, allRecords],
   );
   const answeredRecords = useMemo(
     () => allRecords.filter((record) => (progress[record.question.id]?.seen ?? 0) > 0),
     [progress, allRecords],
   );
-  const dueRecords = useMemo(
-    () => allRecords.filter((record) => isDueForReview(progress[record.question.id])),
-    [progress, allRecords],
-  );
   const flaggedRecords = useMemo(
     () => allRecords.filter((record) => flags[record.question.id]?.flagged),
     [flags, allRecords],
-  );
-  const flashcardDeck = useMemo(() => buildFlashcardDeck(allRecords), [allRecords]);
-  const missedQuestionIds = useMemo(
-    () => new Set(missedRecords.map((record) => record.question.id)),
-    [missedRecords],
-  );
-  const languageMissQuestionIds = useMemo(() => new Set(Object.keys(languageMisses)), [languageMisses]);
-  const durableRescueQuestionIds = useMemo(
-    () => new Set([...missedQuestionIds, ...languageMissQuestionIds]),
-    [missedQuestionIds, languageMissQuestionIds],
-  );
-  const rescueTermIds = useMemo(
-    () =>
-      new Set(
-        flashcardDeck
-          .filter((term) => term.questionIds.some((questionId) => durableRescueQuestionIds.has(questionId)))
-          .map((term) => term.id),
-      ),
-    [flashcardDeck, durableRescueQuestionIds],
-  );
-  const languageMissTermIds = useMemo(
-    () =>
-      new Set(
-        flashcardDeck
-          .filter((term) => term.questionIds.some((questionId) => languageMissQuestionIds.has(questionId)))
-          .map((term) => term.id),
-      ),
-    [flashcardDeck, languageMissQuestionIds],
-  );
-  const sessionMissedTermIds = useMemo(
-    () => (session ? getSessionMissedTermIds(session, flashcardDeck, languageMissQuestionIds) : []),
-    [session, flashcardDeck, languageMissQuestionIds],
   );
 
   useEffect(() => {
@@ -537,8 +417,7 @@ export default function App() {
     void loadActiveSession().then((snapshot) => {
       if (cancelled) return;
       const hydrated = snapshot ? hydrateSession(snapshot, recordsById) : null;
-      if (hydrated) setSession(hydrated);
-      else if (snapshot) void sessionPersistence.clear();
+      if (hydrated) { setSession(hydrated); setSessionReturnView(hydrated.returnView); }
       setSessionHydrated(true);
       sessionStartGuard.resolveHydration(hydrated);
     });
@@ -549,10 +428,7 @@ export default function App() {
     if (!sessionHydrated || !session) return;
     // The replacement write owns this interval; an old async answer may still finish.
     if (sessionStartGuard.status === "starting") return;
-    if (session.completed) {
-      void sessionPersistence.clear();
-      return;
-    }
+    if (session.completed || session.recovery?.length || submitPromiseRef.current || finishingRef.current) return;
     void sessionPersistence.save(toStoredSession(session));
   }, [session, sessionHydrated, sessionPersistence, sessionStartGuard]);
 
@@ -566,11 +442,6 @@ export default function App() {
     }
   }, [sessionStartStatus]);
 
-  useEffect(() => {
-    if (view !== "flashcards" && rescueFocusIds) {
-      setRescueFocusIds(null);
-    }
-  }, [view, rescueFocusIds]);
 
   const updateSettings = (next: Settings) => {
     setSettings(next);
@@ -581,9 +452,9 @@ export default function App() {
     records: QuestionRecord[],
     mode: SessionMode,
     title: string,
-    options: { count?: number; order?: SessionOrder; returnView?: View; weighting?: "nclex" } = {},
+    options: { count?: number; order?: SessionOrder; returnView?: SessionReturnView; weighting?: "nclex"; launchIntent?: LaunchIntent; population?: "needsReview" | "saved" } = {},
   ) => {
-    if (!uploadedLoaded || records.length === 0 || sessionStartGuard.status !== "idle") return;
+    if (!uploadedLoaded || records.length === 0 || sessionStartGuard.status !== "idle" || submitPromiseRef.current || finishingRef.current) return;
     const requestedRecords = [...records];
     const requestedOptions = { ...options };
     sessionStartControlRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
@@ -608,29 +479,32 @@ export default function App() {
     records: QuestionRecord[],
     mode: SessionMode,
     title: string,
-    options: { count?: number; order?: SessionOrder; returnView?: View; weighting?: "nclex" },
+    options: { count?: number; order?: SessionOrder; returnView?: SessionReturnView; weighting?: "nclex"; launchIntent?: LaunchIntent; population?: "needsReview" | "saved" },
   ) => {
     let nextSession: SessionState | undefined;
     if (mode === "adaptive") {
       nextSession = performAdaptiveSessionStart(records, title, Math.max(1, options.count ?? 75));
     } else {
       let orderedRecords: QuestionRecord[];
-      const requestedCount = Math.max(1, Math.min(options.count ?? records.length, records.length));
-      if (options.order === "sequential") {
-        orderedRecords = [...records];
+      const requestedCount = Math.max(1, options.count ?? records.length);
+      if (options.population) {
+        orderedRecords = selectExplicitPopulation(records, options.population, requestedCount, progress, flags);
+      } else if (options.order === "sequential") {
+        orderedRecords = shuffle(records.slice(0, requestedCount));
       } else if (options.weighting === "nclex") {
         const seed = (Date.now() ^ Math.floor(Math.random() * 0xffffffff)) >>> 0;
         orderedRecords = buildWeightedSession(records, requestedCount, progress, mulberry32(seed), {
-          now: new Date(),
+          revisitMissed: settings.revisitMissed,
         });
       } else {
-        const unseen = shuffle(records.filter((r) => (progress[r.question.id]?.seen ?? 0) === 0));
-        const seen = shuffle(records.filter((r) => (progress[r.question.id]?.seen ?? 0) > 0));
-        orderedRecords = [...unseen, ...seen];
+        orderedRecords = buildUnweightedSession(records, requestedCount, progress, Math.random, mode !== "study" || options.launchIntent === "remediation" || settings.revisitMissed);
       }
       const selectedRecords = orderedRecords.slice(0, requestedCount);
+      setLaunchNotice(selectedRecords.length < requestedCount ? `This set contains ${selectedRecords.length} of ${requestedCount} requested questions with your current choices.` : "");
+      if (!selectedRecords.length) return;
       nextSession = buildSessionState({
         id: createSessionId(),
+        launchIntent: options.launchIntent ?? "ordinary", returnView: options.returnView ?? "home", requestedCount,
         mode,
         questions: selectedRecords.map((record) => record.question),
         poolIds: selectedRecords.map((record) => record.question.id),
@@ -641,8 +515,9 @@ export default function App() {
     }
     if (!nextSession) return;
     // Wait behind every earlier save/clear before exposing the replacement.
+    nextSession.returnView = options.returnView ?? "home";
     await sessionPersistence.save(toStoredSession(nextSession));
-    setSessionReturnView(options.returnView ?? "home");
+    setSessionReturnView(nextSession.returnView);
     setSession(nextSession);
     setView("session");
   };
@@ -655,6 +530,7 @@ export default function App() {
     return buildSessionState({
       id: createSessionId(),
       mode: "adaptive",
+      requestedCount,
       questions: [firstRecord.question],
       poolIds: selectedRecords.map((record) => record.question.id),
       languageMode: "off",
@@ -669,63 +545,77 @@ export default function App() {
     });
   };
 
-  const finishSession = () => {
-    void sessionPersistence.clear();
-    setSession((current) => (current ? { ...current, completed: true } : current));
-    setView("summary");
+  const persistCompletion = async (snapshot: StoredSessionSnapshot, record: CompletedSet) => {
+    // Ensure a memory-only active write can be retried without changing its identity.
+    if (pendingCompletion?.record.sessionId === record.sessionId) await sessionPersistence.save(snapshot);
+    // Retry captured operations using their original identities before retrying archive.
+    for (const [id, attempt] of Object.entries(snapshot.attempts ?? {})) {
+      const saved = await sessionPersistence.run(() => commitSubmission(snapshot, id, attempt));
+      snapshot = saved.value.session;
+    }
+    const outcome = await sessionPersistence.run(() => completeSession(snapshot, record));
+    setPendingCompletion(outcome.durability === "memory" ? { snapshot, record } : null);
+    if (snapshot.launchIntent === "ordinary" && snapshot.mode === "study" && Object.keys(snapshot.results).length > 0) setLastSet(record);
+    return outcome;
+  };
+  const finishSession = async (endReason: CompletedSet["endReason"] = "ended") => {
+    if (finishingRef.current) return;
+    finishingRef.current = true; setWorking(true);
+    try {
+      await submitPromiseRef.current;
+      const current = sessionRef.current;
+      if (!current || current.completed) return;
+      const snapshot = toStoredSession(current);
+      const record = pendingCompletion?.snapshot.id === current.id ? pendingCompletion.record : makeCompletedSet(snapshot, endReason);
+      const outcome = await persistCompletion(snapshot, record);
+      setCompletion(record);
+      setSession({ ...current, completed: outcome.durability === "durable" });
+      setView("summary");
+    } finally { finishingRef.current = false; setWorking(false); }
+  };
+  const retryCompletion = async () => {
+    if (!pendingCompletion || finishingRef.current) return;
+    finishingRef.current=true; setWorking(true);
+    try {
+      const outcome = await persistCompletion(pendingCompletion.snapshot, pendingCompletion.record);
+      if (outcome.durability === "durable" && sessionRef.current?.id === pendingCompletion.snapshot.id) setSession({...sessionRef.current, completed:true});
+    }
+    finally { finishingRef.current=false; setWorking(false); }
   };
 
   const updateAnswer = (questionId: string, answer: AnswerState) => {
+    if (submitPromiseRef.current || finishingRef.current) return;
     setSession((current) => {
       if (!current) return current;
       return { ...current, answers: { ...current.answers, [questionId]: answer } };
     });
   };
 
-  const submitCurrent = async () => {
-    if (!session) return;
-    const question = session.questions[session.index];
-    if (Object.prototype.hasOwnProperty.call(session.results, question.id)) return;
-    const answer = session.answers[question.id] ?? getInitialAnswer(question);
-    const score = scoreQuestion(question, answer);
-    const wasCorrect = gradeQuestion(question, answer);
-    const answerContext = {
-      sessionId: session.id,
-      sessionMode: session.mode,
-      languageModeAtAnswer: session.languageMode,
-    };
-    const nextProgress = await recordAnswer(question.id, wasCorrect, answerContext);
-    if (question.itemType === "case_study") {
-      const caseAnswers = answer.caseStudy ?? {};
-      await Promise.all(
-        question.caseStudy.questions.map((part) => {
-          const partAnswer = caseAnswers[part.id] ?? getInitialAnswer(part);
-          return recordCaseAnswerPartEvent({
-            questionId: question.id,
-            partId: part.id,
-            wasCorrect: gradeQuestion(part, partAnswer),
-            ...answerContext,
-          });
-        }),
-      );
-    }
-    setProgress((current) => ({ ...current, [question.id]: nextProgress }));
-    setAnswerEvents(await loadAnswerEvents());
-    setCaseAnswerPartEvents(await loadCaseAnswerPartEvents());
-    setSession((current) => {
-      if (!current || current.id !== session.id) return current;
-      if (Object.prototype.hasOwnProperty.call(current.results, question.id)) return current;
-      return {
-        ...current,
-        results: { ...current.results, [question.id]: wasCorrect },
-        scores: { ...current.scores, [question.id]: score },
-        skippedQuestionIds: current.skippedQuestionIds.filter((questionId) => questionId !== question.id),
-        adaptive: current.adaptive ? updateAdaptiveAfterAnswer(current.adaptive, question, wasCorrect) : undefined,
-      };
+  const submitCurrent = () => {
+    if (submitPromiseRef.current || finishingRef.current) return;
+    const current = sessionRef.current;
+    if (!current || current.completed || current.recovery?.length) return;
+    const question = current.questions[current.index];
+    if (Object.prototype.hasOwnProperty.call(current.results, question.id)) return;
+    const snapshot = toStoredSession(current);
+    const answer = current.answers[question.id] ?? getInitialAnswer(question);
+    snapshot.fingerprints = {...snapshot.fingerprints, [question.id]:questionFingerprint(question)};
+    const attempt = captureAttempt(snapshot, question, answer);
+    if (current.adaptive) snapshot.adaptive = updateAdaptiveAfterAnswer(current.adaptive, question, attempt.result);
+    setWorking(true);
+    // Install synchronously before any await; clicks and answer edits share this lock.
+    const promise = sessionPersistence.run(async () => {
+      const saved = await commitSubmission(snapshot, question.id, attempt);
+      setProgress(previous => ({ ...previous, [question.id]: saved.value.progress }));
+      setAnswerEvents(await loadAnswerEvents());
+      if (sessionRef.current?.id === current.id) setSession(hydrateSession(saved.value.session, recordsById));
     });
+    submitPromiseRef.current = promise;
+    void promise.finally(() => { submitPromiseRef.current=null; if (!finishingRef.current) setWorking(false); });
   };
 
   const skipCurrent = () => {
+    if (submitPromiseRef.current || finishingRef.current) return;
     setSession((current) => {
       if (!current || current.mode !== "study" || current.phase === "skipped-prompt") return current;
       const question = current.questions[current.index];
@@ -771,19 +661,18 @@ export default function App() {
       if (current.mode === "adaptive" && current.adaptive) {
         if (current.index < current.questions.length - 1) return { ...current, index: current.index + 1 };
         if (current.questions.length >= current.adaptive.targetCount) {
-          void sessionPersistence.clear();
-          setView("summary");
-          return { ...current, completed: true };
+          void finishSession("finished");
+          return current;
         }
         const nextRecord = selectNextAdaptiveRecord(current, recordsById);
         if (!nextRecord) {
-          void sessionPersistence.clear();
-          setView("summary");
-          return { ...current, completed: true };
+          void finishSession("finished");
+          return current;
         }
         return {
           ...current,
           questions: [...current.questions, nextRecord.question],
+          fingerprints: {...current.fingerprints, [nextRecord.question.id]:questionFingerprint(nextRecord.question)},
           index: current.index + 1,
           adaptive: {
             ...current.adaptive,
@@ -815,9 +704,8 @@ export default function App() {
         return { ...current, index: current.index + 1 };
       }
       if (current.mode !== "study" || current.skippedQuestionIds.length === 0) {
-        void sessionPersistence.clear();
-        setView("summary");
-        return { ...current, completed: true };
+        void finishSession("finished");
+        return current;
       }
       return { ...current, phase: "skipped-prompt" };
     });
@@ -843,44 +731,6 @@ export default function App() {
     });
   };
 
-  const toggleLanguageMiss = async (questionId: string) => {
-    const marked = !languageMisses[questionId];
-    const stored = await recordLanguageMiss(questionId, marked);
-    setLanguageMisses((current) => {
-      const next = { ...current };
-      if (stored) {
-        next[questionId] = stored;
-      } else {
-        delete next[questionId];
-      }
-      return next;
-    });
-  };
-
-  const recordTranslationRevealEvent = useCallback(
-    (event: Omit<TranslationRevealEvent, "id" | "revealedAt">) => {
-      void recordTranslationReveal(event).then(async () => {
-        setTranslationRevealEvents(await loadTranslationRevealEvents());
-      });
-    },
-    [],
-  );
-
-  const reviewFlashcard = async (termId: string, remembered: boolean) => {
-    const next = await recordFlashcardReview(termId, remembered);
-    setFlashcardProgress((current) => ({ ...current, [termId]: next }));
-  };
-
-  const openFocusedVocabRescue = (termIds: string[]) => {
-    setRescueFocusIds(termIds);
-    setView("flashcards");
-  };
-  const clearRescueFocus = useCallback(() => setRescueFocusIds(null), []);
-  const openVocab = () => {
-    setRescueFocusIds(null);
-    setView("flashcards");
-  };
-
   const openBuilder = (overrides: Partial<BuilderFilters> = {}) => {
     setBuilderFilters({ ...blankBuilderFilters, ...overrides });
     setView("builder");
@@ -889,32 +739,19 @@ export default function App() {
   const practiceOne = (record: QuestionRecord) => {
     requestSessionStart([record], "study", record.question.stem.en, {
       order: "sequential",
-      returnView: "library",
+      returnView: inspectionReturn,
+      launchIntent: "remediation",
     });
   };
 
   const existingIds = useMemo(() => new Set(allRecords.map((record) => record.question.id)), [allRecords]);
   const activeSession = session && !session.completed ? session : null;
-  const relatedPracticePool = useMemo(
-    () =>
-      session
-        ? buildTargetedReviewPool(
-            allRecords,
-            { questions: session.questions, results: session.results },
-            progress,
-            flags,
-            DEFAULT_SESSION_COUNT,
-            mulberry32(seedFromString(session.id)),
-          )
-        : [],
-    [session, allRecords, progress, flags],
-  );
-  const sessionReturnLabel = sessionReturnView === "library" ? "Library" : "Home";
+  const sessionReturnLabel = returnLabel(sessionReturnView);
   const isWidePage = view === "session" || view === "previewLab";
 
   return (
     <div className={`app-shell ${view === "session" ? "session-active" : ""} ${isWidePage ? "wide-main" : ""}`}>
-      <header className="app-header" inert={sessionStartStatus === "starting"}>
+      <header className="app-header" inert={sessionStartStatus === "starting" || working}>
         <button className="brand" type="button" onClick={() => setView("home")}>
           <img className="brand-mark" src={APP_ICON_SRC} alt="" aria-hidden="true" />
           <span>NCLEX Bilingual Prep</span>
@@ -926,15 +763,11 @@ export default function App() {
           </button>
           <button className={view === "builder" ? "active" : ""} type="button" onClick={() => openBuilder(builderFilters)}>
             <SlidersHorizontal aria-hidden="true" />
-            <span>Builder</span>
+            <span>Customize</span>
           </button>
           <button className={view === "dashboard" ? "active" : ""} type="button" onClick={() => setView("dashboard")}>
             <BarChart3 aria-hidden="true" />
-            <span>Dashboard</span>
-          </button>
-          <button className={view === "flashcards" ? "active" : ""} type="button" onClick={openVocab}>
-            <Brain aria-hidden="true" />
-            <span>Vocab</span>
+            <span>Progress</span>
           </button>
           <button className={view === "library" ? "active" : ""} type="button" onClick={() => setView("library")}>
             <Library aria-hidden="true" />
@@ -954,12 +787,6 @@ export default function App() {
               <span>Developer</span>
             </button>
           )}
-          {devStartup.enabled && (
-            <button className={view === "telemetry" ? "active" : ""} type="button" onClick={() => setView("telemetry")}>
-              <Activity aria-hidden="true" />
-              <span>Telemetry</span>
-            </button>
-          )}
         </nav>
       </header>
 
@@ -970,7 +797,13 @@ export default function App() {
         <p className="session-start-status" role="alert">Could not start the new set. Try again. / 无法开始新练习，请重试。</p>
       )}
 
-      <main inert={sessionStartStatus === "starting"} aria-busy={sessionStartStatus === "waiting-hydration" || sessionStartStatus === "starting"}>
+      {working && <p className="session-start-status" role="status">Saving your answers… / 正在保存作答…</p>}
+      {persistenceStatus.durability === "memory" && <p className="warning-band" role="status">
+        {persistenceStatus.reason === "blocked" ? "Storage upgrade is blocked. Close other open copies of this app and reload. " : ""}
+        Changes are available for this visit only until they can be saved on this device.
+      </p>}
+      {launchNotice && <p className="session-start-status" role="status">{launchNotice}</p>}
+      <main inert={sessionStartStatus === "starting" || working} aria-busy={sessionStartStatus === "waiting-hydration" || sessionStartStatus === "starting"}>
         {!uploadedLoaded && (
           <p className="session-start-status study-data-status" role="status">
             {showStudyDataDelayNotice
@@ -994,21 +827,23 @@ export default function App() {
             total={allRecords.length}
             missed={missedRecords.length}
             answered={answeredRecords.length}
-            due={dueRecords.length}
             flagged={flaggedRecords.length}
-            vocab={flashcardDeck.length}
             activeSession={activeSession}
-            onResume={() => setView("session")}
+            onResume={() => setView(pendingCompletion ? "summary" : "session")}
+            completionPending={Boolean(pendingCompletion)}
             onStudy={() => requestSessionStart(allRecords, "study", "Study all questions")}
             onTest={(count) =>
               requestSessionStart(allRecords, "study", `Practice · ${count} questions`, { count, weighting: "nclex" })
             }
-            onMistakes={() => requestSessionStart(missedRecords, "study", "Review mistakes")}
-            onAnswered={() => requestSessionStart(answeredRecords, "study", "Review answered questions")}
-            onDue={() => requestSessionStart(dueRecords, "study", "Spaced review")}
+            onMistakes={() => setView("needsReview")}
+            onSaved={() => setView("saved")}
+            reviewCases={missedRecords.filter(r=>r.question.itemType === "case_study").length}
+            lastSet={lastSet}
+            onLastSet={() => setView("lastSet")}
+            revisitMissed={settings.revisitMissed}
+            onRevisitChange={revisitMissed => updateSettings({...settings,revisitMissed})}
             onCustom={() => openBuilder()}
             onDashboard={() => setView("dashboard")}
-            onFlashcards={openVocab}
             onImport={() => setView("import")}
             onLibrary={() => setView("library")}
             sessionStartDisabled={!uploadedLoaded}
@@ -1026,7 +861,9 @@ export default function App() {
                 builderRecords,
                 builderFilters.mode,
                 label,
-                builderFilters.mode === "adaptive" ? {} : { count: DEFAULT_SESSION_COUNT },
+                { count: builderFilters.mode === "adaptive" ? 75 : DEFAULT_SESSION_COUNT, returnView: "builder",
+                  launchIntent: builderFilters.status === "all" && builderFilters.mode === "study" ? "ordinary" : "remediation",
+                  population: builderFilters.status === "needsReview" || builderFilters.status === "saved" ? builderFilters.status : undefined },
               );
             }}
             sessionStartDisabled={!uploadedLoaded}
@@ -1043,25 +880,7 @@ export default function App() {
               setFilters({ ...blankFilters, topic });
               setView("library");
             }}
-            onPracticeUnseen={() => openBuilder({ status: "unseen", mode: "study" })}
-            onPracticeFlagged={() => openBuilder({ status: "flagged", mode: "study" })}
-          />
-        )}
 
-        {view === "flashcards" && !uploadedLoaded && (
-          <p role="status">Loading cards / 正在加载卡片…</p>
-        )}
-        {/* A Vocab pass belongs to this mount; re-entry uses hydrated current progress. */}
-        {view === "flashcards" && uploadedLoaded && (
-          <FlashcardsView
-            deck={flashcardDeck}
-            progress={flashcardProgress}
-            rescueTermIds={rescueTermIds}
-            languageMissTermIds={languageMissTermIds}
-            rescueFocusIds={rescueFocusIds}
-            voiceEnabled={settings.voiceEnabled}
-            onClearRescueFocus={clearRescueFocus}
-            onReview={reviewFlashcard}
           />
         )}
 
@@ -1073,10 +892,11 @@ export default function App() {
             flags={flags}
             filters={filters}
             setFilters={setFilters}
-            onStudy={() => requestSessionStart(filteredRecords, "study", "Filtered study set")}
-            onTest={() => requestSessionStart(filteredRecords, "test", "Filtered test set")}
+            onStudy={() => requestSessionStart(filteredRecords, "study", "Filtered study set", {launchIntent:"remediation",returnView:"library"})}
+            onTest={() => requestSessionStart(filteredRecords, "test", "Filtered test set", {launchIntent:"remediation",returnView:"library"})}
             onToggleFlag={toggleFlag}
-            onPracticeOne={practiceOne}
+            onPracticeOne={record=>{setInspectionReturn("library");requestSessionStart([record],"study",record.question.stem.en,{order:"sequential",launchIntent:"remediation",returnView:"library"});}}
+            onInspect={record=>{setInspection(record);setInspectionReturn("library");setView("inspect");}}
             sessionStartDisabled={!uploadedLoaded}
           />
         )}
@@ -1119,16 +939,25 @@ export default function App() {
           />
         )}
 
-        {view === "telemetry" && devStartup.enabled && (
-          <TranslationTelemetryPanel
-            events={translationRevealEvents}
-            answerEvents={answerEvents}
-            caseAnswerPartEvents={caseAnswerPartEvents}
-            records={allRecords}
-          />
-        )}
-
-        {view === "session" && session && (
+        {(view === "needsReview" || view === "saved") && <MemoryList
+          kind={view} records={view === "needsReview" ? missedRecords : flaggedRecords}
+          onHome={()=>setView("home")} onRemove={toggleFlag}
+          onInspect={record=>{setInspection(record);setInspectionReturn(view);setView("inspect");}}
+          onPractice={()=>requestSessionStart(allRecords,"study",view === "saved" ? "Saved practice" : "Needs review practice",{population:view,count:DEFAULT_SESSION_COUNT,launchIntent:"remediation",returnView:view})}
+        />}
+        {view === "inspect" && inspection && <section className="stack">
+          <div className="action-row"><button onClick={()=>setView(inspectionReturn)}>Back to {returnLabel(inspectionReturn)}</button>
+          <button className="primary-action" onClick={()=>practiceOne(inspection)}>Practice {inspection.question.itemType === "case_study" ? "this case" : "this question"}</button></div>
+          <p>Current question preview · No previous answer is shown.</p>
+          <QuestionCard key={inspection.question.id} question={inspection.question} answer={getCorrectAnswer(inspection.question)} submitted result reviewMode
+            languageMode={settings.languageMode} flagged={flags[inspection.question.id]?.flagged??false} voiceEnabled={settings.voiceEnabled}
+            onAnswer={()=>{}} onSubmit={()=>{}} onToggleFlag={()=>toggleFlag(inspection.question.id)} caseStudyLayout="stacked" standaloneVisualLayout="stacked" />
+        </section>}
+        {view === "session" && session?.recovery?.length ? <section className="stack" role="alert">
+          <h2>This set needs recovery</h2><p>Your saved work is kept. These entries cannot safely use the current bank:</p>
+          <ul>{session.recovery.map(message=><li key={message}>{message}</li>)}</ul>
+          <button onClick={()=>setView("home")}>Home</button><button onClick={()=>void finishSession()}>End this set</button>
+        </section> : view === "session" && session && (
           <SessionView
             session={session}
             progress={progress}
@@ -1139,39 +968,25 @@ export default function App() {
             onSkip={skipCurrent}
             onNext={goNext}
             onReviewSkipped={reviewSkippedQuestions}
-            onFinish={finishSession}
+            onFinish={() => void finishSession()}
             onLanguageModeChange={(languageMode) => setSession((current) => (current ? { ...current, languageMode } : current))}
             onToggleFlag={toggleFlag}
-            languageMisses={languageMisses}
-            onToggleLanguageMiss={toggleLanguageMiss}
-            onTranslationReveal={recordTranslationRevealEvent}
+
             onExit={() => setView(sessionReturnView)}
             exitLabel={sessionReturnLabel}
           />
         )}
 
-        {view === "summary" && session && (
-          <SummaryView
-            session={session}
-            flags={flags}
-            languageMisses={languageMisses}
-            onToggleFlag={toggleFlag}
-            onToggleLanguageMiss={toggleLanguageMiss}
-            voiceEnabled={settings.voiceEnabled}
-            defaultLanguageMode={session.languageMode}
-            onHome={() => setView(sessionReturnView)}
-            homeLabel={sessionReturnView === "library" ? "Back to Library" : "Home"}
-            relatedCount={relatedPracticePool.length}
-            sessionMissedTermIds={sessionMissedTermIds}
-            onPracticeRelated={() =>
-              requestSessionStart(relatedPracticePool, "study", "Practice related", {
-                count: DEFAULT_SESSION_COUNT,
-                order: "sequential",
-              })
-            }
-            onReviewTerms={openFocusedVocabRescue}
-          />
-        )}
+        {(view === "summary" && completion || view === "lastSet" && lastSet) && <SummaryView
+          key={(view === "lastSet" ? lastSet : completion)!.sessionId + view}
+          record={(view === "lastSet" ? lastSet : completion)!} recordsById={recordsById} flags={flags} progress={progress}
+          onToggleFlag={toggleFlag} voiceEnabled={settings.voiceEnabled} defaultLanguageMode={settings.languageMode}
+          onHome={()=>setView(view === "lastSet" ? "home" : sessionReturnView)} homeLabel={view === "lastSet" ? "Home" : `Back to ${sessionReturnLabel}`}
+          onPractice={ids=>requestSessionStart(ids.flatMap(id=>recordsById.has(id)?[recordsById.get(id)!]:[]),"study","Try again",{count:ids.length,order:"sequential",launchIntent:"remediation",returnView:view === "lastSet" || lastSet?.sessionId === completion?.sessionId ? "lastSet" : sessionReturnView})}
+          memoryOnly={pendingCompletion?.record.sessionId === (view === "lastSet" ? lastSet : completion)?.sessionId}
+          onRetrySave={()=>void retryCompletion()}
+        />}
+
       </main>
 
       <dialog
@@ -1229,151 +1044,238 @@ function HomeView({
   total,
   missed,
   answered,
-  due,
   flagged,
-  vocab,
+  reviewCases,
   activeSession,
   onResume,
+  completionPending,
   onStudy,
   onTest,
   onMistakes,
-  onAnswered,
-  onDue,
+  onSaved,
   onCustom,
   onDashboard,
-  onFlashcards,
   onImport,
   onLibrary,
   sessionStartDisabled,
+  lastSet,
+  onLastSet,
+  revisitMissed,
+  onRevisitChange,
 }: {
   total: number;
   missed: number;
   answered: number;
-  due: number;
   flagged: number;
-  vocab: number;
+  reviewCases: number;
   activeSession: SessionState | null;
   onResume: () => void;
+  completionPending: boolean;
   onStudy: () => void;
   onTest: (count: number) => void;
   onMistakes: () => void;
-  onAnswered: () => void;
-  onDue: () => void;
+  onSaved: () => void;
   onCustom: () => void;
   onDashboard: () => void;
-  onFlashcards: () => void;
   onImport: () => void;
   onLibrary: () => void;
   sessionStartDisabled: boolean;
+  lastSet: CompletedSet | null;
+  onLastSet: () => void;
+  revisitMissed: boolean;
+  onRevisitChange: (enabled: boolean) => void;
 }) {
-  const [testCount, setTestCount] = useState(DEFAULT_SESSION_COUNT);
-  const testCounts = [10, 25, 50];
+  const [count, setCount] = useState(DEFAULT_SESSION_COUNT);
+  const [showHistoryNotice, setShowHistoryNotice] = useState(() => {
+    try {
+      return localStorage.getItem("completed-memory-notice") !== "dismissed";
+    } catch {
+      return true;
+    }
+  });
   return (
     <section className="home-grid">
       <div className="hero-panel">
         <div className="hero-brand-row">
-          <img className="hero-brand-mark" src={APP_ICON_SRC} alt="" aria-hidden="true" />
+          <img className="hero-brand-mark" src={APP_ICON_SRC} alt="" />
           <p className="eyebrow">Offline bilingual NCLEX-RN practice</p>
         </div>
         <h1>Train in English. Check reasoning in Chinese.</h1>
         <div className="metric-row">
           <Metric label="Questions" value={total} />
           <Metric label="Answered" value={answered} />
-          <Metric label="Due review" value={due} />
-          <Metric label="Mistakes" value={missed} />
-          <Metric label="Flagged" value={flagged} />
-          <Metric label="Vocab terms" value={vocab} />
         </div>
-
         {activeSession && (
-          <button className="primary-action resume-action" type="button" onClick={onResume}>
+          <button className="primary-action resume-action" onClick={onResume}>
             <Play aria-hidden="true" />
-            <span>Resume session</span>
+            {completionPending ? "Finish saving set" : "Continue set / 继续练习"}
           </button>
         )}
-
         <div className="test-launcher">
           <div className="test-launcher-head">
-            <div>
-              <p className="eyebrow">Recommended</p>
-              <strong>Answer {testCount}, then review</strong>
-            </div>
+            <strong>Your next practice set</strong>
             <div className="segmented count-toggle" role="group" aria-label="Number of questions">
-              {testCounts.map((count) => (
+              {[10, 25, 50].map((n) => (
                 <button
-                  key={count}
-                  type="button"
-                  className={testCount === count ? "active" : ""}
-                  aria-pressed={testCount === count}
-                  onClick={() => setTestCount(count)}
+                  key={n}
+                  aria-pressed={count === n}
+                  className={count === n ? "active" : ""}
+                  onClick={() => setCount(n)}
                 >
-                  {count}
+                  {n}
                 </button>
               ))}
             </div>
           </div>
+          <label className="toggle-row">
+            <input
+              type="checkbox"
+              checked={revisitMissed}
+              onChange={(e) => onRevisitChange(e.target.checked)}
+            />
+            <span>Revisit missed questions / 加入需复习的题目</span>
+          </label>
+          <p className="muted-copy">Include questions you have not yet answered fully correctly.</p>
           <button
             className="primary-action test-start"
-            type="button"
-            onClick={() => onTest(testCount)}
-            disabled={sessionStartDisabled || total === 0}
+            disabled={sessionStartDisabled || !total}
+            onClick={() => onTest(count)}
           >
-            <CheckCircle2 aria-hidden="true" />
-            <span>Start practice · {testCount} questions</span>
+            <Play aria-hidden="true" />
+            Start practice · {count} questions
           </button>
         </div>
-
         <div className="action-row secondary-actions">
-          <button className="secondary-action" type="button" onClick={onStudy} disabled={sessionStartDisabled || total === 0}>
-            <BookOpen aria-hidden="true" />
-            <span>Study all questions</span>
+          <button onClick={onStudy} disabled={sessionStartDisabled || !total}>
+            Study all questions
           </button>
-          <button className="secondary-action" type="button" onClick={onCustom} disabled={total === 0}>
-            <SlidersHorizontal aria-hidden="true" />
-            <span>Custom session</span>
-          </button>
-          <button className="secondary-action" type="button" onClick={onDue} disabled={sessionStartDisabled || due === 0}>
-            <RotateCcw aria-hidden="true" />
-            <span>Spaced review</span>
-          </button>
-          <button
-            className="secondary-action"
-            type="button"
-            onClick={onMistakes}
-            disabled={sessionStartDisabled || missed === 0}
-          >
-            <RotateCcw aria-hidden="true" />
-            <span>Review mistakes</span>
-          </button>
-          <button
-            className="secondary-action"
-            type="button"
-            onClick={onAnswered}
-            disabled={sessionStartDisabled || answered === 0}
-          >
-            <ListChecks aria-hidden="true" />
-            <span>Review answered</span>
-          </button>
+          <button onClick={onCustom}>Customize</button>
         </div>
+        <div className="study-memory-links">
+          <button onClick={onMistakes}>
+            Needs review / 需复习 · {missed - reviewCases} questions
+            {reviewCases > 0 ? ` and ${reviewCases} case studies` : ""}
+          </button>
+          <button onClick={onSaved}>Saved / 已收藏 · {flagged}</button>
+        </div>
+        {lastSet && (
+          <button className="last-set-entry" onClick={onLastSet}>
+            <span>Last set / 上次练习</span>
+            <strong>{new Date(lastSet.completedAt).toLocaleString()}</strong>
+            <span>
+              {lastSet.deliveredCount} questions · {lastSet.title}
+            </span>
+            <ChevronRight aria-hidden="true" />
+          </button>
+        )}
+        {showHistoryNotice && (
+          <div className="history-notice">
+            <p>
+              Detailed set results are available for sets completed after this update. Your previous progress
+              and Saved questions are kept.
+            </p>
+            <button
+              onClick={() => {
+                setShowHistoryNotice(false);
+                try {
+                  localStorage.setItem("completed-memory-notice", "dismissed");
+                } catch {
+                  /* Visit-only notice dismissal. */
+                }
+              }}
+            >
+              Dismiss
+            </button>
+          </div>
+        )}
       </div>
-
       <div className="utility-grid">
-        <button className="utility-card" type="button" onClick={onDashboard}>
+        <button className="utility-card" onClick={onDashboard}>
           <BarChart3 aria-hidden="true" />
-          <span>Performance dashboard</span>
+          Progress
         </button>
-        <button className="utility-card" type="button" onClick={onFlashcards}>
-          <Brain aria-hidden="true" />
-          <span>Vocab flashcards</span>
-        </button>
-        <button className="utility-card" type="button" onClick={onImport}>
-          <FileJson aria-hidden="true" />
-          <span>Import a bank</span>
-        </button>
-        <button className="utility-card" type="button" onClick={onLibrary}>
+        <button className="utility-card" onClick={onLibrary}>
           <Library aria-hidden="true" />
-          <span>Browse library</span>
+          Browse library
         </button>
+        <button className="utility-card" onClick={onImport}>
+          <FileJson aria-hidden="true" />
+          Import a bank
+        </button>
+      </div>
+    </section>
+  );
+}
+
+function MemoryList({
+  kind,
+  records,
+  onHome,
+  onRemove,
+  onInspect,
+  onPractice,
+}: {
+  kind: "needsReview" | "saved";
+  records: QuestionRecord[];
+  onHome: () => void;
+  onRemove: (id: string) => Promise<void>;
+  onInspect: (record: QuestionRecord) => void;
+  onPractice: () => void;
+}) {
+  const heading = useRef<HTMLHeadingElement>(null);
+  const rowRefs = useRef(new Map<string, HTMLButtonElement>());
+  const cases = records.filter((r) => r.question.itemType === "case_study").length;
+  const remove = async (id: string) => {
+    const index = records.findIndex((r) => r.question.id === id);
+    const next = records[index + 1]?.question.id ?? records[index - 1]?.question.id;
+    await onRemove(id);
+    requestAnimationFrame(() => {
+      if (next) rowRefs.current.get(next)?.focus();
+      else heading.current?.focus();
+    });
+  };
+  return (
+    <section className="stack">
+      <div className="section-heading">
+        <div>
+          <p className="eyebrow">Study</p>
+          <h2 ref={heading} tabIndex={-1}>
+            {kind === "saved" ? "Saved / 已收藏" : "Needs review / 需复习"}
+          </h2>
+          <p>
+            {records.length - cases} questions and {cases} case studies
+          </p>
+        </div>
+        <button onClick={onHome}>Home</button>
+      </div>
+      <p>
+        {kind === "saved"
+          ? "Questions you keep for yourself. Answers never remove them from Saved."
+          : "One full-marks attempt removes a question from Needs review. Case studies require one full-marks whole-case attempt."}
+      </p>
+      <button className="primary-action" onClick={onPractice} disabled={!records.length}>
+        Practice these · up to {Math.min(DEFAULT_SESSION_COUNT, records.length)}
+      </button>
+      {!records.length && <p>No questions here.</p>}
+      <div className="question-list">
+        {records.map(({ question: q, ...rest }) => (
+          <article className="question-row memory-row" key={q.id}>
+            <button
+              className="question-inspect"
+              ref={(el) => {
+                if (el) rowRefs.current.set(q.id, el);
+                else rowRefs.current.delete(q.id);
+              }}
+              onClick={() => onInspect({ question: q, ...rest })}
+            >
+              <span className="type-pill">
+                {q.itemType === "case_study" ? "Whole case study" : formatItemType(q.itemType)}
+              </span>
+              <span>{q.stem.en}</span>
+            </button>
+            {kind === "saved" && <button onClick={() => void remove(q.id)}>Remove from Saved</button>}
+          </article>
+        ))}
       </div>
     </section>
   );
@@ -1487,7 +1389,7 @@ function SessionBuilderView({
           <SelectFilter
             label="Status pool"
             value={filters.status}
-            values={["all", "unseen", "answered", "incorrect", "flagged", "due"]}
+            values={["all", "unseen", "needsReview", "saved"]}
             onChange={(status) => setFilters({ ...filters, status: status as SessionStatusFilter })}
           />
         </div>
@@ -1528,6 +1430,7 @@ function LibraryView({
   onTest,
   onToggleFlag,
   onPracticeOne,
+  onInspect,
   sessionStartDisabled,
 }: {
   records: QuestionRecord[];
@@ -1540,6 +1443,7 @@ function LibraryView({
   onTest: () => void;
   onToggleFlag: (questionId: string) => void;
   onPracticeOne: (record: QuestionRecord) => void;
+  onInspect: (record: QuestionRecord) => void;
   sessionStartDisabled: boolean;
 }) {
   const topics = uniqueSorted(allRecords.map((record) => record.question.topic));
@@ -1603,13 +1507,13 @@ function LibraryView({
               aria-disabled={sessionStartDisabled}
               tabIndex={sessionStartDisabled ? -1 : 0}
               onClick={() => {
-                if (!sessionStartDisabled) onPracticeOne(record);
+                if (!sessionStartDisabled) onInspect(record);
               }}
               onKeyDown={(event) => {
                 if (sessionStartDisabled) return;
                 if (event.key === "Enter" || event.key === " ") {
                   event.preventDefault();
-                  onPracticeOne(record);
+                  onInspect(record);
                 }
               }}
             >
@@ -1621,11 +1525,13 @@ function LibraryView({
                 </p>
               </div>
               <div className="row-status">
+                <button onClick={e=>{e.stopPropagation();onPracticeOne(record);}} onKeyDown={e=>e.stopPropagation()}>Practice</button>
                 <button
                   className={`icon-action ${flagged ? "flagged" : ""}`}
                   type="button"
-                  aria-label={flagged ? "Remove flag" : "Flag for review"}
-                  title={flagged ? "Remove flag" : "Flag for review"}
+                  aria-label={flagged ? "Remove from Saved" : "Save question"}
+                  title={flagged ? "Remove from Saved" : "Save question"}
+                  aria-pressed={flagged??false}
                   onClick={(event) => {
                     event.stopPropagation();
                     onToggleFlag(record.question.id);
@@ -1634,9 +1540,8 @@ function LibraryView({
                 >
                   <Flag aria-hidden="true" />
                 </button>
-                {flagged && <span className="type-pill">Flagged</span>}
-                {isDueForReview(itemProgress) && <span className="type-pill">Due</span>}
-                {itemProgress?.missed && <span className="missed-pill">Missed</span>}
+                {flagged && <span className="type-pill">Saved</span>}
+                {itemProgress?.needsReview && <span className="missed-pill">Missed</span>}
                 {itemProgress && <span>{itemProgress.correct}/{itemProgress.seen}</span>}
               </div>
             </article>
@@ -1653,16 +1558,14 @@ function DashboardView({
   flags,
   answerEvents,
   onOpenTopic,
-  onPracticeUnseen,
-  onPracticeFlagged,
+
 }: {
   records: QuestionRecord[];
   progress: Record<string, QuestionProgress>;
   flags: Record<string, QuestionFlag>;
   answerEvents: AnswerEvent[];
   onOpenTopic: (topic: string) => void;
-  onPracticeUnseen: () => void;
-  onPracticeFlagged: () => void;
+
 }) {
   const answeredRecords = records.filter((record) => (progress[record.question.id]?.seen ?? 0) > 0);
   const flaggedCount = records.filter((record) => flags[record.question.id]?.flagged).length;
@@ -1684,26 +1587,17 @@ function DashboardView({
     <section className="stack">
       <div className="section-heading">
         <div>
-          <p className="eyebrow">Performance dashboard</p>
-          <h2>Mastery and coverage</h2>
+          <p className="eyebrow">Progress</p>
+          <h2>Attempts and coverage</h2>
         </div>
-        <div className="action-row compact">
-          <button type="button" onClick={onPracticeUnseen} disabled={unseenCount === 0}>
-            <BookOpen aria-hidden="true" />
-            <span>Unseen</span>
-          </button>
-          <button type="button" onClick={onPracticeFlagged} disabled={flaggedCount === 0}>
-            <Flag aria-hidden="true" />
-            <span>Flagged</span>
-          </button>
-        </div>
+
       </div>
 
       <div className="dashboard-metrics">
         <Metric label="Available" value={records.length} />
         <Metric label="Seen" value={answeredRecords.length} />
         <Metric label="Unseen" value={unseenCount} />
-        <Metric label="Flagged" value={flaggedCount} />
+        <Metric label="Saved" value={flaggedCount} />
         <Metric label="Attempts" value={totalAttempts} />
         <Metric label="Correct" value={totalCorrect} />
       </div>
@@ -1711,12 +1605,12 @@ function DashboardView({
       <section className="dashboard-panel">
         <div className="section-heading compact-heading">
           <div>
-            <p className="eyebrow">Weak areas</p>
-            <h3>Minimum 3 attempts before a topic is labeled weak</h3>
+            <p className="eyebrow">Topic results</p>
+            <h3>Topics below 70% across at least 3 attempts</h3>
           </div>
         </div>
         {weakTopics.length === 0 ? (
-          <p className="muted-copy">No weak topic labels yet. More answered questions will make this more honest.</p>
+          <p className="muted-copy">No topics meet this reporting threshold.</p>
         ) : (
           <div className="weak-topic-list">
             {weakTopics.map((topic) => (
@@ -1774,191 +1668,6 @@ function StatsTable({ title, rows }: { title: string; rows: AggregateRow[] }) {
   );
 }
 
-function FlashcardsView({
-  deck,
-  progress,
-  rescueTermIds,
-  languageMissTermIds,
-  rescueFocusIds,
-  voiceEnabled,
-  onClearRescueFocus,
-  onReview,
-}: {
-  deck: FlashcardTerm[];
-  progress: Record<string, FlashcardProgress>;
-  rescueTermIds: Set<string>;
-  languageMissTermIds: Set<string>;
-  rescueFocusIds: string[] | null;
-  voiceEnabled: boolean;
-  onClearRescueFocus: () => void;
-  onReview: (termId: string, remembered: boolean) => Promise<void>;
-}) {
-  const effectiveRescueList = useMemo(
-    () => rescueFocusIds ?? Array.from(rescueTermIds).sort(),
-    [rescueFocusIds, rescueTermIds],
-  );
-  const effectiveRescueSet = useMemo(() => new Set(effectiveRescueList), [effectiveRescueList]);
-  const [category, setCategory] = useState("all");
-  const [topic, setTopic] = useState("all");
-  const [readyNow, setReadyNow] = useState(true);
-  const [scope, setScope] = useState<"rescue" | "all">(effectiveRescueSet.size > 0 ? "rescue" : "all");
-  const [pass, setPass] = useState<FlashcardPass | null>(null);
-  const passRef = useRef<FlashcardPass | null>(null);
-  const reviewPendingRef = useRef(false);
-  const [reviewPending, setReviewPending] = useState(false);
-  const [revealed, setRevealed] = useState(false);
-  const passFilters = useMemo(() => ({ scope, category, topic, readyNow, rescueIds: effectiveRescueSet }),
-    [scope, category, topic, readyNow, effectiveRescueSet]);
-  const deckById = useMemo(() => new Map(deck.map(term => [term.id, term])), [deck]);
-  const categoriesInDeck = uniqueSorted(deck.flatMap((term) => term.categories));
-  const topicsInDeck = uniqueSorted(deck.flatMap((term) => term.topics));
-  const complete = pass ? isFlashcardPassComplete(pass) : false;
-  const cardId = pass ? currentFlashcardId(pass) : undefined;
-  const card = cardId ? deckById.get(cardId) : undefined;
-
-  useEffect(() => {
-    if (effectiveRescueSet.size > 0 && scope === "all" && rescueFocusIds) {
-      setScope("rescue");
-    }
-  }, [effectiveRescueSet.size, rescueFocusIds, scope]);
-
-  useEffect(() => {
-    const next = reconcileFlashcardPass(passRef.current, { deck, progress, filters: passFilters, shuffle });
-    if (next === passRef.current) return;
-    passRef.current = next;
-    setPass(next);
-    setRevealed(false);
-  }, [deck, progress, passFilters]);
-
-  const startAnotherPass = () => {
-    const next = createFlashcardPass({ deck, progress, filters: passFilters, shuffle });
-    passRef.current = next;
-    setPass(next);
-    setRevealed(false);
-  };
-
-  const updateScope = (nextScope: "rescue" | "all") => {
-    setScope(nextScope);
-    if (nextScope === "all") onClearRescueFocus();
-  };
-
-  const gradeCard = async (remembered: boolean) => {
-    const reviewedPass = passRef.current;
-    if (!card || !reviewedPass || currentFlashcardId(reviewedPass) !== card.id || reviewPendingRef.current) return;
-    reviewPendingRef.current = true;
-    setReviewPending(true);
-    try {
-      await onReview(card.id, remembered);
-      // A filter change during the write starts a different pass; do not advance it.
-      if (passRef.current === reviewedPass) {
-        const next = advanceFlashcardPass(reviewedPass);
-        passRef.current = next;
-        setPass(next);
-        setRevealed(false);
-      }
-    } finally {
-      reviewPendingRef.current = false;
-      setReviewPending(false);
-    }
-  };
-
-  return (
-    <section className="stack">
-      <div className="section-heading">
-        <div>
-          <p className="eyebrow">Vocabulary flashcards</p>
-          <h2 aria-live="polite">
-            {complete
-              ? "Review complete / 本轮复习完成"
-              : pass && pass.passCardIds.length > 0
-                ? `Card ${pass.passIndex + 1} of ${pass.passCardIds.length} / 第 ${pass.passIndex + 1} 张，共 ${pass.passCardIds.length} 张`
-                : "Vocabulary review / 词汇复习"}
-          </h2>
-        </div>
-        <label className="toggle-row compact-toggle">
-          <input type="checkbox" checked={readyNow} onChange={(event) => setReadyNow(event.target.checked)} />
-          <span>Ready now</span>
-        </label>
-      </div>
-
-      <div className="segmented" role="group" aria-label="Vocabulary scope">
-        <button
-          className={scope === "rescue" ? "active" : ""}
-          type="button"
-          onClick={() => updateScope("rescue")}
-          disabled={effectiveRescueSet.size === 0}
-        >
-          Rescue
-        </button>
-        <button className={scope === "all" ? "active" : ""} type="button" onClick={() => updateScope("all")}>
-          All
-        </button>
-      </div>
-
-      <div className="filters flashcard-filters">
-        <div className="flashcard-topic-filter">
-          <SelectFilter label="Topic" value={topic} values={["all", ...topicsInDeck]} onChange={setTopic} />
-        </div>
-        <SelectFilter label="Category" value={category} values={["all", ...categoriesInDeck]} onChange={setCategory} />
-      </div>
-
-      {complete && pass ? (
-        <div className="dashboard-panel">
-          <p>{pass.passCardIds.length} {pass.passCardIds.length === 1 ? "card" : "cards"} reviewed / 已复习 {pass.passCardIds.length} 张卡片</p>
-          <button className="primary-action" type="button" onClick={startAnotherPass}>
-            Start another pass / 再来一轮
-          </button>
-        </div>
-      ) : !card ? (
-        <div className="dashboard-panel">
-          {scope === "rescue" && effectiveRescueSet.size === 0 ? (
-            <>
-              <h3>No Vocab Rescue terms yet.</h3>
-              <p className="muted-copy">
-                When a missed question was blocked by English wording, mark it after review. Terms from that question will appear here.
-              </p>
-            </>
-          ) : (
-            <p className="muted-copy">No cards match the current filters.</p>
-          )}
-        </div>
-      ) : (
-        <article className="flashcard" aria-busy={reviewPending}>
-          <div className="flashcard-top">
-            <div className="pill-row">
-              <span className="type-pill">Appears in {card.questionIds.length} questions</span>
-              {languageMissTermIds.has(card.id) && <span className="rescue-pill">Vocab Rescue</span>}
-            </div>
-            <SpeakButton text={card.termEn} enabled={voiceEnabled} label={`Read ${card.termEn}`} />
-          </div>
-          <button className="flashcard-face" type="button" onClick={() => setRevealed(true)}>
-            <strong>{card.termEn}</strong>
-            {revealed && (
-              <span>
-                {card.termZh}
-                <small>{card.defZh}</small>
-              </span>
-            )}
-          </button>
-          <div className="session-actions">
-            <button type="button" onClick={() => setRevealed((current) => !current)}>
-              {revealed ? "Hide" : "Flip"}
-            </button>
-            <button type="button" disabled={reviewPending} onClick={() => gradeCard(false)}>
-              <RotateCcw aria-hidden="true" />
-              <span>Again</span>
-            </button>
-            <button className="primary-action" type="button" disabled={reviewPending} onClick={() => gradeCard(true)}>
-              <CheckCircle2 aria-hidden="true" />
-              <span>Got it</span>
-            </button>
-          </div>
-        </article>
-      )}
-    </section>
-  );
-}
-
 function SelectFilter({
   label,
   value,
@@ -1976,7 +1685,7 @@ function SelectFilter({
       <select value={value} onChange={(event) => onChange(event.target.value)}>
         {values.map((item) => (
           <option key={item} value={item}>
-            {item === "all" ? "All" : item}
+            {item === "all" ? "All" : item === "unseen" ? "Unanswered" : item === "needsReview" ? "Needs review" : item === "saved" ? "Saved" : item}
           </option>
         ))}
       </select>
@@ -2647,186 +2356,6 @@ const formatTelemetryElapsed = (elapsedMs: number | undefined) => {
   return `${seconds < 10 ? seconds.toFixed(1).replace(/\.0$/, "") : Math.round(seconds)}s`;
 };
 
-const formatTelemetryPercent = (value: number) => `${Math.round(value * 100)}%`;
-
-function TranslationTelemetryPanel({
-  events,
-  answerEvents,
-  caseAnswerPartEvents,
-  records,
-}: {
-  events: TranslationRevealEvent[];
-  answerEvents: AnswerEvent[];
-  caseAnswerPartEvents: CaseAnswerPartEvent[];
-  records: QuestionRecord[];
-}) {
-  const summary = useMemo(() => summarizeTranslationRevealEvents(events), [events]);
-  const frictionSummary = useMemo(() => {
-    const questions = records.map((record) => record.question);
-    const normalized = normalizeTranslationFrictionAttempts({
-      answerEvents,
-      caseAnswerPartEvents,
-      questions,
-    });
-    return summarizeTranslationFriction({
-      attempts: normalized.attempts,
-      events,
-      questions,
-      normalizationDiagnostics: normalized.diagnostics,
-    });
-  }, [answerEvents, caseAnswerPartEvents, events, records]);
-
-  const exportTelemetry = () => {
-    const blob = new Blob(
-      [
-        JSON.stringify(
-          {
-            exportFormatVersion: 1,
-            exportedAt: new Date().toISOString(),
-            eventCount: events.length,
-            events,
-          },
-          null,
-          2,
-        ),
-      ],
-      { type: "application/json" },
-    );
-    const url = URL.createObjectURL(blob);
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = `shrimp-translation-telemetry-${new Date().toISOString().slice(0, 10)}.json`;
-    anchor.click();
-    URL.revokeObjectURL(url);
-  };
-
-  const exportFrictionSummary = () => {
-    const blob = new Blob(
-      [
-        JSON.stringify(
-          {
-            exportFormatVersion: 2,
-            exportedAt: new Date().toISOString(),
-            ...frictionSummary,
-          },
-          null,
-          2,
-        ),
-      ],
-      { type: "application/json" },
-    );
-    const url = URL.createObjectURL(blob);
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = `shrimp-translation-friction-${new Date().toISOString().slice(0, 10)}.json`;
-    anchor.click();
-    URL.revokeObjectURL(url);
-  };
-
-  const renderBlockRows = () => (
-    <div className="telemetry-row-list">
-      {summary.byBlock.map((row) => (
-        <div className="telemetry-row" key={row.block}>
-          <span>{row.block}</span>
-          <span className="telemetry-values">
-            <strong>{row.count}</strong>
-            <span>{formatTelemetryPercent(row.count / Math.max(summary.totalCount, 1))}</span>
-          </span>
-        </div>
-      ))}
-    </div>
-  );
-
-  const renderCategoryRows = () => (
-    <div className="telemetry-row-list">
-      {summary.byCategory.map((row) => (
-        <div className="telemetry-row" key={row.category}>
-          <span>{row.category}</span>
-          <span className="telemetry-values">
-            <strong>{row.count}</strong>
-            <span>{formatTelemetryElapsed(row.avgElapsedMs)} avg</span>
-            <span>{formatTelemetryPercent(row.beforeSubmitShare)} before submit</span>
-          </span>
-        </div>
-      ))}
-    </div>
-  );
-
-  const renderTopicRows = () => (
-    <div className="telemetry-row-list">
-      {summary.byTopic.map((row) => (
-        <div className="telemetry-row" key={row.topic}>
-          <span>{row.topic}</span>
-          <span className="telemetry-values">
-            <strong>{row.count}</strong>
-            <span>{formatTelemetryElapsed(row.avgElapsedMs)} avg</span>
-            <span>{formatTelemetryPercent(row.beforeSubmitShare)} before submit</span>
-          </span>
-        </div>
-      ))}
-    </div>
-  );
-
-  return (
-    <section className="dev-review-console">
-      <div className="section-heading">
-        <div>
-          <p className="eyebrow">Developer only</p>
-          <h2>Translation telemetry</h2>
-          <p>Local reveal-tap history. Not visible to learners; nothing here is sent anywhere automatically.</p>
-        </div>
-        <div className="dev-review-heading-actions">
-          <button type="button" onClick={exportTelemetry}>
-            <Download aria-hidden="true" />
-            <span>Export telemetry</span>
-          </button>
-          <button type="button" onClick={exportFrictionSummary} disabled={frictionSummary.diagnostics.attemptCount === 0}>
-            <Download aria-hidden="true" />
-            <span>Export joined</span>
-          </button>
-        </div>
-      </div>
-
-      {events.length === 0 ? (
-        <section className="dev-review-empty">
-          <p>No reveal events recorded yet.</p>
-        </section>
-      ) : (
-        <>
-          <section className="dev-review-summary">
-            <div>
-              <span>Total reveals</span>
-              <strong>{summary.totalCount}</strong>
-            </div>
-            <div>
-              <span>Full-question reveals</span>
-              <strong>{summary.fullRevealCount}</strong>
-            </div>
-            <p className="muted-copy">
-              {formatTelemetryDate(summary.earliest)} to {formatTelemetryDate(summary.latest)} · {summary.sessionCount} sessions
-            </p>
-          </section>
-
-          <section className="dashboard-panel telemetry-panel">
-            <h3>By block</h3>
-            {renderBlockRows()}
-          </section>
-
-          <section className="dashboard-panel telemetry-panel">
-            <h3>By category</h3>
-            {renderCategoryRows()}
-          </section>
-
-          <section className="dashboard-panel telemetry-panel">
-            <h3>By topic</h3>
-            {renderTopicRows()}
-          </section>
-        </>
-      )}
-    </section>
-  );
-}
-
 function DeveloperReviewConsole({
   records,
   initialIds,
@@ -3206,7 +2735,7 @@ function SessionView({
   session,
   progress,
   flags,
-  languageMisses,
+
   voiceEnabled,
   onAnswer,
   onSubmit,
@@ -3216,15 +2745,14 @@ function SessionView({
   onFinish,
   onLanguageModeChange,
   onToggleFlag,
-  onToggleLanguageMiss,
-  onTranslationReveal,
+
   onExit,
   exitLabel,
 }: {
   session: SessionState;
   progress: Record<string, QuestionProgress>;
   flags: Record<string, QuestionFlag>;
-  languageMisses: Record<string, LanguageMiss>;
+
   voiceEnabled: boolean;
   onAnswer: (questionId: string, answer: AnswerState) => void;
   onSubmit: () => void;
@@ -3234,8 +2762,7 @@ function SessionView({
   onFinish: () => void;
   onLanguageModeChange: (mode: LanguageMode) => void;
   onToggleFlag: (questionId: string) => void;
-  onToggleLanguageMiss: (questionId: string) => void;
-  onTranslationReveal: (event: Omit<TranslationRevealEvent, "id" | "revealedAt">) => void;
+
   onExit: () => void;
   exitLabel: string;
 }) {
@@ -3300,6 +2827,12 @@ function SessionView({
               new Set(session.skippedQuestionIds),
             ) < 0 && session.skippedQuestionIds.length === 0;
 
+  if (submitted && !session.attempts[question.id]) return <section className="session-shell stack">
+    <h2>Legacy submitted question</h2><p>The original question and submitted answer cannot be verified. Your recorded outcome is kept.</p>
+    <p>{result ? "Full marks" : "Not fully correct"}{session.scores[question.id] ? ` · ${session.scores[question.id].earned} of ${session.scores[question.id].possible} points` : ""}</p>
+    <div className="action-row"><button onClick={onExit}>{exitLabel}</button><button onClick={onFinish}>End set</button><button onClick={onNext}>{isLast ? "Finish" : "Next"}</button></div>
+  </section>;
+
   return (
     <section className="session-shell">
       <div className="session-topbar">
@@ -3317,6 +2850,8 @@ function SessionView({
         <LanguageTabs value={session.languageMode} onChange={onLanguageModeChange} />
       </div>
 
+      {!session.fingerprints[question.id] && <p className="warning-band">Legacy set: original question content is unverified. Previous outcomes are preserved.</p>}
+      <HistoricalAttemptContext.Provider value={session.attempts[question.id]??null}>
       <QuestionCard
         key={question.id}
         question={question}
@@ -3326,19 +2861,18 @@ function SessionView({
         languageMode={session.languageMode}
         progress={progress[question.id]}
         flagged={flags[question.id]?.flagged ?? false}
-        languageMissed={Boolean(languageMisses[question.id])}
-        allowLanguageMissToggle={session.mode === "study"}
+
         voiceEnabled={voiceEnabled}
         onAnswer={(next) => onAnswer(question.id, next)}
         onSubmit={onSubmit}
         onToggleFlag={() => onToggleFlag(question.id)}
-        onToggleLanguageMiss={() => onToggleLanguageMiss(question.id)}
-        sessionId={session.id}
-        sessionMode={session.mode}
-        onTranslationReveal={onTranslationReveal}
+
+
         rescuePrompt={rescuePrompt}
         casePartRescuePrompts={casePartRescuePrompts}
       />
+
+      </HistoricalAttemptContext.Provider>
 
       <div className="session-actions">
         <button type="button" onClick={onFinish}>
@@ -3366,7 +2900,7 @@ function LanguageTabs({ value, onChange }: { value: LanguageMode; onChange: (mod
   return (
     <div className="segmented" role="group" aria-label="Chinese display">
       {(["off", "on-tap", "always"] as const).map((mode) => (
-        <button className={value === mode ? "active" : ""} type="button" key={mode} onClick={() => onChange(mode)}>
+        <button className={value === mode ? "active" : ""} aria-pressed={value === mode} type="button" key={mode} onClick={() => onChange(mode)}>
           {mode === "off" ? "EN" : mode === "on-tap" ? "Tap ZH" : "EN/ZH"}
         </button>
       ))}
@@ -3382,16 +2916,13 @@ function QuestionCard({
   languageMode,
   progress,
   flagged,
-  languageMissed = false,
-  allowLanguageMissToggle = false,
+
   voiceEnabled,
   onAnswer,
   onSubmit,
   onToggleFlag,
-  onToggleLanguageMiss,
-  sessionId,
-  sessionMode,
-  onTranslationReveal,
+
+
   reviewMode = false,
   focusedPartId,
   caseStudyLayout = "split",
@@ -3410,16 +2941,13 @@ function QuestionCard({
   languageMode: LanguageMode;
   progress?: QuestionProgress;
   flagged: boolean;
-  languageMissed?: boolean;
-  allowLanguageMissToggle?: boolean;
+
   voiceEnabled: boolean;
   onAnswer: (answer: AnswerState) => void;
   onSubmit: () => void;
   onToggleFlag: () => void;
-  onToggleLanguageMiss?: () => void;
-  sessionId?: string;
-  sessionMode?: SessionMode;
-  onTranslationReveal?: (event: Omit<TranslationRevealEvent, "id" | "revealedAt">) => void;
+
+
   reviewMode?: boolean;
   focusedPartId?: string;
   caseStudyLayout?: CaseStudyLayoutMode;
@@ -3435,8 +2963,6 @@ function QuestionCard({
   const [activeTerm, setActiveTerm] = useState<ActiveTermPopover | null>(null);
   const [revealAllSignal, setRevealAllSignal] = useState(0);
   const [fullRevealed, setFullRevealed] = useState(false);
-  const questionLoadedAtRef = useRef(Date.now());
-  const revealCountRef = useRef(0);
   const handleTermSelect = useCallback<TermSelectHandler>((term, anchor) => {
     const card = cardRef.current;
     if (!card || !anchor) {
@@ -3469,14 +2995,9 @@ function QuestionCard({
     });
   }, []);
   const readyToSubmit = getAnswerCompleteness(question, answer);
-  const score = submitted ? scoreQuestion(question, answer) : undefined;
+  const historicalAttempt = useContext(HistoricalAttemptContext);
+  const score = submitted ? historicalAttempt?.score ?? scoreQuestion(question, answer) : undefined;
   const showsPartialCredit = !reviewMode && score !== undefined && score.possible > 1;
-  const canToggleLanguageMiss =
-    submitted &&
-    result === false &&
-    allowLanguageMissToggle &&
-    onToggleLanguageMiss &&
-    collectGlossarySources(question).length > 0;
   const showsStandaloneVisualSplit =
     standaloneVisualLayout !== "stacked" && usesStandaloneVisualSplit(question);
   const usesStandaloneIoTrendLayout =
@@ -3484,40 +3005,9 @@ function QuestionCard({
   const usesStandaloneVitalsLayout =
     showsStandaloneVisualSplit && question.visual?.kind === "vitals_trend";
   useEffect(() => {
-    questionLoadedAtRef.current = Date.now();
-    revealCountRef.current = 0;
     setRevealAllSignal(0);
     setFullRevealed(false);
   }, [question.id]);
-  const revealTrackingContext = useMemo<RevealTrackingContextValue | null>(() => {
-    return {
-      sessionId,
-      sessionMode,
-      languageMode,
-      questionId: question.id,
-      itemType: question.itemType,
-      category: question.category,
-      topic: question.topic,
-      submitted,
-      answeredBeforeReveal: readyToSubmit,
-      revealAllSignal,
-      questionLoadedAtRef,
-      revealCountRef,
-      recordEvent: sessionId ? onTranslationReveal : undefined,
-    };
-  }, [
-    sessionId,
-    sessionMode,
-    languageMode,
-    onTranslationReveal,
-    question.id,
-    question.itemType,
-    question.category,
-    question.topic,
-    submitted,
-    readyToSubmit,
-    revealAllSignal,
-  ]);
   const questionHasZh = useMemo(() => hasQuestionLevelZh(question), [question]);
   const showTranslateAll =
     submitted &&
@@ -3525,11 +3015,10 @@ function QuestionCard({
     questionHasZh &&
     !fullRevealed;
   const handleTranslateAll = useCallback(() => {
-    if (fullRevealed || !revealTrackingContext) return;
-    recordFullReveal(revealTrackingContext);
+    if (fullRevealed) return;
     setRevealAllSignal((current) => current + 1);
     setFullRevealed(true);
-  }, [fullRevealed, revealTrackingContext]);
+  }, [fullRevealed]);
 
   const answerBody = (
     <>
@@ -3537,7 +3026,6 @@ function QuestionCard({
         <BilingualText
           pair={question.stem}
           mode={languageMode}
-          block="stem"
           className="stem"
           glossary={question.glossary}
           onTerm={handleTermSelect}
@@ -3588,32 +3076,14 @@ function QuestionCard({
         <div className={`answer-banner ${reviewMode || result ? "correct" : "incorrect"}`}>
           {reviewMode || result ? <CheckCircle2 aria-hidden="true" /> : <XCircle aria-hidden="true" />}
           <div>
-            <strong>{reviewMode ? "Correct answer shown" : result ? "Correct" : "Review this one"}</strong>
+            <strong>{reviewMode ? "Correct answer shown" : result ? (historicalAttempt && !progress ? "Full marks this attempt" : "Full marks this attempt · Removed from Needs review") : (historicalAttempt && !progress ? "Not fully correct" : "Not fully correct · Needs review")}</strong>
             {showsPartialCredit && score && (
               <span>
                 {score.earned} of {score.possible} points
-                {!result && score.earned > 0 ? " · Partial credit earned; scheduled for review until fully correct." : ""}
+                {!result && score.earned > 0 ? " · Needs review." : ""}
               </span>
             )}
           </div>
-        </div>
-      )}
-
-      {canToggleLanguageMiss && (
-        <div className="language-miss-action">
-          <button
-            className={languageMissed ? "secondary-action active" : "secondary-action"}
-            type="button"
-            onClick={onToggleLanguageMiss}
-            aria-pressed={languageMissed}
-          >
-            <Brain aria-hidden="true" />
-            <span>{languageMissed ? "Added to Vocab Rescue" : "Missed because of the English"}</span>
-            <span lang="zh-Hans">{languageMissed ? "已加入词汇救援" : "是英文卡住了"}</span>
-          </button>
-          <p className="muted-copy" lang="zh-Hans">
-            Adds terms from this question to Vocab Rescue. 把这题里的词加入词汇救援复习。
-          </p>
         </div>
       )}
 
@@ -3633,11 +3103,7 @@ function QuestionCard({
       )}
     </>
   );
-  const trackedAnswerBody = revealTrackingContext ? (
-    <RevealTrackingContext.Provider value={revealTrackingContext}>{answerBody}</RevealTrackingContext.Provider>
-  ) : (
-    answerBody
-  );
+  const revealedAnswerBody = <RevealAllContext.Provider value={revealAllSignal}>{answerBody}</RevealAllContext.Provider>;
 
   return (
     <article ref={cardRef} className={`question-card ${question.itemType === "case_study" && caseStudyLayout === "split" ? "split-case-card" : ""} ${showsStandaloneVisualSplit ? "standalone-visual-card" : ""}`}>
@@ -3646,15 +3112,15 @@ function QuestionCard({
         <span>{question.category}</span>
         <span>{question.topic}</span>
         <span>{question.difficulty}</span>
-        {flagged && <span className="type-pill">Flagged</span>}
-        {progress?.missed && <span className="missed-pill">Review</span>}
-        {isDueForReview(progress) && <span className="type-pill">Due</span>}
-        {!reviewMode && showQuestionActions && (
+        {flagged && <span className="type-pill">Saved</span>}
+        {progress?.needsReview && <span className="missed-pill">Review</span>}
+        {showQuestionActions && (
           <button
             className={`icon-action flag-action ${flagged ? "flagged" : ""}`}
             type="button"
-            aria-label={flagged ? "Remove flag" : "Flag for review"}
-            title={flagged ? "Remove flag" : "Flag for review"}
+            aria-label={flagged ? "Remove from Saved" : "Save question"}
+            title={flagged ? "Remove from Saved" : "Save question"}
+            aria-pressed={flagged}
             onClick={onToggleFlag}
           >
             <Flag aria-hidden="true" />
@@ -3669,12 +3135,12 @@ function QuestionCard({
           <aside className="standalone-visual-pane" aria-label="Clinical visual">
             <VisualStimulus visual={question.visual} languageMode={languageMode} />
           </aside>
-          <div className="standalone-work-pane">{trackedAnswerBody}</div>
+          <div className="standalone-work-pane">{revealedAnswerBody}</div>
         </div>
       ) : (
         <>
           <VisualStimulus visual={question.visual} languageMode={languageMode} />
-          {trackedAnswerBody}
+          {revealedAnswerBody}
         </>
       )}
     </article>
@@ -3868,7 +3334,7 @@ function BowtieControl({
         return (
           <section className={`bowtie-zone bowtie-${name}`} key={name}>
             <div className="bowtie-zone-heading">
-              <BilingualText pair={prompt} mode={languageMode} block="choices" glossary={question.glossary} onTerm={onTerm} />
+              <BilingualText pair={prompt} mode={languageMode} glossary={question.glossary} onTerm={onTerm} />
             </div>
             <div className="bowtie-slots">
               {Array.from({ length: targetCount }, (_, slotIndex) => {
@@ -3894,7 +3360,6 @@ function BowtieControl({
                       <BilingualText
                         pair={token}
                         mode={languageMode}
-                        block="choices"
                         glossary={question.glossary}
                         onTerm={onTerm}
                         revealOnEnglishClick={false}
@@ -3923,7 +3388,6 @@ function BowtieControl({
                       <BilingualText
                         pair={token}
                         mode={languageMode}
-                        block="choices"
                         glossary={question.glossary}
                         onTerm={onTerm}
                         revealOnEnglishClick={false}
@@ -3942,7 +3406,6 @@ function BowtieControl({
                     <BilingualText
                       pair={token}
                       mode={languageMode}
-                      block="rationale"
                       glossary={question.glossary}
                       onTerm={onTerm}
                       className="bowtie-key-token"
@@ -3972,8 +3435,7 @@ function HighlightControl({
   onAnswer: (answer: AnswerState) => void;
 }) {
   const [revealed, setRevealed] = useState(false);
-  const revealTracking = useContext(RevealTrackingContext);
-  const revealAllSignal = revealTracking?.revealAllSignal ?? 0;
+  const revealAllSignal = useContext(RevealAllContext);
   const lastRevealAllSignalRef = useRef(revealAllSignal);
   const selectedIds = answer.segments ?? [];
   const correctIds = new Set(question.highlight.correct);
@@ -3988,7 +3450,6 @@ function HighlightControl({
     event.stopPropagation();
     if (revealed || languageMode !== "on-tap" || !hasZh) return;
     setRevealed(true);
-    recordRevealFromContext(revealTracking, "choices");
   };
 
   const toggleSegment = (segmentId: string) => {
@@ -4119,11 +3580,11 @@ function OptionAnswerControl({
               <BilingualText
                 pair={option}
                 mode={languageMode}
-                block="choices"
                 glossary={question.glossary}
                 onTerm={onTerm}
                 revealOnEnglishClick={false}
               />
+              {submitted && <span className="response-status">{correctIndex === index ? "Correct position" : `Correct position: ${correctIndex + 1}`}</span>}
               <SpeakButton
                 text={option.en}
                 enabled={voiceEnabled}
@@ -4179,11 +3640,11 @@ function OptionAnswerControl({
             <BilingualText
               pair={option}
               mode={languageMode}
-              block="choices"
               glossary={question.glossary}
               onTerm={onTerm}
               revealOnEnglishClick={false}
             />
+            {submitted && (correct || selected) && <span className="response-status">{selected ? "Selected · " : ""}{correct ? "Correct answer" : "Not correct"}</span>}
             <span className="option-audio-control" onClick={(event) => event.stopPropagation()}>
               <SpeakButton text={option.en} enabled={voiceEnabled} label={`Read option ${optionMarker(optionIndex)}`} />
             </span>
@@ -4208,15 +3669,16 @@ function FillInBlankControl({
   onAnswer: (answer: AnswerState) => void;
 }) {
   const blanks = answer.blanks ?? {};
+  const historicalAttempt = useContext(HistoricalAttemptContext);
   return (
     <div className="blank-list">
       {question.blanks.map((blank) => {
         const value = blanks[blank.id] ?? "";
-        const isCorrect = gradeQuestion({ ...question, blanks: [blank] }, { blanks: { [blank.id]: value } });
-        const statusClass = submitted ? (isCorrect ? "correct" : "incorrect") : "";
+        const isCorrect = !historicalAttempt && gradeQuestion({ ...question, blanks: [blank] }, { blanks: { [blank.id]: value } });
+        const statusClass = submitted && !historicalAttempt ? (isCorrect ? "correct" : "incorrect") : "";
         return (
           <label className={`blank-row ${statusClass}`} key={blank.id}>
-            <BilingualText pair={blank.prompt} mode={languageMode} block="choices" />
+            <BilingualText pair={blank.prompt} mode={languageMode} />
             <div className="blank-input-row">
               <input
                 value={value}
@@ -4270,7 +3732,7 @@ function MatrixControl({
             <th scope="col">Finding</th>
             {question.matrix.columns.map((column) => (
               <th scope="col" key={column.id}>
-                <BilingualText pair={column} mode={languageMode} block="choices" glossary={question.glossary} onTerm={onTerm} />
+                <BilingualText pair={column} mode={languageMode} glossary={question.glossary} onTerm={onTerm} />
               </th>
             ))}
           </tr>
@@ -4279,7 +3741,7 @@ function MatrixControl({
           {question.matrix.rows.map((row) => (
             <tr key={row.id}>
               <th scope="row">
-                <BilingualText pair={row} mode={languageMode} block="choices" glossary={question.glossary} onTerm={onTerm} />
+                <BilingualText pair={row} mode={languageMode} glossary={question.glossary} onTerm={onTerm} />
               </th>
               {question.matrix.columns.map((column) => {
                 const selected = matrixAnswer[row.id]?.includes(column.id) ?? false;
@@ -4291,9 +3753,11 @@ function MatrixControl({
                       type="button"
                       onClick={() => toggleCell(row.id, column.id)}
                       aria-pressed={selected}
+                      aria-label={`${row.en} — ${column.en}${submitted ? correct ? " — Correct answer" : selected ? " — Not correct" : "" : ""}`}
                       aria-disabled={submitted || undefined}
                     >
                       {question.matrix.selectionMode === "single_per_row" ? (selected ? "●" : "○") : selected ? "☑" : "☐"}
+                      {submitted && (correct || selected) && <small>{correct ? "Correct" : "Not correct"}</small>}
                     </button>
                   </td>
                 );
@@ -4320,8 +3784,7 @@ function DropdownClozeControl({
   onAnswer: (answer: AnswerState) => void;
 }) {
   const [revealed, setRevealed] = useState(false);
-  const revealTracking = useContext(RevealTrackingContext);
-  const revealAllSignal = revealTracking?.revealAllSignal ?? 0;
+  const revealAllSignal = useContext(RevealAllContext);
   const lastRevealAllSignalRef = useRef(revealAllSignal);
   const dropdowns = answer.dropdowns ?? {};
   const hasZh = (question.clozeStem.zh ?? "").trim().length > 0;
@@ -4335,7 +3798,6 @@ function DropdownClozeControl({
     event.stopPropagation();
     if (revealed || languageMode !== "on-tap" || !hasZh) return;
     setRevealed(true);
-    recordRevealFromContext(revealTracking, "choices");
   };
 
   return (
@@ -4459,6 +3921,7 @@ function CaseStudyControl({
   showAllStages?: boolean;
   casePartRescuePrompts?: Record<string, GptRescuePrompt>;
 }) {
+  const historicalAttempt = useContext(HistoricalAttemptContext);
   const caseAnswers = answer.caseStudy ?? {};
   const caseQuestions = question.caseStudy.questions;
   const workPaneRef = useRef<HTMLDivElement | null>(null);
@@ -4469,7 +3932,7 @@ function CaseStudyControl({
     if (submitted) {
       const firstMissed = caseQuestions.find((caseQuestion) => {
         const caseAnswer = caseAnswers[caseQuestion.id] ?? getInitialAnswer(caseQuestion);
-        return !gradeQuestion(caseQuestion, caseAnswer);
+        return historicalAttempt ? historicalAttempt.parts?.[caseQuestion.id]?.result === false : !gradeQuestion(caseQuestion, caseAnswer);
       });
       if (firstMissed) return firstMissed.id;
     }
@@ -4660,7 +4123,6 @@ function CaseChartPane({
         <BilingualText
           pair={question.caseStudy.title}
           mode={languageMode}
-          block="case_stage"
           glossary={question.glossary}
           onTerm={onTerm}
         />
@@ -4668,7 +4130,6 @@ function CaseChartPane({
           <BilingualText
             pair={question.caseStudy.summary}
             mode={languageMode}
-            block="case_stage"
             glossary={question.glossary}
             onTerm={onTerm}
           />
@@ -4698,14 +4159,13 @@ function CaseChartPane({
           {stages.map((stage) => (
             <section className="case-stage" key={stage.id}>
               <div className="case-stage-heading">
-                <BilingualText pair={stage.title} mode={languageMode} block="case_stage" className="case-stage-title" />
+                <BilingualText pair={stage.title} mode={languageMode} className="case-stage-title" />
                 {stage.timeOffset && <span>{stage.timeOffset}</span>}
               </div>
               {stage.trigger && (
                 <BilingualText
                   pair={stage.trigger}
                   mode={languageMode}
-                  block="case_stage"
                   className="case-stage-note"
                   glossary={question.glossary}
                   onTerm={onTerm}
@@ -4715,7 +4175,6 @@ function CaseChartPane({
                 <BilingualText
                   pair={stage.narrative}
                   mode={languageMode}
-                  block="case_stage"
                   className="case-stage-note"
                   glossary={question.glossary}
                   onTerm={onTerm}
@@ -4755,6 +4214,7 @@ function CasePartNavigator({
   submitted: boolean;
   onSelect: (partId: string) => void;
 }) {
+  const historicalAttempt = useContext(HistoricalAttemptContext);
   const activeIndex = Math.max(
     0,
     question.caseStudy.questions.findIndex((caseQuestion) => caseQuestion.id === activePartId),
@@ -4786,7 +4246,7 @@ function CasePartNavigator({
         {question.caseStudy.questions.map((caseQuestion, index) => {
           const caseAnswer = caseAnswers[caseQuestion.id] ?? getInitialAnswer(caseQuestion);
           const complete = getAnswerCompleteness(caseQuestion, caseAnswer);
-          const correct = submitted ? gradeQuestion(caseQuestion, caseAnswer) : undefined;
+          const correct = submitted ? historicalAttempt ? historicalAttempt.parts?.[caseQuestion.id]?.result : gradeQuestion(caseQuestion, caseAnswer) : undefined;
           const statusClass = submitted ? (correct ? "correct" : "missed") : complete ? "complete" : "";
           return (
             <button
@@ -4833,22 +4293,11 @@ function CaseActivePart({
   onAnswer: (answer: AnswerState) => void;
   rescuePrompt?: GptRescuePrompt;
 }) {
-  const parentRevealTracking = useContext(RevealTrackingContext);
-  const caseResult = submitted ? gradeQuestion(caseQuestion, answer) : undefined;
-  const caseScore = submitted ? scoreQuestion(caseQuestion, answer) : undefined;
+  const historicalAttempt = useContext(HistoricalAttemptContext);
+  const caseResult = submitted ? historicalAttempt ? historicalAttempt.parts?.[caseQuestion.id]?.result : gradeQuestion(caseQuestion, answer) : undefined;
+  const caseScore = submitted ? historicalAttempt ? historicalAttempt.parts?.[caseQuestion.id]?.score : scoreQuestion(caseQuestion, answer) : undefined;
   const complete = getAnswerCompleteness(caseQuestion, answer);
   const statusClass = submitted ? (caseResult ? "correct" : "incorrect") : complete ? "complete" : "";
-  const revealTrackingContext = parentRevealTracking
-    ? {
-        ...parentRevealTracking,
-        partId: caseQuestion.id,
-        itemType: caseQuestion.itemType,
-        category: caseQuestion.category,
-        topic: caseQuestion.topic,
-        submitted,
-        answeredBeforeReveal: complete,
-      }
-    : null;
   const content = (
     <section
       className={`case-question case-active-part ${statusClass} ${focused ? "focused" : ""}`}
@@ -4878,7 +4327,6 @@ function CaseActivePart({
         <BilingualText
           pair={caseQuestion.stem}
           mode={languageMode}
-          block="stem"
           className="case-question-stem"
           glossary={caseQuestion.glossary}
           onTerm={onTerm}
@@ -4906,11 +4354,7 @@ function CaseActivePart({
       {submitted && rescuePrompt && <GptRescueButton prompt={rescuePrompt} />}
     </section>
   );
-  return revealTrackingContext ? (
-    <RevealTrackingContext.Provider value={revealTrackingContext}>{content}</RevealTrackingContext.Provider>
-  ) : (
-    content
-  );
+  return content;
 }
 
 function CaseExhibit({
@@ -4929,7 +4373,6 @@ function CaseExhibit({
       <BilingualText
         pair={exhibit.title}
         mode={languageMode}
-        block="exhibit"
         className="case-exhibit-title"
         glossary={glossary}
         onTerm={onTerm}
@@ -4942,7 +4385,6 @@ function CaseExhibit({
       <BilingualText
         pair={exhibit.content}
         mode={languageMode}
-        block="exhibit"
         className="case-exhibit-content"
         glossary={glossary}
         onTerm={onTerm}
@@ -4954,7 +4396,6 @@ function CaseExhibit({
 function BilingualText({
   pair,
   mode,
-  block = "other",
   className = "",
   glossary = [],
   onTerm,
@@ -4962,15 +4403,13 @@ function BilingualText({
 }: {
   pair: { en: string; zh?: string };
   mode: LanguageMode;
-  block?: RevealBlock;
   className?: string;
   glossary?: GlossaryTerm[];
   onTerm?: TermSelectHandler;
   revealOnEnglishClick?: boolean;
 }) {
   const [revealed, setRevealed] = useState(false);
-  const revealTracking = useContext(RevealTrackingContext);
-  const revealAllSignal = revealTracking?.revealAllSignal ?? 0;
+  const revealAllSignal = useContext(RevealAllContext);
   const lastRevealAllSignalRef = useRef(revealAllSignal);
   const hasZh = (pair.zh ?? "").trim().length > 0;
   const showZh = hasZh && (mode === "always" || (mode === "on-tap" && revealed));
@@ -4983,7 +4422,6 @@ function BilingualText({
     event?.stopPropagation();
     if (revealed || mode !== "on-tap" || !hasZh) return;
     setRevealed(true);
-    recordRevealFromContext(revealTracking, block);
   };
 
   return (
@@ -5023,7 +4461,7 @@ function GlossaryText({
         const term = terms.find((candidate) => candidate.termEn.toLowerCase() === part.toLowerCase());
         if (!term) return <span key={`${part}-${index}`}>{part}</span>;
         return (
-          <button className="term-button" type="button" key={`${part}-${index}`} onClick={(event) => {
+          <button className="term-button" aria-label={`Glossary help: ${term.termEn}`} title="Glossary help / 词汇帮助" type="button" key={`${part}-${index}`} onClick={(event) => {
             event.stopPropagation();
             onTerm(term, event.currentTarget);
           }}>
@@ -5193,7 +4631,7 @@ function RationalePanel({
         <SpeakButton text={question.rationale.correct.en} enabled={voiceEnabled} label="Read rationale" />
       </div>
       <div className="dual-copy">
-        <BilingualText pair={question.rationale.correct} mode={languageMode} block="rationale" />
+        <BilingualText pair={question.rationale.correct} mode={languageMode} />
       </div>
       {question.rationale.visuals && question.rationale.visuals.length > 0 && (
         <div className="rationale-visuals">
@@ -5216,7 +4654,7 @@ function RationalePanel({
               return (
                 <div className={rowClassName} key={choice.refId}>
                   {marker && <strong>{marker}</strong>}
-                  <BilingualText pair={choice} mode={languageMode} block="rationale" />
+                  <BilingualText pair={choice} mode={languageMode} />
                 </div>
               );
             })}
@@ -5228,7 +4666,7 @@ function RationalePanel({
         <SpeakButton text={question.testTakingStrategy.en} enabled={voiceEnabled} label="Read strategy" />
       </div>
       <div className="dual-copy">
-        <BilingualText pair={question.testTakingStrategy} mode={languageMode} block="rationale" />
+        <BilingualText pair={question.testTakingStrategy} mode={languageMode} />
       </div>
       <div className="glossary-strip">
         {question.glossary.map((term) => (
@@ -5236,7 +4674,6 @@ function RationalePanel({
             <BilingualText
               pair={{ en: term.termEn, zh: term.termZh }}
               mode={languageMode}
-              block="glossary"
               revealOnEnglishClick={false}
             />
           </span>
@@ -5247,293 +4684,303 @@ function RationalePanel({
 }
 
 function SummaryView({
-  session,
+  record,
+  recordsById,
   flags,
-  languageMisses,
+  progress,
   onToggleFlag,
-  onToggleLanguageMiss,
   voiceEnabled,
   defaultLanguageMode,
   onHome,
   homeLabel,
-  relatedCount,
-  sessionMissedTermIds,
-  onPracticeRelated,
-  onReviewTerms,
+  onPractice,
+  memoryOnly,
+  onRetrySave,
 }: {
-  session: SessionState;
+  record: CompletedSet;
+  recordsById: Map<string, QuestionRecord>;
   flags: Record<string, QuestionFlag>;
-  languageMisses: Record<string, LanguageMiss>;
-  onToggleFlag: (questionId: string) => void;
-  onToggleLanguageMiss: (questionId: string) => void;
+  progress: Record<string, QuestionProgress>;
+  onToggleFlag: (id: string) => Promise<void>;
   voiceEnabled: boolean;
   defaultLanguageMode: LanguageMode;
   onHome: () => void;
   homeLabel: string;
-  relatedCount: number;
-  sessionMissedTermIds: string[];
-  onPracticeRelated: () => void;
-  onReviewTerms: (termIds: string[]) => void;
+  onPractice: (ids: string[]) => void;
+  memoryOnly: boolean;
+  onRetrySave: () => void;
 }) {
-  const [expandedIds, setExpandedIds] = useState<Set<string>>(() => new Set());
-  const [reviewScope, setReviewScope] = useState<"missed" | "answered" | "flagged">("missed");
-  const [languageMode, setLanguageMode] = useState<LanguageMode>(defaultLanguageMode);
-  const answered = Object.keys(session.results).length;
-  const correct = Object.values(session.results).filter(Boolean).length;
-  const incorrect = answered - correct;
-  const skipped = session.skippedQuestionIds.length;
-  const hasCompleteScores =
-    answered > 0 &&
-    Object.keys(session.scores).length === answered &&
-    Object.keys(session.results).every((questionId) => session.scores[questionId]?.possible > 0);
-  const pointTotals = hasCompleteScores
-    ? Object.keys(session.results).reduce<ItemScore>(
-        (total, questionId) => ({
-          earned: total.earned + session.scores[questionId].earned,
-          possible: total.possible + session.scores[questionId].possible,
-        }),
-        { earned: 0, possible: 0 },
-      )
-    : undefined;
-  const scorePercent = pointTotals ? Math.round((pointTotals.earned / pointTotals.possible) * 100) : undefined;
-  const answeredQuestions = session.questions.filter((question) =>
-    Object.prototype.hasOwnProperty.call(session.results, question.id),
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const rowRefs = useRef(new Map<string,HTMLButtonElement>());
+  const [expanded, setExpanded] = useState(new Set<string>());
+  const hasMiss = record.entries.some((e) => (e.attempt ?? e.legacyOutcome)?.result === false);
+  const [scope, setScope] = useState<"missed" | "all" | "saved">(hasMiss ? "missed" : "all");
+  const [languageMode, setLanguageMode] = useState(defaultLanguageMode);
+  const submitted = record.entries.filter((e) => e.attempt || e.legacyOutcome);
+  const full = submitted.filter((e) => (e.attempt ?? e.legacyOutcome)?.result).length;
+  const totals = submitted.reduce(
+    (sum, e) => ({
+      earned: sum.earned + ((e.attempt?.score ?? e.legacyOutcome?.score)?.earned ?? 0),
+      possible: sum.possible + ((e.attempt?.score ?? e.legacyOutcome?.score)?.possible ?? 0),
+    }),
+    { earned: 0, possible: 0 },
   );
-  const missed = session.questions.filter((question) => session.results[question.id] === false);
-  const byCategory = answeredQuestions.reduce<Record<string, { total: number; correct: number }>>((acc, question) => {
-    const current = acc[question.category] ?? { total: 0, correct: 0 };
-    current.total += 1;
-    if (session.results[question.id]) current.correct += 1;
-    acc[question.category] = current;
-    return acc;
-  }, {});
-  const byDifficulty = answeredQuestions.reduce<Record<string, { total: number; correct: number }>>((acc, question) => {
-    const current = acc[question.difficulty] ?? { total: 0, correct: 0 };
-    current.total += 1;
-    if (session.results[question.id]) current.correct += 1;
-    acc[question.difficulty] = current;
-    return acc;
-  }, {});
-  const byTopic = answeredQuestions.reduce<Record<string, { total: number; correct: number }>>((acc, question) => {
-    const current = acc[question.topic] ?? { total: 0, correct: 0 };
-    current.total += 1;
-    if (session.results[question.id]) current.correct += 1;
-    acc[question.topic] = current;
-    return acc;
-  }, {});
-  const topicRows = Object.entries(byTopic).sort(([leftTopic, leftCounts], [rightTopic, rightCounts]) => {
-    const leftAccuracy = leftCounts.correct / leftCounts.total;
-    const rightAccuracy = rightCounts.correct / rightCounts.total;
-    return leftAccuracy - rightAccuracy || rightCounts.total - leftCounts.total || leftTopic.localeCompare(rightTopic);
-  });
-  const flaggedQuestions = answeredQuestions.filter((question) => flags[question.id]?.flagged);
-  const reviewQuestions =
-    reviewScope === "missed" ? missed : reviewScope === "answered" ? answeredQuestions : flaggedQuestions;
-  const toggleExpanded = (id: string) => {
-    setExpandedIds((prev) => {
+  const entries = record.entries.filter(
+    (e) =>
+      scope === "all" ||
+      (scope === "saved" && flags[e.questionId]?.flagged) ||
+      (scope === "missed" && (e.attempt ?? e.legacyOutcome)?.result === false),
+  );
+  const liveIds = entries.filter((e) => recordsById.has(e.questionId)).map((e) => e.questionId);
+  const toggle = (id: string) =>
+    setExpanded((prev) => {
       const next = new Set(prev);
       if (next.has(id)) next.delete(id);
       else next.add(id);
       return next;
     });
+  const toggleSaved = async (id:string) => {
+    const removing = scope === "saved" && flags[id]?.flagged;
+    const index = entries.findIndex(e=>e.questionId === id);
+    const next = entries[index+1]?.questionId ?? entries[index-1]?.questionId;
+    await onToggleFlag(id);
+    if(removing) requestAnimationFrame(()=>{if(next) rowRefs.current.get(next)?.focus(); else headingRef.current?.focus();});
   };
-
   return (
-    <section className="stack">
-      <div className="summary-hero">
-        <p className="eyebrow">{session.mode === "adaptive" ? "Exam-condition practice" : "Summary"}</p>
-        <h2>
-          {scorePercent !== undefined ? `Score ${scorePercent}%` : `Fully correct in this set / 本组全对: ${correct} / ${answered}`}
-        </h2>
-        {pointTotals && (
-          <p className="summary-score-detail">
-            {pointTotals.earned} of {pointTotals.possible} points · Fully correct / 全对 {correct}/{answered}
-          </p>
-        )}
-        <p className="summary-counts">
-          Answered {answered} · Fully correct / 全对 {correct} · Review {incorrect} · Skipped {skipped}
-        </p>
-        {session.mode === "adaptive" && (
-          <p className="muted-copy">Adaptive practice changes difficulty by rolling performance. It is not a pass/fail or readiness estimate.</p>
-        )}
-        <div className="action-row">
-          <button className="primary-action" type="button" onClick={onHome}>
-            <Home aria-hidden="true" />
-            <span>{homeLabel}</span>
-          </button>
-          <button type="button" onClick={onPracticeRelated} disabled={relatedCount === 0}>
-            <RotateCcw aria-hidden="true" />
-            <span>Practice related</span>
-          </button>
-          <button type="button" onClick={() => onReviewTerms(sessionMissedTermIds)} disabled={sessionMissedTermIds.length === 0}>
-            <Brain aria-hidden="true" />
-            <span>Review missed terms</span>
-          </button>
+    <section className="stack completed-set">
+      <div className="section-heading">
+        <div>
+          <p className="eyebrow">{new Date(record.completedAt).toLocaleString()}</p>
+          <h2 ref={headingRef} tabIndex={-1}>Your answers / 本次作答</h2>
+          <p>{record.title}</p>
         </div>
-        {sessionMissedTermIds.length > 0 && (
-          <p className="muted-copy">Vocab Rescue · {sessionMissedTermIds.length} terms from questions you missed.</p>
-        )}
+        <button onClick={onHome}>{homeLabel}</button>
       </div>
-
-      <div className="category-breakdown">
-        {Object.entries(byCategory).map(([category, counts]) => (
-          <div key={category}>
-            <span>{category}</span>
-            <strong>
-              {counts.correct}/{counts.total}
-            </strong>
-          </div>
-        ))}
-      </div>
-
-      {Object.keys(byDifficulty).length > 0 && (
-        <div className="category-breakdown">
-          {Object.entries(byDifficulty).map(([difficulty, counts]) => (
-            <div key={difficulty}>
-              <span>{difficulty}</span>
-              <strong>
-                {counts.correct}/{counts.total}
-              </strong>
-            </div>
-          ))}
+      <p className="summary-counts">
+        Submitted {submitted.length} · Full marks {full} · Not fully correct {submitted.length - full} ·
+        Unsubmitted {record.entries.length - submitted.length}
+      </p>
+      <p>
+        {totals.earned} of {totals.possible} points · {record.deliveredCount} of {record.requestedCount}{" "}
+        requested questions
+      </p>
+      {memoryOnly && (
+        <div className="warning-band" role="status">
+          <p>This set is available for this visit only. It could not be saved on this device.</p>
+          <button onClick={onRetrySave}>Retry save</button>
         </div>
       )}
-
-      {topicRows.length > 0 && (
-        <section className="stack compact-stack">
-          <h3>Topics from this set</h3>
-          <div className="category-breakdown">
-            {topicRows.map(([topic, counts]) => (
-              <div key={topic}>
-                <span>{topic}</span>
-                <strong>
-                  {counts.correct}/{counts.total}
-                </strong>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {session.adaptive && (
-        <section className="dashboard-panel">
-          <h3>Difficulty trajectory</h3>
-          <div className="difficulty-trajectory">
-            {session.adaptive.difficultyHistory.map((entry, index) => (
-              <span className={`difficulty-dot ${entry.difficulty} ${entry.correct === false ? "missed" : ""}`} key={`${entry.questionId}-${index}`}>
-                {entry.difficulty[0].toUpperCase()}
-              </span>
-            ))}
-          </div>
-        </section>
-      )}
-
-      <section className="stack compact-stack">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">Review this set</p>
-            <h3>{reviewQuestions.length} question{reviewQuestions.length === 1 ? "" : "s"}</h3>
-          </div>
-          <div className="action-row compact">
-            <LanguageTabs value={languageMode} onChange={setLanguageMode} />
-          </div>
-        </div>
-
-        <div className="segmented" role="group" aria-label="Review scope">
-          {[
-            ["missed", "Missed only"],
-            ["answered", "All answered"],
-            ["flagged", "Flagged"],
-          ].map(([scope, label]) => (
+      <div className="section-heading">
+        <div className="segmented" role="group" aria-label="Your answers scope">
+          {(
+            [
+              ["missed", "Not fully correct"],
+              ["all", "All questions"],
+              ["saved", "Saved"],
+            ] as const
+          ).map(([id, label]) => (
             <button
-              className={reviewScope === scope ? "active" : ""}
-              type="button"
-              key={scope}
-              onClick={() => setReviewScope(scope as "missed" | "answered" | "flagged")}
+              key={id}
+              aria-pressed={scope === id}
+              className={scope === id ? "active" : ""}
+              onClick={() => setScope(id)}
             >
               {label}
             </button>
           ))}
         </div>
-
-        <div className="question-list">
-          {reviewQuestions.length === 0 && (
-            <div className="session-empty-state">
-              <p>
-                {reviewScope === "flagged"
-                  ? "No flagged answered questions in this set."
-                  : reviewScope === "missed"
-                    ? "No missed answered questions in this set."
-                    : "No answered questions in this set."}
+        <LanguageTabs value={languageMode} onChange={setLanguageMode} />
+      </div>
+      <div className="action-row">
+        <button className="primary-action" disabled={!liveIds.length} onClick={() => onPractice(liveIds)}>
+          Practice these · {liveIds.length}
+        </button>
+      </div>
+      {liveIds.length < entries.length && <p>No longer available questions are excluded from practice.</p>}
+      {!entries.length && <p>No questions in this scope.</p>}
+      {entries.map((entry) => {
+        const q = recordsById.get(entry.questionId)?.question;
+        const compatibility = entryCompatibility(entry, q);
+        const attempt = entry.attempt;
+        const outcome = attempt ?? entry.legacyOutcome;
+        const score = outcome?.score;
+        const status = outcome
+          ? outcome.result
+            ? "Full marks"
+            : "Not fully correct"
+          : entry.status === "skipped"
+            ? "Skipped · Not submitted"
+            : "Not submitted";
+        const paired = compatibility === "match" && q;
+        return (
+          <article key={entry.questionId} className="summary-review-item">
+            <button
+              className="question-row summary-review-toggle"
+              ref={el=>{if(el)rowRefs.current.set(entry.questionId,el);else rowRefs.current.delete(entry.questionId);}}
+              aria-expanded={expanded.has(entry.questionId)}
+              onClick={() => toggle(entry.questionId)}
+            >
+              <span>
+                <strong>
+                  {paired ? <SummaryStemText pair={q.stem} mode={languageMode} /> : entry.questionId}
+                </strong>
+                <span className="summary-entry-status">
+                  {status}
+                  {score ? ` · ${score.earned} of ${score.possible} points` : ""}
+                </span>
+              </span>
+              <ChevronDown aria-hidden="true" />
+            </button>
+            {compatibility !== "match" && (
+              <p className="warning-band">
+                {compatibility === "deleted"
+                  ? "No longer in the current question bank"
+                  : compatibility === "legacy-unverified"
+                    ? "This attempt predates detailed set memory. Its original question and answer cannot be verified."
+                    : "This question has changed since this set"}
               </p>
-            </div>
-          )}
-          {reviewQuestions.map((question) => {
-            const expanded = expandedIds.has(question.id);
-            const result = session.results[question.id];
-            const answer = session.answers[question.id] ?? getInitialAnswer(question);
-            const rescuePrompt =
-              result === false && question.itemType !== "case_study"
-                ? makeRescuePrompt(question, answer, false)
-                : undefined;
-            const casePartRescuePrompts =
-              result === false && question.itemType === "case_study"
-                ? makeCasePartRescuePrompts(question, answer, false)
-                : undefined;
-            return (
-              <article className="summary-review-item" key={question.id}>
-                <button
-                  className="question-row interactive-row summary-review-toggle"
-                  type="button"
-                  aria-expanded={expanded}
-                  onClick={() => toggleExpanded(question.id)}
-                >
-                  <div>
-                    <span className="type-pill">{formatItemType(question.itemType)}</span>
-                    {!result && <span className="missed-pill">Missed</span>}
-                    <h3>
-                      <SummaryStemText pair={question.stem} mode={languageMode} />
-                    </h3>
-                    <p>{question.topic}</p>
-                  </div>
-                  <div className="row-status">
-                    <span className={result ? "type-pill" : "missed-pill"}>{result ? "Correct" : "Missed"}</span>
-                    <ChevronDown className={expanded ? "summary-review-chevron expanded" : "summary-review-chevron"} aria-hidden="true" />
-                  </div>
+            )}
+            <div className="action-row summary-entry-actions">
+              {q && (
+                <button onClick={() => onPractice([entry.questionId])}>
+                  {q.itemType === "case_study" ? "Practice this case" : "Try again"}
                 </button>
-                {expanded && (
-                  <div
-                    className="summary-review-body"
-                    onClick={(event) => event.stopPropagation()}
-                    onKeyDown={(event) => event.stopPropagation()}
-                  >
+              )}
+              {q && (
+                <button
+                  aria-pressed={flags[entry.questionId]?.flagged ?? false}
+                  onClick={() => void toggleSaved(entry.questionId)}
+                >
+                  {flags[entry.questionId]?.flagged ? "Remove from Saved" : "Save question"}
+                </button>
+              )}
+              {progress[entry.questionId]?.needsReview && (
+                <span className="missed-pill">Needs review now</span>
+              )}
+            </div>
+            {expanded.has(entry.questionId) && paired && (
+              <div className="summary-review-body">
+                {attempt ? (
+                  <HistoricalAttemptContext.Provider value={attempt}>
                     <QuestionCard
-                      question={question}
-                      answer={answer}
+                      question={q}
+                      answer={attempt.answer}
                       submitted
-                      result={result}
+                      result={attempt.result}
                       languageMode={languageMode}
-                      flagged={flags[question.id]?.flagged ?? false}
-                      languageMissed={Boolean(languageMisses[question.id])}
-                      allowLanguageMissToggle={result === false}
+                      flagged={flags[q.id]?.flagged ?? false}
                       voiceEnabled={voiceEnabled}
-                      onAnswer={() => undefined}
-                      onSubmit={() => undefined}
-                      onToggleFlag={() => onToggleFlag(question.id)}
-                      onToggleLanguageMiss={() => onToggleLanguageMiss(question.id)}
+                      onAnswer={() => {}}
+                      onSubmit={() => {}}
+                      onToggleFlag={() => onToggleFlag(q.id)}
+                      showQuestionActions={false}
                       caseStudyLayout="stacked"
                       standaloneVisualLayout="stacked"
-                      rescuePrompt={rescuePrompt}
-                      casePartRescuePrompts={casePartRescuePrompts}
+                      rescuePrompt={
+                        q.itemType !== "case_study" ? makeRescuePrompt(q, attempt.answer, false) : undefined
+                      }
+                      casePartRescuePrompts={
+                        q.itemType === "case_study"
+                          ? Object.fromEntries(
+                              q.caseStudy.questions.map((part) => [
+                                part.id,
+                                makeRescuePrompt(
+                                  part,
+                                  attempt.answer.caseStudy?.[part.id] ?? getInitialAnswer(part),
+                                  false,
+                                  q,
+                                ),
+                              ]),
+                            )
+                          : undefined
+                      }
                     />
-                  </div>
+                  </HistoricalAttemptContext.Provider>
+                ) : (
+                  <>
+                    <p>
+                      Not submitted.{" "}
+                      {entry.draft ? "Your draft is retained below." : "No answer was submitted."}
+                    </p>
+                    {entry.draft && <DraftAnswer question={q} answer={entry.draft} mode={languageMode} />}
+                    <BilingualText pair={q.stem} mode={languageMode} />
+                  </>
                 )}
-              </article>
-            );
-          })}
-        </div>
-      </section>
+              </div>
+            )}
+          </article>
+        );
+      })}
     </section>
+  );
+}
+
+function DraftAnswer({
+  question: q,
+  answer,
+  mode,
+}: {
+  question: Question;
+  answer: AnswerState;
+  mode: LanguageMode;
+}) {
+  if (q.itemType === "case_study")
+    return (
+      <div>
+        {q.caseStudy.questions.map((part, i) => (
+          <section key={part.id}>
+            <h4>Part {i + 1}</h4>
+            <DraftAnswer question={part} answer={answer.caseStudy?.[part.id] ?? {}} mode={mode} />
+          </section>
+        ))}
+      </div>
+    );
+  let selections: Array<{ label?: { en: string; zh: string }; value: string }> = [];
+  if (q.itemType === "multiple_choice" || q.itemType === "select_all" || q.itemType === "ordered_response")
+    selections = (answer.optionIds ?? []).map((id) => ({
+      label: q.options.find((o) => o.id === id),
+      value: "",
+    }));
+  else if (q.itemType === "fill_in_blank")
+    selections = q.blanks.map((b) => ({
+      label: b.prompt,
+      value: answer.blanks?.[b.id] ?? "No draft answer",
+    }));
+  else if (q.itemType === "matrix")
+    selections = q.matrix.rows.map((row) => ({
+      label: row,
+      value:
+        (answer.matrix?.[row.id] ?? [])
+          .map((id) => q.matrix.columns.find((c) => c.id === id)?.en ?? "")
+          .join(", ") || "No draft answer",
+    }));
+  else if (q.itemType === "dropdown_cloze")
+    selections = q.dropdowns.map((d) => ({
+      label: d.options.find((o) => o.id === answer.dropdowns?.[d.id]),
+      value: answer.dropdowns?.[d.id] ? "" : "No draft answer",
+    }));
+  else if (q.itemType === "highlight")
+    selections = (answer.segments ?? []).map((id) => ({
+      label: q.highlight.segments.find((s) => s.id === id),
+      value: "",
+    }));
+  else if (q.itemType === "bowtie")
+    selections = (["condition", "actions", "parameters"] as const).flatMap((zone) =>
+      (answer.bowtie?.[zone] ?? []).map((id) => ({
+        label: q.bowtie[zone].tokens.find((t) => t.id === id),
+        value: "",
+      })),
+    );
+  return selections.length ? (
+    <ol>
+      {selections.map((s, i) => (
+        <li key={i}>
+          {s.label && <BilingualText pair={s.label} mode={mode} />} {s.value}
+        </li>
+      ))}
+    </ol>
+  ) : (
+    <p>No draft answer.</p>
   );
 }
 
@@ -5576,10 +5023,8 @@ const applyBuilderFilters = (
     if (filters.withVisuals && !hasVisualStimulus(record.question)) return false;
     const itemProgress = progress[record.question.id];
     if (filters.status === "unseen") return (itemProgress?.seen ?? 0) === 0;
-    if (filters.status === "answered") return (itemProgress?.seen ?? 0) > 0;
-    if (filters.status === "incorrect") return (itemProgress?.incorrect ?? 0) > 0;
-    if (filters.status === "flagged") return flags[record.question.id]?.flagged ?? false;
-    if (filters.status === "due") return isDueForReview(itemProgress);
+    if (filters.status === "needsReview") return itemProgress?.needsReview ?? false;
+    if (filters.status === "saved") return flags[record.question.id]?.flagged ?? false;
     return true;
   });
 
@@ -5623,101 +5068,11 @@ const aggregateRows = (
     .sort((left, right) => right.attempts - left.attempts || left.label.localeCompare(right.label));
 };
 
-const buildFlashcardDeck = (records: QuestionRecord[]): FlashcardTerm[] => {
-  const terms = new Map<
-    string,
-    GlossaryTerm & {
-      categories: Set<string>;
-      topics: Set<string>;
-      questionIds: Set<string>;
-    }
-  >();
-
-  records.forEach((record) => {
-    const questionTerms = collectGlossarySources(record.question);
-    questionTerms.forEach(({ term, category, topic, questionId }) => {
-      const id = normalizeTermId(term);
-      const existing =
-        terms.get(id) ??
-        ({
-          ...term,
-          categories: new Set<string>(),
-          topics: new Set<string>(),
-          questionIds: new Set<string>(),
-        } satisfies GlossaryTerm & {
-          categories: Set<string>;
-          topics: Set<string>;
-          questionIds: Set<string>;
-        });
-      existing.categories.add(category);
-      existing.topics.add(topic);
-      existing.questionIds.add(questionId);
-      terms.set(id, existing);
-    });
-  });
-
-  return Array.from(terms.entries())
-    .map(([id, term]) => ({
-      id,
-      termEn: term.termEn,
-      termZh: term.termZh,
-      defZh: term.defZh,
-      categories: Array.from(term.categories).sort(),
-      topics: Array.from(term.topics).sort(),
-      questionIds: Array.from(term.questionIds).sort(),
-    }))
-    .sort((left, right) => left.termEn.localeCompare(right.termEn));
-};
-
-const getSessionMissedTermIds = (
-  session: SessionState,
-  deck: FlashcardTerm[],
-  languageMissQuestionIds: Set<string>,
-): string[] => {
-  const sessionMissedIds = new Set(
-    session.questions
-      .filter((question) => session.results[question.id] === false)
-      .map((question) => question.id),
-  );
-
-  return deck
-    .filter((term) => term.questionIds.some((questionId) => sessionMissedIds.has(questionId)))
-    .sort((left, right) => {
-      const leftTagged = left.questionIds.some((questionId) => languageMissQuestionIds.has(questionId));
-      const rightTagged = right.questionIds.some((questionId) => languageMissQuestionIds.has(questionId));
-      if (leftTagged !== rightTagged) return leftTagged ? -1 : 1;
-      return left.termEn.localeCompare(right.termEn);
-    })
-    .map((term) => term.id);
-};
-
-const collectGlossarySources = (question: Question) => {
-  const sources = question.glossary.map((term) => ({
-    term,
-    category: question.category,
-    topic: question.topic,
-    questionId: question.id,
-  }));
-  if (question.itemType === "case_study") {
-    question.caseStudy.questions.forEach((caseQuestion) => {
-      caseQuestion.glossary.forEach((term) => {
-        sources.push({
-          term,
-          category: caseQuestion.category,
-          topic: caseQuestion.topic,
-          questionId: question.id,
-        });
-      });
-    });
-  }
-  return sources;
-};
-
-const normalizeTermId = (term: GlossaryTerm) => `${term.termEn.trim().toLowerCase()}|${term.termZh.trim()}`;
-
 const createSessionId = () => `session-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 
-const toStoredSession = (session: SessionState): StoredSessionSnapshot => ({
+const toStoredSession = (session: SessionState): StoredSessionSnapshot => session.retainedSnapshot ?? ({
+  launchIntent: session.launchIntent, returnView: session.returnView, requestedCount: session.requestedCount,
+  fingerprints: session.fingerprints, attempts: session.attempts,
   id: session.id,
   mode: session.mode,
   questionIds: session.questions.map((question) => question.id),
@@ -5742,7 +5097,13 @@ const hydrateSession = (
   const questions = snapshot.questionIds
     .map((questionId) => recordsById.get(questionId)?.question)
     .filter((question): question is Question => Boolean(question));
-  if (questions.length === 0) return null;
+  const recovery = snapshot.questionIds.flatMap(id => {
+    const question = recordsById.get(id)?.question;
+    if (!question) return [`${id}: No longer in the current question bank.`];
+    if (snapshot.fingerprints?.[id] && snapshot.fingerprints[id] !== questionFingerprint(question)) return [`${id}: This question has changed since this set.`];
+    const answer = snapshot.answers[id] as AnswerState | undefined;
+    return answer && !answerFitsQuestion(question, answer) ? [`${id}: Saved answer IDs do not match the current question.`] : [];
+  });
   const poolIds = snapshot.poolIds.filter((questionId) => recordsById.has(questionId));
   const questionIds = new Set(questions.map((question) => question.id));
   const skippedQuestionIds = snapshot.mode === "study"
@@ -5754,6 +5115,10 @@ const hydrateSession = (
   const phase = skippedQuestionIds.length === 0 && requestedPhase !== "questions" ? "questions" : requestedPhase;
   return {
     id: snapshot.id,
+    launchIntent: snapshot.launchIntent ?? "remediation", returnView: snapshot.returnView ?? "home",
+    requestedCount: snapshot.requestedCount ?? snapshot.questionIds.length,
+    fingerprints: snapshot.fingerprints ?? {}, attempts: snapshot.attempts ?? {},
+    recovery, retainedSnapshot: recovery.length ? snapshot : undefined,
     mode: snapshot.mode,
     questions,
     poolIds: poolIds.length > 0 ? poolIds : questions.map((question) => question.id),

@@ -98,6 +98,7 @@ the entry title byte-for-byte.
 | P7 | P | ACTIVE | ADVISORY | Precision over volume |
 | P8 | P | ACTIVE | BINDING | Clinical truth is authored upstream and read-only downstream |
 | P10 | P | ACTIVE | BINDING | Study sessions mirror the exam distribution |
+| P10 | P | ACTIVE | AUTHORIZING | Application: bounded Needs-review reservation in ordinary Study |
 | P11 | P | ACTIVE | BINDING | Visual arithmetic is a machine-checked gate carrying no engine |
 | P15 | P | ACTIVE | BINDING | Bank patches are raw-scoped and declarative |
 | P15 | P | ACTIVE | BINDING | Application: a declarative op names a field path, not a record |
@@ -155,7 +156,7 @@ the entry title byte-for-byte.
 | — | T | PARKED | ADVISORY | Exam-condition test and adaptive modes |
 | — | T | REVISIT | ADVISORY | Unresolved vital sanity bounds |
 
-**Declared total:** 67 entry blocks.
+**Declared total:** 68 entry blocks.
 
 ## 4. Governing principles
 
@@ -297,6 +298,20 @@ deliberately separate, deferred axis.
 - **Force:** BINDING
 - **Date:** 2026-07-14
 - **Execution:** EXECUTED
+
+#### P10 — Application: bounded Needs-review reservation in ordinary Study
+
+Luke authorized this narrow exception on 2026-09-12 because strict unseen-first category sampling
+can indefinitely suppress missed-question recurrence while the unseen bank keeps expanding.
+Ordinary Study may reserve a bounded remediation minority from learner Needs-review state globally
+and borrow category capacity for that reservation; ordinary non-remediation seats continue to
+follow NCLEX weighting.
+This does not redefine strict exam simulation or authorize broader adaptive category weighting.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** AUTHORIZING
+- **Date:** 2026-09-12
 
 ### P11 — Visual arithmetic is a machine-checked gate carrying no engine
 

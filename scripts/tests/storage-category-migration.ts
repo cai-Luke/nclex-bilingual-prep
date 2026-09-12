@@ -1,10 +1,9 @@
 import assert from "node:assert/strict";
 import {
   normalizeStoredQuestionRecord,
-  normalizeStoredTranslationRevealEvent,
 } from "../../src/categoryMigration";
 import { normalizeLegacyImportedCategory } from "../../src/bankImport";
-import type { QuestionRecord, TranslationRevealEvent } from "../../src/types";
+import type { QuestionRecord } from "../../src/types";
 
 const legacyCategory = "Safety and Infection Control";
 const nextCategory = "Safety and Infection Prevention and Control";
@@ -49,21 +48,6 @@ assert.equal(
   nextCategory,
 );
 
-const event = {
-  id: "event",
-  sessionId: "session",
-  questionId: "question",
-  block: "stem",
-  itemType: "multiple_choice",
-  category: legacyCategory,
-  topic: "Patient & Environment Safety",
-  revealedAt: "2026-07-16T00:00:00.000Z",
-  elapsedMsOnQuestion: 1,
-  answeredBeforeReveal: false,
-  submittedBeforeReveal: false,
-  revealCountForQuestion: 1,
-} as unknown as TranslationRevealEvent;
-assert.equal(normalizeStoredTranslationRevealEvent(event).category, nextCategory);
 assert.equal(
   (normalizeLegacyImportedCategory({ category: legacyCategory }) as { category: string }).category,
   nextCategory,

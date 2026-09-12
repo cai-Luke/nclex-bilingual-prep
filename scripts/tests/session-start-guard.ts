@@ -86,11 +86,10 @@ const persistence = createOrderedSessionPersistence<string>({
     persisted = id;
     events.push(`end:${id}`);
   },
-  clear: async () => { persisted = null; events.push("clear"); },
 });
 const oldWrite = persistence.save("old");
 await flush();
-const clear = persistence.clear();
+const clear = persistence.run(async () => { persisted = null; events.push("clear"); });
 const replacementGuard = createSessionStartGuard({ onStatusChange: () => {}, onError: error => { throw error; } });
 replacementGuard.resolveHydration(draft);
 replacementGuard.request(async () => {
@@ -117,7 +116,6 @@ assert.deepEqual(events, ["begin:old", "end:old", "clear", "begin:new", "end:new
 const failure = new Error("injected failure");
 const recovery = createOrderedSessionPersistence<string>({
   save: async id => { if (id === "fail") throw failure; persisted = id; },
-  clear: async () => { persisted = null; },
 });
 await assert.rejects(recovery.save("fail"), error => error === failure);
 await recovery.save("recovered");

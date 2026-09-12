@@ -280,13 +280,9 @@ export type QuestionProgress = {
   seen: number;
   correct: number;
   incorrect: number;
-  correctStreak: number;
-  missed: boolean;
+  needsReview: boolean;
+  migrationDiagnostic?: string;
   lastSeenAt?: string;
-  srsDueAt?: string;
-  srsIntervalDays?: number;
-  srsEase?: number;
-  srsLapses?: number;
 };
 
 export type ItemScore = {
@@ -300,13 +296,12 @@ export type ThemeMode = "light" | "dark";
 export type TextSizeMode = "compact" | "default" | "large";
 export type SessionMode = StudyMode | "adaptive";
 export type SessionOrder = "random" | "sequential";
-export type SessionStatusFilter = "all" | "unseen" | "answered" | "incorrect" | "flagged" | "due";
+export type SessionStatusFilter = "all" | "unseen" | "needsReview" | "saved";
 export type SessionPhase = "questions" | "skipped-prompt" | "skipped-review";
 
 export type Settings = {
   languageMode: LanguageMode;
-  // Legacy persisted compatibility field; no learner control or launcher consumer.
-  defaultMode: StudyMode;
+  revisitMissed: boolean;
   voiceEnabled: boolean;
   themeMode: ThemeMode;
   textSizeMode: TextSizeMode;
@@ -338,6 +333,11 @@ export type StoredSessionSnapshot = {
   title: string;
   startedAt: string;
   updatedAt: string;
+  launchIntent?: LaunchIntent;
+  returnView?: SessionReturnView;
+  requestedCount?: number;
+  fingerprints?: Record<string, string>;
+  attempts?: Record<string, SubmittedAttempt>;
   adaptive?: AdaptiveSessionSnapshot;
 };
 
@@ -346,11 +346,6 @@ export type QuestionFlag = {
   flagged: boolean;
   note?: string;
   updatedAt: string;
-};
-
-export type LanguageMiss = {
-  questionId: string;
-  markedAt: string;
 };
 
 export type AnswerEvent = {
@@ -363,61 +358,42 @@ export type AnswerEvent = {
   languageModeAtAnswer?: LanguageMode;
 };
 
-export type CaseAnswerPartEvent = {
-  id: string;
-  questionId: string;
-  partId: string;
-  wasCorrect: boolean;
-  sessionId: string;
-  sessionMode: SessionMode;
-  languageModeAtAnswer: LanguageMode;
-  answeredAt: string;
-};
-
-export type RevealBlock =
-  | "stem"
-  | "choices"
-  | "exhibit"
-  | "case_stage"
-  | "rationale"
-  | "glossary"
-  | "other";
-
-export type TranslationRevealEvent = {
-  id: string;
-  sessionId: string;
-  questionId: string;
-  partId?: string;
-  block: RevealBlock;
-  fullQuestionReveal?: boolean;
-  sessionMode?: SessionMode;
-  languageModeAtReveal?: LanguageMode;
-  itemType: ItemType;
-  category: Category;
-  topic: string;
-  revealedAt: string;
-  elapsedMsOnQuestion: number;
-  answeredBeforeReveal: boolean;
-  submittedBeforeReveal: boolean;
-  revealCountForQuestion: number;
-};
-
-export type FlashcardProgress = {
-  termId: string;
-  seen: number;
-  correct: number;
-  incorrect: number;
-  correctStreak: number;
-  lastSeenAt?: string;
-  srsDueAt?: string;
-  srsIntervalDays?: number;
-  srsEase?: number;
-  srsLapses?: number;
-};
-
 export type ImportSummary = {
   imported: number;
   total: number;
   skipped: Array<{ index: number; id?: string; reasons: string[] }>;
   regeneratedIds: Array<{ from: string; to: string }>;
+};
+
+export type LaunchIntent = "ordinary" | "remediation";
+export type SessionReturnView = "home" | "library" | "needsReview" | "saved" | "lastSet" | "builder";
+export type SubmittedAttempt = {
+  submissionId: string;
+  answer: import("./grading").AnswerState;
+  submittedAt: string;
+  languageMode: LanguageMode;
+  result: boolean;
+  score: ItemScore;
+  parts?: Record<string, { result: boolean; score: ItemScore }>;
+};
+export type CompletedEntry = {
+  questionId: string;
+  fingerprint?: string;
+  status: "submitted" | "skipped" | "not-submitted" | "legacy-unverified";
+  attempt?: SubmittedAttempt;
+  draft?: import("./grading").AnswerState;
+  legacyOutcome?: { result: boolean; score?: ItemScore };
+};
+export type CompletedSet = {
+  id: "last";
+  version: 1;
+  sessionId: string;
+  startedAt: string;
+  completedAt: string;
+  title: string;
+  endReason: "finished" | "ended";
+  languageMode: LanguageMode;
+  requestedCount: number;
+  deliveredCount: number;
+  entries: CompletedEntry[];
 };

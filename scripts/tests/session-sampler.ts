@@ -1,12 +1,8 @@
-import { readFile } from "node:fs/promises";
 import {
   DEFAULT_FLOOR_KIND_PRIORITY,
   NCLEX_CATEGORY_WEIGHTS,
-  buildTargetedReviewPool,
   buildWeightedSession,
-  scoreTargetedReviewCandidate,
-  seedFromString,
-  type TargetedReviewSignals,
+  reviewReservation, buildUnweightedSession, selectExplicitPopulation,
 } from "../../src/sessionSampler";
 import { buildSessionState } from "../../src/sessionState";
 import type { Category, NgnSkill, QuestionFlag, QuestionProgress, QuestionRecord } from "../../src/types";
@@ -73,8 +69,7 @@ const seenProgress = (records: QuestionRecord[]): Record<string, QuestionProgres
         seen: 1,
         correct: 1,
         incorrect: 0,
-        correctStreak: 1,
-        missed: false,
+        needsReview: false,
       },
     ]),
   );
@@ -87,8 +82,7 @@ const progressFor = (
   seen: 1,
   correct: 1,
   incorrect: 0,
-  correctStreak: 1,
-  missed: false,
+  needsReview: false,
   ...overrides,
 });
 
@@ -252,248 +246,48 @@ assert(
   "same pool and seed must produce the same ordered draw",
 );
 
-const signalCategory: Category = "Management of Care";
-const otherCategory: Category = "Psychosocial Integrity";
-const thirdCategory: Category = "Reduction of Risk Potential";
-const targetedSignals: TargetedReviewSignals = {
-  missedTopics: new Set(["missed-topic"]),
-  missedCategories: new Set([signalCategory]),
-  missedItemTypes: new Set(["multiple_choice"]),
-  missedNgnSkills: new Set(["take_action"]),
-};
-const scoreFixtures: Array<{
-  label: string;
-  record: QuestionRecord;
-  progress?: QuestionProgress;
-  flag?: QuestionFlag;
-  expected: number;
-}> = [
-  {
-    label: "topic",
-    record: makeRecord("score-topic", otherCategory, "missed-topic", undefined, "select_all"),
-    expected: 6,
-  },
-  {
-    label: "category",
-    record: makeRecord("score-category", signalCategory, "other-topic", undefined, "select_all"),
-    expected: 4,
-  },
-  {
-    label: "item type",
-    record: makeRecord("score-type", otherCategory, "other-topic", undefined, "multiple_choice"),
-    expected: 3,
-  },
-  {
-    label: "ngn",
-    record: makeRecord("score-ngn", otherCategory, "other-topic", undefined, "select_all", "take_action"),
-    expected: 3,
-  },
-  {
-    label: "flag",
-    record: makeRecord("score-flag", otherCategory, "other-topic", undefined, "select_all"),
-    flag: { questionId: "score-flag", flagged: true, updatedAt: "2026-06-30T00:00:00.000Z" },
-    expected: 5,
-  },
-  {
-    label: "prior incorrect",
-    record: makeRecord("score-incorrect", otherCategory, "other-topic", undefined, "select_all"),
-    progress: progressFor("score-incorrect", { incorrect: 1 }),
-    expected: 4,
-  },
-  {
-    label: "unseen",
-    record: makeRecord("score-unseen", otherCategory, "other-topic", undefined, "select_all"),
-    progress: progressFor("score-unseen", { seen: 0, correct: 0, correctStreak: 0 }),
-    expected: 2,
-  },
-  {
-    label: "mastered",
-    record: makeRecord("score-mastered", otherCategory, "other-topic", undefined, "select_all"),
-    progress: progressFor("score-mastered", { correctStreak: 2 }),
-    expected: -3,
-  },
-];
-for (const fixture of scoreFixtures) {
-  const actual = scoreTargetedReviewCandidate(
-    fixture.record,
-    targetedSignals,
-    { [fixture.record.question.id]: fixture.progress ?? progressFor(fixture.record.question.id) },
-    fixture.flag ? { [fixture.record.question.id]: fixture.flag } : {},
-  );
-  assert(actual === fixture.expected, `${fixture.label} scoring term expected ${fixture.expected}, got ${actual}`);
+
+// Replacement contract: bounded, global reservation precedes unseen tiers.
+const backlog=largePool.slice(0,30);
+const needs=Object.fromEntries(backlog.map((r,i)=>[r.question.id,progressFor(r.question.id,{needsReview:true,correct:0,incorrect:1,lastSeenAt:i<2?undefined:new Date(2020,0,i).toISOString()})]));
+for(const [n,r] of [[2,0],[4,0],[5,1],[10,2],[25,5],[50,10]]) {
+  assert(reviewReservation(n,30)===r,`N=${n}: exact reservation`);
+  const selected=buildWeightedSession(largePool,n,needs,mulberry32(4));
+  assert(selected.filter(q=>needs[q.question.id]?.needsReview).length===r,`N=${n}: reserve before unseen`);
+  assert(selected.length===n&&new Set(selected.map(r=>r.question.id)).size===n,'unique full set');
+  const unweighted=buildUnweightedSession(largePool,n,needs,mulberry32(4));
+  assert(unweighted.filter(r=>needs[r.question.id]?.needsReview).length===r,'unweighted reservation');
 }
-const additiveRecord = makeRecord("score-additive", signalCategory, "missed-topic", undefined, "multiple_choice", "take_action");
-const additiveScore = scoreTargetedReviewCandidate(
-  additiveRecord,
-  targetedSignals,
-  { [additiveRecord.question.id]: progressFor(additiveRecord.question.id, { seen: 0, correct: 0, incorrect: 1, correctStreak: 2 }) },
-  { [additiveRecord.question.id]: { questionId: additiveRecord.question.id, flagged: true, updatedAt: "2026-06-30T00:00:00.000Z" } },
-);
-assert(additiveScore === 24, `targeted scoring must be additive, got ${additiveScore}`);
-
-const missedStandalone = makeRecord("missed-standalone", signalCategory, "direct-retry-topic");
-const directRetryPool = buildTargetedReviewPool(
-  [missedStandalone],
-  { questions: [missedStandalone.question], results: { [missedStandalone.question.id]: false } },
-  { [missedStandalone.question.id]: progressFor(missedStandalone.question.id, { incorrect: 1, correct: 0, missed: true }) },
-  {},
-  1,
-  mulberry32(1),
-);
-assert(directRetryPool.map((record) => record.question.id).includes("missed-standalone"), "a just-missed question must remain eligible for direct retry");
-
-const missedCase = makeRecord("missed-case", signalCategory, "case-topic", undefined, "case_study", "analyze_cues");
-const matchingCaseCandidate = makeRecord("case-candidate", signalCategory, "case-topic", undefined, "case_study");
-const matchingStandalone = makeRecord("standalone-from-case-signal", signalCategory, "case-topic");
-const caseSignalPool = buildTargetedReviewPool(
-  [missedCase, matchingCaseCandidate, matchingStandalone],
-  { questions: [missedCase.question], results: { [missedCase.question.id]: false } },
-  {},
-  {},
-  5,
-  mulberry32(2),
-);
-assert(caseSignalPool.length === 1, "case-study misses should still produce standalone remediation candidates");
-assert(caseSignalPool[0]?.question.id === "standalone-from-case-signal", "standalone candidate from case-study signal must be selected");
-assert(caseSignalPool.every((record) => record.question.itemType !== "case_study"), "case studies must be excluded from targeted review output");
-
-const perfectPool = buildTargetedReviewPool(
-  [matchingStandalone],
-  { questions: [matchingStandalone.question], results: { [matchingStandalone.question.id]: true } },
-  {},
-  {},
-  5,
-  mulberry32(3),
-);
-assert(perfectPool.length === 0, "a session with no misses must not create a targeted review pool");
-
-const tinyPool = [makeRecord("tiny-a", signalCategory, "tiny-topic"), makeRecord("tiny-b", otherCategory, "other-tiny")];
-const tinyTargeted = buildTargetedReviewPool(
-  tinyPool,
-  { questions: [tinyPool[0].question], results: { [tinyPool[0].question.id]: false } },
-  {},
-  {},
-  10,
-  mulberry32(4),
-);
-assert(tinyTargeted.length === 2, "thin targeted banks must return fewer than count rather than padding");
-assert(new Set(tinyTargeted.map((record) => record.question.id)).size === tinyTargeted.length, "targeted review must never duplicate question IDs");
-
-const fallbackRecords = [
-  makeRecord("fallback-strong", signalCategory, "fallback-miss"),
-  makeRecord("fallback-tier1", otherCategory, "fallback-tier1"),
-  makeRecord("fallback-settled", thirdCategory, "fallback-settled"),
-];
-const fallbackDraw = buildTargetedReviewPool(
-  fallbackRecords,
-  { questions: [fallbackRecords[0].question], results: { [fallbackRecords[0].question.id]: false } },
-  {
-    "fallback-strong": progressFor("fallback-strong"),
-    "fallback-tier1": progressFor("fallback-tier1", { missed: true }),
-    "fallback-settled": progressFor("fallback-settled"),
-  },
-  {},
-  2,
-  mulberry32(5),
-);
-const fallbackIds = new Set(fallbackDraw.map((record) => record.question.id));
-assert(fallbackIds.has("fallback-strong"), "fallback draw must include the strong signal candidate");
-assert(fallbackIds.has("fallback-tier1"), "Stage 2 must prefer seen missed/due candidates before settled candidates");
-assert(!fallbackIds.has("fallback-settled"), "Stage 2 must not draw settled candidates before tier 1 is exhausted");
-
-const targetedDiversityPool = [
-  makeRecord("target-glut-0", signalCategory, "target-glut", "rhythm_strip"),
-  makeRecord("target-glut-1", signalCategory, "target-glut", "rhythm_strip"),
-  makeRecord("target-glut-2", signalCategory, "target-glut", "rhythm_strip"),
-  makeRecord("target-diverse", signalCategory, "target-diverse"),
-];
-const diversityRngValues = [0, 0, 0.5, 0, 0];
-const targetedDiverseDraw = buildTargetedReviewPool(
-  targetedDiversityPool,
-  { questions: [targetedDiversityPool[0].question], results: { [targetedDiversityPool[0].question.id]: false } },
-  Object.fromEntries(targetedDiversityPool.map((record) => [record.question.id, progressFor(record.question.id)])),
-  {},
-  3,
-  () => diversityRngValues.shift() ?? 0,
-);
-assert(
-  targetedDiverseDraw.some((record) => record.question.id === "target-diverse"),
-  "targeted review diversity dampening should make repeated topic/kind candidates progressively less dominant",
-);
-
-const deterministicTargetedA = buildTargetedReviewPool(
-  [...targetedDiversityPool, ...fallbackRecords],
-  { questions: [targetedDiversityPool[0].question], results: { [targetedDiversityPool[0].question.id]: false } },
-  {},
-  {},
-  4,
-  mulberry32(seedFromString("session-fixed")),
-);
-const deterministicTargetedB = buildTargetedReviewPool(
-  [...targetedDiversityPool, ...fallbackRecords],
-  { questions: [targetedDiversityPool[0].question], results: { [targetedDiversityPool[0].question.id]: false } },
-  {},
-  {},
-  4,
-  mulberry32(seedFromString("session-fixed")),
-);
-assert(
-  deterministicTargetedA.map((record) => record.question.id).join(",") ===
-    deterministicTargetedB.map((record) => record.question.id).join(","),
-  "same targeted review input and seed must produce the same ordered pool",
-);
-
-const sessionStatePlain = buildSessionState({
-  id: "session-plain",
-  mode: "study",
-  questions: [missedStandalone.question],
-  poolIds: [missedStandalone.question.id],
-  languageMode: "on-tap",
-  title: "Plain",
-  startedAt: "2026-06-30T12:00:00.000Z",
-});
-assert(
-  JSON.stringify(sessionStatePlain) === JSON.stringify({
-    id: "session-plain",
-    mode: "study",
-    questions: [missedStandalone.question],
-    poolIds: [missedStandalone.question.id],
-    index: 0,
-    answers: {},
-    results: {},
-    scores: {},
-    skippedQuestionIds: [],
-    phase: "questions",
-    languageMode: "on-tap",
-    title: "Plain",
-    startedAt: "2026-06-30T12:00:00.000Z",
-  }),
-  "buildSessionState must preserve the plain session object shape",
-);
-const adaptiveSnapshot = {
-  targetCount: 75,
-  currentDifficulty: "medium" as const,
-  rollingResults: [],
-  difficultyHistory: [{ questionId: missedStandalone.question.id, difficulty: missedStandalone.question.difficulty }],
-};
-const sessionStateAdaptive = buildSessionState({
-  id: "session-adaptive",
-  mode: "adaptive",
-  questions: [missedStandalone.question],
-  poolIds: [missedStandalone.question.id, matchingStandalone.question.id],
-  languageMode: "off",
-  title: "Adaptive",
-  startedAt: "2026-06-30T13:00:00.000Z",
-  adaptive: adaptiveSnapshot,
-});
-assert(sessionStateAdaptive.adaptive === adaptiveSnapshot, "buildSessionState must preserve adaptive session metadata");
-assert(sessionStateAdaptive.mode === "adaptive" && sessionStateAdaptive.languageMode === "off", "buildSessionState must preserve adaptive branch shape");
-
-const appSource = await readFile("src/App.tsx", "utf8");
-assert(
-  appSource.match(/weighting:\s*"nclex"/g)?.length === 1,
-  'weighting: "nclex" must appear at exactly one integration call site',
-);
-assert(!appSource.includes("buildRelatedPracticePool"), "old related practice helper must be removed after targeted review wiring");
-
-console.log("session sampler tests passed");
+for(const size of [0,1,3,9,30]) {
+  const subset=Object.fromEntries(Object.entries(needs).slice(0,size));
+  const selected=buildWeightedSession(largePool,50,subset,mulberry32(5));
+  assert(selected.filter(r=>subset[r.question.id]?.needsReview).length===Math.min(size,10),'small review pool cap');
+}
+const concentrated=buildWeightedSession(largePool,50,needs,mulberry32(10));
+assert(concentrated.filter(r=>r.question.category===categories[0]).length>=10,'concentrated backlog borrows category capacity');
+assert(concentrated.some(r=>r.question.id===backlog[0].question.id),'missing timestamps sort first');
+const off=buildWeightedSession(backlog,50,needs,mulberry32(5),{revisitMissed:false});
+assert(off.length===0,'toggle off excludes review, even when it shortens set');
+assert(buildUnweightedSession(backlog,50,needs,mulberry32(5),false).length===0,'toggle off unweighted');
+const backfill=buildWeightedSession(backlog,25,needs,mulberry32(6));
+assert(backfill.length===25,'ordinary tier-1 backfill may exceed reservation after unseen exhaustion');
+const visualReview=floorPool.find(r=>r.question.visual?.kind==='rhythm_strip')!;
+const reviewVisualProgress={...seenProgress(floorPool.filter(r=>r.question.visual?.kind==='rhythm_strip')),[visualReview.question.id]:progressFor(visualReview.question.id,{needsReview:true,lastSeenAt:undefined})};
+const reservedFloor=buildWeightedSession(floorPool,50,reviewVisualProgress,mulberry32(42));
+assert(reservedFloor.filter(r=>r.question.visual?.kind==='rhythm_strip').length===1,'reserved visual satisfies floor without a second draw');
+for(const kind of DEFAULT_FLOOR_KIND_PRIORITY)assert(countByVisualKind(reservedFloor,kind)>=1,'other visual floors survive');
+const smallFloor=buildWeightedSession(floorPool,4,reviewVisualProgress,mulberry32(42),{floorMinCount:1});
+// Minimum tier for a floor remains unseen before settled; no extra review preference.
+const floorTierPool=[makeRecord('unseen-floor',categories[0],'floor','rhythm_strip'),makeRecord('review-floor',categories[0],'floor','rhythm_strip')];
+const floorTier=buildWeightedSession(floorTierPool,1,{'review-floor':progressFor('review-floor',{needsReview:true})},mulberry32(5),{floorMinCount:1,floorThreshold:1});
+assert(floorTier[0].question.id==='unseen-floor','floor still prefers minimum progress tier');
+const wholeCase=makeRecord('whole-case',categories[0],'case',undefined,'case_study');
+const explicitNeeds={...needs,'whole-case':progressFor('whole-case',{needsReview:true})};
+const population=[...largePool,wholeCase];
+const explicit=selectExplicitPopulation(population,'needsReview',100,explicitNeeds,{});
+assert(explicit.length===31&&explicit.some(r=>r.question.id==='whole-case'),'explicit Needs review includes whole cases and never backfills');
+const flags={'whole-case':{questionId:'whole-case',flagged:true,updatedAt:'2026-09-12'},[largePool[799].question.id]:{questionId:largePool[799].question.id,flagged:false,note:'note only',updatedAt:'2026-09-12'}};
+assert(selectExplicitPopulation(population,'saved',100,{},flags).length===1,'Saved only includes saved boolean, not notes or backfill');
+const state=buildSessionState({id:'test',mode:'study',questions:[largePool[0].question],poolIds:[largePool[0].question.id],languageMode:'on-tap',title:'test',startedAt:'2026-09-12',launchIntent:'ordinary',returnView:'home',requestedCount:10});
+assert(state.launchIntent==='ordinary'&&state.requestedCount===10&&Boolean(state.fingerprints[largePool[0].question.id]),'construction captures intent and compatibility');
+console.log('session sampler: weighting, floors, diversity, reservation, borrowing, explicit populations passed');

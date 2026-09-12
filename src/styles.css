@@ -363,7 +363,6 @@ main {
 .preview-lab-launcher,
 .builder-panel,
 .dashboard-panel,
-.flashcard,
 .result-panel,
 .error-panel,
 .question-card,
@@ -580,8 +579,7 @@ h4 {
 }
 
 .builder-panel,
-.dashboard-panel,
-.flashcard {
+.dashboard-panel {
   display: grid;
   gap: 1rem;
   padding: 1rem;
@@ -599,13 +597,11 @@ h4 {
   font-weight: 800;
 }
 
-.builder-filters,
-.flashcard-filters {
+.builder-filters {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.topic-picker,
-.flashcard-topic-filter {
+.topic-picker {
   min-width: 0;
 }
 
@@ -670,10 +666,6 @@ h4 {
   text-align: left;
   font-size: 0.9rem;
   font-weight: 700;
-}
-
-.flashcard-topic-filter {
-  grid-column: span 3;
 }
 
 .builder-summary {
@@ -778,8 +770,7 @@ h4 {
 
 .type-pill,
 .muted-pill,
-.missed-pill,
-.rescue-pill {
+.missed-pill {
   display: inline-flex;
   align-items: center;
   min-height: 1.5rem;
@@ -802,11 +793,6 @@ h4 {
 .missed-pill {
   color: var(--state-missed-text);
   background: var(--state-missed-surface);
-}
-
-.rescue-pill {
-  color: var(--state-flagged-text);
-  background: var(--state-flagged-surface);
 }
 
 .import-panel,
@@ -2918,34 +2904,9 @@ h4 {
   background: var(--state-incorrect-surface);
 }
 
-.language-miss-action {
-  display: grid;
-  gap: 0.45rem;
-  justify-items: start;
-  padding: 0.85rem;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--surface-muted);
-}
-
-.language-miss-action button {
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-
 .translate-all-action {
   border-style: dashed;
   background: var(--surface);
-}
-
-.language-miss-action button.active {
-  border-color: var(--state-flagged-border);
-  color: var(--state-flagged-text);
-  background: var(--state-flagged-surface);
-}
-
-.language-miss-action p {
-  margin: 0;
 }
 
 .post-rationale-actions {
@@ -3132,54 +3093,11 @@ h4 {
   justify-content: flex-end;
 }
 
-.flashcard {
-  max-width: 42rem;
-}
-
-.flashcard-top {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.75rem;
-  align-items: center;
-}
-
 .pill-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
   align-items: center;
-}
-
-.flashcard-face {
-  display: grid;
-  width: 100%;
-  min-height: 15rem;
-  gap: 1rem;
-  align-content: center;
-  justify-items: center;
-  padding: clamp(1rem, 5vw, 2rem);
-  text-align: center;
-  background: var(--surface-muted);
-}
-
-.flashcard-face strong {
-  font-size: calc(clamp(2rem, 6vw, 3.4rem) * var(--font-scale));
-  line-height: 1.05;
-}
-
-.flashcard-face span {
-  display: grid;
-  gap: 0.65rem;
-  color: var(--text);
-  font-size: calc(1.35rem * var(--font-scale));
-  font-weight: 800;
-}
-
-.flashcard-face small {
-  max-width: 34rem;
-  color: var(--text-muted);
-  font-size: calc(1rem * var(--font-scale));
-  font-weight: 600;
 }
 
 .difficulty-dot {
@@ -3263,49 +3181,6 @@ h4 {
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--surface);
-}
-
-.telemetry-panel {
-  display: grid;
-  gap: 0.75rem;
-}
-
-.telemetry-row-list {
-  display: grid;
-  gap: 0.65rem;
-}
-
-.telemetry-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.85rem;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--surface);
-}
-
-.telemetry-row > span:first-child {
-  flex: 1 1 12rem;
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
-
-.telemetry-values {
-  display: flex;
-  flex: 1 1 18rem;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 0.35rem 0.65rem;
-  min-width: 0;
-  color: var(--text-muted);
-  text-align: right;
-}
-
-.telemetry-values strong {
-  color: var(--text);
 }
 
 .dev-review-console {
@@ -3576,7 +3451,6 @@ h4 {
   .home-grid,
   .filters,
   .builder-filters,
-  .flashcard-filters,
   .dashboard-metrics,
   .dashboard-grid,
   .settings-grid,
@@ -3603,8 +3477,7 @@ h4 {
     flex-direction: column;
   }
 
-  .topic-picker,
-  .flashcard-topic-filter {
+  .topic-picker {
     grid-column: auto;
   }
 
@@ -3761,3 +3634,44 @@ h4 {
     font-size: calc(1.12rem * var(--font-scale));
   }
 }
+
+/* Study-owned memory surfaces. */
+.study-memory-links { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+.study-memory-links button { text-align: left; }
+.last-set-entry { display: grid; grid-template-columns: 1fr auto; gap: .4rem 1rem; width: 100%; margin-top: 1.5rem; padding: 1rem; text-align: left; }
+.last-set-entry span, .last-set-entry strong { grid-column: 1; }
+.last-set-entry svg { grid-column: 2; grid-row: 1 / 4; align-self: center; }
+.history-notice { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; font-size: .875rem; }
+.history-notice p { margin: 0; }
+.memory-row { display: flex; gap: 1rem; align-items: center; }
+.question-inspect { display: flex; flex: 1; flex-direction: column; align-items: flex-start; text-align: left; gap: .75rem; min-width: 0; }
+.summary-entry-status { display: block; margin-top: .75rem; font-weight: normal; }
+.summary-entry-actions { padding: .75rem 1rem; }
+.completed-set .summary-counts { margin: 0; }
+.completed-set .summary-review-toggle { width: 100%; text-align: left; gap: 1rem; }
+.completed-set .summary-review-toggle > span { min-width: 0; }
+.draft-answer { white-space: pre-wrap; overflow-wrap: anywhere; }
+@media (max-width: 700px) {
+  .study-memory-links, .memory-row, .history-notice { flex-direction: column; align-items: stretch; }
+  .completed-set .section-heading { align-items: flex-start; flex-direction: column; }
+  .completed-set .segmented { flex-wrap: wrap; }
+}
+.home-grid > *, .test-launcher, .test-launcher-head > *, .last-set-entry { min-width: 0; }
+.hero-panel h1, .hero-brand-row .eyebrow, .last-set-entry, .study-memory-links button { overflow-wrap: anywhere; }
+.count-toggle { flex-wrap: wrap; }
+@media (max-width: 700px) {
+  .home-grid { grid-template-columns: minmax(0, 1fr); }
+  .app-primary-nav { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .app-primary-nav button { flex-direction: column; min-width: 0; }
+  .app-primary-nav button span { position: static; width: auto; height: auto; padding: 0; margin: 0; overflow: visible; clip: auto; white-space: normal; font-size: .75rem; overflow-wrap: anywhere; }
+  .hero-panel { padding: 1rem; }
+  .test-launcher { padding: .75rem; }
+}
+@media (max-width: 700px) {
+  /* A tall header scrolls away instead of covering the reading surface. */
+  .app-header { position: static; }
+}
+.response-status { font-size: .8rem; font-weight: 600; }
+.option-row > .response-status { grid-column: 3; }
+.ordered-row > .response-status { grid-column: 2; }
+.matrix-table td button small { display: block; font-size: .7rem; }

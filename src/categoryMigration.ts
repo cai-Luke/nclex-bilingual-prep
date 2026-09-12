@@ -1,4 +1,4 @@
-import type { Category, QuestionRecord, TranslationRevealEvent } from "./types";
+import type { Category, QuestionRecord } from "./types";
 
 const LEGACY_SAFETY_CATEGORY = "Safety and Infection Control";
 const SAFETY_CATEGORY: Category = "Safety and Infection Prevention and Control";
@@ -27,11 +27,4 @@ export const normalizeStoredQuestionRecord = (record: QuestionRecord): QuestionR
       caseStudy: { ...question.caseStudy, questions },
     },
   };
-};
-
-export const normalizeStoredTranslationRevealEvent = (
-  event: TranslationRevealEvent,
-): TranslationRevealEvent => {
-  const category = normalizeStoredCategory(event.category);
-  return category === event.category ? event : { ...event, category };
 };

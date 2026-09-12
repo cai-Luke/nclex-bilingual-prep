@@ -1,6 +1,11 @@
+import { questionFingerprint } from "./completedMemory";
 import type { AnswerState } from "./grading";
 import type {
   AdaptiveSessionSnapshot,
+  LaunchIntent,
+  SessionReturnView,
+  SubmittedAttempt,
+  StoredSessionSnapshot,
   ItemScore,
   LanguageMode,
   Question,
@@ -23,10 +28,20 @@ export type SessionState = {
   title: string;
   startedAt: string;
   completed?: boolean;
+  launchIntent: LaunchIntent;
+  returnView: SessionReturnView;
+  requestedCount: number;
+  fingerprints: Record<string, string>;
+  attempts: Record<string, SubmittedAttempt>;
+  recovery?: string[];
+  retainedSnapshot?: StoredSessionSnapshot;
   adaptive?: AdaptiveSessionSnapshot;
 };
 
 export type BuildSessionStateParams = {
+  launchIntent?: LaunchIntent;
+  returnView?: SessionReturnView;
+  requestedCount?: number;
   id: string;
   mode: SessionMode;
   questions: Question[];
@@ -46,11 +61,19 @@ export const buildSessionState = ({
   title,
   startedAt,
   adaptive,
+  launchIntent = "remediation",
+  returnView = "home",
+  requestedCount = questions.length,
 }: BuildSessionStateParams): SessionState => ({
   id,
   mode,
   questions,
   poolIds,
+  launchIntent,
+  returnView,
+  requestedCount,
+  attempts: {},
+  fingerprints: Object.fromEntries(questions.map((q) => [q.id, questionFingerprint(q)])),
   index: 0,
   answers: {},
   results: {},

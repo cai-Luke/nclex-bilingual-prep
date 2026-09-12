@@ -74,20 +74,18 @@ export const createSessionStartGuard = ({
 /** One invocation-ordered lane for every active-session write and clear. */
 export const createOrderedSessionPersistence = <Snapshot,>({
   save,
-  clear,
 }: {
-  save: (snapshot: Snapshot) => Promise<void>;
-  clear: () => Promise<void>;
+  save: (snapshot: Snapshot) => Promise<unknown>;
 }) => {
   let tail = Promise.resolve();
-  const enqueue = (operation: () => Promise<void>) => {
+  const enqueue = <T,>(operation: () => Promise<T>) => {
     const result = tail.then(operation);
     // A rejected operation must not permanently block later requests.
-    tail = result.catch(() => {});
+    tail = result.then(() => {}, () => {});
     return result;
   };
   return {
+    run: enqueue,
     save: (snapshot: Snapshot) => enqueue(() => save(snapshot)),
-    clear: () => enqueue(clear),
   };
 };
