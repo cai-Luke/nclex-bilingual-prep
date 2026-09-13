@@ -25,19 +25,52 @@ Given this phase authorizes no bank mutation, I prioritized live source re-verif
 - **MX-035** (hypermagnesemia matrix) — flags `5.2 mEq/L magnesium equals 2.6 mmol/L, not 2.15`. Independently verified: mEq/L → mmol/L for a divalent ion (Mg²⁺, valence 2) is mEq ÷ 2 = 5.2 ÷ 2 = 2.6. The arithmetic is correct; the original item's `2.15` figure does not reconcile with the stated mEq/L value under any standard conversion. **Disposition: CONFIRMED.**
 - **MX-129** (older-adult sleep matrix) — flags a rationale calling 6–7 hours "within recommended adult sleep range" for a 67-year-old. Independently verified against current CDC guidance: adults 65+ are recommended 7–8 hours; 6 hours falls below that range. **Disposition: CONFIRMED.**
 
-I did not independently source-verify the remaining ~35 candidates or all 7 collateral observations in this pass. Based on the sample above, the producer's method (cite a specific source, state the exact numeric or propositional inconsistency, distinguish "defensible" from "confirmed" findings) is sound and the hit rate on checkable claims was 100% in my sample — a positive signal about queue quality, not proof of the remaining rows.
+## Full queue disposition — remaining 36 candidates (2026-09-13, second pass)
 
-## Collateral observations — notable items
+Owner directed continuation of the full queue after the Section 1–8 closeout. Completed the remaining 36 candidates and all 7 collateral observations at this session.
 
-`COL-04` (the palliative-care parent) correctly anticipated exactly what Section 1 of this commission did: it explicitly recommends binding the Campaign 17 raw replacement at independent review "rather than producing a competing patch." That is what happened — consistent, cross-lane coherence.
+### Externally source-verified this pass (7 candidates + arithmetic)
 
-`COL-06` and `COL-07` (mass-casualty ammonia/organophosphate decontamination-before-airway-care sequencing) are flagged here as the two collateral items most likely to be safety-relevant if confirmed — a rigid decon-before-ABC teaching point is a real point of tension in current hazmat/MCI nursing guidance (NIOSH generally does not support delaying life-saving airway intervention for full decontamination). I have not adjudicated this myself; it should be prioritized in any future review pass, explicitly as source-and-construct review, not folded into a mechanical repair pass.
+- **MX-034** (hypercalcemia matrix) — flags loop diuretics keyed as routine therapy from calcium 12.8 alone. **Confirmed.** Current Endocrine Society guidance: IV isotonic fluid repletion first; loop diuretics only for signs of volume overload, not routine — matches the candidate's claim exactly.
+- **MX-051** (pacemaker/MRI matrix) — flags a categorical "no MRI for non-conditional pacemaker" key. **Confirmed as overcategorical.** Current cardiology practice allows scanning legacy non-MR-conditional devices under strict protocols (reduced power mode, reprogramming, continuous monitoring) at experienced centers; a flat prohibition is outdated.
+- **MX-042** (influenza vaccine matrix) — flags "age 65 requires high-dose" as the sole compliant option. **Confirmed wrong as stated.** Current ACIP guidance treats high-dose, recombinant, and adjuvanted vaccines as co-equal preferred options for 65+, not high-dose-only.
+- **MX-058** (C. diff precautions matrix) — flags "soap/water must be used universally" as overstated. **Confirmed.** CDC/APIC guidance: alcohol-based hand rub does not kill C. diff spores and soap-and-water is preferred specifically for C. diff exposure/outbreaks, but the framing that this is a blanket universal-at-all-times rule (vs. the CDC's more targeted C.-diff-specific/outbreak framing) is the overstatement being flagged — matches.
+- **MX-030** (ABG matrix) — flags pH 7.25 as arithmetically inconsistent with the stated pH 6.1, HCO₃ 15, PaCO₂ 30. **Independently recomputed:** 6.1 + log₁₀(15/(0.03×30)) = 7.322, not 7.25. Confirmed numeric defect.
+- **MC-033-REL** (decerebrate/decorticate posturing cross-item) — flags one item's exclusion of shoulder adduction/internal rotation from decerebrate posturing. **Confirmed.** StatPearls: decerebrate posturing is defined by shoulder adduction and internal rotation plus elbow/wrist/finger extension-pronation-flexion; the paired item's decorticate-only attribution is the error.
+- **MC-056-REL** (alcohol withdrawal delirium cross-item) — flags "hallucinations alone = delirium tremens" as conflating DTs with alcoholic hallucinosis. **Confirmed.** DTs requires impaired sensorium/confusion; alcoholic hallucinosis is defined by a *clear* sensorium with hallucinations — the paired item's equation of hallucinations alone with DTs is the error.
+
+### Confirmed from established clinical/linguistic knowledge (no search needed)
+
+- **MX-012** — Regular human insulin mislabeled "rapid-acting" (速效) in rationale text. Regular insulin is short-acting; rapid-acting refers to the analog class (lispro/aspart/glulisine). Unambiguous pharmacology classification error. **Confirmed.**
+- **MX-024** — rationale defines Cushing syndrome as cortisol *and aldosterone* excess. Cushing syndrome is glucocorticoid (cortisol) excess; aldosterone excess is a distinct entity (primary hyperaldosteronism/Conn syndrome). **Confirmed** textbook-level error.
+- **MC-038-REL** — English strategy translates "removal of the chemical agent" as 清除病原 (literally "pathogen removal"). 病原 specifically means an infectious pathogen in medical Chinese and has no legitimate reading as "chemical irritant" — an unambiguous mistranslation in a chemical-exposure context. **Confirmed.**
+
+### Reviewed for internal construct soundness — reasoning holds, not independently source-verified
+
+MX-007, MX-009, MX-011, MX-021, MX-022, MX-027, MX-036, MX-044, MX-046, MX-057, MX-062, MX-063, MX-065, MX-089, MX-101, MX-104, MX-105, MX-107, MX-108, MX-112, MX-119, MC-103-REL. Each of these is a claim about the item's *own* answer-space design (a column category that overlaps another, a key that assumes an unstated premise, a matrix row admitting more than one defensible mapping) rather than an external clinical fact, so there is no single source to check against — the check is whether the cited reasoning is internally sound. On direct re-read of all 22, each cites specific row/column text and identifies a genuine, non-vague logical tension (e.g., MX-022's point that current ACOG severe-preeclampsia criteria no longer use proteinuria as a severity threshold, which independently supports the ambiguity claim; MX-089/MX-101's point that "denies intent" is a reassuring assessment finding, not the same thing as a demonstrated protective factor like social support or reasons for living). None read as overreaching. **Disposition: PLAUSIBLE, held for a dedicated content-repair review** (not mutated here).
+
+- **MX-110** (potassium reference range) — standard adult serum potassium reference range is approximately 3.5–5.0/5.1 mEq/L; 3.4 mEq/L falls below that range. The item's "low-normal" framing understates it. **Confirmed** from standard reference-range knowledge.
+- **MX-118** — already covered in the rebind table above (B12 interpretation without a stated reference interval); held pending its own review, `endpoint_changed_in_C17: false`.
+- **MX-077** — already covered in the rebind table above; held.
+- **MX-003** — the producer's own issue text for this candidate states the item's indications "follow the age/history in the parent" and that current CDC guidance supports its thresholds, i.e., this candidate's own evidence describes a **clean item**, not a defect. Flagged here so it is not mistaken for an open finding: **NO_ACTIONABLE_DEFECT**, consistent with the producer's own text.
+
+### Collateral observations — all 7 dispositioned
+
+- **COL-01** (C. diff universal soap/water framing) — same clinical fact as MX-058, independently verified above. **Confirmed**, same defect pattern appearing on a second, separate item — worth a corpus-wide check for this specific phrase, not just these two sites.
+- **COL-02** (vancomycin universal-trough teaching) — plausible: current practice has shifted toward AUC-guided vancomycin monitoring per 2020 consensus guidelines for many indications, which would make a "universal trough framework" teaching point outdated in some contexts. Not independently source-verified this pass; the producer's own text correctly declines to allege a repair without checking indication-specific applicability first. **Held**, requires dedicated source review.
+- **COL-03** (gait belt translated as 约束带) — 约束带 specifically denotes a physical restraint device in medical Chinese, not an ambulation-assistance gait belt; the correct term would be closer to 步行带/转移带. **Confirmed** as a genuine, safety-adjacent mistranslation (a restraint-connoting term appearing in ambulation-assistance teaching content is the kind of error worth prioritizing).
+- **COL-04** — already covered above (correctly anticipated Section 1's replacement-integration approach).
+- **COL-05** (ABG self-consistency, pH 7.32 vs. computed value) — independently recomputed: 6.1 + log₁₀(29/(0.03×55)) = 7.345, not 7.32. **Confirmed** numeric discrepancy, same defect class as MX-030.
+- **COL-06, COL-07** — already flagged above as the two most likely to be safety-relevant (mass-casualty decontamination-before-airway-care sequencing); not adjudicated, prioritized for dedicated source-and-construct review.
 
 ## Disposition
 
 `MATRIX_FIRST_COHERENCE_R1_INDEPENDENT_CHECK_COMPLETE`
 
 - 2 of 42 candidates (MX-078, MX-098) close as **MOOT / already resolved** by the integrated Campaign 17 state.
-- 4 of 42 candidates (MX-016, MX-035, MX-047, MX-129) are **CONFIRMED** by independent source/arithmetic verification.
-- 36 of 42 candidates and 7 collateral observations remain **HELD** — not independently re-verified in this pass, not rejected, not mutated. The dedicated rebind step above should be applied to the remaining 6 Campaign-17-touched-parent candidates before any of them are actioned.
-- No canonical bank was mutated. No repair was applied or authorized under this lane.
+- 15 of 42 candidates are **CONFIRMED** by independent source, arithmetic, or established-knowledge verification: MX-016, MX-035, MX-047, MX-129 (first pass); MX-034, MX-051, MX-042, MX-058, MX-030, MX-012, MX-024, MX-110 (second pass, item-level); MC-033-REL, MC-056-REL, MC-038-REL (second pass, cross-item relation — 3 of 4 relation candidates now confirmed).
+- 1 candidate (MX-003) is **NO_ACTIONABLE_DEFECT** per the producer's own evidence.
+- 22 candidates are **PLAUSIBLE**, internal reasoning reviewed and sound, held for a dedicated content-repair pass (no external fact to check; item-internal construct claims).
+- 2 candidates (MX-077, MX-118) remain in the **rebind-pending** state noted above (2 + 15 + 1 + 22 + 2 = 42).
+- Of 7 collateral observations: 2 confirmed (COL-01, COL-03), 1 confirmed arithmetic (COL-05), 1 already resolved in coordination (COL-04), 1 held pending source review (COL-02), 2 held as highest safety priority for dedicated review (COL-06, COL-07).
+- No canonical bank was mutated at any point in this lane. No repair was applied or authorized. Every disposition above is a checker recommendation for a future repair commission, not an implemented fix.
