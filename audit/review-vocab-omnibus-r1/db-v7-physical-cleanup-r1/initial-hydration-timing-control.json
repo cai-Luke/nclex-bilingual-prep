@@ -1,0 +1,41 @@
+{
+  "error": "AssertionError [ERR_ASSERTION]: Only authorized physical subtraction (plus accepted pre-v6 semantics)\n+ actual - expected\n... Skipped lines\n\n  {\n    localStorage: {\n      'completed-memory-notice': 'dismissed',\n      'nclex-settings': '{\"languageMode\":\"on-tap\",\"defaultMode\":\"study\",\"voiceEnabled\":false,\"themeMode\":\"dark\",\"textSizeMode\":\"default\"}',\n      'unrelated-preserve': 'opaque owner preference'\n...\n            title: 'v6-resumable',\n+           updatedAt: '2026-09-13T03:08:32.559Z'\n-           updatedAt: '2026-09-13T03:08:32.227Z'\n          }\n        ]\n      },\n      answerEvents: {\n        autoIncrement: false,\n\n    at assertSubtraction (file:///Users/holemini/Desktop/Project%20Shrimp%20DB%20V7%20R1/scripts/tests/db-v7-structure.mjs:64:10)\n    at <anonymous> (/Users/holemini/Desktop/Project Shrimp DB V7 R1/scripts/tests/db-v7-browser.mjs:176:31)",
+  "checks": [
+    {
+      "name": "Actual v5 writer characterized; actual accepted v6 submissions create contradictory stale columns, diagnostic, Last set and active work",
+      "status": "PASS",
+      "historicalProgressKeyUnion": [
+        "correct",
+        "correctStreak",
+        "incorrect",
+        "lastSeenAt",
+        "missed",
+        "questionId",
+        "seen",
+        "srsDueAt",
+        "srsEase",
+        "srsIntervalDays",
+        "srsLapses"
+      ],
+      "v6ProgressKeyUnion": [
+        "correct",
+        "correctStreak",
+        "incorrect",
+        "lastSeenAt",
+        "migrationDiagnostic",
+        "missed",
+        "needsReview",
+        "questionId",
+        "seen",
+        "srsDueAt",
+        "srsEase",
+        "srsIntervalDays",
+        "srsLapses"
+      ],
+      "diagnosticSupplement": "One actual v5 row lost correctStreak and its top-level event in a test-only native transaction; all other writer rows are unaltered."
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "scratch": "/tmp/shrimp-db-v7-Op3iyG"
+}

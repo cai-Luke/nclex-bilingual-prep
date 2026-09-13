@@ -1,0 +1,109 @@
+{
+  "results": [
+    {
+      "command": "npm run test:review-memory",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": "gate-01.log",
+      "note": "Rerun after final incomplete-v6-schema guard; PASS."
+    },
+    {
+      "command": "npm run test:session-navigation",
+      "exitCode": 0,
+      "status": "PASS",
+      "seconds": 0.265,
+      "log": "gate-02.log"
+    },
+    {
+      "command": "npm run test:session-start-guard",
+      "exitCode": 0,
+      "status": "PASS",
+      "seconds": 0.246,
+      "log": "gate-03.log"
+    },
+    {
+      "command": "npm run test:session-sampler",
+      "exitCode": 0,
+      "status": "PASS",
+      "seconds": 0.511,
+      "log": "gate-04.log"
+    },
+    {
+      "command": "npm run test:grading",
+      "exitCode": 0,
+      "status": "PASS",
+      "seconds": 0.25,
+      "log": "gate-05.log"
+    },
+    {
+      "command": "npm run test:storage-category-migration",
+      "exitCode": 0,
+      "status": "PASS",
+      "seconds": 0.266,
+      "log": "gate-06.log"
+    },
+    {
+      "command": "npm run validate-bank -- banks/*.json",
+      "exitCode": 0,
+      "status": "PASS",
+      "seconds": 1.026,
+      "log": "gate-07.log"
+    },
+    {
+      "command": "npm run audit",
+      "exitCode": 0,
+      "status": "PASS",
+      "seconds": 6.175,
+      "log": "gate-08.log"
+    },
+    {
+      "command": "npx tsc -b --pretty false",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": "gate-09.log",
+      "note": "Rerun after final incomplete-v6-schema guard; PASS."
+    },
+    {
+      "command": "npm run census:check",
+      "exitCode": 0,
+      "status": "PASS",
+      "seconds": 0.917,
+      "log": "gate-10.log"
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0,
+      "status": "PASS",
+      "seconds": 0.019,
+      "log": "gate-11.log"
+    },
+    {
+      "command": "npm run test:db-v7",
+      "status": "PASS",
+      "exitCode": 0,
+      "log": "deterministic-run.log",
+      "detail": "13 isolated scenario processes; final regression source"
+    },
+    {
+      "command": "npm run build",
+      "status": "PASS",
+      "exitCode": 0,
+      "log": "build-v7.log",
+      "implementationHead": "05351ca654a3c82902e35f175623a4f4cf4c1466"
+    },
+    {
+      "command": "PLAYWRIGHT_MODULE=/tmp/shrimp-omnibus-tools/node_modules/playwright/index.mjs npm run test:db-v7:browser",
+      "status": "PASS",
+      "exitCode": 0,
+      "log": "browser-run.log",
+      "implementationHead": "05351ca654a3c82902e35f175623a4f4cf4c1466"
+    },
+    {
+      "command": "git diff --check e251dad",
+      "status": "PASS",
+      "exitCode": 0,
+      "note": "Final production/test diff checked after implementation commits."
+    }
+  ],
+  "reuse": "Bank validation, audit, census, sampler/navigation/grading/category tests retain identical relevant inputs; final guard reran focused storage suites, TypeScript, build, and browser evidence."
+}

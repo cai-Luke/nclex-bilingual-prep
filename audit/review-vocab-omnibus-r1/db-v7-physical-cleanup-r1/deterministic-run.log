@@ -1,0 +1,17 @@
+
+> nclex-bilingual-prep@0.1.0 test:db-v7
+> node --import tsx scripts/tests/db-v7-cleanup.mjs
+
+PASS all: exact native state, 0 pre-fault updates / 0 pre-fault deletions, retry/repeated-open invariant
+PASS some: exact native state, 0 pre-fault updates / 0 pre-fault deletions, retry/repeated-open invariant
+PASS none: exact native state, 0 pre-fault updates / 0 pre-fault deletions, retry/repeated-open invariant
+PASS direct: exact native state, 0 pre-fault updates / 0 pre-fault deletions, retry/repeated-open invariant
+PASS fresh: exact native state, 0 pre-fault updates / 0 pre-fault deletions, retry/repeated-open invariant
+PASS rollback-update: exact native state, 1 pre-fault updates / 0 pre-fault deletions, retry/repeated-open invariant
+PASS rollback-delete: exact native state, 2 pre-fault updates / 1 pre-fault deletions, retry/repeated-open invariant
+PASS rollback-semantic: exact native state, 1 pre-fault updates / 0 pre-fault deletions, retry/repeated-open invariant
+PASS missing-current-store: abort, no uncharacterized data removed
+PASS unknown-store: abort, no uncharacterized data removed
+PASS unknown-property: abort, no uncharacterized data removed
+PASS negative-control: committed partial v7 after foreign timer; native structural verifier rejects it
+PASS normal-write: exact native state, 0 pre-fault updates / 0 pre-fault deletions, retry/repeated-open invariant

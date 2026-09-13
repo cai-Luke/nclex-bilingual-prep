@@ -1,0 +1,69 @@
+{
+  "results": [
+    {
+      "name": "all",
+      "status": "PASS",
+      "output": "PASS all: exact native state, 0 pre-fault updates / 0 pre-fault deletions, retry/repeated-open invariant"
+    },
+    {
+      "name": "some",
+      "status": "PASS",
+      "output": "PASS some: exact native state, 0 pre-fault updates / 0 pre-fault deletions, retry/repeated-open invariant"
+    },
+    {
+      "name": "none",
+      "status": "PASS",
+      "output": "PASS none: exact native state, 0 pre-fault updates / 0 pre-fault deletions, retry/repeated-open invariant"
+    },
+    {
+      "name": "direct",
+      "status": "PASS",
+      "output": "PASS direct: exact native state, 0 pre-fault updates / 0 pre-fault deletions, retry/repeated-open invariant"
+    },
+    {
+      "name": "fresh",
+      "status": "PASS",
+      "output": "PASS fresh: exact native state, 0 pre-fault updates / 0 pre-fault deletions, retry/repeated-open invariant"
+    },
+    {
+      "name": "rollback-update",
+      "status": "PASS",
+      "output": "PASS rollback-update: exact native state, 1 pre-fault updates / 0 pre-fault deletions, retry/repeated-open invariant"
+    },
+    {
+      "name": "rollback-delete",
+      "status": "PASS",
+      "output": "PASS rollback-delete: exact native state, 2 pre-fault updates / 1 pre-fault deletions, retry/repeated-open invariant"
+    },
+    {
+      "name": "rollback-semantic",
+      "status": "PASS",
+      "output": "PASS rollback-semantic: exact native state, 1 pre-fault updates / 0 pre-fault deletions, retry/repeated-open invariant"
+    },
+    {
+      "name": "missing-current-store",
+      "status": "PASS",
+      "output": "PASS missing-current-store: abort, no uncharacterized data removed"
+    },
+    {
+      "name": "unknown-store",
+      "status": "PASS",
+      "output": "PASS unknown-store: abort, no uncharacterized data removed"
+    },
+    {
+      "name": "unknown-property",
+      "status": "PASS",
+      "output": "PASS unknown-property: abort, no uncharacterized data removed"
+    },
+    {
+      "name": "negative-control",
+      "status": "PASS",
+      "output": "PASS negative-control: committed partial v7 after foreign timer; native structural verifier rejects it"
+    },
+    {
+      "name": "normal-write",
+      "status": "PASS",
+      "output": "PASS normal-write: exact native state, 0 pre-fault updates / 0 pre-fault deletions, retry/repeated-open invariant"
+    }
+  ]
+}

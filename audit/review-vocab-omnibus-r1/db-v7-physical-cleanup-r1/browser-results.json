@@ -1,0 +1,187 @@
+{
+  "status": "PASS",
+  "browser": "152.0.7977.83",
+  "route": "System Chrome via Playwright; dedicated persistent test profiles; no security-weakening flags",
+  "sources": {
+    "v5": {
+      "worktree": "/Users/holemini/Desktop/Project Shrimp",
+      "head": "d895d851ae5c7b4c29aab74534bf4d4ad44f42e0",
+      "storageSha256": "f82148ebe1247eab69b2c12b7df353e6357073b4bcacb8cccdabff75ca21eab8"
+    },
+    "v6": {
+      "worktree": "/Users/holemini/Desktop/Project Shrimp Review Vocab R1",
+      "head": "e251dada5827a3862f5de9047326a654d64a88a5",
+      "storageSha256": "b00fc0f82b7ccad8a291cc01ffd231d4c097cc759aa4b1273423c6faa19409f5",
+      "builtIndexSha256": "4d37ff896c1122cdf8dcb84a96fa8aad55e831e1987bdfe799295455889a3d48"
+    },
+    "v7": {
+      "worktree": "/Users/holemini/Desktop/Project Shrimp DB V7 R1",
+      "headAtRun": "05351ca654a3c82902e35f175623a4f4cf4c1466",
+      "storageSha256": "4184d99c8bf1d7bccec18909821f86045834fc949217f63bed61a13bd8541d85",
+      "builtIndexSha256": "10048c123766f1d0aed24d8e26b8171200425a3d1d58179ee3c4e5d5aa318fdd"
+    }
+  },
+  "observation": "Actual upgrade commits before native exact snapshot; only open-success delivery to app is held. On hydration/restart, accepted app refreshes active.updatedAt; verified separately with all other state exact.",
+  "base": "http://127.0.0.1:62639",
+  "fileURL": "file:///tmp/shrimp-db-v7-hltT6T/live/index.html",
+  "viewport": {
+    "width": 1280,
+    "height": 900
+  },
+  "checks": [
+    {
+      "name": "Actual v5 writer characterized; actual accepted v6 submissions create contradictory stale columns, diagnostic, Last set and active work",
+      "status": "PASS",
+      "historicalProgressKeyUnion": [
+        "correct",
+        "correctStreak",
+        "incorrect",
+        "lastSeenAt",
+        "missed",
+        "questionId",
+        "seen",
+        "srsDueAt",
+        "srsEase",
+        "srsIntervalDays",
+        "srsLapses"
+      ],
+      "v6ProgressKeyUnion": [
+        "correct",
+        "correctStreak",
+        "incorrect",
+        "lastSeenAt",
+        "migrationDiagnostic",
+        "missed",
+        "needsReview",
+        "questionId",
+        "seen",
+        "srsDueAt",
+        "srsEase",
+        "srsIntervalDays",
+        "srsLapses"
+      ],
+      "diagnosticSupplement": "One actual v5 row lost correctStreak and its top-level event in a test-only native transaction; all other writer rows are unaltered."
+    },
+    {
+      "name": "Chrome populated v6→v7 exact subtraction; all durable retained keys/values, store metadata, localStorage unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "Existing Last set reopens read-only; supplementary correct-answer/zero-stored-points control renders stored historical outcome without regrading",
+      "status": "PASS"
+    },
+    {
+      "name": "Actual accepted v6 build receives VersionError and reports memory fallback; v7 and all learner data survive, v7 reopening recovers",
+      "status": "PASS",
+      "errors": [
+        {
+          "requested": 6,
+          "error": "VersionError"
+        },
+        {
+          "requested": 6,
+          "error": "VersionError"
+        }
+      ]
+    },
+    {
+      "name": "Genuine direct v5→v7: accepted semantics plus before-minus-four-plus-completedSets formula; active work and retained stores exact",
+      "status": "PASS"
+    },
+    {
+      "name": "Real v7 blocked event, honest memory status, release without reload, queued success then close, reload and durable retry recover",
+      "status": "PASS",
+      "trace": [
+        {
+          "event": "open",
+          "id": 0
+        },
+        {
+          "event": "blocked",
+          "id": 0
+        },
+        {
+          "event": "open",
+          "id": 1
+        },
+        {
+          "event": "upgradeneeded",
+          "id": 0
+        },
+        {
+          "event": "success",
+          "id": 0
+        },
+        {
+          "event": "close",
+          "version": 7
+        },
+        {
+          "event": "success",
+          "id": 1
+        }
+      ],
+      "note": "The original blocked request closes on late success. A subsequently queued startup open may hydrate and refresh active.updatedAt; all other durable values remain exactly the cleanup result."
+    },
+    {
+      "name": "Actual built file:// migration at fixed URL: v6 preflight visible, exact v7 subtraction, full browser restart preserves Last set/active/progress",
+      "status": "PASS",
+      "fileURL": "file:///tmp/shrimp-db-v7-hltT6T/live/index.html",
+      "profile": "/tmp/shrimp-db-v7-hltT6T/file-profile",
+      "durableIndexedDB": true
+    },
+    {
+      "name": "Resumed actual v6 work submits in v7 UI; triple submit gives one durable event, diagnostic row exactly seven retained keys, Saved unchanged",
+      "status": "PASS",
+      "durableProgressKeys": [
+        "correct",
+        "incorrect",
+        "lastSeenAt",
+        "migrationDiagnostic",
+        "needsReview",
+        "questionId",
+        "seen"
+      ]
+    },
+    {
+      "name": "Post-migration completion archives then clears matching active; remediation and duplicate retry preserve Last set; Saved and Needs review independent",
+      "status": "PASS"
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    {
+      "label": "file",
+      "error": "Access to manifest at 'file:///tmp/shrimp-db-v7-hltT6T/live/manifest.webmanifest' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, isolated-app."
+    },
+    {
+      "label": "file",
+      "error": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "label": "file",
+      "error": "Access to manifest at 'file:///tmp/shrimp-db-v7-hltT6T/live/manifest.webmanifest' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, isolated-app."
+    },
+    {
+      "label": "file",
+      "error": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "label": "file-restart",
+      "error": "Access to manifest at 'file:///tmp/shrimp-db-v7-hltT6T/live/manifest.webmanifest' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, isolated-app."
+    },
+    {
+      "label": "file-restart",
+      "error": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "label": "file-restart",
+      "error": "Access to manifest at 'file:///tmp/shrimp-db-v7-hltT6T/live/manifest.webmanifest' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, isolated-app."
+    },
+    {
+      "label": "file-restart",
+      "error": "Failed to load resource: net::ERR_FAILED"
+    }
+  ],
+  "profileDisposition": "Temporary project-test profiles removed after completion"
+}

@@ -1,0 +1,384 @@
+{
+  "version": 5,
+  "stores": {
+    "activeSession": {
+      "keyPath": "id",
+      "autoIncrement": false,
+      "indexes": [],
+      "keys": [
+        "historical-active"
+      ],
+      "values": [
+        {
+          "id": "historical-active",
+          "mode": "study",
+          "questionIds": [
+            "gemini_jun05_a_mc_advance_directives_01",
+            "gemini_jun05_a_mc_cane_ambulation_02"
+          ],
+          "poolIds": [
+            "gemini_jun05_a_mc_advance_directives_01",
+            "gemini_jun05_a_mc_cane_ambulation_02"
+          ],
+          "index": 1,
+          "answers": {
+            "gemini_jun05_a_mc_cane_ambulation_02": {
+              "optionIds": [
+                "A"
+              ]
+            }
+          },
+          "results": {
+            "gemini_jun05_a_mc_advance_directives_01": false
+          },
+          "scores": {
+            "gemini_jun05_a_mc_advance_directives_01": {
+              "earned": 0,
+              "possible": 1
+            }
+          },
+          "skippedQuestionIds": [
+            "gemini_jun05_a_mc_cane_ambulation_02"
+          ],
+          "phase": "skipped-review",
+          "languageMode": "on-tap",
+          "title": "Historical active",
+          "startedAt": "2026-09-12T10:00:00Z",
+          "updatedAt": "2026-09-12T10:01:00Z"
+        }
+      ]
+    },
+    "answerEvents": {
+      "keyPath": "id",
+      "autoIncrement": false,
+      "indexes": [],
+      "keys": [
+        "gemini_jun05_a_mc_advance_directives_01-1789269371773-y9lmox",
+        "gemini_jun05_a_mc_advance_directives_01-1789269371774-2zssy5",
+        "gemini_jun05_a_mc_cane_ambulation_02-1789269371775-mj1o8h",
+        "gemini_jun05_a_mc_confidentiality_09-1789269371775-ww9ye3",
+        "missing-from-current-bank-1789269371775-ozs1xu"
+      ],
+      "values": [
+        {
+          "id": "gemini_jun05_a_mc_advance_directives_01-1789269371773-y9lmox",
+          "questionId": "gemini_jun05_a_mc_advance_directives_01",
+          "wasCorrect": false,
+          "answeredAt": "2026-09-13T03:16:11.773Z",
+          "sessionId": "historical-v5",
+          "sessionMode": "study",
+          "languageModeAtAnswer": "on-tap"
+        },
+        {
+          "id": "gemini_jun05_a_mc_advance_directives_01-1789269371774-2zssy5",
+          "questionId": "gemini_jun05_a_mc_advance_directives_01",
+          "wasCorrect": true,
+          "answeredAt": "2026-09-13T03:16:11.774Z",
+          "sessionId": "historical-v5",
+          "sessionMode": "study",
+          "languageModeAtAnswer": "on-tap"
+        },
+        {
+          "id": "gemini_jun05_a_mc_cane_ambulation_02-1789269371775-mj1o8h",
+          "questionId": "gemini_jun05_a_mc_cane_ambulation_02",
+          "wasCorrect": false,
+          "answeredAt": "2026-09-13T03:16:11.775Z",
+          "sessionId": "historical-v5",
+          "sessionMode": "study",
+          "languageModeAtAnswer": "on-tap"
+        },
+        {
+          "id": "gemini_jun05_a_mc_confidentiality_09-1789269371775-ww9ye3",
+          "questionId": "gemini_jun05_a_mc_confidentiality_09",
+          "wasCorrect": false,
+          "answeredAt": "2026-09-13T03:16:11.775Z",
+          "sessionId": "historical-v5",
+          "sessionMode": "study",
+          "languageModeAtAnswer": "on-tap"
+        },
+        {
+          "id": "missing-from-current-bank-1789269371775-ozs1xu",
+          "questionId": "missing-from-current-bank",
+          "wasCorrect": false,
+          "answeredAt": "2026-09-13T03:16:11.775Z",
+          "sessionId": "historical-v5",
+          "sessionMode": "study",
+          "languageModeAtAnswer": "on-tap"
+        }
+      ]
+    },
+    "caseAnswerPartEvents": {
+      "keyPath": "id",
+      "autoIncrement": false,
+      "indexes": [],
+      "keys": [
+        "historical-case-historical-part-1789269371776-4aofl9"
+      ],
+      "values": [
+        {
+          "questionId": "historical-case",
+          "partId": "historical-part",
+          "wasCorrect": false,
+          "sessionId": "historical-v5",
+          "sessionMode": "study",
+          "languageModeAtAnswer": "on-tap",
+          "id": "historical-case-historical-part-1789269371776-4aofl9",
+          "answeredAt": "2026-09-13T03:16:11.776Z"
+        }
+      ]
+    },
+    "flags": {
+      "keyPath": "questionId",
+      "autoIncrement": false,
+      "indexes": [],
+      "keys": [
+        "gemini_jun05_a_mc_advance_directives_01",
+        "gemini_jun05_a_mc_cane_ambulation_02"
+      ],
+      "values": [
+        {
+          "questionId": "gemini_jun05_a_mc_advance_directives_01",
+          "flagged": true,
+          "note": "Saved by historical writer",
+          "updatedAt": "2026-09-12T10:00:00Z"
+        },
+        {
+          "questionId": "gemini_jun05_a_mc_cane_ambulation_02",
+          "flagged": false,
+          "note": "Note only, never Saved",
+          "updatedAt": "2026-09-12T10:00:00Z"
+        }
+      ]
+    },
+    "flashcardProgress": {
+      "keyPath": "termId",
+      "autoIncrement": false,
+      "indexes": [],
+      "keys": [
+        "historical-term"
+      ],
+      "values": [
+        {
+          "termId": "historical-term",
+          "seen": 1,
+          "correct": 0,
+          "incorrect": 1,
+          "correctStreak": 0,
+          "lastSeenAt": "2026-09-13T03:16:11.776Z",
+          "srsDueAt": "2026-09-13T03:36:11.776Z",
+          "srsIntervalDays": 0,
+          "srsEase": 2.05,
+          "srsLapses": 1
+        }
+      ]
+    },
+    "languageMisses": {
+      "keyPath": "questionId",
+      "autoIncrement": false,
+      "indexes": [],
+      "keys": [
+        "gemini_jun05_a_mc_advance_directives_01"
+      ],
+      "values": [
+        {
+          "questionId": "gemini_jun05_a_mc_advance_directives_01",
+          "markedAt": "2026-09-13T03:16:11.776Z"
+        }
+      ]
+    },
+    "progress": {
+      "keyPath": "questionId",
+      "autoIncrement": false,
+      "indexes": [],
+      "keys": [
+        "gemini_jun05_a_mc_advance_directives_01",
+        "gemini_jun05_a_mc_cane_ambulation_02",
+        "gemini_jun05_a_mc_confidentiality_09",
+        "missing-from-current-bank"
+      ],
+      "values": [
+        {
+          "questionId": "gemini_jun05_a_mc_advance_directives_01",
+          "seen": 2,
+          "correct": 1,
+          "incorrect": 1,
+          "correctStreak": 1,
+          "missed": true,
+          "lastSeenAt": "2026-09-13T03:16:11.774Z",
+          "srsDueAt": "2026-09-14T03:16:11.774Z",
+          "srsIntervalDays": 1,
+          "srsEase": 2.13,
+          "srsLapses": 1
+        },
+        {
+          "questionId": "gemini_jun05_a_mc_cane_ambulation_02",
+          "seen": 1,
+          "correct": 0,
+          "incorrect": 1,
+          "correctStreak": 0,
+          "missed": true,
+          "lastSeenAt": "2026-09-13T03:16:11.775Z",
+          "srsDueAt": "2026-09-13T03:36:11.775Z",
+          "srsIntervalDays": 0,
+          "srsEase": 2.05,
+          "srsLapses": 1
+        },
+        {
+          "questionId": "gemini_jun05_a_mc_confidentiality_09",
+          "seen": 1,
+          "correct": 0,
+          "incorrect": 1,
+          "correctStreak": 0,
+          "missed": true,
+          "lastSeenAt": "2026-09-13T03:16:11.775Z",
+          "srsDueAt": "2026-09-13T03:36:11.775Z",
+          "srsIntervalDays": 0,
+          "srsEase": 2.05,
+          "srsLapses": 1
+        },
+        {
+          "questionId": "missing-from-current-bank",
+          "seen": 1,
+          "correct": 0,
+          "incorrect": 1,
+          "correctStreak": 0,
+          "missed": true,
+          "lastSeenAt": "2026-09-13T03:16:11.775Z",
+          "srsDueAt": "2026-09-13T03:36:11.775Z",
+          "srsIntervalDays": 0,
+          "srsEase": 2.05,
+          "srsLapses": 1
+        }
+      ]
+    },
+    "translationRevealEvents": {
+      "keyPath": "id",
+      "autoIncrement": false,
+      "indexes": [],
+      "keys": [
+        "gemini_jun05_a_mc_advance_directives_01-1789269371776-a74ooj"
+      ],
+      "values": [
+        {
+          "questionId": "gemini_jun05_a_mc_advance_directives_01",
+          "sessionId": "historical-v5",
+          "block": "stem",
+          "sessionMode": "study",
+          "languageModeAtReveal": "on-tap",
+          "itemType": "multiple_choice",
+          "category": "Management of Care",
+          "topic": "Legal & Ethical Principles",
+          "elapsedMsOnQuestion": 1500,
+          "answeredBeforeReveal": false,
+          "submittedBeforeReveal": false,
+          "revealCountForQuestion": 1,
+          "id": "gemini_jun05_a_mc_advance_directives_01-1789269371776-a74ooj",
+          "revealedAt": "2026-09-13T03:16:11.776Z"
+        }
+      ]
+    },
+    "uploadedQuestions": {
+      "keyPath": "id",
+      "autoIncrement": false,
+      "indexes": [],
+      "keys": [
+        "uploaded-v5"
+      ],
+      "values": [
+        {
+          "question": {
+            "id": "uploaded-v5",
+            "itemType": "multiple_choice",
+            "category": "Management of Care",
+            "topic": "Legal & Ethical Principles",
+            "difficulty": "medium",
+            "ngnSkill": "generate_solutions",
+            "stem": {
+              "en": "The nurse is caring for an older adult client who is terminally ill. The client has a signed living will stating that no life-sustaining measures, including cardiopulmonary resuscitation (CPR), should be performed. The client's adult children arrive and insist that the medical team perform CPR if the client's heart stops. Which action by the nurse is most appropriate?",
+              "zh": "护士正在护理一名处于绝症晚期的老年患者。患者签署了一份生前遗嘱，声明不应进行包括心肺复苏（CPR）在内的任何生命支持措施。患者的成年子女到来并坚持要求医疗团队在患者心脏停止跳动时进行 CPR。护士采取的哪项行动最合适？"
+            },
+            "options": [
+              {
+                "id": "B",
+                "en": "Advise the family to contact an attorney to override the living will.",
+                "zh": "建议家属联系律师以推翻生前遗嘱。"
+              },
+              {
+                "id": "D",
+                "en": "Inform the medical provider to update the code status to full code.",
+                "zh": "通知医疗服务提供者将抢救状态更新为全心肺复苏（Full Code）。"
+              },
+              {
+                "id": "A",
+                "en": "Explain to the family that the client's living will must be honored.",
+                "zh": "向家属解释必须尊重患者的生前遗嘱。"
+              },
+              {
+                "id": "C",
+                "en": "Reassure the family that CPR will be performed to honor their wishes.",
+                "zh": "向家属保证将进行 CPR 以尊重他们的意愿。"
+              }
+            ],
+            "correct": [
+              "A"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "A living will is a legally binding advance directive that reflects the autonomous wishes of a competent client. The nurse and healthcare team must honor the client's documented preferences, which take precedence over the wishes of the family members.",
+                "zh": "生前遗嘱是一份具有法律约束力的预立医疗指示，反映了有认知能力的患者的自主意愿。护士和医疗团队必须尊重患者书面记录的偏好，这些偏好优先于家属的意愿。"
+              },
+              "byChoice": [
+                {
+                  "refId": "C",
+                  "en": "Performing CPR would directly violate the client's autonomous decisions and legally binding advance directive.",
+                  "zh": "进行 CPR 将直接违反患者的自主决定和具有法律约束力的预立医疗指示。"
+                },
+                {
+                  "refId": "D",
+                  "en": "The medical provider cannot change the client's code status based solely on the family's wishes when a valid living will is in place.",
+                  "zh": "当存在有效的生前遗嘱时，医疗服务提供者不能仅凭家属的意愿更改患者的抢救状态。"
+                },
+                {
+                  "refId": "A",
+                  "en": "The nurse must advocate for the client and explain to the family that the client's advance directive is legally binding and must be honored.",
+                  "zh": "护士必须为患者代言，并向家属解释患者的预立医疗指示具有法律约束力，必须予以尊重。"
+                },
+                {
+                  "refId": "B",
+                  "en": "Encouraging legal action to override the client's wishes does not advocate for the client and is not the correct nursing action.",
+                  "zh": "鼓励采取法律行动来推翻患者的意愿并没有为患者代言，因而不是正确的护理行动。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Focus on the client's autonomy and legal rights. Advance directives reflect the client's wishes and take precedence over the preferences of family members.",
+              "zh": "关注患者的自主权和法律权利。预立医疗指示反映了患者的意愿，并优先于家属的偏好。"
+            },
+            "glossary": [
+              {
+                "termEn": "living will",
+                "termZh": "生前遗嘱",
+                "defZh": "一份法律文件，声明一个人在无法做出医疗决定时，希望接受或拒绝哪些医疗护理。"
+              },
+              {
+                "termEn": "advance directive",
+                "termZh": "预立医疗指示",
+                "defZh": "一个人对其未来医疗护理所做的书面声明，通常在他们无法再表达自己意愿时生效。"
+              }
+            ]
+          },
+          "sourceKind": "uploaded",
+          "sourceLabel": "historical fixture",
+          "importedAt": "2026-09-12T10:00:00Z",
+          "originalId": "gemini_jun05_a_mc_advance_directives_01",
+          "id": "uploaded-v5"
+        }
+      ]
+    }
+  },
+  "localStorage": {
+    "completed-memory-notice": "dismissed",
+    "nclex-settings": "{\"languageMode\":\"on-tap\",\"defaultMode\":\"study\",\"voiceEnabled\":false,\"themeMode\":\"dark\",\"textSizeMode\":\"default\"}",
+    "unrelated-preserve": "opaque owner preference"
+  }
+}

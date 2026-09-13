@@ -1,0 +1,257 @@
+{
+  "version": 7,
+  "stores": {
+    "activeSession": {
+      "keyPath": "id",
+      "autoIncrement": false,
+      "indexes": [],
+      "keys": [
+        "active"
+      ],
+      "values": [
+        {
+          "id": "active",
+          "mode": "study",
+          "questionIds": [
+            "gemini_jun05_a_mc_advance_directives_01"
+          ],
+          "poolIds": [
+            "gemini_jun05_a_mc_advance_directives_01"
+          ],
+          "index": 0,
+          "answers": {},
+          "results": {},
+          "scores": {},
+          "attempts": {},
+          "fingerprints": {
+            "gemini_jun05_a_mc_advance_directives_01": "fnv1a64-v1:948436494757aa44"
+          },
+          "languageMode": "on-tap",
+          "title": "active",
+          "startedAt": "2026-09-12T12:00:00Z",
+          "updatedAt": "2026-09-12T12:00:00Z",
+          "launchIntent": "ordinary",
+          "returnView": "home",
+          "phase": "questions",
+          "skippedQuestionIds": [],
+          "requestedCount": 1
+        }
+      ]
+    },
+    "answerEvents": {
+      "keyPath": "id",
+      "autoIncrement": false,
+      "indexes": [],
+      "keys": [
+        "ordinary-event"
+      ],
+      "values": [
+        {
+          "id": "ordinary-event",
+          "questionId": "gemini_jun05_a_mc_advance_directives_01",
+          "wasCorrect": false,
+          "answeredAt": "2026-09-12T12:00:00Z"
+        }
+      ]
+    },
+    "completedSets": {
+      "keyPath": "id",
+      "autoIncrement": false,
+      "indexes": [],
+      "keys": [
+        "last"
+      ],
+      "values": [
+        {
+          "id": "last",
+          "version": 1,
+          "sessionId": "previous",
+          "startedAt": "2026-09-12T12:00:00Z",
+          "completedAt": "2026-09-13T03:15:33.118Z",
+          "title": "previous",
+          "endReason": "finished",
+          "languageMode": "on-tap",
+          "requestedCount": 1,
+          "deliveredCount": 1,
+          "entries": [
+            {
+              "questionId": "gemini_jun05_a_mc_advance_directives_01",
+              "fingerprint": "fnv1a64-v1:948436494757aa44",
+              "status": "submitted",
+              "attempt": {
+                "submissionId": "[\"previous\",\"gemini_jun05_a_mc_advance_directives_01\"]",
+                "answer": {
+                  "optionIds": [
+                    "A"
+                  ]
+                },
+                "submittedAt": "2026-09-13T03:15:33.117Z",
+                "languageMode": "on-tap",
+                "result": true,
+                "score": {
+                  "earned": 1,
+                  "possible": 1
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "flags": {
+      "keyPath": "questionId",
+      "autoIncrement": false,
+      "indexes": [],
+      "keys": [
+        "gemini_jun05_a_mc_advance_directives_01",
+        "note-only"
+      ],
+      "values": [
+        {
+          "questionId": "gemini_jun05_a_mc_advance_directives_01",
+          "flagged": true,
+          "note": "Saved note",
+          "updatedAt": "then"
+        },
+        {
+          "questionId": "note-only",
+          "flagged": false,
+          "note": "not Saved",
+          "updatedAt": "then"
+        }
+      ]
+    },
+    "progress": {
+      "keyPath": "questionId",
+      "autoIncrement": false,
+      "indexes": [],
+      "keys": [
+        "b-partial",
+        "c-clean",
+        "gemini_jun05_a_mc_advance_directives_01"
+      ],
+      "values": [
+        {
+          "questionId": "b-partial",
+          "seen": 2,
+          "correct": 1,
+          "incorrect": 1,
+          "needsReview": false
+        },
+        {
+          "questionId": "c-clean",
+          "seen": 2,
+          "correct": 1,
+          "incorrect": 1,
+          "needsReview": false
+        },
+        {
+          "questionId": "gemini_jun05_a_mc_advance_directives_01",
+          "seen": 2,
+          "correct": 1,
+          "incorrect": 1,
+          "needsReview": true,
+          "migrationDiagnostic": "accepted diagnostic",
+          "lastSeenAt": "2026-09-12T12:00:00Z"
+        }
+      ]
+    },
+    "uploadedQuestions": {
+      "keyPath": "id",
+      "autoIncrement": false,
+      "indexes": [],
+      "keys": [
+        "uploaded"
+      ],
+      "values": [
+        {
+          "id": "uploaded",
+          "sourceKind": "uploaded",
+          "sourceLabel": "fixture",
+          "question": {
+            "id": "uploaded",
+            "itemType": "multiple_choice",
+            "category": "Management of Care",
+            "topic": "Legal & Ethical Principles",
+            "difficulty": "medium",
+            "ngnSkill": "generate_solutions",
+            "stem": {
+              "en": "The nurse is caring for an older adult client who is terminally ill. The client has a signed living will stating that no life-sustaining measures, including cardiopulmonary resuscitation (CPR), should be performed. The client's adult children arrive and insist that the medical team perform CPR if the client's heart stops. Which action by the nurse is most appropriate?",
+              "zh": "护士正在护理一名处于绝症晚期的老年患者。患者签署了一份生前遗嘱，声明不应进行包括心肺复苏（CPR）在内的任何生命支持措施。患者的成年子女到来并坚持要求医疗团队在患者心脏停止跳动时进行 CPR。护士采取的哪项行动最合适？"
+            },
+            "options": [
+              {
+                "id": "B",
+                "en": "Advise the family to contact an attorney to override the living will.",
+                "zh": "建议家属联系律师以推翻生前遗嘱。"
+              },
+              {
+                "id": "D",
+                "en": "Inform the medical provider to update the code status to full code.",
+                "zh": "通知医疗服务提供者将抢救状态更新为全心肺复苏（Full Code）。"
+              },
+              {
+                "id": "A",
+                "en": "Explain to the family that the client's living will must be honored.",
+                "zh": "向家属解释必须尊重患者的生前遗嘱。"
+              },
+              {
+                "id": "C",
+                "en": "Reassure the family that CPR will be performed to honor their wishes.",
+                "zh": "向家属保证将进行 CPR 以尊重他们的意愿。"
+              }
+            ],
+            "correct": [
+              "A"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "A living will is a legally binding advance directive that reflects the autonomous wishes of a competent client. The nurse and healthcare team must honor the client's documented preferences, which take precedence over the wishes of the family members.",
+                "zh": "生前遗嘱是一份具有法律约束力的预立医疗指示，反映了有认知能力的患者的自主意愿。护士和医疗团队必须尊重患者书面记录的偏好，这些偏好优先于家属的意愿。"
+              },
+              "byChoice": [
+                {
+                  "refId": "C",
+                  "en": "Performing CPR would directly violate the client's autonomous decisions and legally binding advance directive.",
+                  "zh": "进行 CPR 将直接违反患者的自主决定和具有法律约束力的预立医疗指示。"
+                },
+                {
+                  "refId": "D",
+                  "en": "The medical provider cannot change the client's code status based solely on the family's wishes when a valid living will is in place.",
+                  "zh": "当存在有效的生前遗嘱时，医疗服务提供者不能仅凭家属的意愿更改患者的抢救状态。"
+                },
+                {
+                  "refId": "A",
+                  "en": "The nurse must advocate for the client and explain to the family that the client's advance directive is legally binding and must be honored.",
+                  "zh": "护士必须为患者代言，并向家属解释患者的预立医疗指示具有法律约束力，必须予以尊重。"
+                },
+                {
+                  "refId": "B",
+                  "en": "Encouraging legal action to override the client's wishes does not advocate for the client and is not the correct nursing action.",
+                  "zh": "鼓励采取法律行动来推翻患者的意愿并没有为患者代言，因而不是正确的护理行动。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Focus on the client's autonomy and legal rights. Advance directives reflect the client's wishes and take precedence over the preferences of family members.",
+              "zh": "关注患者的自主权和法律权利。预立医疗指示反映了患者的意愿，并优先于家属的偏好。"
+            },
+            "glossary": [
+              {
+                "termEn": "living will",
+                "termZh": "生前遗嘱",
+                "defZh": "一份法律文件，声明一个人在无法做出医疗决定时，希望接受或拒绝哪些医疗护理。"
+              },
+              {
+                "termEn": "advance directive",
+                "termZh": "预立医疗指示",
+                "defZh": "一个人对其未来医疗护理所做的书面声明，通常在他们无法再表达自己意愿时生效。"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "localStorage": {}
+}
