@@ -41790,8 +41790,8 @@
             "difficulty": "medium",
             "ngnSkill": "analyze_cues",
             "stem": {
-              "en": "The nurse reviews the Stage 1 teaching session and identifies the discharge issue that must be corrected before the client leaves.",
-              "zh": "护士查看第 1 阶段的宣教记录，并判断患者离院前必须纠正的出院问题。"
+              "en": "The nurse reviews the Stage 2 teaching session and identifies the discharge issue that must be corrected before the client leaves.",
+              "zh": "护士查看第 2 阶段的宣教记录，并判断患者离院前必须纠正的出院问题。"
             },
             "rationale": {
               "correct": {
@@ -41828,8 +41828,8 @@
               }
             ],
             "clozeStem": {
-              "en": "The priority discharge barrier is {{1}}; the nurse should teach the client to {{2}}.",
-              "zh": "优先处理的出院障碍是 {{1}}；护士应教导患者 {{2}}。"
+              "en": "The teaching gap about oxygen flow is {{1}}; the nurse should teach the client to {{2}}.",
+              "zh": "关于氧流量的宣教缺口是 {{1}}；护士应教导患者 {{2}}。"
             },
             "dropdowns": [
               {
@@ -41874,7 +41874,8 @@
                 ],
                 "correct": "o1"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_2_teaching"
           },
           {
             "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
@@ -42633,7 +42634,8 @@
                 ],
                 "correct": "o1"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_2_assessment"
           },
           {
             "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
@@ -45132,8 +45134,8 @@
                         {
                           "id": "current",
                           "label": {
-                            "en": "0900",
-                            "zh": "0900"
+                            "en": "0930",
+                            "zh": "0930"
                           }
                         }
                       ],
@@ -45187,8 +45189,8 @@
                   "zh": "稍后再评估与家属问题"
                 },
                 "content": {
-                  "en": "At 1015 after stimulation, oxygen 2 L/min by nasal cannula, and provider notification, respiratory rate is 14/min and SpO2 is 95%. Sedation score is 1. Pain is 6/10 with turning. The adult child asks, 'Can I press the pain button for Dad if he is sleeping so he stays ahead of the pain?' Unit protocol requires respiratory rate and sedation reassessment 15 minutes after each IV opioid dose.",
-                  "zh": "经过刺激、鼻导管吸氧 2 L/分并通知医护团队后，1015 呼吸频率 14 次/分，SpO2 95%。镇静评分 1。翻身时疼痛 6/10。成年子女问：“如果爸爸睡着了，我能帮他按止痛按钮，让疼痛不要加重吗？”科室流程要求每次静脉使用阿片类药物后 15 分钟复查呼吸频率和镇静情况。"
+                  "en": "At 1015 after stimulation, oxygen 2 L/min by nasal cannula, and provider notification, respiratory rate is 14/min and SpO2 is 95%. Sedation score is 1. Pain is 6/10 with turning. The adult child asks, 'Can I press the pain button for Dad if he is sleeping so he stays ahead of the pain?' Unit protocol requires respiratory rate and sedation reassessment 15 minutes after each IV opioid dose. The recorded 0930 reassessment was 15 minutes later than the required 0915 check; the nurse reports the missed check through the unit safety process.",
+                  "zh": "经过刺激、鼻导管吸氧 2 L/分并通知医护团队后，1015 呼吸频率 14 次/分，SpO2 95%。镇静评分 1。翻身时疼痛 6/10。成年子女问：“如果爸爸睡着了，我能帮他按止痛按钮，让疼痛不要加重吗？”科室流程要求每次静脉使用阿片类药物后 15 分钟复查呼吸频率和镇静情况。 记录中的 0930 复评比规定的 0915 检查晚了 15 分钟；护士通过科室安全流程报告此次漏查。"
                 },
                 "structuredMeasurements": {
                   "panels": [
@@ -45478,19 +45480,19 @@
           },
           {
             "id": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q3",
-            "itemType": "ordered_response",
+            "itemType": "matrix",
             "category": "Reduction of Risk Potential",
             "topic": "Perioperative Care",
             "difficulty": "hard",
             "ngnSkill": "take_action",
             "stem": {
-              "en": "Place the nursing actions for the Stage 2 change in the correct order.",
-              "zh": "将针对第 2 阶段变化的护理行动按正确顺序排列。"
+              "en": "For the Stage 2 change, classify each action as part of the immediate response, which can proceed concurrently with help, or as documentation after stabilization.",
+              "zh": "针对阶段 2 的变化，将各项措施分为可在协助下并行开展的立即处理，或病情稳定后的记录。"
             },
             "rationale": {
               "correct": {
-                "en": "The sequence starts with immediate airway/breathing support and stopping further opioid exposure, then oxygen and monitoring, escalation and possible reversal, and documentation after the client is stabilized.",
-                "zh": "顺序应从立即支持气道/呼吸和停止继续使用阿片类开始，然后给氧和监测，升级处理并可能使用拮抗剂，最后在患者稳定后记录。"
+                "en": "Stimulate and assess airway and breathing, prevent further opioid exposure, apply ordered oxygen and monitoring, and summon the provider or rapid-response resources as coordinated immediate actions. Prepare reversal when prescribed or protocol-directed. Documentation follows stabilization; airway and ventilation support must not wait for paperwork.",
+                "zh": "刺激并评估气道及呼吸、防止继续阿片暴露、按医嘱吸氧和监测、呼叫医护提供者或快速反应资源，均为需协调开展的立即措施。在有医嘱或流程指示时准备拮抗治疗。记录应在病情稳定后完成，不能因文书工作而延误气道及通气支持。"
               },
               "byChoice": [
                 {
@@ -45536,40 +45538,81 @@
                 "defZh": "针对病情突然恶化而启动的紧急团队或流程。"
               }
             ],
-            "options": [
+            "correct": [
               {
-                "id": "B",
-                "en": "Stop additional opioid administration and call for immediate assistance.",
-                "zh": "停止追加阿片类药物并立即呼叫协助。"
+                "rowId": "B",
+                "columnIds": [
+                  "immediate"
+                ]
               },
               {
-                "id": "E",
-                "en": "Document the reassessment findings and the client's response after stabilization.",
-                "zh": "病情稳定后记录复评结果和患者反应。"
+                "rowId": "E",
+                "columnIds": [
+                  "after"
+                ]
               },
               {
-                "id": "A",
-                "en": "Stimulate the client, raise the head of the bed, and assess airway and breathing.",
-                "zh": "刺激患者，抬高床头，并评估气道和呼吸。"
+                "rowId": "A",
+                "columnIds": [
+                  "immediate"
+                ]
               },
               {
-                "id": "D",
-                "en": "Notify the provider or rapid-response resource and prepare naloxone if prescribed or protocol-directed.",
-                "zh": "通知医护提供者或快速反应资源，并在有医嘱或流程要求时准备纳洛酮。"
+                "rowId": "D",
+                "columnIds": [
+                  "immediate"
+                ]
               },
               {
-                "id": "C",
-                "en": "Apply oxygen as ordered and attach continuous pulse oximetry.",
-                "zh": "按医嘱给氧并连接连续脉搏血氧监测。"
+                "rowId": "C",
+                "columnIds": [
+                  "immediate"
+                ]
               }
             ],
-            "correct": [
-              "A",
-              "B",
-              "C",
-              "D",
-              "E"
-            ]
+            "matrix": {
+              "rows": [
+                {
+                  "id": "B",
+                  "en": "Stop additional opioid administration and call for immediate assistance.",
+                  "zh": "停止追加阿片类药物并立即呼叫协助。"
+                },
+                {
+                  "id": "E",
+                  "en": "Document the reassessment findings and the client's response after stabilization.",
+                  "zh": "病情稳定后记录复评结果和患者反应。"
+                },
+                {
+                  "id": "A",
+                  "en": "Stimulate the client, raise the head of the bed, and assess airway and breathing.",
+                  "zh": "刺激患者，抬高床头，并评估气道和呼吸。"
+                },
+                {
+                  "id": "D",
+                  "en": "Notify the provider or rapid-response resource and prepare naloxone if prescribed or protocol-directed.",
+                  "zh": "通知医护提供者或快速反应资源，并在有医嘱或流程要求时准备纳洛酮。"
+                },
+                {
+                  "id": "C",
+                  "en": "Apply oxygen as ordered and attach continuous pulse oximetry.",
+                  "zh": "按医嘱给氧并连接连续脉搏血氧监测。"
+                }
+              ],
+              "columns": [
+                {
+                  "id": "immediate",
+                  "en": "Immediate response; coordinate concurrent actions",
+                  "zh": "立即处理；协调并行措施"
+                },
+                {
+                  "id": "after",
+                  "en": "Documentation after stabilization",
+                  "zh": "稳定后的记录"
+                }
+              ],
+              "selectionMode": "single_per_row"
+            },
+            "answerableAfterStageId": "stage_2_after_dose"
           },
           {
             "id": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q4",
@@ -46517,18 +46560,18 @@
           {
             "id": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03_q1",
             "itemType": "matrix",
-            "category": "Reduction of Risk Potential",
-            "topic": "Laboratory & Diagnostic Tests",
+            "category": "Health Promotion and Maintenance",
+            "topic": "Pediatric & Adolescent Health",
             "difficulty": "medium",
             "ngnSkill": "recognize_cues",
             "stem": {
-              "en": "Using Stage 1 data, classify each cue as consistent with mild/moderate dehydration suitable for oral rehydration teaching or requiring urgent escalation.",
-              "zh": "根据第 1 阶段资料，将每项线索分类为符合可进行口服补液宣教的轻/中度脱水，或需要紧急升级处理。"
+              "en": "For a toddler being assessed for oral rehydration, classify each possible finding. Treat each row as a separate possibility, not as an additional finding in this child. For the non-red-flag rows, assume the child remains alert, adequately perfused and able to drink.",
+              "zh": "评估幼儿是否适合口服补液时，将每项可能的表现进行分类。各行是独立的可能情况，并非本患儿新增的实际表现。对于没有危险信号的行，假定患儿仍清醒、灌注充分且能饮水。"
             },
             "rationale": {
               "correct": {
-                "en": "Alert behavior, some urine output, and mild dryness fit oral rehydration teaching. No tears and bilious vomiting are more concerning cues that require escalation.",
-                "zh": "清醒、有一定尿量和轻度干燥符合口服补液宣教。哭时无泪和胆汁性呕吐是更令人担忧的线索，需要升级处理。"
+                "en": "Alert interaction, reduced but present urine output and mild dryness may fit monitored oral rehydration when perfusion and drinking ability are adequate. Reduced responsiveness with poor perfusion requires urgent escalation. Bilious vomiting requires urgent evaluation for an alternative serious cause. These are possible findings; the current chart does not document decreased responsiveness, poor perfusion, or bilious vomiting.",
+                "zh": "清醒互动、尿量减少但仍有尿，以及轻度干燥，在灌注和饮水能力充分时可符合严密监测下口服补液。反应减弱伴灌注不良需要紧急升级处理。胆汁性呕吐需要紧急评估其他严重病因。这些是可能的表现；当前病历未记录反应减弱、灌注不良或胆汁性呕吐。"
               },
               "byChoice": [
                 {
@@ -46543,8 +46586,8 @@
                 },
                 {
                   "refId": "r3",
-                  "en": "Absence of tears can indicate more significant dehydration.",
-                  "zh": "无泪可能提示更明显脱水。"
+                  "en": "This combination suggests shock or severe dehydration, requiring urgent assessment and resuscitation rather than routine teaching alone.",
+                  "zh": "该组合提示休克或严重脱水，需要紧急评估和复苏，而非仅作常规宣教。"
                 },
                 {
                   "refId": "r4",
@@ -46588,8 +46631,8 @@
                 },
                 {
                   "id": "r3",
-                  "en": "No tears when crying",
-                  "zh": "哭时无泪"
+                  "en": "Reduced responsiveness with cold, mottled extremities and weak pulses",
+                  "zh": "反应减弱，四肢冰冷、花斑，脉搏细弱"
                 },
                 {
                   "id": "r4",
@@ -46647,7 +46690,10 @@
                   "c1"
                 ]
               }
-            ]
+            ],
+            "answerableAfterStageId": {
+              "kind": "baseline"
+            }
           },
           {
             "id": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03_q2",
@@ -47045,8 +47091,8 @@
           "zh": "展开病例：居家伤口护理与回示"
         },
         "summary": {
-          "en": "A client with diabetes and a foot ulcer receives home health teaching, but the caregiver initially demonstrates unsafe wound-care understanding.",
-          "zh": "一名糖尿病足部溃疡患者接受居家护理宣教，但照护者最初显示出不安全的伤口护理理解。"
+          "en": "A client with diabetes and a foot ulcer receives home health visits for wound assessment and caregiver teaching.",
+          "zh": "一名糖尿病足部溃疡患者接受居家护理访视，以评估伤口并开展照护者宣教。"
         },
         "exhibits": [
           {
@@ -47386,7 +47432,8 @@
                 ],
                 "correct": "o1"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_2_teachback"
           },
           {
             "id": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q3",
@@ -53464,8 +53511,8 @@
       "difficulty": "hard",
       "caseStudy": {
         "title": {
-          "en": "Late postpartum preeclampsia with severe features presenting after discharge",
-          "zh": "出院后出现的迟发性产后子痫前期伴重度特征"
+          "en": "Postpartum readmission for headache and elevated blood pressure",
+          "zh": "产后因头痛和血压升高再次入院"
         },
         "summary": {
           "en": "A 29-year-old primipara calls on postpartum day 4 with a severe headache, visual spots, new facial edema, and repeated home BP of 162/108 after an uncomplicated term vaginal birth and normotensive prenatal course.",
@@ -54168,31 +54215,10 @@
               "zh": "根据第 2 阶段评估和实验室结果，完成诊断推理陈述。"
             },
             "clozeStem": {
-              "en": "The priority working diagnosis is {{dx}}. HELLP syndrome is less likely because {{hellp_evidence}}, and postpartum hypertension without severe features is less likely because {{severity_evidence}}.",
-              "zh": "优先工作诊断是 {{dx}}。HELLP 综合征可能性较低，因为 {{hellp_evidence}}；产后高血压不伴重度特征可能性较低，因为 {{severity_evidence}}。"
+              "en": "HELLP syndrome is less likely because {{hellp_evidence}}, and postpartum hypertension without severe features is less likely because {{severity_evidence}}.",
+              "zh": "HELLP 综合征可能性较低，因为 {{hellp_evidence}}；产后高血压不伴重度特征可能性较低，因为 {{severity_evidence}}。"
             },
             "dropdowns": [
-              {
-                "id": "dx",
-                "options": [
-                  {
-                    "id": "dx_htn",
-                    "en": "postpartum hypertension without severe features",
-                    "zh": "产后高血压不伴重度特征"
-                  },
-                  {
-                    "id": "dx_hellp",
-                    "en": "HELLP syndrome",
-                    "zh": "HELLP 综合征"
-                  },
-                  {
-                    "id": "dx_pre",
-                    "en": "postpartum preeclampsia with severe features",
-                    "zh": "产后子痫前期伴重度特征"
-                  }
-                ],
-                "correct": "dx_pre"
-              },
               {
                 "id": "hellp_evidence",
                 "options": [
@@ -54243,11 +54269,6 @@
               },
               "byChoice": [
                 {
-                  "refId": "dx",
-                  "en": "The diagnosis dropdown is keyed to postpartum preeclampsia with severe features because severe BP and CNS findings are present after delivery.",
-                  "zh": "诊断下拉项选择产后子痫前期伴重度特征，因为分娩后出现重度 BP 和中枢神经发现。"
-                },
-                {
                   "refId": "hellp_evidence",
                   "en": "HELLP requires the hemolysis/liver-enzyme/platelet pattern; this case instead has normal platelets, near-normal transaminases, and normal LDH.",
                   "zh": "HELLP 需要溶血、肝酶升高和血小板减少的模式；本病例血小板正常，转氨酶接近正常，LDH 正常。"
@@ -54279,7 +54300,8 @@
                 "termZh": "工作诊断",
                 "defZh": "根据当前资料最优先采用、指导下一步处理的诊断。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage2"
           },
           {
             "id": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q4",
@@ -58871,8 +58893,8 @@
           "zh": "化疗低谷期中性粒细胞减少性发热"
         },
         "summary": {
-          "en": "A 58-year-old woman with stage IIIB diffuse large B-cell lymphoma is on day 10 of cycle 2 R-CHOP and is in the expected count nadir window. She was admitted two days ago for poor oral intake and dehydration. A triple-lumen PICC is patent. Standing orders require blood cultures and immediate oncology notification for a single oral temperature ≥ 100.9 °F (38.3 °C) or temperature ≥ 100.4 °F (38.0 °C) sustained over one hour.",
-          "zh": "一名 58 岁女性，患 IIIB 期弥漫大 B 细胞淋巴瘤，正在第 2 个 R-CHOP 周期第 10 天，处于预期血细胞计数低谷期。她两天前因进食差和脱水入院。三腔 PICC 通畅。常规医嘱要求：单次口温 ≥ 100.9 °F (38.3 °C) 或体温 ≥ 100.4 °F (38.0 °C) 持续 1 小时时，采集血培养并立即通知肿瘤科。"
+          "en": "A 58-year-old woman with stage IIIB diffuse large B-cell lymphoma is on day 10 of cycle 2 R-CHOP and is in the expected count nadir window. She was admitted two days ago for poor oral intake and dehydration. A triple-lumen PICC is patent. Standing orders require blood cultures and immediate oncology notification for a single oral temperature ≥ 101 °F (38.3 °C) or temperature ≥ 100.4 °F (38.0 °C) sustained over one hour.",
+          "zh": "一名 58 岁女性，患 IIIB 期弥漫大 B 细胞淋巴瘤，正在第 2 个 R-CHOP 周期第 10 天，处于预期血细胞计数低谷期。她两天前因进食差和脱水入院。三腔 PICC 通畅。常规医嘱要求：单次口温 ≥ 101 °F (38.3 °C) 或体温 ≥ 100.4 °F (38.0 °C) 持续 1 小时时，采集血培养并立即通知肿瘤科。"
         },
         "exhibits": [
           {
@@ -59579,15 +59601,15 @@
             "difficulty": "medium",
             "ngnSkill": "evaluate_outcomes",
             "stem": {
-              "en": "At Stage 3, classify how each finding should be used to evaluate the client's trajectory.",
-              "zh": "在第 3 阶段，请判断每项发现应如何用于评估患者病情轨迹。"
+              "en": "At Stage 3, choose the best single interpretation of each row. Classify the direction of a physiologic trend, or identify new microbiology evidence; continued monitoring is required in every category.",
+              "zh": "在第3阶段，为每行选择最合适的一项解释：判断生理指标变化方向，或识别新的微生物学证据。所有类别均需继续监测。"
             },
             "matrix": {
               "rows": [
                 {
                   "id": "r1",
-                  "en": "Temperature trend: 39.4 → 38.6 → 100.6 °F (38.1 °C)",
-                  "zh": "体温趋势：39.4 → 38.6 → 100.6 °F (38.1 °C)"
+                  "en": "Temperature trend: 102.9 °F (39.4 °C) → 101.5 °F (38.6 °C) → 100.6 °F (38.1 °C)",
+                  "zh": "体温趋势：102.9 °F (39.4 °C) → 101.5 °F (38.6 °C) → 100.6 °F (38.1 °C)"
                 },
                 {
                   "id": "r2",
@@ -59623,18 +59645,18 @@
               "columns": [
                 {
                   "id": "c2",
-                  "en": "Needs continued follow-up/communication",
-                  "zh": "需要继续随访/沟通"
+                  "en": "New microbiology evidence requiring communication",
+                  "zh": "需要沟通的新微生物学证据"
                 },
                 {
                   "id": "c1",
-                  "en": "Supports improving response",
-                  "zh": "支持治疗反应改善"
+                  "en": "Physiologic trend toward improvement",
+                  "zh": "生理指标趋向改善"
                 },
                 {
                   "id": "c3",
-                  "en": "Indicates continued deterioration",
-                  "zh": "提示持续恶化"
+                  "en": "Physiologic trend toward deterioration",
+                  "zh": "生理指标趋向恶化"
                 }
               ],
               "selectionMode": "single_per_row"
@@ -59746,7 +59768,8 @@
                 "termZh": "灌注",
                 "defZh": "血液向组织输送氧气和营养的过程。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_3"
           },
           {
             "id": "gpt_case_neutropenic_fever_nadir_01_q6",
@@ -59855,7 +59878,10 @@
                 "termZh": "低热",
                 "defZh": "患者可能觉得不严重的轻度发热，但在中性粒细胞减少时仍可很危险。"
               }
-            ]
+            ],
+            "answerableAfterStageId": {
+              "kind": "baseline"
+            }
           }
         ]
       },
@@ -60080,8 +60106,8 @@
       },
       "caseStudy": {
         "title": {
-          "en": "Transfusion-associated circulatory overload versus transfusion-related acute lung injury in a client with chronic kidney disease",
-          "zh": "慢性肾病患者输血相关循环超负荷与输血相关急性肺损伤的鉴别"
+          "en": "Acute respiratory change during red-cell transfusion",
+          "zh": "红细胞输注期间的急性呼吸变化"
         },
         "summary": {
           "en": "A 74-year-old woman with chronic kidney disease stage 3b, compensated heart failure with preserved ejection fraction, type 2 diabetes, and symptomatic anemia is admitted for packed red blood cell transfusion. Two units are ordered sequentially. Facility protocol requires bedside verification by two RNs, vital-sign monitoring during transfusion, and provider-directed IV furosemide between units if signs of fluid overload occur.",
@@ -61122,40 +61148,14 @@
             "difficulty": "hard",
             "ngnSkill": "analyze_cues",
             "stem": {
-              "en": "Use the Stage 2 findings to identify the most likely transfusion reaction and the strongest differentiating cue cluster.",
-              "zh": "根据阶段2表现判断最可能的输血反应及最能鉴别的线索组合。"
+              "en": "Use the Stage 2 findings to identify the cue cluster that best supports circulatory overload over competing transfusion reactions.",
+              "zh": "根据阶段 2 发现，识别最支持循环超负荷、而非其他输血反应的线索组合。"
             },
             "clozeStem": {
-              "en": "The most likely reaction is {{reaction}} because the client has {{evidence}} during the transfusion.",
-              "zh": "最可能的反应是 {{reaction}}，因为患者在输血期间出现 {{evidence}}。"
+              "en": "Circulatory overload is supported by {{evidence}} during the transfusion.",
+              "zh": "输血期间的 {{evidence}} 支持循环超负荷。"
             },
             "dropdowns": [
-              {
-                "id": "reaction",
-                "options": [
-                  {
-                    "id": "r_anaphylaxis",
-                    "en": "anaphylactic transfusion reaction",
-                    "zh": "过敏性休克型输血反应"
-                  },
-                  {
-                    "id": "r_taco",
-                    "en": "transfusion-associated circulatory overload",
-                    "zh": "输血相关循环超负荷"
-                  },
-                  {
-                    "id": "r_trali",
-                    "en": "transfusion-related acute lung injury",
-                    "zh": "输血相关急性肺损伤"
-                  },
-                  {
-                    "id": "r_fnhtr",
-                    "en": "febrile non-hemolytic transfusion reaction",
-                    "zh": "发热性非溶血性输血反应"
-                  }
-                ],
-                "correct": "r_taco"
-              },
               {
                 "id": "evidence",
                 "options": [
@@ -61190,11 +61190,6 @@
               },
               "byChoice": [
                 {
-                  "refId": "reaction",
-                  "en": "The reaction dropdown should be TACO because the case clusters acute dyspnea with volume-overload findings rather than fever, isolated allergy, or isolated noncardiogenic lung injury.",
-                  "zh": "反应下拉框应选择TACO，因为病例把急性气短与容量超负荷表现组合在一起，而不是发热、单纯过敏或单纯非心源性肺损伤。"
-                },
-                {
                   "refId": "evidence",
                   "en": "The evidence dropdown should identify the overload cluster: hypertension, elevated venous/filling-pressure findings, peripheral edema, pulmonary congestion, oliguria, and cardiac/renal risk factors.",
                   "zh": "证据下拉框应识别超负荷组合：高血压、静脉/充盈压升高表现、外周水肿、肺淤血、少尿以及心肾危险因素。"
@@ -61221,7 +61216,8 @@
                 "termZh": "发热性非溶血性反应",
                 "defZh": "以发热、寒战为主的输血反应，通常不是以容量超负荷为主。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_2"
           },
           {
             "id": "gpt_case_taco_vs_trali_01_q3",
@@ -62842,8 +62838,8 @@
                   "zh": "控制与上报措施"
                 },
                 "content": {
-                  "en": "RN Jordan mitigates each exposure in real time while formal follow-up continues. Mrs. Torrance states she and Robert are legally separated and she does not want him to receive any information; only Megan remains authorized. RN Casey is dismissive and says she did not share the information. The charge nurse confirms the access is unauthorized and directs incident reporting and Privacy Officer notification. RN Jordan does not release employer records, secures the fax, and contacts HIM, which states that release requires a signed authorization or valid legal basis and must be processed through HIM. The student confirms the photo was not shared; RN Jordan has the student delete it immediately, including recently deleted storage, with the instructor present, and reports the event for Privacy Officer review of possible cloud syncing. RN Jordan moves the hallway report to a private area. By 1200, incident reporting is complete and is not documented in the medical record.",
-                  "zh": "Jordan护士对每次暴露实时采取控制措施，同时正式跟进持续进行。Torrance女士表示她与Robert已合法分居，不希望他获得任何信息；仍只授权Megan。Casey护士不以为然，称自己没有分享信息。charge nurse确认该访问未经授权，并要求完成事件报告和通知隐私官。Jordan护士未向雇主释放资料，妥善保管传真并联系HIM；HIM说明释放资料需要患者签署授权或有效法律依据，且必须由HIM处理。护生确认照片未分享；Jordan护士在指导老师在场时让护生立即删除照片，包括最近删除存储，并上报由隐私官评估可能的云端同步。Jordan护士将走廊交班移至私密区域。到1200，事件报告已完成，且未记录在病历中。"
+                  "en": "RN Jordan mitigates each exposure in real time while formal follow-up continues. Mrs. Torrance states she and Robert are legally separated and she does not want him to receive any information; only Megan remains authorized. RN Casey is dismissive and says she did not share the information. The charge nurse confirms the access is unauthorized and directs incident reporting and Privacy Officer notification. RN Jordan does not release employer records, secures the fax, and contacts HIM, which states that release requires a signed authorization or valid legal basis and must be processed through HIM. The student confirms the photo was not shared; RN Jordan stops further sharing, secures the image and device pending Privacy Officer or security direction, and immediately reports the event with the instructor involved for review of possible cloud syncing. RN Jordan moves the hallway report to a private area. By 1200, incident reporting is complete and is not documented in the medical record.",
+                  "zh": "Jordan护士对每次暴露实时采取控制措施，同时正式跟进持续进行。Torrance女士表示她与Robert已合法分居，不希望他获得任何信息；仍只授权Megan。Casey护士不以为然，称自己没有分享信息。charge nurse确认该访问未经授权，并要求完成事件报告和通知隐私官。Jordan护士未向雇主释放资料，妥善保管传真并联系HIM；HIM说明释放资料需要患者签署授权或有效法律依据，且必须由HIM处理。护生确认照片未分享；Jordan护士停止进一步分享，妥善保护图像和设备以等待隐私官或信息安全人员指示，并在指导老师参与下立即上报，由相关人员评估可能的云端同步。Jordan护士将走廊交班移至私密区域。到1200，事件报告已完成，且未记录在病历中。"
                 }
               }
             ]
@@ -63126,7 +63122,8 @@
                 "termZh": "授权",
                 "defZh": "患者允许特定个人或机构接收其健康信息的有效许可。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_1"
           },
           {
             "id": "gpt_case_hipaa_disclosure_breach_01_q3",
@@ -63246,8 +63243,8 @@
               },
               {
                 "id": "q4_d",
-                "en": "Have the student delete the identifiable photo, including recently deleted storage, in the presence of RN Jordan and the instructor; report for Privacy Officer follow-up.",
-                "zh": "让护生在Jordan护士和指导老师在场时删除可识别照片，包括最近删除文件夹；并上报由隐私官跟进。"
+                "en": "Stop further sharing of the identifiable photo, secure the image and device pending Privacy Officer or security direction, and report the event immediately with the instructor involved.",
+                "zh": "停止进一步分享可识别照片，在等待隐私官或信息安全人员指示时妥善保护图像和设备，并立即上报事件，让指导老师参与处理。"
               },
               {
                 "id": "q4_f",
@@ -63285,8 +63282,8 @@
               "byChoice": [
                 {
                   "refId": "q4_d",
-                  "en": "Immediate deletion limits exposure, but reporting is still needed because cloud syncing or other retention must be investigated.",
-                  "zh": "立即删除可限制暴露，但仍需上报，因为是否云端同步或保留还需调查。"
+                  "en": "Contain exposure and report promptly so the Privacy Officer or security team can direct evidence preservation, investigate cloud syncing, and determine the appropriate disposition of the image.",
+                  "zh": "应控制暴露并及时上报，由隐私官或信息安全团队指导证据保全、调查云端同步情况，并决定如何处置图像。"
                 },
                 {
                   "refId": "q4_a",
@@ -63335,7 +63332,8 @@
                 "termZh": "云端同步",
                 "defZh": "手机照片可能自动上传到云端账号或其他设备的功能。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_1"
           },
           {
             "id": "gpt_case_hipaa_disclosure_breach_01_q5",
@@ -69225,8 +69223,8 @@
                   "zh": "2200 评估和病历复核"
                 },
                 "content": {
-                  "en": "Priya has been taking vitals on the routine q8h schedule. At 2200: T 36.9 C, HR 92, BP 186/102, RR 18, SpO2 96%. Mrs. Vega reports a mild headache 3/10. She is alert and oriented x4, with no visual changes, chest pain, or shortness of breath. Telemetry shows sinus tachycardia at 92, no ST changes. Priya finds the 1400 hospitalist note: 'Monitor BP q4h x 24 hours to assess response to dose increase; call if SBP > 180 or < 110, or if symptomatic hypotension.' The 1800 q4h check was missed. No PRN antihypertensive is ordered. Marcus verifies that SBP > 180 crosses the call threshold.",
-                  "zh": "Priya 一直按常规每 8 小时测生命体征。2200：T 36.9 C，HR 92，BP 186/102，RR 18，SpO2 96%。Vega 太太报告轻度头痛 3/10。她清醒定向 x4，无视物改变、胸痛或气短。遥测显示窦性心动过速 92 次/分，无 ST 改变。Priya 找到 1400 住院医记录：“为评估剂量增加后的反应，24 小时内每 4 小时监测 BP；若 SBP > 180 或 < 110，或出现症状性低血压则通知。” 1800 的每 4 小时检查已漏做。未开立 PRN 降压药。Marcus 确认 SBP > 180 已达到通知阈值。"
+                  "en": "Priya has been taking vitals on the routine q8h schedule. At 2200: T 36.9 C, HR 92, BP 186/102, RR 18, SpO2 96%. Mrs. Vega reports a mild headache 3/10. She is alert and oriented x4, with no visual changes, chest pain, or shortness of breath. Telemetry shows normal sinus rhythm at 92, no ST changes. Priya finds the 1400 hospitalist note: 'Monitor BP q4h x 24 hours to assess response to dose increase; call if SBP > 180 or < 110, or if symptomatic hypotension.' The 1800 q4h check was missed. No PRN antihypertensive is ordered.",
+                  "zh": "Priya 一直按常规每 8 小时测生命体征。2200：T 36.9 C，HR 92，BP 186/102，RR 18，SpO2 96%。Vega 太太报告轻度头痛 3/10。她清醒定向 x4，无视物改变、胸痛或气短。遥测显示正常窦性心律 92 次/分，无 ST 改变。Priya 找到 1400 住院医记录：“为评估剂量增加后的反应，24 小时内每 4 小时监测 BP；若 SBP > 180 或 < 110，或出现症状性低血压则通知。” 1800 的每 4 小时检查已漏做。未开立 PRN 降压药。"
                 },
                 "structuredMeasurements": {
                   "panels": [
@@ -69782,7 +69780,8 @@
                 "termZh": "收缩压",
                 "defZh": "心脏收缩时动脉内的压力。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_2"
           },
           {
             "id": "gpt_case_lateral_incivility_01_q4",
@@ -69891,7 +69890,8 @@
                 "termZh": "聚焦行为的反馈",
                 "defZh": "描述可观察行为及其影响，而不是评价对方人格或动机的沟通方式。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_2"
           },
           {
             "id": "gpt_case_lateral_incivility_01_q5",
@@ -69987,7 +69987,8 @@
                 "termZh": "通知医护人员",
                 "defZh": "按照医嘱参数、病情变化或机构流程联系医师/高级执业人员。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_2"
           },
           {
             "id": "gpt_case_lateral_incivility_01_q6",
@@ -70344,8 +70345,8 @@
       },
       "caseStudy": {
         "title": {
-          "en": "Clozapine-associated febrile neutropenia with early myocarditis",
-          "zh": "氯氮平相关发热性中性粒细胞减少伴早期心肌炎"
+          "en": "Clozapine initiation with an acute change during titration",
+          "zh": "氯氮平起始治疗与滴定期间的急性变化"
         },
         "summary": {
           "en": "A 29-year-old man with treatment-resistant schizophrenia is admitted to an inpatient psychiatric unit for clozapine initiation after two adequate antipsychotic trials failed. Baseline ANC is adequate for treatment. Facility policy requires holding clozapine and notifying the provider for temperature 101.3 °F (38.5 °C) or higher, ANC in the moderate or severe neutropenia range, or suspected myocarditis. Standing orders include orthostatic vital signs, bowel monitoring, and metabolic monitoring during titration.",
@@ -70702,7 +70703,8 @@
                 "termZh": "B 型利钠肽（BNP）",
                 "defZh": "心室壁张力增加时可升高，常用于评估心衰生理。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_2"
           },
           {
             "id": "gpt_case_clozapine_toxicity_01_q3",
@@ -70798,7 +70800,8 @@
                 "termZh": "通知医嘱开立者",
                 "defZh": "将关键病情变化和建议需求及时传达给有开医嘱权限的人员。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_2"
           },
           {
             "id": "gpt_case_clozapine_toxicity_01_q4",
@@ -70907,7 +70910,8 @@
                 "termZh": "遥测心电监护",
                 "defZh": "连续监测心律以识别心律失常和病情变化的监护方式。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_2"
           },
           {
             "id": "gpt_case_clozapine_toxicity_01_q5",
@@ -71051,8 +71055,8 @@
               },
               {
                 "id": "A",
-                "en": "The client is hemodynamically stable but not yet improving because troponin and CRP are still rising and ANC remains low.",
-                "zh": "患者血流动力学暂稳定，但尚未改善，因为肌钙蛋白和 CRP 仍在上升，ANC 仍低。"
+                "en": "The client has relative hemodynamic stability, but the toxicities have not resolved: troponin and CRP are still rising and ANC remains low.",
+                "zh": "患者血流动力学相对稳定，但毒性尚未消退：肌钙蛋白和 CRP 仍在上升，ANC 仍低。"
               }
             ],
             "correct": [
@@ -71094,8 +71098,8 @@
                 },
                 {
                   "refId": "A",
-                  "en": "Correct. Current vital signs show relative stability, but lab trends show the underlying toxicities have not resolved.",
-                  "zh": "正确。目前生命体征显示相对稳定，但实验室趋势显示基础毒性尚未消退。"
+                  "en": "Relative stability and small improvements in vital signs coexist with persistent neutropenia and rising cardiac injury/inflammation markers; continued close monitoring is necessary.",
+                  "zh": "相对稳定及生命体征的小幅改善，与持续中性粒细胞减少和心肌损伤/炎症标志物上升同时存在；仍需密切监测。"
                 }
               ]
             },
@@ -71119,7 +71123,8 @@
                 "termZh": "再挑战",
                 "defZh": "不良反应恢复后再次给予同一药物；需专科风险收益评估。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_3"
           }
         ]
       },
@@ -71354,8 +71359,8 @@
       },
       "caseStudy": {
         "title": {
-          "en": "Refeeding syndrome during parenteral nutrition initiation in a malnourished post-operative client",
-          "zh": "营养不良术后患者开始肠外营养时发生再喂养综合征"
+          "en": "Parenteral nutrition after prolonged poor intake",
+          "zh": "长期摄入不足后开始肠外营养"
         },
         "summary": {
           "en": "A 62-year-old woman is admitted to the surgical unit after an open Roux-en-Y revision for a chronic gastrojejunal anastomotic stricture. She had negligible oral or enteral intake for about five weeks before surgery, weighs 46 kg (BMI 17.1), and lost 11 kg over two months. PPN was started in the PACU as a bridge to central TPN after PICC placement. The nutrition consult identifies her as high risk for refeeding syndrome and recommends thiamine before dextrose, electrolyte monitoring every 12 hours for the first 48 hours, and cautious caloric initiation with slow advancement.",
@@ -71761,8 +71766,8 @@
                   "zh": "电解质进一步下降并出现新的 PICC 穿刺处发现"
                 },
                 "content": {
-                  "en": "After Stage 1 labs, the nurse administered KCl 20 mEq IV over 1 hr, sodium phosphate 15 mmol IV over 2 hr, and magnesium sulfate 2 g IV over 2 hr per protocol. The provider was notified of the falling electrolytes and glucose 204 mg/dL. Sliding-scale regular insulin was added, and nutrition was asked to review TPN advancement.\n\nRepeat labs now: potassium 2.9 mEq/L, phosphorus 1.3 mg/dL, magnesium 1.3 mg/dL, glucose 226 mg/dL, creatinine 0.9 mg/dL.\n\nVital signs: T 38.2 C, HR 118, BP 98/58, RR 22, SpO2 95% on room air. The client is lethargic, oriented only to person, and has proximal muscle weakness; she cannot lift her arms above her shoulders. She reports palpitations and chest tightness. Telemetry shows sinus tachycardia with frequent PVCs and prolonged QT interval. Respiratory effort is shallow with decreased breath sounds at both bases. She denies rigors; extremities are warm and well perfused. The PICC insertion site now has a 1.5-cm area of erythema and tenderness, with a small amount of purulent drainage expressed on palpation. The dressing was changed 24 hours ago per protocol.",
-                  "zh": "阶段 1 化验后，护士按方案给予 KCl 20 mEq IV 1 小时输完、磷酸钠 15 mmol IV 2 小时输完、硫酸镁 2 g IV 2 小时输完。已通知医嘱者电解质下降及血糖 204 mg/dL；新增普通胰岛素滑动量表，并请营养团队复核 TPN 推进计划。\n\n当前复查化验：血钾 2.9 mEq/L，血磷 1.3 mg/dL，血镁 1.3 mg/dL，葡萄糖 226 mg/dL，肌酐 0.9 mg/dL。\n\n生命体征：T 38.2 C，HR 118，BP 98/58，RR 22，SpO2 95%（室内空气）。患者嗜睡，仅对人定向；近端肌无力，无法将双臂举过肩。诉心悸和胸闷。遥测显示窦性心动过速、频发 PVC，并有 QT 间期延长。呼吸浅，双肺底呼吸音减低。否认寒战；四肢温暖、灌注良好。PICC 穿刺处现有 1.5 cm 红斑和压痛，触压可见少量脓性引流液。敷料 24 小时前已按规程更换。"
+                  "en": "After Stage 1 labs, the nurse administered KCl 20 mEq IV over 1 hr, sodium phosphate 15 mmol IV over 2 hr, and magnesium sulfate 2 g IV over 2 hr per protocol. The provider was notified of the falling electrolytes and glucose 204 mg/dL. Sliding-scale regular insulin was added, and nutrition was asked to review TPN advancement.\n\nRepeat labs now: potassium 2.9 mEq/L, phosphorus 1.3 mg/dL, magnesium 1.3 mg/dL, glucose 226 mg/dL, creatinine 0.9 mg/dL.\n\nVital signs: T 38.2 C, HR 118, BP 98/58, RR 22, SpO2 95% on room air. The client is lethargic, oriented only to person, and has proximal muscle weakness; she cannot lift her arms above her shoulders. She reports palpitations and chest tightness. Telemetry shows sinus tachycardia with frequent PVCs and prolonged QT interval. Respiratory effort is shallow with decreased breath sounds at both bases. She denies rigors; extremities are warm and well perfused. The PICC insertion site now has a 1.5-cm area of erythema and tenderness, with a small amount of purulent drainage expressed on palpation. The current dressing was applied when the PICC was placed 12 hours earlier.",
+                  "zh": "阶段 1 化验后，护士按方案给予 KCl 20 mEq IV 1 小时输完、磷酸钠 15 mmol IV 2 小时输完、硫酸镁 2 g IV 2 小时输完。已通知医嘱者电解质下降及血糖 204 mg/dL；新增普通胰岛素滑动量表，并请营养团队复核 TPN 推进计划。\n\n当前复查化验：血钾 2.9 mEq/L，血磷 1.3 mg/dL，血镁 1.3 mg/dL，葡萄糖 226 mg/dL，肌酐 0.9 mg/dL。\n\n生命体征：T 38.2 C，HR 118，BP 98/58，RR 22，SpO2 95%（室内空气）。患者嗜睡，仅对人定向；近端肌无力，无法将双臂举过肩。诉心悸和胸闷。遥测显示窦性心动过速、频发 PVC，并有 QT 间期延长。呼吸浅，双肺底呼吸音减低。否认寒战；四肢温暖、灌注良好。PICC 穿刺处现有 1.5 cm 红斑和压痛，触压可见少量脓性引流液。当前敷料是在 12 小时前置入 PICC 时贴上的。"
                 },
                 "structuredMeasurements": {
                   "panels": [
@@ -72350,35 +72355,14 @@
             "difficulty": "hard",
             "ngnSkill": "analyze_cues",
             "stem": {
-              "en": "At Stage 1, use the client's history, new laboratory pattern, and glucose trend to identify the most likely clinical problem.",
-              "zh": "在阶段 1，结合患者病史、新的化验模式和血糖趋势，判断最可能的临床问题。"
+              "en": "At Stage 1, interpret the electrolyte shift and the concurrent glucose elevation after nutrition is started.",
+              "zh": "在阶段 1，解释开始营养后电解质转移及同时出现的血糖升高。"
             },
             "clozeStem": {
-              "en": "The Stage 1 cue pattern most strongly indicates {{d1}} because PN carbohydrate delivery has likely caused {{d2}}. The glucose elevation is best interpreted as {{d3}}.",
-              "zh": "阶段 1 的线索模式最强烈提示 {{d1}}，因为 PN 的碳水化合物供给很可能导致 {{d2}}。血糖升高最好理解为 {{d3}}。"
+              "en": "The simultaneous electrolyte decline is consistent with the refeeding process. PN carbohydrate delivery has likely caused {{d2}}. The glucose elevation is best interpreted as {{d3}}.",
+              "zh": "电解质同时下降符合再喂养过程。PN 的碳水化合物供给很可能导致 {{d2}}。血糖升高最好理解为 {{d3}}。"
             },
             "dropdowns": [
-              {
-                "id": "d1",
-                "options": [
-                  {
-                    "id": "d1_o3",
-                    "en": "isolated parenteral-nutrition hyperglycemia",
-                    "zh": "单纯肠外营养相关高血糖"
-                  },
-                  {
-                    "id": "d1_o2",
-                    "en": "catheter-related bloodstream infection",
-                    "zh": "导管相关血流感染"
-                  },
-                  {
-                    "id": "d1_o1",
-                    "en": "refeeding syndrome",
-                    "zh": "再喂养综合征"
-                  }
-                ],
-                "correct": "d1_o1"
-              },
               {
                 "id": "d2",
                 "options": [
@@ -72429,11 +72413,6 @@
               },
               "byChoice": [
                 {
-                  "refId": "d1",
-                  "en": "The condition is identified by linking prolonged malnutrition, recent PN initiation, and the simultaneous electrolyte decline.",
-                  "zh": "此病情需要把长期营养不良、近期开始 PN 和电解质同时下降联系起来判断。"
-                },
-                {
                   "refId": "d2",
                   "en": "Carbohydrate delivery increases insulin, and insulin shifts phosphate, potassium, and magnesium into cells when total body stores are depleted.",
                   "zh": "碳水供给使胰岛素升高；在全身储备耗竭时，胰岛素促使磷、钾、镁进入细胞。"
@@ -72465,7 +72444,8 @@
                 "termZh": "PN 相关高血糖",
                 "defZh": "肠外营养中葡萄糖负荷导致血糖升高。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_1"
           },
           {
             "id": "gpt_case_refeeding_syndrome_tpn_01_q3",
@@ -72505,8 +72485,8 @@
             ],
             "rationale": {
               "correct": {
-                "en": "The immediate threat is the worsening electrolyte derangement with active organ effects: phosphorus 1.3 mg/dL, potassium 2.9 mEq/L, magnesium 1.3 mg/dL, frequent PVCs, prolonged QT, shallow respirations, weakness, and altered mental status. These findings carry near-term risk of lethal dysrhythmia and respiratory failure. The PICC site must be cultured and treated, but it does not explain the established electrolyte triad or current rhythm instability.",
-                "zh": "最立即的威胁是电解质紊乱加重并已影响器官：血磷 1.3 mg/dL、血钾 2.9 mEq/L、血镁 1.3 mg/dL，伴频发 PVC、QT 延长、浅呼吸、无力和意识改变。这些发现有近期致命心律失常和呼吸衰竭风险。PICC 处需要培养和治疗，但不能解释已形成的电解质三联下降或当前心律不稳。"
+                "en": "The immediate threat is the worsening electrolyte derangement with active organ effects: phosphorus 1.3 mg/dL, potassium 2.9 mEq/L, magnesium 1.3 mg/dL, frequent PVCs, prolonged QT, shallow respirations, weakness, and altered mental status. These findings carry near-term risk of lethal dysrhythmia and respiratory failure. The electrolyte decline strongly supports urgent monitored correction. Infection may coexist or contribute to the deterioration; the PICC findings and fever require timely parallel evaluation and treatment.",
+                "zh": "最立即的威胁是电解质紊乱加重并已影响器官：血磷 1.3 mg/dL、血钾 2.9 mEq/L、血镁 1.3 mg/dL，伴频发 PVC、QT 延长、浅呼吸、无力和意识改变。这些发现有近期致命心律失常和呼吸衰竭风险。电解质下降强烈支持在监测下紧急纠正。感染可同时存在或促成恶化；PICC 发现和发热需要及时并行评估及治疗。"
               },
               "byChoice": [
                 {
@@ -72521,8 +72501,8 @@
                 },
                 {
                   "refId": "q3_B",
-                  "en": "The PICC findings are concerning and require cultures and antibiotics, but they are not the proximate cause of the PVCs, prolonged QT, and shallow breathing.",
-                  "zh": "PICC 发现令人担忧，需要培养和抗生素，但不是 PVC、QT 延长和浅呼吸的直接原因。"
+                  "en": "The PICC findings and fever require prompt infection assessment and prescribed treatment alongside urgent electrolyte correction; infection cannot be excluded as a contributor to deterioration.",
+                  "zh": "PICC 发现与发热需要及时评估感染并按医嘱治疗，同时紧急纠正电解质；不能排除感染促成病情恶化。"
                 },
                 {
                   "refId": "q3_D",
@@ -72551,7 +72531,8 @@
                 "termZh": "呼吸受损",
                 "defZh": "呼吸努力、通气或氧合出现危险性下降。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_2"
           },
           {
             "id": "gpt_case_refeeding_syndrome_tpn_01_q4",
@@ -72567,8 +72548,8 @@
             "options": [
               {
                 "id": "q4_D",
-                "en": "Draw blood cultures from the PICC and a peripheral site before starting the first ordered vancomycin dose.",
-                "zh": "在首次医嘱 vancomycin 前，从 PICC 和外周部位抽取血培养。"
+                "en": "Obtain ordered blood cultures from the PICC and a peripheral site promptly, ideally before the first ordered vancomycin dose, without materially delaying antibiotic treatment.",
+                "zh": "及时按医嘱从 PICC 和外周抽取血培养，最好在首次医嘱万古霉素前完成，但不能实质性延误抗生素治疗。"
               },
               {
                 "id": "q4_F",
@@ -72604,8 +72585,8 @@
             ],
             "rationale": {
               "correct": {
-                "en": "The nurse should urgently escalate the worsening refeeding syndrome, rhythm changes, respiratory compromise, and suspected line infection. Anticipated management is to reduce caloric delivery rather than abruptly stop the high-dextrose infusion independently, replace potassium/phosphate/magnesium aggressively with monitoring, and obtain paired cultures before vancomycin. Hyperglycemia still needs q4h checks and insulin coverage, but aggressive insulin as the first priority could worsen hypokalemia.",
-                "zh": "护士应紧急上报再喂养综合征恶化、心律改变、呼吸受损和疑似导管感染。预期处理是降低热量供给，而不是自行突然停止高葡萄糖输注；在监测下强化补充钾/磷/镁；并在 vancomycin 前抽取配对血培养。高血糖仍需每 4 小时监测并按量表给予胰岛素，但把积极胰岛素作为第一优先可能加重低钾。"
+                "en": "The nurse should urgently escalate the worsening refeeding syndrome, rhythm changes, respiratory compromise, and suspected line infection. Anticipated management is to reduce caloric delivery rather than abruptly stop the high-dextrose infusion independently, replace potassium/phosphate/magnesium aggressively with monitoring, and obtain paired cultures promptly, ideally before vancomycin without materially delaying treatment. Hyperglycemia still needs q4h checks and insulin coverage, but aggressive insulin as the first priority could worsen hypokalemia.",
+                "zh": "护士应紧急上报再喂养综合征恶化、心律改变、呼吸受损和疑似导管感染。预期处理是降低热量供给，而不是自行突然停止高葡萄糖输注；在监测下强化补充钾/磷/镁；并及时抽取配对血培养，最好在万古霉素前完成且不实质性延误治疗。高血糖仍需每 4 小时监测并按量表给予胰岛素，但把积极胰岛素作为第一优先可能加重低钾。"
               },
               "byChoice": [
                 {
@@ -72625,8 +72606,8 @@
                 },
                 {
                   "refId": "q4_D",
-                  "en": "Correct. Cultures before the first antibiotic dose preserve the ability to identify the organism.",
-                  "zh": "正确。首次抗生素前抽培养可保留识别病原体的机会。"
+                  "en": "Prompt cultures improve organism identification. Collect before antibiotics when feasible without material delay; escalate collection difficulties while preserving timely prescribed treatment.",
+                  "zh": "及时培养有助于识别病原体。应在可行且不实质性延误治疗时于抗生素前采集；采集困难应升级处理，同时确保及时按医嘱治疗。"
                 },
                 {
                   "refId": "q4_C",
@@ -72660,7 +72641,8 @@
                 "termZh": "遥测心电监护",
                 "defZh": "连续监测心律，以发现心律失常或治疗反应。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_2"
           },
           {
             "id": "gpt_case_refeeding_syndrome_tpn_01_q5",
@@ -72670,8 +72652,8 @@
             "difficulty": "hard",
             "ngnSkill": "take_action",
             "stem": {
-              "en": "At Stage 2, orders have been received. For each action, choose the safest timing category.",
-              "zh": "在阶段 2，已收到医嘱。请为每项措施选择最安全的执行时机类别。"
+              "en": "Using the Stage 2 findings, consider the proposed orders shown in the rows. If prescribed, which implementation category best describes each action?",
+              "zh": "根据阶段 2 发现，考虑各行所列的拟议医嘱。如果这些医嘱被开立，每项措施最符合哪一种执行类别？"
             },
             "matrix": {
               "rows": [
@@ -72704,13 +72686,13 @@
               "columns": [
                 {
                   "id": "q5_c1",
-                  "en": "Immediate priority; do not delay for the infection workup",
-                  "zh": "立即优先执行；不要因感染评估而延迟"
+                  "en": "Immediate nutrition/electrolyte intervention alongside infection evaluation",
+                  "zh": "与感染评估并行的立即营养/电解质干预"
                 },
                 {
                   "id": "q5_c3",
-                  "en": "Give only after cultures are obtained",
-                  "zh": "仅在抽取培养后给予"
+                  "en": "Prompt antimicrobial treatment; culture collection must not materially delay it",
+                  "zh": "及时抗菌治疗；采集培养不能实质性延误治疗"
                 },
                 {
                   "id": "q5_c4",
@@ -72719,8 +72701,8 @@
                 },
                 {
                   "id": "q5_c2",
-                  "en": "Must occur before the first antibiotic dose",
-                  "zh": "必须在首次抗生素前完成"
+                  "en": "Prompt diagnostic sampling, ideally before antibiotics without material delay",
+                  "zh": "及时诊断采样，最好在抗生素前且不实质性延误治疗"
                 }
               ],
               "selectionMode": "single_per_row"
@@ -72759,8 +72741,8 @@
             ],
             "rationale": {
               "correct": {
-                "en": "The rate reduction and electrolyte repletion address the immediate mechanism and dysrhythmia/respiratory risk, so they should not wait for the infection workup. Paired blood cultures must be drawn before vancomycin; vancomycin follows cultures. Glucose monitoring and sliding-scale insulin continue, but they must not delay urgent rate reduction and electrolyte replacement.",
-                "zh": "降低速率和补充电解质直接处理当前机制以及心律/呼吸风险，因此不应等感染评估完成才做。配对血培养必须在 vancomycin 前抽取；vancomycin 在培养之后给予。血糖监测和滑动量表胰岛素继续进行，但不能延迟紧急降低速率和补充电解质。"
+                "en": "TPN rate reduction and electrolyte repletion address the immediate metabolic and rhythm risk while infection is evaluated in parallel. Obtain paired cultures promptly, ideally before vancomycin, but preserve timely antibiotic treatment if collection is delayed. Glucose monitoring and insulin coverage continue alongside these urgent interventions.",
+                "zh": "降低 TPN 速率及补充电解质处理当前代谢和心律风险，同时并行评估感染。应及时抽取配对血培养，最好在万古霉素前完成，但如采集延误仍须确保及时使用抗生素。血糖监测及胰岛素覆盖与这些紧急措施并行继续。"
               },
               "byChoice": [
                 {
@@ -72775,13 +72757,13 @@
                 },
                 {
                   "refId": "q5_r3",
-                  "en": "Cultures are time-sensitive because they must be drawn before the antibiotic is started.",
-                  "zh": "培养有时序要求，因为必须在开始抗生素前抽取。"
+                  "en": "This is diagnostic sampling: obtain cultures as soon as possible and preferably before antibiotics without materially delaying treatment.",
+                  "zh": "这是诊断采样：应尽快抽取培养，最好在抗生素前完成，但不能实质性延误治疗。"
                 },
                 {
                   "refId": "q5_r4",
-                  "en": "Vancomycin should not precede cultures when cultures can be obtained promptly.",
-                  "zh": "若能及时抽培养，vancomycin 不应早于培养。"
+                  "en": "This is antimicrobial treatment: begin promptly after cultures when they can be obtained promptly; difficulty collecting cultures must not materially delay the antibiotic.",
+                  "zh": "这是抗菌治疗：若能及时采集，抽取培养后即应及时给药；采集困难不能实质性延误抗生素。"
                 },
                 {
                   "refId": "q5_r5",
@@ -72791,8 +72773,8 @@
               ]
             },
             "testTakingStrategy": {
-              "en": "When actions can be parallelized, avoid forcing a strict one-by-one sequence. Separate immediate threats from prerequisites, such as cultures before antibiotics.",
-              "zh": "当措施可并行执行时，不要强行排成完全单线程顺序。要区分立即威胁和前置条件，例如抗生素前先抽培养。"
+              "en": "Distinguish each action’s purpose and urgency. Diagnostic sampling and antimicrobial treatment should be coordinated, with neither neglected during urgent metabolic stabilization.",
+              "zh": "区分各措施的目的和紧迫性。诊断采样与抗菌治疗应协调进行，在紧急稳定代谢状态时两者都不能忽视。"
             },
             "glossary": [
               {
@@ -72810,7 +72792,8 @@
                 "termZh": "降低输注速率",
                 "defZh": "降低输液泵速率以减少给药或营养输入量。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_2"
           },
           {
             "id": "gpt_case_refeeding_syndrome_tpn_01_q6",
@@ -77781,7 +77764,8 @@
                 "termZh": "抗胆碱负担",
                 "defZh": "具有抗胆碱作用的药物累积造成的认知和身体影响。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_2"
           },
           {
             "id": "gpt_case_caregiver_role_strain_dementia_01_q4",
@@ -77891,7 +77875,8 @@
                 "termZh": "成人日间照护项目",
                 "defZh": "在白天提供看护、活动和支持的社区项目。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_2"
           },
           {
             "id": "gpt_case_caregiver_role_strain_dementia_01_q5",
@@ -78995,7 +78980,8 @@
                 "termZh": "穿戴与脱除",
                 "defZh": "按安全顺序穿上和脱下 PPE 的过程。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_1"
           },
           {
             "id": "gpt_case_infection_control_clustered_care_01_q4",
@@ -79727,8 +79713,8 @@
                   "zh": "就诊约 40 分钟"
                 },
                 "content": {
-                  "en": "After structured teaching, Danielle correctly states that Liam should remain rear-facing until he reaches the rear-facing height or weight limit for his specific seat, should sleep alone on his back in a crib with no loose bedding, and should not receive diphenhydramine for sleep. For acetaminophen, she says she will use the syringe that came with the medicine and give 3.75 mL. When asked about foods, she says she will cut hot dogs into small circles and does not mention grapes. For possible ingestion, she says she will call 911 but does not mention Poison Control. She says she will try to get gates and cabinet locks this weekend. The nurse provides written teaching, a Poison Control magnet, community resources, and a follow-up appointment in one month.",
-                  "zh": "经过结构化教学后，Danielle 正确说出 Liam 应继续后向乘坐，直到达到其具体安全座椅后向模式的身高或体重上限；应独自仰卧睡在无松散床品的婴儿床中；且不应使用苯海拉明助眠。关于对乙酰氨基酚，她说会使用药物配套注射器并给 3.75 mL。询问食物时，她说会把热狗切成小圆片，但没有提到葡萄。若可能误服，她说会拨打 911，但没有提到 Poison Control。她说会尽量在周末买到安全门和柜锁。护士提供书面教育材料、Poison Control 磁贴、社区资源，并安排 1 个月后随访。"
+                  "en": "After structured teaching, Danielle correctly states that Liam should remain rear-facing until he reaches the rear-facing height or weight limit for his specific seat, should sleep alone on his back in a crib with no loose bedding, and should not receive diphenhydramine for sleep. For acetaminophen, she says she will use the syringe that came with the medicine and give 3.75 mL. When asked about foods, she says she will cut hot dogs into small circles and does not mention grapes. For possible ingestion, she says she will call 911 but does not mention Poison Control. Danielle says, \"I know the stairs need gates and the cleaning-supply cabinets need locks. I cannot afford them today. Can you help me obtain them? Until then I will keep Liam in the enclosed play area with direct supervision and move the cleaners to a locked, inaccessible location.\" The nurse provides written teaching, a Poison Control magnet, community resources, and a follow-up appointment in one month.",
+                  "zh": "经过结构化教学后，Danielle 正确说出 Liam 应继续后向乘坐，直到达到其具体安全座椅后向模式的身高或体重上限；应独自仰卧睡在无松散床品的婴儿床中；且不应使用苯海拉明助眠。关于对乙酰氨基酚，她说会使用药物配套注射器并给 3.75 mL。询问食物时，她说会把热狗切成小圆片，但没有提到葡萄。若可能误服，她说会拨打 911，但没有提到 Poison Control。Danielle 说：“我知道楼梯需要安全门，放清洁用品的柜子需要锁。我今天买不起，能帮我获得这些设备吗？在此之前，我会让 Liam 在封闭的游戏区活动并直接看护，把清洁用品移到上锁且他无法接触的地方。”护士提供书面教育材料、Poison Control 磁贴、社区资源，并安排 1 个月后随访。"
                 }
               }
             ]
@@ -79952,8 +79938,8 @@
             "options": [
               {
                 "id": "knowledge_deficit",
-                "en": "Caregiver knowledge deficit with reliance on informal advice",
-                "zh": "照护者知识缺乏，并依赖非正式建议"
+                "en": "Caregiver knowledge deficit requiring assessment of prior guidance and learning needs",
+                "zh": "照护者知识缺乏，需要评估既往指导与学习需求"
               },
               {
                 "id": "intentional_neglect",
@@ -79976,8 +79962,8 @@
             ],
             "rationale": {
               "correct": {
-                "en": "The pattern is most consistent with a knowledge deficit. Danielle relies on a neighbor, partner, and online videos, has no consistent pediatric medical home, openly discloses practices, asks questions, and shows affectionate engagement with Liam. The risks still require documentation, teaching, and follow-up, but the evidence does not support labeling the situation as intentional neglect based on the current facts alone.",
-                "zh": "这一模式最符合知识缺乏。Danielle 依赖邻居、伴侣和网络视频，没有稳定的儿科医疗之家，能坦诚说出做法，主动提问，并与 Liam 有亲密、积极的互动。风险仍需要记录、教育和随访，但仅凭当前事实不能认定为故意忽视。"
+                "en": "The unsafe practices, questions and openness to help support a knowledge gap as the best working interpretation among these choices. The chart does not establish her advice sources or lack of an ongoing medical home. Warm interaction does not exclude neglect, and absence of injury does not establish safety. Document the risks, assess the caregiving context and address immediate hazards while arranging teaching and follow-up.",
+                "zh": "这些不安全做法、主动提问及愿意接受帮助，支持在所列选项中以知识缺乏作为最合适的初步判断。病历未说明她的建议来源，也未证明她缺乏持续医疗照护。温暖互动不能排除忽视，没有伤痕也不等于安全。应记录风险、评估照护背景、处理眼前危险，并安排教育和随访。"
               },
               "byChoice": [
                 {
@@ -79987,13 +79973,13 @@
                 },
                 {
                   "refId": "knowledge_deficit",
-                  "en": "This matches the case facts: inaccurate informal sources, limited prior teaching, openness to help, and warm caregiving.",
-                  "zh": "这与病例事实一致：信息来源不准确、既往教育不足、愿意接受帮助且照护态度温暖。"
+                  "en": "Openly describing unsafe practices and asking for guidance support targeted assessment and teaching; the chart does not establish the sources of the misinformation.",
+                  "zh": "坦诚描述不安全做法并寻求指导，支持有针对性的评估与教学；病历没有确定错误信息的来源。"
                 },
                 {
                   "refId": "intentional_neglect",
-                  "en": "Unsafe practices alone do not establish neglect when the caregiver is engaged, affectionate, voluntarily seeking care, and no injury or refusal is present.",
-                  "zh": "在照护者积极、有爱、主动就医且没有伤害或拒绝配合的情况下，仅有不安全做法不能直接证明忽视。"
+                  "en": "The facts do not establish deliberate neglect as the explanation. Continue an objective safety assessment; affectionate behavior and no visible injury cannot by themselves exclude neglect.",
+                  "zh": "现有事实不足以把故意忽视确定为解释。应继续客观安全评估；亲密行为和没有可见伤痕本身不能排除忽视。"
                 },
                 {
                   "refId": "developmental_delay",
@@ -80022,7 +80008,8 @@
                 "termZh": "医疗之家",
                 "defZh": "持续、协调的基层医疗照护来源。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_1"
           },
           {
             "id": "gpt_case_nine_month_well_child_safety_01_q3",
@@ -80230,7 +80217,8 @@
                 "termZh": "家庭访视项目",
                 "defZh": "在家庭环境中提供育儿、安全和健康支持的社区服务。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_2"
           },
           {
             "id": "gpt_case_nine_month_well_child_safety_01_q5",
@@ -80392,7 +80380,7 @@
                   "zh": "说出不应给 Liam 使用苯海拉明来帮助睡眠。"
                 },
                 {
-                  "id": "acetaminophen_5ml",
+                  "id": "acetaminophen_3_75ml",
                   "en": "States she will use the syringe and give the clinic/package dose of 3.75 mL.",
                   "zh": "说出会使用注射器，并给诊所/包装标示的 3.75 mL 剂量。"
                 },
@@ -80408,8 +80396,8 @@
                 },
                 {
                   "id": "try_gates",
-                  "en": "Says she will try to get gates and cabinet locks this weekend.",
-                  "zh": "说会尽量在周末买到安全门和柜锁。"
+                  "en": "Danielle says, \"I know the stairs need gates and the cleaning-supply cabinets need locks. I cannot afford them today. Can you help me obtain them? Until then I will keep Liam in the enclosed play area with direct supervision and move the cleaners to a locked, inaccessible location.\"",
+                  "zh": "Danielle 说：“我知道楼梯需要安全门，放清洁用品的柜子需要锁。我今天买不起，能帮我获得这些设备吗？在此之前，我会让 Liam 在封闭的游戏区活动并直接看护，把清洁用品移到上锁且他无法接触的地方。”"
                 }
               ]
             },
@@ -80433,7 +80421,7 @@
                 ]
               },
               {
-                "rowId": "acetaminophen_5ml",
+                "rowId": "acetaminophen_3_75ml",
                 "columnIds": [
                   "adequate"
                 ]
@@ -80459,8 +80447,8 @@
             ],
             "rationale": {
               "correct": {
-                "en": "Danielle accurately restates rear-facing car seat use, safe sleep, avoiding diphenhydramine for sleep, and the stated acetaminophen dose. Hot dogs cut into circles and unmentioned grapes require immediate re-teaching because the round/cylindrical shape remains dangerous. Calling 911 for every ingestion is incomplete; Poison Control should be used for a conscious, breathing child, while 911 is for severe symptoms such as unresponsiveness, breathing trouble, or seizure. Her wording about gates and locks suggests a resource/access barrier, not failure to understand the need.",
-                "zh": "Danielle 能准确复述后向安全座椅、安全睡眠、不用苯海拉明助眠，以及病例所列对乙酰氨基酚剂量。把热狗切成圆片且未提葡萄需要立即再教育，因为圆形/圆柱形仍有危险。任何误服都打 911 的说法不完整；对清醒、能呼吸的儿童应联系 Poison Control，911 用于无反应、呼吸困难或抽搐等严重情况。她关于安全门和柜锁的表述提示资源/获得途径障碍，而不是不知道需要这些设备。"
+                "en": "Danielle accurately restates rear-facing car seat use, safe sleep, avoiding diphenhydramine for sleep, and the stated acetaminophen dose. Hot dogs cut into circles and unmentioned grapes require immediate re-teaching because the round/cylindrical shape remains dangerous. Calling 911 for every ingestion is incomplete; Poison Control should be used for a conscious, breathing child, while 911 is for severe symptoms such as unresponsiveness, breathing trouble, or seizure. She explicitly identifies the equipment needed, describes a cost barrier, requests help and gives an interim protection plan. This supports problem-solving access while verifying that interim protection is feasible.",
+                "zh": "Danielle 能准确复述后向安全座椅、安全睡眠、不用苯海拉明助眠，以及病例所列对乙酰氨基酚剂量。把热狗切成圆片且未提葡萄需要立即再教育，因为圆形/圆柱形仍有危险。任何误服都打 911 的说法不完整；对清醒、能呼吸的儿童应联系 Poison Control，911 用于无反应、呼吸困难或抽搐等严重情况。她明确指出需要的设备、说明费用障碍、请求帮助并提出临时保护计划。因此应协助解决获取途径，并核实临时保护措施是否可行。"
               },
               "byChoice": [
                 {
@@ -80479,7 +80467,7 @@
                   "zh": "这正确表达了不应为助眠而镇静 Liam。"
                 },
                 {
-                  "refId": "acetaminophen_5ml",
+                  "refId": "acetaminophen_3_75ml",
                   "en": "Using the syringe and the stated clinic/package dose demonstrates the targeted medication teaching.",
                   "zh": "使用注射器并按病例所列诊所/包装剂量给药，说明用药教学达成目标。"
                 },
@@ -80495,8 +80483,8 @@
                 },
                 {
                   "refId": "try_gates",
-                  "en": "She appears to know gates and locks are needed, so the nurse should address cost, transportation, and available safety-equipment resources.",
-                  "zh": "她似乎知道需要安全门和柜锁，因此护士应处理费用、交通和可获得安全设备资源等问题。"
+                  "en": "The response demonstrates knowledge and explicitly identifies cost as the obstacle. Help secure the equipment and verify the interim safety plan.",
+                  "zh": "回答显示已经理解，并明确指出费用障碍。应协助获得设备，并核实临时安全计划。"
                 }
               ]
             },
@@ -80520,7 +80508,8 @@
                 "termZh": "资源障碍",
                 "defZh": "妨碍执行计划的费用、获取途径、交通或支持问题。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_3"
           }
         ]
       },
@@ -81011,8 +81000,8 @@
                   "zh": "术后和家属更新"
                 },
                 "content": {
-                  "en": "Closed reduction is successful under propofol sedation with the nerve block in place. Marcus wakes oriented and without nausea. Post-procedure vitals: HR 82, BP 126/78, RR 14, SpO2 99%. Pain is 2/10 while the nerve block is active. The ED provider has spoken with the MAT prescriber. Orders now state: resume buprenorphine/naloxone 16 mg/4 mg sublingual daily tonight; acetaminophen 1,000 mg PO every 6 hours; ibuprofen 400 mg PO every 6 hours with food, beginning at the next scheduled NSAID interval to avoid overlap with ketorolac; ice and elevation; orthopedic follow-up in 5 days; MAT follow-up within 48 hours; return precautions for cast complications. Tanya arrives upset and asks the nurse in the hallway, outside Marcus’s hearing, “Is he using again? Please just tell me the truth.” She reports recent insomnia, moodiness, and finding him sitting alone in the car at 2 AM. Marcus later says, “She doesn’t trust me. Nobody does. What’s the point of staying clean if everyone still treats you like a junkie?” His eyes are red, he picks at the cast edge, denies suicidal ideation when asked directly, and says, “I just feel really alone right now.”",
-                  "zh": "在神经阻滞起效的情况下，Marcus 在丙泊酚镇静下成功闭合复位。他醒来后定向力正常，无恶心。术后生命体征：HR 82，BP 126/78，RR 14，SpO2 99%。神经阻滞仍有效时疼痛 2/10。急诊医生已与 MAT 处方医生沟通。现医嘱为：今晚恢复丁丙诺啡/纳洛酮 16 mg/4 mg 舌下每日一次；对乙酰氨基酚 1,000 mg PO 每 6 小时；布洛芬 400 mg PO 每 6 小时随食物服用，从下一个预定 NSAID 间隔开始，以避免与酮咯酸重叠；冰敷和抬高；5 天后骨科随访；48 小时内 MAT 随访；告知石膏并发症返回就诊警示。Tanya 到达时情绪激动，在 Marcus 听不到的走廊问护士：“他是不是又用了？请直接告诉我真相。”她报告他近期失眠、情绪不稳，并曾在凌晨 2 点发现他独自坐在车里。Marcus 后来说：“她不信任我。没人信任我。如果所有人还把我当瘾君子，看我保持干净有什么意义？”他的眼睛发红，抠石膏边缘，直接询问时否认自杀意念，并说：“我现在真的觉得很孤单。”"
+                  "en": "Closed reduction is successful under propofol sedation with the nerve block in place. Marcus wakes oriented and without nausea. Post-procedure vitals: HR 82, BP 126/78, RR 14, SpO2 99%. Pain is 2/10 while the nerve block is active. The ED provider has spoken with the MAT prescriber. Orders now state: continue buprenorphine/naloxone 16 mg/4 mg sublingual daily, with the next dose tomorrow morning at the usual time because today’s morning dose was already taken; acetaminophen 1,000 mg PO every 6 hours; ibuprofen 400 mg PO every 6 hours with food, beginning at the next scheduled NSAID interval to avoid overlap with ketorolac; ice and elevation; orthopedic follow-up in 5 days; MAT follow-up within 48 hours; return precautions for cast complications. Tanya arrives upset and asks the nurse in the hallway, outside Marcus’s hearing, “Is he using again? Please just tell me the truth.” She reports recent insomnia, moodiness, and finding him sitting alone in the car at 2 AM. Marcus later says, “She doesn’t trust me. Nobody does. What’s the point of staying clean if everyone still treats you like a junkie?” His eyes are red, he picks at the cast edge, denies suicidal ideation when asked directly, and says, “I just feel really alone right now.”",
+                  "zh": "在神经阻滞起效的情况下，Marcus 在丙泊酚镇静下成功闭合复位。他醒来后定向力正常，无恶心。术后生命体征：HR 82，BP 126/78，RR 14，SpO2 99%。神经阻滞仍有效时疼痛 2/10。急诊医生已与 MAT 处方医生沟通。现医嘱为：继续丁丙诺啡/纳洛酮 16 mg/4 mg 舌下每日一次，因今晨已服药，下一剂为明早通常服药时间；对乙酰氨基酚 1,000 mg PO 每 6 小时；布洛芬 400 mg PO 每 6 小时随食物服用，从下一个预定 NSAID 间隔开始，以避免与酮咯酸重叠；冰敷和抬高；5 天后骨科随访；48 小时内 MAT 随访；告知石膏并发症返回就诊警示。Tanya 到达时情绪激动，在 Marcus 听不到的走廊问护士：“他是不是又用了？请直接告诉我真相。”她报告他近期失眠、情绪不稳，并曾在凌晨 2 点发现他独自坐在车里。Marcus 后来说：“她不信任我。没人信任我。如果所有人还把我当瘾君子，看我保持干净有什么意义？”他的眼睛发红，抠石膏边缘，直接询问时否认自杀意念，并说：“我现在真的觉得很孤单。”"
                 },
                 "structuredMeasurements": {
                   "panels": [
@@ -81119,8 +81108,8 @@
                   "zh": "出院准备更新"
                 },
                 "content": {
-                  "en": "The nerve block is beginning to wear off. Marcus reports left wrist pain increasing to 5/10. Vitals: HR 88, BP 132/82, RR 16, SpO2 99%. He took the evening buprenorphine/naloxone dose 30 minutes ago and has taken acetaminophen and ibuprofen as scheduled. He is restless and says, “This is exactly the kind of thing that made me use before — being in pain, feeling like crap, not being able to work. I know what would make this pain go away in five minutes.” He pauses and adds, “I’m not going to do it. But I’d be lying if I said I wasn’t thinking about it.” Tanya is present and alarmed. Marcus has not called his sponsor, is unsure he will attend tomorrow’s NA meeting because he cannot drive with the cast, and has not confirmed his MAT follow-up appointment. He asks whether ibuprofen will be enough, what to do if pain becomes severe overnight, and whether Tanya’s approximately 1-year-old naloxone kit still works.",
-                  "zh": "神经阻滞开始减退。Marcus 报告左腕疼痛升至 5/10。生命体征：HR 88，BP 132/82，RR 16，SpO2 99%。他 30 分钟前服用了晚间丁丙诺啡/纳洛酮，并按时服用了对乙酰氨基酚和布洛芬。他坐立不安，说：“这种情况正是以前让我再次使用的原因——疼痛、感觉很糟、不能工作。我知道有一种东西五分钟内就能让疼痛消失。”他停顿后说：“我不会那么做。但如果说我没想到它，那就是撒谎。”Tanya 在场并显得惊慌。Marcus 尚未致电赞助人，因为戴石膏不能开车而不确定是否参加明晚的 NA 会议，也尚未确认 MAT 随访。他询问布洛芬是否足够、如果夜里疼痛严重该怎么办，以及 Tanya 大约一年前的纳洛酮套装是否仍有效。"
+                  "en": "The nerve block is beginning to wear off. Marcus reports left wrist pain increasing to 5/10. Vitals: HR 88, BP 132/82, RR 16, SpO2 99%. Medication reconciliation confirms that today’s buprenorphine/naloxone dose was taken this morning; the next prescribed dose is tomorrow morning. He has taken acetaminophen and ibuprofen as scheduled. He is restless and says, “This is exactly the kind of thing that made me use before — being in pain, feeling like crap, not being able to work. I know what would make this pain go away in five minutes.” He pauses and adds, “I’m not going to do it. But I’d be lying if I said I wasn’t thinking about it.” Tanya is present and alarmed. Marcus has not called his sponsor, is unsure he will attend tomorrow’s NA meeting because he cannot drive with the cast, and has not confirmed his MAT follow-up appointment. He asks whether ibuprofen will be enough, what to do if pain becomes severe overnight, and whether Tanya’s approximately 1-year-old naloxone kit still works.",
+                  "zh": "神经阻滞开始减退。Marcus 报告左腕疼痛升至 5/10。生命体征：HR 88，BP 132/82，RR 16，SpO2 99%。用药核对确认他已于今晨服用今日丁丙诺啡/纳洛酮，下一次医嘱剂量为明早。他已按时服用对乙酰氨基酚和布洛芬。他坐立不安，说：“这种情况正是以前让我再次使用的原因——疼痛、感觉很糟、不能工作。我知道有一种东西五分钟内就能让疼痛消失。”他停顿后说：“我不会那么做。但如果说我没想到它，那就是撒谎。”Tanya 在场并显得惊慌。Marcus 尚未致电赞助人，因为戴石膏不能开车而不确定是否参加明晚的 NA 会议，也尚未确认 MAT 随访。他询问布洛芬是否足够、如果夜里疼痛严重该怎么办，以及 Tanya 大约一年前的纳洛酮套装是否仍有效。"
                 },
                 "structuredMeasurements": {
                   "panels": [
@@ -81424,8 +81413,8 @@
             ],
             "rationale": {
               "correct": {
-                "en": "The cluster best represents acute relapse risk: early recovery, prior relapse and overdose, acute fracture pain, fear of opioid exposure, emotional distress, and withdrawal from supports. There are no objective withdrawal signs; his anxiety is about avoiding opioids rather than obtaining them. He denied suicidal intent and plan, so the nurse monitors and reassesses rather than jumping to an involuntary hold.",
-                "zh": "该线索组合最符合急性复发风险：早期恢复、既往复发和过量、急性骨折疼痛、害怕阿片暴露、情绪痛苦以及远离支持系统。没有客观戒断体征；他的焦虑是为了避免阿片，而不是索取阿片。他否认自杀意图和计划，因此护士应监测并重新评估，而不是直接做非自愿留观。"
+                "en": "The cluster best represents acute relapse risk: early recovery, prior relapse and overdose, acute fracture pain, fear of opioid exposure, emotional distress, and withdrawal from supports. There are no objective withdrawal signs; his anxiety is about avoiding opioids rather than obtaining them. He denied intent to hurt himself, but assessment of a plan and access to means remains necessary. Continue safety assessment and reassessment; the first statement alone does not establish the disposition.",
+                "zh": "该线索组合最符合急性复发风险：早期恢复、既往复发和过量、急性骨折疼痛、害怕阿片暴露、情绪痛苦以及远离支持系统。没有客观戒断体征；他的焦虑是为了避免阿片，而不是索取阿片。他否认伤害自己的意图，但仍需评估有无计划及可接触的手段。应继续开展并重复安全评估；仅凭最初表述不能确定处置方式。"
               },
               "byChoice": [
                 {
@@ -81450,8 +81439,8 @@
                 },
                 {
                   "refId": "d",
-                  "en": "His statement requires exploration and reassessment, but denial of intent/plan and preserved protective factors do not by themselves support an involuntary hold.",
-                  "zh": "他的表述需要探询和重新评估，但否认意图/计划且保护因素仍存在，本身不足以支持非自愿留观。"
+                  "en": "Explore the statement and assess suicidal thoughts, intent, plan, access to means, and protective factors. Denial of intent alone does not establish safety or justify assuming that a plan was denied.",
+                  "zh": "应探询这句话，并评估自杀想法、意图、计划、可接触的手段及保护因素。仅否认意图并不能确定安全，也不能据此假定患者否认了计划。"
                 }
               ]
             },
@@ -81475,7 +81464,8 @@
                 "termZh": "保护因素",
                 "defZh": "降低自伤或复发风险的因素，如支持关系、未来计划、求助意愿和治疗连接。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_1"
           },
           {
             "id": "gpt_case_opioid_recovery_relapse_risk_01_q3",
@@ -81571,7 +81561,8 @@
                 "termZh": "无望感",
                 "defZh": "认为事情不会改善或努力没有意义的感受，是安全和复发风险评估的重要线索。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_2"
           },
           {
             "id": "gpt_case_opioid_recovery_relapse_risk_01_q4",
@@ -81680,7 +81671,8 @@
                 "termZh": "安全评估",
                 "defZh": "评估自伤/自杀意念、计划、意图、保护因素和可用支持的过程。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_2"
           },
           {
             "id": "gpt_case_opioid_recovery_relapse_risk_01_q5",
@@ -81721,8 +81713,8 @@
               },
               {
                 "id": "e",
-                "en": "Review naloxone with Marcus and Tanya: check the printed expiration date, replace expired kits, call 911, administer available naloxone in an overdose emergency, and review overdose signs.",
-                "zh": "与 Marcus 和 Tanya 复习纳洛酮：查看包装印刷有效期、替换过期套装、拨打 911、过量紧急情况下使用可用纳洛酮，并复习过量征象。"
+                "en": "With Marcus’s permission to include Tanya, review naloxone with them: check the printed expiration date, replace expired kits, call 911, administer available naloxone in an overdose emergency, and review overdose signs.",
+                "zh": "在获得 Marcus 同意让 Tanya 参与后，与两人复习纳洛酮：查看包装印刷有效期、替换过期套装、拨打 911、过量紧急情况下使用可用纳洛酮，并复习过量征象。"
               }
             ],
             "correct": [
@@ -81734,8 +81726,8 @@
             ],
             "rationale": {
               "correct": {
-                "en": "The discharge plan must integrate relapse prevention, pain control, harm reduction, and concrete logistics. Marcus needs validation for honest craving disclosure, a clear scheduled multimodal pain plan, continuation of ordered buprenorphine/naloxone, activated recovery supports, confirmed follow-up, transportation planning, and naloxone/overdose teaching with Tanya. He should have a supervised escalation pathway if pain becomes uncontrolled; avoiding care would increase suffering and relapse risk.",
-                "zh": "出院计划必须整合复发预防、疼痛控制、减害和具体后勤安排。Marcus 需要因坦诚报告渴求而得到肯定，需要明确的定时多模式镇痛方案、继续按医嘱使用丁丙诺啡/纳洛酮、启动恢复支持、确认随访、安排交通，并与 Tanya 复习纳洛酮/过量宣教。若疼痛无法控制，应有受监督的升级就医路径；回避照护会增加痛苦和复发风险。"
+                "en": "The discharge plan must integrate relapse prevention, pain control, harm reduction, and concrete logistics. Marcus needs validation for honest craving disclosure, a clear scheduled multimodal pain plan, continuation of ordered buprenorphine/naloxone, activated recovery supports, confirmed follow-up, transportation planning, and naloxone/overdose teaching with Tanya if he consents to her participation. He should have a supervised escalation pathway if pain becomes uncontrolled; avoiding care would increase suffering and relapse risk.",
+                "zh": "出院计划必须整合复发预防、疼痛控制、减害和具体后勤安排。Marcus 需要因坦诚报告渴求而得到肯定，需要明确的定时多模式镇痛方案、继续按医嘱使用丁丙诺啡/纳洛酮、启动恢复支持、确认随访、安排交通，并在其同意 Tanya 参与后，与两人复习纳洛酮/过量宣教。若疼痛无法控制，应有受监督的升级就医路径；回避照护会增加痛苦和复发风险。"
               },
               "byChoice": [
                 {
@@ -81795,7 +81787,8 @@
                 "termZh": "渴求",
                 "defZh": "对使用物质的强烈冲动，可出现于恢复过程中并需安全应对。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_3"
           },
           {
             "id": "gpt_case_opioid_recovery_relapse_risk_01_q6",
@@ -84044,7 +84037,8 @@
                 "termZh": "膀胱扫描",
                 "defZh": "用无创超声估计膀胱尿量。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_2"
           },
           {
             "id": "gpt_case_pressure_injury_prevention_mobility_01_q4",
@@ -84080,8 +84074,8 @@
               },
               {
                 "id": "q4_a",
-                "en": "Premedicate 20–30 minutes before physical therapy or transfers and use pillows, ordered ice, distraction, and hearing aids to improve participation.",
-                "zh": "在物理治疗或转移前20–30分钟预先给镇痛药，并使用枕头、医嘱允许的冰敷、转移注意力及佩戴助听器来促进配合。"
+                "en": "Coordinate prescribed analgesia with physical therapy or transfers, reassess pain, sedation and orthostatic symptoms before mobilizing, and use pillows and distraction to support participation.",
+                "zh": "将医嘱镇痛与物理治疗或转移时间协调，活动前复评疼痛、镇静程度及体位性症状，并用枕头支撑和转移注意力来促进配合。"
               },
               {
                 "id": "q4_f",
@@ -84114,8 +84108,8 @@
                 },
                 {
                   "refId": "q4_a",
-                  "en": "Optimizing pain control before activity supports mobility without giving opioids as an isolated goal; hearing aids improve coaching and safety.",
-                  "zh": "活动前优化疼痛控制有助于活动，而不是把阿片用药当作孤立目标；助听器有助于指导和安全。"
+                  "en": "Pain control and nonpharmacologic support can enable mobility, but this client’s earlier sedation and orthostatic symptoms require reassessment before transfer.",
+                  "zh": "镇痛及非药物支持可帮助活动，但患者先前曾出现嗜睡及体位性症状，因此转移前必须复评。"
                 },
                 {
                   "refId": "q4_e",
@@ -84154,7 +84148,8 @@
                 "termZh": "步态带",
                 "defZh": "用于转移和行走协助的腰带，可提高护理人员控制力和患者安全。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_2"
           },
           {
             "id": "gpt_case_pressure_injury_prevention_mobility_01_q5",
@@ -84264,7 +84259,8 @@
                 "termZh": "医疗器械相关压力性损伤",
                 "defZh": "器械接触或压迫组织处形成的压力性损伤。"
               }
-            ]
+            ],
+            "answerableAfterStageId": "stage_3"
           },
           {
             "id": "gpt_case_pressure_injury_prevention_mobility_01_q6",

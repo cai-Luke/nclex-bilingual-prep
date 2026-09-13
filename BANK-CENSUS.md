@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-09-13T03:15:34.299Z
-Input Git SHA: d895d851ae5c7b4c29aab74534bf4d4ad44f42e0
+Generated: 2026-09-13T04:53:28.676Z
+Input Git SHA: 511f66b7b7cb830649613793f0264725be25d450
 
 ## Session-Unit Inventory and Delivery Capacity
 
@@ -274,9 +274,9 @@ Population basis: standalone top-level questions plus embedded case-study questi
 ### Scored-Leaf Category Distribution
 
 - Basic Care and Comfort: 234
-- Health Promotion and Maintenance: 251
+- Health Promotion and Maintenance: 252
 - Psychosocial Integrity: 261
-- Reduction of Risk Potential: 280
+- Reduction of Risk Potential: 279
 - Safety and Infection Prevention and Control: 289
 - Management of Care: 381
 - Pharmacological and Parenteral Therapies: 410
@@ -286,11 +286,11 @@ Population basis: standalone top-level questions plus embedded case-study questi
 
 - Management of Care: Prioritization & Delegation (106), Legal & Ethical Principles (89), Discharge Planning & Handoff (77), Confidentiality & HIPAA (37), Client Advocacy (36), Conflict Resolution (30), Caregiver Role Strain & Family Coping (6)
 - Safety and Infection Prevention and Control: Patient & Environment Safety (83), Transmission-Based Precautions (66), Standard Precautions & Hygiene (41), Disaster & Emergency Preparedness (34), PPE & Sterile Technique (33), Transfusion & Blood Products (19), Skin & Wound Care (7), Medication Safety & Admin (6)
-- Health Promotion and Maintenance: Adult Health & Wellness (80), Chronic Disease Management & Lifestyle (51), Maternal-Newborn Care & Teaching (37), Pediatric & Adolescent Health (36), Pediatric & Toddler Safety (27), Reproductive & Endocrine Health (20)
+- Health Promotion and Maintenance: Adult Health & Wellness (80), Chronic Disease Management & Lifestyle (51), Maternal-Newborn Care & Teaching (37), Pediatric & Adolescent Health (37), Pediatric & Toddler Safety (27), Reproductive & Endocrine Health (20)
 - Psychosocial Integrity: Mental Health Disorders (78), Suicide & Crisis Intervention (60), Therapeutic Communication (44), Caregiver Role Strain & Family Coping (33), Substance Use & Withdrawal (30), Electroconvulsive Therapy (ECT) (16)
 - Basic Care and Comfort: Nutritional & Fluid Support (66), Elimination & Comfort (44), Mobility & Immobility (44), Sleep & Rest (30), Palliative & Supportive Care (29), Skin & Wound Care (21)
 - Pharmacological and Parenteral Therapies: Medication Safety & Admin (119), Dosage Calculations (74), Anticoagulant Therapy (57), Cardiovascular & Endocrine Medications (55), Psychotropic Medications (36), Parenteral Nutrition (30), Burn Management (17), IV Fluid Calculations (12), Transfusion & Blood Products (8), Laboratory & Diagnostic Tests (2)
-- Reduction of Risk Potential: Laboratory & Diagnostic Tests (82), Procedural Complications & Dialysis (67), Perioperative Care (54), Intrapartum Fetal Monitoring (22), ABG & Acid-Base Interpretation (21), Maternal-Newborn Care & Teaching (15), Burn Management (8), Oncology & Immunotherapy Complications (7), Skin & Wound Care (4)
+- Reduction of Risk Potential: Laboratory & Diagnostic Tests (81), Procedural Complications & Dialysis (67), Perioperative Care (54), Intrapartum Fetal Monitoring (22), ABG & Acid-Base Interpretation (21), Maternal-Newborn Care & Teaching (15), Burn Management (8), Oncology & Immunotherapy Complications (7), Skin & Wound Care (4)
 - Physiological Adaptation: Cardiovascular Disorders (111), Endocrine & Neurological Disorders (67), Renal & Gastrointestinal Disorders (66), Electrolyte Imbalances (53), Respiratory & Infectious Disorders (44), Sepsis & Septic Shock (29), Oncology & Immunotherapy Complications (28), Diabetic Ketoacidosis (DKA) (22), Maternal-Newborn Care & Teaching (13), Burn Management (12)
 
 ### Scored-Leaf Item-Type Distribution
@@ -298,9 +298,9 @@ Population basis: standalone top-level questions plus embedded case-study questi
 - bowtie: 164
 - highlight: 217
 - fill_in_blank: 225
-- ordered_response: 245
+- ordered_response: 243
 - dropdown_cloze: 291
-- matrix: 342
+- matrix: 344
 - select_all: 379
 - multiple_choice: 690
 
@@ -334,7 +334,7 @@ Under-served scored item types:
 - bowtie: 164
 - highlight: 217
 - fill_in_blank: 225
-- ordered_response: 245
+- ordered_response: 243
 - dropdown_cloze: 291
 
 ### Prompt Parameters
@@ -345,7 +345,7 @@ PRIORITIZE_TOPICS:
 - bowtie (164 vs target 319.1)
 - highlight (217 vs target 319.1)
 - fill_in_blank (225 vs target 319.1)
-- ordered_response (245 vs target 319.1)
+- ordered_response (243 vs target 319.1)
 - dropdown_cloze (291 vs target 319.1)
 - IV Fluid Calculations
 - Electroconvulsive Therapy (ECT)
@@ -365,8 +365,8 @@ AVOID_TOPICS:
 - Cardiovascular Disorders (111)
 - Prioritization & Delegation (106)
 - Legal & Ethical Principles (89)
-- Laboratory & Diagnostic Tests (84)
 - Patient & Environment Safety (83)
+- Laboratory & Diagnostic Tests (83)
 - Adult Health & Wellness (80)
 - Mental Health Disorders (78)
 
