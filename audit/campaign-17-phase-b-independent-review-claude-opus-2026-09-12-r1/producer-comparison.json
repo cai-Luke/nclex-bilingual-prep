@@ -1,0 +1,83 @@
+{
+ "writtenAfter": "Reviewer mechanical predicate, 75-row evaluation, 22 adversarial controls, and 19-parent boundary screen were complete and row-adjudication.jsonl / parent-boundary-sanity.json were written before survey.json, semantic-holds.json, legacy_survey.ts, or producer receipts were read. patch-plan.json operations were read earlier only as the object under test.",
+ "dispositionAgreement": {
+  "rows": 75,
+  "producerClassification": "DETERMINISTIC_SAME_VALUE_REPRESENTATION_CANDIDATE x75",
+  "reviewerMechanical": "MECHANICAL_MIGRATION_ACCEPT x75",
+  "producerSemanticHolds": 0,
+  "reviewerMechanicalHolds": 0,
+  "reviewerMechanicalRejects": 0,
+  "boundary": "Producer certified no boundary (semanticBoundaryCertification=false on every row). Reviewer bounded screen: 19/19 parents and 75/75 rows BOUNDARY_SANITY_NO_OBVIOUS_DEFECT; 0 BOUNDARY_REVIEW_REQUIRED. Not a disagreement: the producer made no boundary claim.",
+  "disagreements": []
+ },
+ "planFieldReconciliation": {
+  "rowsReconciled": 75,
+  "fields": [
+   "identity in reviewer-derived strict population (set equality, both directions)",
+   "JSON pointer resolves to the named parent and part",
+   "operation op=add, before.present=false, value === legacy stageId (UTF-8 byte compare)",
+   "bankSha256 (file bytes)",
+   "parentSha256 / partSha256 / visiblePayloadSha256 (sorted-key compact JSON, UTF-8)",
+   "stageTopology and stageTopologySha256 (insertion-order JSON of the id array)",
+   "beforeResolution / afterResolution (live resolver)",
+   "visibleStageIds / hiddenStageIds",
+   "preserveLegacyStageId"
+  ],
+  "mismatches": 0
+ },
+ "producerToolRerun": {
+  "purpose": "Reconciliation evidence only; not a source of judgment.",
+  "method": "Disposable detached worktree at 816272456fdf7062c5c62ed9845ac3f8166938df (node_modules symlinked), because legacy_survey.ts writes into phase-b/ and would overwrite frozen artifacts if run in place. Worktree removed afterwards.",
+  "command": "npx tsx audit/campaign-17-residual-successor-2026-09-12-r1/tools/legacy_survey.ts",
+  "exitCode": 0,
+  "phaseBOutputsVsFrozenCommit": "byte-identical (git diff empty for phase-b/)",
+  "stdoutSha256": "73e604c7f13889aa714648394cf079f8db2c6c79ed62009cb2f6a0602a1122cd",
+  "matchesProducerReceipt": true
+ },
+ "readmeClaimsVerified": {
+  "1_resolverSameIndex": "verified from src/caseVisibilityBoundary.ts: primary and legacy strings both classify via stageIds.lastIndexOf; primary wins when resolving; identical string => identical index, only CaseBoundaryResolution.field changes",
+  "2_visiblePrefixUnchanged": "verified: getVisibleCaseStages slices by that index; 645 staged parts across the three banks compared before/after, 0 changed",
+  "3_schemaImportAllowedKeys": "verified: schema accepts non-empty string primary; both fields drive hasSchema16CaseFields in schema.ts and bankImport.ts (feature floor already met, banks at 2.1); allowedKeys lists both; three banks validate with rejectUnknownKeys after mutation",
+  "4_auditDelta": "verified: strict 0/66/75 -> 0/66/0; the 66 revealsAllStages findings are deep-equal before/after",
+  "5_removalRestoresEquality": "verified per row and for the whole proposal: raw diff is exactly the 75 planned added keys, no key-order drift"
+ },
+ "methodologicalNotes": [
+  {
+   "id": "N1",
+   "severity": "non-blocking, integration-relevant",
+   "note": "legacy_survey.ts applyInMemory enforces parentSha256/partSha256 and an in-memory bank content hash against its own load, but never checks the recorded bankSha256 (file bytes), stageTopologySha256 or visiblePayloadSha256 against source. The plan records them; an integration seat should enforce bankSha256 and topology as source preconditions. Reviewer verified all three match at 8162724."
+  },
+  {
+   "id": "N2",
+   "severity": "informational",
+   "note": "Producer loads banks with JSON.parse and validateBankObject default options; the canonical strict sweep uses parseBankText and rejectUnknownKeys:true. Reviewer used the canonical path. Results agree."
+  },
+  {
+   "id": "N3",
+   "severity": "informational",
+   "note": "Producer's 'changed proposed boundary' control uses a non-resolving string, and 'different resolving primary' is a demonstration that the prefix changes rather than a plan-rejection control. Reviewer added plan-rejection controls for a different valid stage (C10) and a near-identical non-resolving value (C11). C11 matters: a non-resolving primary silently falls back to legacy, so visible-prefix equality alone would pass it, and only exact value equality (and the strict audit's unresolved finding) excludes it."
+  },
+  {
+   "id": "N4",
+   "severity": "informational",
+   "note": "Producer's learner-content control edits questions[0].stem of the first bank in the whole-bank array (outside the target parent); reviewer's C13 edits visible stage content inside the target parent. Both are rejected by removal-restores-equality."
+  }
+ ],
+ "controlMapping": {
+  "present primary null": "C02",
+  "present primary \"stale-primary\"": "C03",
+  "present primary {\"kind\":\"baseline\"}": "C04",
+  "unresolved legacy": "C06",
+  "missing legacy": "C05",
+  "duplicate stage topology": "C07",
+  "dropped plan": "population/plan set equality (populationMinusPlan=[], planMinusPopulation=[]) and C09 pointer retarget",
+  "changed proposed boundary": "C10, C11",
+  "reordered live topology": "C08",
+  "learner content mutation": "C13, C18",
+  "legacy deletion": "C14",
+  "part deletion": "C15",
+  "different resolving primary changes visible prefix": "C10",
+  "validator rejects malformed primary object": "C12a-e",
+  "reviewerOnly": ["C01 primary present with identical value", "C11 near-identical value", "C16 part substituted", "C17 stale bank hash"]
+ }
+}

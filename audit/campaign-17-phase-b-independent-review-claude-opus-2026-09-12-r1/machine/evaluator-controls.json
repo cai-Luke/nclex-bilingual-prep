@@ -1,0 +1,502 @@
+{
+ "positiveControl": {
+  "identity": "banks/claude-canonical.json|opus25_case_tb_airborne_treatment_monitoring_01|opus25_case_tb_airborne_treatment_monitoring_01_q1",
+  "fails": []
+ },
+ "controls": [
+  {
+   "id": "C01_primary_present_same_value",
+   "description": "primary already present with the identical legacy string",
+   "rejected": true,
+   "expectedClauses": [
+    "P2_primary_present"
+   ],
+   "expectedClausesHit": [
+    "P2_primary_present"
+   ],
+   "allExpectedHit": true,
+   "fails": [
+    "P1_not_in_strict_missingRequiredAnchor_population",
+    "P2_primary_present",
+    "P11_parent_sha",
+    "P11_part_sha",
+    "P5_before_not_via_legacy",
+    "P5_recorded_resolution_mismatch",
+    "P7_unexpected_raw_diff",
+    "P9_removal_does_not_restore"
+   ],
+   "extra": null
+  },
+  {
+   "id": "C02_primary_null",
+   "description": "primary present as null",
+   "rejected": true,
+   "expectedClauses": [
+    "P2_primary_present"
+   ],
+   "expectedClausesHit": [
+    "P2_primary_present"
+   ],
+   "allExpectedHit": true,
+   "fails": [
+    "P1_not_in_strict_missingRequiredAnchor_population",
+    "P2_primary_present",
+    "P11_parent_sha",
+    "P11_part_sha",
+    "P6_not_evaluable_schema_invalid",
+    "P7_unexpected_raw_diff",
+    "P9_removal_does_not_restore"
+   ],
+   "extra": null
+  },
+  {
+   "id": "C03_primary_stale_string",
+   "description": "primary present as a non-resolving string",
+   "rejected": true,
+   "expectedClauses": [
+    "P2_primary_present"
+   ],
+   "expectedClausesHit": [
+    "P2_primary_present"
+   ],
+   "allExpectedHit": true,
+   "fails": [
+    "P1_not_in_strict_missingRequiredAnchor_population",
+    "P2_primary_present",
+    "P11_parent_sha",
+    "P11_part_sha",
+    "P7_unexpected_raw_diff",
+    "P9_removal_does_not_restore"
+   ],
+   "extra": null
+  },
+  {
+   "id": "C04_primary_typed_baseline",
+   "description": "primary present as exact typed baseline",
+   "rejected": true,
+   "expectedClauses": [
+    "P2_primary_present"
+   ],
+   "expectedClausesHit": [
+    "P2_primary_present"
+   ],
+   "allExpectedHit": true,
+   "fails": [
+    "P1_not_in_strict_missingRequiredAnchor_population",
+    "P2_primary_present",
+    "P11_parent_sha",
+    "P11_part_sha",
+    "P5_resolution_index_changed",
+    "P5_before_not_via_legacy",
+    "P5_recorded_resolution_mismatch",
+    "P6_visible_payload_changed",
+    "P6_recorded_visible_ids_mismatch",
+    "P6_recorded_hidden_ids_mismatch",
+    "P6_visible_payload_sha",
+    "P7_unexpected_raw_diff",
+    "P9_removal_does_not_restore"
+   ],
+   "extra": null
+  },
+  {
+   "id": "C05_legacy_absent",
+   "description": "legacy stageId deleted from source",
+   "rejected": true,
+   "expectedClauses": [
+    "P1_not_in_strict_missingRequiredAnchor_population",
+    "P3_legacy_absent_or_nonstring",
+    "P3_legacy_unresolving"
+   ],
+   "expectedClausesHit": [
+    "P1_not_in_strict_missingRequiredAnchor_population",
+    "P3_legacy_absent_or_nonstring",
+    "P3_legacy_unresolving"
+   ],
+   "allExpectedHit": true,
+   "fails": [
+    "P1_not_in_strict_missingRequiredAnchor_population",
+    "P3_legacy_absent_or_nonstring",
+    "P3_legacy_unresolving",
+    "P4_value_not_identical_to_legacy",
+    "P8_preserve_legacy_mismatch",
+    "P11_parent_sha",
+    "P11_part_sha",
+    "P5_resolution_index_changed",
+    "P5_before_not_via_legacy",
+    "P5_recorded_resolution_mismatch",
+    "P6_visible_payload_changed",
+    "P6_recorded_visible_ids_mismatch",
+    "P6_recorded_hidden_ids_mismatch",
+    "P6_visible_payload_sha"
+   ],
+   "extra": null
+  },
+  {
+   "id": "C06_legacy_stale",
+   "description": "legacy stageId does not resolve",
+   "rejected": true,
+   "expectedClauses": [
+    "P1_not_in_strict_missingRequiredAnchor_population",
+    "P3_legacy_unresolving"
+   ],
+   "expectedClausesHit": [
+    "P1_not_in_strict_missingRequiredAnchor_population",
+    "P3_legacy_unresolving"
+   ],
+   "allExpectedHit": true,
+   "fails": [
+    "P1_not_in_strict_missingRequiredAnchor_population",
+    "P3_legacy_unresolving",
+    "P4_value_not_identical_to_legacy",
+    "P8_preserve_legacy_mismatch",
+    "P11_parent_sha",
+    "P11_part_sha",
+    "P5_resolution_index_changed",
+    "P5_before_not_via_legacy",
+    "P5_recorded_resolution_mismatch",
+    "P6_visible_payload_changed",
+    "P6_recorded_visible_ids_mismatch",
+    "P6_recorded_hidden_ids_mismatch",
+    "P6_visible_payload_sha"
+   ],
+   "extra": null
+  },
+  {
+   "id": "C07_duplicate_topology",
+   "description": "a stage id duplicated in source topology",
+   "rejected": true,
+   "expectedClauses": [
+    "P3_duplicate_stage_ids",
+    "P11_topology_mismatch"
+   ],
+   "expectedClausesHit": [
+    "P3_duplicate_stage_ids",
+    "P11_topology_mismatch"
+   ],
+   "allExpectedHit": true,
+   "fails": [
+    "P3_duplicate_stage_ids",
+    "P3_ambiguous_legacy_resolution",
+    "P11_parent_sha",
+    "P11_topology_mismatch",
+    "P11_topology_sha",
+    "P7_schema_rejects_after",
+    "P5_recorded_resolution_mismatch",
+    "P6_not_evaluable_schema_invalid"
+   ],
+   "extra": null
+  },
+  {
+   "id": "C08_reordered_topology",
+   "description": "source stage order reversed",
+   "rejected": true,
+   "expectedClauses": [
+    "P11_topology_mismatch",
+    "P11_parent_sha"
+   ],
+   "expectedClausesHit": [
+    "P11_topology_mismatch",
+    "P11_parent_sha"
+   ],
+   "allExpectedHit": true,
+   "fails": [
+    "P11_parent_sha",
+    "P11_topology_mismatch",
+    "P11_topology_sha",
+    "P5_recorded_resolution_mismatch",
+    "P6_recorded_visible_ids_mismatch",
+    "P6_recorded_hidden_ids_mismatch",
+    "P6_visible_payload_sha"
+   ],
+   "extra": null
+  },
+  {
+   "id": "C09_plan_dropped_or_pointer_to_other_part",
+   "description": "operation pointer retargeted to a sibling part",
+   "rejected": true,
+   "expectedClauses": [
+    "P10_pointer_part_identity"
+   ],
+   "expectedClausesHit": [
+    "P10_pointer_part_identity"
+   ],
+   "allExpectedHit": true,
+   "fails": [
+    "P10_pointer_part_identity"
+   ],
+   "extra": null
+  },
+  {
+   "id": "C10_changed_target_value_other_valid_stage",
+   "description": "proposed value is a different valid stage id (arbitrary copy)",
+   "rejected": true,
+   "expectedClauses": [
+    "P4_value_not_identical_to_legacy",
+    "P5_resolution_index_changed",
+    "P6_visible_payload_changed"
+   ],
+   "expectedClausesHit": [
+    "P4_value_not_identical_to_legacy",
+    "P5_resolution_index_changed",
+    "P6_visible_payload_changed"
+   ],
+   "allExpectedHit": true,
+   "fails": [
+    "P4_value_not_identical_to_legacy",
+    "P5_resolution_index_changed",
+    "P5_recorded_resolution_mismatch",
+    "P6_visible_payload_changed"
+   ],
+   "extra": null
+  },
+  {
+   "id": "C11_near_identical_value",
+   "description": "proposed value differs only by trailing space (non-resolving primary silently falls back to legacy)",
+   "rejected": true,
+   "expectedClauses": [
+    "P4_value_not_identical_to_legacy",
+    "P5_after_not_via_primary"
+   ],
+   "expectedClausesHit": [
+    "P4_value_not_identical_to_legacy",
+    "P5_after_not_via_primary"
+   ],
+   "allExpectedHit": true,
+   "fails": [
+    "P4_value_not_identical_to_legacy",
+    "P5_after_not_via_primary",
+    "P5_recorded_resolution_mismatch"
+   ],
+   "extra": null
+  },
+  {
+   "id": "C12a_malformed_baseline_extra_key",
+   "description": "malformed primary {\"kind\":\"baseline\",\"x\":1}",
+   "rejected": true,
+   "expectedClauses": [
+    "P4_value_not_identical_to_legacy"
+   ],
+   "expectedClausesHit": [
+    "P4_value_not_identical_to_legacy"
+   ],
+   "allExpectedHit": true,
+   "fails": [
+    "P4_value_not_identical_to_legacy",
+    "P7_schema_rejects_after",
+    "P5_after_not_via_primary",
+    "P5_recorded_resolution_mismatch",
+    "P6_not_evaluable_schema_invalid"
+   ],
+   "extra": null
+  },
+  {
+   "id": "C12b_malformed_array",
+   "description": "malformed primary [\"stage1\"]",
+   "rejected": true,
+   "expectedClauses": [
+    "P4_value_not_identical_to_legacy"
+   ],
+   "expectedClausesHit": [
+    "P4_value_not_identical_to_legacy"
+   ],
+   "allExpectedHit": true,
+   "fails": [
+    "P4_value_not_identical_to_legacy",
+    "P7_schema_rejects_after",
+    "P5_after_not_via_primary",
+    "P5_recorded_resolution_mismatch",
+    "P6_not_evaluable_schema_invalid"
+   ],
+   "extra": null
+  },
+  {
+   "id": "C12c_malformed_number",
+   "description": "malformed primary 1",
+   "rejected": true,
+   "expectedClauses": [
+    "P4_value_not_identical_to_legacy"
+   ],
+   "expectedClausesHit": [
+    "P4_value_not_identical_to_legacy"
+   ],
+   "allExpectedHit": true,
+   "fails": [
+    "P4_value_not_identical_to_legacy",
+    "P7_schema_rejects_after",
+    "P5_after_not_via_primary",
+    "P5_recorded_resolution_mismatch",
+    "P6_not_evaluable_schema_invalid"
+   ],
+   "extra": null
+  },
+  {
+   "id": "C12d_empty_string",
+   "description": "malformed primary \"\"",
+   "rejected": true,
+   "expectedClauses": [
+    "P4_value_not_identical_to_legacy"
+   ],
+   "expectedClausesHit": [
+    "P4_value_not_identical_to_legacy"
+   ],
+   "allExpectedHit": true,
+   "fails": [
+    "P4_value_not_identical_to_legacy",
+    "P7_schema_rejects_after",
+    "P5_after_not_via_primary",
+    "P5_recorded_resolution_mismatch",
+    "P6_not_evaluable_schema_invalid"
+   ],
+   "extra": null
+  },
+  {
+   "id": "C12e_wrong_case_baseline",
+   "description": "malformed primary {\"kind\":\"Baseline\"}",
+   "rejected": true,
+   "expectedClauses": [
+    "P4_value_not_identical_to_legacy"
+   ],
+   "expectedClausesHit": [
+    "P4_value_not_identical_to_legacy"
+   ],
+   "allExpectedHit": true,
+   "fails": [
+    "P4_value_not_identical_to_legacy",
+    "P7_schema_rejects_after",
+    "P5_after_not_via_primary",
+    "P5_recorded_resolution_mismatch",
+    "P6_not_evaluable_schema_invalid"
+   ],
+   "extra": null
+  },
+  {
+   "id": "C13_changed_learner_content",
+   "description": "visible stage exhibit EN text altered alongside the add",
+   "rejected": true,
+   "expectedClauses": [
+    "P7_unexpected_raw_diff",
+    "P9_removal_does_not_restore"
+   ],
+   "expectedClausesHit": [
+    "P7_unexpected_raw_diff",
+    "P9_removal_does_not_restore"
+   ],
+   "allExpectedHit": true,
+   "fails": [
+    "P7_unexpected_raw_diff",
+    "P9_removal_does_not_restore"
+   ],
+   "extra": {
+    "rawDiff": [
+     "/questions/64/caseStudy/stages/0/exhibits/0/content/en",
+     "/questions/64/caseStudy/questions/0/answerableAfterStageId#added"
+    ],
+    "restores": false,
+    "fails": [
+     "P7_unexpected_raw_diff",
+     "P9_removal_does_not_restore"
+    ]
+   }
+  },
+  {
+   "id": "C14_legacy_deleted_by_migration",
+   "description": "migration adds primary but deletes legacy stageId (resolver output unchanged)",
+   "rejected": true,
+   "expectedClauses": [
+    "P8_legacy_not_retained",
+    "P7_unexpected_raw_diff"
+   ],
+   "expectedClausesHit": [
+    "P8_legacy_not_retained",
+    "P7_unexpected_raw_diff"
+   ],
+   "allExpectedHit": true,
+   "fails": [
+    "P8_legacy_not_retained",
+    "P7_unexpected_raw_diff"
+   ],
+   "extra": {
+    "resolverStillPrefix": {
+     "kind": "prefix",
+     "index": 0,
+     "field": "answerableAfterStageId"
+    },
+    "rawDiff": [
+     "/questions/64/caseStudy/questions/0/stageId#removed",
+     "/questions/64/caseStudy/questions/0/answerableAfterStageId#added"
+    ],
+    "fails": [
+     "P8_legacy_not_retained",
+     "P7_unexpected_raw_diff"
+    ]
+   }
+  },
+  {
+   "id": "C15_part_deleted",
+   "description": "target part removed from source",
+   "rejected": true,
+   "expectedClauses": [
+    "P1_not_in_strict_missingRequiredAnchor_population"
+   ],
+   "expectedClausesHit": [
+    "P1_not_in_strict_missingRequiredAnchor_population"
+   ],
+   "allExpectedHit": true,
+   "fails": [
+    "P1_not_in_strict_missingRequiredAnchor_population",
+    "P10_pointer_part_identity"
+   ],
+   "extra": null
+  },
+  {
+   "id": "C16_part_substituted",
+   "description": "target part id substituted",
+   "rejected": true,
+   "expectedClauses": [
+    "P10_pointer_part_identity"
+   ],
+   "expectedClausesHit": [
+    "P10_pointer_part_identity"
+   ],
+   "allExpectedHit": true,
+   "fails": [
+    "P1_not_in_strict_missingRequiredAnchor_population",
+    "P10_pointer_part_identity"
+   ],
+   "extra": null
+  },
+  {
+   "id": "C17_stale_bank_hash",
+   "description": "source bank bytes differ from recorded precondition",
+   "rejected": true,
+   "expectedClauses": [
+    "P11_bank_sha"
+   ],
+   "expectedClausesHit": [
+    "P11_bank_sha"
+   ],
+   "allExpectedHit": true,
+   "fails": [
+    "P11_bank_sha"
+   ],
+   "extra": null
+  },
+  {
+   "id": "C18_changed_stage_payload",
+   "description": "visible stage content in source differs from recorded parent hash",
+   "rejected": true,
+   "expectedClauses": [
+    "P11_parent_sha"
+   ],
+   "expectedClausesHit": [
+    "P11_parent_sha"
+   ],
+   "allExpectedHit": true,
+   "fails": [
+    "P11_parent_sha",
+    "P6_visible_payload_sha"
+   ],
+   "extra": null
+  }
+ ]
+}

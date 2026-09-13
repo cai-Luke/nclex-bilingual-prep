@@ -1,0 +1,1012 @@
+{
+ "screenDefinition": "Bounded negative screen per commission section 6: stranded explicit value/order/therapy/finding/timestamp/named stage required by the part's own stem/options; visible contradiction of a quoted value attributable to the boundary; 'Stage N' reference to a hidden stage; anchor plainly inconsistent with item text. Automated numeric/stage-reference screen (tools/boundary_screen.py) plus full human read of every parent's stages and all 75 population parts. Not a clinical re-adjudication.",
+ "calibrationCounterexampleNotAdded": "opus3_iv_potassium_safety_case_01 is outside this population and was not added.",
+ "generatedAt": "2026-09-13T02:22:20.391501+00:00",
+ "parents": [
+  {
+   "bank": "banks/claude-canonical.json",
+   "parentCaseId": "opus25_case_tb_airborne_treatment_monitoring_01",
+   "stageTopology": [
+    "stage1",
+    "stage2",
+    "stage3",
+    "stage4"
+   ],
+   "populationParts": [
+    "opus25_case_tb_airborne_treatment_monitoring_01_q1",
+    "opus25_case_tb_airborne_treatment_monitoring_01_q2",
+    "opus25_case_tb_airborne_treatment_monitoring_01_q3",
+    "opus25_case_tb_airborne_treatment_monitoring_01_q4",
+    "opus25_case_tb_airborne_treatment_monitoring_01_q5",
+    "opus25_case_tb_airborne_treatment_monitoring_01_q6"
+   ],
+   "populationPartCount": 6,
+   "automatedScreen": [
+    {
+     "partId": "opus25_case_tb_airborne_treatment_monitoring_01_q1",
+     "legacyBoundary": "stage1",
+     "visible": 1,
+     "of": 4,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "opus25_case_tb_airborne_treatment_monitoring_01_q2",
+     "legacyBoundary": "stage1",
+     "visible": 1,
+     "of": 4,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "opus25_case_tb_airborne_treatment_monitoring_01_q3",
+     "legacyBoundary": "stage2",
+     "visible": 2,
+     "of": 4,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "opus25_case_tb_airborne_treatment_monitoring_01_q4",
+     "legacyBoundary": "stage2",
+     "visible": 2,
+     "of": 4,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "opus25_case_tb_airborne_treatment_monitoring_01_q5",
+     "legacyBoundary": "stage4",
+     "visible": 4,
+     "of": 4,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "opus25_case_tb_airborne_treatment_monitoring_01_q6",
+     "legacyBoundary": "stage3",
+     "visible": 3,
+     "of": 4,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    }
+   ],
+   "humanReadAllPopulationParts": true,
+   "verdict": "BOUNDARY_SANITY_NO_OBVIOUS_DEFECT",
+   "notes": "Stem 'Stage N' references match stage ids stage1-stage4. Each part's cited findings/orders sit at or before its anchor: q1 AIIR mask request and q2 (stage1); q3 ethambutol baseline vision testing and q4 prednisone taper (stage2); q6 distress/three doses (stage3); q5 AST/ALT/bilirubin and ALT hold threshold (stage4). q2's correct option (public-health contact investigation) is general knowledge and does not require the stage2 notification text."
+  },
+  {
+   "bank": "banks/gpt-canonical.json",
+   "parentCaseId": "gpt_case_gap_2026_06_11_case_adhf_01",
+   "stageTopology": [
+    "adhf_stage2",
+    "adhf_stage3"
+   ],
+   "populationParts": [
+    "gpt_case_gap_2026_06_11_adhf_cloze_02",
+    "gpt_case_gap_2026_06_11_adhf_fib_04",
+    "gpt_case_gap_2026_06_11_adhf_or_03"
+   ],
+   "populationPartCount": 3,
+   "automatedScreen": [
+    {
+     "partId": "gpt_case_gap_2026_06_11_adhf_cloze_02",
+     "legacyBoundary": "adhf_stage2",
+     "visible": 1,
+     "of": 2,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_gap_2026_06_11_adhf_or_03",
+     "legacyBoundary": "adhf_stage2",
+     "visible": 1,
+     "of": 2,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_gap_2026_06_11_adhf_fib_04",
+     "legacyBoundary": "adhf_stage3",
+     "visible": 2,
+     "of": 2,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    }
+   ],
+   "humanReadAllPopulationParts": true,
+   "verdict": "BOUNDARY_SANITY_NO_OBVIOUS_DEFECT",
+   "notes": "cloze_02 cites pink frothy sputum/worsening hypoxemia from adhf_stage2. or_03 includes 'administer the prescribed IV loop diuretic', which appears as started only in the adhf_stage3 trigger; this is the family-wide anticipated-action ordering pattern and stage3 would reveal the treatment course, so the stage2 anchor is the defensible boundary, not a stranded order. fib_04 intake/output (920/2,100 mL) are in adhf_stage3."
+  },
+  {
+   "bank": "banks/gpt-canonical.json",
+   "parentCaseId": "gpt_case_gap_2026_06_11_case_adrenal_crisis_04",
+   "stageTopology": [
+    "adrenal_stage2",
+    "adrenal_stage3"
+   ],
+   "populationParts": [
+    "gpt_case_gap_2026_06_11_adrenal_cloze_02",
+    "gpt_case_gap_2026_06_11_adrenal_fib_04",
+    "gpt_case_gap_2026_06_11_adrenal_or_03"
+   ],
+   "populationPartCount": 3,
+   "automatedScreen": [
+    {
+     "partId": "gpt_case_gap_2026_06_11_adrenal_cloze_02",
+     "legacyBoundary": "adrenal_stage2",
+     "visible": 1,
+     "of": 2,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_gap_2026_06_11_adrenal_or_03",
+     "legacyBoundary": "adrenal_stage2",
+     "visible": 1,
+     "of": 2,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_gap_2026_06_11_adrenal_fib_04",
+     "legacyBoundary": "adrenal_stage2",
+     "visible": 1,
+     "of": 2,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    }
+   ],
+   "humanReadAllPopulationParts": true,
+   "verdict": "BOUNDARY_SANITY_NO_OBVIOUS_DEFECT",
+   "notes": "cloze_02 (glucose 48 mg/dL, refractory hypotension) and fib_04 (BP 78/40) cite adrenal_stage2 values at the adrenal_stage2 anchor. or_03 'prescribed IV hydrocortisone' follows the anticipated-action pattern (given in adrenal_stage3 trigger)."
+  },
+  {
+   "bank": "banks/gpt-canonical.json",
+   "parentCaseId": "gpt_case_gap_2026_06_11_case_aki_02",
+   "stageTopology": [
+    "aki_stage2",
+    "aki_stage3"
+   ],
+   "populationParts": [
+    "gpt_case_gap_2026_06_11_aki_cloze_02",
+    "gpt_case_gap_2026_06_11_aki_fib_04",
+    "gpt_case_gap_2026_06_11_aki_or_03"
+   ],
+   "populationPartCount": 3,
+   "automatedScreen": [
+    {
+     "partId": "gpt_case_gap_2026_06_11_aki_cloze_02",
+     "legacyBoundary": "aki_stage2",
+     "visible": 1,
+     "of": 2,
+     "strandedNumericHits": [
+      "2"
+     ],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_gap_2026_06_11_aki_or_03",
+     "legacyBoundary": "aki_stage2",
+     "visible": 1,
+     "of": 2,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_gap_2026_06_11_aki_fib_04",
+     "legacyBoundary": "aki_stage2",
+     "visible": 1,
+     "of": 2,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    }
+   ],
+   "humanReadAllPopulationParts": true,
+   "verdict": "BOUNDARY_SANITY_NO_OBVIOUS_DEFECT",
+   "notes": "Screen hit '2' is the {{2}} cloze placeholder (false positive). cloze_02 (K 6.2 mEq/L, peaked T waves) and fib_04 (120 mL over 8 h; weight supplied in stem) cite aki_stage2 values at the aki_stage2 anchor."
+  },
+  {
+   "bank": "banks/gpt-canonical.json",
+   "parentCaseId": "gpt_case_gap_2026_06_11_case_anticoag_bleeding_06",
+   "stageTopology": [
+    "anticoag_stage2",
+    "anticoag_stage3"
+   ],
+   "populationParts": [
+    "gpt_case_gap_2026_06_11_anticoag_cloze_02",
+    "gpt_case_gap_2026_06_11_anticoag_fib_04",
+    "gpt_case_gap_2026_06_11_anticoag_or_03"
+   ],
+   "populationPartCount": 3,
+   "automatedScreen": [
+    {
+     "partId": "gpt_case_gap_2026_06_11_anticoag_cloze_02",
+     "legacyBoundary": "anticoag_stage2",
+     "visible": 1,
+     "of": 2,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_gap_2026_06_11_anticoag_or_03",
+     "legacyBoundary": "anticoag_stage2",
+     "visible": 1,
+     "of": 2,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_gap_2026_06_11_anticoag_fib_04",
+     "legacyBoundary": "anticoag_stage3",
+     "visible": 2,
+     "of": 2,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    }
+   ],
+   "humanReadAllPopulationParts": true,
+   "verdict": "BOUNDARY_SANITY_NO_OBVIOUS_DEFECT",
+   "notes": "cloze_02 and or_03 cite anticoag_stage2 deterioration data at the anticoag_stage2 anchor. fib_04 uses platelets 226 (global) and 96 (anticoag_stage2), both visible at its anticoag_stage3 anchor."
+  },
+  {
+   "bank": "banks/gpt-canonical.json",
+   "parentCaseId": "gpt_case_gap_2026_06_11_case_pancreatitis_03",
+   "stageTopology": [
+    "panc_stage2",
+    "panc_stage3"
+   ],
+   "populationParts": [
+    "gpt_case_gap_2026_06_11_panc_cloze_02",
+    "gpt_case_gap_2026_06_11_panc_fib_04",
+    "gpt_case_gap_2026_06_11_panc_or_03"
+   ],
+   "populationPartCount": 3,
+   "automatedScreen": [
+    {
+     "partId": "gpt_case_gap_2026_06_11_panc_cloze_02",
+     "legacyBoundary": "panc_stage2",
+     "visible": 1,
+     "of": 2,
+     "strandedNumericHits": [
+      "2"
+     ],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_gap_2026_06_11_panc_or_03",
+     "legacyBoundary": "panc_stage2",
+     "visible": 1,
+     "of": 2,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_gap_2026_06_11_panc_fib_04",
+     "legacyBoundary": "panc_stage3",
+     "visible": 2,
+     "of": 2,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    }
+   ],
+   "humanReadAllPopulationParts": true,
+   "verdict": "BOUNDARY_SANITY_NO_OBVIOUS_DEFECT",
+   "notes": "Screen hit '2' is the {{2}} cloze placeholder (false positive). cloze_02/or_03 cite panc_stage2 data at panc_stage2. Observation only: fib_04 (panc_stage3) asks for minimum urine output 76 kg x 0.5 = 38 mL/hr while the visible panc_stage3 exhibit shows current output 38 mL/hr; the rationale compares against that current value, the answer is computable from the stem alone, and no boundary choice is implicated."
+  },
+  {
+   "bank": "banks/gpt-canonical.json",
+   "parentCaseId": "gpt_case_gap_2026_06_11_case_urosepsis_05",
+   "stageTopology": [
+    "sepsis_stage2",
+    "sepsis_stage3"
+   ],
+   "populationParts": [
+    "gpt_case_gap_2026_06_11_sepsis_cloze_02",
+    "gpt_case_gap_2026_06_11_sepsis_fib_04",
+    "gpt_case_gap_2026_06_11_sepsis_or_03"
+   ],
+   "populationPartCount": 3,
+   "automatedScreen": [
+    {
+     "partId": "gpt_case_gap_2026_06_11_sepsis_cloze_02",
+     "legacyBoundary": "sepsis_stage2",
+     "visible": 1,
+     "of": 2,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_gap_2026_06_11_sepsis_or_03",
+     "legacyBoundary": "sepsis_stage2",
+     "visible": 1,
+     "of": 2,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_gap_2026_06_11_sepsis_fib_04",
+     "legacyBoundary": "sepsis_stage3",
+     "visible": 2,
+     "of": 2,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    }
+   ],
+   "humanReadAllPopulationParts": true,
+   "verdict": "BOUNDARY_SANITY_NO_OBVIOUS_DEFECT",
+   "notes": "cloze_02/or_03 cite sepsis_stage2 data (hypotension after 1 L, lactate 4.6, 15 mL/h) at sepsis_stage2; or_03 'prescribed antibiotics' follows the anticipated-action pattern. fib_04 weight is stem-supplied; rationale's current 25 mL/hr is in sepsis_stage3 at the sepsis_stage3 anchor."
+  },
+  {
+   "bank": "banks/gpt-canonical.json",
+   "parentCaseId": "gpt_case_premium_next_case_caregiver_adaptation_dementia_03",
+   "stageTopology": [
+    "support_plan"
+   ],
+   "populationParts": [
+    "gpt_case_premium_next_case_caregiver_adaptation_dementia_03_cloze_risk",
+    "gpt_case_premium_next_case_caregiver_adaptation_dementia_03_fib_respite",
+    "gpt_case_premium_next_case_caregiver_adaptation_dementia_03_or_plan"
+   ],
+   "populationPartCount": 3,
+   "automatedScreen": [
+    {
+     "partId": "gpt_case_premium_next_case_caregiver_adaptation_dementia_03_or_plan",
+     "legacyBoundary": "support_plan",
+     "visible": 1,
+     "of": 1,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_premium_next_case_caregiver_adaptation_dementia_03_cloze_risk",
+     "legacyBoundary": "support_plan",
+     "visible": 1,
+     "of": 1,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_premium_next_case_caregiver_adaptation_dementia_03_fib_respite",
+     "legacyBoundary": "support_plan",
+     "visible": 1,
+     "of": 1,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    }
+   ],
+   "humanReadAllPopulationParts": true,
+   "verdict": "BOUNDARY_SANITY_NO_OBVIOUS_DEFECT",
+   "notes": "Single-stage parent: legacy anchor is the sole stage, so the prefix is the full case (legitimately resolved). Parts rely on stage resources (social work, respite aide, adult son) or self-contained stem arithmetic (6x3+4=22)."
+  },
+  {
+   "bank": "banks/gpt-canonical.json",
+   "parentCaseId": "gpt_case_premium_next_case_health_literacy_diabetes_01",
+   "stageTopology": [
+    "planning"
+   ],
+   "populationParts": [
+    "gpt_case_premium_next_case_health_literacy_diabetes_01_fib_activity",
+    "gpt_case_premium_next_case_health_literacy_diabetes_01_or_teachback",
+    "gpt_case_premium_next_case_health_literacy_diabetes_01_sata_referrals"
+   ],
+   "populationPartCount": 3,
+   "automatedScreen": [
+    {
+     "partId": "gpt_case_premium_next_case_health_literacy_diabetes_01_or_teachback",
+     "legacyBoundary": "planning",
+     "visible": 1,
+     "of": 1,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_premium_next_case_health_literacy_diabetes_01_sata_referrals",
+     "legacyBoundary": "planning",
+     "visible": 1,
+     "of": 1,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_premium_next_case_health_literacy_diabetes_01_fib_activity",
+     "legacyBoundary": "planning",
+     "visible": 1,
+     "of": 1,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    }
+   ],
+   "humanReadAllPopulationParts": true,
+   "verdict": "BOUNDARY_SANITY_NO_OBVIOUS_DEFECT",
+   "notes": "Single-stage parent: full reveal by a resolving legacy anchor. Parts rely on stage care-team resources (educator, dietitian, social worker) or self-contained stem arithmetic (30x5=150)."
+  },
+  {
+   "bank": "banks/gpt-canonical.json",
+   "parentCaseId": "gpt_case_premium_next_case_ipv_safety_planning_06",
+   "stageTopology": [
+    "resource_planning"
+   ],
+   "populationParts": [
+    "gpt_case_premium_next_case_ipv_safety_planning_06_cloze_privacy",
+    "gpt_case_premium_next_case_ipv_safety_planning_06_fib_gobag",
+    "gpt_case_premium_next_case_ipv_safety_planning_06_or_actions"
+   ],
+   "populationPartCount": 3,
+   "automatedScreen": [
+    {
+     "partId": "gpt_case_premium_next_case_ipv_safety_planning_06_or_actions",
+     "legacyBoundary": "resource_planning",
+     "visible": 1,
+     "of": 1,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_premium_next_case_ipv_safety_planning_06_cloze_privacy",
+     "legacyBoundary": "resource_planning",
+     "visible": 1,
+     "of": 1,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_premium_next_case_ipv_safety_planning_06_fib_gobag",
+     "legacyBoundary": "resource_planning",
+     "visible": 1,
+     "of": 1,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    }
+   ],
+   "humanReadAllPopulationParts": true,
+   "verdict": "BOUNDARY_SANITY_NO_OBVIOUS_DEFECT",
+   "notes": "Single-stage parent: full reveal by a resolving legacy anchor. Parts rely on stage clinic resources (advocate, discreet safety card, neutral follow-up) or self-contained stem arithmetic (2x7=14)."
+  },
+  {
+   "bank": "banks/gpt-canonical.json",
+   "parentCaseId": "gpt_case_premium_next_case_occupational_exposure_vaccine_04",
+   "stageTopology": [
+    "qi_review"
+   ],
+   "populationParts": [
+    "gpt_case_premium_next_case_occupational_exposure_vaccine_04_fib_supplies",
+    "gpt_case_premium_next_case_occupational_exposure_vaccine_04_matrix_practices",
+    "gpt_case_premium_next_case_occupational_exposure_vaccine_04_sata_qi"
+   ],
+   "populationPartCount": 3,
+   "automatedScreen": [
+    {
+     "partId": "gpt_case_premium_next_case_occupational_exposure_vaccine_04_matrix_practices",
+     "legacyBoundary": "qi_review",
+     "visible": 1,
+     "of": 1,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_premium_next_case_occupational_exposure_vaccine_04_sata_qi",
+     "legacyBoundary": "qi_review",
+     "visible": 1,
+     "of": 1,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_premium_next_case_occupational_exposure_vaccine_04_fib_supplies",
+     "legacyBoundary": "qi_review",
+     "visible": 1,
+     "of": 1,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    }
+   ],
+   "humanReadAllPopulationParts": true,
+   "verdict": "BOUNDARY_SANITY_NO_OBVIOUS_DEFECT",
+   "notes": "Single-stage parent: full reveal by a resolving legacy anchor. matrix_practices/sata_qi rows (overfilled container, recapping, undocumented titer) are qi_review stage content; fib_supplies is self-contained (118/50 -> 3)."
+  },
+  {
+   "bank": "banks/gpt-canonical.json",
+   "parentCaseId": "gpt_case_premium_next_case_preventive_screening_vaccine_05",
+   "stageTopology": [
+    "shared_planning"
+   ],
+   "populationParts": [
+    "gpt_case_premium_next_case_preventive_screening_vaccine_05_fib_activity",
+    "gpt_case_premium_next_case_preventive_screening_vaccine_05_or_teaching",
+    "gpt_case_premium_next_case_preventive_screening_vaccine_05_sata_plan"
+   ],
+   "populationPartCount": 3,
+   "automatedScreen": [
+    {
+     "partId": "gpt_case_premium_next_case_preventive_screening_vaccine_05_or_teaching",
+     "legacyBoundary": "shared_planning",
+     "visible": 1,
+     "of": 1,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_premium_next_case_preventive_screening_vaccine_05_sata_plan",
+     "legacyBoundary": "shared_planning",
+     "visible": 1,
+     "of": 1,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_premium_next_case_preventive_screening_vaccine_05_fib_activity",
+     "legacyBoundary": "shared_planning",
+     "visible": 1,
+     "of": 1,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    }
+   ],
+   "humanReadAllPopulationParts": true,
+   "verdict": "BOUNDARY_SANITY_NO_OBVIOUS_DEFECT",
+   "notes": "Single-stage parent: full reveal by a resolving legacy anchor. Parts rely on shared_planning resources (FIT kit, mammography, large-print/teach-back) or self-contained stem arithmetic (25x6=150)."
+  },
+  {
+   "bank": "banks/gpt-canonical.json",
+   "parentCaseId": "gpt_case_premium_next_case_rehab_pressure_bowel_02",
+   "stageTopology": [
+    "discharge_planning"
+   ],
+   "populationParts": [
+    "gpt_case_premium_next_case_rehab_pressure_bowel_02_matrix_delegation"
+   ],
+   "populationPartCount": 1,
+   "automatedScreen": [
+    {
+     "partId": "gpt_case_premium_next_case_rehab_pressure_bowel_02_matrix_delegation",
+     "legacyBoundary": "discharge_planning",
+     "visible": 1,
+     "of": 1,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    }
+   ],
+   "humanReadAllPopulationParts": true,
+   "verdict": "BOUNDARY_SANITY_NO_OBVIOUS_DEFECT",
+   "notes": "Single-stage parent: full reveal by a resolving legacy anchor. matrix_delegation roles (PT gait, OT equipment, RN assessment, AP toileting) align with the discharge_planning team plan."
+  },
+  {
+   "bank": "banks/hard-cases-canonical.json",
+   "parentCaseId": "gpt_case_gallstone_pancreatitis_01",
+   "stageTopology": [
+    "stage_1",
+    "stage_2",
+    "stage_3"
+   ],
+   "populationParts": [
+    "gpt_case_gallstone_pancreatitis_01_q1",
+    "gpt_case_gallstone_pancreatitis_01_q2",
+    "gpt_case_gallstone_pancreatitis_01_q3",
+    "gpt_case_gallstone_pancreatitis_01_q4",
+    "gpt_case_gallstone_pancreatitis_01_q5",
+    "gpt_case_gallstone_pancreatitis_01_q6"
+   ],
+   "populationPartCount": 6,
+   "automatedScreen": [
+    {
+     "partId": "gpt_case_gallstone_pancreatitis_01_q1",
+     "legacyBoundary": "stage_1",
+     "visible": 1,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_gallstone_pancreatitis_01_q2",
+     "legacyBoundary": "stage_1",
+     "visible": 1,
+     "of": 3,
+     "strandedNumericHits": [
+      "3"
+     ],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_gallstone_pancreatitis_01_q3",
+     "legacyBoundary": "stage_2",
+     "visible": 2,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_gallstone_pancreatitis_01_q4",
+     "legacyBoundary": "stage_2",
+     "visible": 2,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_gallstone_pancreatitis_01_q5",
+     "legacyBoundary": "stage_3",
+     "visible": 3,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_gallstone_pancreatitis_01_q6",
+     "legacyBoundary": "stage_3",
+     "visible": 3,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    }
+   ],
+   "humanReadAllPopulationParts": true,
+   "verdict": "BOUNDARY_SANITY_NO_OBVIOUS_DEFECT",
+   "notes": "Screen hit '3' is the {{3}} placeholder (false positive). Stem 'Stage N' references match stage_1-stage_3 anchors. q1 says 'using the admission data only' while anchored at stage_1: over-inclusive but answer-neutral (stage_1 adds no value that changes any keyed row), not stranding. Incidental, outside boundary scope: q4 rationale argues against 'immediate CT for necrosis' and a 'falling hematocrit' choice, neither of which is among its six options."
+  },
+  {
+   "bank": "banks/hard-cases-canonical.json",
+   "parentCaseId": "gpt_case_major_burn_inhalation_fluid_creep_01",
+   "stageTopology": [
+    "stage1",
+    "stage2",
+    "stage3"
+   ],
+   "populationParts": [
+    "gpt_case_major_burn_inhalation_fluid_creep_01_q1",
+    "gpt_case_major_burn_inhalation_fluid_creep_01_q2",
+    "gpt_case_major_burn_inhalation_fluid_creep_01_q3",
+    "gpt_case_major_burn_inhalation_fluid_creep_01_q4",
+    "gpt_case_major_burn_inhalation_fluid_creep_01_q5"
+   ],
+   "populationPartCount": 5,
+   "automatedScreen": [
+    {
+     "partId": "gpt_case_major_burn_inhalation_fluid_creep_01_q1",
+     "legacyBoundary": "stage1",
+     "visible": 1,
+     "of": 3,
+     "strandedNumericHits": [
+      "31.5"
+     ],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_major_burn_inhalation_fluid_creep_01_q2",
+     "legacyBoundary": "stage1",
+     "visible": 1,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_major_burn_inhalation_fluid_creep_01_q3",
+     "legacyBoundary": "stage1",
+     "visible": 1,
+     "of": 3,
+     "strandedNumericHits": [
+      "1400",
+      "24",
+      "31.5"
+     ],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_major_burn_inhalation_fluid_creep_01_q4",
+     "legacyBoundary": "stage2",
+     "visible": 2,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_major_burn_inhalation_fluid_creep_01_q5",
+     "legacyBoundary": "stage3",
+     "visible": 3,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    }
+   ],
+   "humanReadAllPopulationParts": true,
+   "verdict": "BOUNDARY_SANITY_NO_OBVIOUS_DEFECT",
+   "notes": "q1's keyed answer 31.5% appears in parent material only in hidden stage2 ('Burn surgery confirms 31.5% TBSA'), so the stage1 anchor correctly withholds it. q3's screen hits (1400, 24, 31.5) are values its own stem supplies. Incidental, boundary-independent: q2 highlight segments quote BP 88/58, HR 130/min and 'awake but anxious', which appear nowhere in the parent (global 0640 data: BP 90/60, HR 125, 'conscious but confused'); no anchor creates or resolves this. q3's stem states 31.5% TBSA, which is sibling q1's key; learner exposure depends on sibling rendering and was not verified."
+  },
+  {
+   "bank": "banks/hard-cases-canonical.json",
+   "parentCaseId": "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01",
+   "stageTopology": [
+    "stage1",
+    "stage2",
+    "stage3"
+   ],
+   "populationParts": [
+    "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_q1",
+    "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_q2",
+    "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_q3",
+    "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_q4",
+    "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_q5",
+    "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_q6"
+   ],
+   "populationPartCount": 6,
+   "automatedScreen": [
+    {
+     "partId": "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_q1",
+     "legacyBoundary": "stage1",
+     "visible": 1,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_q2",
+     "legacyBoundary": "stage2",
+     "visible": 2,
+     "of": 3,
+     "strandedNumericHits": [
+      "90"
+     ],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_q3",
+     "legacyBoundary": "stage2",
+     "visible": 2,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_q4",
+     "legacyBoundary": "stage2",
+     "visible": 2,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_q5",
+     "legacyBoundary": "stage2",
+     "visible": 2,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_q6",
+     "legacyBoundary": "stage3",
+     "visible": 3,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    }
+   ],
+   "humanReadAllPopulationParts": true,
+   "verdict": "BOUNDARY_SANITY_NO_OBVIOUS_DEFECT",
+   "notes": "q2 hit '90' is the general SBP<90 high-risk threshold. stage3's intermediate-risk classification and 'thrombolysis not ordered' text are correctly hidden at the stage2 anchors of q2/q4 (they would disclose keyed reasoning). q5 'prepare for ICU transfer' follows the anticipated-action pattern. q6 troponin 0.38->0.42 and trend data are visible at stage3."
+  },
+  {
+   "bank": "banks/hard-cases-canonical.json",
+   "parentCaseId": "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01",
+   "stageTopology": [
+    "stage1",
+    "stage2",
+    "stage3"
+   ],
+   "populationParts": [
+    "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_q1",
+    "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_q2",
+    "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_q3",
+    "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_q4",
+    "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_q5",
+    "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_q6"
+   ],
+   "populationPartCount": 6,
+   "automatedScreen": [
+    {
+     "partId": "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_q1",
+     "legacyBoundary": "stage1",
+     "visible": 1,
+     "of": 3,
+     "strandedNumericHits": [
+      "3"
+     ],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_q2",
+     "legacyBoundary": "stage1",
+     "visible": 1,
+     "of": 3,
+     "strandedNumericHits": [
+      "3",
+      "97"
+     ],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_q3",
+     "legacyBoundary": "stage1",
+     "visible": 1,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_q4",
+     "legacyBoundary": "stage1",
+     "visible": 1,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_q5",
+     "legacyBoundary": "stage2",
+     "visible": 2,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_q6",
+     "legacyBoundary": "stage3",
+     "visible": 3,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    }
+   ],
+   "humanReadAllPopulationParts": true,
+   "verdict": "BOUNDARY_SANITY_NO_OBVIOUS_DEFECT",
+   "notes": "Screen hits: '3' is the {{3}} placeholder; '97' is inside a distractor option. Stem 'Stage N' references match anchors. q3's pre-endoscopy hypothesis is correctly anchored before stage2 EGD confirmation. Incidental, boundary-independent: q1 highlight segments and q2 distractors quote glucose 102 mg/dL, capillary refill 3 s and clear breath sounds that are not in any exhibit (item-internal passage data)."
+  },
+  {
+   "bank": "banks/hard-cases-canonical.json",
+   "parentCaseId": "gpt_pph_2026_06_16_case_01",
+   "stageTopology": [
+    "stage_1",
+    "stage_2",
+    "stage_3"
+   ],
+   "populationParts": [
+    "gpt_pph_2026_06_16_case_01_q1",
+    "gpt_pph_2026_06_16_case_01_q2",
+    "gpt_pph_2026_06_16_case_01_q3",
+    "gpt_pph_2026_06_16_case_01_q4",
+    "gpt_pph_2026_06_16_case_01_q5",
+    "gpt_pph_2026_06_16_case_01_q6"
+   ],
+   "populationPartCount": 6,
+   "automatedScreen": [
+    {
+     "partId": "gpt_pph_2026_06_16_case_01_q1",
+     "legacyBoundary": "stage_1",
+     "visible": 1,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_pph_2026_06_16_case_01_q2",
+     "legacyBoundary": "stage_1",
+     "visible": 1,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_pph_2026_06_16_case_01_q3",
+     "legacyBoundary": "stage_2",
+     "visible": 2,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_pph_2026_06_16_case_01_q4",
+     "legacyBoundary": "stage_2",
+     "visible": 2,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_pph_2026_06_16_case_01_q5",
+     "legacyBoundary": "stage_3",
+     "visible": 3,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_pph_2026_06_16_case_01_q6",
+     "legacyBoundary": "stage_3",
+     "visible": 3,
+     "of": 3,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    }
+   ],
+   "humanReadAllPopulationParts": true,
+   "verdict": "BOUNDARY_SANITY_NO_OBVIOUS_DEFECT",
+   "notes": "Stem 'Stage N' references match stage_1-stage_3 anchors. q3's second-uterotonic choice is anchored at stage_2, correctly withholding stage_3's 'misoprostol was given'. q1 highlights the one-hour assessment while anchored at stage_1 (initial response: catheterization, massage): over-inclusive, answer-neutral."
+  },
+  {
+   "bank": "banks/hard-cases-canonical.json",
+   "parentCaseId": "gpt_r1_regen_case_celiac_01",
+   "stageTopology": [
+    "initial",
+    "stage1",
+    "stage2",
+    "stage3"
+   ],
+   "populationParts": [
+    "gpt_r1_regen_case_celiac_01_q1",
+    "gpt_r1_regen_case_celiac_01_q2",
+    "gpt_r1_regen_case_celiac_01_q3",
+    "gpt_r1_regen_case_celiac_01_q4",
+    "gpt_r1_regen_case_celiac_01_q5",
+    "gpt_r1_regen_case_celiac_01_q6"
+   ],
+   "populationPartCount": 6,
+   "automatedScreen": [
+    {
+     "partId": "gpt_r1_regen_case_celiac_01_q1",
+     "legacyBoundary": "initial",
+     "visible": 1,
+     "of": 4,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_r1_regen_case_celiac_01_q2",
+     "legacyBoundary": "stage1",
+     "visible": 2,
+     "of": 4,
+     "strandedNumericHits": [
+      "1"
+     ],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_r1_regen_case_celiac_01_q3",
+     "legacyBoundary": "stage1",
+     "visible": 2,
+     "of": 4,
+     "strandedNumericHits": [
+      "1"
+     ],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_r1_regen_case_celiac_01_q4",
+     "legacyBoundary": "stage2",
+     "visible": 3,
+     "of": 4,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_r1_regen_case_celiac_01_q5",
+     "legacyBoundary": "stage2",
+     "visible": 3,
+     "of": 4,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    },
+    {
+     "partId": "gpt_r1_regen_case_celiac_01_q6",
+     "legacyBoundary": "stage3",
+     "visible": 4,
+     "of": 4,
+     "strandedNumericHits": [],
+     "stageRefsPointingHidden": []
+    }
+   ],
+   "humanReadAllPopulationParts": true,
+   "verdict": "BOUNDARY_SANITY_NO_OBVIOUS_DEFECT",
+   "notes": "Screen hits '1' come from 'Stage 1' in stems. Stem labels 'Stage 1/2/3' correspond to stage ids stage1/stage2/stage3 (the first stage id is 'initial'); the UI renders stage titles without numbers, so the labels are id-based, and every referenced stage lies within the visible prefix. q2/q3 stage1 data (tTG-IgA, biopsy, iron/folate/vitamin D/PTH, B12), q4/q5 stage2 data (hidden gluten, dapsone, folate not started) and q6 stage3 data are each at or before the anchor."
+  }
+ ]
+}

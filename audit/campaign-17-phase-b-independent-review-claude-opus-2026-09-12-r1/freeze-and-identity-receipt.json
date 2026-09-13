@@ -1,0 +1,54 @@
+{
+ "reviewSeat": "Claude Opus 5 (Claude Code), producer-independent",
+ "phase": "Campaign 17 Phase B",
+ "pinnedSourceHead": "816272456fdf7062c5c62ed9845ac3f8166938df",
+ "headVerifiedAgainst": [
+  "local branch codex/campaign-17-residual-successor-2026-09-12 (worktree 'Project Shrimp Campaign 17', porcelain clean)",
+  "origin/codex/campaign-17-residual-successor-2026-09-12"
+ ],
+ "acceptedMainlineBase": {
+  "commit": "d895d851ae5c7b4c29aab74534bf4d4ad44f42e0",
+  "diffToPinnedHead_banks_src_scripts_lib": "none"
+ },
+ "phaseBSnapshot": {
+  "commit": "7e1c0dafab75e6dbf2309397c2d721f815a6bef1",
+  "diffToPinnedHead_phaseB_legacySurvey_freeze": "none",
+  "freezeManifest": "audit/campaign-17-residual-successor-2026-09-12-r1/phase-b-freeze.json",
+  "freezeManifestRecordedBaseHead": "1d79b577171b79194fd81c967b37dbebe5cfeda4 (recorded; not relied upon)",
+  "freezeReceiptManifestSha256": "8b2f629c48facefd00e2592a7d8f46a46c222bf307cad923a003a7b04df0d921",
+  "artifactsVerified": "53/53 sha256 match on disk and via git show at 8162724"
+ },
+ "codeHashesInSurvey": "7/7 match at pinned head (types.ts, schema.ts, caseVisibilityBoundary.ts, examLayout.ts, bankImport.ts, allowedKeys.ts, audit-stage-refs.ts)",
+ "openingStatePreservation": {
+  "bankHashes": "13/13",
+  "campaign16Hashes": "293/293",
+  "authorityHashes": "11/11"
+ },
+ "liveStrictAuditRerun": {
+  "command": "npx tsx scripts/audit/audit-stage-refs.ts --strict (cwd: pinned producer worktree)",
+  "exitCode": 1,
+  "result": "141 findings across 13 bank files: 0 unresolved, 66 revealsAllStages (leak), 75 missingRequiredAnchor",
+  "interpretation": "Expected nonzero exit: canonical banks are intentionally unrepaired. Not a review failure and not a passing canonical state.",
+  "outputComparedToProducerReceipt": "identical except the 4-line npm run header present in the producer's npm-invoked receipt",
+  "reviewerCopy": "machine/stage-refs-strict-live-reviewer-rerun.txt"
+ },
+ "populationReconciliation": {
+  "derivedBy": "reviewer evaluator calling live findStageReferenceFindings({strict:true}) over parseBankText + validateBankObject(rejectUnknownKeys) loads of all 13 banks",
+  "missingRequiredAnchorRows": 75,
+  "parents": 19,
+  "banks": {"banks/claude-canonical.json": 6, "banks/gpt-canonical.json": 34, "banks/hard-cases-canonical.json": 35},
+  "planSetEqualsPopulation": true,
+  "overlapWithPhaseA66": "none at row or parent level",
+  "phaseA66IdentitiesUnchangedUnderProposal": true
+ },
+ "reviewBranch": {
+  "branch": "review/campaign-17-phase-a-independent-claude-opus-2026-09-12-r1",
+  "headBeforePhaseB": "8dbcae95d86aed6f83ce4f9fdf4544bea92268e9",
+  "worktree": "/private/tmp/claude-501/-Users-holemini-Desktop-Project-Shrimp/32f09f80-d04f-4fa3-9af9-bc63811ab489/scratchpad/c17-review",
+  "banksByteIdenticalToPinnedHead": "13/13",
+  "phaseAArtifactsUnchanged": "MANIFEST.json 56/56 sha256 match; no tracked diff under the Phase-A review root"
+ },
+ "canonicalMutation": false,
+ "producerArtifactsMutated": false,
+ "scopeAssertion": "Review artifacts only. No canonical bank, raw content, runtime/schema/audit code, ledger, census, Campaign 16 evidence, PROJECT-HISTORY.md, Phase-A/C/D material, or frozen Campaign 17 producer artifact was modified."
+}
