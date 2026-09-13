@@ -1704,3 +1704,61 @@ distribution, not a new defect. No hand-edit was made, since hand-patching deter
 output would violate the no-hand-merge invariant. A shuffle-quality floor for `ordered_response`
 presentation order is proposed as successor work and would also address the 3 fully pre-sorted
 legacy items.
+
+## Campaign 17 Phase C raw batch — independent review and promotion (2026-09-12)
+
+Promoted `gpt-2026-09-12-0609-t1.json`, `gpt-2026-09-12-0609-t2.json`, and
+`gpt-2026-09-12-0609-t3.json` (6 items each, 18 total, schema 2.0) into `banks/gpt-canonical.json`:
+`779 + 6 = 785`, `785 + 6 = 791`, `791 + 6 = 797`. Producer was **Codex / GPT-6** on the isolated
+Campaign 17 worktree (`codex/campaign-17-residual-successor-2026-09-12`, based on accepted mainline
+`d895d851ae5c7b4c29aab74534bf4d4ad44f42e0`); independent content review and promotion by
+**Claude Code / Claude Sonnet 5**, satisfying producer ≠ checker. The frozen source is
+[the Phase C freeze](audit/campaign-17-residual-successor-2026-09-12-r1/phase-c-freeze.json)
+(commit `5304eff1468426d5f14ce029beb8bb9754dad91c`) and its
+[README](audit/campaign-17-residual-successor-2026-09-12-r1/phase-c/README.md), which named this
+review as the required next step before any promotion. This review ran on a dedicated branch
+(`review/campaign-17-phase-c-independent-claude-2026-09-12`, off `main` at the same base commit)
+without checking out or altering the producer worktree; the frozen Phase A/B/D artifacts under the
+same audit root were not opened or touched.
+
+Before use, all three raw files' SHA-256 hashes were independently recomputed and matched exactly
+against `phase-c-freeze.json`'s manifest (`a43bb40b…`, `e74b7524…`, `189e9dd0…`), confirming the
+frozen content was unmodified. All 18 items were then read and reviewed in full: clinical accuracy
+against the batch's 20 cited sources (CDC U.S. MEC, ADA/EASD/JBDS/AACE/DTS 2024 DKA consensus, ACOG/
+NICE fetal-monitoring definitions, ASPEN refeeding criteria, and others), internal numeric
+consistency (IV/gravity-infusion arithmetic, ABG interpretation, the euglycemic-DKA glucose
+threshold), bilingual parity across every `en`/`zh` stem, rationale, distractor, glossary, and
+option pair, and answer unambiguity against each item's own stated closed-world protocol/threshold.
+No clinical or bilingual defect was found; no content was altered from the frozen originals — all 18
+items were promoted byte-identical to the frozen raw.
+
+Verification: `validate-bank` (all three files individually, then all 13 canonical banks together),
+`gate:raw` (all three files as one candidate set against all 13 canonical comparison banks),
+`normalize-raw-bank` (0 structural changes on each file — already normalized), `promote`,
+`consolidate`, aggregate `audit`, `census:check` → `census` → `census:check`, `tsc --noEmit`, and
+`test:grading` / `test:schema-bank` / `test:audit-ids` / `test:consolidate` all passed. The canonical
+diff was verified structurally: exactly 18 IDs added (`gpt_2026_09_12_0609_t{1,2,3}_{01..06}`), 0
+removed, 0 pre-existing questions modified, pre-existing order preserved, additions appended at the
+tail, `meta.count` 779 → 797, `meta.schemaVersion` unchanged at 2.1, and `gpt-canonical.json`'s
+SHA-256 moved `a4b7d10a…` → `2fffca3f…` from the exact hash recorded at the end of the prior
+(Quarantined Question Forge) ledger entry, confirming an unbroken chain of custody. `gate:raw`'s
+`audit:positions` and both `audit:non-mcq-bias` subchecks returned `INSUFFICIENT` — the batch has no
+multiple-choice items and 18 items is below the distributional threshold — recorded as absence of
+evidence, not as PASS, matching the producer's own preflight receipts. The aggregate audit's two
+warnings (the 66 frozen Campaign 16/17-Phase-A residual exceptions; a `visual-canonical` `select_all`
+distributional finding) are pre-existing and reference none of the new IDs. Census was regenerated;
+movement is confined to the 18 added items and their derived composition (1,949 → 1,967 session
+units; 2,535 → 2,553 scored leaves).
+
+Process note: the `banks/banks-raw/` staging copies were deleted immediately after `consolidate`
+rather than after this ledger entry was written, out of the runbook's documented order
+(`docs/AGENTS-RUNBOOK.md` → Ledger Procedure). No content was at risk — the reviewed originals remain
+immutable in the Phase C freeze commit above — but the sequencing itself should have followed the
+runbook exactly; noted here rather than silently corrected.
+
+Campaign 17 Phase A (66 residual dispositions) and Phase B (75 legacy-primary survey) remain open,
+unreviewed producer proposals under the same audit root and are unaffected by this entry. Phase D
+(image reconnaissance) likewise remains open. This entry discharges only the Phase C raw-content
+condition recorded in
+[the Phase C README](audit/campaign-17-residual-successor-2026-09-12-r1/phase-c/README.md) and the
+[producer handoff](audit/campaign-17-residual-successor-2026-09-12-r1/HANDOFF.md).
