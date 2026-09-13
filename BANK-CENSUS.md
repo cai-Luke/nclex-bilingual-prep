@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-09-13T04:53:28.676Z
-Input Git SHA: 511f66b7b7cb830649613793f0264725be25d450
+Generated: 2026-09-13T12:12:10.982Z
+Input Git SHA: 9d6891b47f5a09d800db66d647fc7312b636fb1c
 
 ## Session-Unit Inventory and Delivery Capacity
 
@@ -298,11 +298,11 @@ Population basis: standalone top-level questions plus embedded case-study questi
 - bowtie: 164
 - highlight: 217
 - fill_in_blank: 225
-- ordered_response: 243
-- dropdown_cloze: 291
+- ordered_response: 242
+- dropdown_cloze: 290
 - matrix: 344
-- select_all: 379
-- multiple_choice: 690
+- select_all: 380
+- multiple_choice: 691
 
 ### Scored-Leaf Difficulty Distribution
 
@@ -334,8 +334,8 @@ Under-served scored item types:
 - bowtie: 164
 - highlight: 217
 - fill_in_blank: 225
-- ordered_response: 243
-- dropdown_cloze: 291
+- ordered_response: 242
+- dropdown_cloze: 290
 
 ### Prompt Parameters
 
@@ -345,8 +345,8 @@ PRIORITIZE_TOPICS:
 - bowtie (164 vs target 319.1)
 - highlight (217 vs target 319.1)
 - fill_in_blank (225 vs target 319.1)
-- ordered_response (243 vs target 319.1)
-- dropdown_cloze (291 vs target 319.1)
+- ordered_response (242 vs target 319.1)
+- dropdown_cloze (290 vs target 319.1)
 - IV Fluid Calculations
 - Electroconvulsive Therapy (ECT)
 - Reproductive & Endocrine Health

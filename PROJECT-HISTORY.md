@@ -52,6 +52,18 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Campaign 17 Phase A/B and Temperature Counterpart R1 Integrated (Sep 13)
+
+Closes the Campaign 17 Phase A (66 residual dispositions) and Phase B (75 legacy-primary survey) population left open by the Phase C entry below, plus the separately produced Temperature Counterpart R1 packet. Full four-layer provenance (disposition review → overnight producer implementation → independent implementation review → replacement review and integration) and the complete verification/hash-chain record are in `BANK-REVIEW-LEDGER.md`'s dated entry; this note gives only the outcome.
+
+**Campaign 17 A/B.** Producer (Codex/GPT-6, overnight, based on `511f66b`) applied 139 rows (64 Phase A repairs, 75 Phase B same-value primary-anchor migrations) and staged two complete-parent replacements as unpromoted raw. Independently reviewed (Claude/Opus, cold producer-independent), including live source re-verification of the clinically load-bearing changes (rapid-IV-calcium-push hazard, thyroid-storm drug sequencing, fan-therapy dyspnea relief, CLABSI differential-time-to-positivity threshold) and bottom-up reconstruction of the reported census/field-diff arithmetic rather than accepting it as asserted. All 139 rows and both replacements accepted; the two replacements (`gemini_gap_case_palliative_care_03`, `opus_tpn_case_mucositis_01`) were integrated in place under their existing identities, not appended, resolving the two `revealsAllStages` fail-open findings they had left canonical.
+
+**Temperature Counterpart R1.** Producer (Codex/GPT-6, proposals-only, 0 canonical edits) proposed 17 field-level bilingual display-normalization edits across 16 occurrences. Independently reviewed and folded into a single patch on top of the accepted Campaign 17 state (not a second rewrite of the same surface); the two source-value reconciliations were checked by independent unit-conversion arithmetic.
+
+**Integration mechanics.** Fast-forwarded the reviewed Campaign 17 commits onto `main`, then applied the two replacements and 17 temperature field edits via four new one-off `scripts/patches/2026-09-13-overnight-*.ts` patch scripts (P15 `setValue`/`replaceText`, `--allow-canonical`), committed as the exact reviewable record. Full verification (`validate-bank`, aggregate `audit`, `tsc -b`, nine relevant test suites, `npm run build`, `census:check`→`census`→`census:check`) passed on the combined tree; canonical bank SHA-256 chain of custody is unbroken from the prior Phase C entry.
+
+Campaign 17 Phase D (image reconnaissance) remains open and unaffected. The overnight commission's remaining lanes (Matrix-first coherence, N-01 resolving-anchor calibration, the combined construct/answerability instrument, the July 21 P31 reconciliation) authorized no canonical mutation and are recorded in their own artifacts, not here.
+
 ### Review/Vocabulary Omnibus, DB v7 Physical Cleanup, and Campaign 17 Phase C Integrated (Sep 12)
 
 Three independently tracked lines merged into one integration line and fast-forwarded to `main`: the Review/Vocabulary omnibus (R1 + R1.1), the DB v7 physical database cleanup, and the Campaign 17 Phase C 18-item content promotion.

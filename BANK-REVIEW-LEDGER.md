@@ -1762,3 +1762,81 @@ unreviewed producer proposals under the same audit root and are unaffected by th
 condition recorded in
 [the Phase C README](audit/campaign-17-residual-successor-2026-09-12-r1/phase-c/README.md) and the
 [producer handoff](audit/campaign-17-residual-successor-2026-09-12-r1/HANDOFF.md).
+
+## Campaign 17 Phase A/B overnight implementation + Temperature Counterpart R1 — independent review and integration (2026-09-13)
+
+This entry closes the Campaign 17 Phase A/B residual population left open by the prior entry, plus
+the separately produced Temperature Counterpart R1 packet, through four distinct, explicitly
+distinguished layers: (1) the original Campaign 17 A/B **disposition review** at commit `19ae7a7`
+(`audit/campaign-17-phase-a-independent-review-claude-opus-2026-09-12-r1/`,
+`.../phase-b-independent-review-claude-opus-2026-09-12-r1/`), which authorized *what* to fix but did
+not implement it; (2) the **overnight producer implementation** by Codex/GPT-6 on
+`codex/overnight-c17-ab-2026-09-13` (commits `f482dbd`, `1e2e82c`, `9d6891b`, based on
+`511f66b7b7cb830649613793f0264725be25d450`), which applied 64 Phase A repairs (17 anchor-only, 47
+content), all 75 Phase B same-value primary-anchor migrations, and staged two complete-parent
+replacements as unpromoted raw; (3) this session's **independent implementation review** by
+Claude/Opus, cold producer-independent (no prior context on this specific implementation), which read
+every producer-flagged high-judgment decision in full (the postpartum-preeclampsia/refeeding/TACO
+disclosed-title departure, the AKI/hyperkalemia 7-row indicated/unsafe matrix, the opioid-safety and
+ICI `ordered_response`→matrix/`select_all` conversions, the thyroid-storm corticosteroid-sequencing
+correction, the pediatric-dehydration reclassification, the well-child unsupported-premise removal,
+and the `opus_scc_case_01` collateral terminology fix), live-verified the clinically load-bearing
+claims among them against current external sources (rapid-IV-calcium-push danger in hyperkalemia;
+thyroid-storm beta-blocker→PTU→iodine sequencing with glucocorticoid as concurrent, not
+sequence-locked, therapy; handheld-fan/trigeminal-nerve dyspnea relief; central-line differential
+time-to-positivity ≥2h per IDSA/CLABSI literature), independently reconstructed the 471-field diff
+count and the ordered_response/matrix/Health-Promotion/Pediatric-topic census movement bottom-up from
+the actual item-type conversions rather than accepting the producer's arithmetic, and spot-verified
+one Phase B migration at the byte level (single `answerableAfterStageId` field added, matching the
+pre-existing `stageId`, no other change) — accepting all 139 applied rows; and (4) **replacement
+review and in-place integration**, covering both raw replacements
+(`raw/gemini-c17-palliative-replacement.json` for `gemini_gap_case_palliative_care_03`,
+`raw/hard-cases-c17-mucositis-replacement.json` for `opus_tpn_case_mucositis_01`), read in full and
+independently accepted, then applied in place under their existing parent/child identities via
+`scripts/patches/2026-09-13-overnight-c17-palliative-replacement.ts` and
+`.../2026-09-13-overnight-c17-mucositis-and-temperature.ts` (P15 `setValue` `--allow-canonical`), not
+appended as new content — resolving the two `revealsAllStages` fail-open findings the raw replacements
+had left open.
+
+**Temperature Counterpart R1** (Codex/GPT-6, `codex/overnight-temperature-2026-09-13`, commit
+`a4ef139`, proposals-only, 0 canonical edits at commit time) was reviewed as a separate successor
+layer, bound to the Campaign 17 state above per the packet's own coordination policy
+(`audit/temperature-counterpart-2026-09-13-r1/campaign17-overlap.json`): all 16 adjudications (14
+display-equivalent normalizations, 2 source-value reconciliations) were independently reviewed; the
+two source-value reconciliations were checked by independent arithmetic — TC-04 (38.3 °C → 100.9 °F,
+extending a prior July-audit decision to the English side) and TC-14 (preserving the typed
+101.2 °F/38.4 °C measurement as authoritative over a Chinese-side rounding-drift artifact from
+re-converting an already-rounded value) — and the three Campaign 17-overlap fields (TC-04, TC-08,
+TC-09) were confirmed disjoint from the content Campaign 17 touched on those same parents. The
+packet's own `verify-packet.mjs` was independently re-executed (not just re-read) from a clean
+invocation and reproduced an identical result. All 17 proposed field edits were then folded into a
+single integrated patch on top of the accepted Campaign 17 state — never as a second, competing
+rewrite of the same surface — via `scripts/patches/2026-09-13-overnight-temperature-claude.ts`,
+`.../2026-09-13-overnight-temperature-gpt.ts`, and the 5 temperature ops appended to
+`.../2026-09-13-overnight-c17-mucositis-and-temperature.ts` (P15 `replaceText`, single-language edits;
+run without `--strict-parity` because each op is a deliberate one-sided display fix, not a bilingral
+content edit, and the tool's parity warnings were reviewed and confirmed benign for every row).
+
+Verification, run on the fully combined tree: `validate-bank` (all 13 canonical banks), aggregate
+`audit` (GATE PASSED; the pre-existing `visual-canonical` `select_all` distributional advisory is the
+only warning and is unrelated to this change; `audit:integrity` reports INSUFFICIENT because no raw
+drafts remain staged), `tsc -b` (clean), `test:schema-bank`, `test:audit-stage-refs`,
+`test:audit-references`, `test:grading`, `test:case-completeness`, `test:structured-measurements`,
+`test:raw-bank-normalization`, `test:promote`, `test:raw-gate` (all passed), `npm run build` (clean,
+including `validate:build-info`), and `census:check` → `census` → `census:check` (the expected
+staleness — `ordered_response` 243→242, `select_all` 379→380, `dropdown_cloze` 291→290,
+`multiple_choice` 690→691, matching the two replacements' item-type conversions exactly — was
+investigated, matched the independently predicted deltas before regeneration, then cleared). Canonical
+SHA-256 chain of custody: `claude-canonical.json` `9777aaad…` → `949f8245…`;
+`gemini-canonical.json` `fd98f560…` → `e1c602e8…`; `gpt-canonical.json` `2fffca3f…` → `d908e244…`
+(the opening hash matches the closing hash of the Phase C entry above, confirming an unbroken chain);
+`hard-cases-canonical.json` `8af1a862…` → `c660e413…`. All four one-off patch scripts under
+`scripts/patches/2026-09-13-overnight-*.ts` are committed as the exact, reviewable record of every
+operation applied.
+
+This entry fully discharges Campaign 17 Phase A (66/66) and Phase B (75/75), both replacement rows,
+and Temperature Counterpart R1 (16/16). Phase D (image reconnaissance) remains open and unaffected.
+Matrix-first-coherence 42-candidate findings, N-01 resolving-anchor calibration, the combined
+construct/answerability instrument spec, and the July 21 P31 reconciliation are separate overnight
+lanes reviewed under the same 2026-09-13 commission but recorded in their own artifacts; none
+authorized a canonical mutation and none is folded into this entry.
