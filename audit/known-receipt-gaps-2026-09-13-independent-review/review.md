@@ -30,10 +30,12 @@ The Review/Vocabulary omnibus acceptance sentinel is a different kind of gap: it
 
 **Recommended closure: explicit owner ratification.** Luke should either locate the actual sentinel if it exists somewhere not covered by this search (a personal note, a chat transcript, a since-deleted branch), or explicitly ratify the omnibus's acceptance now as an owner decision, recorded in `PROJECT-HISTORY.md` alongside the existing gap note rather than left as an open question indefinitely. I am not performing that ratification myself — it is the owner's call, not a reviewing seat's.
 
+**Closed by owner ratification (2026-09-13):** no separately filed reviewer artifact carrying the sentinel was located by this bounded search. Owner Luke Cai has confirmed the omnibus acceptance was made under his direction. Recorded as the closing disposition in `PROJECT-HISTORY.md` rather than commissioning a retrospective content re-review of code that has been live and built upon since the Sep 12 integration without incident.
+
 ## Disposition
 
-- Gap 1 (omnibus sentinel): **still open**, `NOT_FOUND_IN_BOUNDED_SEARCH` confirmed reasonable; recommended closure is owner ratification, not another search or a full re-review.
+- Gap 1 (omnibus sentinel): **closed by explicit owner ratification** (recorded above and in `PROJECT-HISTORY.md`); `NOT_FOUND_IN_BOUNDED_SEARCH` stands as the search result, not overwritten or fabricated — the closure is an owner decision layered on top of that honest absence, not a claim the artifact was found.
 - Gap 2 (Phase B 13-row census confirmation): **closed** by the mechanical verification above.
 - No fabricated historical sentinel was created for either gap. No clinical content was re-adjudicated.
 
-`KNOWN_RECEIPT_GAPS_R1_INDEPENDENTLY_REVIEWED_GAP2_CLOSED`
+`KNOWN_RECEIPT_GAPS_R1_INDEPENDENTLY_REVIEWED_BOTH_GAPS_CLOSED`
