@@ -142,6 +142,20 @@ Campaign 16 residual-192/451; the retired 32-item calibration; the 2,553-leaf (o
 
 ---
 
+## Addendum (same day, owner-directed continuation)
+
+After this receipt's initial publication, the owner directed two closures and continuation through the remaining bounded (non-full-corpus) work:
+
+- **Gap 1 closed by owner ratification.** Owner Luke Cai confirmed the Review/Vocabulary omnibus acceptance was made under his direction. Recorded in `PROJECT-HISTORY.md` and `audit/known-receipt-gaps-2026-09-13-independent-review/review.md`; no fabricated sentinel, the honest `NOT_FOUND_IN_BOUNDED_SEARCH` search result stands unchanged underneath the ratification.
+- **Stale schema-version line fixed.** `PROJECT-HISTORY.md` previously implied no bank had moved past schema `2.0`; corrected to reflect that the four bilingual canonical banks already declared `2.1` (predating this commission, not caused by it).
+- **Matrix queue completed in full.** All remaining 36 candidates and all 7 collateral observations dispositioned: 15 total confirmed by independent source/arithmetic/established-knowledge verification (11 more this pass, including live checks on hypercalcemia/loop-diuretic guidance, MRI-conditional pacemaker categorical prohibition, ACIP 65+ influenza options, C. diff hand hygiene, decerebrate posturing definition, and delirium-tremens-vs-hallucinosis sensorium distinction), 2 moot, 1 no-actionable-defect, 22 plausible/held, 2 rebind-pending. See `audit/matrix-first-coherence-2026-09-13-r1-independent-review/review.md` (updated in place).
+- **N-01 V2 recalibration executed and validated.** Re-derived all 11 previously-conflicted leaves under V2's rules against the same 8 frozen parents, reading source content directly: 10 of 11 confirm V1's class with reproducible reasoning (2 refined to pinpoint the exact defective row/blank), 1 genuinely reclassifies once target-freezing resolves the ambiguity V1 couldn't. Spot-checked 6 of 30 clean leaves — none destabilized, with one cross-lane corroboration (celiac B12=280 finding independently confirmed by both the Matrix and N-01 lanes on the same case). Explicit limitation stated: single-seat re-derivation, not the two-pass-producer-plus-checker structure the design calls for. See `audit/resolving-anchor-answerability-2026-09-13-r1-independent-review/v2-recalibration.md`.
+- **Full-corpus executions explicitly declined by the owner.** Asked directly whether to proceed into the 441-leaf N-01 expansion and the up-to-2,553-leaf combined-instrument audit; owner chose not to — both remain separate future work orders, not part of this commission, consistent with the original work order's own boundary.
+
+New commits since initial publication, in order: `42bdaa6` (Gap 1 ratification + schema fix), `8acc0ff` (Matrix queue complete), `892055a` (N-01 recalibration).
+
+**Final `main` / `origin/main` SHA after addendum: `892055a`.**
+
 **Final terminal: `PROJECT_SHRIMP_OVERNIGHT_PILE_INDEPENDENT_REVIEW_COMPLETE_WITH_HOLDS`**
 
-Holds: Gap 1 (omnibus sentinel, owner ratification recommended); 36 Matrix candidates + 7 collateral observations (held, not individually verified); N-01's 441 remaining leaves (blocked on recalibration, per ruling); combined-instrument execution (blocked on two amendments, per ruling).
+Remaining holds, all owner-confirmed as out of scope for this commission: 22 plausible Matrix candidates + 3 held collateral observations (COL-02, COL-06, COL-07) awaiting a dedicated future content-repair pass; the 441 remaining N-01 leaves and the combined instrument's full-corpus execution, both declined by the owner today and requiring their own future work order.
