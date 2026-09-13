@@ -41,9 +41,11 @@ old.close();
 const store = await import("../../src/storage");
 assert.equal((await store.loadProgress())["one-correct"].needsReview, false);
 const native = await openDB("nclex-bilingual-prep");
-assert.equal(native.version, 6);
-assert.ok(native.objectStoreNames.contains("flashcardProgress"), "v7 deletion deferred");
-assert.equal((await native.get("progress", "one-correct")).srsDueAt, "legacy");
+assert.equal(native.version, 7);
+assert.equal(native.objectStoreNames.contains("flashcardProgress"), false);
+const { RETIRED_PROGRESS_KEYS } = await import("../../src/progressMigration");
+for (const key of RETIRED_PROGRESS_KEYS)
+  assert.equal(Object.hasOwn(await native.get("progress", "one-correct"), key), false);
 assert.equal((await store.loadFlags())["one-correct"].flagged, false);
 const bank = JSON.parse(readFileSync("banks/gemini-canonical.json", "utf8")).questions as Question[];
 const q = bank.find((q) => q.itemType === "select_all" && q.correct.length > 1)!;
@@ -154,7 +156,7 @@ committed = await store.commitSubmission(s, q.id, memoryAttempt);
 assert.equal(committed.durability, "durable");
 assert.equal(committed.value.progress.seen, before + 1, "memory retry counts once durably");
 console.log(
-  "review storage: v5→v6, atomic duplicate events, partial/case transitions, Saved independence, archive abort/retry, denied storage passed",
+  "review storage: v5→v7, atomic duplicate events, partial/case transitions, Saved independence, archive abort/retry, denied storage passed",
 );
 
 

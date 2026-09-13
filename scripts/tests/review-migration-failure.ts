@@ -12,5 +12,5 @@ assert.deepEqual(await loadProgress(),{});
 const failed=await openDB('nclex-bilingual-prep');assert.equal(failed.version,5);assert.deepEqual(await failed.get('progress','legacy'),row);assert.equal(failed.objectStoreNames.contains('completedSets'),false);failed.close();
 IDBCursor.prototype.update=update;
 assert.equal((await loadProgress()).legacy.needsReview,false);
-const retried=await openDB('nclex-bilingual-prep');assert.equal(retried.version,6);retried.close();
-console.log('migration write failure: v5 transaction rolls back intact, then v6 retry succeeds without unhandled rejection');
+const retried=await openDB('nclex-bilingual-prep');assert.equal(retried.version,7);retried.close();
+console.log('migration write failure: v5 transaction rolls back intact, then v7 retry succeeds without unhandled rejection');

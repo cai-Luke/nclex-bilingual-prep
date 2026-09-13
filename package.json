@@ -112,7 +112,9 @@
     "conform:decisions": "tsx scripts/decisions-format-conform.ts --root . --decisions DECISIONS.md --archive Archive/DECISIONS-ARCHIVE-2026-08-18.md",
     "tts-queue": "tsx scripts/audio/build-tts-queue.ts",
     "test:review-memory": "tsx scripts/tests/completed-memory.ts && tsx scripts/tests/review-storage.ts && tsx scripts/tests/review-migration-failure.ts",
-    "test:session-sampler": "tsx scripts/tests/session-sampler.ts"
+    "test:session-sampler": "tsx scripts/tests/session-sampler.ts",
+    "test:db-v7": "node --import tsx scripts/tests/db-v7-cleanup.mjs",
+    "test:db-v7:browser": "node --import tsx scripts/tests/db-v7-browser.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.1.1",

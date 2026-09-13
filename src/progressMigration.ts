@@ -1,5 +1,10 @@
 import type { AnswerEvent, QuestionProgress } from "./types";
 
+// Physical deletion allowlist shared by the v7 upgrade and its structural verifiers.
+export const RETIRED_PROGRESS_KEYS = [
+  "missed", "correctStreak", "srsDueAt", "srsIntervalDays", "srsEase", "srsLapses",
+] as const;
+
 type LegacyProgress = Partial<QuestionProgress> & {
   questionId: string;
   missed?: boolean;
@@ -38,7 +43,7 @@ export const migrateProgress = (row: LegacyProgress, events: AnswerEvent[]): Que
       needsReview = !latest[0].wasCorrect;
     } else migrationDiagnostic = "Legacy outcome ambiguous; preserved the previous missed boolean.";
   }
-  // Retain legacy columns inert in the upgrade transaction. Runtime never consumes them.
+  // Preserve row metadata during semantic migration; the v7 upgrade then deletes its allowlist.
   return {
     ...row,
     seen: row.seen ?? 0,

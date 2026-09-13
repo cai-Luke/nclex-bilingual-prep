@@ -1,6 +1,6 @@
 import { openDB, type DBSchema, type IDBPDatabase } from "idb";
 import { normalizeStoredQuestionRecord } from "./categoryMigration";
-import { migrateProgress } from "./progressMigration";
+import { migrateProgress, RETIRED_PROGRESS_KEYS } from "./progressMigration";
 import { submissionIdentity } from "./completedMemory";
 import type {
   AnswerEvent,
@@ -14,7 +14,7 @@ import type {
 } from "./types";
 
 const DB_NAME = "nclex-bilingual-prep";
-export const DB_VERSION = 6;
+export const DB_VERSION = 7;
 export const defaultSettings: Settings = {
   languageMode: "on-tap",
   revisitMissed: true,
@@ -90,31 +90,56 @@ const getDb = (): Promise<IDBPDatabase<PrepDb>> => {
   });
   const opening = openDB<PrepDb>(DB_NAME, DB_VERSION, {
     async upgrade(db, oldVersion, _newVersion, tx) {
-      if (!db.objectStoreNames.contains("uploadedQuestions"))
-        db.createObjectStore("uploadedQuestions", { keyPath: "id" });
-      if (!db.objectStoreNames.contains("progress"))
-        db.createObjectStore("progress", { keyPath: "questionId" });
-      if (!db.objectStoreNames.contains("activeSession"))
-        db.createObjectStore("activeSession", { keyPath: "id" });
-      if (!db.objectStoreNames.contains("flags")) db.createObjectStore("flags", { keyPath: "questionId" });
-      if (!db.objectStoreNames.contains("answerEvents"))
-        db.createObjectStore("answerEvents", { keyPath: "id" });
-      if (!db.objectStoreNames.contains("completedSets"))
-        db.createObjectStore("completedSets", { keyPath: "id" });
-      // v6 deliberately neither touches nor deletes the four retired stores.
+      // idb does not await this callback. Only this versionchange transaction's
+      // requests may be awaited here; a foreign yield could commit partial cleanup.
       void tx.done.catch(() => {});
-      if (oldVersion < 6) {
-        try {
-          const events = await tx.objectStore("answerEvents").getAll();
-          let cursor = await tx.objectStore("progress").openCursor();
-          while (cursor) {
-            await cursor.update(migrateProgress(cursor.value, events));
-            cursor = await cursor.continue();
-          }
-        } catch {
-          // The opening request reports failure; never leave a partially migrated v6 database.
-          try { tx.abort(); } catch { /* The request may already have aborted the transaction. */ }
+      try {
+        const retiredStores = [
+          "flashcardProgress", "languageMisses", "translationRevealEvents", "caseAnswerPartEvents",
+        ];
+        const currentStores = {
+          uploadedQuestions: "id", progress: "questionId", activeSession: "id",
+          flags: "questionId", answerEvents: "id", completedSets: "id",
+        } as const;
+        // An uncharacterized schema must remain intact for owner disposition.
+        const physicalDb = db as IDBPDatabase;
+        for (const name of physicalDb.objectStoreNames)
+          if (!(Object.prototype.hasOwnProperty.call(currentStores, name) || retiredStores.includes(name)))
+            throw new Error(`Unexpected historical object store: ${name}`);
+        for (const name of Object.keys(currentStores) as (keyof typeof currentStores)[])
+          if (!db.objectStoreNames.contains(name))
+            db.createObjectStore(name, { keyPath: currentStores[name] });
+
+        const progressStore = tx.objectStore("progress");
+        const retainedKeys: (keyof QuestionProgress)[] = [
+          "questionId", "seen", "correct", "incorrect", "needsReview",
+          "migrationDiagnostic", "lastSeenAt",
+        ];
+        const knownKeys = new Set<string>([...retainedKeys, ...RETIRED_PROGRESS_KEYS]);
+        // Inspect the complete union before changing any progress row or dropping a store.
+        for (const row of await progressStore.getAll())
+          for (const key of Object.keys(row))
+            if (!knownKeys.has(key)) throw new Error(`Unexpected historical progress key: ${key}`);
+
+        const events = oldVersion < 6 ? await tx.objectStore("answerEvents").getAll() : [];
+        let cursor = await progressStore.openCursor();
+        while (cursor) {
+          const row = oldVersion < 6 ? migrateProgress(cursor.value, events) : { ...cursor.value };
+          let changed = oldVersion < 6;
+          for (const key of RETIRED_PROGRESS_KEYS)
+            if (Object.prototype.hasOwnProperty.call(row, key)) {
+              delete (row as QuestionProgress & Partial<Record<typeof key, unknown>>)[key];
+              changed = true;
+            }
+          if (changed) await cursor.update(row);
+          cursor = await cursor.continue();
         }
+        for (const name of retiredStores)
+          if (physicalDb.objectStoreNames.contains(name)) physicalDb.deleteObjectStore(name);
+      } catch {
+        // Explicitly abort async and synchronous failures, including schema deletion.
+        // The open request reports failure; the old version and all its data survive.
+        try { tx.abort(); } catch { /* A failed IDB request may already have aborted. */ }
       }
     },
     blocked() {
@@ -350,7 +375,7 @@ export const commitSubmission = async (
     const progress = priorEvent ? existing! : nextProgress(id, existing, attempt);
     const session = applyAttempt(mergeCommitted(snapshot, active), id, committedAttempt);
     if (!priorEvent) {
-      // Preserve inert legacy columns unchanged until the separately authorized v7 cleanup.
+      // Preserve accepted row metadata (including migrationDiagnostic) on normal writes.
       await tx.objectStore("progress").put({ ...existing, ...progress });
       await tx.objectStore("answerEvents").add(event);
     }
