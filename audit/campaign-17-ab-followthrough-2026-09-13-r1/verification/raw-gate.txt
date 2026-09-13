@@ -1,0 +1,20 @@
+
+> nclex-bilingual-prep@0.1.0 gate:raw
+> tsx scripts/raw-gate.ts --file audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/gemini-c17-palliative-replacement.json --file audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/opus-c17-mucositis-replacement.json
+
+=== Raw Candidate Gate ===
+
+── Candidate: audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/gemini-c17-palliative-replacement.json ──
+[PASS] raw:preparation
+Prepared successfully; downstream audits skipped because another candidate failed preparation.
+
+── Candidate: audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/opus-c17-mucositis-replacement.json ──
+[FAIL] raw:preparation
+No canonical route is registered for candidate filename opus-c17-mucositis-replacement.json.
+Failing IDs: audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/opus-c17-mucositis-replacement.json
+
+── Candidate set ──
+[SKIPPED] Candidate-set checks did not run.
+
+══════════════════════
+RAW GATE FAILED — preparation failed; downstream audits were not run.

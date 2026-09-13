@@ -1,0 +1,65 @@
+
+> nclex-bilingual-prep@0.1.0 audit
+> tsx scripts/audit.ts
+
+=== Promotion Gate ===
+
+── Tier 0: structural validation ──
+
+[PASS] ✓ validate:bank
+All 13 bank file(s) passed structural validation.
+
+── Tier 1: standing audits ──
+
+[FAIL] ✗ audit:references
+0 item(s) with stale key references, 1 item(s) with positional-language hazards.
+gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03:
+  [hazard]    [gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03_q1] rationale.correct.zh
+Failing IDs: gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03
+
+[PASS] ✓ audit:positions
+Distribution check (4-opt):
+  4-option MC (n=455): [slot0=116, slot1=112, slot2=117, slot3=110] χ²=0.288 (critical=11.345 at p=0.01), max deviation=0.8pp → PASS
+
+[INSUFFICIENT] ? audit:integrity
+Draft directory banks/banks-raw not found or not readable. Run 'npm run promote' to establish the pipeline.
+
+[PASS] ✓ audit:ids
+All 2698 bundled question IDs are globally unique across 13 file(s).
+
+[PASS] ✓ audit:producer-vocabulary
+No HIGH-confidence producer vocabulary found across 1967 learner-facing canonical items.
+
+[PASS] ✓ audit:authorial-constraint-leakage
+No blocking authorial-constraint leakage found across 1967 top-level questions / 2553 scored leaves; 0 advisory candidate(s) remain review-only.
+
+── Tier 2: advisory audits ──
+
+[WARN] ! audit:stage-refs
+2 finding(s) across 13 bank file(s): 0 unresolved, 2 revealsAllStages (leak), 0 missingRequiredAnchor.
+gemini-canonical.json: gemini_gap_case_palliative_care_03 > gemini_gap_case_palliative_care_03_q2 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_hospice_followup
+hard-cases-canonical.json: opus_tpn_case_mucositis_01 > opus_tpn_case_mucositis_01_q3 [revealsAllStages]
+  neither anchor resolves; the renderer's fail-open branch reveals ALL stages at this part.
+  answerableAfterStageId: (no anchor)
+  stageId: (no anchor)
+  valid stage ids: stage_1,stage_2,stage_3
+Related IDs: gemini_gap_case_palliative_care_03, opus_tpn_case_mucositis_01
+
+[PASS] ✓ audit:topic-license
+Inspected 1967 top-level records (145 case containers + 1822 standalone) and 731 embedded parts; scored leaves: 2553. No vocabulary or category-license findings. Vocabulary membership only: this gate cannot enforce the clinical boundary among categories licensed for a SHARED topic; that remains semantic-review work.
+
+[PASS] ✓ audit:non-mcq-bias:mechanical
+No positional/mechanical non-MCQ bias findings.
+
+[WARN] ! audit:non-mcq-bias:distributional
+1 distributional non-MCQ bias finding(s); advisory only.
+  visual-canonical / select_all / correct_count_distribution (n=11) [ekg_b1_sata_03, ekg_b1_sata_07, ekg_b2_sata_06]
+Related IDs: ekg_b1_sata_03, ekg_b1_sata_07, ekg_b2_sata_06
+
+══════════════════════
+GATE FAILED — 1 item(s) across 1 check(s).
+Items requiring repair: gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03

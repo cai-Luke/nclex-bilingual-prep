@@ -1,0 +1,29 @@
+
+========================================================================
+CANONICAL MODE — writing in-place to a canonical bank file
+File:   /Users/holemini/Desktop/Project Shrimp Overnight C17 AB/banks/gpt-canonical.json
+Reason: Campaign 17 producer bilingual verification reference correction
+
+Ops to apply:
+  FIX   gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03  path=caseStudy.questions[0].rationale.correct
+
+LEDGER ENTRY REQUIRED
+  Add an entry to BANK-REVIEW-LEDGER.md recording this correction.
+  Reason: Campaign 17 producer bilingual verification reference correction
+========================================================================
+
+
+Patch report
+Input:  banks/gpt-canonical.json
+Output: banks/gpt-canonical.json
+Questions before: 797
+Questions after:  797
+
+Applied:
+- FIX  gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03  caseStudy.questions[0].rationale.correct   Resolve positional prose with explicit clinical findings in both languages
+
+Parity warnings:
+  none
+
+Validation:
+- validateBankObject (post-write): PASS (797 questions)

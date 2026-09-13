@@ -1,0 +1,63 @@
+
+========================================================================
+CANONICAL MODE — writing in-place to a canonical bank file
+File:   /Users/holemini/Desktop/Project Shrimp Overnight C17 AB/banks/hard-cases-canonical.json
+Reason: Owner-authorized overnight Campaign 17 A/B producer follow-through; 19ae7a7 governed; independent review pending
+
+Ops to apply:
+  FIX   case_ami_01  path=caseStudy
+  FIX   cs_stemi_vfib_04  path=caseStudy
+  FIX   cs_thyroid_storm_main  path=caseStudy
+  FIX   gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01  path=caseStudy
+  FIX   gpt_case_gallstone_pancreatitis_01  path=caseStudy
+  FIX   gpt_case_major_burn_inhalation_fluid_creep_01  path=caseStudy
+  FIX   gpt_case_pe_2026_06_16_case_pulmonary_embolism_01  path=caseStudy
+  FIX   gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01  path=caseStudy
+  FIX   gpt_pph_2026_06_16_case_01  path=caseStudy
+  FIX   gpt_r1_regen_case_celiac_01  path=caseStudy
+  FIX   gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01  path=caseStudy
+  FIX   opus12_case_inpatient_suicide_risk_01  path=caseStudy
+  FIX   opus3_iv_potassium_safety_case_01  path=caseStudy
+  FIX   opus4_case_postop_sbar_01  path=caseStudy
+  FIX   opus5_case_consent_interpreter_01  path=caseStudy
+  FIX   opus_icit_case_01  path=caseStudy
+  FIX   opus_scc_case_01  path=caseStudy
+  FIX   opus_tpn_case_mucositis_01  path=caseStudy
+
+LEDGER ENTRY REQUIRED
+  Add an entry to BANK-REVIEW-LEDGER.md recording this correction.
+  Reason: Owner-authorized overnight Campaign 17 A/B producer follow-through; 19ae7a7 governed; independent review pending
+========================================================================
+
+
+Patch report
+Input:  banks/hard-cases-canonical.json
+Output: banks/hard-cases-canonical.json
+Questions before: 66
+Questions after:  66
+
+Applied:
+- FIX  case_ami_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  cs_stemi_vfib_04  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  cs_thyroid_storm_main  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  gpt_case_gallstone_pancreatitis_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  gpt_case_major_burn_inhalation_fluid_creep_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  gpt_case_pe_2026_06_16_case_pulmonary_embolism_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  gpt_pph_2026_06_16_case_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  gpt_r1_regen_case_celiac_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  opus12_case_inpatient_suicide_risk_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  opus3_iv_potassium_safety_case_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  opus4_case_postop_sbar_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  opus5_case_consent_interpreter_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  opus_icit_case_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  opus_scc_case_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  opus_tpn_case_mucositis_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+
+Parity warnings:
+  none
+
+Validation:
+- validateBankObject (post-write): PASS (66 questions)

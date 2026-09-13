@@ -1,0 +1,88 @@
+
+> nclex-bilingual-prep@0.1.0 gate:raw
+> tsx scripts/raw-gate.ts --file audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/gemini-c17-palliative-replacement.json --file audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/hard-cases-c17-mucositis-replacement.json
+
+=== Raw Candidate Gate ===
+
+── Candidate: audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/gemini-c17-palliative-replacement.json ──
+[PASS] promotion:eligibility
+audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/gemini-c17-palliative-replacement.json routes to gemini-canonical.json; schemaVersion 2.1 is merge-compatible with 2.1.
+[PASS] validate:bank
+All 1 explicitly selected bank file(s) passed structural validation.
+[PASS] audit:references
+No stale key references or positional-language hazards found.
+[PASS] audit:producer-vocabulary
+No HIGH-confidence producer vocabulary found across 1 learner-facing items in the explicitly selected files.
+[PASS] audit:authorial-constraint-leakage
+No blocking authorial-constraint leakage found across 1 top-level questions / 4 scored leaves in the explicitly selected files; 0 advisory candidate(s) remain review-only.
+[PASS] audit:stage-refs:raw-policy
+All staged case parts carry resolving primary visibility boundaries.
+[PASS] audit:topic-license:raw-policy
+No exact topic-vocabulary or category-license findings. SHARED-topic clinical boundaries remain semantic-review work; this mechanical gate does not prove the clinical category choice among legitimately licensed categories.
+
+── Candidate: audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/hard-cases-c17-mucositis-replacement.json ──
+[PASS] promotion:eligibility
+audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/hard-cases-c17-mucositis-replacement.json routes to hard-cases-canonical.json; schemaVersion 2.1 is merge-compatible with 2.1.
+[PASS] validate:bank
+All 1 explicitly selected bank file(s) passed structural validation.
+[PASS] audit:references
+No stale key references or positional-language hazards found.
+[PASS] audit:producer-vocabulary
+No HIGH-confidence producer vocabulary found across 1 learner-facing items in the explicitly selected files.
+[PASS] audit:authorial-constraint-leakage
+No blocking authorial-constraint leakage found across 1 top-level questions / 6 scored leaves in the explicitly selected files; 0 advisory candidate(s) remain review-only.
+[PASS] audit:stage-refs:raw-policy
+All staged case parts carry resolving primary visibility boundaries.
+[PASS] audit:topic-license:raw-policy
+No exact topic-vocabulary or category-license findings. SHARED-topic clinical boundaries remain semantic-review work; this mechanical gate does not prove the clinical category choice among legitimately licensed categories.
+
+── Candidate set ──
+[FAIL] audit:ids
+12 duplicate question ID(s) involve the explicitly selected candidate files.
+gemini_gap_case_palliative_care_03:
+  - audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/gemini-c17-palliative-replacement.json: questions.0 (top_level_case_container)
+  - /Users/holemini/Desktop/Project Shrimp Overnight C17 AB/banks/gemini-canonical.json: questions.801 (top_level_case_container)
+gemini_gap_case_palliative_care_03_q1:
+  - audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/gemini-c17-palliative-replacement.json: questions.0.caseStudy.questions.0 (case gemini_gap_case_palliative_care_03 > gemini_gap_case_palliative_care_03_q1)
+  - /Users/holemini/Desktop/Project Shrimp Overnight C17 AB/banks/gemini-canonical.json: questions.801.caseStudy.questions.0 (case gemini_gap_case_palliative_care_03 > gemini_gap_case_palliative_care_03_q1)
+gemini_gap_case_palliative_care_03_q2:
+  - audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/gemini-c17-palliative-replacement.json: questions.0.caseStudy.questions.1 (case gemini_gap_case_palliative_care_03 > gemini_gap_case_palliative_care_03_q2)
+  - /Users/holemini/Desktop/Project Shrimp Overnight C17 AB/banks/gemini-canonical.json: questions.801.caseStudy.questions.1 (case gemini_gap_case_palliative_care_03 > gemini_gap_case_palliative_care_03_q2)
+gemini_gap_case_palliative_care_03_q3:
+  - audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/gemini-c17-palliative-replacement.json: questions.0.caseStudy.questions.2 (case gemini_gap_case_palliative_care_03 > gemini_gap_case_palliative_care_03_q3)
+  - /Users/holemini/Desktop/Project Shrimp Overnight C17 AB/banks/gemini-canonical.json: questions.801.caseStudy.questions.2 (case gemini_gap_case_palliative_care_03 > gemini_gap_case_palliative_care_03_q3)
+gemini_gap_case_palliative_care_03_q4:
+  - audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/gemini-c17-palliative-replacement.json: questions.0.caseStudy.questions.3 (case gemini_gap_case_palliative_care_03 > gemini_gap_case_palliative_care_03_q4)
+  - /Users/holemini/Desktop/Project Shrimp Overnight C17 AB/banks/gemini-canonical.json: questions.801.caseStudy.questions.3 (case gemini_gap_case_palliative_care_03 > gemini_gap_case_palliative_care_03_q4)
+opus_tpn_case_mucositis_01:
+  - audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/hard-cases-c17-mucositis-replacement.json: questions.0 (top_level_case_container)
+  - /Users/holemini/Desktop/Project Shrimp Overnight C17 AB/banks/hard-cases-canonical.json: questions.40 (top_level_case_container)
+opus_tpn_case_mucositis_01_q1:
+  - audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/hard-cases-c17-mucositis-replacement.json: questions.0.caseStudy.questions.0 (case opus_tpn_case_mucositis_01 > opus_tpn_case_mucositis_01_q1)
+  - /Users/holemini/Desktop/Project Shrimp Overnight C17 AB/banks/hard-cases-canonical.json: questions.40.caseStudy.questions.0 (case opus_tpn_case_mucositis_01 > opus_tpn_case_mucositis_01_q1)
+opus_tpn_case_mucositis_01_q2:
+  - audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/hard-cases-c17-mucositis-replacement.json: questions.0.caseStudy.questions.1 (case opus_tpn_case_mucositis_01 > opus_tpn_case_mucositis_01_q2)
+  - /Users/holemini/Desktop/Project Shrimp Overnight C17 AB/banks/hard-cases-canonical.json: questions.40.caseStudy.questions.1 (case opus_tpn_case_mucositis_01 > opus_tpn_case_mucositis_01_q2)
+opus_tpn_case_mucositis_01_q3:
+  - audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/hard-cases-c17-mucositis-replacement.json: questions.0.caseStudy.questions.2 (case opus_tpn_case_mucositis_01 > opus_tpn_case_mucositis_01_q3)
+  - /Users/holemini/Desktop/Project Shrimp Overnight C17 AB/banks/hard-cases-canonical.json: questions.40.caseStudy.questions.2 (case opus_tpn_case_mucositis_01 > opus_tpn_case_mucositis_01_q3)
+opus_tpn_case_mucositis_01_q4:
+  - audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/hard-cases-c17-mucositis-replacement.json: questions.0.caseStudy.questions.3 (case opus_tpn_case_mucositis_01 > opus_tpn_case_mucositis_01_q4)
+  - /Users/holemini/Desktop/Project Shrimp Overnight C17 AB/banks/hard-cases-canonical.json: questions.40.caseStudy.questions.3 (case opus_tpn_case_mucositis_01 > opus_tpn_case_mucositis_01_q4)
+opus_tpn_case_mucositis_01_q5:
+  - audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/hard-cases-c17-mucositis-replacement.json: questions.0.caseStudy.questions.4 (case opus_tpn_case_mucositis_01 > opus_tpn_case_mucositis_01_q5)
+  - /Users/holemini/Desktop/Project Shrimp Overnight C17 AB/banks/hard-cases-canonical.json: questions.40.caseStudy.questions.4 (case opus_tpn_case_mucositis_01 > opus_tpn_case_mucositis_01_q5)
+opus_tpn_case_mucositis_01_q6:
+  - audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/hard-cases-c17-mucositis-replacement.json: questions.0.caseStudy.questions.5 (case opus_tpn_case_mucositis_01 > opus_tpn_case_mucositis_01_q6)
+  - /Users/holemini/Desktop/Project Shrimp Overnight C17 AB/banks/hard-cases-canonical.json: questions.40.caseStudy.questions.5 (case opus_tpn_case_mucositis_01 > opus_tpn_case_mucositis_01_q6)
+Failing IDs: gemini_gap_case_palliative_care_03, gemini_gap_case_palliative_care_03_q1, gemini_gap_case_palliative_care_03_q2, gemini_gap_case_palliative_care_03_q3, gemini_gap_case_palliative_care_03_q4, opus_tpn_case_mucositis_01, opus_tpn_case_mucositis_01_q1, opus_tpn_case_mucositis_01_q2, opus_tpn_case_mucositis_01_q3, opus_tpn_case_mucositis_01_q4, opus_tpn_case_mucositis_01_q5, opus_tpn_case_mucositis_01_q6
+[INSUFFICIENT] audit:positions
+Distribution check (4-opt):
+  4-option MC (n=6): [slot0=2, slot1=2, slot2=2, slot3=0] Expected count per slot (1.5) < 5; chi-square not meaningful with 6 items. → INSUFFICIENT
+[INSUFFICIENT] audit:non-mcq-bias:mechanical
+No positional/mechanical non-MCQ bias findings.
+[INSUFFICIENT] audit:non-mcq-bias:distributional
+No distributional non-MCQ bias findings.
+
+══════════════════════
+RAW GATE FAILED — 12 item(s) across 1 check(s).

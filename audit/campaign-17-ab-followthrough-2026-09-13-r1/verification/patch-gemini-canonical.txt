@@ -1,0 +1,35 @@
+
+========================================================================
+CANONICAL MODE — writing in-place to a canonical bank file
+File:   /Users/holemini/Desktop/Project Shrimp Overnight C17 AB/banks/gemini-canonical.json
+Reason: Owner-authorized overnight Campaign 17 A/B producer follow-through; 19ae7a7 governed; independent review pending
+
+Ops to apply:
+  FIX   gemini_gap_case_cirrhosis_homecare_04  path=caseStudy
+  FIX   gemini_gap_case_lead_poisoning_01  path=caseStudy
+  FIX   gemini_gap_case_pyloric_stenosis_01  path=caseStudy
+  FIX   opus_agvd_case_agvhd_01  path=caseStudy
+
+LEDGER ENTRY REQUIRED
+  Add an entry to BANK-REVIEW-LEDGER.md recording this correction.
+  Reason: Owner-authorized overnight Campaign 17 A/B producer follow-through; 19ae7a7 governed; independent review pending
+========================================================================
+
+
+Patch report
+Input:  banks/gemini-canonical.json
+Output: banks/gemini-canonical.json
+Questions before: 874
+Questions after:  874
+
+Applied:
+- FIX  gemini_gap_case_cirrhosis_homecare_04  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  gemini_gap_case_lead_poisoning_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  gemini_gap_case_pyloric_stenosis_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  opus_agvd_case_agvhd_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+
+Parity warnings:
+  none
+
+Validation:
+- validateBankObject (post-write): PASS (874 questions)

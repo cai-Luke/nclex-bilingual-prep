@@ -1,0 +1,37 @@
+
+========================================================================
+CANONICAL MODE — writing in-place to a canonical bank file
+File:   /Users/holemini/Desktop/Project Shrimp Overnight C17 AB/banks/claude-canonical.json
+Reason: Owner-authorized overnight Campaign 17 A/B producer follow-through; 19ae7a7 governed; independent review pending
+
+Ops to apply:
+  FIX   opus1_case_tha_discharge_lep_01  path=caseStudy
+  FIX   opus24_case_elder_neglect_med_mismanagement_01  path=caseStudy
+  FIX   opus25_case_tb_airborne_treatment_monitoring_01  path=caseStudy
+  FIX   opus2_case_code_status_01  path=caseStudy
+  FIX   opus_case_lithium_toxicity_01  path=caseStudy
+
+LEDGER ENTRY REQUIRED
+  Add an entry to BANK-REVIEW-LEDGER.md recording this correction.
+  Reason: Owner-authorized overnight Campaign 17 A/B producer follow-through; 19ae7a7 governed; independent review pending
+========================================================================
+
+
+Patch report
+Input:  banks/claude-canonical.json
+Output: banks/claude-canonical.json
+Questions before: 96
+Questions after:  96
+
+Applied:
+- FIX  opus1_case_tha_discharge_lep_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  opus24_case_elder_neglect_med_mismanagement_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  opus25_case_tb_airborne_treatment_monitoring_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  opus2_case_code_status_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+- FIX  opus_case_lithium_toxicity_01  caseStudy   Campaign 17 A/B producer implementation; full parent preimage frozen; independent review pending
+
+Parity warnings:
+  none
+
+Validation:
+- validateBankObject (post-write): PASS (96 questions)
