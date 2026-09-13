@@ -1,0 +1,68 @@
+{
+  "firstCheck": {
+    "exit": 1,
+    "log": "final-initial-3.log",
+    "expectedMovement": true
+  },
+  "regenerate": {
+    "exit": 0,
+    "log": "census-regenerate.log"
+  },
+  "producerDiffInspection": {
+    "files": [
+      "census.json",
+      "BANK-CENSUS.md"
+    ],
+    "countsUnchanged": {
+      "topLevel": 1967,
+      "caseParents": 145,
+      "embedded": 731,
+      "allIDs": 2698,
+      "scoredLeaves": 2553
+    },
+    "formatMovement": {
+      "ordered_response": [
+        245,
+        243
+      ],
+      "matrix": [
+        342,
+        344
+      ]
+    },
+    "formatCauses": [
+      {
+        "partId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q5",
+        "before": "select_all",
+        "after": "matrix"
+      },
+      {
+        "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q3",
+        "before": "ordered_response",
+        "after": "matrix"
+      },
+      {
+        "partId": "opus_icit_case_01_q3",
+        "before": "ordered_response",
+        "after": "select_all"
+      }
+    ],
+    "categoryMovement": {
+      "Health Promotion and Maintenance": [
+        251,
+        252
+      ],
+      "Reduction of Risk Potential": [
+        280,
+        279
+      ]
+    },
+    "topicCause": "Pediatric dehydration q1 hypothetical classification reframed to Pediatric & Adolescent Health instead of Laboratory & Diagnostic Tests; metadata route requires fresh independent checking.",
+    "generatedMetadata": "Timestamp/inputGitSha reflect this worktree/base; recommendation rankings follow the same count change."
+  },
+  "finalCheck": {
+    "exit": 0,
+    "log": "closure-0.log"
+  },
+  "independentCensusMovementConfirmation": "PENDING; producer regeneration is not acceptance"
+}

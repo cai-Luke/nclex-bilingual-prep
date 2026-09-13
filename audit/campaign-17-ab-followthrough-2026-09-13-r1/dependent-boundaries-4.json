@@ -1,0 +1,40 @@
+[
+  {
+    "partId": "opus_case_lithium_toxicity_q1",
+    "reviewBoundary": "HOLD_PENDING_CONTENT_DECISION",
+    "contentDecision": "q1: Change the task to explaining the documented lithium/new-thiazide interaction, removing unsupported historical assertions. q2: Remove narrated correct actions and the causal answer-shaped family comment. q3: Remove the dialysis justification while retaining clinical data and recommendation. q4: Correct ZH infusion duration and qualify potassium rate/route claims. Boundaries follow repaired constructs: stage_1, stage_1, stage_2, stage_2.",
+    "canonicalBoundary": "stage_1",
+    "rawReplacementBoundary": null,
+    "rawFile": null,
+    "status": "PRODUCER_CONTENT_DECISION_ESTABLISHED_BEFORE_BOUNDARY"
+  },
+  {
+    "partId": "gemini_gap_case_palliative_care_03_q2",
+    "reviewBoundary": "HOLD_PENDING_REPLACEMENT",
+    "contentDecision": "Replacement q2 exists only in raw: a single-target assessment question requires arousability, respiratory assessment and breathlessness before the next ordered morphine dose. Boundary stage_hospice_followup. Raw collateral q1 and q4 rationale corrections remove unsupported venodilation and sleep-alone safety teaching; parent rationale aligned. Canonical parent unchanged.",
+    "canonicalBoundary": null,
+    "rawReplacementBoundary": "stage_hospice_followup",
+    "rawFile": "gemini-c17-palliative-replacement.json",
+    "status": "RAW_PENDING_REVIEW"
+  },
+  {
+    "partId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03_q1",
+    "reviewBoundary": "HOLD_PENDING_CONTENT_DECISION",
+    "contentDecision": "q1: Frame findings as hypothetical independent possibilities, replace the underdetermined no-tears row with explicit reduced responsiveness/poor perfusion, and state adequate alertness/perfusion/drinking for non-red-flag rows. Retain mapping and repair category/topic license. Baseline follows the repaired hypothetical construct.",
+    "canonicalBoundary": {
+      "kind": "baseline"
+    },
+    "rawReplacementBoundary": null,
+    "rawFile": null,
+    "status": "PRODUCER_CONTENT_DECISION_ESTABLISHED_BEFORE_BOUNDARY"
+  },
+  {
+    "partId": "opus_tpn_case_mucositis_01_q3",
+    "reviewBoundary": "HOLD_PENDING_REPLACEMENT",
+    "contentDecision": "q1: Dehydration can contribute to hypotension/lactate; sepsis is prioritized on the complete pattern. q6: Distinguish oral readiness from all enteral access and avoid blanket feeding-tube contraindication. Boundaries stage_1/baseline. Raw replacement q3 removes forced serialization using SATA; raw shared DTP wording becomes at least2hours and completed-action disclosure is removed. Canonical q3 and its shared stages remain unchanged.",
+    "canonicalBoundary": null,
+    "rawReplacementBoundary": "stage_2",
+    "rawFile": "hard-cases-c17-mucositis-replacement.json",
+    "status": "RAW_PENDING_REVIEW"
+  }
+]

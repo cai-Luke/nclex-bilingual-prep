@@ -1,0 +1,463 @@
+{
+  "id": "gemini_gap_case_cirrhosis_homecare_04",
+  "itemType": "case_study",
+  "category": "Physiological Adaptation",
+  "topic": "Renal & Gastrointestinal Disorders",
+  "difficulty": "medium",
+  "stem": {
+    "en": "Review the client record and answer the case study questions.",
+    "zh": "审查客户记录并回答案例研究问题。"
+  },
+  "caseStudy": {
+    "title": {
+      "en": "Unfolding Case: Outpatient Cirrhosis and Ascites Management",
+      "zh": "展开式案例：门诊肝硬化和腹水管理"
+    },
+    "summary": {
+      "en": "A 62-year-old male with chronic decompensated cirrhosis secondary to alcoholic hepatitis is seen in the outpatient liver clinic for routine follow-up. He is accompanied by his spouse.",
+      "zh": "一名因酒精性肝炎继发慢性失代偿性肝硬化的62岁男性在肝病门诊接受常规随访。他由配偶陪同。"
+    },
+    "exhibits": [
+      {
+        "id": "ex1_cirrhosis_clinic_note",
+        "title": {
+          "en": "Outpatient Progress Note",
+          "zh": "门诊病程记录"
+        },
+        "content": {
+          "en": "Subjective: Client reports mild abdominal fullness and ankles swelling but no shortness of breath. Adheres to prescribed medications: Lactulose 30 mL orally three times daily, Spironolactone 100 mg orally daily. Spouse notes client is alert and oriented, with occasional mild forgetfulness that is baseline.\n\nObjective:\n- Blood pressure: 112/68 mmHg\n- Heart rate: 76 bpm\n- Abdomen: Distended, dullness to percussion in flanks, positive fluid wave consistent with moderate ascites.\n- Extremities: 2+ pitting edema in bilateral ankles.\n- Neurological: Alert, oriented to person, place, and time. No asterixis noted today.",
+          "zh": "主观资料：患者报告轻度腹胀和踝部肿胀，但无呼吸困难。坚持服用医嘱药物：乳果糖 30 mL 口服，每日三次；螺内酯 100 mg 口服，每日一次。配偶注意到患者神志清楚，定向力正常，偶尔有轻度健忘（为基线水平）。\n\n客观资料：\n- 血压：112/68 mmHg\n- 心率：76次/分\n- 腹部：膨隆，两侧叩诊浊音，液波震颤阳性，符合中度腹水。\n- 四肢：双侧踝部 2+ 凹陷性水肿。\n- 神经系统：神志清楚，对人、地、时的定向力正常。今日未见扑翼样震颤。"
+        },
+        "structuredMeasurements": {
+          "panels": [
+            {
+              "kind": "vitals",
+              "columns": [
+                {
+                  "id": "current",
+                  "label": {
+                    "en": "Current",
+                    "zh": "当前"
+                  }
+                }
+              ],
+              "rows": [
+                {
+                  "key": "sbp",
+                  "label": {
+                    "en": "Systolic BP",
+                    "zh": "收缩压"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "112",
+                      "unit": "mmHg"
+                    }
+                  ]
+                },
+                {
+                  "key": "dbp",
+                  "label": {
+                    "en": "Diastolic BP",
+                    "zh": "舒张压"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "68",
+                      "unit": "mmHg"
+                    }
+                  ]
+                },
+                {
+                  "key": "hr",
+                  "label": {
+                    "en": "Heart rate",
+                    "zh": "心率"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "76",
+                      "unit": "bpm"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "stages": [
+      {
+        "id": "stage_adherence_issue",
+        "title": {
+          "en": "Telehealth Update (1 Week Later)",
+          "zh": "电话随访更新（1周后）"
+        },
+        "exhibits": [
+          {
+            "id": "ex2_telehealth_call",
+            "title": {
+              "en": "Telephone Encounter Log",
+              "zh": "电话接诊记录"
+            },
+            "content": {
+              "en": "The client's spouse calls the clinic. She reports the client has been having 5 to 6 loose, watery bowel movements per day for the last 3 days. The client is complaining of abdominal cramping and wants to completely stop taking the lactulose because of the diarrhea. No signs of confusion or changes in behavior are reported.",
+              "zh": "患者配偶致电诊所。她报告说患者在过去3天内每天有5到6次松软、呈水样的排便。患者抱怨腹部绞痛，并因腹泻而想要完全停止服用乳果糖。未报告意识模糊或行为改变的表现。"
+            }
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "gemini_gap_case_cirrhosis_homecare_04_q1",
+        "itemType": "multiple_choice",
+        "category": "Physiological Adaptation",
+        "topic": "Renal & Gastrointestinal Disorders",
+        "difficulty": "medium",
+        "stem": {
+          "en": "The nurse discusses lactulose therapy with the client's spouse. Which statement correctly identifies the primary goal of this therapy?",
+          "zh": "护士与患者配偶讨论乳果糖治疗。哪项陈述正确阐明了该治疗的主要目标？"
+        },
+        "options": [
+          {
+            "id": "B",
+            "en": "Eliminate the moderate ascites and reduce abdominal distension",
+            "zh": "消除中度腹水并减轻腹胀"
+          },
+          {
+            "id": "C",
+            "en": "Provide nutritional carbohydrate supplementation for liver regeneration",
+            "zh": "为肝脏再生提供营养性碳水化合物补充"
+          },
+          {
+            "id": "A",
+            "en": "Promote ammonia excretion in the stool to prevent encephalopathy",
+            "zh": "促进粪便中氨的排出以预防脑病"
+          },
+          {
+            "id": "D",
+            "en": "Promote soft stools to prevent bleeding from hemorrhoids",
+            "zh": "促进排出软便以预防痔疮出血"
+          }
+        ],
+        "correct": [
+          "A"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "The primary therapeutic purpose of lactulose in clients with liver cirrhosis is to prevent or treat hepatic encephalopathy. Lactulose acidifies the colon, converting ammonia (NH3) to ammonium (NH4+), which is trapped in the bowel and excreted in the stool. While it acts as a soft laxative, stool softeners are not the primary goal, and it does not affect ascites (which is managed with diuretics and sodium restriction). It is not given as nutritional supplement.",
+            "zh": "乳果糖治疗肝硬化患者的首要治疗目的是预防或治疗肝性脑病。乳果糖使结肠酸化，将氨 (NH3) 转化为铵 (NH4+)，后者被滞留在肠道中并通过粪便排出。虽然它具有导泻作用，但软化大便并非首要目标，且它不影响腹水（腹水通过利尿剂和限钠管理）。它不作为营养补充剂给予。"
+          },
+          "byChoice": [
+            {
+              "refId": "A",
+              "en": "Ammonia conversion and osmotic laxative elimination reduces blood ammonia levels to protect brain function.",
+              "zh": "氨的转化和渗透性导泻排出可降低血氨水平，从而保护脑功能。"
+            },
+            {
+              "refId": "D",
+              "en": "While lactulose softens stool, this is a mechanism of drug action rather than the primary therapeutic goal of treating cirrhosis encephalopathy risk.",
+              "zh": "虽然乳果糖能软化大便，但这只是药物作用的机制，而不是治疗肝硬化脑病风险的主要治疗目标。"
+            },
+            {
+              "refId": "B",
+              "en": "Ascites is driven by portal hypertension and hypoalbuminemia, requiring aldosterone antagonists (spironolactone) and paracentesis, not laxatives.",
+              "zh": "腹水由门脉高压和低白蛋白血症引起，需要使用醛固酮拮抗剂（螺内酯）和腹腔穿刺术，而非泻药。"
+            },
+            {
+              "refId": "C",
+              "en": "Lactulose is a non-absorbable disaccharide; it is not metabolized for systemic carbohydrate nutrition.",
+              "zh": "乳果糖是一种不吸收的双糖；它不会被代谢为全身碳水化合物营养。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Focus on the specific therapeutic indication for liver cirrhosis. Relate lactulose to ammonia binding and encephalopathy prevention, not general constipation relief.",
+          "zh": "关注肝硬化的特异性治疗指征。将乳果糖与氨结合和脑病预防联系起来，而不是普通便秘的缓解。"
+        },
+        "glossary": [],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "gemini_gap_case_cirrhosis_homecare_04_q2",
+        "itemType": "dropdown_cloze",
+        "category": "Physiological Adaptation",
+        "topic": "Renal & Gastrointestinal Disorders",
+        "difficulty": "medium",
+        "stem": {
+          "en": "The nurse responds to the telehealth update from the client's spouse. Select the appropriate options from the dropdown menus to complete the nursing directions.",
+          "zh": "护士对患者配偶的电话随访更新做出回应。从下拉菜单中选择合适的选项以完成护理指导。"
+        },
+        "clozeStem": {
+          "en": "In response to the spouse's report during the telehealth call, the nurse should instruct the spouse to {{1}} and monitor the client closely for {{2}}.",
+          "zh": "针对电话随访中配偶的报告，护士应指导配偶 {{1}} 并密切监测患者是否出现 {{2}}。"
+        },
+        "dropdowns": [
+          {
+            "id": "1",
+            "options": [
+              {
+                "id": "o2",
+                "en": "stop the lactulose completely until the cramping resolves",
+                "zh": "完全停用乳果糖直至绞痛缓解"
+              },
+              {
+                "id": "o1",
+                "en": "contact the provider or follow prescribed titration parameters to reduce lactulose to the goal of 2 to 3 soft stools per day",
+                "zh": "联系医生或按照医嘱的滴定参数减少乳果糖，以达到每天排2至3次软便的目标"
+              },
+              {
+                "id": "o3",
+                "en": "double the lactulose dose to ensure all ammonia is excreted",
+                "zh": "将乳果糖剂量加倍以确保所有氨排出"
+              }
+            ],
+            "correct": "o1"
+          },
+          {
+            "id": "2",
+            "options": [
+              {
+                "id": "o2",
+                "en": "constipation and bowel obstruction",
+                "zh": "便秘和肠梗阻"
+              },
+              {
+                "id": "o3",
+                "en": "fluid volume overload and peripheral edema",
+                "zh": "体液量超负荷和周围性水肿"
+              },
+              {
+                "id": "o1",
+                "en": "dehydration and hypokalemia",
+                "zh": "脱水和低钾血症"
+              }
+            ],
+            "correct": "o1"
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "The prescribed titration goal is 2 to 3 soft stools daily. Five to six watery stools daily warrants contacting the prescriber or following the existing titration instructions because diarrheal losses can cause dehydration and hypokalemia. Spironolactone is potassium-sparing; it does not amplify potassium loss. The spouse should not independently discontinue lactulose. The prescriber may reduce or temporarily interrupt it if diarrhea and volume depletion require this; doubling the dose would worsen diarrhea.",
+            "zh": "医嘱的滴定目标为每天排2至3次软便。每天5至6次水样便可能导致水分和钾丢失，应联系医嘱开立者或按照现有滴定指示调整。螺内酯是保钾药，并不加重钾丢失。配偶不应自行停用乳果糖；若腹泻和容量不足需要处理，医嘱开立者可减量或暂时停药。剂量加倍会加重腹泻。"
+          },
+          "byChoice": [
+            {
+              "refId": "1",
+              "en": "Titrating the dose to target 2-3 soft stools maintains therapeutic efficacy while avoiding electrolyte loss and dehydration.",
+              "zh": "调整剂量以达到2-3次软便的目标，可在避免电解质流失和脱水的同时维持治疗效果。"
+            },
+            {
+              "refId": "2",
+              "en": "Water and potassium are lost in repeated watery stools. Assess hydration and electrolytes; spironolactone's potassium-sparing effect does not remove the need for assessment.",
+              "zh": "反复水样便可造成水和钾丢失，应评估水合状态和电解质。螺内酯的保钾作用并不免除评估的需要。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Distinguish a prescribed titration plan from an independent medication change. Repeated watery stools call for reassessment and prescriber-guided adjustment.",
+          "zh": "区分按医嘱滴定与自行改变用药。反复水样便需要重新评估，并在医嘱开立者指导下调整。"
+        },
+        "glossary": [],
+        "answerableAfterStageId": "stage_adherence_issue"
+      },
+      {
+        "id": "gemini_gap_case_cirrhosis_homecare_04_q3",
+        "itemType": "select_all",
+        "category": "Physiological Adaptation",
+        "topic": "Renal & Gastrointestinal Disorders",
+        "difficulty": "medium",
+        "stem": {
+          "en": "The nurse is providing dietary and lifestyle teaching to the client and his spouse. Which recommendations should the nurse include? Select all that apply.",
+          "zh": "护士正在向患者及其配偶提供饮食和生活方式指导。护士应包括哪些建议？选择所有适用项。"
+        },
+        "options": [
+          {
+            "id": "C",
+            "en": "Use ibuprofen as needed for abdominal or back discomfort.",
+            "zh": "必要时使用布洛芬缓解腹部或背部不适。"
+          },
+          {
+            "id": "A",
+            "en": "Restrict dietary sodium intake to less than 2,000 mg daily.",
+            "zh": "将膳食钠摄入量限制在每天少于2,000毫克。"
+          },
+          {
+            "id": "B",
+            "en": "Weigh daily at the same time and report a gain of >3 lbs (1.4 kg) in a day.",
+            "zh": "每天在同一时间称体重，并报告一天内体重增加超过3磅 (1.4 kg)。"
+          },
+          {
+            "id": "E",
+            "en": "Sleep with the head of the bed elevated (semi-Fowler's position).",
+            "zh": "睡觉时抬高床头（半卧位）。"
+          },
+          {
+            "id": "D",
+            "en": "Completely avoid alcohol intake.",
+            "zh": "完全避免饮酒。"
+          }
+        ],
+        "correct": [
+          "A",
+          "B",
+          "D",
+          "E"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Sodium restriction (<2g daily) and daily weights are critical for managing fluid retention (ascites and edema). Absolute alcohol avoidance is mandatory to prevent further liver insult. Semi-Fowler's position relieves diaphragm pressure caused by moderate ascites, improving breathing comfort. NSAIDs like ibuprofen must be completely avoided in cirrhosis clients because they increase bleeding risk (due to underlying coagulopathy/varices) and can precipitate acute kidney injury (hepatorenal syndrome) via renal vasoconstriction.",
+            "zh": "限制钠盐（每天 <2克）和每日称体重对于管理液体潴留（腹水和水肿）至关重要。必须绝对避免饮酒，以防进一步损伤肝脏。半卧位可以减轻由中度腹水引起的膈肌受压，提高呼吸舒适度。肝硬化患者必须完全避免使用布洛芬等非甾体抗炎药 (NSAID)，因为它们会增加出血风险（由于潜在的凝血功能障碍/静脉曲张），并可能通过肾脏血管收缩促发急性肾损伤（肝肾综合征）。"
+          },
+          "byChoice": [
+            {
+              "refId": "A",
+              "en": "Low sodium intake limits water retention and helps prevent worsening of ascites and peripheral edema.",
+              "zh": "低钠摄入可限制水潴留，有助于防止腹水和周围性水肿加重。"
+            },
+            {
+              "refId": "E",
+              "en": "An elevated head of bed decreases pressure of abdominal fluid on the thoracic cavity, preventing dyspnea.",
+              "zh": "抬高床头可降低腹水对胸腔的压力，防止呼吸困难。"
+            },
+            {
+              "refId": "B",
+              "en": "Daily weight tracking is the most reliable way to monitor fluid accumulation and guide diuretic dosing.",
+              "zh": "每日体重追踪是监测液体积聚和指导利尿剂给药最可靠的方法。"
+            },
+            {
+              "refId": "D",
+              "en": "Alcohol acts as a direct hepatotoxin, accelerating liver damage and scarring.",
+              "zh": "酒精是直接的肝毒素，会加速肝脏损伤和瘢痕化。"
+            },
+            {
+              "refId": "C",
+              "en": "NSAIDs are contraindicated in cirrhosis because they impair renal perfusion and increase mucosal bleeding risk.",
+              "zh": "非甾体抗炎药在肝硬化中属于禁忌，因为它们会损害肾灌注并增加黏膜出血风险。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Recall safety contraindications in liver disease. Recognize that NSAIDs (such as ibuprofen) pose severe renal and bleeding hazards in cirrhosis, and select fluid-management and hepatic safety options.",
+          "zh": "回忆肝脏疾病的安全禁忌证。认识到非甾体抗炎药（如布洛芬）在肝硬化中会带来严重的肾脏和出血危险，选择液体管理和肝脏安全选项。"
+        },
+        "glossary": [],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "gemini_gap_case_cirrhosis_homecare_04_q4",
+        "itemType": "matrix",
+        "category": "Physiological Adaptation",
+        "topic": "Renal & Gastrointestinal Disorders",
+        "difficulty": "medium",
+        "stem": {
+          "en": "The nurse is evaluating the clinical efficacy and safety of the client's spironolactone therapy. For each finding, click to specify if it is an expected outcome of the therapy or an unexpected/adverse outcome.",
+          "zh": "护士正在评估患者螺内酯治疗的临床疗效和安全性。对于每个发现，点击以指定它是该治疗的预期结果还是非预期/不良结果。"
+        },
+        "matrix": {
+          "rows": [
+            {
+              "id": "r1",
+              "en": "Decreased abdominal girth and decreased ankle edema",
+              "zh": "腹围减少且踝部水肿减轻"
+            },
+            {
+              "id": "r2",
+              "en": "Serum potassium level of 2.9 mEq/L",
+              "zh": "血清钾水平为 2.9 mEq/L"
+            },
+            {
+              "id": "r3",
+              "en": "Daily weight loss of 0.5 to 1.0 lb (0.23 to 0.45 kg)",
+              "zh": "每日体重减轻 0.5至1.0磅 (0.23至0.45 kg)"
+            }
+          ],
+          "columns": [
+            {
+              "id": "c1",
+              "en": "Expected outcome of spironolactone therapy",
+              "zh": "螺内酯治疗的预期结果"
+            },
+            {
+              "id": "c2",
+              "en": "Unexpected/adverse outcome",
+              "zh": "非预期/不良结果"
+            }
+          ],
+          "selectionMode": "single_per_row"
+        },
+        "correct": [
+          {
+            "rowId": "r1",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r2",
+            "columnIds": [
+              "c2"
+            ]
+          },
+          {
+            "rowId": "r3",
+            "columnIds": [
+              "c1"
+            ]
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Spironolactone is a potassium-sparing aldosterone antagonist used as a primary diuretic for ascites. Expected therapeutic outcomes include decreased abdominal girth, reduced peripheral edema, and a gradual weight loss (0.5 to 1.0 lb daily to prevent intravascular depletion). A potassium level of 2.9 mEq/L represents severe hypokalemia, which is an unexpected adverse event because spironolactone spares potassium (hyperkalemia is the typical drug risk, although concurrent lactulose diarrhea could cause hypokalemia, it remains an adverse finding requiring correction).",
+            "zh": "螺内酯是一种保钾型醛固酮拮抗剂，用作腹水的主要利尿剂。预期的治疗结果包括腹围减少、外周水肿减轻以及逐渐的体重减轻（每天减轻0.5至1.0磅，以防止血管内液体耗竭）。钾水平为 2.9 mEq/L 代表严重的低钾血症，这是一项非预期的不良事件，因为螺内酯是保钾的（高钾血症是典型的药物风险，尽管同时发生乳果糖引起的腹泻可能导致低钾血症，但它仍属需要纠正的不良发现）。"
+          },
+          "byChoice": [
+            {
+              "refId": "r1",
+              "en": "Mobilization of interstitial fluid and reduction of ascites are desired clinical effects.",
+              "zh": "间质液的动员和腹水的减少是期望的临床效果。"
+            },
+            {
+              "refId": "r2",
+              "en": "Hypokalemia is an adverse finding; spironolactone typically causes potassium retention, making low potassium abnormal.",
+              "zh": "低钾血症是一项不良发现；螺内酯通常引起钾潴留，使低钾水平成为异常。"
+            },
+            {
+              "refId": "r3",
+              "en": "Gradual weight loss indicates successful fluid excretion without causing hypovolemia.",
+              "zh": "体重逐渐减轻表明成功排出液体且未引起低血容量。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Understand the pharmacology of potassium-sparing diuretics. Spironolactone spares potassium and excretes sodium and water. Expect weight loss and decreased edema, while flagging hypokalemia as an abnormal adverse finding.",
+          "zh": "理解保钾利尿剂的药理学。螺内酯保钾并排钠排水。预期体重减轻和水肿减轻，同时将低钾血症标记为异常不良发现。"
+        },
+        "glossary": [],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      }
+    ]
+  },
+  "rationale": {
+    "correct": {
+      "en": "This case study focuses on outpatient liver cirrhosis care, assessing knowledge of lactulose mechanism of action, home care titration of lactulose, contraindicated pain medications (NSAIDs), and evaluating diuretic (spironolactone) efficacy and potassium safety.",
+      "zh": "该案例研究重点关注门诊肝硬化护理，评估对乳果糖作用机制、乳果糖的家庭护理剂量调整、禁忌止痛药 (NSAID) 的知识，以及评估利尿剂（螺内酯）效果和钾安全性。"
+    }
+  },
+  "testTakingStrategy": {
+    "en": "Focus on liver disease complications and safe home-care drug titration and diet restrictions.",
+    "zh": "重点关注肝脏疾病并发症以及安全居家护理药物剂量调整和饮食限制。"
+  },
+  "glossary": []
+}

@@ -1,0 +1,836 @@
+{
+  "id": "gpt_case_gap_2026_06_11_case_adrenal_crisis_04",
+  "itemType": "case_study",
+  "category": "Physiological Adaptation",
+  "topic": "Endocrine & Neurological Disorders",
+  "difficulty": "hard",
+  "ngnSkill": "analyze_cues",
+  "stem": {
+    "en": "Review the case-study exhibits and answer the embedded questions.",
+    "zh": "查看病例研究资料并回答其中的问题。"
+  },
+  "caseStudy": {
+    "title": {
+      "en": "Adrenal crisis after missed stress-dose steroids",
+      "zh": "漏用应激剂量激素后的肾上腺危象"
+    },
+    "summary": {
+      "en": "A client with known adrenal insufficiency cannot tolerate oral steroids during illness and develops shock, hypoglycemia, and electrolyte abnormalities.",
+      "zh": "已知肾上腺功能不全患者患病期间无法耐受口服激素，进展为休克、低血糖和电解质异常。"
+    },
+    "exhibits": [
+      {
+        "id": "adrenal_initial",
+        "title": {
+          "en": "Urgent care presentation",
+          "zh": "急诊初始表现"
+        },
+        "content": {
+          "en": "A 59-year-old client with autoimmune adrenal insufficiency arrives with vomiting, weakness, abdominal pain, and dizziness after a febrile gastroenteritis illness. The client states, 'I could not keep my hydrocortisone pills down for two days.' Vital signs: T 101.1 °F (38.4 °C), HR 122/min, RR 24/min, BP 84/46 mm Hg. Skin is cool and mottled.",
+          "zh": "59岁自身免疫性肾上腺功能不全患者因发热性胃肠炎后呕吐、无力、腹痛和头晕来诊。患者说：“这两天氢化可的松片吃了就吐。”生命体征：T 101.1 °F (38.4 °C)，HR 122次/分，RR 24次/分，BP 84/46 mm Hg。皮肤发凉并呈花斑。"
+        }
+      },
+      {
+        "id": "adrenal_labs",
+        "title": {
+          "en": "Initial laboratory data",
+          "zh": "初始实验室资料"
+        },
+        "content": {
+          "en": "Sodium 126 mEq/L, potassium 5.9 mEq/L, glucose 52 mg/dL, BUN 34 mg/dL, creatinine 1.4 mg/dL. The client is increasingly confused and asks to lie flat because of dizziness.",
+          "zh": "钠126 mEq/L，钾5.9 mEq/L，血糖52 mg/dL，BUN 34 mg/dL，肌酐1.4 mg/dL。患者意识混乱加重，并因头晕要求平卧。"
+        },
+        "structuredMeasurements": {
+          "panels": [
+            {
+              "kind": "labs",
+              "columns": [
+                {
+                  "id": "current",
+                  "label": {
+                    "en": "Current",
+                    "zh": "当前"
+                  }
+                }
+              ],
+              "rows": [
+                {
+                  "key": "sodium",
+                  "label": {
+                    "en": "Sodium",
+                    "zh": "血钠"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "126",
+                      "unit": "mEq/L"
+                    }
+                  ]
+                },
+                {
+                  "key": "potassium",
+                  "label": {
+                    "en": "Potassium",
+                    "zh": "血钾"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "5.9",
+                      "unit": "mEq/L"
+                    }
+                  ]
+                },
+                {
+                  "key": "glucose",
+                  "label": {
+                    "en": "Glucose",
+                    "zh": "血糖"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "52",
+                      "unit": "mg/dL"
+                    }
+                  ]
+                },
+                {
+                  "key": "bun",
+                  "label": {
+                    "en": "BUN",
+                    "zh": "尿素氮"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "34",
+                      "unit": "mg/dL"
+                    }
+                  ]
+                },
+                {
+                  "key": "creatinine",
+                  "label": {
+                    "en": "Creatinine",
+                    "zh": "肌酐"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "1.4",
+                      "unit": "mg/dL"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "stages": [
+      {
+        "id": "adrenal_stage2",
+        "title": {
+          "en": "Ten minutes later",
+          "zh": "10分钟后"
+        },
+        "trigger": {
+          "en": "The nurse remains with the client while emergency treatment is being arranged.",
+          "zh": "护士在安排急救治疗时留在患者身边。"
+        },
+        "exhibits": [
+          {
+            "id": "adrenal_deterioration",
+            "title": {
+              "en": "Reassessment",
+              "zh": "复评"
+            },
+            "content": {
+              "en": "BP 78/40 mm Hg, HR 132/min. The client is diaphoretic and difficult to arouse. Capillary glucose is 48 mg/dL. Cardiac monitor shows sinus tachycardia with occasional premature ventricular contractions.",
+              "zh": "BP 78/40 mm Hg，HR 132次/分。患者大汗，难以唤醒。床旁血糖48 mg/dL。心电监护显示窦性心动过速伴偶发室性早搏。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "sbp",
+                      "label": {
+                        "en": "Systolic BP",
+                        "zh": "收缩压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "78",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "dbp",
+                      "label": {
+                        "en": "Diastolic BP",
+                        "zh": "舒张压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "40",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "hr",
+                      "label": {
+                        "en": "Heart rate",
+                        "zh": "心率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "132",
+                          "unit": "bpm"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "labs",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "glucose",
+                      "label": {
+                        "en": "Glucose",
+                        "zh": "血糖"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "48",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "adrenal_stage3",
+        "title": {
+          "en": "After treatment",
+          "zh": "治疗后"
+        },
+        "trigger": {
+          "en": "The client receives prescribed IV hydrocortisone, dextrose, and isotonic saline boluses.",
+          "zh": "患者按医嘱接受静脉氢化可的松、葡萄糖和等渗盐水快速补液。"
+        },
+        "exhibits": [
+          {
+            "id": "adrenal_response",
+            "title": {
+              "en": "Response data",
+              "zh": "反应资料"
+            },
+            "content": {
+              "en": "BP 96/58 mm Hg, HR 108/min, capillary glucose 92 mg/dL. The client is awake but still weak. Potassium is 5.4 mEq/L and sodium is 128 mEq/L.",
+              "zh": "BP 96/58 mm Hg，HR 108次/分，床旁血糖92 mg/dL。患者清醒但仍虚弱。钾5.4 mEq/L，钠128 mEq/L。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "sbp",
+                      "label": {
+                        "en": "Systolic BP",
+                        "zh": "收缩压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "96",
+                          "unit": "mmHg",
+                          "context": "post_intervention"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "dbp",
+                      "label": {
+                        "en": "Diastolic BP",
+                        "zh": "舒张压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "58",
+                          "unit": "mmHg",
+                          "context": "post_intervention"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "hr",
+                      "label": {
+                        "en": "Heart rate",
+                        "zh": "心率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "108",
+                          "unit": "bpm",
+                          "context": "post_intervention"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "labs",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "glucose",
+                      "label": {
+                        "en": "Glucose",
+                        "zh": "血糖"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "92",
+                          "unit": "mg/dL",
+                          "context": "post_intervention"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "potassium",
+                      "label": {
+                        "en": "Potassium",
+                        "zh": "血钾"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "5.4",
+                          "unit": "mEq/L",
+                          "context": "post_intervention"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "sodium",
+                      "label": {
+                        "en": "Sodium",
+                        "zh": "血钠"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "128",
+                          "unit": "mEq/L",
+                          "context": "post_intervention"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "gpt_case_gap_2026_06_11_adrenal_matrix_01",
+        "itemType": "matrix",
+        "category": "Reduction of Risk Potential",
+        "topic": "Laboratory & Diagnostic Tests",
+        "difficulty": "hard",
+        "ngnSkill": "recognize_cues",
+        "stem": {
+          "en": "For each finding, indicate whether it supports adrenal crisis requiring immediate follow-up or is less urgent in this context.",
+          "zh": "对于每项发现，判断其是否支持需要立即跟进的肾上腺危象，或在此情境下较不紧急。"
+        },
+        "matrix": {
+          "rows": [
+            {
+              "id": "r1",
+              "en": "Could not keep hydrocortisone down for two days",
+              "zh": "两天无法保留口服氢化可的松"
+            },
+            {
+              "id": "r2",
+              "en": "BP 84/46 mm Hg with mottled skin",
+              "zh": "BP 84/46 mm Hg伴皮肤花斑"
+            },
+            {
+              "id": "r3",
+              "en": "Glucose 52 mg/dL",
+              "zh": "血糖52 mg/dL"
+            },
+            {
+              "id": "r4",
+              "en": "Potassium 5.9 mEq/L and sodium 126 mEq/L",
+              "zh": "钾5.9 mEq/L且钠126 mEq/L"
+            },
+            {
+              "id": "r5",
+              "en": "Abdominal pain after gastroenteritis",
+              "zh": "胃肠炎后腹痛"
+            }
+          ],
+          "columns": [
+            {
+              "id": "c1",
+              "en": "Adrenal crisis cue",
+              "zh": "肾上腺危象线索"
+            },
+            {
+              "id": "c2",
+              "en": "Less urgent/less specific",
+              "zh": "较不紧急/较不特异"
+            }
+          ],
+          "selectionMode": "single_per_row"
+        },
+        "correct": [
+          {
+            "rowId": "r1",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r2",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r3",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r4",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r5",
+            "columnIds": [
+              "c2"
+            ]
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Missed steroid replacement during illness plus shock, hypoglycemia, hyponatremia, and hyperkalemia strongly supports adrenal crisis. Abdominal pain can occur but is less specific than the instability cues.",
+            "zh": "疾病期间未能补充激素，加上休克、低血糖、低钠和高钾，强烈支持肾上腺危象。腹痛可出现，但不如不稳定线索特异。"
+          },
+          "byChoice": [
+            {
+              "refId": "r1",
+              "en": "In adrenal insufficiency, inability to take steroids during illness removes needed stress-dose coverage.",
+              "zh": "肾上腺功能不全患者患病时无法服用激素，会失去所需应激剂量覆盖。"
+            },
+            {
+              "refId": "r2",
+              "en": "Hypotension with poor perfusion is a crisis-level circulation cue.",
+              "zh": "低血压伴灌注差是危象级循环线索。"
+            },
+            {
+              "refId": "r3",
+              "en": "Cortisol deficiency can cause hypoglycemia, especially during acute illness.",
+              "zh": "皮质醇不足可导致低血糖，尤其在急病期间。"
+            },
+            {
+              "refId": "r4",
+              "en": "Low aldosterone effect contributes to sodium loss and potassium retention.",
+              "zh": "醛固酮作用不足会导致钠丢失和钾潴留。"
+            },
+            {
+              "refId": "r5",
+              "en": "Abdominal pain is compatible with the illness but alone is not the most urgent crisis cue.",
+              "zh": "腹痛与疾病相符，但单独看不是最紧急的危象线索。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "In endocrine emergencies, connect the missing hormone to the vital-sign and lab pattern.",
+          "zh": "处理内分泌急症时，把缺失激素与生命体征和实验室模式联系起来。"
+        },
+        "glossary": [
+          {
+            "termEn": "Adrenal crisis",
+            "termZh": "肾上腺危象",
+            "defZh": "皮质醇严重不足导致低血压、低血糖、电解质紊乱和休克风险。"
+          },
+          {
+            "termEn": "Glucocorticoid",
+            "termZh": "糖皮质激素",
+            "defZh": "参与应激反应、血糖和血压维持的激素或药物。"
+          },
+          {
+            "termEn": "Hyperkalemia",
+            "termZh": "高钾血症",
+            "defZh": "血钾升高，可见于醛固酮不足并可能导致心律失常。"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "gpt_case_gap_2026_06_11_adrenal_cloze_02",
+        "itemType": "dropdown_cloze",
+        "category": "Reduction of Risk Potential",
+        "topic": "Laboratory & Diagnostic Tests",
+        "difficulty": "hard",
+        "ngnSkill": "analyze_cues",
+        "stageId": "adrenal_stage2",
+        "stem": {
+          "en": "Complete the priority statement.",
+          "zh": "完成优先判断陈述。"
+        },
+        "clozeStem": {
+          "en": "The client is at highest risk for {{1}} because of {{2}}.",
+          "zh": "由于{{2}}，该患者最高风险是{{1}}。"
+        },
+        "dropdowns": [
+          {
+            "id": "1",
+            "options": [
+              {
+                "id": "o2",
+                "en": "fluid overload from excessive steroids",
+                "zh": "激素过量导致容量过负荷"
+              },
+              {
+                "id": "o1",
+                "en": "circulatory collapse with neuroglycopenia",
+                "zh": "循环衰竭伴脑部低糖供能不足"
+              },
+              {
+                "id": "o3",
+                "en": "stable viral illness without endocrine emergency",
+                "zh": "无内分泌急症的稳定病毒感染"
+              }
+            ],
+            "correct": "o1"
+          },
+          {
+            "id": "2",
+            "options": [
+              {
+                "id": "o1",
+                "en": "refractory hypotension, altered arousal, and glucose 48 mg/dL",
+                "zh": "持续低血压、觉醒度改变和血糖48 mg/dL"
+              },
+              {
+                "id": "o3",
+                "en": "sodium 126 mEq/L alone",
+                "zh": "单纯钠126 mEq/L"
+              },
+              {
+                "id": "o2",
+                "en": "mild abdominal pain with normal perfusion",
+                "zh": "轻度腹痛且灌注正常"
+              }
+            ],
+            "correct": "o1"
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "The combination of shock-level hypotension and severe hypoglycemia threatens both perfusion and brain glucose delivery.",
+            "zh": "休克水平低血压和严重低血糖同时威胁灌注和脑部葡萄糖供应。"
+          },
+          "byChoice": [
+            {
+              "refId": "1",
+              "en": "The immediate problem is not just low cortisol but the life-threatening effect on circulation and brain function.",
+              "zh": "即时问题不只是皮质醇低，而是其对循环和脑功能的危及生命影响。"
+            },
+            {
+              "refId": "2",
+              "en": "The selected cluster explains why treatment cannot be delayed.",
+              "zh": "所选线索组合说明治疗不能延迟。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "When hypotension and altered mental status occur with low glucose, treat the situation as unstable even before all endocrine labs return.",
+          "zh": "低血压和意识改变伴低血糖时，即使内分泌化验未全回报，也应按不稳定处理。"
+        },
+        "glossary": [
+          {
+            "termEn": "Adrenal crisis",
+            "termZh": "肾上腺危象",
+            "defZh": "皮质醇严重不足导致低血压、低血糖、电解质紊乱和休克风险。"
+          },
+          {
+            "termEn": "Glucocorticoid",
+            "termZh": "糖皮质激素",
+            "defZh": "参与应激反应、血糖和血压维持的激素或药物。"
+          },
+          {
+            "termEn": "Hyperkalemia",
+            "termZh": "高钾血症",
+            "defZh": "血钾升高，可见于醛固酮不足并可能导致心律失常。"
+          }
+        ],
+        "answerableAfterStageId": "adrenal_stage2"
+      },
+      {
+        "id": "gpt_case_gap_2026_06_11_adrenal_or_03",
+        "itemType": "ordered_response",
+        "category": "Management of Care",
+        "topic": "Prioritization & Delegation",
+        "difficulty": "hard",
+        "ngnSkill": "take_action",
+        "stageId": "adrenal_stage2",
+        "stem": {
+          "en": "Place the emergency nursing actions in order.",
+          "zh": "将急救护理措施按顺序排列。"
+        },
+        "options": [
+          {
+            "id": "C",
+            "en": "Activate rapid response/provider notification for suspected adrenal crisis with shock.",
+            "zh": "因疑似肾上腺危象伴休克启动快速反应/通知医嘱提供者。"
+          },
+          {
+            "id": "D",
+            "en": "Administer prescribed IV hydrocortisone, isotonic saline, and dextrose without delaying for cortisol results.",
+            "zh": "遵医嘱给予静脉氢化可的松、等渗盐水和葡萄糖，不因等待皮质醇结果而延误。"
+          },
+          {
+            "id": "A",
+            "en": "Assess airway, breathing, circulation, mental status, and bedside glucose.",
+            "zh": "评估气道、呼吸、循环、意识状态和床旁血糖。"
+          },
+          {
+            "id": "B",
+            "en": "Maintain IV access, apply cardiac monitoring, and place the client supine with legs elevated if tolerated.",
+            "zh": "维持静脉通路，应用心电监护，并在可耐受时让患者仰卧抬腿。"
+          },
+          {
+            "id": "E",
+            "en": "Reassess blood pressure, mental status, glucose, potassium, sodium, and urine output.",
+            "zh": "复评血压、意识状态、血糖、钾、钠和尿量。"
+          }
+        ],
+        "correct": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Immediate assessment identifies shock and hypoglycemia, supportive measures reduce collapse risk, urgent escalation obtains emergency therapy, and treatment should not wait for confirmatory cortisol testing when crisis is suspected.",
+            "zh": "立即评估可识别休克和低血糖，支持措施降低循环衰竭风险，紧急升级以获得急救治疗；疑似危象时不应等待皮质醇确证结果才治疗。"
+          },
+          "byChoice": [
+            {
+              "refId": "A",
+              "en": "ABCs, perfusion, mental status, and glucose define the immediate threats.",
+              "zh": "ABC、灌注、意识和血糖决定即时威胁。"
+            },
+            {
+              "refId": "D",
+              "en": "Steroid replacement, volume, and glucose address the core physiologic deficits.",
+              "zh": "补充激素、容量和葡萄糖处理核心生理缺陷。"
+            },
+            {
+              "refId": "E",
+              "en": "Reassessment determines whether perfusion and metabolic abnormalities are correcting.",
+              "zh": "复评判断灌注和代谢异常是否纠正。"
+            },
+            {
+              "refId": "B",
+              "en": "Monitoring and positioning support circulation while emergency help is mobilized.",
+              "zh": "监测和体位在调动急救资源时支持循环。"
+            },
+            {
+              "refId": "C",
+              "en": "Adrenal crisis with shock is time-sensitive and requires urgent orders/team response.",
+              "zh": "肾上腺危象伴休克具有时间敏感性，需要紧急医嘱/团队响应。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "For adrenal crisis, the lifesaving pattern is steroid, saline, and sugar after rapid ABC/glucose assessment and escalation.",
+          "zh": "肾上腺危象的救命模式是在快速ABC/血糖评估和升级后给予激素、盐水和糖。"
+        },
+        "glossary": [
+          {
+            "termEn": "Adrenal crisis",
+            "termZh": "肾上腺危象",
+            "defZh": "皮质醇严重不足导致低血压、低血糖、电解质紊乱和休克风险。"
+          },
+          {
+            "termEn": "Glucocorticoid",
+            "termZh": "糖皮质激素",
+            "defZh": "参与应激反应、血糖和血压维持的激素或药物。"
+          },
+          {
+            "termEn": "Hyperkalemia",
+            "termZh": "高钾血症",
+            "defZh": "血钾升高，可见于醛固酮不足并可能导致心律失常。"
+          }
+        ],
+        "answerableAfterStageId": "adrenal_stage2"
+      },
+      {
+        "id": "gpt_case_gap_2026_06_11_adrenal_fib_04",
+        "itemType": "fill_in_blank",
+        "category": "Physiological Adaptation",
+        "topic": "Cardiovascular Disorders",
+        "difficulty": "hard",
+        "ngnSkill": "evaluate_outcomes",
+        "stageId": "adrenal_stage2",
+        "stem": {
+          "en": "Calculate the mean arterial pressure (MAP) for BP 78/40 mm Hg using MAP = (SBP + 2DBP) / 3. Round to the nearest whole number.",
+          "zh": "使用MAP = (收缩压 + 2×舒张压) / 3计算BP 78/40 mm Hg的平均动脉压，四舍五入到整数。"
+        },
+        "blanks": [
+          {
+            "id": "b1",
+            "prompt": {
+              "en": "MAP in mm Hg",
+              "zh": "MAP，mm Hg"
+            },
+            "acceptable": [
+              "53",
+              "53 mm Hg"
+            ],
+            "numeric": {
+              "value": 53,
+              "tolerance": 1,
+              "unit": "mm Hg"
+            }
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "MAP = (78 + 2[40]) / 3 = 158 / 3 = 52.7, rounded to 53 mm Hg. This is below the usual perfusion target and supports shock-level urgency.",
+            "zh": "MAP = (78 + 2[40]) / 3 = 158 / 3 = 52.7，四舍五入为53 mm Hg。该值低于常用灌注目标，支持休克级紧急性。"
+          },
+          "byChoice": [
+            {
+              "refId": "b1",
+              "en": "Use the formula and recognize that a very low MAP is a perfusion problem, not just a number.",
+              "zh": "使用公式，并认识到MAP很低是灌注问题，不只是一个数字。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "After calculating a hemodynamic value, interpret whether it changes urgency.",
+          "zh": "计算血流动力学数值后，要判断其是否改变紧急程度。"
+        },
+        "glossary": [
+          {
+            "termEn": "Adrenal crisis",
+            "termZh": "肾上腺危象",
+            "defZh": "皮质醇严重不足导致低血压、低血糖、电解质紊乱和休克风险。"
+          },
+          {
+            "termEn": "Glucocorticoid",
+            "termZh": "糖皮质激素",
+            "defZh": "参与应激反应、血糖和血压维持的激素或药物。"
+          },
+          {
+            "termEn": "Hyperkalemia",
+            "termZh": "高钾血症",
+            "defZh": "血钾升高，可见于醛固酮不足并可能导致心律失常。"
+          }
+        ],
+        "answerableAfterStageId": "adrenal_stage2"
+      }
+    ]
+  },
+  "rationale": {
+    "correct": {
+      "en": "This case study requires recognizing deterioration across serial assessment data and choosing nursing actions that reduce risk.",
+      "zh": "本病例要求根据连续评估资料识别病情恶化，并选择降低风险的护理措施。"
+    },
+    "byChoice": []
+  },
+  "testTakingStrategy": {
+    "en": "In an unfolding case, compare the newest data with baseline and act first on unstable airway, breathing, circulation, perfusion, and safety cues.",
+    "zh": "处理展开式病例时，先把最新资料与基线比较，并优先处理气道、呼吸、循环、灌注和安全方面的不稳定线索。"
+  },
+  "glossary": [
+    {
+      "termEn": "Adrenal crisis",
+      "termZh": "肾上腺危象",
+      "defZh": "皮质醇严重不足导致低血压、低血糖、电解质紊乱和休克风险。"
+    },
+    {
+      "termEn": "Glucocorticoid",
+      "termZh": "糖皮质激素",
+      "defZh": "参与应激反应、血糖和血压维持的激素或药物。"
+    },
+    {
+      "termEn": "Hyperkalemia",
+      "termZh": "高钾血症",
+      "defZh": "血钾升高，可见于醛固酮不足并可能导致心律失常。"
+    }
+  ]
+}

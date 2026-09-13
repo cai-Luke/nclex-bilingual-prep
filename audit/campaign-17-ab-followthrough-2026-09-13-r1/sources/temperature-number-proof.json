@@ -1,0 +1,42 @@
+{
+  "publishedThresholdExtension": {
+    "sourceAdjudicationPath": "audit/temperature-prose-unit-survey-2026-07-21/residual-adjudication.jsonl",
+    "sourceAdjudicationId": "temperature-residual-03-neutropenic-fever-threshold",
+    "sourceUnmodified": true,
+    "sourceId": "S09",
+    "fields": [
+      "caseStudy.summary.en",
+      "caseStudy.summary.zh"
+    ],
+    "before": {
+      "en": "A 58-year-old woman with stage IIIB diffuse large B-cell lymphoma is on day 10 of cycle 2 R-CHOP and is in the expected count nadir window. She was admitted two days ago for poor oral intake and dehydration. A triple-lumen PICC is patent. Standing orders require blood cultures and immediate oncology notification for a single oral temperature ≥ 100.9 °F (38.3 °C) or temperature ≥ 100.4 °F (38.0 °C) sustained over one hour.",
+      "zh": "一名 58 岁女性，患 IIIB 期弥漫大 B 细胞淋巴瘤，正在第 2 个 R-CHOP 周期第 10 天，处于预期血细胞计数低谷期。她两天前因进食差和脱水入院。三腔 PICC 通畅。常规医嘱要求：单次口温 ≥ 100.9 °F (38.3 °C) 或体温 ≥ 100.4 °F (38.0 °C) 持续 1 小时时，采集血培养并立即通知肿瘤科。"
+    },
+    "after": {
+      "en": "A 58-year-old woman with stage IIIB diffuse large B-cell lymphoma is on day 10 of cycle 2 R-CHOP and is in the expected count nadir window. She was admitted two days ago for poor oral intake and dehydration. A triple-lumen PICC is patent. Standing orders require blood cultures and immediate oncology notification for a single oral temperature ≥ 101 °F (38.3 °C) or temperature ≥ 100.4 °F (38.0 °C) sustained over one hour.",
+      "zh": "一名 58 岁女性，患 IIIB 期弥漫大 B 细胞淋巴瘤，正在第 2 个 R-CHOP 周期第 10 天，处于预期血细胞计数低谷期。她两天前因进食差和脱水入院。三腔 PICC 通畅。常规医嘱要求：单次口温 ≥ 101 °F (38.3 °C) 或体温 ≥ 100.4 °F (38.0 °C) 持续 1 小时时，采集血培养并立即通知肿瘤科。"
+    },
+    "reason": "These summary fields were omitted from the historical pin. Follow the already published101°F(38.3°C) clinical threshold pairing; ordinary rounding of38.3°C to100.9°F does not supersede the named threshold."
+  },
+  "physiologicConversions": [
+    {
+      "celsius": 39.4,
+      "formula": "C*9/5+32",
+      "exactFahrenheit": 102.91999999999999,
+      "oneDecimalFahrenheit": 102.9
+    },
+    {
+      "celsius": 38.6,
+      "formula": "C*9/5+32",
+      "exactFahrenheit": 101.48,
+      "oneDecimalFahrenheit": 101.5
+    },
+    {
+      "celsius": 38.1,
+      "formula": "C*9/5+32",
+      "exactFahrenheit": 100.58000000000001,
+      "oneDecimalFahrenheit": 100.6
+    }
+  ],
+  "scope": "Only newly touched physiological displays in neutropenia q5 row1. No old survey/threshold artifact changed."
+}

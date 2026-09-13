@@ -1,0 +1,620 @@
+{
+  "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+  "itemType": "case_study",
+  "category": "Safety and Infection Prevention and Control",
+  "topic": "Patient & Environment Safety",
+  "difficulty": "medium",
+  "ngnSkill": "take_action",
+  "stem": {
+    "en": "Review the client record and answer the case-study items.",
+    "zh": "查看患者记录并回答病例题。"
+  },
+  "rationale": {
+    "correct": {
+      "en": "The case focuses on safe transition to home oxygen: recognize fire and fall hazards, correct unsafe self-adjustment, coordinate equipment, and verify teach-back before discharge.",
+      "zh": "本病例重点是安全过渡到居家氧疗：识别火灾和跌倒风险，纠正不安全的自行调节，协调设备，并在出院前确认回示。"
+    },
+    "byChoice": []
+  },
+  "testTakingStrategy": {
+    "en": "In discharge cases, compare the client's home behaviors with the prescribed plan and the highest-consequence safety risks.",
+    "zh": "出院类病例要将患者居家行为与处方计划及后果最严重的安全风险进行比较。"
+  },
+  "glossary": [
+    {
+      "termEn": "COPD",
+      "termZh": "慢性阻塞性肺疾病",
+      "defZh": "一种导致气流受限和慢性呼吸症状的肺部疾病。"
+    },
+    {
+      "termEn": "Home oxygen",
+      "termZh": "居家氧疗",
+      "defZh": "在家中按处方使用氧气以改善低氧血症的治疗。"
+    }
+  ],
+  "caseStudy": {
+    "title": {
+      "en": "Unfolding case: COPD discharge with home oxygen",
+      "zh": "展开病例：COPD 患者带居家氧疗出院"
+    },
+    "summary": {
+      "en": "A client with COPD is being prepared for discharge with new home oxygen after hospitalization for an exacerbation.",
+      "zh": "一名 COPD 患者因急性加重住院后，准备带新的居家氧疗出院。"
+    },
+    "exhibits": [
+      {
+        "id": "baseline",
+        "title": {
+          "en": "Baseline discharge referral",
+          "zh": "基础出院转介记录"
+        },
+        "content": {
+          "en": "Age 69. COPD. New order: oxygen 2 L/min by nasal cannula with activity and sleep. Lives with spouse in a small apartment. Uses a cane. SpO2 92% on 2 L/min after walking 30 feet.",
+          "zh": "69 岁。COPD。新医嘱：活动和睡眠时鼻导管吸氧 2 L/分。与配偶住在小公寓。使用手杖。步行 30 英尺后吸氧 2 L/分时 SpO2 为 92%。"
+        },
+        "structuredMeasurements": {
+          "panels": [
+            {
+              "kind": "vitals",
+              "columns": [
+                {
+                  "id": "current",
+                  "label": {
+                    "en": "Current",
+                    "zh": "当前"
+                  }
+                }
+              ],
+              "rows": [
+                {
+                  "key": "spo2",
+                  "label": {
+                    "en": "SpO2",
+                    "zh": "脉搏血氧饱和度"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "92",
+                      "unit": "%"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "stages": [
+      {
+        "id": "stage_1_home",
+        "title": {
+          "en": "Stage 1: Home safety interview",
+          "zh": "第 1 阶段：居家安全访谈"
+        },
+        "exhibits": [
+          {
+            "id": "home_safety",
+            "title": {
+              "en": "Home safety notes",
+              "zh": "居家安全记录"
+            },
+            "content": {
+              "en": "Spouse smokes on the apartment balcony while the sliding door is open. Client reports using petroleum jelly for dry nares. Oxygen tubing would cross the bedroom doorway unless furniture is moved. Client says, 'I set the machine to exactly 2 liters like the prescription says.'",
+              "zh": "配偶在阳台吸烟，滑动门开着。患者称会用凡士林缓解鼻腔干燥。如果不移动家具，氧气管会横跨卧室门口。患者说：“我会按处方把机器设为 2 升。”"
+            }
+          }
+        ]
+      },
+      {
+        "id": "stage_2_teaching",
+        "title": {
+          "en": "Stage 2: Teaching session",
+          "zh": "第 2 阶段：宣教记录"
+        },
+        "exhibits": [
+          {
+            "id": "teaching",
+            "title": {
+              "en": "Client and spouse responses",
+              "zh": "患者与配偶反馈"
+            },
+            "content": {
+              "en": "Client states, 'If I feel short of breath, I can turn it up until I feel better.' Spouse asks whether a water-based nasal lubricant is acceptable. Both agree to move a bedside table so tubing does not cross the doorway.",
+              "zh": "患者说：“如果我觉得气短，可以把氧气调高，直到舒服为止。”配偶询问是否可以使用水性鼻腔润滑剂。两人同意移动床边桌，使管路不横跨门口。"
+            }
+          }
+        ]
+      },
+      {
+        "id": "stage_3_equipment",
+        "title": {
+          "en": "Stage 3: Equipment readiness",
+          "zh": "第 3 阶段：设备准备情况"
+        },
+        "exhibits": [
+          {
+            "id": "equipment",
+            "title": {
+              "en": "Durable medical equipment note",
+              "zh": "耐用医疗设备记录"
+            },
+            "content": {
+              "en": "Concentrator delivery confirmed for 1600. Portable cylinder: 600 L usable oxygen. Prescribed activity flow: 2 L/min. Backup battery fully charged. Client and spouse complete a return demonstration of tubing placement and oxygen-in-use signage.",
+              "zh": "制氧机确认 1600 送达。便携氧气瓶：可用氧气 600 L。活动时处方流量：2 L/分。备用电池已充满电。患者和配偶完成管路摆放及正在使用氧气标识的回示演示。"
+            }
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q1",
+        "itemType": "matrix",
+        "category": "Safety and Infection Prevention and Control",
+        "topic": "Patient & Environment Safety",
+        "difficulty": "medium",
+        "ngnSkill": "recognize_cues",
+        "stem": {
+          "en": "Using the initial home oxygen referral note, classify each finding as a safety concern or an expected finding for discharge teaching.",
+          "zh": "根据初始居家氧疗转介记录，将每项发现归类为安全隐患或出院宣教中的预期发现。"
+        },
+        "rationale": {
+          "correct": {
+            "en": "Smoking exposure, petroleum products near the cannula, and extension tubing across a walkway increase fire or fall risk. Correct oxygen flow use and a charged concentrator backup are expected safety behaviors.",
+            "zh": "吸烟暴露、鼻导管附近使用含油产品以及延长管横跨走道会增加火灾或跌倒风险。按处方氧流量使用和备有充电的制氧机备用电源属于预期的安全行为。"
+          },
+          "byChoice": [
+            {
+              "refId": "r1",
+              "en": "Active smoking around oxygen is a fire and burn hazard.",
+              "zh": "在氧气附近吸烟会造成火灾和烧伤危险。"
+            },
+            {
+              "refId": "r2",
+              "en": "Petroleum ointment can support combustion near oxygen equipment; water-based products are safer.",
+              "zh": "含凡士林的软膏在氧气设备附近可能助燃；应使用水性产品。"
+            },
+            {
+              "refId": "r3",
+              "en": "Keeping the oxygen at the prescribed flow rate is expected.",
+              "zh": "按处方流量使用氧气是预期做法。"
+            },
+            {
+              "refId": "r4",
+              "en": "Loose tubing across a walking path creates a fall hazard.",
+              "zh": "管路横在行走通道上会造成跌倒风险。"
+            },
+            {
+              "refId": "r5",
+              "en": "A charged backup power plan supports safe equipment use during outages.",
+              "zh": "有充电备用电源计划有助于停电时安全使用设备。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Separate oxygen-fire hazards from ordinary equipment teaching; oxygen supports combustion even when it is not flammable itself.",
+          "zh": "将氧气相关火灾隐患与普通设备宣教分开判断；氧气本身不易燃，但会助燃。"
+        },
+        "glossary": [
+          {
+            "termEn": "Combustion",
+            "termZh": "燃烧",
+            "defZh": "物质与氧反应并产生热和火焰的过程。"
+          },
+          {
+            "termEn": "Nasal cannula",
+            "termZh": "鼻导管",
+            "defZh": "通过鼻孔给氧的低流量氧疗装置。"
+          }
+        ],
+        "matrix": {
+          "rows": [
+            {
+              "id": "r1",
+              "en": "Spouse smokes on the apartment balcony while the sliding door is open",
+              "zh": "配偶在阳台吸烟，且滑动门开着"
+            },
+            {
+              "id": "r2",
+              "en": "Client applies petroleum jelly to dry nares before placing the cannula",
+              "zh": "患者放置鼻导管前在干燥鼻腔涂凡士林"
+            },
+            {
+              "id": "r3",
+              "en": "Client sets the concentrator to 2 L/min as prescribed",
+              "zh": "患者按处方将制氧机设为 2 L/分"
+            },
+            {
+              "id": "r4",
+              "en": "Oxygen tubing runs across the bedroom doorway",
+              "zh": "氧气管路横跨卧室门口"
+            },
+            {
+              "id": "r5",
+              "en": "Portable concentrator battery is fully charged before leaving home",
+              "zh": "外出前便携制氧机电池已充满电"
+            }
+          ],
+          "columns": [
+            {
+              "id": "c1",
+              "en": "Safety concern",
+              "zh": "安全隐患"
+            },
+            {
+              "id": "c2",
+              "en": "Expected finding",
+              "zh": "预期发现"
+            }
+          ],
+          "selectionMode": "single_per_row"
+        },
+        "correct": [
+          {
+            "rowId": "r1",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r2",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r3",
+            "columnIds": [
+              "c2"
+            ]
+          },
+          {
+            "rowId": "r4",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r5",
+            "columnIds": [
+              "c2"
+            ]
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+        "itemType": "dropdown_cloze",
+        "category": "Health Promotion and Maintenance",
+        "topic": "Chronic Disease Management & Lifestyle",
+        "difficulty": "medium",
+        "ngnSkill": "analyze_cues",
+        "stem": {
+          "en": "The nurse reviews the Stage 2 teaching session and identifies the discharge issue that must be corrected before the client leaves.",
+          "zh": "护士查看第 2 阶段的宣教记录，并判断患者离院前必须纠正的出院问题。"
+        },
+        "rationale": {
+          "correct": {
+            "en": "The client's statement about turning the oxygen higher during dyspnea shows unsafe self-adjustment. The nurse should reinforce using the prescribed flow rate and calling the provider or emergency services for worsening symptoms.",
+            "zh": "患者表示气促时自行调高氧流量，说明存在不安全的自行调节。护士应强化按处方流量使用，并在症状加重时联系医护人员或急救服务。"
+          },
+          "byChoice": [
+            {
+              "refId": "1",
+              "en": "The most immediate teaching gap is unsafe self-adjustment of oxygen flow.",
+              "zh": "最需要纠正的宣教缺口是患者不安全地自行调节氧流量。"
+            },
+            {
+              "refId": "2",
+              "en": "Using the prescribed flow rate and seeking help for worsening dyspnea is safer than changing the liter flow independently.",
+              "zh": "按处方流量使用氧气，并在气促加重时求助，比自行改变流量更安全。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "When a home teaching statement includes independent dose or device changes, look for the response that restores the prescribed plan and escalation pathway.",
+          "zh": "如果居家宣教反馈中出现自行改变剂量或设备设置，应选择能恢复处方计划并明确升级求助路径的回答。"
+        },
+        "glossary": [
+          {
+            "termEn": "Dyspnea",
+            "termZh": "呼吸困难",
+            "defZh": "主观感觉呼吸费力或气不够用。"
+          },
+          {
+            "termEn": "Oxygen flow rate",
+            "termZh": "氧流量",
+            "defZh": "每分钟给予氧气的流量，通常以 L/min 表示。"
+          }
+        ],
+        "clozeStem": {
+          "en": "The teaching gap about oxygen flow is {{1}}; the nurse should teach the client to {{2}}.",
+          "zh": "关于氧流量的宣教缺口是 {{1}}；护士应教导患者 {{2}}。"
+        },
+        "dropdowns": [
+          {
+            "id": "1",
+            "options": [
+              {
+                "id": "o1",
+                "en": "self-adjusting oxygen flow for shortness of breath",
+                "zh": "因气短而自行调节氧流量"
+              },
+              {
+                "id": "o2",
+                "en": "using pursed-lip breathing during activity",
+                "zh": "活动时使用缩唇呼吸"
+              },
+              {
+                "id": "o3",
+                "en": "keeping the concentrator plugged into a grounded outlet",
+                "zh": "将制氧机插入接地插座"
+              }
+            ],
+            "correct": "o1"
+          },
+          {
+            "id": "2",
+            "options": [
+              {
+                "id": "o2",
+                "en": "increase oxygen until the pulse oximeter reads 100%",
+                "zh": "增加氧流量直到血氧仪显示 100%"
+              },
+              {
+                "id": "o3",
+                "en": "turn off oxygen during all household ambulation",
+                "zh": "在家中走动时都关闭氧气"
+              },
+              {
+                "id": "o1",
+                "en": "use the prescribed flow and seek help if symptoms worsen",
+                "zh": "按处方流量使用，症状加重时求助"
+              }
+            ],
+            "correct": "o1"
+          }
+        ],
+        "answerableAfterStageId": "stage_2_teaching"
+      },
+      {
+        "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3",
+        "itemType": "ordered_response",
+        "category": "Management of Care",
+        "topic": "Discharge Planning & Handoff",
+        "difficulty": "medium",
+        "ngnSkill": "take_action",
+        "stem": {
+          "en": "The client is scheduled for discharge with new home oxygen after Stage 2. Place the nurse's actions in the best order.",
+          "zh": "第 2 阶段后，患者计划带新的居家氧疗出院。请按最佳顺序排列护士的行动。"
+        },
+        "rationale": {
+          "correct": {
+            "en": "The nurse first verifies the prescription and equipment plan, then confirms delivery and backup arrangements, assesses caregiver teach-back, and finally documents readiness and unresolved barriers.",
+            "zh": "护士应先核对处方和设备计划，然后确认送达与备用安排，再评估照护者回示，最后记录出院准备情况和未解决障碍。"
+          },
+          "byChoice": [
+            {
+              "refId": "A",
+              "en": "Verifying the ordered oxygen settings and equipment prevents teaching from being based on an incorrect plan.",
+              "zh": "先核对氧疗设置和设备，可避免基于错误计划进行宣教。"
+            },
+            {
+              "refId": "D",
+              "en": "Documentation follows assessment and coordination; unresolved barriers should be communicated in the record and handoff.",
+              "zh": "记录应在评估和协调之后完成；未解决障碍需写入病历并交接。"
+            },
+            {
+              "refId": "C",
+              "en": "Teach-back verifies whether the client and caregiver can perform the safety behaviors at home.",
+              "zh": "回示可验证患者和照护者是否能在家执行安全措施。"
+            },
+            {
+              "refId": "B",
+              "en": "Equipment delivery and backup power must be confirmed before discharge logistics are considered complete.",
+              "zh": "出院流程完成前，必须确认设备送达和备用电源安排。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "For discharge sequencing, verify the order, arrange the resources, assess learning, then document and hand off unresolved risks.",
+          "zh": "处理出院顺序时，先核对医嘱，再安排资源，再评估学习效果，最后记录并交接未解决风险。"
+        },
+        "glossary": [
+          {
+            "termEn": "Teach-back",
+            "termZh": "回示法",
+            "defZh": "让患者用自己的话或动作展示理解情况的教育方法。"
+          },
+          {
+            "termEn": "Care coordination",
+            "termZh": "护理协调",
+            "defZh": "组织人员、设备和随访以支持安全过渡的过程。"
+          }
+        ],
+        "options": [
+          {
+            "id": "D",
+            "en": "Document discharge readiness and communicate any remaining barriers to the team",
+            "zh": "记录出院准备情况，并向团队沟通仍存在的障碍"
+          },
+          {
+            "id": "B",
+            "en": "Confirm home equipment delivery, tubing supply, and backup power plan",
+            "zh": "确认家用设备送达、管路供应和备用电源计划"
+          },
+          {
+            "id": "C",
+            "en": "Ask the client and spouse to demonstrate fire-safety and tubing-management steps",
+            "zh": "请患者和配偶演示防火和管路管理步骤"
+          },
+          {
+            "id": "A",
+            "en": "Verify the oxygen prescription, target use instructions, and equipment ordered",
+            "zh": "核对氧疗处方、目标使用说明和已订设备"
+          }
+        ],
+        "correct": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+        "itemType": "multiple_choice",
+        "category": "Safety and Infection Prevention and Control",
+        "topic": "Patient & Environment Safety",
+        "difficulty": "easy",
+        "ngnSkill": "generate_solutions",
+        "stem": {
+          "en": "During Stage 3 teach-back, which client statement shows correct understanding of home oxygen safety?",
+          "zh": "在第 3 阶段回示中，哪项患者陈述表明其正确理解了居家氧疗安全？"
+        },
+        "rationale": {
+          "correct": {
+            "en": "Posting oxygen-in-use notices and keeping oxygen away from smoking and flames are appropriate fire-safety steps.",
+            "zh": "张贴正在使用氧气的提示，并让氧气远离吸烟和明火，是恰当的防火措施。"
+          },
+          "byChoice": [
+            {
+              "refId": "B",
+              "en": "A notice helps responders and visitors recognize the oxygen fire hazard.",
+              "zh": "提示标识有助于急救人员和访客识别氧气相关火灾风险。"
+            },
+            {
+              "refId": "D",
+              "en": "Tubing should be arranged to prevent tripping, not hidden under rugs.",
+              "zh": "管路应妥善摆放以防绊倒，不应藏在地毯下。"
+            },
+            {
+              "refId": "C",
+              "en": "Petroleum products should be avoided near the cannula because they may support burning.",
+              "zh": "鼻导管附近应避免含油产品，因为可能助燃。"
+            },
+            {
+              "refId": "A",
+              "en": "Oxygen should not be used near smoking or open flames.",
+              "zh": "氧气不应靠近吸烟或明火。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Choose the statement that reduces both fire and fall risk without changing the prescribed therapy.",
+          "zh": "选择既降低火灾和跌倒风险，又不改变处方治疗的陈述。"
+        },
+        "glossary": [
+          {
+            "termEn": "Open flame",
+            "termZh": "明火",
+            "defZh": "可见火焰来源，如蜡烛、炉火或打火机。"
+          },
+          {
+            "termEn": "Fall hazard",
+            "termZh": "跌倒隐患",
+            "defZh": "增加绊倒、滑倒或跌倒风险的环境因素。"
+          }
+        ],
+        "options": [
+          {
+            "id": "B",
+            "en": "I will keep oxygen away from flames and post an oxygen-in-use notice.",
+            "zh": "我会让氧气远离明火，并张贴正在使用氧气的提示。"
+          },
+          {
+            "id": "A",
+            "en": "I can sit near someone smoking if my cannula is under my shirt.",
+            "zh": "如果鼻导管放在衣服下，我可以坐在吸烟的人旁边。"
+          },
+          {
+            "id": "C",
+            "en": "I should use petroleum jelly daily so my nose does not dry out.",
+            "zh": "我应该每天用凡士林，避免鼻子干燥。"
+          },
+          {
+            "id": "D",
+            "en": "I will place extra tubing under throw rugs so no one sees it.",
+            "zh": "我会把多余管路放在小地毯下面，这样别人看不到。"
+          }
+        ],
+        "correct": [
+          "B"
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5",
+        "itemType": "fill_in_blank",
+        "category": "Reduction of Risk Potential",
+        "topic": "Procedural Complications & Dialysis",
+        "difficulty": "medium",
+        "ngnSkill": "evaluate_outcomes",
+        "stem": {
+          "en": "Stage 3 equipment teaching states: The portable cylinder contains 600 L of usable oxygen. The prescribed flow is 2 L/min for activity. How many minutes of oxygen are available for activity? Round to the nearest whole minute.",
+          "zh": "第 3 阶段设备宣教写明：便携氧气瓶可用氧气量为 600 L。活动时处方流量为 2 L/分。该氧气瓶可供活动使用多少分钟？四舍五入到最接近的整数。"
+        },
+        "rationale": {
+          "correct": {
+            "en": "Available time equals available volume divided by flow rate: 600 L ÷ 2 L/min = 300 minutes.",
+            "zh": "可用时间等于可用容量除以流量：600 L ÷ 2 L/分 = 300 分钟。"
+          },
+          "byChoice": [
+            {
+              "refId": "b1",
+              "en": "The blank asks for minutes: divide liters available by liters per minute.",
+              "zh": "该空要求填写分钟数：用可用升数除以每分钟升数。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Track the units. Liters divided by liters per minute leaves minutes.",
+          "zh": "注意单位。升除以升/分钟，剩下的单位就是分钟。"
+        },
+        "glossary": [
+          {
+            "termEn": "Portable cylinder",
+            "termZh": "便携氧气瓶",
+            "defZh": "可携带的氧气供应容器。"
+          },
+          {
+            "termEn": "Flow rate",
+            "termZh": "流量",
+            "defZh": "每分钟给出的气体或液体体积。"
+          }
+        ],
+        "blanks": [
+          {
+            "id": "b1",
+            "prompt": {
+              "en": "minutes",
+              "zh": "分钟"
+            },
+            "acceptable": [
+              "300",
+              "300 minutes"
+            ],
+            "numeric": {
+              "value": 300,
+              "tolerance": 0,
+              "unit": "minutes"
+            }
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      }
+    ]
+  }
+}

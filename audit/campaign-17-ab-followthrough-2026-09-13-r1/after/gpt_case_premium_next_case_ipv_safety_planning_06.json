@@ -1,0 +1,601 @@
+{
+  "id": "gpt_case_premium_next_case_ipv_safety_planning_06",
+  "itemType": "case_study",
+  "category": "Psychosocial Integrity",
+  "topic": "Suicide & Crisis Intervention",
+  "difficulty": "hard",
+  "ngnSkill": "prioritize_hypotheses",
+  "stem": {
+    "en": "A nurse in an urgent care clinic is caring for a client with a wrist injury and psychosocial safety concerns.",
+    "zh": "急诊护理诊所护士正在护理一名腕部受伤且存在心理社会安全顾虑的患者。"
+  },
+  "caseStudy": {
+    "title": {
+      "en": "Private Screening and Safety Planning",
+      "zh": "私下筛查与安全计划"
+    },
+    "summary": {
+      "en": "The client presents with an injury, a controlling partner, and concerns about privacy, safe communication, and leaving with resources discreetly.",
+      "zh": "患者因受伤就诊，同时伴有控制型伴侣，并担心隐私、安全沟通以及如何低调带走资源。"
+    },
+    "exhibits": [
+      {
+        "id": "triage_note",
+        "title": {
+          "en": "Triage Note",
+          "zh": "分诊记录"
+        },
+        "content": {
+          "en": "A 34-year-old client arrives with right wrist pain after \"falling at home.\" The partner answers most questions, keeps a hand on the client's shoulder, and says, \"We are in a hurry. Just wrap it.\" The client avoids eye contact. The nurse notes bruising on the upper arm in different stages of healing. The client is alert, oriented, and reports pain 5/10. Distal pulse, movement, and sensation are intact.",
+          "zh": "34岁患者因“在家摔倒”后右腕疼痛就诊。伴侣代答大多数问题，一直把手放在患者肩上，并说：“我们赶时间，包一下就行。”患者避免眼神接触。护士注意到上臂有不同愈合阶段的瘀伤。患者清醒、定向力正常，疼痛5/10。远端脉搏、活动和感觉完整。"
+        }
+      },
+      {
+        "id": "private_interview",
+        "title": {
+          "en": "Private Interview",
+          "zh": "私下访谈"
+        },
+        "content": {
+          "en": "After the radiology technician asks the partner to remain in the waiting room per clinic policy, the nurse speaks with the client alone. The client says, \"My partner grabbed my wrist. This has happened before, but I am not ready to leave. My phone and online portal are checked. Please do not print anything obvious. I can call my friend Maya from work tomorrow.\" The client denies suicidal thoughts and says there are no weapons in the home.",
+          "zh": "放射技师按诊所规定请伴侣留在候诊区后，护士单独与患者交谈。患者说：“我的伴侣抓住了我的手腕。以前也发生过，但我还没准备好离开。我的手机和线上门户都会被查。请不要打印太明显的东西。我明天可以在工作时打电话给朋友Maya。”患者否认自杀想法，并表示家中没有武器。"
+        }
+      }
+    ],
+    "stages": [
+      {
+        "id": "resource_planning",
+        "title": {
+          "en": "Resource planning and discharge privacy",
+          "zh": "资源计划和出院隐私"
+        },
+        "exhibits": [
+          {
+            "id": "resources",
+            "title": {
+              "en": "Clinic Resources",
+              "zh": "诊所资源"
+            },
+            "content": {
+              "en": "A social worker and domestic violence advocate can speak with the client privately. The clinic can document injuries objectively, avoid placing sensitive resources in the after-visit summary, use a neutral follow-up reason, and provide a small safety card that fits inside a shoe. The partner is pacing near the front desk and asking when the client will be done.",
+              "zh": "社工和家庭暴力倡导员可与患者私下交谈。诊所可客观记录损伤，避免将敏感资源放入就诊总结，用中性随访理由，并提供可放进鞋内的小型安全卡。伴侣在前台附近来回走动，询问患者何时结束。"
+            }
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "gpt_case_premium_next_case_ipv_safety_planning_06_matrix_cues",
+        "itemType": "matrix",
+        "category": "Psychosocial Integrity",
+        "topic": "Suicide & Crisis Intervention",
+        "difficulty": "hard",
+        "ngnSkill": "recognize_cues",
+        "stem": {
+          "en": "For each finding, select all interpretations that apply.",
+          "zh": "对每项发现，选择所有适用的判断。"
+        },
+        "matrix": {
+          "rows": [
+            {
+              "id": "r1",
+              "en": "Partner answers most questions and keeps a hand on the client's shoulder.",
+              "zh": "伴侣代答大多数问题，并一直把手放在患者肩上。"
+            },
+            {
+              "id": "r2",
+              "en": "Bruising is present in different stages of healing.",
+              "zh": "存在不同愈合阶段的瘀伤。"
+            },
+            {
+              "id": "r3",
+              "en": "The client says the phone and online portal are checked.",
+              "zh": "患者说手机和线上门户会被检查。"
+            },
+            {
+              "id": "r4",
+              "en": "The client is not ready to leave the relationship today.",
+              "zh": "患者今天还没有准备好离开这段关系。"
+            },
+            {
+              "id": "r5",
+              "en": "The client denies suicidal thoughts and reports no weapons in the home.",
+              "zh": "患者否认自杀想法，并报告家中没有武器。"
+            }
+          ],
+          "columns": [
+            {
+              "id": "c2",
+              "en": "Affects confidentiality or safety planning",
+              "zh": "影响保密或安全计划"
+            },
+            {
+              "id": "c1",
+              "en": "Supports concern for abuse or control",
+              "zh": "支持虐待或控制担忧"
+            },
+            {
+              "id": "c3",
+              "en": "Protective or reassuring cue, but continue assessment",
+              "zh": "保护性或令人放心的线索，但仍需继续评估"
+            }
+          ],
+          "selectionMode": "multiple_per_row"
+        },
+        "correct": [
+          {
+            "rowId": "r1",
+            "columnIds": [
+              "c1",
+              "c2"
+            ]
+          },
+          {
+            "rowId": "r2",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r3",
+            "columnIds": [
+              "c1",
+              "c2"
+            ]
+          },
+          {
+            "rowId": "r4",
+            "columnIds": [
+              "c2"
+            ]
+          },
+          {
+            "rowId": "r5",
+            "columnIds": [
+              "c3"
+            ]
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "The partner's control, repeated bruising, monitored communication, and the client's readiness all shape safety planning. Denial of suicidal thoughts and no weapons are reassuring but do not rule out danger or the need for support.",
+            "zh": "伴侣控制、反复瘀伤、通信被监控以及患者的准备程度都会影响安全计划。否认自杀想法和家中无武器令人相对放心，但不能排除危险或支持需求。"
+          },
+          "byChoice": [
+            {
+              "refId": "r1",
+              "en": "Answering for the client and maintaining physical control may indicate coercive control and makes private screening necessary.",
+              "zh": "替患者回答并保持身体控制可能提示胁迫控制，因此需要私下筛查。"
+            },
+            {
+              "refId": "r2",
+              "en": "Bruises in different stages of healing raise concern for repeated injury and should be documented objectively.",
+              "zh": "不同愈合阶段的瘀伤提示可能有反复伤害，应客观记录。"
+            },
+            {
+              "refId": "r3",
+              "en": "Monitoring of the phone and portal is controlling behavior and creates a confidentiality risk if resources are sent electronically.",
+              "zh": "监控手机和门户属于控制行为，如果电子发送资源会造成保密风险。"
+            },
+            {
+              "refId": "r4",
+              "en": "Not being ready to leave is not noncompliance; it means the plan must emphasize autonomy, harm reduction, and safe options.",
+              "zh": "没有准备好离开并不是不配合；这意味着计划应强调自主、减少伤害和安全选择。"
+            },
+            {
+              "refId": "r5",
+              "en": "These are protective cues, but the nurse should still assess immediate danger and offer resources privately.",
+              "zh": "这些是保护性线索，但护士仍应评估即时危险并私下提供资源。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "In IPV questions, look for control and privacy risks, not only visible injuries or whether the client is ready to leave.",
+          "zh": "处理亲密伴侣暴力题时，要关注控制和隐私风险，不只看可见伤害或患者是否准备离开。"
+        },
+        "glossary": [
+          {
+            "termEn": "Intimate partner violence",
+            "termZh": "亲密伴侣暴力",
+            "defZh": "现任或前任亲密伴侣造成的身体、性、心理伤害或控制行为。"
+          },
+          {
+            "termEn": "Coercive control",
+            "termZh": "胁迫控制",
+            "defZh": "通过监控、威胁、隔离或限制资源来控制他人的行为模式。"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "gpt_case_premium_next_case_ipv_safety_planning_06_mc_communication",
+        "itemType": "multiple_choice",
+        "category": "Psychosocial Integrity",
+        "topic": "Suicide & Crisis Intervention",
+        "difficulty": "medium",
+        "ngnSkill": "take_action",
+        "stem": {
+          "en": "Which response by the nurse is most therapeutic after the client says, \"I'm not ready to leave\"?",
+          "zh": "患者说“我还没准备好离开”后，护士哪项回应最具治疗性？"
+        },
+        "options": [
+          {
+            "id": "C",
+            "en": "\"I will bring your partner in so we can hear both sides of the story.\"",
+            "zh": "“我会把你的伴侣叫进来，这样我们能听听双方说法。”"
+          },
+          {
+            "id": "A",
+            "en": "\"You are the expert on your safety. I am concerned about what happened, and we can talk about options that do not require you to decide today.\"",
+            "zh": "“你最了解自己的安全状况。我担心发生的事，我们可以谈谈不需要你今天就做决定的选择。”"
+          },
+          {
+            "id": "D",
+            "en": "\"You should promise me you will call the police as soon as you get home.\"",
+            "zh": "“你应该向我保证一回家就报警。”"
+          },
+          {
+            "id": "B",
+            "en": "\"If you do not leave now, there is nothing useful we can do for you today.\"",
+            "zh": "“如果你现在不离开，我们今天就没有什么能帮你的了。”"
+          }
+        ],
+        "correct": [
+          "A"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "The therapeutic response validates autonomy, expresses concern, and offers options without pressuring the client to leave immediately. Pressuring, blaming, or involving the partner can increase danger and reduce trust.",
+            "zh": "治疗性回应应尊重自主，表达关切，并在不强迫患者立即离开的情况下提供选择。施压、责备或让伴侣参与可能增加危险并降低信任。"
+          },
+          "byChoice": [
+            {
+              "refId": "B",
+              "en": "This response is judgmental and falsely implies that help is available only if the client leaves immediately.",
+              "zh": "该回应带有评判，并错误暗示只有患者立即离开才有帮助。"
+            },
+            {
+              "refId": "D",
+              "en": "Demanding a promise removes autonomy and may not match the client's safest immediate option.",
+              "zh": "要求承诺会削弱自主性，也可能不符合患者最安全的即时选择。"
+            },
+            {
+              "refId": "A",
+              "en": "This response is supportive, nonjudgmental, and safety-focused while preserving the client's control over decisions.",
+              "zh": "该回应支持、非评判且关注安全，同时保留患者对决定的掌控。"
+            },
+            {
+              "refId": "C",
+              "en": "Bringing in the partner can compromise safety and privacy and may expose the client to retaliation.",
+              "zh": "让伴侣进来会破坏安全和隐私，并可能使患者遭到报复。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Therapeutic IPV responses validate, support autonomy, and avoid pressuring the client into a single action.",
+          "zh": "亲密伴侣暴力情境中的治疗性回应应肯定、支持自主，并避免强迫患者采取单一行动。"
+        },
+        "glossary": [
+          {
+            "termEn": "Autonomy",
+            "termZh": "自主权",
+            "defZh": "患者根据自身价值和安全情况作出决定的权利。"
+          },
+          {
+            "termEn": "Therapeutic communication",
+            "termZh": "治疗性沟通",
+            "defZh": "以尊重、倾听和支持为基础，促进患者安全和表达的沟通方式。"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "gpt_case_premium_next_case_ipv_safety_planning_06_or_actions",
+        "itemType": "ordered_response",
+        "category": "Psychosocial Integrity",
+        "topic": "Suicide & Crisis Intervention",
+        "difficulty": "hard",
+        "ngnSkill": "take_action",
+        "stageId": "resource_planning",
+        "stem": {
+          "en": "Place the nurse's actions in the best order after the client discloses the injury was caused by the partner.",
+          "zh": "患者透露伤害由伴侣造成后，将护士措施按最佳顺序排列。"
+        },
+        "options": [
+          {
+            "id": "B",
+            "en": "Assess immediate danger, suicidal thoughts, weapons, and whether the client has a safe place or contact.",
+            "zh": "评估即时危险、自杀想法、武器情况，以及患者是否有安全地点或联系人。"
+          },
+          {
+            "id": "A",
+            "en": "Maintain privacy and ensure the partner does not re-enter the room during the conversation.",
+            "zh": "保持隐私，确保谈话期间伴侣不再进入房间。"
+          },
+          {
+            "id": "D",
+            "en": "Offer private access to the social worker or domestic violence advocate.",
+            "zh": "提供与社工或家庭暴力倡导员私下接触的机会。"
+          },
+          {
+            "id": "C",
+            "en": "Validate the disclosure and tell the client the abuse is not the client's fault.",
+            "zh": "肯定患者的透露，并告诉患者虐待不是患者的错。"
+          },
+          {
+            "id": "E",
+            "en": "Create a discreet discharge and follow-up plan that avoids unsafe portal messages or obvious printed materials.",
+            "zh": "制定低调的出院和随访计划，避免不安全的门户信息或明显纸质材料。"
+          }
+        ],
+        "correct": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "The nurse first preserves privacy, then assesses immediate safety risks, validates the client, offers specialized support, and creates a discreet follow-up plan that does not increase danger after discharge.",
+            "zh": "护士先保护隐私，再评估即时安全风险，肯定患者，提供专业支持，并制定不会在出院后增加危险的低调随访计划。"
+          },
+          "byChoice": [
+            {
+              "refId": "D",
+              "en": "A social worker or advocate can help with resources, safety planning, and options without forcing a decision.",
+              "zh": "社工或倡导员可协助提供资源、安全计划和选择，而不强迫患者决定。"
+            },
+            {
+              "refId": "E",
+              "en": "Discharge communication must match the client's privacy risks, especially monitored phone and portal access.",
+              "zh": "出院沟通必须符合患者的隐私风险，尤其是手机和门户被监控的情况。"
+            },
+            {
+              "refId": "A",
+              "en": "Safety and privacy are prerequisites for accurate screening and disclosure.",
+              "zh": "安全和隐私是准确筛查和披露的前提。"
+            },
+            {
+              "refId": "C",
+              "en": "Validation reduces shame and supports trust after immediate safety has been assessed.",
+              "zh": "在评估即时安全后，肯定患者能减少羞耻感并建立信任。"
+            },
+            {
+              "refId": "B",
+              "en": "Immediate danger assessment determines whether urgent protective steps are needed before routine discharge planning.",
+              "zh": "即时危险评估决定是否需要在常规出院计划前采取紧急保护措施。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "For IPV sequences, protect privacy first, assess immediate danger, then offer resources and plan safe communication.",
+          "zh": "处理亲密伴侣暴力排序题时，先保护隐私，评估即时危险，再提供资源并规划安全沟通。"
+        },
+        "glossary": [
+          {
+            "termEn": "Safety planning",
+            "termZh": "安全计划",
+            "defZh": "与患者共同制定在危险升级时保护自身和获得帮助的具体步骤。"
+          },
+          {
+            "termEn": "Domestic violence advocate",
+            "termZh": "家庭暴力倡导员",
+            "defZh": "为受暴力影响者提供安全计划、资源和情感支持的专业人员。"
+          }
+        ],
+        "answerableAfterStageId": "resource_planning"
+      },
+      {
+        "id": "gpt_case_premium_next_case_ipv_safety_planning_06_cloze_privacy",
+        "itemType": "dropdown_cloze",
+        "category": "Psychosocial Integrity",
+        "topic": "Suicide & Crisis Intervention",
+        "difficulty": "hard",
+        "ngnSkill": "generate_solutions",
+        "stageId": "resource_planning",
+        "stem": {
+          "en": "Complete the statement about safe discharge communication.",
+          "zh": "完成关于安全出院沟通的陈述。"
+        },
+        "clozeStem": {
+          "en": "Because the client's {{1}} is monitored, the nurse should avoid {{2}} and instead offer {{3}} if the client agrees.",
+          "zh": "由于患者的 {{1}} 被监控，护士应避免 {{2}}，若患者同意，可改为提供 {{3}}。"
+        },
+        "dropdowns": [
+          {
+            "id": "1",
+            "options": [
+              {
+                "id": "o3",
+                "en": "wrist range of motion",
+                "zh": "腕部活动范围"
+              },
+              {
+                "id": "o2",
+                "en": "distal pulse",
+                "zh": "远端脉搏"
+              },
+              {
+                "id": "o1",
+                "en": "phone and online portal",
+                "zh": "手机和线上门户"
+              }
+            ],
+            "correct": "o1"
+          },
+          {
+            "id": "2",
+            "options": [
+              {
+                "id": "o2",
+                "en": "objective documentation of the injury assessment",
+                "zh": "客观记录伤情评估"
+              },
+              {
+                "id": "o3",
+                "en": "asking whether the client has a safe contact",
+                "zh": "询问患者是否有安全联系人"
+              },
+              {
+                "id": "o1",
+                "en": "sending domestic violence resources through the portal or printing obvious instructions",
+                "zh": "通过门户发送家庭暴力资源或打印明显说明"
+              }
+            ],
+            "correct": "o1"
+          },
+          {
+            "id": "3",
+            "options": [
+              {
+                "id": "o1",
+                "en": "a discreet safety card and neutral follow-up wording",
+                "zh": "低调的安全卡和中性随访措辞"
+              },
+              {
+                "id": "o2",
+                "en": "a voicemail on the shared phone",
+                "zh": "在共用手机上留下语音信息"
+              },
+              {
+                "id": "o3",
+                "en": "a confrontation with the partner before discharge",
+                "zh": "出院前与伴侣当面对质"
+              }
+            ],
+            "correct": "o1"
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "When communication is monitored, routine electronic messages or obvious printed resources can increase danger. A discreet resource and neutral follow-up plan better protect confidentiality while preserving access to help.",
+            "zh": "当通信被监控时，常规电子信息或明显纸质资源可能增加危险。低调资源和中性随访计划能更好保护保密性，同时保留获得帮助的途径。"
+          },
+          "byChoice": [
+            {
+              "refId": "1",
+              "en": "The client specifically states that the phone and portal are checked, creating a privacy risk.",
+              "zh": "患者明确表示手机和门户会被检查，因此存在隐私风险。"
+            },
+            {
+              "refId": "2",
+              "en": "Portal messages or obvious discharge papers can be discovered by the partner and may lead to retaliation.",
+              "zh": "门户信息或明显出院文件可能被伴侣发现，并可能导致报复。"
+            },
+            {
+              "refId": "3",
+              "en": "Discreet resources and neutral wording support safety without forcing the client to disclose at home.",
+              "zh": "低调资源和中性措辞可支持安全，而不会迫使患者在家中暴露信息。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Confidentiality is part of safety; reject actions that create a digital or paper trail an abusive partner may find.",
+          "zh": "保密是安全的一部分；排除可能被施暴伴侣发现的电子或纸质痕迹。"
+        },
+        "glossary": [
+          {
+            "termEn": "Confidentiality",
+            "termZh": "保密性",
+            "defZh": "保护患者健康信息和敏感信息不被未经授权者获取。"
+          },
+          {
+            "termEn": "Neutral follow-up wording",
+            "termZh": "中性随访措辞",
+            "defZh": "不暴露敏感问题的预约或联系说明，例如“复查腕部疼痛”。"
+          }
+        ],
+        "answerableAfterStageId": "resource_planning"
+      },
+      {
+        "id": "gpt_case_premium_next_case_ipv_safety_planning_06_fib_gobag",
+        "itemType": "fill_in_blank",
+        "category": "Psychosocial Integrity",
+        "topic": "Suicide & Crisis Intervention",
+        "difficulty": "medium",
+        "ngnSkill": "evaluate_outcomes",
+        "stageId": "resource_planning",
+        "stem": {
+          "en": "The client wants to place a 7-day supply of two once-daily prescribed medications in a safe bag, using correctly labeled containers. How many total tablets are needed? Enter a number only.",
+          "zh": "患者希望在安全包中放入两种每日一次处方药的7天用量，并使用正确标签的容器。总共需要多少片药？只输入数字。"
+        },
+        "blanks": [
+          {
+            "id": "b1",
+            "prompt": {
+              "en": "tablets",
+              "zh": "片"
+            },
+            "acceptable": [
+              "14"
+            ],
+            "numeric": {
+              "value": 14,
+              "tolerance": 0,
+              "unit": "tablets"
+            }
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Two once-daily medications require 2 tablets per day. For 7 days, 2 × 7 = 14 tablets total.",
+            "zh": "两种每日一次药物每天共需2片。7天为2 × 7 = 14片。"
+          },
+          "byChoice": [
+            {
+              "refId": "b1",
+              "en": "Multiply the number of tablets per day by the number of days: 2 tablets/day × 7 days = 14 tablets.",
+              "zh": "用每日片数乘以天数：2片/天 × 7天 = 14片。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "For simple medication-supply calculations, identify tablets per day first, then multiply by the number of days requested.",
+          "zh": "计算简单备药量时，先确定每日片数，再乘以所需天数。"
+        },
+        "glossary": [
+          {
+            "termEn": "Safe bag",
+            "termZh": "安全包",
+            "defZh": "为紧急离开或避险准备的隐蔽包，可包含证件、药物和必要物品。"
+          },
+          {
+            "termEn": "Labeled container",
+            "termZh": "有标签容器",
+            "defZh": "标明药名、剂量和用法的药物容器，有助于安全用药。"
+          }
+        ],
+        "answerableAfterStageId": "resource_planning"
+      }
+    ]
+  },
+  "rationale": {
+    "correct": {
+      "en": "This case emphasizes psychosocial safety, therapeutic communication, private screening, confidentiality, safety planning, and interprofessional support.",
+      "zh": "本病例强调心理社会安全、治疗性沟通、私下筛查、保密、安全计划和跨专业支持。"
+    },
+    "byChoice": []
+  },
+  "testTakingStrategy": {
+    "en": "In IPV cases, protect privacy, assess immediate danger, validate the client, and offer resources without forcing decisions.",
+    "zh": "在亲密伴侣暴力病例中，要保护隐私，评估即时危险，肯定患者，并在不强迫决定的情况下提供资源。"
+  },
+  "glossary": [
+    {
+      "termEn": "Private screening",
+      "termZh": "私下筛查",
+      "defZh": "在没有可能控制或伤害患者的人在场时进行敏感问题评估。"
+    },
+    {
+      "termEn": "Harm reduction",
+      "termZh": "减少伤害",
+      "defZh": "在患者尚不能或不愿立即改变高风险处境时，采取降低风险的实际措施。"
+    }
+  ]
+}

@@ -1,0 +1,752 @@
+{
+  "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+  "itemType": "case_study",
+  "category": "Safety and Infection Prevention and Control",
+  "topic": "Patient & Environment Safety",
+  "difficulty": "hard",
+  "ngnSkill": "take_action",
+  "stem": {
+    "en": "Review the long-term-care resident record and answer the case-study items.",
+    "zh": "查看长期护理机构住民记录并回答病例题。"
+  },
+  "rationale": {
+    "correct": {
+      "en": "This case emphasizes immediate post-fall assessment before movement, recognition of neurologic and fracture red flags, timely escalation, safe transfer handoff, and least-restrictive fall prevention.",
+      "zh": "本病例强调跌倒后移动前的立即评估、识别神经和骨折危险信号、及时升级处理、安全转送交接以及最少限制的跌倒预防。"
+    },
+    "byChoice": []
+  },
+  "testTakingStrategy": {
+    "en": "For falls, priority shifts from prevention to injury detection and stabilization once the event has occurred.",
+    "zh": "跌倒发生后，优先重点从预防转为发现损伤和稳定病情。"
+  },
+  "glossary": [
+    {
+      "termEn": "Fall risk",
+      "termZh": "跌倒风险",
+      "defZh": "患者发生跌倒的可能性。"
+    },
+    {
+      "termEn": "Neuro check",
+      "termZh": "神经检查",
+      "defZh": "评估意识、瞳孔、运动、感觉等神经功能的检查。"
+    }
+  ],
+  "caseStudy": {
+    "title": {
+      "en": "Unfolding case: unwitnessed fall in long-term care",
+      "zh": "展开病例：长期护理机构内无人目击跌倒"
+    },
+    "summary": {
+      "en": "An older adult resident is found on the floor near the bathroom during night shift.",
+      "zh": "一名老年住民夜班时在卫生间附近地上被发现。"
+    },
+    "exhibits": [
+      {
+        "id": "baseline",
+        "title": {
+          "en": "Resident baseline",
+          "zh": "住民基线"
+        },
+        "content": {
+          "en": "Age 84. Uses a walker. History: hypertension, atrial fibrillation, mild cognitive impairment. Medication list includes apixaban and newly prescribed trazodone at bedtime. Baseline orientation: person and place.",
+          "zh": "84 岁。使用助行器。有高血压、房颤、轻度认知障碍病史。用药包括阿哌沙班和新开的睡前曲唑酮。基线定向力：能辨认本人和地点。"
+        }
+      }
+    ],
+    "stages": [
+      {
+        "id": "stage_1_found",
+        "title": {
+          "en": "Stage 1: Found on floor",
+          "zh": "第 1 阶段：发现倒地"
+        },
+        "exhibits": [
+          {
+            "id": "found",
+            "title": {
+              "en": "Nursing note 0230",
+              "zh": "0230 护理记录"
+            },
+            "content": {
+              "en": "Resident found on floor next to bathroom doorway. Awake but anxious. States, 'My hip hurts.' No staff witnessed the fall. Bed alarm sounding. Walker is across the room.",
+              "zh": "住民被发现倒在卫生间门口旁。清醒但焦虑。说：“我的髋部痛。”无工作人员目击跌倒。床旁报警器正在响。助行器在房间另一侧。"
+            }
+          }
+        ]
+      },
+      {
+        "id": "stage_2_assessment",
+        "title": {
+          "en": "Stage 2: Focused assessment",
+          "zh": "第 2 阶段：重点评估"
+        },
+        "exhibits": [
+          {
+            "id": "assessment",
+            "title": {
+              "en": "Post-fall assessment 0240",
+              "zh": "0240 跌倒后评估"
+            },
+            "content": {
+              "en": "BP 148/86, HR 96 irregular, RR 18, SpO2 95% room air. Oriented to person only. Vomited once. Right pupil 5 mm, left pupil 3 mm. Right leg shortened and externally rotated. 2-cm elbow abrasion without active bleeding.",
+              "zh": "血压 148/86，心率 96 次/分且不规则，呼吸 18 次/分，室内空气 SpO2 95%。仅能辨认本人。呕吐一次。右瞳孔 5 mm，左瞳孔 3 mm。右腿短缩并外旋。肘部 2 cm 擦伤，无活动性出血。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "0240",
+                        "zh": "0240"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "sbp",
+                      "label": {
+                        "en": "Systolic BP",
+                        "zh": "收缩压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "148",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "dbp",
+                      "label": {
+                        "en": "Diastolic BP",
+                        "zh": "舒张压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "86",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "hr",
+                      "label": {
+                        "en": "Heart rate",
+                        "zh": "心率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "96",
+                          "unit": "bpm"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "rr",
+                      "label": {
+                        "en": "Respiratory rate",
+                        "zh": "呼吸频率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "18",
+                          "unit": "/min"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "spo2",
+                      "label": {
+                        "en": "SpO2",
+                        "zh": "脉搏血氧饱和度"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "95",
+                          "unit": "%"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "stage_3_review",
+        "title": {
+          "en": "Stage 3: Safety review",
+          "zh": "第 3 阶段：安全复盘"
+        },
+        "exhibits": [
+          {
+            "id": "review",
+            "title": {
+              "en": "Interdisciplinary fall-risk review",
+              "zh": "跨专业跌倒风险复盘"
+            },
+            "content": {
+              "en": "Team reviews nighttime toileting pattern, walker placement, lighting, footwear, anticoagulant use, and recent trazodone start. Family asks whether restraints should be used so the resident cannot stand without help.",
+              "zh": "团队复盘夜间如厕模式、助行器摆放、照明、鞋袜、抗凝药使用以及近期开始曲唑酮。家属询问是否应使用约束，以免住民无人协助时站起。"
+            }
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+        "itemType": "multiple_choice",
+        "category": "Safety and Infection Prevention and Control",
+        "topic": "Patient & Environment Safety",
+        "difficulty": "medium",
+        "ngnSkill": "take_action",
+        "stem": {
+          "en": "Stage 1 describes a resident found on the floor. What should the nurse do first?",
+          "zh": "第 1 阶段描述一名长期护理机构住民被发现倒在地上。护士首先应做什么？"
+        },
+        "rationale": {
+          "correct": {
+            "en": "Before moving the resident, the nurse should assess airway, breathing, circulation, level of consciousness, pain, and obvious injury to prevent worsening an occult injury.",
+            "zh": "移动住民前，护士应评估气道、呼吸、循环、意识水平、疼痛和明显损伤，以免加重潜在损伤。"
+          },
+          "byChoice": [
+            {
+              "refId": "C",
+              "en": "The incident report is completed after the resident is assessed and care is initiated.",
+              "zh": "事件报告应在评估住民并开始护理后完成。"
+            },
+            {
+              "refId": "D",
+              "en": "Calling family may be needed later, but it does not replace immediate assessment.",
+              "zh": "之后可能需要联系家属，但不能替代立即评估。"
+            },
+            {
+              "refId": "B",
+              "en": "Immediate assessment for injury and instability is the safest first nursing action.",
+              "zh": "立即评估损伤和不稳定情况是最安全的首要护理行动。"
+            },
+            {
+              "refId": "A",
+              "en": "Moving the resident first can worsen an unrecognized fracture or head/neck injury.",
+              "zh": "先移动住民可能加重未识别的骨折或头颈部损伤。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "After an unwitnessed fall, do not rush to lift the person. Assess for injury and neurologic change first.",
+          "zh": "无人目击跌倒后，不要急着扶起。先评估损伤和神经状态变化。"
+        },
+        "glossary": [
+          {
+            "termEn": "Unwitnessed fall",
+            "termZh": "无人目击跌倒",
+            "defZh": "没有工作人员直接看到发生过程的跌倒。"
+          },
+          {
+            "termEn": "Level of consciousness",
+            "termZh": "意识水平",
+            "defZh": "患者清醒、反应和定向程度。"
+          }
+        ],
+        "options": [
+          {
+            "id": "D",
+            "en": "Call the family to ask whether the resident has fallen before",
+            "zh": "打电话给家属询问住民以前是否跌倒过"
+          },
+          {
+            "id": "C",
+            "en": "Complete the occurrence report before providing further care",
+            "zh": "先完成事件报告，再继续护理"
+          },
+          {
+            "id": "A",
+            "en": "Help the resident back to bed and then obtain vital signs",
+            "zh": "先扶住民回床，再测量生命体征"
+          },
+          {
+            "id": "B",
+            "en": "Keep the resident still and assess airway, breathing, circulation, pain, and injury",
+            "zh": "让住民保持不动，并评估气道、呼吸、循环、疼痛和损伤"
+          }
+        ],
+        "correct": [
+          "B"
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2",
+        "itemType": "matrix",
+        "category": "Reduction of Risk Potential",
+        "topic": "Laboratory & Diagnostic Tests",
+        "difficulty": "medium",
+        "ngnSkill": "analyze_cues",
+        "stem": {
+          "en": "Using Stage 2 data, classify each finding after the fall.",
+          "zh": "根据第 2 阶段资料，将跌倒后的每项发现分类。"
+        },
+        "rationale": {
+          "correct": {
+            "en": "New confusion, vomiting, unequal pupils, and hip pain with shortening/external rotation require urgent escalation. A small superficial abrasion without active bleeding is expected local trauma but still documented.",
+            "zh": "新发意识混乱、呕吐、瞳孔不等大以及髋部疼痛伴短缩外旋需要紧急升级处理。小的表浅擦伤且无活动性出血属于局部外伤表现，但仍需记录。"
+          },
+          "byChoice": [
+            {
+              "refId": "r1",
+              "en": "A change from baseline orientation can indicate head injury, delirium, or another acute problem.",
+              "zh": "与基线相比定向力改变可能提示头部损伤、谵妄或其他急性问题。"
+            },
+            {
+              "refId": "r2",
+              "en": "Vomiting after a fall is a concerning neurologic sign.",
+              "zh": "跌倒后呕吐是令人担忧的神经系统体征。"
+            },
+            {
+              "refId": "r3",
+              "en": "Unequal pupils after a fall require prompt escalation.",
+              "zh": "跌倒后瞳孔不等大需要立即升级处理。"
+            },
+            {
+              "refId": "r4",
+              "en": "Hip pain with shortening and external rotation suggests possible hip fracture.",
+              "zh": "髋痛伴肢体短缩和外旋提示可能髋部骨折。"
+            },
+            {
+              "refId": "r5",
+              "en": "A small abrasion is a local injury to document but is not the urgent change compared with neurologic or fracture cues.",
+              "zh": "小擦伤需记录，但与神经或骨折线索相比不是紧急变化。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Compare each finding with baseline and ask whether it suggests head injury, fracture, or instability.",
+          "zh": "将每项发现与基线比较，并判断是否提示头部损伤、骨折或不稳定。"
+        },
+        "glossary": [
+          {
+            "termEn": "Neurologic change",
+            "termZh": "神经状态改变",
+            "defZh": "意识、瞳孔、运动、感觉或言语等方面的新变化。"
+          },
+          {
+            "termEn": "External rotation",
+            "termZh": "外旋",
+            "defZh": "肢体向外侧旋转的姿势。"
+          }
+        ],
+        "matrix": {
+          "rows": [
+            {
+              "id": "r1",
+              "en": "Resident is oriented to person only; baseline is oriented to person and place",
+              "zh": "住民仅能辨认本人；基线为能辨认本人和地点"
+            },
+            {
+              "id": "r2",
+              "en": "One episode of emesis after the fall",
+              "zh": "跌倒后呕吐一次"
+            },
+            {
+              "id": "r3",
+              "en": "Right pupil 5 mm and left pupil 3 mm",
+              "zh": "右瞳孔 5 mm，左瞳孔 3 mm"
+            },
+            {
+              "id": "r4",
+              "en": "Right leg appears shortened and externally rotated",
+              "zh": "右腿看起来短缩并外旋"
+            },
+            {
+              "id": "r5",
+              "en": "2-cm elbow abrasion without active bleeding",
+              "zh": "肘部 2 cm 擦伤，无活动性出血"
+            }
+          ],
+          "columns": [
+            {
+              "id": "c2",
+              "en": "Document and monitor",
+              "zh": "记录并监测"
+            },
+            {
+              "id": "c1",
+              "en": "Escalate promptly",
+              "zh": "立即升级处理"
+            }
+          ],
+          "selectionMode": "single_per_row"
+        },
+        "correct": [
+          {
+            "rowId": "r1",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r2",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r3",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r4",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r5",
+            "columnIds": [
+              "c2"
+            ]
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+        "itemType": "dropdown_cloze",
+        "category": "Management of Care",
+        "topic": "Prioritization & Delegation",
+        "difficulty": "medium",
+        "ngnSkill": "prioritize_hypotheses",
+        "stem": {
+          "en": "The nurse prepares to notify the provider after reviewing the fall assessment.",
+          "zh": "护士查看跌倒评估后准备通知医护人员。"
+        },
+        "rationale": {
+          "correct": {
+            "en": "The combination of neurologic changes and possible hip fracture requires provider notification and continued immobilization until evaluated. The resident should not be ambulated to test weight bearing.",
+            "zh": "神经状态变化合并可能髋部骨折需要通知医护人员，并在评估前继续保持制动。不能让住民走路来测试负重能力。"
+          },
+          "byChoice": [
+            {
+              "refId": "1",
+              "en": "New neurologic signs are the strongest reason for urgent escalation.",
+              "zh": "新发神经体征是紧急升级的最重要原因。"
+            },
+            {
+              "refId": "2",
+              "en": "Possible fracture signs require immobilization and provider-directed evaluation.",
+              "zh": "可能骨折的体征需要制动，并由医护人员进一步评估。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "When multiple post-fall problems exist, neurologic deterioration and possible fracture both increase urgency.",
+          "zh": "跌倒后存在多个问题时，神经恶化和可能骨折都会增加紧急性。"
+        },
+        "glossary": [
+          {
+            "termEn": "Escalation",
+            "termZh": "升级处理",
+            "defZh": "将异常情况及时通知相应医护人员并采取更高级别措施。"
+          },
+          {
+            "termEn": "Immobilization",
+            "termZh": "制动",
+            "defZh": "限制移动以避免加重损伤。"
+          }
+        ],
+        "clozeStem": {
+          "en": "The nurse should report concern for {{1}} and maintain {{2}} until further evaluation.",
+          "zh": "护士应报告对 {{1}} 的担忧，并在进一步评估前维持 {{2}}。"
+        },
+        "dropdowns": [
+          {
+            "id": "1",
+            "options": [
+              {
+                "id": "o3",
+                "en": "chronic dementia without acute change",
+                "zh": "无急性变化的慢性痴呆"
+              },
+              {
+                "id": "o1",
+                "en": "intracranial injury and possible hip fracture",
+                "zh": "颅内损伤和可能髋部骨折"
+              },
+              {
+                "id": "o2",
+                "en": "mild bruising from a witnessed low-risk fall",
+                "zh": "目击低风险跌倒后的轻微瘀伤"
+              }
+            ],
+            "correct": "o1"
+          },
+          {
+            "id": "2",
+            "options": [
+              {
+                "id": "o3",
+                "en": "range-of-motion exercises to reduce stiffness",
+                "zh": "进行关节活动度练习以减少僵硬"
+              },
+              {
+                "id": "o1",
+                "en": "spinal and limb precautions with the resident still",
+                "zh": "脊柱和肢体防护，保持住民不动"
+              },
+              {
+                "id": "o2",
+                "en": "ambulation with two staff to assess gait",
+                "zh": "由两名工作人员协助行走以评估步态"
+              }
+            ],
+            "correct": "o1"
+          }
+        ],
+        "answerableAfterStageId": "stage_2_assessment"
+      },
+      {
+        "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4",
+        "itemType": "ordered_response",
+        "category": "Safety and Infection Prevention and Control",
+        "topic": "Patient & Environment Safety",
+        "difficulty": "hard",
+        "ngnSkill": "take_action",
+        "stem": {
+          "en": "After the provider has been notified and transfer is being arranged, place the nurse's ongoing monitoring actions in order.",
+          "zh": "已通知医护人员并正在安排转送后，请按顺序排列护士的持续监测行动。"
+        },
+        "rationale": {
+          "correct": {
+            "en": "The nurse first maintains safety and immobilization, then repeats focused neurologic and pain/vascular checks, prepares concise transfer handoff information, and completes the occurrence report after clinical care and handoff needs are addressed.",
+            "zh": "护士先维持安全和制动，然后重复重点神经评估及疼痛/血管检查，准备简明转送交接信息，最后在临床护理和交接需求处理后完成事件报告。"
+          },
+          "byChoice": [
+            {
+              "refId": "D",
+              "en": "The occurrence report is not part of the medical record and follows immediate care priorities.",
+              "zh": "事件报告不属于病历，应在立即护理优先事项之后完成。"
+            },
+            {
+              "refId": "C",
+              "en": "Transfer handoff should include baseline, changes, anticoagulant use, vital signs, and injury findings.",
+              "zh": "转送交接应包括基线、变化、抗凝药使用、生命体征和损伤发现。"
+            },
+            {
+              "refId": "A",
+              "en": "Maintaining safety and immobilization is ongoing while transfer is arranged.",
+              "zh": "安排转送期间应持续维持安全和制动。"
+            },
+            {
+              "refId": "B",
+              "en": "Focused reassessment detects deterioration before transport.",
+              "zh": "重点复评可在转运前发现恶化。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "In post-event workflows, protect the client, reassess for change, hand off actionable clinical data, then finish safety reporting.",
+          "zh": "事件后流程中，先保护患者，再复评变化，交接可行动的临床资料，最后完成安全报告。"
+        },
+        "glossary": [
+          {
+            "termEn": "Handoff",
+            "termZh": "交接",
+            "defZh": "向下一位照护者传递关键临床信息的沟通过程。"
+          },
+          {
+            "termEn": "Occurrence report",
+            "termZh": "事件报告",
+            "defZh": "机构内部用于安全改进的非病历报告。"
+          }
+        ],
+        "options": [
+          {
+            "id": "C",
+            "en": "Prepare a transfer handoff with baseline status, new findings, medications, and vital signs",
+            "zh": "准备转送交接，包含基线状态、新发现、用药和生命体征"
+          },
+          {
+            "id": "D",
+            "en": "Complete the internal occurrence report according to facility procedure",
+            "zh": "按机构流程完成内部事件报告"
+          },
+          {
+            "id": "B",
+            "en": "Repeat focused neurologic, pain, distal pulse, movement, and sensation checks",
+            "zh": "重复重点神经、疼痛、远端脉搏、活动和感觉检查"
+          },
+          {
+            "id": "A",
+            "en": "Maintain fall precautions and keep the resident still with comfort measures",
+            "zh": "维持跌倒预防措施，让住民保持不动并给予舒适护理"
+          }
+        ],
+        "correct": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+        "itemType": "matrix",
+        "category": "Health Promotion and Maintenance",
+        "topic": "Adult Health & Wellness",
+        "difficulty": "medium",
+        "ngnSkill": "generate_solutions",
+        "stem": {
+          "en": "Stage 3 includes an interdisciplinary fall-risk review. Classify each prevention strategy.",
+          "zh": "第 3 阶段包含跨专业跌倒风险评估。请将每项预防策略分类。"
+        },
+        "rationale": {
+          "correct": {
+            "en": "Medication review, scheduled toileting, footwear, adequate lighting, and assistive-device access address modifiable fall risks. Restraints are not a routine fall-prevention strategy and may increase harm.",
+            "zh": "用药复核、定时如厕、合适鞋袜、充足照明和辅助器具可及性可处理可改变的跌倒风险。约束不是常规跌倒预防策略，并可能增加伤害。"
+          },
+          "byChoice": [
+            {
+              "refId": "r1",
+              "en": "Sedating or blood-pressure medications can contribute to falls and should be reviewed.",
+              "zh": "镇静或降压药可能导致跌倒，应复核。"
+            },
+            {
+              "refId": "r2",
+              "en": "Scheduled toileting reduces unsupervised attempts to get up.",
+              "zh": "定时如厕可减少无人协助起身的尝试。"
+            },
+            {
+              "refId": "r3",
+              "en": "Non-skid footwear supports safer transfers and ambulation.",
+              "zh": "防滑鞋袜有助于更安全地转移和行走。"
+            },
+            {
+              "refId": "r4",
+              "en": "Restraints should not be used solely to prevent falls.",
+              "zh": "不能仅为预防跌倒而使用约束。"
+            },
+            {
+              "refId": "r5",
+              "en": "Keeping the call light and walker within reach supports asking for help before moving.",
+              "zh": "将呼叫铃和助行器放在可及处，有助于移动前求助。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Favor least-restrictive interventions that address why the resident tries to get up or loses balance.",
+          "zh": "优先选择最少限制且能解决住民为何起身或失衡的干预。"
+        },
+        "glossary": [
+          {
+            "termEn": "Least restrictive",
+            "termZh": "最少限制",
+            "defZh": "在达到安全目标的同时尽量保留患者自主和活动的做法。"
+          },
+          {
+            "termEn": "Modifiable risk",
+            "termZh": "可改变风险",
+            "defZh": "可通过护理或环境干预降低的危险因素。"
+          }
+        ],
+        "matrix": {
+          "rows": [
+            {
+              "id": "r1",
+              "en": "Request medication review for newly added nighttime sedative",
+              "zh": "请求复核新加的夜间镇静药"
+            },
+            {
+              "id": "r2",
+              "en": "Offer toileting before usual rest periods",
+              "zh": "在平时休息前协助如厕"
+            },
+            {
+              "id": "r3",
+              "en": "Place non-skid footwear within reach before transfers",
+              "zh": "转移前将防滑鞋袜放在可及处"
+            },
+            {
+              "id": "r4",
+              "en": "Apply a vest restraint whenever the resident is in the chair",
+              "zh": "住民坐椅时都使用背心约束"
+            },
+            {
+              "id": "r5",
+              "en": "Keep call light and walker on the resident's stronger side",
+              "zh": "将呼叫铃和助行器放在住民较强侧"
+            }
+          ],
+          "columns": [
+            {
+              "id": "c1",
+              "en": "Appropriate fall-prevention action",
+              "zh": "恰当的跌倒预防措施"
+            },
+            {
+              "id": "c2",
+              "en": "Avoid as routine fall prevention",
+              "zh": "避免作为常规跌倒预防"
+            }
+          ],
+          "selectionMode": "single_per_row"
+        },
+        "correct": [
+          {
+            "rowId": "r1",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r2",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r3",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r4",
+            "columnIds": [
+              "c2"
+            ]
+          },
+          {
+            "rowId": "r5",
+            "columnIds": [
+              "c1"
+            ]
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      }
+    ]
+  }
+}

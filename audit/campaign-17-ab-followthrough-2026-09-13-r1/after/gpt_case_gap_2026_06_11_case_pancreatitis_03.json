@@ -1,0 +1,770 @@
+{
+  "id": "gpt_case_gap_2026_06_11_case_pancreatitis_03",
+  "itemType": "case_study",
+  "category": "Physiological Adaptation",
+  "topic": "Renal & Gastrointestinal Disorders",
+  "difficulty": "hard",
+  "ngnSkill": "analyze_cues",
+  "stem": {
+    "en": "Review the case-study exhibits and answer the embedded questions.",
+    "zh": "查看病例研究资料并回答其中的问题。"
+  },
+  "caseStudy": {
+    "title": {
+      "en": "Acute pancreatitis with shock risk and hypocalcemia",
+      "zh": "急性胰腺炎伴休克风险和低钙血症"
+    },
+    "summary": {
+      "en": "Gallstone pancreatitis progresses to third-spacing, hypoperfusion, hypoxemia, and symptomatic hypocalcemia.",
+      "zh": "胆石性胰腺炎进展为第三间隙液体转移、低灌注、低氧和症状性低钙。"
+    },
+    "exhibits": [
+      {
+        "id": "panc_initial",
+        "title": {
+          "en": "Initial assessment",
+          "zh": "初始评估"
+        },
+        "content": {
+          "en": "A 48-year-old client with severe epigastric pain radiating to the back is admitted with suspected gallstone pancreatitis. Pain 9/10, persistent vomiting. Vital signs: T 100.4 °F (38.0 °C), HR 116/min, RR 24/min, BP 104/62 mm Hg. Abdomen is distended and tender. NPO status is initiated.",
+          "zh": "48岁患者因上腹剧痛并向背部放射入院，疑为胆石性胰腺炎。疼痛9/10，持续呕吐。生命体征：T 100.4 °F (38.0 °C)，HR 116次/分，RR 24次/分，BP 104/62 mm Hg。腹部膨隆且压痛。已开始禁食。"
+        }
+      },
+      {
+        "id": "panc_labs",
+        "title": {
+          "en": "Laboratory and imaging data",
+          "zh": "实验室和影像资料"
+        },
+        "content": {
+          "en": "Lipase 1,860 U/L, WBC 18.5 ×10³/µL, hematocrit 49%, calcium 7.4 mg/dL, glucose 212 mg/dL, BUN 31 mg/dL. Ultrasound: gallstones; common bile duct mildly dilated.",
+          "zh": "脂肪酶1,860 U/L，WBC 18.5 ×10³/µL，血细胞比容49%，钙7.4 mg/dL，血糖212 mg/dL，BUN 31 mg/dL。超声：胆结石；总胆管轻度扩张。"
+        },
+        "structuredMeasurements": {
+          "panels": [
+            {
+              "kind": "labs",
+              "columns": [
+                {
+                  "id": "current",
+                  "label": {
+                    "en": "Current",
+                    "zh": "当前"
+                  }
+                }
+              ],
+              "rows": [
+                {
+                  "key": "wbc",
+                  "label": {
+                    "en": "WBC",
+                    "zh": "白细胞"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "18,500",
+                      "unit": "/mm3"
+                    }
+                  ]
+                },
+                {
+                  "key": "hematocrit",
+                  "label": {
+                    "en": "Hematocrit",
+                    "zh": "血细胞比容"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "49",
+                      "unit": "%"
+                    }
+                  ]
+                },
+                {
+                  "key": "calcium",
+                  "label": {
+                    "en": "Calcium",
+                    "zh": "总钙"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "7.4",
+                      "unit": "mg/dL"
+                    }
+                  ]
+                },
+                {
+                  "key": "glucose",
+                  "label": {
+                    "en": "Glucose",
+                    "zh": "血糖"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "212",
+                      "unit": "mg/dL"
+                    }
+                  ]
+                },
+                {
+                  "key": "bun",
+                  "label": {
+                    "en": "BUN",
+                    "zh": "尿素氮"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "31",
+                      "unit": "mg/dL"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "stages": [
+      {
+        "id": "panc_stage2",
+        "title": {
+          "en": "Six hours later",
+          "zh": "6小时后"
+        },
+        "trigger": {
+          "en": "The client has received antiemetic and opioid analgesia. The nurse reassesses because the client appears dusky and increasingly anxious.",
+          "zh": "患者已接受止吐药和阿片类镇痛药。护士因患者面色发灰且焦虑加重而复评。"
+        },
+        "exhibits": [
+          {
+            "id": "panc_deterioration",
+            "title": {
+              "en": "Focused reassessment",
+              "zh": "重点复评"
+            },
+            "content": {
+              "en": "HR 132/min, RR 30/min, BP 86/48 mm Hg, SpO2 90% on 4 L/min nasal cannula. Urine output: 20 mL/hr for 3 hr. Abdomen remains distended. New flank ecchymosis is noted. Hematocrit 52%, BUN 39 mg/dL, calcium 6.8 mg/dL.",
+              "zh": "HR 132次/分，RR 30次/分，BP 86/48 mm Hg，鼻导管4 L/min时SpO2 90%。过去3小时尿量20 mL/hr。腹部仍膨隆。新见侧腹瘀斑。血细胞比容52%，BUN 39 mg/dL，钙6.8 mg/dL。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "hr",
+                      "label": {
+                        "en": "Heart rate",
+                        "zh": "心率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "132",
+                          "unit": "bpm"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "rr",
+                      "label": {
+                        "en": "Respiratory rate",
+                        "zh": "呼吸频率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "30",
+                          "unit": "/min"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "sbp",
+                      "label": {
+                        "en": "Systolic BP",
+                        "zh": "收缩压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "86",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "dbp",
+                      "label": {
+                        "en": "Diastolic BP",
+                        "zh": "舒张压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "48",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "spo2",
+                      "label": {
+                        "en": "SpO2",
+                        "zh": "脉搏血氧饱和度"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "90",
+                          "unit": "%"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "labs",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "hematocrit",
+                      "label": {
+                        "en": "Hematocrit",
+                        "zh": "血细胞比容"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "52",
+                          "unit": "%"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "bun",
+                      "label": {
+                        "en": "BUN",
+                        "zh": "尿素氮"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "39",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "calcium",
+                      "label": {
+                        "en": "Calcium",
+                        "zh": "总钙"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "6.8",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "panc_stage3",
+        "title": {
+          "en": "After resuscitation begins",
+          "zh": "复苏开始后"
+        },
+        "trigger": {
+          "en": "Large-bore IV access is placed and prescribed isotonic fluid resuscitation is initiated.",
+          "zh": "已建立大口径静脉通路，并按医嘱开始等渗液体复苏。"
+        },
+        "exhibits": [
+          {
+            "id": "panc_response",
+            "title": {
+              "en": "Early response data",
+              "zh": "早期反应资料"
+            },
+            "content": {
+              "en": "After 2 hr: BP 98/58 mm Hg, HR 118/min, urine output 38 mL/hr, SpO2 94% on 4 L/min. Pain 6/10. The client reports tingling around the mouth and fingertips.",
+              "zh": "2小时后：BP 98/58 mm Hg，HR 118次/分，尿量38 mL/hr，4 L/min氧气下SpO2 94%。疼痛6/10。患者诉口周和指尖麻木。"
+            }
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "gpt_case_gap_2026_06_11_panc_matrix_01",
+        "itemType": "matrix",
+        "category": "Reduction of Risk Potential",
+        "topic": "Laboratory & Diagnostic Tests",
+        "difficulty": "hard",
+        "ngnSkill": "recognize_cues",
+        "stem": {
+          "en": "Classify each finding in the initial data.",
+          "zh": "对初始资料中的每项发现进行分类。"
+        },
+        "matrix": {
+          "rows": [
+            {
+              "id": "r1",
+              "en": "Hematocrit 49% with vomiting and tachycardia",
+              "zh": "呕吐和心动过速伴血细胞比容49%"
+            },
+            {
+              "id": "r2",
+              "en": "Calcium 7.4 mg/dL",
+              "zh": "钙7.4 mg/dL"
+            },
+            {
+              "id": "r3",
+              "en": "Lipase 1,860 U/L",
+              "zh": "脂肪酶1,860 U/L"
+            },
+            {
+              "id": "r4",
+              "en": "Common bile duct mildly dilated with gallstones",
+              "zh": "胆结石伴总胆管轻度扩张"
+            },
+            {
+              "id": "r5",
+              "en": "Pain radiating to the back",
+              "zh": "疼痛向背部放射"
+            }
+          ],
+          "columns": [
+            {
+              "id": "c2",
+              "en": "Expected pancreatitis cue",
+              "zh": "胰腺炎预期线索"
+            },
+            {
+              "id": "c1",
+              "en": "Complication or high-risk cue",
+              "zh": "并发症或高风险线索"
+            }
+          ],
+          "selectionMode": "single_per_row"
+        },
+        "correct": [
+          {
+            "rowId": "r1",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r2",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r3",
+            "columnIds": [
+              "c2"
+            ]
+          },
+          {
+            "rowId": "r4",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r5",
+            "columnIds": [
+              "c2"
+            ]
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Hemoconcentration, hypocalcemia, and possible biliary obstruction signal complications or higher severity. Elevated lipase and back-radiating epigastric pain support the diagnosis but are expected cues.",
+            "zh": "血液浓缩、低钙和可能的胆道梗阻提示并发症或严重程度较高。脂肪酶升高和向背部放射的上腹痛支持诊断，但属于预期线索。"
+          },
+          "byChoice": [
+            {
+              "refId": "r1",
+              "en": "High hematocrit with volume loss suggests hemoconcentration and third-spacing risk.",
+              "zh": "容量丢失伴血细胞比容高提示血液浓缩和第三间隙风险。"
+            },
+            {
+              "refId": "r2",
+              "en": "Low calcium can occur with severe pancreatitis and can produce neuromuscular or cardiac effects.",
+              "zh": "低钙可见于重症胰腺炎，并可引起神经肌肉或心脏影响。"
+            },
+            {
+              "refId": "r3",
+              "en": "Marked lipase elevation is expected in pancreatitis and does not by itself identify deterioration.",
+              "zh": "脂肪酶显著升高是胰腺炎预期表现，单独不能说明恶化。"
+            },
+            {
+              "refId": "r4",
+              "en": "Gallstones with duct dilation raise concern for ongoing biliary obstruction.",
+              "zh": "胆结石伴胆管扩张提示可能持续胆道梗阻。"
+            },
+            {
+              "refId": "r5",
+              "en": "Epigastric pain radiating to the back is classic for pancreatitis.",
+              "zh": "上腹痛向背部放射是胰腺炎典型表现。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Separate diagnostic cues from severity cues; hard cases often test the complication hidden inside expected disease features.",
+          "zh": "区分诊断线索和严重程度线索；难题常考隐藏在预期疾病表现中的并发症。"
+        },
+        "glossary": [
+          {
+            "termEn": "Acute pancreatitis",
+            "termZh": "急性胰腺炎",
+            "defZh": "胰腺急性炎症，可导致剧烈腹痛、液体第三间隙和全身炎症反应。"
+          },
+          {
+            "termEn": "Third spacing",
+            "termZh": "第三间隙液体转移",
+            "defZh": "液体从血管内转移到组织或体腔，导致有效循环血量下降。"
+          },
+          {
+            "termEn": "Hypocalcemia",
+            "termZh": "低钙血症",
+            "defZh": "血钙降低，可出现麻木、手足抽搐或心电改变。"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "gpt_case_gap_2026_06_11_panc_cloze_02",
+        "itemType": "dropdown_cloze",
+        "category": "Reduction of Risk Potential",
+        "topic": "Laboratory & Diagnostic Tests",
+        "difficulty": "hard",
+        "ngnSkill": "analyze_cues",
+        "stageId": "panc_stage2",
+        "stem": {
+          "en": "Complete the clinical judgment statement for the deterioration.",
+          "zh": "完成对病情恶化的临床判断陈述。"
+        },
+        "clozeStem": {
+          "en": "The client's findings are most concerning for {{1}} related to {{2}}.",
+          "zh": "该患者的表现最令人担心{{1}}，其相关原因是{{2}}。"
+        },
+        "dropdowns": [
+          {
+            "id": "1",
+            "options": [
+              {
+                "id": "o1",
+                "en": "hypovolemic shock",
+                "zh": "低血容量性休克"
+              },
+              {
+                "id": "o2",
+                "en": "uncomplicated pain response",
+                "zh": "单纯疼痛反应"
+              },
+              {
+                "id": "o3",
+                "en": "stable recovery after analgesia",
+                "zh": "镇痛后的稳定恢复"
+              }
+            ],
+            "correct": "o1"
+          },
+          {
+            "id": "2",
+            "options": [
+              {
+                "id": "o3",
+                "en": "NPO status and opioid administration only",
+                "zh": "仅因禁食和阿片给药"
+              },
+              {
+                "id": "o1",
+                "en": "third spacing, hemoconcentration, hypotension, and falling urine output",
+                "zh": "第三间隙液体转移、血液浓缩、低血压和尿量下降"
+              },
+              {
+                "id": "o2",
+                "en": "lipase elevation alone",
+                "zh": "单纯脂肪酶升高"
+              }
+            ],
+            "correct": "o1"
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Severe pancreatitis can shift large volumes out of the vascular space. Hypotension, tachycardia, oliguria, rising hematocrit, and rising BUN indicate poor perfusion.",
+            "zh": "重症胰腺炎可使大量液体移出血管腔。低血压、心动过速、少尿、血细胞比容和BUN升高提示灌注不良。"
+          },
+          "byChoice": [
+            {
+              "refId": "1",
+              "en": "The priority problem is circulatory collapse, not pain alone.",
+              "zh": "优先问题是循环衰竭，而非单纯疼痛。"
+            },
+            {
+              "refId": "2",
+              "en": "The selected cluster links pancreatitis pathophysiology to perfusion failure.",
+              "zh": "所选线索组合把胰腺炎病理生理与灌注衰竭联系起来。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "In pancreatitis, worsening BUN/hematocrit plus oliguria should make you think vascular depletion even when the abdomen looks fluid-filled.",
+          "zh": "胰腺炎中，BUN/血细胞比容恶化加少尿应提示血管内容量不足，即使腹部看似有液体。"
+        },
+        "glossary": [
+          {
+            "termEn": "Acute pancreatitis",
+            "termZh": "急性胰腺炎",
+            "defZh": "胰腺急性炎症，可导致剧烈腹痛、液体第三间隙和全身炎症反应。"
+          },
+          {
+            "termEn": "Third spacing",
+            "termZh": "第三间隙液体转移",
+            "defZh": "液体从血管内转移到组织或体腔，导致有效循环血量下降。"
+          },
+          {
+            "termEn": "Hypocalcemia",
+            "termZh": "低钙血症",
+            "defZh": "血钙降低，可出现麻木、手足抽搐或心电改变。"
+          }
+        ],
+        "answerableAfterStageId": "panc_stage2"
+      },
+      {
+        "id": "gpt_case_gap_2026_06_11_panc_or_03",
+        "itemType": "ordered_response",
+        "category": "Management of Care",
+        "topic": "Prioritization & Delegation",
+        "difficulty": "hard",
+        "ngnSkill": "take_action",
+        "stageId": "panc_stage2",
+        "stem": {
+          "en": "Place the nursing actions in priority order.",
+          "zh": "按优先顺序排列护理措施。"
+        },
+        "options": [
+          {
+            "id": "D",
+            "en": "Prepare large-bore IV access and administer prescribed isotonic fluid resuscitation.",
+            "zh": "准备大口径静脉通路并遵医嘱给予等渗液体复苏。"
+          },
+          {
+            "id": "E",
+            "en": "Monitor response: blood pressure, lung sounds, oxygenation, urine output, BUN/hematocrit, and calcium.",
+            "zh": "监测反应：血压、肺音、氧合、尿量、BUN/血细胞比容和钙。"
+          },
+          {
+            "id": "A",
+            "en": "Apply oxygen and raise the head of the bed while reassessing respiratory effort.",
+            "zh": "给予氧气并抬高床头，同时复评呼吸用力。"
+          },
+          {
+            "id": "C",
+            "en": "Assess airway, breathing, circulation, pain, abdomen, mental status, and urine output trend.",
+            "zh": "评估气道、呼吸、循环、疼痛、腹部、意识状态和尿量趋势。"
+          },
+          {
+            "id": "B",
+            "en": "Activate rapid response/provider notification for hypotension, hypoxemia, and oliguria.",
+            "zh": "因低血压、低氧和少尿启动快速反应/通知医嘱提供者。"
+          }
+        ],
+        "correct": [
+          "C",
+          "A",
+          "B",
+          "D",
+          "E"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "The nurse first verifies ABC and perfusion status, supports breathing, escalates for shock, implements prescribed resuscitation, and evaluates for both improved perfusion and fluid overload/electrolyte complications.",
+            "zh": "护士先确认ABC和灌注状态，支持呼吸，因休克升级处理，执行医嘱复苏，并评价灌注改善及液体过负荷/电解质并发症。"
+          },
+          "byChoice": [
+            {
+              "refId": "B",
+              "en": "The combination of hypotension, hypoxemia, and oliguria requires urgent team response.",
+              "zh": "低血压、低氧和少尿组合需要紧急团队响应。"
+            },
+            {
+              "refId": "C",
+              "en": "Rapid focused assessment confirms severity and identifies immediate threats.",
+              "zh": "快速重点评估可确认严重程度并识别即时威胁。"
+            },
+            {
+              "refId": "A",
+              "en": "Hypoxemia is present, so oxygen and positioning should not wait.",
+              "zh": "已有低氧，因此氧疗和体位不能延后。"
+            },
+            {
+              "refId": "E",
+              "en": "Monitoring detects whether resuscitation is working and whether hypocalcemia or overload is emerging.",
+              "zh": "监测可发现复苏是否有效，以及是否出现低钙或容量过负荷。"
+            },
+            {
+              "refId": "D",
+              "en": "Fluid resuscitation addresses third-spacing-related hypoperfusion when prescribed.",
+              "zh": "有医嘱时，液体复苏可处理第三间隙相关低灌注。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Do not let abdominal pain distract from shock cues; stabilize oxygenation and perfusion first.",
+          "zh": "不要让腹痛分散对休克线索的注意；先稳定氧合和灌注。"
+        },
+        "glossary": [
+          {
+            "termEn": "Acute pancreatitis",
+            "termZh": "急性胰腺炎",
+            "defZh": "胰腺急性炎症，可导致剧烈腹痛、液体第三间隙和全身炎症反应。"
+          },
+          {
+            "termEn": "Third spacing",
+            "termZh": "第三间隙液体转移",
+            "defZh": "液体从血管内转移到组织或体腔，导致有效循环血量下降。"
+          },
+          {
+            "termEn": "Hypocalcemia",
+            "termZh": "低钙血症",
+            "defZh": "血钙降低，可出现麻木、手足抽搐或心电改变。"
+          }
+        ],
+        "answerableAfterStageId": "panc_stage2"
+      },
+      {
+        "id": "gpt_case_gap_2026_06_11_panc_fib_04",
+        "itemType": "fill_in_blank",
+        "category": "Reduction of Risk Potential",
+        "topic": "Laboratory & Diagnostic Tests",
+        "difficulty": "hard",
+        "ngnSkill": "evaluate_outcomes",
+        "stageId": "panc_stage3",
+        "stem": {
+          "en": "The client weighs 76 kg. What is the minimum expected urine output in mL/hr using 0.5 mL/kg/hr? Round to the nearest whole number.",
+          "zh": "患者体重76 kg。按0.5 mL/kg/hr计算，最低预期尿量是多少mL/hr？四舍五入到整数。"
+        },
+        "blanks": [
+          {
+            "id": "b1",
+            "prompt": {
+              "en": "mL/hr",
+              "zh": "mL/hr"
+            },
+            "acceptable": [
+              "38",
+              "38 mL/hr"
+            ],
+            "numeric": {
+              "value": 38,
+              "tolerance": 0,
+              "unit": "mL/hr"
+            }
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Minimum expected urine output is 76 kg × 0.5 mL/kg/hr = 38 mL/hr. The current 38 mL/hr is just at the minimum and requires continued trending.",
+            "zh": "最低预期尿量=76 kg × 0.5 mL/kg/hr = 38 mL/hr。当前38 mL/hr仅达到最低值，需要继续观察趋势。"
+          },
+          "byChoice": [
+            {
+              "refId": "b1",
+              "en": "Multiply weight by 0.5 mL/kg/hr; a borderline value is not the same as full recovery.",
+              "zh": "体重乘以0.5 mL/kg/hr；刚达边界值不等于完全恢复。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "When an outcome barely meets a minimum threshold, keep monitoring rather than assuming stability.",
+          "zh": "当结果只是勉强达到最低阈值时，应继续监测而不是认为已经稳定。"
+        },
+        "glossary": [
+          {
+            "termEn": "Acute pancreatitis",
+            "termZh": "急性胰腺炎",
+            "defZh": "胰腺急性炎症，可导致剧烈腹痛、液体第三间隙和全身炎症反应。"
+          },
+          {
+            "termEn": "Third spacing",
+            "termZh": "第三间隙液体转移",
+            "defZh": "液体从血管内转移到组织或体腔，导致有效循环血量下降。"
+          },
+          {
+            "termEn": "Hypocalcemia",
+            "termZh": "低钙血症",
+            "defZh": "血钙降低，可出现麻木、手足抽搐或心电改变。"
+          }
+        ],
+        "answerableAfterStageId": "panc_stage3"
+      }
+    ]
+  },
+  "rationale": {
+    "correct": {
+      "en": "This case study requires recognizing deterioration across serial assessment data and choosing nursing actions that reduce risk.",
+      "zh": "本病例要求根据连续评估资料识别病情恶化，并选择降低风险的护理措施。"
+    },
+    "byChoice": []
+  },
+  "testTakingStrategy": {
+    "en": "In an unfolding case, compare the newest data with baseline and act first on unstable airway, breathing, circulation, perfusion, and safety cues.",
+    "zh": "处理展开式病例时，先把最新资料与基线比较，并优先处理气道、呼吸、循环、灌注和安全方面的不稳定线索。"
+  },
+  "glossary": [
+    {
+      "termEn": "Acute pancreatitis",
+      "termZh": "急性胰腺炎",
+      "defZh": "胰腺急性炎症，可导致剧烈腹痛、液体第三间隙和全身炎症反应。"
+    },
+    {
+      "termEn": "Third spacing",
+      "termZh": "第三间隙液体转移",
+      "defZh": "液体从血管内转移到组织或体腔，导致有效循环血量下降。"
+    },
+    {
+      "termEn": "Hypocalcemia",
+      "termZh": "低钙血症",
+      "defZh": "血钙降低，可出现麻木、手足抽搐或心电改变。"
+    }
+  ]
+}

@@ -1,0 +1,864 @@
+{
+  "id": "opus3_iv_potassium_safety_case_01",
+  "itemType": "case_study",
+  "category": "Pharmacological and Parenteral Therapies",
+  "topic": "Medication Safety & Admin",
+  "difficulty": "hard",
+  "ngnSkill": "take_action",
+  "stem": {
+    "en": "A nurse cares for a client with severe hypokalemia related to gastrointestinal losses and reviews a new IV potassium replacement order.",
+    "zh": "护士护理一名因胃肠道丢失导致严重低钾血症的患者，并审核新的静脉补钾医嘱。"
+  },
+  "caseStudy": {
+    "title": {
+      "en": "IV Potassium Replacement With NG Suction Losses",
+      "zh": "胃管负压吸引导致丢失后的静脉补钾安全"
+    },
+    "summary": {
+      "en": "A postoperative client with high nasogastric output develops severe hypokalemia, hypomagnesemia, and ECG changes. The nurse must recognize the urgent electrolyte risk while also preventing harm from an unsafe peripheral potassium chloride order.",
+      "zh": "一名术后患者因胃管引流量大出现严重低钾血症、低镁血症和心电图改变。护士既要识别紧急电解质风险，也要防止执行不安全的外周静脉氯化钾医嘱造成伤害。"
+    },
+    "exhibits": [],
+    "stages": [
+      {
+        "id": "stage1",
+        "title": {
+          "en": "Initial electrolyte risk and unsafe order",
+          "zh": "初始电解质风险和不安全医嘱"
+        },
+        "exhibits": [
+          {
+            "id": "exhibit_stage1_nursing_note",
+            "title": {
+              "en": "Stage 1 — Nursing note",
+              "zh": "阶段1——护理记录"
+            },
+            "content": {
+              "en": "0600: A 62-year-old client is postoperative day 2 after lysis of adhesions for small-bowel obstruction. The client is NPO with a nasogastric tube to low intermittent suction. The client reports nausea and generalized weakness. NG output over the past 12 hours is 1,150 mL of green drainage. A 20-gauge peripheral IV is infusing 0.9% sodium chloride at 100 mL/hr in the left forearm. Telemetry shows sinus rhythm with occasional premature ventricular contractions. The nurse notes flattened T waves and visible U waves on the bedside monitor.",
+              "zh": "06:00：62岁患者因小肠梗阻行肠粘连松解术后第2天。患者禁食，鼻胃管低负压间歇吸引。患者诉恶心和全身无力。过去12小时鼻胃管引流绿色液体1150毫升。左前臂20号外周静脉留置针正在以100毫升/小时输注0.9%氯化钠。心电监护显示窦性心律，偶发室性早搏。护士在床旁监护上注意到T波低平和明显U波。"
+            }
+          },
+          {
+            "id": "exhibit_stage1_labs_orders",
+            "title": {
+              "en": "Stage 1 — Laboratory results and new orders",
+              "zh": "阶段1——实验室结果和新医嘱"
+            },
+            "content": {
+              "en": "Laboratory results: potassium 2.8 mEq/L, magnesium 1.4 mg/dL, sodium 137 mEq/L, creatinine 1.1 mg/dL, BUN 20 mg/dL, glucose 108 mg/dL. New electronic order: potassium chloride 40 mEq in 0.9% sodium chloride 250 mL IV over 2 hours via peripheral IV; magnesium sulfate 2 g IV over 2 hours; continue telemetry; repeat basic metabolic panel and magnesium after replacement. The potassium infusion has not been started.",
+              "zh": "实验室结果：钾2.8 mEq/L，镁1.4 mg/dL，钠137 mEq/L，肌酐1.1 mg/dL，尿素氮20 mg/dL，血糖108 mg/dL。新的电子医嘱：氯化钾40 mEq加入0.9%氯化钠250毫升，经外周静脉2小时输完；硫酸镁2克静脉输注2小时；继续心电监护；补充后复查基础代谢面板和镁。氯化钾尚未开始输注。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "labs",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "potassium",
+                      "label": {
+                        "en": "Potassium",
+                        "zh": "血钾"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "2.8",
+                          "unit": "mEq/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "magnesium",
+                      "label": {
+                        "en": "Magnesium",
+                        "zh": "血镁"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "1.4",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "sodium",
+                      "label": {
+                        "en": "Sodium",
+                        "zh": "血钠"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "137",
+                          "unit": "mEq/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "creatinine",
+                      "label": {
+                        "en": "Creatinine",
+                        "zh": "肌酐"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "1.1",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "bun",
+                      "label": {
+                        "en": "BUN",
+                        "zh": "尿素氮"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "20",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "glucose",
+                      "label": {
+                        "en": "Glucose",
+                        "zh": "血糖"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "108",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "stage2",
+        "title": {
+          "en": "Order clarified before administration",
+          "zh": "给药前澄清医嘱"
+        },
+        "exhibits": [
+          {
+            "id": "exhibit_stage2_revised_plan",
+            "title": {
+              "en": "Stage 2 — Clarified replacement plan",
+              "zh": "阶段2——澄清后的补充方案"
+            },
+            "content": {
+              "en": "The nurse holds the original potassium order, keeps the client on telemetry, assesses the IV site and renal status, and calls the provider and pharmacist. The order is revised to pharmacy-prepared potassium chloride 10 mEq in 0.9% sodium chloride 100 mL IVPB every hour for 4 doses via peripheral IV using an infusion pump. The revised order also requires an independent double-check before each bag, site assessment at least hourly, magnesium sulfate 2 g IV over 2 hours as ordered, and repeat potassium/magnesium levels 2 hours after the fourth potassium infusion.",
+              "zh": "护士暂停原氯化钾医嘱，继续心电监护，评估静脉通路部位和肾功能状态，并联系开立医嘱者和药师。医嘱修改为药房配制的氯化钾10 mEq加入0.9%氯化钠100毫升，静脉小袋每小时1袋，共4袋，经外周静脉使用输液泵输注。修改后的医嘱还要求每袋输注前进行独立双人核对，至少每小时评估静脉部位，按医嘱输注硫酸镁2克2小时，并在第4袋氯化钾输注后2小时复查钾和镁。"
+            }
+          }
+        ]
+      },
+      {
+        "id": "stage3",
+        "title": {
+          "en": "Therapy evaluation and IV-site safety",
+          "zh": "治疗效果评估和静脉部位安全"
+        },
+        "exhibits": [
+          {
+            "id": "exhibit_stage3_status",
+            "title": {
+              "en": "Stage 3 — Reassessment during therapy",
+              "zh": "阶段3——治疗期间复评"
+            },
+            "content": {
+              "en": "After magnesium sulfate and two revised potassium infusions, the client states, \"My weakness is a little better.\" Telemetry shows fewer PVCs. Repeat point-of-care potassium drawn early during replacement is 3.2 mEq/L. While the third potassium infusion is running through the peripheral IV, the client reports burning at the left forearm IV site. The nurse sees mild redness along the vein but no respiratory distress or chest pain.",
+              "zh": "输注硫酸镁并完成两袋修改后的氯化钾后，患者说：“我的无力感稍微好些了。”心电监护显示室性早搏减少。补钾过程中提前抽取的床旁钾为3.2 mEq/L。第三袋氯化钾经外周静脉输注时，患者诉左前臂静脉部位灼痛。护士看到沿静脉有轻度发红，但患者无呼吸窘迫或胸痛。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "labs",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "potassium",
+                      "label": {
+                        "en": "Potassium",
+                        "zh": "血钾"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "3.2",
+                          "unit": "mEq/L",
+                          "context": "post_intervention"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "opus3_iv_potassium_safety_case_01_q1",
+        "itemType": "matrix",
+        "category": "Pharmacological and Parenteral Therapies",
+        "topic": "Laboratory & Diagnostic Tests",
+        "difficulty": "medium",
+        "ngnSkill": "recognize_cues",
+        "stem": {
+          "en": "For each finding in Stage 1, indicate whether it is expected in the situation or requires follow-up by the nurse.",
+          "zh": "根据阶段1资料，判断每项发现是该情况中的预期表现，还是需要护士跟进。"
+        },
+        "matrix": {
+          "rows": [
+            {
+              "id": "r1",
+              "en": "Potassium 2.8 mEq/L",
+              "zh": "钾2.8 mEq/L"
+            },
+            {
+              "id": "r2",
+              "en": "Magnesium 1.4 mg/dL",
+              "zh": "镁1.4 mg/dL"
+            },
+            {
+              "id": "r3",
+              "en": "NG output 1,150 mL over 12 hours",
+              "zh": "12小时鼻胃管引流量1150毫升"
+            },
+            {
+              "id": "r4",
+              "en": "Creatinine 1.1 mg/dL",
+              "zh": "肌酐1.1 mg/dL"
+            },
+            {
+              "id": "r5",
+              "en": "Flattened T waves, U waves, and occasional PVCs",
+              "zh": "T波低平、U波和偶发室性早搏"
+            }
+          ],
+          "columns": [
+            {
+              "id": "expected",
+              "en": "Expected/no immediate follow-up",
+              "zh": "预期/无需立即跟进"
+            },
+            {
+              "id": "follow_up",
+              "en": "Requires follow-up",
+              "zh": "需要跟进"
+            }
+          ],
+          "selectionMode": "single_per_row"
+        },
+        "correct": [
+          {
+            "rowId": "r1",
+            "columnIds": [
+              "follow_up"
+            ]
+          },
+          {
+            "rowId": "r2",
+            "columnIds": [
+              "follow_up"
+            ]
+          },
+          {
+            "rowId": "r3",
+            "columnIds": [
+              "follow_up"
+            ]
+          },
+          {
+            "rowId": "r4",
+            "columnIds": [
+              "expected"
+            ]
+          },
+          {
+            "rowId": "r5",
+            "columnIds": [
+              "follow_up"
+            ]
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "The priority cues are severe hypokalemia, coexisting hypomagnesemia, high NG losses, and ECG changes/PVCs. The creatinine is not elevated in this exhibit, so it does not independently require urgent follow-up, although renal status must still be monitored during potassium therapy.",
+            "zh": "优先线索是严重低钾血症、合并低镁血症、鼻胃管丢失量大，以及心电图改变/室性早搏。该展项中肌酐未升高，因此本身不需要紧急跟进，但补钾过程中仍必须监测肾功能状态。"
+          },
+          "byChoice": [
+            {
+              "refId": "r1",
+              "en": "A potassium of 2.8 mEq/L is clinically significant and, with weakness and ECG changes, requires prompt replacement and monitoring.",
+              "zh": "钾2.8 mEq/L具有临床意义，且伴无力和心电图改变，需要及时补充并监测。"
+            },
+            {
+              "refId": "r2",
+              "en": "Low magnesium can worsen potassium wasting and dysrhythmia risk; it should be corrected with the potassium deficit.",
+              "zh": "低镁会加重钾丢失并增加心律失常风险，应与低钾一起纠正。"
+            },
+            {
+              "refId": "r3",
+              "en": "Large NG output is an ongoing source of fluid and electrolyte loss and helps explain the hypokalemia.",
+              "zh": "大量鼻胃管引流是持续的液体和电解质丢失来源，也能解释低钾。"
+            },
+            {
+              "refId": "r4",
+              "en": "Creatinine 1.1 mg/dL is not the urgent abnormal finding in this exhibit; it is still used as baseline renal context before and during potassium therapy.",
+              "zh": "肌酐1.1 mg/dL不是该展项中的紧急异常发现；它仍作为补钾前和补钾过程中的肾功能基线参考。"
+            },
+            {
+              "refId": "r5",
+              "en": "U waves, flattened T waves, and PVCs are concerning cardiac manifestations of hypokalemia and support telemetry and prompt replacement.",
+              "zh": "U波、T波低平和室性早搏是低钾的心脏表现，提示需要心电监护和及时补充。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "When electrolyte values and rhythm cues appear together, connect the lab abnormality to the immediate safety threat rather than treating the number in isolation.",
+          "zh": "当电解质数值和心律线索同时出现时，要把实验室异常与眼前安全威胁联系起来，而不是孤立看数值。"
+        },
+        "glossary": [
+          {
+            "termEn": "Hypokalemia",
+            "termZh": "低钾血症",
+            "defZh": "血清钾低于正常范围，可导致肌无力、肠蠕动减弱和心律失常。"
+          },
+          {
+            "termEn": "U wave",
+            "termZh": "U波",
+            "defZh": "心电图中T波后的波形，明显U波常见于低钾血症。"
+          },
+          {
+            "termEn": "PVC",
+            "termZh": "室性早搏",
+            "defZh": "起源于心室的提前搏动，可因电解质异常而增加。"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "opus3_iv_potassium_safety_case_01_q2",
+        "itemType": "multiple_choice",
+        "category": "Pharmacological and Parenteral Therapies",
+        "topic": "Medication Safety & Admin",
+        "difficulty": "hard",
+        "ngnSkill": "take_action",
+        "stem": {
+          "en": "After reviewing the Stage 1 order, which action should the nurse take first?",
+          "zh": "查看阶段1医嘱后，护士首先应采取哪项行动？"
+        },
+        "options": [
+          {
+            "id": "B",
+            "en": "Hold the potassium infusion and clarify the concentration, route, and rate with the provider and pharmacist before administration.",
+            "zh": "暂停氯化钾输注，并在给药前与开立医嘱者和药师澄清浓度、途径和速度。"
+          },
+          {
+            "id": "D",
+            "en": "Stop telemetry until after potassium replacement is complete to reduce alarm fatigue.",
+            "zh": "为减少报警疲劳，在补钾完成前暂停心电监护。"
+          },
+          {
+            "id": "C",
+            "en": "Draw potassium chloride into a syringe and administer it slowly through the peripheral IV.",
+            "zh": "将氯化钾抽入注射器，经外周静脉缓慢推注。"
+          },
+          {
+            "id": "A",
+            "en": "Start the potassium infusion as ordered because the potassium is critically low.",
+            "zh": "因钾值危急，按原医嘱立即开始氯化钾输注。"
+          }
+        ],
+        "correct": [
+          "B"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "The original order would deliver 40 mEq over 2 hours through a peripheral IV. Even though the client needs urgent replacement, the nurse should not administer an unsafe or nonstandard potassium order unchanged. The priority is to hold the infusion, maintain monitoring, and clarify or revise the order before administration.",
+            "zh": "原医嘱会经外周静脉在2小时内输注40 mEq。即使患者需要紧急补钾，护士也不应原样执行不安全或非标准的氯化钾医嘱。优先行动是暂停输注、维持监测，并在给药前澄清或修改医嘱。"
+          },
+          "byChoice": [
+            {
+              "refId": "D",
+              "en": "Telemetry is indicated because the client has severe hypokalemia and ECG changes; stopping monitoring would remove an important safety control.",
+              "zh": "患者有严重低钾和心电图改变，需心电监护；停止监测会去除重要的安全措施。"
+            },
+            {
+              "refId": "B",
+              "en": "This is the safest first action because it prevents administration of the problematic order while preserving timely escalation for a corrected replacement plan.",
+              "zh": "这是最安全的首要行动，因为可防止执行有问题的医嘱，同时及时升级处理以获得修正后的补充方案。"
+            },
+            {
+              "refId": "A",
+              "en": "Severe hypokalemia requires prompt treatment, but urgency does not make an unsafe peripheral potassium order acceptable.",
+              "zh": "严重低钾需要及时处理，但紧急性不能使不安全的外周补钾医嘱变得可接受。"
+            },
+            {
+              "refId": "C",
+              "en": "Potassium chloride must never be given by IV push or syringe bolus; this can cause fatal dysrhythmias or cardiac arrest.",
+              "zh": "氯化钾绝不能静脉推注或用注射器快速给药；这可导致致命心律失常或心脏骤停。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "For medication-safety questions, an abnormal lab may explain why treatment is needed, but the nurse still must question an unsafe route, rate, dose, or concentration before giving the drug.",
+          "zh": "遇到用药安全题时，异常实验室值说明需要治疗，但护士仍必须在给药前质疑不安全的途径、速度、剂量或浓度。"
+        },
+        "glossary": [
+          {
+            "termEn": "Clarify an order",
+            "termZh": "澄清医嘱",
+            "defZh": "在医嘱不完整、不清楚或可能不安全时，给药前联系开立者或药师确认并修正。"
+          },
+          {
+            "termEn": "Peripheral IV",
+            "termZh": "外周静脉通路",
+            "defZh": "置于手臂或手部外周静脉的静脉通路，较高浓度或刺激性药物更易引起疼痛、静脉炎或外渗。"
+          },
+          {
+            "termEn": "IV push",
+            "termZh": "静脉推注",
+            "defZh": "短时间内直接将药物推入静脉的给药方式；氯化钾不应使用此方式给药。"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "opus3_iv_potassium_safety_case_01_q3",
+        "itemType": "fill_in_blank",
+        "category": "Pharmacological and Parenteral Therapies",
+        "topic": "Dosage Calculations",
+        "difficulty": "medium",
+        "ngnSkill": "analyze_cues",
+        "stem": {
+          "en": "The original order was potassium chloride 40 mEq IV over 2 hours. How many mEq/hr would this order deliver? Enter the numeric value only.",
+          "zh": "原医嘱为氯化钾40 mEq静脉输注2小时。该医嘱的输注速度为多少mEq/小时？只输入数字。"
+        },
+        "blanks": [
+          {
+            "id": "b1",
+            "prompt": {
+              "en": "mEq/hr",
+              "zh": "mEq/小时"
+            },
+            "acceptable": [
+              "20",
+              "20 mEq/hr",
+              "20 mEq/hour"
+            ],
+            "numeric": {
+              "value": 20,
+              "tolerance": 0,
+              "unit": "mEq/hr"
+            }
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Divide the total dose by the infusion time: 40 mEq ÷ 2 hr = 20 mEq/hr. Calculating the dose rate helps the nurse recognize why the original peripheral order needs clarification before administration.",
+            "zh": "总剂量除以输注时间：40 mEq ÷ 2小时 = 20 mEq/小时。计算剂量速度有助于护士识别为什么原外周静脉医嘱在给药前需要澄清。"
+          },
+          "byChoice": [
+            {
+              "refId": "b1",
+              "en": "The correct calculation is 40 divided by 2, which equals 20 mEq/hr.",
+              "zh": "正确计算为40除以2，等于20 mEq/小时。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Convert every IV electrolyte order into dose per hour before deciding whether the rate is safe for the ordered route and monitoring level.",
+          "zh": "判断静脉电解质医嘱是否安全前，先把医嘱换算成每小时剂量，再结合给药途径和监测等级判断。"
+        },
+        "glossary": [
+          {
+            "termEn": "mEq/hr",
+            "termZh": "mEq/小时",
+            "defZh": "每小时输注的毫当量数，是判断电解质补充速度的重要单位。"
+          },
+          {
+            "termEn": "Infusion rate",
+            "termZh": "输注速度",
+            "defZh": "药液在单位时间内输入的速度，可按体积或药物剂量表示。"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "opus3_iv_potassium_safety_case_01_q4",
+        "itemType": "ordered_response",
+        "category": "Pharmacological and Parenteral Therapies",
+        "topic": "Medication Safety & Admin",
+        "difficulty": "hard",
+        "ngnSkill": "take_action",
+        "stem": {
+          "en": "Place the nurse's actions in the safest order after discovering the original peripheral potassium order has not yet been started.",
+          "zh": "发现原外周静脉补钾医嘱尚未开始后，请将护士行动按最安全顺序排列。"
+        },
+        "options": [
+          {
+            "id": "D",
+            "en": "Obtain the revised pharmacy-prepared potassium order and complete the required independent double-check.",
+            "zh": "取得药房配制的修改后补钾医嘱，并完成要求的独立双人核对。"
+          },
+          {
+            "id": "E",
+            "en": "Start the revised infusion using an infusion pump and monitor telemetry, the IV site, and repeat laboratory results.",
+            "zh": "使用输液泵开始修改后的输注，并监测心电、静脉部位和复查实验室结果。"
+          },
+          {
+            "id": "B",
+            "en": "Assess the client, verify telemetry is active, review renal function, and assess the peripheral IV site.",
+            "zh": "评估患者，确认心电监护开启，查看肾功能，并评估外周静脉部位。"
+          },
+          {
+            "id": "C",
+            "en": "Notify the provider and pharmacist that the route/rate/concentration require clarification or revision before administration.",
+            "zh": "通知开立医嘱者和药师：给药前需要澄清或修改途径、速度和浓度。"
+          },
+          {
+            "id": "A",
+            "en": "Hold the original potassium infusion and do not administer it as written.",
+            "zh": "暂停原氯化钾输注，不按原医嘱执行。"
+          }
+        ],
+        "correct": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "The first safety step is to prevent administration of the unsafe original order. The nurse then gathers relevant assessment data, escalates the concern for clarification or revision, verifies the corrected pharmacy-prepared product with an independent double-check, and only then administers the revised infusion with ongoing monitoring.",
+            "zh": "第一安全步骤是防止执行不安全的原医嘱。随后护士收集相关评估资料，升级沟通以澄清或修改医嘱，核对修正后的药房配制药液并进行独立双人核对，之后才在持续监测下输注修正后的药液。"
+          },
+          "byChoice": [
+            {
+              "refId": "A",
+              "en": "Holding the original infusion prevents immediate medication harm while the safety concern is addressed.",
+              "zh": "暂停原输注可在处理安全问题期间立即防止用药伤害。"
+            },
+            {
+              "refId": "C",
+              "en": "The provider and pharmacist must be involved because the ordered potassium route, rate, and concentration need correction before administration.",
+              "zh": "由于补钾途径、速度和浓度需要给药前修正，必须联系开立医嘱者和药师。"
+            },
+            {
+              "refId": "E",
+              "en": "Administration comes after the order is corrected and verified, with telemetry, IV-site checks, and repeat labs continuing during therapy.",
+              "zh": "给药应在医嘱修正并核对后进行，治疗期间继续心电监护、静脉部位检查和复查实验室结果。"
+            },
+            {
+              "refId": "B",
+              "en": "Assessment and monitoring data support safe escalation and identify whether the client is becoming unstable.",
+              "zh": "评估和监测资料有助于安全升级处理，并判断患者是否变得不稳定。"
+            },
+            {
+              "refId": "D",
+              "en": "The revised product should be verified before use, especially because IV potassium is a high-alert medication.",
+              "zh": "使用前应核对修正后的药液，尤其因为静脉氯化钾属于高警示药物。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "In ordered-response medication questions, do not let an urgent abnormal lab push an unsafe administration step ahead of clarification and verification.",
+          "zh": "在用药排序题中，不要因为实验室值紧急就把不安全给药步骤排在澄清和核对之前。"
+        },
+        "glossary": [
+          {
+            "termEn": "Independent double-check",
+            "termZh": "独立双人核对",
+            "defZh": "两名合格人员分别独立核对药物、剂量、浓度、途径、速度和患者等关键要素。"
+          },
+          {
+            "termEn": "High-alert medication",
+            "termZh": "高警示药物",
+            "defZh": "一旦使用错误可能造成严重伤害的药物类别，需要额外安全措施。"
+          },
+          {
+            "termEn": "Telemetry",
+            "termZh": "心电监护",
+            "defZh": "持续监测心律，以便及时发现心律失常。"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "opus3_iv_potassium_safety_case_01_q5",
+        "itemType": "select_all",
+        "category": "Pharmacological and Parenteral Therapies",
+        "topic": "Dosage Calculations",
+        "difficulty": "medium",
+        "ngnSkill": "generate_solutions",
+        "stem": {
+          "en": "Which nursing actions are appropriate when administering the revised potassium replacement plan? Select all that apply.",
+          "zh": "执行修改后的补钾方案时，哪些护理行动是适当的？选择所有适用项。"
+        },
+        "options": [
+          {
+            "id": "A",
+            "en": "Use an infusion pump for each potassium infusion.",
+            "zh": "每袋氯化钾输注均使用输液泵。"
+          },
+          {
+            "id": "F",
+            "en": "Review repeat potassium, magnesium, and renal function results as ordered.",
+            "zh": "按医嘱查看复查的钾、镁和肾功能结果。"
+          },
+          {
+            "id": "C",
+            "en": "Assess the peripheral IV site for pain, redness, swelling, or leaking during therapy.",
+            "zh": "治疗期间评估外周静脉部位是否有疼痛、发红、肿胀或渗漏。"
+          },
+          {
+            "id": "B",
+            "en": "Continue telemetry while replacement is in progress.",
+            "zh": "补充过程中继续心电监护。"
+          },
+          {
+            "id": "E",
+            "en": "Verify the dose, dilution, route, rate, and client before each bag.",
+            "zh": "每袋输注前核对剂量、稀释液、途径、速度和患者身份。"
+          },
+          {
+            "id": "D",
+            "en": "Administer one bag by IV push if the telemetry strip shows more PVCs.",
+            "zh": "如果心电监护显示室性早搏增多，可将其中一袋静脉推注。"
+          }
+        ],
+        "correct": [
+          "A",
+          "B",
+          "C",
+          "E",
+          "F"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Safe potassium administration includes pump-controlled infusion, telemetry when severe hypokalemia or ECG changes are present, frequent IV-site assessment, verification of dose/dilution/route/rate/client, and follow-up laboratory monitoring. IV push potassium is unsafe.",
+            "zh": "安全补钾包括使用输液泵控制速度、在严重低钾或有心电图改变时进行心电监护、频繁评估静脉部位、核对剂量/稀释液/途径/速度/患者，以及复查实验室结果。氯化钾静脉推注不安全。"
+          },
+          "byChoice": [
+            {
+              "refId": "D",
+              "en": "More PVCs would require assessment and escalation, not IV push potassium.",
+              "zh": "室性早搏增多需要评估并升级处理，而不是静脉推注氯化钾。"
+            },
+            {
+              "refId": "B",
+              "en": "Telemetry is appropriate because the client has severe hypokalemia, ECG changes, and PVCs.",
+              "zh": "患者有严重低钾、心电图改变和室性早搏，继续心电监护是适当的。"
+            },
+            {
+              "refId": "F",
+              "en": "Repeat potassium and magnesium show treatment response; renal function helps detect risk for potassium accumulation.",
+              "zh": "复查钾和镁可显示治疗反应；肾功能可帮助发现钾潴留风险。"
+            },
+            {
+              "refId": "C",
+              "en": "Peripheral potassium can irritate the vein and cause tissue injury if infiltration or extravasation occurs.",
+              "zh": "外周静脉补钾可刺激血管；若发生浸润或外渗，可能造成组织损伤。"
+            },
+            {
+              "refId": "A",
+              "en": "An infusion pump helps maintain the ordered slow, controlled potassium rate.",
+              "zh": "输液泵有助于维持医嘱要求的缓慢、受控补钾速度。"
+            },
+            {
+              "refId": "E",
+              "en": "Dose, dilution, route, rate, and client verification are essential with a high-alert electrolyte.",
+              "zh": "对高警示电解质药物，核对剂量、稀释液、途径、速度和患者身份至关重要。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "For select-all medication items, choose actions that reduce harm before, during, and after administration: verify, control the rate, monitor the patient, and reassess response.",
+          "zh": "在多选用药题中，选择能在给药前、给药中和给药后减少伤害的措施：核对、控制速度、监测患者并复评疗效。"
+        },
+        "glossary": [
+          {
+            "termEn": "Extravasation",
+            "termZh": "外渗",
+            "defZh": "药液漏出血管进入周围组织，可能造成疼痛、组织损伤或坏死。"
+          },
+          {
+            "termEn": "Infusion pump",
+            "termZh": "输液泵",
+            "defZh": "用于精确控制静脉输液速度的设备。"
+          },
+          {
+            "termEn": "Renal function",
+            "termZh": "肾功能",
+            "defZh": "肾脏排泄代谢废物和电解质的能力；补钾时需关注以避免钾潴留。"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "opus3_iv_potassium_safety_case_01_q6",
+        "itemType": "multiple_choice",
+        "category": "Pharmacological and Parenteral Therapies",
+        "topic": "Medication Safety & Admin",
+        "difficulty": "medium",
+        "ngnSkill": "evaluate_outcomes",
+        "stem": {
+          "en": "During Stage 3, which action should the nurse take next?",
+          "zh": "在阶段3中，护士下一步应采取哪项行动？"
+        },
+        "options": [
+          {
+            "id": "A",
+            "en": "Stop the potassium infusion, assess the IV site, maintain IV access with a new site as needed, and notify the provider/pharmacist.",
+            "zh": "停止氯化钾输注，评估静脉部位，必要时建立新的静脉通路，并通知开立医嘱者/药师。"
+          },
+          {
+            "id": "B",
+            "en": "Increase the potassium rate because the potassium is still below the usual reference range.",
+            "zh": "因血钾仍低于通常参考范围，提高氯化钾输注速度。"
+          },
+          {
+            "id": "D",
+            "en": "Clamp the NG tube for 8 hours so electrolyte levels rise faster.",
+            "zh": "夹闭鼻胃管8小时，使电解质水平更快上升。"
+          },
+          {
+            "id": "C",
+            "en": "Tell the client burning is expected and continue the infusion until the bag is empty.",
+            "zh": "告知患者灼痛属预期反应，继续输注直至该袋输完。"
+          }
+        ],
+        "correct": [
+          "A"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Burning and redness at a peripheral potassium infusion site suggest irritation, phlebitis, infiltration, or early extravasation. The nurse should stop the infusion and assess the site rather than continue or speed the infusion. Ongoing electrolyte replacement can continue only through a safe, verified route.",
+            "zh": "外周静脉补钾部位出现灼痛和发红，提示刺激、静脉炎、浸润或早期外渗。护士应停止输注并评估部位，而不是继续或加快输注。只有在安全且核实的通路下，才能继续电解质补充。"
+          },
+          "byChoice": [
+            {
+              "refId": "D",
+              "en": "The NG tube should not be clamped for hours without a provider order and assessment of obstruction risk; this does not address the IV-site complication.",
+              "zh": "没有医嘱并评估梗阻风险时，不应长时间夹闭鼻胃管；这也不能处理静脉部位并发症。"
+            },
+            {
+              "refId": "A",
+              "en": "This protects the client from tissue injury and allows replacement to continue safely through an appropriate route.",
+              "zh": "这样可保护患者免受组织损伤，并使补充治疗能通过适当通路安全继续。"
+            },
+            {
+              "refId": "C",
+              "en": "Burning with redness during potassium infusion is not a finding to dismiss; it requires stopping and assessing the site.",
+              "zh": "补钾时出现灼痛并发红不能忽视；需要停止输注并评估部位。"
+            },
+            {
+              "refId": "B",
+              "en": "Increasing the rate worsens the safety problem and could increase vein irritation or cardiac risk.",
+              "zh": "提高速度会加重安全问题，并可能增加静脉刺激或心脏风险。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "When a treatment is helping but creates a new safety cue, evaluate the new cue before continuing the intervention.",
+          "zh": "当治疗有效但出现新的安全线索时，应先评估新的线索，再决定是否继续干预。"
+        },
+        "glossary": [
+          {
+            "termEn": "Phlebitis",
+            "termZh": "静脉炎",
+            "defZh": "静脉炎症，常表现为疼痛、发红、发热或沿静脉走向压痛。"
+          },
+          {
+            "termEn": "Infiltration",
+            "termZh": "浸润",
+            "defZh": "静脉液体进入周围组织，而非留在血管内。"
+          },
+          {
+            "termEn": "Evaluate outcomes",
+            "termZh": "评估结果",
+            "defZh": "判断治疗是否达到预期效果，并识别新的风险或并发症。"
+          }
+        ],
+        "answerableAfterStageId": "stage3"
+      }
+    ]
+  },
+  "rationale": {
+    "correct": {
+      "en": "This case emphasizes two linked nursing judgments: severe hypokalemia with ECG changes requires prompt, monitored replacement, but IV potassium remains a high-alert medication that must be administered only through a safe, clarified order. The nurse should not give potassium chloride by IV push or administer the original peripheral order unchanged. Safe care includes holding the unsafe order, assessing the client and IV site, clarifying the route/rate/concentration with the provider and pharmacist, using pharmacy-prepared diluted infusions and an infusion pump, maintaining telemetry, correcting magnesium, monitoring renal function and repeat electrolytes, and stopping the infusion if peripheral IV-site complications occur.",
+      "zh": "本案例强调两个相互关联的护理判断：严重低钾伴心电图改变需要及时、受监测的补充；但静脉氯化钾属于高警示药物，只能在安全且已澄清的医嘱下给药。护士不应静脉推注氯化钾，也不应原样执行不安全的外周静脉医嘱。安全护理包括暂停不安全医嘱，评估患者和静脉部位，与开立医嘱者和药师澄清途径、速度和浓度，使用药房配制的稀释输液和输液泵，维持心电监护，纠正低镁，监测肾功能和复查电解质，并在外周静脉部位出现并发症时停止输注。"
+    },
+    "byChoice": []
+  },
+  "testTakingStrategy": {
+    "en": "Do not choose an unsafe medication-administration step simply because the client needs the medication urgently; stabilize, verify, clarify, and then administer the corrected order with monitoring.",
+    "zh": "不要因为患者急需某药就选择不安全的给药步骤；应先稳定和监测，核对并澄清医嘱，然后在监测下执行修正后的医嘱。"
+  },
+  "glossary": [
+    {
+      "termEn": "Potassium chloride",
+      "termZh": "氯化钾",
+      "defZh": "用于补钾的电解质药物；静脉给药错误可能导致严重心律失常或心脏骤停。"
+    },
+    {
+      "termEn": "High-alert medication",
+      "termZh": "高警示药物",
+      "defZh": "一旦使用错误可能造成严重伤害的药物，需严格核对和监测。"
+    },
+    {
+      "termEn": "Telemetry",
+      "termZh": "心电监护",
+      "defZh": "持续观察心脏节律的监测方式，用于及时发现心律异常。"
+    },
+    {
+      "termEn": "Peripheral IV",
+      "termZh": "外周静脉通路",
+      "defZh": "置于外周静脉的静脉通路；刺激性药物经此途径输注时需密切观察部位。"
+    }
+  ]
+}

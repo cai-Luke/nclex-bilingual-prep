@@ -1,0 +1,87 @@
+[
+  {
+    "command": [
+      "npm",
+      "run",
+      "census:check"
+    ],
+    "exit": 0,
+    "log": "closure-0.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "normalize-raw-bank",
+      "--",
+      "audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/gemini-c17-palliative-replacement.json",
+      "audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/hard-cases-c17-mucositis-replacement.json"
+    ],
+    "exit": 0,
+    "log": "closure-1.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "gate:raw",
+      "--",
+      "--file",
+      "audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/gemini-c17-palliative-replacement.json",
+      "--file",
+      "audit/campaign-17-ab-followthrough-2026-09-13-r1/raw/hard-cases-c17-mucositis-replacement.json"
+    ],
+    "exit": 1,
+    "log": "closure-2.log"
+  },
+  {
+    "command": [
+      "npx",
+      "tsx",
+      "audit/campaign-17-ab-followthrough-2026-09-13-r1/tools/final-preservation.ts"
+    ],
+    "exit": 0,
+    "log": "closure-3.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "validate-bank",
+      "--",
+      "banks/lab-canonical.json",
+      "banks/gpt-canonical.json",
+      "banks/claude-canonical.json",
+      "banks/burn-canonical.json",
+      "banks/gemini-canonical.json",
+      "banks/io-canonical.json",
+      "banks/vitals-canonical.json",
+      "banks/visual-canonical.json",
+      "banks/medlabel-canonical.json",
+      "banks/hard-cases-canonical.json",
+      "banks/device-canonical.json",
+      "banks/mar-canonical.json",
+      "banks/capnography-canonical.json"
+    ],
+    "exit": 0,
+    "log": "closure-4.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "audit"
+    ],
+    "exit": 0,
+    "log": "closure-5.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "build"
+    ],
+    "exit": 0,
+    "log": "closure-6.log"
+  }
+]

@@ -1,0 +1,658 @@
+{
+  "id": "gpt_case_gap_2026_06_11_case_adhf_01",
+  "itemType": "case_study",
+  "category": "Physiological Adaptation",
+  "topic": "Cardiovascular Disorders",
+  "difficulty": "hard",
+  "ngnSkill": "analyze_cues",
+  "stem": {
+    "en": "Review the case-study exhibits and answer the embedded questions.",
+    "zh": "查看病例研究资料并回答其中的问题。"
+  },
+  "caseStudy": {
+    "title": {
+      "en": "Acute decompensated heart failure with pulmonary edema",
+      "zh": "急性失代偿性心力衰竭伴肺水肿"
+    },
+    "summary": {
+      "en": "Older adult with missed diuretic doses develops escalating hypoxemia and pulmonary edema requiring urgent nursing recognition and escalation.",
+      "zh": "老年患者漏服利尿剂后出现低氧加重和肺水肿，需要护士迅速识别并升级处理。"
+    },
+    "exhibits": [
+      {
+        "id": "adhf_triage",
+        "title": {
+          "en": "Emergency department triage",
+          "zh": "急诊分诊"
+        },
+        "content": {
+          "en": "A 72-year-old client with heart failure with reduced ejection fraction arrives with 2 days of worsening dyspnea and orthopnea. The client missed furosemide for 3 days after running out of tablets. Vital signs: T 98.8 °F (37.1 °C), HR 112/min, RR 26/min, BP 168/94 mm Hg, SpO2 89% on room air. Lung sounds: bibasilar crackles. 2+ bilateral ankle edema. Reports needing 4 pillows to sleep.",
+          "zh": "一名72岁射血分数降低型心力衰竭患者因气短和端坐呼吸加重2天来急诊。患者因药片用完已漏服呋塞米3天。生命体征：T 98.8 °F (37.1 °C)，HR 112次/分，RR 26次/分，BP 168/94 mm Hg，室内空气SpO2 89%。肺部听诊：双肺底湿啰音。双踝2+水肿。诉睡觉需垫4个枕头。"
+        }
+      },
+      {
+        "id": "adhf_labs",
+        "title": {
+          "en": "Initial diagnostics",
+          "zh": "初始检查"
+        },
+        "content": {
+          "en": "Chest x-ray: pulmonary vascular congestion. BNP 1,240 pg/mL. Sodium 132 mEq/L, potassium 3.7 mEq/L, creatinine 1.1 mg/dL, troponin not elevated. Weight today 84 kg; clinic weight last week 80.8 kg.",
+          "zh": "胸片：肺血管充血。BNP 1,240 pg/mL。钠132 mEq/L，钾3.7 mEq/L，肌酐1.1 mg/dL，肌钙蛋白未升高。今日体重84 kg；上周门诊体重80.8 kg。"
+        },
+        "structuredMeasurements": {
+          "panels": [
+            {
+              "kind": "labs",
+              "columns": [
+                {
+                  "id": "current",
+                  "label": {
+                    "en": "Current",
+                    "zh": "当前"
+                  }
+                }
+              ],
+              "rows": [
+                {
+                  "key": "bnp",
+                  "label": {
+                    "en": "BNP",
+                    "zh": "脑钠肽"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "1,240",
+                      "unit": "pg/mL"
+                    }
+                  ]
+                },
+                {
+                  "key": "sodium",
+                  "label": {
+                    "en": "Sodium",
+                    "zh": "血钠"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "132",
+                      "unit": "mEq/L"
+                    }
+                  ]
+                },
+                {
+                  "key": "potassium",
+                  "label": {
+                    "en": "Potassium",
+                    "zh": "血钾"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "3.7",
+                      "unit": "mEq/L"
+                    }
+                  ]
+                },
+                {
+                  "key": "creatinine",
+                  "label": {
+                    "en": "Creatinine",
+                    "zh": "肌酐"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "1.1",
+                      "unit": "mg/dL"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "stages": [
+      {
+        "id": "adhf_stage2",
+        "title": {
+          "en": "Thirty minutes later",
+          "zh": "30分钟后"
+        },
+        "trigger": {
+          "en": "While waiting for provider evaluation, the client becomes more restless and can speak only 2-3 words at a time.",
+          "zh": "等待医嘱评估期间，患者更加烦躁，每次只能说2–3个词。"
+        },
+        "exhibits": [
+          {
+            "id": "adhf_deterioration",
+            "title": {
+              "en": "Focused reassessment",
+              "zh": "重点复评"
+            },
+            "content": {
+              "en": "RR 32/min, SpO2 84% on 2 L/min nasal cannula, HR 124/min, BP 182/98 mm Hg. New pink frothy sputum. Coarse crackles now extend to the mid-lung fields. The client says, 'I feel like I am drowning.'",
+              "zh": "RR 32次/分，鼻导管2 L/min时SpO2 84%，HR 124次/分，BP 182/98 mm Hg。新出现粉红色泡沫痰。粗湿啰音已延伸至中肺野。患者说：“我感觉像要淹死了。”"
+            }
+          }
+        ]
+      },
+      {
+        "id": "adhf_stage3",
+        "title": {
+          "en": "After initial treatment",
+          "zh": "初步治疗后"
+        },
+        "trigger": {
+          "en": "The client is placed upright, oxygen support is escalated, and prescribed IV loop diuretic therapy is started.",
+          "zh": "患者取直坐位，氧疗支持升级，并开始遵医嘱静脉袢利尿剂治疗。"
+        },
+        "exhibits": [
+          {
+            "id": "adhf_response",
+            "title": {
+              "en": "Two-hour response",
+              "zh": "2小时反应"
+            },
+            "content": {
+              "en": "The client received furosemide 40 mg IV. Intake since arrival: 920 mL. Urine output since arrival: 2,100 mL. SpO2 is 93% with noninvasive positive-pressure ventilation; RR 22/min; crackles are decreased.",
+              "zh": "患者已接受呋塞米40 mg静脉给药。到院后摄入量：920 mL。到院后尿量：2,100 mL。无创正压通气下SpO2 93%；RR 22次/分；湿啰音减少。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "spo2",
+                      "label": {
+                        "en": "SpO2",
+                        "zh": "脉搏血氧饱和度"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "93",
+                          "unit": "%"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "rr",
+                      "label": {
+                        "en": "Respiratory rate",
+                        "zh": "呼吸频率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "22",
+                          "unit": "/min"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "gpt_case_gap_2026_06_11_adhf_matrix_01",
+        "itemType": "matrix",
+        "category": "Reduction of Risk Potential",
+        "topic": "Laboratory & Diagnostic Tests",
+        "difficulty": "hard",
+        "ngnSkill": "recognize_cues",
+        "stem": {
+          "en": "For each finding, indicate whether it is most consistent with worsening acute decompensated heart failure or less directly related to the current deterioration.",
+          "zh": "对于每项发现，判断其是否最符合急性失代偿性心力衰竭恶化，或与当前恶化关系较小。"
+        },
+        "matrix": {
+          "rows": [
+            {
+              "id": "r1",
+              "en": "SpO2 89% on room air",
+              "zh": "室内空气SpO2 89%"
+            },
+            {
+              "id": "r2",
+              "en": "Bibasilar crackles and orthopnea",
+              "zh": "双肺底湿啰音和端坐呼吸"
+            },
+            {
+              "id": "r3",
+              "en": "Troponin not elevated",
+              "zh": "肌钙蛋白未升高"
+            },
+            {
+              "id": "r4",
+              "en": "Weight increased 3.2 kg in one week",
+              "zh": "一周内体重增加3.2 kg"
+            },
+            {
+              "id": "r5",
+              "en": "Potassium 3.7 mEq/L",
+              "zh": "钾3.7 mEq/L"
+            }
+          ],
+          "columns": [
+            {
+              "id": "c2",
+              "en": "Less directly related",
+              "zh": "关系较小"
+            },
+            {
+              "id": "c1",
+              "en": "Worsening ADHF cue",
+              "zh": "ADHF恶化线索"
+            }
+          ],
+          "selectionMode": "single_per_row"
+        },
+        "correct": [
+          {
+            "rowId": "r1",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r2",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r3",
+            "columnIds": [
+              "c2"
+            ]
+          },
+          {
+            "rowId": "r4",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r5",
+            "columnIds": [
+              "c2"
+            ]
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Hypoxemia, crackles, orthopnea, and rapid weight gain cluster as pulmonary and systemic fluid overload. A normal potassium and non-elevated troponin do not explain the acute respiratory deterioration.",
+            "zh": "低氧、湿啰音、端坐呼吸和快速体重增加共同提示肺部及全身液体超负荷。钾正常和肌钙蛋白未升高不能解释急性呼吸恶化。"
+          },
+          "byChoice": [
+            {
+              "refId": "r1",
+              "en": "Low oxygen saturation is an unstable breathing cue in pulmonary congestion.",
+              "zh": "低氧饱和度是肺充血时不稳定的呼吸线索。"
+            },
+            {
+              "refId": "r2",
+              "en": "Crackles plus orthopnea strongly suggest fluid in the lungs from heart failure.",
+              "zh": "湿啰音加端坐呼吸强烈提示心衰导致肺内液体潴留。"
+            },
+            {
+              "refId": "r3",
+              "en": "A non-elevated troponin makes acute myocardial injury less evident in this data set.",
+              "zh": "肌钙蛋白未升高使急性心肌损伤在本资料中不明显。"
+            },
+            {
+              "refId": "r4",
+              "en": "A 3.2 kg gain approximates several liters of retained fluid.",
+              "zh": "体重增加3.2 kg约等于潴留数升液体。"
+            },
+            {
+              "refId": "r5",
+              "en": "Potassium is within the usual reference range and is not the main current deterioration cue.",
+              "zh": "钾在常见参考范围内，不是当前恶化的主要线索。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Cluster cues instead of treating each value alone; respiratory distress plus fluid-overload signs points to ADHF deterioration.",
+          "zh": "要把线索组合起来看，而不是孤立看数值；呼吸窘迫加液体超负荷体征指向ADHF恶化。"
+        },
+        "glossary": [
+          {
+            "termEn": "Acute decompensated heart failure",
+            "termZh": "急性失代偿性心力衰竭",
+            "defZh": "心力衰竭症状突然或逐渐加重，常表现为肺充血、低氧和液体潴留。"
+          },
+          {
+            "termEn": "Orthopnea",
+            "termZh": "端坐呼吸",
+            "defZh": "平卧时呼吸困难，需要坐起或垫高枕头才能缓解。"
+          },
+          {
+            "termEn": "BNP",
+            "termZh": "B型利钠肽",
+            "defZh": "心室压力或容量负荷增加时升高的实验室指标。"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "gpt_case_gap_2026_06_11_adhf_cloze_02",
+        "itemType": "dropdown_cloze",
+        "category": "Physiological Adaptation",
+        "topic": "Cardiovascular Disorders",
+        "difficulty": "hard",
+        "ngnSkill": "analyze_cues",
+        "stageId": "adhf_stage2",
+        "stem": {
+          "en": "Complete the clinical judgment statement using the updated assessment data.",
+          "zh": "根据最新评估资料完成临床判断陈述。"
+        },
+        "clozeStem": {
+          "en": "The client is now at greatest immediate risk for {{1}} because the assessment shows {{2}}.",
+          "zh": "由于评估显示{{2}}，该患者当前最直接面临{{1}}的风险。"
+        },
+        "dropdowns": [
+          {
+            "id": "1",
+            "options": [
+              {
+                "id": "o3",
+                "en": "isolated medication nonadherence without instability",
+                "zh": "单纯用药不依从且无不稳定"
+              },
+              {
+                "id": "o2",
+                "en": "stable chronic fluid retention",
+                "zh": "稳定的慢性液体潴留"
+              },
+              {
+                "id": "o1",
+                "en": "acute pulmonary edema with respiratory failure",
+                "zh": "急性肺水肿伴呼吸衰竭"
+              }
+            ],
+            "correct": "o1"
+          },
+          {
+            "id": "2",
+            "options": [
+              {
+                "id": "o3",
+                "en": "ankle edema without a respiratory change",
+                "zh": "踝部水肿但无呼吸改变"
+              },
+              {
+                "id": "o2",
+                "en": "a normal potassium and a non-elevated troponin",
+                "zh": "钾正常和肌钙蛋白未升高"
+              },
+              {
+                "id": "o1",
+                "en": "pink frothy sputum, worsening hypoxemia, and crackles extending upward",
+                "zh": "粉红色泡沫痰、低氧加重及湿啰音向上扩展"
+              }
+            ],
+            "correct": "o1"
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Pink frothy sputum, rapidly worsening hypoxemia, restlessness, and diffuse crackles indicate acute pulmonary edema that can progress to respiratory failure.",
+            "zh": "粉红色泡沫痰、快速加重的低氧、烦躁和弥漫湿啰音提示急性肺水肿，可进展为呼吸衰竭。"
+          },
+          "byChoice": [
+            {
+              "refId": "1",
+              "en": "The immediate threat is oxygenation failure, not long-term adherence teaching.",
+              "zh": "当前威胁是氧合失败，而不是长期依从性教学。"
+            },
+            {
+              "refId": "2",
+              "en": "The selected cue cluster directly supports pulmonary edema; the other choices do not explain sudden respiratory distress.",
+              "zh": "所选线索组合直接支持肺水肿；其他选项不能解释突然呼吸窘迫。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "When the client can barely speak, prioritize the complication that threatens oxygenation within minutes.",
+          "zh": "当患者几乎无法说话时，优先考虑数分钟内威胁氧合的并发症。"
+        },
+        "glossary": [
+          {
+            "termEn": "Acute decompensated heart failure",
+            "termZh": "急性失代偿性心力衰竭",
+            "defZh": "心力衰竭症状突然或逐渐加重，常表现为肺充血、低氧和液体潴留。"
+          },
+          {
+            "termEn": "Orthopnea",
+            "termZh": "端坐呼吸",
+            "defZh": "平卧时呼吸困难，需要坐起或垫高枕头才能缓解。"
+          },
+          {
+            "termEn": "BNP",
+            "termZh": "B型利钠肽",
+            "defZh": "心室压力或容量负荷增加时升高的实验室指标。"
+          }
+        ],
+        "answerableAfterStageId": "adhf_stage2"
+      },
+      {
+        "id": "gpt_case_gap_2026_06_11_adhf_or_03",
+        "itemType": "ordered_response",
+        "category": "Management of Care",
+        "topic": "Prioritization & Delegation",
+        "difficulty": "hard",
+        "ngnSkill": "take_action",
+        "stageId": "adhf_stage2",
+        "stem": {
+          "en": "Place the nursing actions in the order they should be performed for this deterioration.",
+          "zh": "将针对该恶化情况的护理措施按应执行的顺序排列。"
+        },
+        "options": [
+          {
+            "id": "B",
+            "en": "Increase oxygen support per emergency protocol and apply continuous pulse oximetry.",
+            "zh": "按急救流程提高氧疗支持并持续监测脉搏血氧。"
+          },
+          {
+            "id": "D",
+            "en": "Activate the rapid response/provider notification pathway for acute respiratory decompensation.",
+            "zh": "因急性呼吸失代偿启动快速反应/通知医嘱提供者流程。"
+          },
+          {
+            "id": "C",
+            "en": "Rapidly reassess airway, breathing, vital signs, lung sounds, and level of consciousness.",
+            "zh": "快速复评气道、呼吸、生命体征、肺音和意识水平。"
+          },
+          {
+            "id": "E",
+            "en": "Administer the prescribed IV loop diuretic and monitor urine output and blood pressure.",
+            "zh": "遵医嘱给予静脉袢利尿剂，并监测尿量和血压。"
+          },
+          {
+            "id": "A",
+            "en": "Position the client upright with legs dependent if tolerated.",
+            "zh": "在能耐受的情况下让患者直坐并双腿下垂。"
+          }
+        ],
+        "correct": [
+          "C",
+          "A",
+          "B",
+          "D",
+          "E"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "The nurse first verifies the acute ABC status, immediately reduces venous return with upright positioning, supports oxygenation, escalates for urgent orders/team response, then gives prescribed therapy and monitors response.",
+            "zh": "护士先确认急性ABC状态，立即通过直坐位减少静脉回流，支持氧合，升级呼叫团队/医嘱，然后实施已开立治疗并监测反应。"
+          },
+          "byChoice": [
+            {
+              "refId": "C",
+              "en": "Immediate reassessment establishes severity and guides emergency escalation.",
+              "zh": "立即复评可确定严重程度并指导急救升级。"
+            },
+            {
+              "refId": "D",
+              "en": "The new frothy sputum and refractory hypoxemia require urgent team involvement.",
+              "zh": "新发泡沫痰和难纠正低氧需要紧急团队介入。"
+            },
+            {
+              "refId": "E",
+              "en": "Diuretic therapy is appropriate once prescribed; response must be monitored because hypotension and electrolyte shifts can occur.",
+              "zh": "有医嘱后利尿治疗合适；需监测反应，因为可发生低血压和电解质变化。"
+            },
+            {
+              "refId": "A",
+              "en": "Upright positioning is a rapid nursing action that can ease pulmonary congestion.",
+              "zh": "直坐位是快速护理措施，可减轻肺充血。"
+            },
+            {
+              "refId": "B",
+              "en": "Oxygen support addresses the unstable breathing cue after positioning is started.",
+              "zh": "开始摆位后提高氧疗可处理不稳定呼吸线索。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "For ordered responses, do immediate assessment, independent stabilization, escalation, then prescribed treatment and evaluation.",
+          "zh": "排序题可按：立即评估、独立稳定措施、升级求助、执行医嘱治疗并评价。"
+        },
+        "glossary": [
+          {
+            "termEn": "Acute decompensated heart failure",
+            "termZh": "急性失代偿性心力衰竭",
+            "defZh": "心力衰竭症状突然或逐渐加重，常表现为肺充血、低氧和液体潴留。"
+          },
+          {
+            "termEn": "Orthopnea",
+            "termZh": "端坐呼吸",
+            "defZh": "平卧时呼吸困难，需要坐起或垫高枕头才能缓解。"
+          },
+          {
+            "termEn": "BNP",
+            "termZh": "B型利钠肽",
+            "defZh": "心室压力或容量负荷增加时升高的实验室指标。"
+          }
+        ],
+        "answerableAfterStageId": "adhf_stage2"
+      },
+      {
+        "id": "gpt_case_gap_2026_06_11_adhf_fib_04",
+        "itemType": "fill_in_blank",
+        "category": "Physiological Adaptation",
+        "topic": "Cardiovascular Disorders",
+        "difficulty": "hard",
+        "ngnSkill": "evaluate_outcomes",
+        "stageId": "adhf_stage3",
+        "stem": {
+          "en": "Calculate the client's net fluid balance since arrival in mL. Enter a negative number for a net loss.",
+          "zh": "计算患者到院以来的净液体平衡量（mL）。净丢失请输入负数。"
+        },
+        "blanks": [
+          {
+            "id": "b1",
+            "prompt": {
+              "en": "Net fluid balance in mL",
+              "zh": "净液体平衡量，mL"
+            },
+            "acceptable": [
+              "-1180",
+              "-1180 mL"
+            ],
+            "numeric": {
+              "value": -1180,
+              "tolerance": 0,
+              "unit": "mL"
+            }
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Net balance is intake minus output: 920 mL - 2,100 mL = -1,180 mL. The negative balance supports an initial diuretic response, but oxygenation and perfusion still require reassessment.",
+            "zh": "净平衡=摄入量-排出量：920 mL - 2,100 mL = -1,180 mL。负平衡支持已有初步利尿反应，但仍需复评氧合和灌注。"
+          },
+          "byChoice": [
+            {
+              "refId": "b1",
+              "en": "Use intake minus output; a negative result means more fluid was removed than taken in.",
+              "zh": "用摄入量减排出量；负数表示排出液体多于摄入液体。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Outcome evaluation often requires a trend plus a calculation; improvement in one metric does not end monitoring.",
+          "zh": "评价疗效常需要趋势和计算；一个指标改善并不代表可以停止监测。"
+        },
+        "glossary": [
+          {
+            "termEn": "Acute decompensated heart failure",
+            "termZh": "急性失代偿性心力衰竭",
+            "defZh": "心力衰竭症状突然或逐渐加重，常表现为肺充血、低氧和液体潴留。"
+          },
+          {
+            "termEn": "Orthopnea",
+            "termZh": "端坐呼吸",
+            "defZh": "平卧时呼吸困难，需要坐起或垫高枕头才能缓解。"
+          },
+          {
+            "termEn": "BNP",
+            "termZh": "B型利钠肽",
+            "defZh": "心室压力或容量负荷增加时升高的实验室指标。"
+          }
+        ],
+        "answerableAfterStageId": "adhf_stage3"
+      }
+    ]
+  },
+  "rationale": {
+    "correct": {
+      "en": "This case study requires recognizing deterioration across serial assessment data and choosing nursing actions that reduce risk.",
+      "zh": "本病例要求根据连续评估资料识别病情恶化，并选择降低风险的护理措施。"
+    },
+    "byChoice": []
+  },
+  "testTakingStrategy": {
+    "en": "In an unfolding case, compare the newest data with baseline and act first on unstable airway, breathing, circulation, perfusion, and safety cues.",
+    "zh": "处理展开式病例时，先把最新资料与基线比较，并优先处理气道、呼吸、循环、灌注和安全方面的不稳定线索。"
+  },
+  "glossary": [
+    {
+      "termEn": "Acute decompensated heart failure",
+      "termZh": "急性失代偿性心力衰竭",
+      "defZh": "心力衰竭症状突然或逐渐加重，常表现为肺充血、低氧和液体潴留。"
+    },
+    {
+      "termEn": "Orthopnea",
+      "termZh": "端坐呼吸",
+      "defZh": "平卧时呼吸困难，需要坐起或垫高枕头才能缓解。"
+    },
+    {
+      "termEn": "BNP",
+      "termZh": "B型利钠肽",
+      "defZh": "心室压力或容量负荷增加时升高的实验室指标。"
+    }
+  ]
+}

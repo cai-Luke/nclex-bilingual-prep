@@ -1,0 +1,588 @@
+{
+  "id": "gpt_case_premium_next_case_health_literacy_diabetes_01",
+  "itemType": "case_study",
+  "category": "Health Promotion and Maintenance",
+  "topic": "Chronic Disease Management & Lifestyle",
+  "difficulty": "hard",
+  "ngnSkill": "analyze_cues",
+  "stem": {
+    "en": "A nurse in an outpatient primary care clinic is preparing a self-management plan for a client with type 2 diabetes and low health literacy.",
+    "zh": "门诊初级保健诊所的护士正在为一名患有2型糖尿病且健康素养较低的患者制定自我管理计划。"
+  },
+  "caseStudy": {
+    "title": {
+      "en": "Diabetes Self-Management Visit",
+      "zh": "糖尿病自我管理门诊"
+    },
+    "summary": {
+      "en": "The client has recently had medication changes, inconsistent meals, and increasing dependence on a spouse for daily health tasks.",
+      "zh": "该患者近期调整了用药、进餐不规律，并且越来越依赖配偶完成日常健康管理任务。"
+    },
+    "stages": [
+      {
+        "id": "planning",
+        "title": {
+          "en": "Planning education and care coordination",
+          "zh": "制定宣教和协调护理计划"
+        },
+        "exhibits": [
+          {
+            "id": "care_team_message",
+            "title": {
+              "en": "Care Team Message",
+              "zh": "护理团队信息"
+            },
+            "content": {
+              "en": "The provider asks the nurse to reinforce medication safety, assess barriers to meal consistency, and identify whether the spouse needs additional support. The clinic has a diabetes educator, dietitian, social worker, and bilingual printed teaching materials.",
+              "zh": "医嘱要求护士加强用药安全教育，评估规律进餐的障碍，并判断配偶是否需要更多支持。诊所有糖尿病教育护士、营养师、社工以及双语纸质宣教材料。"
+            }
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "gpt_case_premium_next_case_health_literacy_diabetes_01_matrix_cues",
+        "itemType": "matrix",
+        "category": "Health Promotion and Maintenance",
+        "topic": "Chronic Disease Management & Lifestyle",
+        "difficulty": "hard",
+        "ngnSkill": "recognize_cues",
+        "stem": {
+          "en": "For each finding, select whether it is expected, needs focused teaching, or needs prompt provider follow-up.",
+          "zh": "对每项发现，选择其属于预期情况、需要重点宣教，还是需要及时联系医务人员跟进。"
+        },
+        "matrix": {
+          "rows": [
+            {
+              "id": "r1",
+              "en": "The client takes glipizide when feeling shaky.",
+              "zh": "患者发抖时服用格列吡嗪。"
+            },
+            {
+              "id": "r2",
+              "en": "The client skips breakfast on workdays.",
+              "zh": "患者工作日不吃早餐。"
+            },
+            {
+              "id": "r3",
+              "en": "Fasting blood glucose readings include 64 and 69 mg/dL.",
+              "zh": "空腹血糖记录包括64和69 mg/dL。"
+            },
+            {
+              "id": "r4",
+              "en": "Skin on both feet is intact.",
+              "zh": "双足皮肤完整。"
+            },
+            {
+              "id": "r5",
+              "en": "The client prefers pictures with short instructions.",
+              "zh": "患者偏好配图和简短说明。"
+            }
+          ],
+          "columns": [
+            {
+              "id": "c2",
+              "en": "Needs focused teaching",
+              "zh": "需要重点宣教"
+            },
+            {
+              "id": "c1",
+              "en": "Expected or reassuring",
+              "zh": "预期或令人放心"
+            },
+            {
+              "id": "c3",
+              "en": "Needs prompt provider follow-up",
+              "zh": "需要及时医务人员跟进"
+            }
+          ],
+          "selectionMode": "single_per_row"
+        },
+        "correct": [
+          {
+            "rowId": "r1",
+            "columnIds": [
+              "c2"
+            ]
+          },
+          {
+            "rowId": "r2",
+            "columnIds": [
+              "c2"
+            ]
+          },
+          {
+            "rowId": "r3",
+            "columnIds": [
+              "c3"
+            ]
+          },
+          {
+            "rowId": "r4",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r5",
+            "columnIds": [
+              "c1"
+            ]
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Misusing glipizide and skipping meals require focused safety teaching. Recurrent fasting readings below 70 mg/dL require prompt provider follow-up because the medication plan may need adjustment. Intact foot skin and a stated learning preference are useful baseline findings.",
+            "zh": "错误使用格列吡嗪和漏餐需要重点安全宣教。反复空腹血糖低于70 mg/dL需要及时联系医务人员，因为用药计划可能需要调整。足部皮肤完整和明确的学习偏好是有用的基线资料。"
+          },
+          "byChoice": [
+            {
+              "refId": "r1",
+              "en": "Glipizide should not be used as a rescue medication for shakiness; shakiness may indicate hypoglycemia that needs fast-acting carbohydrate, not another glucose-lowering dose.",
+              "zh": "格列吡嗪不应用作发抖时的“急救药”；发抖可能提示低血糖，需要快速作用的碳水化合物，而不是再服降糖药。"
+            },
+            {
+              "refId": "r2",
+              "en": "Skipping meals while taking a sulfonylurea increases hypoglycemia risk and requires practical meal-planning teaching.",
+              "zh": "服用磺脲类药物时漏餐会增加低血糖风险，需要进行切实可行的进餐计划宣教。"
+            },
+            {
+              "refId": "r3",
+              "en": "Repeated fasting glucose values below 70 mg/dL are not simply a teaching issue; the prescriber should evaluate medication timing, dose, and meal pattern.",
+              "zh": "反复空腹血糖低于70 mg/dL不只是宣教问题；开方者应评估用药时间、剂量和进餐模式。"
+            },
+            {
+              "refId": "r4",
+              "en": "Intact skin is reassuring, although reduced sensation still requires preventive foot-care teaching.",
+              "zh": "皮肤完整是令人放心的，但感觉减退仍需要预防性足部护理宣教。"
+            },
+            {
+              "refId": "r5",
+              "en": "A stated preference for pictures and short instructions helps the nurse tailor teaching to the client's health literacy needs.",
+              "zh": "患者说明偏好图片和简短说明，有助于护士根据其健康素养需要调整宣教方式。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Separate cues that require teaching from cues that suggest the current treatment plan may be unsafe and needs provider review.",
+          "zh": "区分需要宣教的线索和提示当前治疗计划可能不安全、需要医务人员复核的线索。"
+        },
+        "glossary": [
+          {
+            "termEn": "Sulfonylurea",
+            "termZh": "磺脲类药物",
+            "defZh": "一类刺激胰腺释放胰岛素的口服降糖药，可能导致低血糖。"
+          },
+          {
+            "termEn": "Health literacy",
+            "termZh": "健康素养",
+            "defZh": "理解并使用健康信息以作出护理决定的能力。"
+          },
+          {
+            "termEn": "Monofilament",
+            "termZh": "单丝检查",
+            "defZh": "用于筛查足部保护性感觉是否减退的工具。"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "gpt_case_premium_next_case_health_literacy_diabetes_01_cloze_priority",
+        "itemType": "dropdown_cloze",
+        "category": "Health Promotion and Maintenance",
+        "topic": "Chronic Disease Management & Lifestyle",
+        "difficulty": "medium",
+        "ngnSkill": "analyze_cues",
+        "stem": {
+          "en": "Complete the statement about the priority teaching need.",
+          "zh": "完成关于优先宣教需求的陈述。"
+        },
+        "clozeStem": {
+          "en": "The nurse should first teach the client to treat symptoms of {{1}} with {{2}}.",
+          "zh": "护士应首先教患者在出现 {{1}} 症状时使用 {{2}} 处理。"
+        },
+        "dropdowns": [
+          {
+            "id": "1",
+            "options": [
+              {
+                "id": "o1",
+                "en": "hypoglycemia",
+                "zh": "低血糖"
+              },
+              {
+                "id": "o2",
+                "en": "hyperglycemia",
+                "zh": "高血糖"
+              },
+              {
+                "id": "o3",
+                "en": "hypertension",
+                "zh": "高血压"
+              }
+            ],
+            "correct": "o1"
+          },
+          {
+            "id": "2",
+            "options": [
+              {
+                "id": "o2",
+                "en": "an extra dose of glipizide",
+                "zh": "额外一剂格列吡嗪"
+              },
+              {
+                "id": "o3",
+                "en": "a high-fat snack",
+                "zh": "高脂肪点心"
+              },
+              {
+                "id": "o1",
+                "en": "fast-acting carbohydrate",
+                "zh": "快速作用的碳水化合物"
+              }
+            ],
+            "correct": "o1"
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Shakiness with low fasting readings indicates hypoglycemia risk. The immediate teaching priority is to use fast-acting carbohydrate rather than taking more glucose-lowering medication.",
+            "zh": "发抖且空腹血糖偏低提示低血糖风险。最优先的宣教是使用快速作用的碳水化合物，而不是再服降糖药。"
+          },
+          "byChoice": [
+            {
+              "refId": "1",
+              "en": "The client's shakiness, low readings, skipped meals, and sulfonylurea use point to hypoglycemia as the priority safety issue.",
+              "zh": "患者发抖、血糖低、漏餐和使用磺脲类药物，均指向低血糖这一优先安全问题。"
+            },
+            {
+              "refId": "2",
+              "en": "Fast-acting carbohydrate is the appropriate first self-management action for suspected low blood glucose in an alert client who can swallow.",
+              "zh": "对清醒且能吞咽的低血糖疑似患者，快速作用的碳水化合物是合适的首要自我处理措施。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "When a client describes symptoms after a medication change, connect the symptom pattern to the most immediate safety risk before choosing teaching content.",
+          "zh": "当患者在用药调整后描述症状时，先把症状模式与最紧迫的安全风险联系起来，再选择宣教内容。"
+        },
+        "glossary": [
+          {
+            "termEn": "Hypoglycemia",
+            "termZh": "低血糖",
+            "defZh": "血糖过低，可能出现发抖、出汗、心悸、饥饿或意识改变。"
+          },
+          {
+            "termEn": "Fast-acting carbohydrate",
+            "termZh": "快速作用的碳水化合物",
+            "defZh": "能迅速升高血糖的糖类来源，如葡萄糖片或含糖饮料。"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "gpt_case_premium_next_case_health_literacy_diabetes_01_or_teachback",
+        "itemType": "ordered_response",
+        "category": "Health Promotion and Maintenance",
+        "topic": "Chronic Disease Management & Lifestyle",
+        "difficulty": "hard",
+        "ngnSkill": "take_action",
+        "stageId": "planning",
+        "stem": {
+          "en": "Place the nurse's teaching actions in the best order.",
+          "zh": "将护士的宣教措施按最佳顺序排列。"
+        },
+        "options": [
+          {
+            "id": "C",
+            "en": "Ask the client to teach back the low-blood-glucose action plan using the labeled pillbox and picture sheet.",
+            "zh": "让患者借助贴好标签的药盒和图片单，复述低血糖处理计划。"
+          },
+          {
+            "id": "B",
+            "en": "Use plain language and pictures to explain when to take glipizide and what to do if a meal is skipped.",
+            "zh": "用通俗语言和图片说明格列吡嗪何时服用，以及漏餐时应如何处理。"
+          },
+          {
+            "id": "A",
+            "en": "Ask the client to show how each medication is taken on a usual workday.",
+            "zh": "请患者演示平常工作日每种药物如何服用。"
+          },
+          {
+            "id": "E",
+            "en": "Clarify which self-management task the client most wants to handle without the spouse's help.",
+            "zh": "明确患者最希望不依赖配偶而自己完成的自我管理任务。"
+          },
+          {
+            "id": "D",
+            "en": "Document the client's remaining barriers and arrange follow-up with the diabetes educator and dietitian.",
+            "zh": "记录患者仍存在的障碍，并安排糖尿病教育护士和营养师随访。"
+          }
+        ],
+        "correct": [
+          "A",
+          "E",
+          "B",
+          "C",
+          "D"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "The nurse first assesses the client's actual routine, then identifies a patient-centered goal, teaches using appropriate literacy supports, verifies understanding with teach-back, and finally documents barriers and coordinates follow-up.",
+            "zh": "护士先评估患者真实的日常做法，再确定以患者为中心的目标，用适合其健康素养的方式宣教，使用回授法确认理解，最后记录障碍并协调随访。"
+          },
+          "byChoice": [
+            {
+              "refId": "E",
+              "en": "A client-centered goal increases engagement and addresses dependence on the spouse without removing needed support.",
+              "zh": "以患者为中心的目标能提高参与度，并在不取消必要支持的情况下处理对配偶的依赖。"
+            },
+            {
+              "refId": "B",
+              "en": "Plain language and pictures match the client's learning preference and reduce medication-error risk.",
+              "zh": "通俗语言和图片符合患者学习偏好，并能降低用药错误风险。"
+            },
+            {
+              "refId": "C",
+              "en": "Teach-back verifies whether the client can apply the plan with the actual tools that will be used at home.",
+              "zh": "回授法能确认患者是否能借助家中实际使用的工具执行计划。"
+            },
+            {
+              "refId": "D",
+              "en": "After teaching is evaluated, remaining barriers and referrals are documented for continuity of care.",
+              "zh": "评估宣教效果后，再记录仍存在的障碍和转介安排，以保证护理连续性。"
+            },
+            {
+              "refId": "A",
+              "en": "Assessment comes first; the nurse needs to know what the client actually does before teaching.",
+              "zh": "评估应放在第一位；护士必须先了解患者实际如何做，才能进行宣教。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "For ordered teaching items, use the nursing process: assess, individualize, teach, evaluate, and coordinate follow-up.",
+          "zh": "处理宣教排序题时，按护理程序思考：评估、个体化、宣教、评价、协调随访。"
+        },
+        "glossary": [
+          {
+            "termEn": "Teach-back",
+            "termZh": "回授法",
+            "defZh": "让患者用自己的话或动作复述护理计划，以确认理解。"
+          },
+          {
+            "termEn": "Patient-centered goal",
+            "termZh": "以患者为中心的目标",
+            "defZh": "根据患者的优先事项、能力和生活情境共同制定的目标。"
+          }
+        ]
+      },
+      {
+        "id": "gpt_case_premium_next_case_health_literacy_diabetes_01_sata_referrals",
+        "itemType": "select_all",
+        "category": "Management of Care",
+        "topic": "Discharge Planning & Handoff",
+        "difficulty": "medium",
+        "ngnSkill": "generate_solutions",
+        "stageId": "planning",
+        "stem": {
+          "en": "Which actions should the nurse include in the care coordination plan? Select all that apply.",
+          "zh": "护士应在护理协调计划中包括哪些措施？选择所有适用项。"
+        },
+        "options": [
+          {
+            "id": "C",
+            "en": "Tell the spouse to continue managing all medications because the client has low health literacy.",
+            "zh": "告诉配偶继续管理所有药物，因为患者健康素养低。"
+          },
+          {
+            "id": "D",
+            "en": "Request a dietitian consult for a simple workday breakfast and snack plan.",
+            "zh": "申请营养师会诊，制定简单的工作日早餐和点心计划。"
+          },
+          {
+            "id": "B",
+            "en": "Ask the provider whether recurrent low fasting readings require a medication-plan review.",
+            "zh": "询问医务人员反复空腹低血糖是否需要复核用药计划。"
+          },
+          {
+            "id": "A",
+            "en": "Refer the client to the diabetes educator for medication and glucose-monitoring skills.",
+            "zh": "转介患者至糖尿病教育护士，学习用药和血糖监测技能。"
+          },
+          {
+            "id": "E",
+            "en": "Offer social work support for caregiver strain and access to medication-labeling resources.",
+            "zh": "提供社工支持，以处理照护者压力并获取药物标签辅助资源。"
+          }
+        ],
+        "correct": [
+          "A",
+          "B",
+          "D",
+          "E"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "The plan should build self-management skills, address recurrent low readings with the provider, support practical meal planning, and respond to caregiver strain. The nurse should not reinforce total dependence on the spouse or rely only on written instructions.",
+            "zh": "计划应培养自我管理技能，联系医务人员处理反复低血糖，支持实际可行的进餐计划，并回应照护者压力。护士不应强化患者完全依赖配偶，也不应只依赖书面说明。"
+          },
+          "byChoice": [
+            {
+              "refId": "C",
+              "en": "Having the spouse manage everything may reduce immediate errors but increases dependence and does not support safe self-management.",
+              "zh": "让配偶包办所有事情可能短期减少错误，但会增加依赖，不能支持安全的自我管理。"
+            },
+            {
+              "refId": "D",
+              "en": "Meal consistency is directly related to hypoglycemia prevention with sulfonylurea therapy.",
+              "zh": "规律进餐与使用磺脲类药物时预防低血糖直接相关。"
+            },
+            {
+              "refId": "E",
+              "en": "The spouse expresses fear and burden; social work can help with caregiver support and practical resources.",
+              "zh": "配偶表达害怕和负担；社工可协助照护者支持和实际资源。"
+            },
+            {
+              "refId": "A",
+              "en": "A diabetes educator can reinforce medication use, glucose monitoring, and problem solving using appropriate teaching methods.",
+              "zh": "糖尿病教育护士可用合适的宣教方法强化用药、血糖监测和问题解决能力。"
+            },
+            {
+              "refId": "B",
+              "en": "Recurrent fasting readings below target while taking glipizide require provider review for possible medication changes.",
+              "zh": "服用格列吡嗪期间反复空腹血糖低于目标范围，需要医务人员复核是否调整药物。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Choose coordination actions that reduce risk while increasing the client's ability to participate safely in care.",
+          "zh": "选择既能降低风险、又能提高患者安全参与护理能力的协调措施。"
+        },
+        "glossary": [
+          {
+            "termEn": "Caregiver strain",
+            "termZh": "照护者压力",
+            "defZh": "照护任务造成的情绪、身体、经济或时间负担。"
+          },
+          {
+            "termEn": "Care coordination",
+            "termZh": "护理协调",
+            "defZh": "组织不同专业人员和资源，使患者获得连续、合适的护理。"
+          }
+        ]
+      },
+      {
+        "id": "gpt_case_premium_next_case_health_literacy_diabetes_01_fib_activity",
+        "itemType": "fill_in_blank",
+        "category": "Health Promotion and Maintenance",
+        "topic": "Chronic Disease Management & Lifestyle",
+        "difficulty": "medium",
+        "ngnSkill": "evaluate_outcomes",
+        "stageId": "planning",
+        "stem": {
+          "en": "The client chooses a goal of walking 30 minutes per day on 5 days each week. How many minutes of walking per week should the nurse document for this goal? Enter a number only.",
+          "zh": "患者选择的目标是每周5天、每天步行30分钟。护士应记录该目标为每周步行多少分钟？只输入数字。"
+        },
+        "blanks": [
+          {
+            "id": "b1",
+            "prompt": {
+              "en": "minutes per week",
+              "zh": "分钟/周"
+            },
+            "acceptable": [
+              "150"
+            ],
+            "numeric": {
+              "value": 150,
+              "tolerance": 0,
+              "unit": "minutes/week"
+            }
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Thirty minutes per day multiplied by 5 days per week equals 150 minutes per week, a clear measurable self-management goal.",
+            "zh": "每天30分钟乘以每周5天等于每周150分钟，这是明确可衡量的自我管理目标。"
+          },
+          "byChoice": [
+            {
+              "refId": "b1",
+              "en": "Calculate 30 × 5 = 150 minutes per week.",
+              "zh": "计算30 × 5 = 每周150分钟。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "For numeric goal-setting questions, identify the unit requested before multiplying or converting.",
+          "zh": "处理数字目标设定题时，先确认题目要求的单位，再进行乘法或换算。"
+        },
+        "glossary": [
+          {
+            "termEn": "Measurable goal",
+            "termZh": "可衡量目标",
+            "defZh": "可以用具体数字或行为判断是否完成的目标。"
+          },
+          {
+            "termEn": "Self-management",
+            "termZh": "自我管理",
+            "defZh": "患者在日常生活中管理疾病、治疗和健康行为的能力。"
+          }
+        ]
+      }
+    ],
+    "exhibits": [
+      {
+        "id": "clinic_note",
+        "title": {
+          "en": "Nurse's Note",
+          "zh": "护士记录"
+        },
+        "content": {
+          "en": "A 58-year-old client arrives for follow-up 2 weeks after starting glipizide in addition to metformin. The client says, 'My wife reads the bottles for me. I take the small white pill when I feel shaky because I think it lowers the sugar faster.' The client reports skipping breakfast on workdays and keeping medications in a pillbox without labels. The spouse says, 'I am afraid to leave him alone because he does not know what to do if his sugar drops.'",
+          "zh": "58岁患者在二甲双胍基础上加用格列吡嗪2周后复诊。患者说：“药瓶都是我妻子帮我看的。我觉得发抖时就吃那颗小白药，因为我以为它能更快降糖。”患者报告工作日常不吃早餐，并将药物放在没有标签的药盒里。配偶说：“我不敢让他一个人在家，因为他不知道血糖低时该怎么办。”"
+        }
+      },
+      {
+        "id": "assessment",
+        "title": {
+          "en": "Assessment Data",
+          "zh": "评估资料"
+        },
+        "content": {
+          "en": "Fasting blood glucose log for the last week: 64, 71, 132, 148, 69, 156, 138 mg/dL. Blood pressure 132/78 mm Hg. Foot exam: skin intact, reduced sensation to monofilament at both great toes. The client reads at about a fifth-grade level and prefers pictures with short instructions.",
+          "zh": "过去一周空腹血糖记录：64、71、132、148、69、156、138 mg/dL。血压132/78 mm Hg。足部检查：皮肤完整，双侧大脚趾单丝触觉减弱。患者阅读水平约为小学五年级，偏好配图和简短说明。"
+        }
+      }
+    ]
+  },
+  "rationale": {
+    "correct": {
+      "en": "This case emphasizes prevention, health literacy, medication safety, caregiver support, and coordinated chronic illness self-management.",
+      "zh": "本病例强调预防、健康素养、用药安全、照护者支持以及慢性病自我管理的协调。"
+    },
+    "byChoice": []
+  },
+  "testTakingStrategy": {
+    "en": "In ambulatory chronic illness cases, prioritize safety risks, assess the client's actual routine, and use teach-back to verify learning.",
+    "zh": "在门诊慢性病病例中，优先处理安全风险，评估患者真实日常做法，并用回授法确认学习效果。"
+  },
+  "glossary": [
+    {
+      "termEn": "Chronic illness self-management",
+      "termZh": "慢性病自我管理",
+      "defZh": "患者长期管理症状、治疗、生活方式和随访的过程。"
+    },
+    {
+      "termEn": "Medication safety",
+      "termZh": "用药安全",
+      "defZh": "通过正确用药、监测和教育减少药物伤害的护理重点。"
+    }
+  ]
+}

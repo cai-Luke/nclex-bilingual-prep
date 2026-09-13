@@ -1,0 +1,110 @@
+[
+  {
+    "command": [
+      "npm",
+      "run",
+      "audit"
+    ],
+    "exit": 1,
+    "log": "final-check-0.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "test:schema-bank"
+    ],
+    "exit": 0,
+    "log": "final-check-1.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "test:audit-stage-refs"
+    ],
+    "exit": 0,
+    "log": "final-check-2.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "test:audit-references"
+    ],
+    "exit": 0,
+    "log": "final-check-3.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "test:grading"
+    ],
+    "exit": 0,
+    "log": "final-check-4.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "test:case-completeness"
+    ],
+    "exit": 0,
+    "log": "final-check-5.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "test:structured-measurements"
+    ],
+    "exit": 0,
+    "log": "final-check-6.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "test:raw-bank-normalization"
+    ],
+    "exit": 0,
+    "log": "final-check-7.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "test:promote"
+    ],
+    "exit": 0,
+    "log": "final-check-8.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "test:raw-gate"
+    ],
+    "exit": 0,
+    "log": "final-check-9.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "flowsheet-gate"
+    ],
+    "exit": 2,
+    "log": "final-check-10.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "build"
+    ],
+    "exit": 0,
+    "log": "final-check-11.log"
+  }
+]

@@ -1,0 +1,103 @@
+{
+  "parentId": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01",
+  "exhibitId": "post_dose",
+  "before": {
+    "panels": [
+      {
+        "kind": "vitals",
+        "columns": [
+          {
+            "id": "current",
+            "label": {
+              "en": "0900",
+              "zh": "0900"
+            }
+          }
+        ],
+        "rows": [
+          {
+            "key": "rr",
+            "label": {
+              "en": "Respiratory rate",
+              "zh": "呼吸频率"
+            },
+            "values": [
+              {
+                "columnId": "current",
+                "value": "10",
+                "unit": "/min"
+              }
+            ]
+          },
+          {
+            "key": "spo2",
+            "label": {
+              "en": "SpO2",
+              "zh": "脉搏血氧饱和度"
+            },
+            "values": [
+              {
+                "columnId": "current",
+                "value": "90",
+                "unit": "%"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "after": {
+    "panels": [
+      {
+        "kind": "vitals",
+        "columns": [
+          {
+            "id": "current",
+            "label": {
+              "en": "0930",
+              "zh": "0930"
+            }
+          }
+        ],
+        "rows": [
+          {
+            "key": "rr",
+            "label": {
+              "en": "Respiratory rate",
+              "zh": "呼吸频率"
+            },
+            "values": [
+              {
+                "columnId": "current",
+                "value": "10",
+                "unit": "/min"
+              }
+            ]
+          },
+          {
+            "key": "spo2",
+            "label": {
+              "en": "SpO2",
+              "zh": "脉搏血氧饱和度"
+            },
+            "values": [
+              {
+                "columnId": "current",
+                "value": "90",
+                "unit": "%"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sourceContent": {
+    "en": "Morphine 2 mg IV was given at 0900. At 0930, pain is 4/10. Respiratory rate 10/min, SpO2 90% on room air. The client drifts to sleep during conversation and needs repeated verbal stimulation to answer. Sedation score 3 (frequently drowsy, arousable, drifts off during conversation).",
+    "zh": "0900 静脉给吗啡 2 mg。0930 疼痛 4/10。呼吸频率 10 次/分，室内空气 SpO2 90%。患者交谈中不断入睡，需要反复言语刺激才回答。镇静评分 3（频繁嗜睡，可唤醒，交谈中又睡着）。"
+  },
+  "allValuesUnitsAndOtherStructureExactlyPreserved": true,
+  "sourceProseExactlyPreserved": true,
+  "result": "PASS; source clock and both display labels now0930"
+}

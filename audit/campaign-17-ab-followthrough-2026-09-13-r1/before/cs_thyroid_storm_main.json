@@ -1,0 +1,651 @@
+{
+  "id": "cs_thyroid_storm_main",
+  "itemType": "case_study",
+  "category": "Physiological Adaptation",
+  "topic": "Endocrine & Neurological Disorders",
+  "difficulty": "hard",
+  "stem": {
+    "en": "Review the client record and answer the case-study items.",
+    "zh": "查阅患者病历并回答案例分析问题。"
+  },
+  "caseStudy": {
+    "title": {
+      "en": "Unfolding case: Suspected Thyroid Storm",
+      "zh": "进展性案例：疑似甲状腺危象"
+    },
+    "summary": {
+      "en": "A 34-year-old female client is brought to the emergency department by her spouse. The spouse reports the client has been increasingly restless, confused, and sweating profusely over the last 12 hours. The client has a history of Graves' disease but stopped taking methimazole three weeks ago due to gastrointestinal upset.",
+      "zh": "一名34岁女性患者由配偶陪同来到急诊室。配偶诉患者在过去12小时内越来越烦躁、意识模糊并大量出汗。患者有毒性弥漫性甲状腺肿（Graves病）病史，但因胃肠道不适于三周前停用甲巯咪唑。"
+    },
+    "exhibits": [
+      {
+        "id": "ex_triage_0800",
+        "title": {
+          "en": "0800: Triage Assessment",
+          "zh": "0800: 分诊评估"
+        },
+        "content": {
+          "en": "Vital Signs:\nTemperature: 104.2 °F (40.1 °C)\nHeart Rate: 152 bpm (irregular)\nBlood Pressure: 168/94 mm Hg\nRespiratory Rate: 28 breaths/min\nSpO2: 95% on room air\n\nNursing Assessment:\nNeurological: Extremely agitated, tremors present in bilateral upper extremities, oriented to person only.\nCardiovascular: Tachycardic, palpable bounding pulses.\nSkin: Flushed, hot, and profusely diaphoretic.\nNeck: Diffuse anterior neck enlargement (goiter) noted.",
+          "zh": "生命体征：\n体温：104.2 °F (40.1 °C)\n心率：152 次/分 (不规则)\n血压：168/94 mm Hg\n呼吸频率：28 次/分\nSpO2：室内空气下95%\n\n护理评估：\n神经系统：极度烦躁，双上肢可见震颤，仅对人有定向力。\n心血管系统：心动过速，可触及洪脉。\n皮肤：潮红、发烫、大量出汗。\n颈部：可见颈前弥漫性肿大（甲状腺肿）。"
+        },
+        "structuredMeasurements": {
+          "panels": [
+            {
+              "kind": "vitals",
+              "columns": [
+                {
+                  "id": "current",
+                  "label": {
+                    "en": "0800",
+                    "zh": "0800"
+                  }
+                }
+              ],
+              "rows": [
+                {
+                  "key": "temp",
+                  "label": {
+                    "en": "Temperature",
+                    "zh": "体温"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "104.2",
+                      "unit": "°F"
+                    }
+                  ]
+                },
+                {
+                  "key": "hr",
+                  "label": {
+                    "en": "Heart rate",
+                    "zh": "心率"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "152",
+                      "unit": "bpm"
+                    }
+                  ]
+                },
+                {
+                  "key": "sbp",
+                  "label": {
+                    "en": "Systolic BP",
+                    "zh": "收缩压"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "168",
+                      "unit": "mmHg"
+                    }
+                  ]
+                },
+                {
+                  "key": "dbp",
+                  "label": {
+                    "en": "Diastolic BP",
+                    "zh": "舒张压"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "94",
+                      "unit": "mmHg"
+                    }
+                  ]
+                },
+                {
+                  "key": "rr",
+                  "label": {
+                    "en": "Respiratory rate",
+                    "zh": "呼吸频率"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "28",
+                      "unit": "/min"
+                    }
+                  ]
+                },
+                {
+                  "key": "spo2",
+                  "label": {
+                    "en": "SpO2",
+                    "zh": "脉搏血氧饱和度"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "95",
+                      "unit": "%"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "stages": [
+      {
+        "id": "stage_0830",
+        "title": {
+          "en": "0830: Provider Orders & Lab Results",
+          "zh": "0830: 医嘱与实验室结果"
+        },
+        "exhibits": [
+          {
+            "id": "ex_labs_0830",
+            "title": {
+              "en": "0830: Diagnostic Results",
+              "zh": "0830: 诊断结果"
+            },
+            "content": {
+              "en": "Thyroid Stimulating Hormone (TSH): < 0.01 mIU/L (Normal: 0.4 - 4.0 mIU/L)\nFree Thyroxine (Free T4): 5.8 ng/dL (Normal: 0.8 - 2.8 ng/dL)\nECG: Atrial fibrillation with rapid ventricular response (RVR)",
+              "zh": "促甲状腺激素 (TSH)：< 0.01 mIU/L (正常值：0.4 - 4.0 mIU/L)\n游离甲状腺素 (Free T4)：5.8 ng/dL (正常值：0.8 - 2.8 ng/dL)\n心电图：心房颤动伴快速心室率 (RVR)"
+            }
+          },
+          {
+            "id": "ex_orders_0830",
+            "title": {
+              "en": "0830: New Orders",
+              "zh": "0830: 新医嘱"
+            },
+            "content": {
+              "en": "1. 0.9% Sodium Chloride IV at 150 mL/hr\n2. Propranolol 1 mg IV push slowly every 5 minutes until heart rate < 100 bpm\n3. Propylthiouracil (PTU) 400 mg PO (or via NG tube) STAT\n4. Lugol's iodine solution 5 drops PO every 6 hours\n5. Hydrocortisone 100 mg IV STAT",
+              "zh": "1. 0.9%氯化钠静脉滴注，150 mL/hr\n2. 普萘洛尔 1 mg 缓慢静脉推注，每5分钟一次，直至心率 < 100 次/分\n3. 丙硫氧嘧啶 (PTU) 400 mg 立即口服 (或经胃管注入)\n4. 复方碘溶液 (Lugol液) 5 滴 口服，每6小时一次\n5. 氢化可的松 100 mg 立即静脉注射"
+            }
+          }
+        ]
+      },
+      {
+        "id": "stage_1200",
+        "title": {
+          "en": "1200: Reassessment",
+          "zh": "1200: 重新评估"
+        },
+        "exhibits": [
+          {
+            "id": "ex_trend_1200",
+            "title": {
+              "en": "1200: Clinical Trend",
+              "zh": "1200: 临床趋势"
+            },
+            "content": {
+              "en": "The client has received IV fluids, propranolol, PTU, Lugol's iodine, and hydrocortisone as prescribed. The client's agitation has decreased, and continuous telemetry demonstrates normal sinus rhythm. A complete blood count (CBC) with differential and a comprehensive metabolic panel (CMP) were drawn.",
+              "zh": "患者已按医嘱接受静脉补液、普萘洛尔、PTU、Lugol液和氢化可的松治疗。患者烦躁情绪有所缓解，持续心电监护显示正常窦性心律。已抽取全血细胞计数 (CBC) 伴分类及综合代谢指标 (CMP) 样本。"
+            },
+            "visual": {
+              "kind": "vitals_trend",
+              "series": [
+                {
+                  "vital": "hr",
+                  "values": [
+                    152,
+                    138,
+                    115,
+                    94
+                  ]
+                },
+                {
+                  "vital": "temp",
+                  "values": [
+                    40.1,
+                    39.8,
+                    38.9,
+                    38.2
+                  ]
+                }
+              ],
+              "caption": {
+                "en": "Vital signs trend from 0800 to 1200",
+                "zh": "0800至1200生命体征趋势"
+              },
+              "time": {
+                "unit": "hr",
+                "values": [
+                  0,
+                  1,
+                  2,
+                  4
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "cs_thyroid_storm_q1",
+        "itemType": "matrix",
+        "category": "Physiological Adaptation",
+        "topic": "Endocrine & Neurological Disorders",
+        "difficulty": "medium",
+        "ngnSkill": "analyze_cues",
+        "stem": {
+          "en": "The nurse analyzes the client's initial 0800 triage presentation. For each finding, indicate if the cue is expected in uncomplicated hyperthyroidism, or if it specifically indicates a transition to life-threatening thyroid storm.",
+          "zh": "护士分析患者0800最初的分诊表现。针对每一项体征，指出该线索是单纯性甲状腺功能亢进的预期表现，还是明确提示已转变为危及生命的甲状腺危象。"
+        },
+        "matrix": {
+          "rows": [
+            {
+              "id": "r1",
+              "en": "Temperature of 104.2 °F (40.1 °C)",
+              "zh": "体温 104.2 °F (40.1 °C)"
+            },
+            {
+              "id": "r2",
+              "en": "Diffuse anterior neck enlargement",
+              "zh": "颈前弥漫性肿大"
+            },
+            {
+              "id": "r3",
+              "en": "Severe agitation and confusion",
+              "zh": "极度烦躁与意识模糊"
+            },
+            {
+              "id": "r4",
+              "en": "Heart rate of 152 bpm",
+              "zh": "心率 152 次/分"
+            }
+          ],
+          "columns": [
+            {
+              "id": "c1",
+              "en": "Expected in Uncomplicated Hyperthyroidism",
+              "zh": "单纯性甲亢预期表现"
+            },
+            {
+              "id": "c2",
+              "en": "Indicates Thyroid Storm",
+              "zh": "提示甲状腺危象"
+            }
+          ],
+          "selectionMode": "single_per_row"
+        },
+        "correct": [
+          {
+            "rowId": "r1",
+            "columnIds": [
+              "c2"
+            ]
+          },
+          {
+            "rowId": "r2",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r3",
+            "columnIds": [
+              "c2"
+            ]
+          },
+          {
+            "rowId": "r4",
+            "columnIds": [
+              "c2"
+            ]
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Thyroid storm is an extreme, life-threatening exacerbation of hyperthyroidism. While hyperthyroidism causes heat intolerance, extreme hyperpyrexia (e.g., 104.2 °F (40.1 °C)) is a hallmark of thyroid storm. Mild anxiety is common in hyperthyroidism, but severe agitation, delirium, and confusion indicate CNS dysfunction specific to thyroid storm. Resting tachycardia (90-110 bpm) is expected in hyperthyroidism, but extreme tachycardia (>130 bpm) or arrhythmias like atrial fibrillation signify thyroid storm. A goiter is an anatomical feature of Graves' disease and hyperthyroidism, not a specific acute marker of a storm.",
+            "zh": "甲状腺危象是甲状腺功能亢进的一种极端、危及生命的恶化形式。虽然甲亢会导致怕热，但极端高热（如 104.2 °F (40.1 °C)）是甲状腺危象的标志。轻度焦虑在甲亢中很常见，但极度烦躁、谵妄和意识模糊表明中枢神经系统功能障碍，这是甲状腺危象的特有表现。静息心动过速（90-110 次/分）是甲亢的预期表现，但极度心动过速（>130 次/分）或心律失常（如心房颤动）则标志着甲状腺危象。甲状腺肿是Graves病和甲亢的解剖学特征，并非危象的特异性急性标志。"
+          },
+          "byChoice": [
+            {
+              "refId": "r1",
+              "en": "Extreme hyperpyrexia is a defining criterion for thyroid storm due to a massive surge in metabolic rate.",
+              "zh": "极端高热是甲状腺危象的诊断标准之一，原因是代谢率出现了大规模的激增。"
+            },
+            {
+              "refId": "r2",
+              "en": "A goiter reflects chronic glandular enlargement in Graves' disease, seen in uncomplicated hyperthyroidism.",
+              "zh": "甲状腺肿反映了Graves病中慢性的腺体增大，可见于单纯性甲亢。"
+            },
+            {
+              "refId": "r3",
+              "en": "CNS dysfunction, ranging from extreme agitation to coma, differentiates thyroid storm from standard hyperthyroidism.",
+              "zh": "从中枢神经系统功能障碍（从极度烦躁到昏迷）是区分甲状腺危象与标准甲亢的重要标志。"
+            },
+            {
+              "refId": "r4",
+              "en": "Severe tachyarrhythmias (often >130-140 bpm) with cardiovascular compromise indicate progression to thyroid storm.",
+              "zh": "伴有心血管功能受损的严重快速型心律失常（通常>130-140次/分）提示病情进展为甲状腺危象。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Distinguish between chronic physiological adaptations to high thyroid levels and the acute, decompensated signs of metabolic crisis. High fever, CNS changes, and extreme tachycardia are the triad of thyroid storm.",
+          "zh": "区分对高甲状腺素水平的慢性生理适应与代谢危机的急性失代偿体征。高热、中枢神经系统改变和极度心动过速是甲状腺危象的三联征。"
+        },
+        "glossary": [
+          {
+            "termEn": "Thyroid storm",
+            "termZh": "甲状腺危象",
+            "defZh": "一种罕见但危及生命的严重甲亢并发症，特征为高热、严重心动过速和意识改变。"
+          },
+          {
+            "termEn": "Hyperpyrexia",
+            "termZh": "高热",
+            "defZh": "体温异常升高，通常指体温达到或超过104.0 °F (40.0 °C) 或以上。"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "cs_thyroid_storm_q2",
+        "itemType": "ordered_response",
+        "category": "Pharmacological and Parenteral Therapies",
+        "topic": "Cardiovascular & Endocrine Medications",
+        "difficulty": "hard",
+        "ngnSkill": "take_action",
+        "stem": {
+          "en": "Based on the 0830 orders, the nurse prepares to administer the prescribed medications. Drag and drop the medications into the correct order of administration to safely manage the thyroid storm.",
+          "zh": "根据0830的医嘱，护士准备给予处方药物。请拖拽药物并按正确的给药顺序排列，以安全地处理甲状腺危象。"
+        },
+        "options": [
+          {
+            "id": "opt_bb",
+            "en": "Administer IV propranolol",
+            "zh": "静脉注射普萘洛尔"
+          },
+          {
+            "id": "opt_steroid",
+            "en": "Administer IV hydrocortisone",
+            "zh": "静脉注射氢化可的松"
+          },
+          {
+            "id": "opt_iodine",
+            "en": "Administer Lugol's iodine solution",
+            "zh": "给予复方碘溶液 (Lugol液)"
+          },
+          {
+            "id": "opt_ptu",
+            "en": "Administer propylthiouracil (PTU)",
+            "zh": "给予丙硫氧嘧啶 (PTU)"
+          }
+        ],
+        "correct": [
+          "opt_bb",
+          "opt_ptu",
+          "opt_iodine",
+          "opt_steroid"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "The pharmacological sequence in thyroid storm is critical to prevent exacerbating the condition. First, a beta-blocker (propranolol) is administered immediately to block peripheral sympathetic effects, lowering the dangerously high heart rate and preventing cardiovascular collapse. Second, an antithyroid medication like PTU is given to block the synthesis of new thyroid hormones. Third, an iodine solution (Lugol's) is given to block the release of pre-formed thyroid hormones. Crucially, iodine must be delayed for 1-2 hours AFTER PTU; if given first, iodine will act as substrate and fuel massive new thyroid hormone synthesis. Fourth, corticosteroids (hydrocortisone) are administered to treat relative adrenal insufficiency caused by hypermetabolism and to block the peripheral conversion of T4 to active T3.",
+            "zh": "甲状腺危象的药理学用药顺序对于防止病情恶化至关重要。第一，必须立即给予β受体阻滞剂（普萘洛尔）以阻断外周交感神经效应，降低危险的高心率并预防心血管崩溃。第二，给予抗甲状腺药物如PTU以阻断新甲状腺激素的合成。第三，给予碘溶液（Lugol液）以阻断已生成的甲状腺激素的释放。关键在于，碘剂必须在PTU给药后1-2小时延迟使用；如果先给碘，碘将作为底物加速大量新甲状腺激素的合成。第四，给予皮质类固醇（氢化可的松）以治疗由高代谢引起的相对肾上腺功能不全，并阻断外周T4向活性T3的转化。"
+          },
+          "byChoice": [
+            {
+              "refId": "opt_ptu",
+              "en": "PTU must be given before iodine to inhibit the thyroid gland's ability to use the upcoming iodine to synthesize more hormones.",
+              "zh": "必须在碘剂之前给予PTU，以抑制甲状腺利用即将到来的碘合成更多激素的能力。"
+            },
+            {
+              "refId": "opt_bb",
+              "en": "Propranolol is the immediate priority to reverse life-threatening sympathetic overstimulation (atrial fibrillation with RVR).",
+              "zh": "普萘洛尔是首要任务，用于逆转危及生命的交感神经神经过度刺激（伴有RVR的房颤）。"
+            },
+            {
+              "refId": "opt_steroid",
+              "en": "Hydrocortisone supports the adrenal axis during extreme stress and further decreases peripheral T4 to T3 conversion. It can be given concurrently or after the primary sequence is initiated.",
+              "zh": "氢化可的松在极端压力下支持肾上腺轴，并进一步减少外周T4向T3的转化。它可以与主要顺序同时进行或在其启动后给予。"
+            },
+            {
+              "refId": "opt_iodine",
+              "en": "Iodine is given 1-2 hours after PTU. It works by paralyzing the thyroid gland from releasing already-stored hormone.",
+              "zh": "碘剂在PTU给药1-2小时后使用。其作用机制是麻痹甲状腺，阻止其释放已储存的激素。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Memorize the sequence: Block the effects (Beta blocker) -> Block synthesis (PTU) -> Block release (Iodine) -> Block peripheral conversion (Steroids). Never give iodine before PTU.",
+          "zh": "记住用药顺序：阻断效应（β受体阻滞剂）-> 阻断合成（PTU）-> 阻断释放（碘剂）-> 阻断外周转化（类固醇）。绝对不要在PTU之前给碘。"
+        },
+        "glossary": [
+          {
+            "termEn": "Propranolol",
+            "termZh": "普萘洛尔",
+            "defZh": "一种非选择性β受体阻滞剂，用于减慢心率并减少交感神经的过度兴奋。"
+          },
+          {
+            "termEn": "Propylthiouracil (PTU)",
+            "termZh": "丙硫氧嘧啶",
+            "defZh": "一种抗甲状腺药物，通过抑制过氧化物酶来阻止甲状腺激素的合成。"
+          }
+        ]
+      },
+      {
+        "id": "cs_thyroid_storm_q3",
+        "itemType": "select_all",
+        "category": "Management of Care",
+        "topic": "Prioritization & Delegation",
+        "difficulty": "medium",
+        "ngnSkill": "generate_solutions",
+        "stem": {
+          "en": "To manage the client's hypermetabolic state and maintain safety between 0800 and 1200, which nursing interventions are indicated? Select all that apply.",
+          "zh": "为了在0800至1200之间控制患者的高代谢状态并维持安全，需要采取哪些护理干预措施？请选择所有适用项。"
+        },
+        "options": [
+          {
+            "id": "opt_aspirin",
+            "en": "Administer prescribed aspirin for antipyretic relief.",
+            "zh": "遵医嘱给予阿司匹林以退热。"
+          },
+          {
+            "id": "opt_cooling",
+            "en": "Apply a cooling blanket and ice packs to axillae and groin.",
+            "zh": "使用冰毯并将冰袋置于腋下和腹股沟。"
+          },
+          {
+            "id": "opt_environment",
+            "en": "Maintain a cool, dark, and quiet room environment.",
+            "zh": "维持凉爽、昏暗且安静的病房环境。"
+          },
+          {
+            "id": "opt_acetaminophen",
+            "en": "Administer prescribed acetaminophen for hyperthermia.",
+            "zh": "遵医嘱给予对乙酰氨基酚以治疗高热。"
+          },
+          {
+            "id": "opt_fluids",
+            "en": "Restrict intravenous fluids to prevent pulmonary edema.",
+            "zh": "限制静脉输液以防止肺水肿。"
+          },
+          {
+            "id": "opt_seizure",
+            "en": "Initiate seizure precautions.",
+            "zh": "启动癫痫预防措施。"
+          }
+        ],
+        "correct": [
+          "opt_acetaminophen",
+          "opt_cooling",
+          "opt_environment",
+          "opt_seizure"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Nursing care for thyroid storm focuses on reducing hyperthermia, preventing injury from extreme agitation, and providing supportive care. Acetaminophen and physical cooling (cooling blankets, ice packs) are used aggressively to lower core temperature. A cool, dark, quiet environment minimizes sympathetic nervous system stimulation, reducing agitation and cardiac demand. Seizure precautions are necessary because severe hyperpyrexia and CNS hyper-excitability place the client at high risk for seizures. Aspirin is contraindicated because salicylates displace thyroid hormone from binding proteins, increasing free active thyroid hormone levels and worsening the storm. Fluid restriction is incorrect; these clients have profound insensible fluid losses from diaphoresis and hyperventilation and require aggressive IV fluid replacement.",
+            "zh": "甲状腺危象的护理重点是降低高热、防止因极度烦躁引起的损伤并提供支持性护理。对乙酰氨基酚和物理降温（冰毯、冰袋）被积极用于降低核心体温。凉爽、昏暗、安静的环境可最大限度地减少交感神经系统刺激，从而减轻烦躁和心脏负荷。由于严重高热和中枢神经系统过度兴奋使患者处于癫痫发作的高危状态，因此必须采取癫痫预防措施。阿司匹林是禁忌的，因为水杨酸盐会将甲状腺激素从结合蛋白上置换下来，增加游离活性甲状腺激素水平并加重危象。限制输液是错误的；这些患者因大量出汗和过度通气会产生严重的不显性失水，需要积极的静脉补液。"
+          },
+          "byChoice": [
+            {
+              "refId": "opt_aspirin",
+              "en": "Aspirin (salicylates) is strictly contraindicated. It displaces thyroid hormones from carrier proteins, worsening the hypermetabolic state.",
+              "zh": "阿司匹林（水杨酸盐）绝对禁忌。它会将甲状腺激素从载体蛋白上置换下来，从而加重高代谢状态。"
+            },
+            {
+              "refId": "opt_seizure",
+              "en": "High fever and severe CNS irritability pose an imminent risk for seizures.",
+              "zh": "高热和严重的中枢神经系统应激性构成癫痫发作的直接风险。"
+            },
+            {
+              "refId": "opt_cooling",
+              "en": "External cooling methods are critical adjunctive therapies to rapidly decrease dangerous hyperpyrexia.",
+              "zh": "体表降温方法是快速降低危险高热的关键辅助疗法。"
+            },
+            {
+              "refId": "opt_environment",
+              "en": "Limiting sensory stimulation decreases the sympathetic overdrive contributing to tachycardia and agitation.",
+              "zh": "限制感官刺激可减少导致心动过速和烦躁的交感神经神经过度兴奋。"
+            },
+            {
+              "refId": "opt_fluids",
+              "en": "Clients are typically severely dehydrated from extreme diaphoresis and hyperthermia; aggressive, not restricted, hydration is required.",
+              "zh": "患者通常因大量出汗和高热而严重脱水；需要积极补水而非限制。"
+            },
+            {
+              "refId": "opt_acetaminophen",
+              "en": "Acetaminophen is the antipyretic of choice for thyroid storm as it effectively lowers temperature without affecting thyroid hormone binding.",
+              "zh": "对乙酰氨基酚是甲状腺危象首选的退热药，因为它能在不影响甲状腺激素结合的情况下有效降温。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "When selecting medications for symptoms, always consider drug-disease interactions. Remember that aspirin is unsafe in thyroid storm. Treat the hypermetabolism with a calm environment and physical cooling.",
+          "zh": "在为症状选择药物时，请始终考虑药物与疾病的相互作用。记住阿司匹林在甲状腺危象中是不安全的。通过安静的环境和物理降温来应对高代谢。"
+        },
+        "glossary": [
+          {
+            "termEn": "Salicylates",
+            "termZh": "水杨酸盐",
+            "defZh": "一类药物（如阿司匹林），在甲亢中应避免使用，因为它们会增加游离甲状腺激素。"
+          },
+          {
+            "termEn": "Insensible fluid loss",
+            "termZh": "不显性失水",
+            "defZh": "难以测量的体液流失，主要通过皮肤出汗和呼吸道蒸发。"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "cs_thyroid_storm_q4",
+        "itemType": "multiple_choice",
+        "category": "Pharmacological and Parenteral Therapies",
+        "topic": "Cardiovascular & Endocrine Medications",
+        "difficulty": "hard",
+        "ngnSkill": "evaluate_outcomes",
+        "stem": {
+          "en": "The nurse evaluates the 1200 laboratory results to monitor for severe adverse effects of propylthiouracil (PTU). Which laboratory finding requires immediate notification to the healthcare provider?",
+          "zh": "护士评估1200的实验室结果，以监测丙硫氧嘧啶 (PTU) 的严重不良反应。哪一项实验室发现需要立即通知医疗服务提供者？"
+        },
+        "options": [
+          {
+            "id": "opt_bun",
+            "en": "Blood urea nitrogen (BUN) of 18 mg/dL (6.4 mmol/L)",
+            "zh": "血尿素氮 (BUN) 18 mg/dL (6.4 mmol/L)"
+          },
+          {
+            "id": "opt_k",
+            "en": "Serum potassium of 3.8 mEq/L (3.8 mmol/L)",
+            "zh": "血清钾 3.8 mEq/L (3.8 mmol/L)"
+          },
+          {
+            "id": "opt_wbc",
+            "en": "White blood cell count of 2.8 ×10³/µL",
+            "zh": "白细胞计数 2.8 ×10³/µL"
+          },
+          {
+            "id": "opt_t4",
+            "en": "Free T4 of 4.2 ng/dL",
+            "zh": "游离T4 4.2 ng/dL"
+          }
+        ],
+        "correct": [
+          "opt_wbc"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "A severe and potentially fatal adverse effect of propylthiouracil (PTU) and methimazole is agranulocytosis (a profound drop in white blood cells, specifically neutrophils). A total WBC count of 2.8 ×10³/µL is abnormally low (leukopenia) and places the client at extreme risk for life-threatening sepsis, warranting immediate provider notification to stop the drug and implement reverse isolation. The potassium and BUN levels are within normal limits. The Free T4 remains elevated (normal 0.8-2.8 ng/dL); while abnormal, this is an expected finding at this stage, as it takes time for circulating hormone levels to fall even after synthesis and release are blocked.",
+            "zh": "丙硫氧嘧啶 (PTU) 和甲巯咪唑的一种严重且具有潜在致命性的不良反应是粒细胞缺乏症（白细胞特别是中性粒细胞大幅下降）。2.8 ×10³/µL 的白细胞总数异常偏低（白细胞减少症），使患者面临危及生命的败血症的极高风险，需要立即通知医生停药并实施保护性隔离。钾和BUN水平在正常范围内。游离T4仍然升高（正常值0.8-2.8 ng/dL）；虽然异常，但在这一阶段是预期的发现，因为即使合成和释放被阻断，循环中激素水平下降也需要时间。"
+          },
+          "byChoice": [
+            {
+              "refId": "opt_bun",
+              "en": "A BUN of 18 mg/dL is within the normal reference range (10-20 mg/dL).",
+              "zh": "BUN为 18 mg/dL 在正常参考范围 (10-20 mg/dL) 内。"
+            },
+            {
+              "refId": "opt_k",
+              "en": "A serum potassium of 3.8 mEq/L is a normal physiological finding and does not indicate an adverse effect.",
+              "zh": "血清钾 3.8 mEq/L 是正常的生理指标，不提示发生不良反应。"
+            },
+            {
+              "refId": "opt_t4",
+              "en": "An elevated free T4 is the cause of the storm; it is expected to remain elevated for days to weeks after starting PTU therapy as existing circulating levels metabolize.",
+              "zh": "游离T4升高是危象的原因；在开始PTU治疗后的几天至几周内，随着现有循环水平的代谢，预计它仍将保持较高水平。"
+            },
+            {
+              "refId": "opt_wbc",
+              "en": "Agranulocytosis/leukopenia is a life-threatening toxicity of PTU. The provider must be notified immediately to evaluate for drug discontinuation.",
+              "zh": "粒细胞缺乏症/白细胞减少症是PTU危及生命的毒性反应。必须立即通知医生评估是否停药。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "When evaluating drug toxicity, look for the known severe complications. For antithyroid medications (PTU, methimazole), always monitor for signs of agranulocytosis (low WBC, fever, sore throat) and hepatotoxicity.",
+          "zh": "在评估药物毒性时，请寻找已知的严重并发症。对于抗甲状腺药物（PTU、甲巯咪唑），必须始终监测粒细胞缺乏症（白细胞低、发烧、喉咙痛）和肝毒性的迹象。"
+        },
+        "glossary": [
+          {
+            "termEn": "Agranulocytosis",
+            "termZh": "粒细胞缺乏症",
+            "defZh": "一种严重的白细胞异常减少，导致发生严重感染的风险极高。"
+          },
+          {
+            "termEn": "Leukopenia",
+            "termZh": "白细胞减少症",
+            "defZh": "血液中白细胞数量低于正常水平。"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      }
+    ]
+  },
+  "rationale": {
+    "correct": {
+      "en": "Thyroid storm requires immediate recognition and sequential intervention. Care begins with airway and cardiovascular stabilization (propranolol) to manage the deadly sympathetic surge. This is strictly followed by halting new thyroid hormone synthesis (PTU) before blocking its release (Lugol's iodine). Concurrently, nursing care focuses on aggressively lowering hyperpyrexia with safe methods (acetaminophen, cooling blankets, avoiding aspirin) and minimizing sensory stimulation. Finally, outcomes must be evaluated by monitoring both the resolution of symptoms (vital sign stability) and vigilance for severe pharmacological side effects, such as PTU-induced agranulocytosis.",
+      "zh": "甲状腺危象需要立即识别并进行序贯干预。护理从气道和心血管稳定（普萘洛尔）开始，以控制致命的交感神经激增。这必须严格遵循先停止新甲状腺激素合成（PTU），然后再阻断其释放（Lugol液）的顺序。同时，护理工作侧重于使用安全方法（对乙酰氨基酚、冰毯、避免使用阿司匹林）积极降低高热，并将感觉刺激降至最低。最后，必须通过监测症状的缓解情况（生命体征稳定）和警惕严重的药理学副作用（如PTU引起的粒细胞缺乏症）来评估治疗结果。"
+    }
+  },
+  "testTakingStrategy": {
+    "en": "Unfolding cases require tracking clinical trends. Notice the timeline of medication administration and match nursing interventions to the physiological priorities at each stage (cardiac control -> source control -> complication prevention).",
+    "zh": "进展性案例需要跟踪临床趋势。注意给药的时间线，并将护理干预措施与每个阶段的生理优先事项（心脏控制 -> 根源控制 -> 并发症预防）相匹配。"
+  },
+  "glossary": [
+    {
+      "termEn": "Thyroid storm",
+      "termZh": "甲状腺危象",
+      "defZh": "一种罕见但危及生命的严重甲亢并发症，特征为高热、严重心动过速和意识改变。"
+    },
+    {
+      "termEn": "Agranulocytosis",
+      "termZh": "粒细胞缺乏症",
+      "defZh": "一种严重的白细胞异常减少，导致发生严重感染的风险极高。"
+    },
+    {
+      "termEn": "Lugol's iodine",
+      "termZh": "复方碘溶液 (Lugol液)",
+      "defZh": "用于抑制甲状腺激素释放的含碘溶液，必须在抗甲状腺药物之后给药。"
+    }
+  ]
+}

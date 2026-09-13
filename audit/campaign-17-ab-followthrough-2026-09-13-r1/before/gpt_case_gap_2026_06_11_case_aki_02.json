@@ -1,0 +1,757 @@
+{
+  "id": "gpt_case_gap_2026_06_11_case_aki_02",
+  "itemType": "case_study",
+  "category": "Physiological Adaptation",
+  "topic": "Renal & Gastrointestinal Disorders",
+  "difficulty": "hard",
+  "ngnSkill": "analyze_cues",
+  "stem": {
+    "en": "Review the case-study exhibits and answer the embedded questions.",
+    "zh": "查看病例研究资料并回答其中的问题。"
+  },
+  "caseStudy": {
+    "title": {
+      "en": "Acute kidney injury with hyperkalemia",
+      "zh": "急性肾损伤伴高钾血症"
+    },
+    "summary": {
+      "en": "Volume depletion and nephrotoxic exposure progress to oliguria and hyperkalemia with ECG changes.",
+      "zh": "容量不足和肾毒性暴露进展为少尿及伴心电改变的高钾血症。"
+    },
+    "exhibits": [
+      {
+        "id": "aki_initial",
+        "title": {
+          "en": "Admission assessment",
+          "zh": "入院评估"
+        },
+        "content": {
+          "en": "A 66-year-old client is admitted after 4 days of vomiting and poor oral intake from viral gastroenteritis. History: hypertension and osteoarthritis. Home medications include lisinopril and ibuprofen 600 mg three times daily for knee pain. Vital signs: T 99.7 °F (37.6 °C), HR 108/min, BP 96/58 mm Hg. Mucous membranes are dry. Urine output in the ED: 60 mL over 4 hr.",
+          "zh": "66岁患者因病毒性胃肠炎导致呕吐和进食差4天后入院。病史：高血压、骨关节炎。居家用药包括赖诺普利和布洛芬600 mg每日3次用于膝痛。生命体征：T 99.7 °F (37.6 °C)，HR 108次/分，BP 96/58 mm Hg。黏膜干燥。急诊4小时尿量60 mL。"
+        },
+        "structuredMeasurements": {
+          "panels": [
+            {
+              "kind": "vitals",
+              "columns": [
+                {
+                  "id": "current",
+                  "label": {
+                    "en": "Current",
+                    "zh": "当前"
+                  }
+                }
+              ],
+              "rows": [
+                {
+                  "key": "temp",
+                  "label": {
+                    "en": "Temperature",
+                    "zh": "体温"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "37.6",
+                      "unit": "°C"
+                    }
+                  ]
+                },
+                {
+                  "key": "hr",
+                  "label": {
+                    "en": "Heart rate",
+                    "zh": "心率"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "108",
+                      "unit": "bpm"
+                    }
+                  ]
+                },
+                {
+                  "key": "sbp",
+                  "label": {
+                    "en": "Systolic BP",
+                    "zh": "收缩压"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "96",
+                      "unit": "mmHg"
+                    }
+                  ]
+                },
+                {
+                  "key": "dbp",
+                  "label": {
+                    "en": "Diastolic BP",
+                    "zh": "舒张压"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "58",
+                      "unit": "mmHg"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "aki_labs",
+        "title": {
+          "en": "Laboratory results",
+          "zh": "实验室结果"
+        },
+        "content": {
+          "en": "BUN 48 mg/dL, creatinine 2.6 mg/dL (baseline 0.9), potassium 5.6 mEq/L, bicarbonate 18 mEq/L. Urinalysis: specific gravity 1.030, no nitrites, no casts reported.",
+          "zh": "BUN 48 mg/dL，肌酐2.6 mg/dL（基线0.9），钾5.6 mEq/L，碳酸氢盐18 mEq/L。尿检：比重1.030，亚硝酸盐阴性，未报告管型。"
+        },
+        "structuredMeasurements": {
+          "panels": [
+            {
+              "kind": "labs",
+              "columns": [
+                {
+                  "id": "current",
+                  "label": {
+                    "en": "Current",
+                    "zh": "当前"
+                  }
+                }
+              ],
+              "rows": [
+                {
+                  "key": "bun",
+                  "label": {
+                    "en": "BUN",
+                    "zh": "尿素氮"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "48",
+                      "unit": "mg/dL"
+                    }
+                  ]
+                },
+                {
+                  "key": "creatinine",
+                  "label": {
+                    "en": "Creatinine",
+                    "zh": "肌酐"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "2.6",
+                      "unit": "mg/dL"
+                    }
+                  ]
+                },
+                {
+                  "key": "potassium",
+                  "label": {
+                    "en": "Potassium",
+                    "zh": "血钾"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "5.6",
+                      "unit": "mEq/L"
+                    }
+                  ]
+                },
+                {
+                  "key": "bicarbonate",
+                  "label": {
+                    "en": "Bicarbonate",
+                    "zh": "碳酸氢盐"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "18",
+                      "unit": "mEq/L"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "stages": [
+      {
+        "id": "aki_stage2",
+        "title": {
+          "en": "Four hours later",
+          "zh": "4小时后"
+        },
+        "trigger": {
+          "en": "The client reports new palpitations and weakness.",
+          "zh": "患者诉新发心悸和无力。"
+        },
+        "exhibits": [
+          {
+            "id": "aki_deterioration",
+            "title": {
+              "en": "Focused reassessment",
+              "zh": "重点复评"
+            },
+            "content": {
+              "en": "Urine output: 120 mL over the last 8 hr. HR 118/min, BP 92/54 mm Hg. Potassium 6.2 mEq/L. ECG monitor shows tall peaked T waves.",
+              "zh": "过去8小时尿量120 mL。HR 118次/分，BP 92/54 mm Hg。钾6.2 mEq/L。心电监护显示高尖T波。"
+            }
+          }
+        ]
+      },
+      {
+        "id": "aki_stage3",
+        "title": {
+          "en": "After emergency treatment",
+          "zh": "急救治疗后"
+        },
+        "trigger": {
+          "en": "The client receives isotonic fluids and hyperkalemia protocol medications as prescribed.",
+          "zh": "患者按医嘱接受等渗液体和高钾处理方案药物。"
+        },
+        "exhibits": [
+          {
+            "id": "aki_response",
+            "title": {
+              "en": "Follow-up data",
+              "zh": "随访资料"
+            },
+            "content": {
+              "en": "Potassium 5.3 mEq/L. ECG T waves are less peaked. BP 104/62 mm Hg. Urine output has increased to 45 mL/hr for the last 2 hr.",
+              "zh": "钾5.3 mEq/L。心电图T波高尖程度减轻。BP 104/62 mm Hg。过去2小时尿量增至45 mL/hr。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "sbp",
+                      "label": {
+                        "en": "Systolic BP",
+                        "zh": "收缩压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "104",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "dbp",
+                      "label": {
+                        "en": "Diastolic BP",
+                        "zh": "舒张压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "62",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "labs",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "potassium",
+                      "label": {
+                        "en": "Potassium",
+                        "zh": "血钾"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "5.3",
+                          "unit": "mEq/L"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "gpt_case_gap_2026_06_11_aki_matrix_01",
+        "itemType": "matrix",
+        "category": "Reduction of Risk Potential",
+        "topic": "Laboratory & Diagnostic Tests",
+        "difficulty": "hard",
+        "ngnSkill": "recognize_cues",
+        "stem": {
+          "en": "Classify each cue from the admission data.",
+          "zh": "对入院资料中的每项线索进行分类。"
+        },
+        "matrix": {
+          "rows": [
+            {
+              "id": "r1",
+              "en": "Creatinine increased from 0.9 to 2.6 mg/dL",
+              "zh": "肌酐由0.9升至2.6 mg/dL"
+            },
+            {
+              "id": "r2",
+              "en": "Urine output 60 mL over 4 hr",
+              "zh": "4小时尿量60 mL"
+            },
+            {
+              "id": "r3",
+              "en": "Ibuprofen use during dehydration",
+              "zh": "脱水期间使用布洛芬"
+            },
+            {
+              "id": "r4",
+              "en": "Urine specific gravity 1.030",
+              "zh": "尿比重1.030"
+            },
+            {
+              "id": "r5",
+              "en": "No nitrites on urinalysis",
+              "zh": "尿检亚硝酸盐阴性"
+            }
+          ],
+          "columns": [
+            {
+              "id": "c1",
+              "en": "AKI risk/deterioration cue",
+              "zh": "AKI风险/恶化线索"
+            },
+            {
+              "id": "c2",
+              "en": "Less supportive of AKI deterioration",
+              "zh": "较不支持AKI恶化"
+            }
+          ],
+          "selectionMode": "single_per_row"
+        },
+        "correct": [
+          {
+            "rowId": "r1",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r2",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r3",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r4",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r5",
+            "columnIds": [
+              "c2"
+            ]
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Rising creatinine, oliguria, dehydration, concentrated urine, and NSAID exposure support prerenal AKI with nephrotoxic risk. Negative nitrites do not explain renal hypoperfusion.",
+            "zh": "肌酐升高、少尿、脱水、尿液浓缩及NSAID暴露支持肾前性AKI并伴肾毒性风险。亚硝酸盐阴性不能解释肾灌注不足。"
+          },
+          "byChoice": [
+            {
+              "refId": "r1",
+              "en": "A rapid creatinine rise from baseline is a major AKI cue.",
+              "zh": "肌酐较基线快速升高是AKI的重要线索。"
+            },
+            {
+              "refId": "r2",
+              "en": "This output is below expected adult urine output and signals impaired renal perfusion/function.",
+              "zh": "该尿量低于成人预期，提示肾灌注/功能受损。"
+            },
+            {
+              "refId": "r3",
+              "en": "NSAIDs can worsen renal perfusion, especially during volume depletion.",
+              "zh": "NSAID在容量不足时可加重肾灌注受损。"
+            },
+            {
+              "refId": "r4",
+              "en": "Concentrated urine fits volume depletion contributing to prerenal AKI.",
+              "zh": "尿液浓缩符合容量不足导致肾前性AKI。"
+            },
+            {
+              "refId": "r5",
+              "en": "Negative nitrites reduce support for UTI as the primary explanation and are not a deterioration cue here.",
+              "zh": "亚硝酸盐阴性降低了UTI作为主要解释的支持度，在此不是恶化线索。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Compare current renal values with baseline and connect medication exposure to perfusion status.",
+          "zh": "将当前肾功能与基线比较，并把药物暴露与灌注状态联系起来。"
+        },
+        "glossary": [
+          {
+            "termEn": "Acute kidney injury",
+            "termZh": "急性肾损伤",
+            "defZh": "肾功能在短时间内下降，常表现为肌酐升高、尿量减少和电解质紊乱。"
+          },
+          {
+            "termEn": "Hyperkalemia",
+            "termZh": "高钾血症",
+            "defZh": "血钾升高，可导致危险心律失常。"
+          },
+          {
+            "termEn": "Nephrotoxic",
+            "termZh": "肾毒性",
+            "defZh": "可能损害肾脏功能的药物或物质。"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "gpt_case_gap_2026_06_11_aki_cloze_02",
+        "itemType": "dropdown_cloze",
+        "category": "Physiological Adaptation",
+        "topic": "Electrolyte Imbalances",
+        "difficulty": "hard",
+        "ngnSkill": "analyze_cues",
+        "stageId": "aki_stage2",
+        "stem": {
+          "en": "Complete the clinical judgment statement using the latest data.",
+          "zh": "使用最新资料完成临床判断陈述。"
+        },
+        "clozeStem": {
+          "en": "The priority complication is {{1}} caused by {{2}}.",
+          "zh": "优先关注的并发症是由{{2}}导致的{{1}}。"
+        },
+        "dropdowns": [
+          {
+            "id": "1",
+            "options": [
+              {
+                "id": "o1",
+                "en": "life-threatening dysrhythmia",
+                "zh": "危及生命的心律失常"
+              },
+              {
+                "id": "o2",
+                "en": "fluid volume deficit only",
+                "zh": "单纯液体容量不足"
+              },
+              {
+                "id": "o3",
+                "en": "uncomplicated viral gastroenteritis",
+                "zh": "无并发症的病毒性胃肠炎"
+              }
+            ],
+            "correct": "o1"
+          },
+          {
+            "id": "2",
+            "options": [
+              {
+                "id": "o3",
+                "en": "negative urine nitrites",
+                "zh": "尿亚硝酸盐阴性"
+              },
+              {
+                "id": "o1",
+                "en": "potassium 6.2 mEq/L with peaked T waves",
+                "zh": "钾6.2 mEq/L并出现高尖T波"
+              },
+              {
+                "id": "o2",
+                "en": "dry mucous membranes without ECG changes",
+                "zh": "黏膜干燥但无心电变化"
+              }
+            ],
+            "correct": "o1"
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Severe hyperkalemia with ECG changes is immediately dangerous because it can progress to lethal dysrhythmias.",
+            "zh": "严重高钾并伴心电图改变具有即时危险性，可进展为致命心律失常。"
+          },
+          "byChoice": [
+            {
+              "refId": "1",
+              "en": "The immediate threat has shifted from dehydration alone to cardiac electrical instability.",
+              "zh": "即时威胁已从单纯脱水转为心脏电活动不稳定。"
+            },
+            {
+              "refId": "2",
+              "en": "Peaked T waves with potassium above 6 mEq/L are the key danger cues.",
+              "zh": "血钾超过6 mEq/L并出现高尖T波是关键危险线索。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "When a lab abnormality has ECG or neurologic changes, treat it as an unstable complication, not a routine lab result.",
+          "zh": "当实验室异常伴有心电或神经变化时，应视为不稳定并发症，而非常规异常。"
+        },
+        "glossary": [
+          {
+            "termEn": "Acute kidney injury",
+            "termZh": "急性肾损伤",
+            "defZh": "肾功能在短时间内下降，常表现为肌酐升高、尿量减少和电解质紊乱。"
+          },
+          {
+            "termEn": "Hyperkalemia",
+            "termZh": "高钾血症",
+            "defZh": "血钾升高，可导致危险心律失常。"
+          },
+          {
+            "termEn": "Nephrotoxic",
+            "termZh": "肾毒性",
+            "defZh": "可能损害肾脏功能的药物或物质。"
+          }
+        ]
+      },
+      {
+        "id": "gpt_case_gap_2026_06_11_aki_or_03",
+        "itemType": "ordered_response",
+        "category": "Management of Care",
+        "topic": "Prioritization & Delegation",
+        "difficulty": "hard",
+        "ngnSkill": "take_action",
+        "stageId": "aki_stage2",
+        "stem": {
+          "en": "Place the actions in priority order for this client.",
+          "zh": "将该患者的处理措施按优先顺序排列。"
+        },
+        "options": [
+          {
+            "id": "D",
+            "en": "Prepare to administer prescribed IV calcium and potassium-shifting therapy.",
+            "zh": "准备遵医嘱给予静脉钙剂及促钾转移治疗。"
+          },
+          {
+            "id": "A",
+            "en": "Place the client on continuous cardiac monitoring and obtain a stat ECG.",
+            "zh": "将患者置于连续心电监护并立即获取心电图。"
+          },
+          {
+            "id": "C",
+            "en": "Notify the provider/rapid response team of hyperkalemia with ECG changes.",
+            "zh": "将高钾伴心电改变通知医嘱提供者/快速反应团队。"
+          },
+          {
+            "id": "B",
+            "en": "Stop potassium-containing fluids/supplements and hold nephrotoxic or potassium-raising medications pending provider direction.",
+            "zh": "停止含钾液体/补充剂，并在医嘱指导前暂停肾毒性或升钾药物。"
+          },
+          {
+            "id": "E",
+            "en": "Recheck potassium, glucose, ECG rhythm, and urine output after treatment.",
+            "zh": "治疗后复查钾、血糖、心律和尿量。"
+          }
+        ],
+        "correct": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "ECG changes require immediate monitoring, removal of ongoing potassium/renal insults, urgent escalation, prescribed stabilization and shifting therapy, then reassessment for recurrence and treatment effects.",
+            "zh": "出现心电改变需立即监测，去除持续钾负荷/肾损伤因素，紧急升级处理，按医嘱给予稳定心肌和促钾转移治疗，然后复评复发和治疗效果。"
+          },
+          "byChoice": [
+            {
+              "refId": "E",
+              "en": "Reassessment verifies whether the dysrhythmia risk and renal perfusion are improving.",
+              "zh": "复评可确认心律失常风险和肾灌注是否改善。"
+            },
+            {
+              "refId": "C",
+              "en": "Hyperkalemia with ECG changes is not a routine notification; it needs urgent team response.",
+              "zh": "高钾伴心电改变不是常规通知，需要紧急团队响应。"
+            },
+            {
+              "refId": "A",
+              "en": "The client is at risk for sudden rhythm deterioration, so monitoring comes first.",
+              "zh": "患者有突发心律恶化风险，因此先监测。"
+            },
+            {
+              "refId": "B",
+              "en": "Stopping additional potassium burden and nephrotoxic contributors prevents worsening while help is mobilized.",
+              "zh": "停止额外钾负荷和肾毒性因素可在求助期间防止恶化。"
+            },
+            {
+              "refId": "D",
+              "en": "Calcium stabilizes myocardium and shifting therapies lower serum potassium temporarily when prescribed.",
+              "zh": "钙剂可稳定心肌，促钾转移治疗可在医嘱下暂时降低血钾。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Sequence unstable electrolytes by monitoring first, removing contributors, escalating, treating, then reassessing.",
+          "zh": "不稳定电解质问题按监测、去除诱因、升级、治疗、复评排序。"
+        },
+        "glossary": [
+          {
+            "termEn": "Acute kidney injury",
+            "termZh": "急性肾损伤",
+            "defZh": "肾功能在短时间内下降，常表现为肌酐升高、尿量减少和电解质紊乱。"
+          },
+          {
+            "termEn": "Hyperkalemia",
+            "termZh": "高钾血症",
+            "defZh": "血钾升高，可导致危险心律失常。"
+          },
+          {
+            "termEn": "Nephrotoxic",
+            "termZh": "肾毒性",
+            "defZh": "可能损害肾脏功能的药物或物质。"
+          }
+        ]
+      },
+      {
+        "id": "gpt_case_gap_2026_06_11_aki_fib_04",
+        "itemType": "fill_in_blank",
+        "category": "Physiological Adaptation",
+        "topic": "Renal & Gastrointestinal Disorders",
+        "difficulty": "hard",
+        "ngnSkill": "evaluate_outcomes",
+        "stageId": "aki_stage2",
+        "stem": {
+          "en": "The client weighs 80 kg. Calculate the urine output for the last 8 hr in mL/kg/hr. Round to the nearest hundredth.",
+          "zh": "患者体重80 kg。计算过去8小时的尿量（mL/kg/hr），四舍五入到百分位。"
+        },
+        "blanks": [
+          {
+            "id": "b1",
+            "prompt": {
+              "en": "mL/kg/hr",
+              "zh": "mL/kg/hr"
+            },
+            "acceptable": [
+              "0.19",
+              "0.19 mL/kg/hr"
+            ],
+            "numeric": {
+              "value": 0.19,
+              "tolerance": 0.01,
+              "unit": "mL/kg/hr"
+            }
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Urine output is 120 mL ÷ 80 kg ÷ 8 hr = 0.1875 mL/kg/hr, rounded to 0.19 mL/kg/hr. This is oliguria and supports ongoing AKI risk.",
+            "zh": "尿量=120 mL ÷ 80 kg ÷ 8 hr = 0.1875 mL/kg/hr，四舍五入为0.19 mL/kg/hr。这属于少尿，支持AKI风险仍在持续。"
+          },
+          "byChoice": [
+            {
+              "refId": "b1",
+              "en": "Divide total urine by weight and hours; values well below 0.5 mL/kg/hr require follow-up.",
+              "zh": "用总尿量除以体重和小时数；明显低于0.5 mL/kg/hr需跟进。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "For urine-output calculations, always include both weight and time in the denominator.",
+          "zh": "计算尿量时，分母一定要同时包括体重和时间。"
+        },
+        "glossary": [
+          {
+            "termEn": "Acute kidney injury",
+            "termZh": "急性肾损伤",
+            "defZh": "肾功能在短时间内下降，常表现为肌酐升高、尿量减少和电解质紊乱。"
+          },
+          {
+            "termEn": "Hyperkalemia",
+            "termZh": "高钾血症",
+            "defZh": "血钾升高，可导致危险心律失常。"
+          },
+          {
+            "termEn": "Nephrotoxic",
+            "termZh": "肾毒性",
+            "defZh": "可能损害肾脏功能的药物或物质。"
+          }
+        ]
+      }
+    ]
+  },
+  "rationale": {
+    "correct": {
+      "en": "This case study requires recognizing deterioration across serial assessment data and choosing nursing actions that reduce risk.",
+      "zh": "本病例要求根据连续评估资料识别病情恶化，并选择降低风险的护理措施。"
+    },
+    "byChoice": []
+  },
+  "testTakingStrategy": {
+    "en": "In an unfolding case, compare the newest data with baseline and act first on unstable airway, breathing, circulation, perfusion, and safety cues.",
+    "zh": "处理展开式病例时，先把最新资料与基线比较，并优先处理气道、呼吸、循环、灌注和安全方面的不稳定线索。"
+  },
+  "glossary": [
+    {
+      "termEn": "Acute kidney injury",
+      "termZh": "急性肾损伤",
+      "defZh": "肾功能在短时间内下降，常表现为肌酐升高、尿量减少和电解质紊乱。"
+    },
+    {
+      "termEn": "Hyperkalemia",
+      "termZh": "高钾血症",
+      "defZh": "血钾升高，可导致危险心律失常。"
+    },
+    {
+      "termEn": "Nephrotoxic",
+      "termZh": "肾毒性",
+      "defZh": "可能损害肾脏功能的药物或物质。"
+    }
+  ]
+}

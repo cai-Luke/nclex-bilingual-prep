@@ -1,0 +1,609 @@
+{
+  "id": "gpt_case_premium_next_case_preventive_screening_vaccine_05",
+  "itemType": "case_study",
+  "category": "Health Promotion and Maintenance",
+  "topic": "Adult Health & Wellness",
+  "difficulty": "hard",
+  "ngnSkill": "generate_solutions",
+  "stem": {
+    "en": "A nurse in a community health clinic is planning preventive care with an adult client who has not had routine care for several years.",
+    "zh": "社区健康诊所的护士正在与一名多年未接受常规保健的成年患者制定预防性护理计划。"
+  },
+  "caseStudy": {
+    "title": {
+      "en": "Preventive Care Catch-Up Visit",
+      "zh": "预防保健补做门诊"
+    },
+    "summary": {
+      "en": "The client wants to address only what is necessary for a volunteer clearance form but has several overdue preventive-care needs and concerns about screening tests and vaccines.",
+      "zh": "患者只想完成志愿者审核表所需项目，但存在多项逾期的预防保健需求，并对筛查和疫苗有顾虑。"
+    },
+    "exhibits": [
+      {
+        "id": "clinic_intake",
+        "title": {
+          "en": "Clinic Intake Note",
+          "zh": "诊所初诊记录"
+        },
+        "content": {
+          "en": "A 52-year-old client comes to a community clinic for a school volunteer clearance form. The client says, \"I feel fine, so I do not understand why I need all these tests. I cannot miss work for a colonoscopy.\" The client has not had a primary care visit in 7 years. The client reports no colorectal cancer screening, no mammogram in 8 years, no shingles vaccine, and last tetanus booster more than 10 years ago. The client receives influenza vaccine only in some years.",
+          "zh": "52岁患者到社区诊所办理学校志愿者审核表。患者说：“我感觉很好，不明白为什么需要做这些检查。我不能为了做肠镜请假。”患者已有7年未看初级保健医生。患者报告从未做过结直肠癌筛查，8年未做乳腺X线筛查，未接种带状疱疹疫苗，最后一次破伤风加强针已超过10年。患者只在部分年份接种流感疫苗。"
+        }
+      },
+      {
+        "id": "assessment_data",
+        "title": {
+          "en": "Assessment Data",
+          "zh": "评估资料"
+        },
+        "content": {
+          "en": "Blood pressure 136/84 mm Hg, pulse 78/min, respirations 16/min. The client reads best with large print and short instructions. The client has limited paid time off, uses public transportation, and is worried that vaccines will cause missed work. No acute symptoms are reported.",
+          "zh": "血压136/84 mm Hg，脉搏78次/分，呼吸16次/分。患者最适合阅读大号字体和简短说明。患者带薪假有限，使用公共交通，并担心接种疫苗会导致无法上班。未报告急性症状。"
+        }
+      }
+    ],
+    "stages": [
+      {
+        "id": "shared_planning",
+        "title": {
+          "en": "Shared planning and follow-up",
+          "zh": "共同制定计划和随访"
+        },
+        "exhibits": [
+          {
+            "id": "clinic_resources",
+            "title": {
+              "en": "Available Clinic Resources",
+              "zh": "可用诊所资源"
+            },
+            "content": {
+              "en": "The clinic can provide fecal immunochemical test kits with written and picture instructions, schedule mammography at a nearby imaging center, administer indicated adult vaccines, and arrange a follow-up primary care appointment. Easy-read bilingual materials and teach-back scripts are available.",
+              "zh": "诊所可提供粪便免疫化学试验（FIT）试剂盒及图文说明，可预约附近影像中心的乳腺X线检查，可接种适用的成人疫苗，并可安排初级保健随访。诊所有简明双语材料和回授法脚本。"
+            }
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "gpt_case_premium_next_case_preventive_screening_vaccine_05_matrix_needs",
+        "itemType": "matrix",
+        "category": "Health Promotion and Maintenance",
+        "topic": "Adult Health & Wellness",
+        "difficulty": "hard",
+        "ngnSkill": "recognize_cues",
+        "stem": {
+          "en": "For each finding, select the most appropriate nursing interpretation.",
+          "zh": "对每项发现，选择最合适的护理判断。"
+        },
+        "matrix": {
+          "rows": [
+            {
+              "id": "r1",
+              "en": "No colorectal cancer screening at age 52",
+              "zh": "52岁从未接受结直肠癌筛查"
+            },
+            {
+              "id": "r2",
+              "en": "No mammogram in 8 years",
+              "zh": "8年未做乳腺X线筛查"
+            },
+            {
+              "id": "r3",
+              "en": "No shingles vaccine at age 52",
+              "zh": "52岁未接种带状疱疹疫苗"
+            },
+            {
+              "id": "r4",
+              "en": "Last tetanus booster more than 10 years ago",
+              "zh": "最后一次破伤风加强针已超过10年"
+            },
+            {
+              "id": "r5",
+              "en": "Blood pressure 136/84 mm Hg without symptoms",
+              "zh": "无症状血压136/84 mm Hg"
+            }
+          ],
+          "columns": [
+            {
+              "id": "c2",
+              "en": "Needs vaccination counseling",
+              "zh": "需要疫苗宣教"
+            },
+            {
+              "id": "c1",
+              "en": "Needs screening or referral",
+              "zh": "需要筛查或转介"
+            },
+            {
+              "id": "c3",
+              "en": "Needs routine follow-up, not urgent care",
+              "zh": "需要常规随访，而非紧急处理"
+            }
+          ],
+          "selectionMode": "single_per_row"
+        },
+        "correct": [
+          {
+            "rowId": "r1",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r2",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r3",
+            "columnIds": [
+              "c2"
+            ]
+          },
+          {
+            "rowId": "r4",
+            "columnIds": [
+              "c2"
+            ]
+          },
+          {
+            "rowId": "r5",
+            "columnIds": [
+              "c3"
+            ]
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "The client has overdue cancer screening and overdue adult immunization needs. The blood pressure finding warrants primary care follow-up and lifestyle counseling but does not require emergency care in the absence of symptoms.",
+            "zh": "患者存在逾期的癌症筛查和成人免疫接种需求。该血压值需要初级保健随访和生活方式宣教，但在无症状情况下不需要急诊处理。"
+          },
+          "byChoice": [
+            {
+              "refId": "r1",
+              "en": "At age 52, absence of colorectal cancer screening is a preventive screening gap that should be addressed with acceptable screening options.",
+              "zh": "52岁仍未接受结直肠癌筛查属于预防筛查缺口，应提供可接受的筛查选择。"
+            },
+            {
+              "refId": "r2",
+              "en": "No mammogram in 8 years indicates the client needs screening referral and shared decision-making about follow-up.",
+              "zh": "8年未做乳腺X线筛查提示需要筛查转介，并与患者共同决定后续计划。"
+            },
+            {
+              "refId": "r3",
+              "en": "A shingles vaccine discussion is appropriate for an adult in this age group who has not received it.",
+              "zh": "该年龄段成人若未接种带状疱疹疫苗，应进行相关接种宣教。"
+            },
+            {
+              "refId": "r4",
+              "en": "A tetanus booster more than 10 years ago signals a routine adult immunization catch-up need.",
+              "zh": "破伤风加强针超过10年提示需要补做常规成人免疫接种。"
+            },
+            {
+              "refId": "r5",
+              "en": "This blood pressure should be rechecked and followed in primary care, but the client has no signs of acute instability.",
+              "zh": "该血压应复测并在初级保健中随访，但患者没有急性不稳定表现。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Preventive-care questions often ask you to separate overdue screening or immunization from findings that need routine monitoring rather than urgent action.",
+          "zh": "预防保健题常要求区分逾期筛查或免疫接种与只需常规监测、无需紧急处理的发现。"
+        },
+        "glossary": [
+          {
+            "termEn": "Preventive screening",
+            "termZh": "预防性筛查",
+            "defZh": "在无症状时寻找早期疾病或风险因素的检查。"
+          },
+          {
+            "termEn": "Adult immunization",
+            "termZh": "成人免疫接种",
+            "defZh": "成年人根据年龄、风险和接种史需要接种或补种的疫苗。"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "gpt_case_premium_next_case_preventive_screening_vaccine_05_cloze_crc",
+        "itemType": "dropdown_cloze",
+        "category": "Health Promotion and Maintenance",
+        "topic": "Adult Health & Wellness",
+        "difficulty": "medium",
+        "ngnSkill": "analyze_cues",
+        "stem": {
+          "en": "Complete the statement about colorectal cancer screening teaching.",
+          "zh": "完成关于结直肠癌筛查宣教的陈述。"
+        },
+        "clozeStem": {
+          "en": "Because the client is {{1}} and has not been screened, the nurse should explain that {{2}} is an acceptable initial option if the client cannot miss work for colonoscopy, and any positive result requires {{3}}.",
+          "zh": "由于患者 {{1}} 且从未筛查，护士应说明：如果患者无法请假做肠镜，{{2}} 可作为可接受的初始选择；任何阳性结果都需要 {{3}}。"
+        },
+        "dropdowns": [
+          {
+            "id": "1",
+            "options": [
+              {
+                "id": "o3",
+                "en": "eligible only if symptoms develop",
+                "zh": "只有出现症状后才符合筛查条件"
+              },
+              {
+                "id": "o1",
+                "en": "within the routine adult screening age range",
+                "zh": "处于成人常规筛查年龄范围内"
+              },
+              {
+                "id": "o2",
+                "en": "too young for any colorectal cancer screening",
+                "zh": "年龄太小，不需要任何结直肠癌筛查"
+              }
+            ],
+            "correct": "o1"
+          },
+          {
+            "id": "2",
+            "options": [
+              {
+                "id": "o1",
+                "en": "a stool-based screening test",
+                "zh": "粪便筛查试验"
+              },
+              {
+                "id": "o2",
+                "en": "waiting until abdominal pain occurs",
+                "zh": "等到出现腹痛再处理"
+              },
+              {
+                "id": "o3",
+                "en": "a home blood pressure log",
+                "zh": "家庭血压记录"
+              }
+            ],
+            "correct": "o1"
+          },
+          {
+            "id": "3",
+            "options": [
+              {
+                "id": "o2",
+                "en": "a tetanus booster only",
+                "zh": "只需破伤风加强针"
+              },
+              {
+                "id": "o1",
+                "en": "colonoscopy follow-up",
+                "zh": "肠镜随访检查"
+              },
+              {
+                "id": "o3",
+                "en": "no additional testing",
+                "zh": "无需进一步检查"
+              }
+            ],
+            "correct": "o1"
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "A 52-year-old adult who has not been screened should be offered colorectal cancer screening. Stool-based testing may reduce access barriers, but a positive stool-based result needs colonoscopy follow-up.",
+            "zh": "52岁且从未筛查的成人应接受结直肠癌筛查。粪便筛查可降低就医障碍，但粪便试验阳性需要肠镜随访。"
+          },
+          "byChoice": [
+            {
+              "refId": "1",
+              "en": "The client's age and lack of prior screening make colorectal cancer screening a current preventive-care need.",
+              "zh": "患者年龄和既往未筛查使结直肠癌筛查成为当前预防保健需求。"
+            },
+            {
+              "refId": "2",
+              "en": "A stool-based test is a practical option when time off and transportation are barriers to colonoscopy completion.",
+              "zh": "当请假和交通是完成肠镜的障碍时，粪便筛查是实际可行的选择。"
+            },
+            {
+              "refId": "3",
+              "en": "A positive stool-based screening result is not the final diagnosis; it requires colonoscopy evaluation.",
+              "zh": "粪便筛查阳性并不是最终诊断，需要进行肠镜评估。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "When a client refuses or cannot access the most familiar screening test, look for another recommended option rather than abandoning screening.",
+          "zh": "当患者拒绝或无法获得最熟悉的筛查方式时，应寻找其他推荐选择，而不是放弃筛查。"
+        },
+        "glossary": [
+          {
+            "termEn": "Fecal immunochemical test",
+            "termZh": "粪便免疫化学试验",
+            "defZh": "一种检查粪便中隐匿血液的结直肠癌筛查方法。"
+          },
+          {
+            "termEn": "Colonoscopy",
+            "termZh": "肠镜检查",
+            "defZh": "使用内镜检查结肠和直肠，可用于诊断和处理异常筛查结果。"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "gpt_case_premium_next_case_preventive_screening_vaccine_05_or_teaching",
+        "itemType": "ordered_response",
+        "category": "Health Promotion and Maintenance",
+        "topic": "Adult Health & Wellness",
+        "difficulty": "hard",
+        "ngnSkill": "take_action",
+        "stageId": "shared_planning",
+        "stem": {
+          "en": "Place the nurse's actions in the best order to support preventive-care decision-making.",
+          "zh": "将护士支持患者进行预防保健决策的措施按最佳顺序排列。"
+        },
+        "options": [
+          {
+            "id": "A",
+            "en": "Ask what the client already knows and what worries the client most about screening and vaccines.",
+            "zh": "询问患者已经了解什么，以及对筛查和疫苗最担心什么。"
+          },
+          {
+            "id": "E",
+            "en": "Schedule referrals or appointments and document barriers that still need follow-up.",
+            "zh": "安排转介或预约，并记录仍需跟进的障碍。"
+          },
+          {
+            "id": "B",
+            "en": "Prioritize one or two overdue preventive actions that the client is willing to complete first.",
+            "zh": "优先选择一到两项患者愿意先完成的逾期预防措施。"
+          },
+          {
+            "id": "D",
+            "en": "Ask the client to teach back the selected plan, including when and where each step will happen.",
+            "zh": "请患者用自己的话复述所选计划，包括每一步何时何地进行。"
+          },
+          {
+            "id": "C",
+            "en": "Use large-print, plain-language materials to explain options, benefits, and next steps.",
+            "zh": "使用大号字体、通俗语言材料解释选择、益处和后续步骤。"
+          }
+        ],
+        "correct": [
+          "A",
+          "C",
+          "B",
+          "D",
+          "E"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "The nurse first assesses understanding and concerns, then gives accessible information, helps the client choose a realistic starting plan, verifies understanding with teach-back, and finally schedules and documents follow-up needs.",
+            "zh": "护士先评估患者理解和顾虑，再提供易懂信息，帮助患者选择现实可行的起始计划，用回授法确认理解，最后安排并记录随访需求。"
+          },
+          "byChoice": [
+            {
+              "refId": "D",
+              "en": "Teach-back evaluates whether the client understands and can act on the selected plan.",
+              "zh": "回授法评估患者是否理解并能执行所选计划。"
+            },
+            {
+              "refId": "E",
+              "en": "Scheduling and documentation occur after the plan is selected and understanding is verified.",
+              "zh": "在计划确定并确认理解后，再安排预约并记录。"
+            },
+            {
+              "refId": "A",
+              "en": "Assessment of beliefs and barriers comes before education so teaching addresses the client's actual concerns.",
+              "zh": "先评估信念和障碍，再进行宣教，才能针对患者真实顾虑。"
+            },
+            {
+              "refId": "C",
+              "en": "Accessible materials match the client's stated reading needs and support informed choice.",
+              "zh": "易懂材料符合患者阅读需求，并支持知情选择。"
+            },
+            {
+              "refId": "B",
+              "en": "Prioritizing a small number of actions prevents overwhelming the client and increases completion likelihood.",
+              "zh": "优先处理少数几项措施可避免让患者不知所措，并提高完成可能性。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "For counseling sequences, avoid jumping straight to instructions; assess concerns, tailor teaching, then confirm understanding.",
+          "zh": "处理咨询排序题时，不要直接给指令；先评估顾虑，个体化宣教，再确认理解。"
+        },
+        "glossary": [
+          {
+            "termEn": "Motivational interviewing",
+            "termZh": "动机式访谈",
+            "defZh": "通过探索顾虑和目标来增强患者改变意愿的沟通方法。"
+          },
+          {
+            "termEn": "Teach-back",
+            "termZh": "回授法",
+            "defZh": "让患者用自己的话复述计划，以确认理解。"
+          }
+        ]
+      },
+      {
+        "id": "gpt_case_premium_next_case_preventive_screening_vaccine_05_sata_plan",
+        "itemType": "select_all",
+        "category": "Management of Care",
+        "topic": "Discharge Planning & Handoff",
+        "difficulty": "medium",
+        "ngnSkill": "generate_solutions",
+        "stageId": "shared_planning",
+        "stem": {
+          "en": "Which actions should the nurse include in the plan of care? Select all that apply.",
+          "zh": "护士应在护理计划中包括哪些措施？选择所有适用项。"
+        },
+        "options": [
+          {
+            "id": "E",
+            "en": "Use teach-back to confirm how the client will complete the selected screening steps.",
+            "zh": "使用回授法确认患者将如何完成所选筛查步骤。"
+          },
+          {
+            "id": "A",
+            "en": "Offer a stool-based colorectal cancer screening kit with picture-based instructions.",
+            "zh": "提供粪便结直肠癌筛查试剂盒及图示说明。"
+          },
+          {
+            "id": "D",
+            "en": "Review expected vaccine effects and timing options to reduce work-schedule barriers.",
+            "zh": "说明疫苗常见反应和时间安排选择，以减少工作时间障碍。"
+          },
+          {
+            "id": "C",
+            "en": "Tell the client that colonoscopy is the only acceptable screening method.",
+            "zh": "告诉患者肠镜是唯一可接受的筛查方法。"
+          },
+          {
+            "id": "B",
+            "en": "Schedule mammography at a location the client can reach by public transportation.",
+            "zh": "安排患者可乘公共交通到达地点的乳腺X线检查。"
+          }
+        ],
+        "correct": [
+          "A",
+          "B",
+          "D",
+          "E"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "The nurse should reduce access and literacy barriers, coordinate reachable screening, address vaccine concerns, and confirm understanding. Screening options should not be falsely limited, and vaccines do not need to wait for completion of cancer screening.",
+            "zh": "护士应减少可及性和健康素养障碍，协调可到达的筛查，处理疫苗顾虑，并确认理解。不应错误限制筛查选择，疫苗也不需要等所有癌症筛查完成后再接种。"
+          },
+          "byChoice": [
+            {
+              "refId": "E",
+              "en": "Teach-back verifies that the client can describe the plan and next steps accurately.",
+              "zh": "回授法能确认患者能准确说出计划和下一步。"
+            },
+            {
+              "refId": "C",
+              "en": "This is incorrect because clients may have more than one acceptable screening pathway depending on risk and availability.",
+              "zh": "这不正确，因为根据风险和可及性，患者可能有不止一种可接受的筛查途径。"
+            },
+            {
+              "refId": "D",
+              "en": "Discussing expected effects and timing helps the client plan around work and reduces vaccine hesitancy.",
+              "zh": "讨论常见反应和接种时间有助于患者围绕工作安排计划，并减少疫苗犹豫。"
+            },
+            {
+              "refId": "B",
+              "en": "Transportation planning increases the chance that the mammography appointment will be completed.",
+              "zh": "考虑交通安排可提高乳腺X线预约完成的可能性。"
+            },
+            {
+              "refId": "A",
+              "en": "A stool-based kit with picture instructions matches the client's time and literacy barriers.",
+              "zh": "带图示说明的粪便试剂盒符合患者的时间和阅读障碍需求。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Select actions that remove barriers and preserve valid choices; reject absolute statements that unnecessarily delay prevention.",
+          "zh": "选择能减少障碍并保留合理选择的措施；排除不必要延迟预防的绝对化说法。"
+        },
+        "glossary": [
+          {
+            "termEn": "Access barrier",
+            "termZh": "可及性障碍",
+            "defZh": "妨碍患者获得护理的因素，如交通、费用、工作时间或语言。"
+          },
+          {
+            "termEn": "Vaccine hesitancy",
+            "termZh": "疫苗犹豫",
+            "defZh": "由于担忧、误解或信任不足而推迟或拒绝接种疫苗。"
+          }
+        ]
+      },
+      {
+        "id": "gpt_case_premium_next_case_preventive_screening_vaccine_05_fib_activity",
+        "itemType": "fill_in_blank",
+        "category": "Health Promotion and Maintenance",
+        "topic": "Adult Health & Wellness",
+        "difficulty": "medium",
+        "ngnSkill": "evaluate_outcomes",
+        "stageId": "shared_planning",
+        "stem": {
+          "en": "The client chooses a first activity goal of brisk walking 25 minutes per day on 6 days each week. How many minutes per week should the nurse document? Enter a number only.",
+          "zh": "患者选择的首个活动目标是每周6天、每天快走25分钟。护士应记录为每周多少分钟？只输入数字。"
+        },
+        "blanks": [
+          {
+            "id": "b1",
+            "prompt": {
+              "en": "minutes per week",
+              "zh": "分钟/周"
+            },
+            "acceptable": [
+              "150"
+            ],
+            "numeric": {
+              "value": 150,
+              "tolerance": 0,
+              "unit": "minutes/week"
+            }
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Twenty-five minutes per day multiplied by 6 days per week equals 150 minutes per week.",
+            "zh": "每天25分钟乘以每周6天，等于每周150分钟。"
+          },
+          "byChoice": [
+            {
+              "refId": "b1",
+              "en": "Calculate 25 × 6 = 150 minutes per week.",
+              "zh": "计算25 × 6 = 每周150分钟。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "For goal calculations, multiply the amount per day by the number of days and verify the requested unit.",
+          "zh": "计算目标时，用每天的量乘以天数，并确认题目要求的单位。"
+        },
+        "glossary": [
+          {
+            "termEn": "Physical activity goal",
+            "termZh": "身体活动目标",
+            "defZh": "规定活动类型、频率和时间的健康促进目标。"
+          },
+          {
+            "termEn": "Brisk walking",
+            "termZh": "快走",
+            "defZh": "比普通步行更快、通常能提高心率的中等强度活动。"
+          }
+        ]
+      }
+    ]
+  },
+  "rationale": {
+    "correct": {
+      "en": "This case emphasizes adult preventive screening, vaccination counseling, health literacy, shared decision-making, and care coordination.",
+      "zh": "本病例强调成人预防筛查、疫苗宣教、健康素养、共同决策和护理协调。"
+    },
+    "byChoice": []
+  },
+  "testTakingStrategy": {
+    "en": "In preventive-care cases, identify overdue services, reduce access barriers, and verify that the client can complete the chosen plan.",
+    "zh": "在预防保健病例中，要识别逾期服务，减少可及性障碍，并确认患者能完成所选计划。"
+  },
+  "glossary": [
+    {
+      "termEn": "Shared decision-making",
+      "termZh": "共同决策",
+      "defZh": "患者和护理团队根据证据、选择和患者偏好共同制定护理计划。"
+    },
+    {
+      "termEn": "Cancer screening",
+      "termZh": "癌症筛查",
+      "defZh": "在无症状时寻找癌症早期迹象或癌前病变的检查。"
+    }
+  ]
+}

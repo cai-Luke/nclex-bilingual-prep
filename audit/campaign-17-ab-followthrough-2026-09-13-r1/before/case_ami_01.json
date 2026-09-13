@@ -1,0 +1,568 @@
+{
+  "id": "case_ami_01",
+  "itemType": "case_study",
+  "category": "Physiological Adaptation",
+  "topic": "Cardiovascular Disorders",
+  "difficulty": "hard",
+  "stem": {
+    "en": "Review the clinical data and manage the unfolding complications of AMI.",
+    "zh": "查看临床数据并处理急性心肌梗死（AMI）的展开式并发症。"
+  },
+  "caseStudy": {
+    "title": {
+      "en": "AMI with Cardiogenic Shock",
+      "zh": "伴有心源性休克的 AMI"
+    },
+    "summary": {
+      "en": "A 65-year-old male presents with crushing chest pain and diaphoresis.",
+      "zh": "一名65岁男性出现压榨性胸痛和出汗。"
+    },
+    "exhibits": [
+      {
+        "id": "ex_ecg",
+        "title": {
+          "en": "12-Lead ECG",
+          "zh": "12导联心电图"
+        },
+        "content": {
+          "en": "ST-segment elevation in leads V3-V4.",
+          "zh": "V3-V4 导联 ST 段抬高。"
+        }
+      }
+    ],
+    "stages": [
+      {
+        "id": "stage_1",
+        "title": {
+          "en": "Condition Deterioration",
+          "zh": "病情恶化"
+        },
+        "exhibits": [
+          {
+            "id": "ex_vitals_new",
+            "title": {
+              "en": "New Vitals",
+              "zh": "新生命体征"
+            },
+            "content": {
+              "en": "BP: 80/50 mmHg, HR: 110 bpm, RR: 24 bpm, Crackles in all lung fields.",
+              "zh": "血压: 80/50 mmHg，心率: 110 bpm，呼吸: 24 bpm，双肺满布湿啰音。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "sbp",
+                      "label": {
+                        "en": "Systolic BP",
+                        "zh": "收缩压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "80",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "dbp",
+                      "label": {
+                        "en": "Diastolic BP",
+                        "zh": "舒张压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "50",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "hr",
+                      "label": {
+                        "en": "Heart rate",
+                        "zh": "心率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "110",
+                          "unit": "bpm"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "rr",
+                      "label": {
+                        "en": "Respiratory rate",
+                        "zh": "呼吸频率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "24",
+                          "unit": "/min"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "case_ami_01_q1",
+        "itemType": "multiple_choice",
+        "category": "Physiological Adaptation",
+        "topic": "Cardiovascular Disorders",
+        "difficulty": "hard",
+        "stem": {
+          "en": "Based on the ECG, which area of the heart is affected?",
+          "zh": "根据心电图，心脏的哪个部位受累？"
+        },
+        "options": [
+          {
+            "id": "C",
+            "en": "Anterior wall",
+            "zh": "前壁"
+          },
+          {
+            "id": "B",
+            "en": "Septal wall",
+            "zh": "室间隔"
+          },
+          {
+            "id": "A",
+            "en": "Lateral wall",
+            "zh": "侧壁"
+          },
+          {
+            "id": "D",
+            "en": "Inferior wall",
+            "zh": "下壁"
+          }
+        ],
+        "correct": [
+          "C"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "ST elevation localized to V3-V4 supports anterior wall myocardial infarction, typically involving the left anterior descending (LAD) artery.",
+            "zh": "V3-V4 导联局限性 ST 段抬高支持前壁心肌梗死，通常涉及左前降支 (LAD) 动脉。"
+          },
+          "byChoice": [
+            {
+              "refId": "D",
+              "en": "Leads II, III, aVF.",
+              "zh": "II, III, aVF 导联。"
+            },
+            {
+              "refId": "C",
+              "en": "Correct for V3-V4 anterior lead involvement.",
+              "zh": "V3-V4 前壁导联受累时这是正确选项。"
+            },
+            {
+              "refId": "A",
+              "en": "Leads I, aVL, V5, V6.",
+              "zh": "I, aVL, V5, V6 导联。"
+            },
+            {
+              "refId": "B",
+              "en": "Septal involvement is more strongly associated with V1-V2.",
+              "zh": "室间隔受累更常与 V1-V2 导联相关。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Associate ECG leads with anatomical locations of the heart.",
+          "zh": "将心电图导联与心脏的解剖位置联系起来。"
+        },
+        "glossary": [
+          {
+            "termEn": "ST-segment elevation",
+            "termZh": "ST段抬高",
+            "defZh": "心电图上ST段高于等电位线，常提示急性心肌缺血或透壁性心肌梗死"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "case_ami_01_q2",
+        "itemType": "dropdown_cloze",
+        "category": "Physiological Adaptation",
+        "topic": "Cardiovascular Disorders",
+        "difficulty": "hard",
+        "stem": {
+          "en": "The nurse analyzes the new vital signs and lung findings.",
+          "zh": "护士分析新的生命体征和肺部发现。"
+        },
+        "clozeStem": {
+          "en": "The client is exhibiting signs of {{1}}, which requires immediate {{2}} support.",
+          "zh": "患者表现出 {{1}} 的迹象，需要立即进行 {{2}} 支持。"
+        },
+        "dropdowns": [
+          {
+            "id": "1",
+            "options": [
+              {
+                "id": "o2",
+                "en": "Septic shock",
+                "zh": "感染性休克"
+              },
+              {
+                "id": "o1",
+                "en": "Cardiogenic shock",
+                "zh": "心源性休克"
+              }
+            ],
+            "correct": "o1"
+          },
+          {
+            "id": "2",
+            "options": [
+              {
+                "id": "o1",
+                "en": "Inotropic",
+                "zh": "正性肌力"
+              },
+              {
+                "id": "o2",
+                "en": "Antibiotic",
+                "zh": "抗生素"
+              }
+            ],
+            "correct": "o1"
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Hypotension, tachycardia, and pulmonary edema (crackles) in the context of AMI are consistent with cardiogenic shock.",
+            "zh": "在 AMI 背景下出现低血压、心动过速和肺水肿（湿啰音），与心源性休克一致。"
+          }
+        },
+        "testTakingStrategy": {
+          "en": "Look for the triad of hypotension, pulmonary congestion, and low cardiac output.",
+          "zh": "寻找低血压、肺淤血和低心排血量的三联征。"
+        },
+        "glossary": [
+          {
+            "termEn": "cardiogenic shock",
+            "termZh": "心源性休克",
+            "defZh": "由于心脏泵血功能严重衰竭导致器官灌注不足的休克状态"
+          },
+          {
+            "termEn": "inotropic",
+            "termZh": "正性肌力",
+            "defZh": "增强心肌收缩力的药物或作用"
+          }
+        ]
+      },
+      {
+        "id": "case_ami_01_q3",
+        "itemType": "select_all",
+        "category": "Pharmacological and Parenteral Therapies",
+        "topic": "Medication Safety & Admin",
+        "difficulty": "hard",
+        "stem": {
+          "en": "Before the client becomes hypotensive and if no contraindications are present, which medications may be anticipated for initial STEMI care? Select all that apply.",
+          "zh": "在患者发生低血压之前且无禁忌证时，急性 STEMI 初始处理可能会使用哪些药物？多项选择。"
+        },
+        "options": [
+          {
+            "id": "C",
+            "en": "Morphine",
+            "zh": "吗啡"
+          },
+          {
+            "id": "B",
+            "en": "Clopidogrel",
+            "zh": "氯吡格雷"
+          },
+          {
+            "id": "E",
+            "en": "Warfarin",
+            "zh": "华法林"
+          },
+          {
+            "id": "D",
+            "en": "Nitroglycerin",
+            "zh": "硝酸甘油"
+          },
+          {
+            "id": "A",
+            "en": "Aspirin",
+            "zh": "阿司匹林"
+          }
+        ],
+        "correct": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Initial STEMI care commonly includes immediate antiplatelet therapy with aspirin plus a P2Y12 inhibitor. Nitroglycerin may be used for ischemic chest pain if not contraindicated, and morphine may be used for severe or persistent ischemic pain when appropriate. Warfarin is not used for acute STEMI stabilization.",
+            "zh": "STEMI 初始处理通常包括立即给予阿司匹林联合 P2Y12 抑制剂的抗血小板治疗。无禁忌证时可用硝酸甘油缓解缺血性胸痛；对严重或持续性缺血性疼痛，必要时可使用吗啡。华法林不用于急性 STEMI 的初始稳定处理。"
+          },
+          "byChoice": [
+            {
+              "refId": "A",
+              "en": "Inhibits platelet aggregation.",
+              "zh": "抑制血小板聚集。"
+            },
+            {
+              "refId": "B",
+              "en": "P2Y12 inhibitor.",
+              "zh": "P2Y12 抑制剂。"
+            },
+            {
+              "refId": "C",
+              "en": "May be used for severe or persistent ischemic pain when appropriate.",
+              "zh": "在适当情况下可用于严重或持续性缺血性疼痛。"
+            },
+            {
+              "refId": "D",
+              "en": "May be used for ischemic chest pain when the client is not hypotensive and has no contraindications.",
+              "zh": "患者无低血压且无禁忌证时，可用于缺血性胸痛。"
+            },
+            {
+              "refId": "E",
+              "en": "Long-term anticoagulant, not for acute STEMI stabilization.",
+              "zh": "长期抗凝剂，不用于急性 STEMI 稳定。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "For ACS medication items, pair core antiplatelet therapy with contraindication screening for symptom-relief medications.",
+          "zh": "遇到 ACS 用药题时，将核心抗血小板治疗与症状缓解药物的禁忌证筛查结合起来判断。"
+        },
+        "glossary": [
+          {
+            "termEn": "dual antiplatelet therapy",
+            "termZh": "双重抗血小板治疗",
+            "defZh": "联合使用两种不同机制的抗血小板药物（如阿司匹林和氯吡格雷）以预防血栓形成"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "case_ami_01_q4",
+        "itemType": "ordered_response",
+        "category": "Management of Care",
+        "topic": "Legal & Ethical Principles",
+        "difficulty": "hard",
+        "stem": {
+          "en": "The client underwent percutaneous coronary intervention (PCI) via the femoral artery. Place the post-procedure nursing actions in order of priority.",
+          "zh": "患者接受了经股动脉经皮冠状动脉干预（PCI）。按优先顺序排列术后护理操作。"
+        },
+        "options": [
+          {
+            "id": "C",
+            "en": "Monitor continuous ECG for rhythm changes",
+            "zh": "持续监测心电图以观察心律变化"
+          },
+          {
+            "id": "A",
+            "en": "Check pedal pulses and site for bleeding",
+            "zh": "检查足背动脉搏动和伤口出血情况"
+          },
+          {
+            "id": "B",
+            "en": "Ensure bedrest with affected leg straight",
+            "zh": "确保卧床，患肢伸直"
+          },
+          {
+            "id": "D",
+            "en": "Assess vital signs every 15 minutes",
+            "zh": "每 15 分钟评估一次生命体征"
+          }
+        ],
+        "correct": [
+          "D",
+          "A",
+          "C",
+          "B"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Vital signs are first, followed by site assessment (risk of hematoma), ECG monitoring, and positioning.",
+            "zh": "生命体征排在第一位，其次是伤口评估（血肿风险）、心电图监测和体位。"
+          },
+          "byChoice": [
+            {
+              "refId": "A",
+              "en": "Checking the femoral puncture site for bleeding and hematoma is the second priority to detect early vascular complications.",
+              "zh": "检查股动脉穿刺部位是否有出血和血肿是第二优先事项，以发现早期血管并发症。"
+            },
+            {
+              "refId": "B",
+              "en": "Ensuring bedrest with the affected leg straight prevents bleeding from the arterial puncture site; it is a critical positioning requirement but comes after initial assessment and monitoring.",
+              "zh": "确保患肢伸直卧床可以防止动脉穿刺处出血；这是一项关键的体位要求，但排在初始评估和监测之后。"
+            },
+            {
+              "refId": "C",
+              "en": "Monitoring the continuous ECG for rhythm changes helps detect reperfusion arrhythmias or acute re-occlusion, which is a key ongoing safety action.",
+              "zh": "持续监测心电图的心律变化有助于发现再灌注心律失常或急性再闭塞，这是一项关键的持续安全措施。"
+            },
+            {
+              "refId": "D",
+              "en": "Assessing vital signs is the first priority post-procedure to evaluate hemodynamic stability and detect immediate shock or hemorrhage.",
+              "zh": "术后评估生命体征是第一优先事项，以评估血流动力学稳定性并发现即刻的休克或出血。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Prioritize assessment of hemodynamic stability immediately post-op.",
+          "zh": "优先评估术后即刻的血流动力学稳定性。"
+        },
+        "glossary": [
+          {
+            "termEn": "percutaneous coronary intervention",
+            "termZh": "经皮冠状动脉介入治疗",
+            "defZh": "经心导管技术疏通狭窄或闭塞的冠状动脉管腔，以改善心肌血流灌注的治疗方法"
+          },
+          {
+            "termEn": "hematoma",
+            "termZh": "血肿",
+            "defZh": "血管破裂导致血液积聚在周围组织中形成的肿块"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "case_ami_01_q5",
+        "itemType": "matrix",
+        "category": "Physiological Adaptation",
+        "topic": "Cardiovascular Disorders",
+        "difficulty": "hard",
+        "stem": {
+          "en": "Differentiate findings for left-sided heart failure and right-sided heart failure.",
+          "zh": "区分左心衰竭和右心衰竭的表现。"
+        },
+        "matrix": {
+          "rows": [
+            {
+              "id": "r1",
+              "en": "Jugular venous distention",
+              "zh": "颈静脉怒张"
+            },
+            {
+              "id": "r2",
+              "en": "Pulmonary edema",
+              "zh": "肺水肿"
+            },
+            {
+              "id": "r3",
+              "en": "Peripheral edema",
+              "zh": "周围性水肿"
+            }
+          ],
+          "columns": [
+            {
+              "id": "c2",
+              "en": "Right-Sided",
+              "zh": "右侧"
+            },
+            {
+              "id": "c1",
+              "en": "Left-Sided",
+              "zh": "左侧"
+            }
+          ],
+          "selectionMode": "single_per_row"
+        },
+        "correct": [
+          {
+            "rowId": "r1",
+            "columnIds": [
+              "c2"
+            ]
+          },
+          {
+            "rowId": "r2",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r3",
+            "columnIds": [
+              "c2"
+            ]
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Left-sided failure backs up into lungs; right-sided failure backs up into systemic circulation.",
+            "zh": "左心衰竭血液回流到肺部；右心衰竭血液回流到体循环。"
+          }
+        },
+        "testTakingStrategy": {
+          "en": "Link the anatomy of blood flow to the site of congestion.",
+          "zh": "将血流解剖学与淤血部位联系起来。"
+        },
+        "glossary": [
+          {
+            "termEn": "jugular venous distention",
+            "termZh": "颈静脉怒张",
+            "defZh": "由于右心衰竭等导致体循环静脉压升高，颈外静脉呈现充盈、胀大或搏动"
+          },
+          {
+            "termEn": "pulmonary edema",
+            "termZh": "肺水肿",
+            "defZh": "肺脏内血管外液体积聚过多，常由于左心衰竭导致肺静脉压升高引起"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      }
+    ]
+  },
+  "rationale": {
+    "correct": {
+      "en": "AMI management focuses on rapid reperfusion and monitoring for cardiogenic shock and heart failure.",
+      "zh": "AMI 管理的重点是快速再灌注以及监测心源性休克和心力衰竭。"
+    }
+  },
+  "testTakingStrategy": {
+    "en": "Identify complications early based on vital sign trends.",
+    "zh": "根据生命体征趋势尽早识别并发症。"
+  },
+  "glossary": [
+    {
+      "termEn": "STEMI",
+      "termZh": "ST 段抬高型心肌梗死",
+      "defZh": "由于冠状动脉完全闭塞导致的心肌梗死"
+    },
+    {
+      "termEn": "PCI",
+      "termZh": "经皮冠状动脉介入治疗",
+      "defZh": "通过导管技术疏通阻碍的冠状动脉"
+    }
+  ]
+}

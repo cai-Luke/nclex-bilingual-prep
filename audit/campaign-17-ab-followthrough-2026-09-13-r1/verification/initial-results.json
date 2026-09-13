@@ -1,0 +1,54 @@
+[
+  {
+    "command": [
+      "npm",
+      "run",
+      "validate-bank",
+      "--",
+      "banks/burn-canonical.json",
+      "banks/capnography-canonical.json",
+      "banks/claude-canonical.json",
+      "banks/device-canonical.json",
+      "banks/gemini-canonical.json",
+      "banks/gpt-canonical.json",
+      "banks/hard-cases-canonical.json",
+      "banks/io-canonical.json",
+      "banks/lab-canonical.json",
+      "banks/mar-canonical.json",
+      "banks/medlabel-canonical.json",
+      "banks/visual-canonical.json",
+      "banks/vitals-canonical.json"
+    ],
+    "exit": 0,
+    "log": "final-initial-0.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "audit"
+    ],
+    "exit": 1,
+    "log": "final-initial-1.log"
+  },
+  {
+    "command": [
+      "npx",
+      "tsc",
+      "-b",
+      "--pretty",
+      "false"
+    ],
+    "exit": 0,
+    "log": "final-initial-2.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "census:check"
+    ],
+    "exit": 1,
+    "log": "final-initial-3.log"
+  }
+]

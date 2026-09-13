@@ -1,0 +1,598 @@
+{
+  "id": "gpt_case_gap_2026_06_11_case_urosepsis_05",
+  "itemType": "case_study",
+  "category": "Physiological Adaptation",
+  "topic": "Sepsis & Septic Shock",
+  "difficulty": "hard",
+  "ngnSkill": "analyze_cues",
+  "stem": {
+    "en": "Review the case-study exhibits and answer the embedded questions.",
+    "zh": "查看病例研究资料并回答其中的问题。"
+  },
+  "caseStudy": {
+    "title": {
+      "en": "Sepsis from obstructed urinary source",
+      "zh": "梗阻性泌尿源脓毒症"
+    },
+    "summary": {
+      "en": "An older adult with diabetes develops sepsis from an obstructing ureteral stone and urinary infection, with worsening perfusion despite initial fluids.",
+      "zh": "一名糖尿病老年患者因输尿管梗阻性结石和尿路感染发生脓毒症，初始补液后灌注仍恶化。"
+    },
+    "exhibits": [
+      {
+        "id": "sepsis_initial",
+        "title": {
+          "en": "Emergency department presentation",
+          "zh": "急诊表现"
+        },
+        "content": {
+          "en": "A 74-year-old client from home arrives with fever, confusion, dysuria, and right flank pain. History: type 2 diabetes and recurrent kidney stones. Vital signs: T 102.6 °F (39.2 °C), HR 118/min, RR 24/min, BP 102/58 mm Hg, SpO2 96% on room air. The client is oriented to person only.",
+          "zh": "74岁居家患者因发热、意识混乱、尿痛和右侧腰痛来急诊。病史：2型糖尿病和反复肾结石。生命体征：T 102.6 °F (39.2 °C)，HR 118次/分，RR 24次/分，BP 102/58 mm Hg，室内空气SpO2 96%。患者仅能说出自己是谁。"
+        }
+      },
+      {
+        "id": "sepsis_labs",
+        "title": {
+          "en": "Diagnostic data",
+          "zh": "诊断资料"
+        },
+        "content": {
+          "en": "WBC 22.4 ×10³/µL with 14% bands, lactate 3.8 mmol/L, creatinine 1.8 mg/dL (baseline 0.9). Urinalysis: positive leukocyte esterase, >50 WBC/hpf, bacteria present. CT abdomen: 8 mm obstructing right ureteral stone with hydronephrosis.",
+          "zh": "WBC 22.4 ×10³/µL，杆状核14%，乳酸3.8 mmol/L，肌酐1.8 mg/dL（基线0.9）。尿检：白细胞酯酶阳性，>50 WBC/hpf，有细菌。腹部CT：右输尿管8 mm梗阻性结石伴肾积水。"
+        },
+        "structuredMeasurements": {
+          "panels": [
+            {
+              "kind": "labs",
+              "columns": [
+                {
+                  "id": "current",
+                  "label": {
+                    "en": "Current",
+                    "zh": "当前"
+                  }
+                }
+              ],
+              "rows": [
+                {
+                  "key": "wbc",
+                  "label": {
+                    "en": "WBC",
+                    "zh": "白细胞"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "22,400",
+                      "unit": "/mm3"
+                    }
+                  ]
+                },
+                {
+                  "key": "lactate",
+                  "label": {
+                    "en": "Lactate",
+                    "zh": "乳酸"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "3.8",
+                      "unit": "mmol/L"
+                    }
+                  ]
+                },
+                {
+                  "key": "creatinine",
+                  "label": {
+                    "en": "Creatinine",
+                    "zh": "肌酐"
+                  },
+                  "values": [
+                    {
+                      "columnId": "current",
+                      "value": "1.8",
+                      "unit": "mg/dL"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "stages": [
+      {
+        "id": "sepsis_stage2",
+        "title": {
+          "en": "One hour later",
+          "zh": "1小时后"
+        },
+        "trigger": {
+          "en": "Blood and urine cultures have been obtained. The client is awaiting transfer to a monitored bed.",
+          "zh": "已采集血培养和尿培养。患者等待转入监护床位。"
+        },
+        "exhibits": [
+          {
+            "id": "sepsis_deterioration",
+            "title": {
+              "en": "Reassessment",
+              "zh": "复评"
+            },
+            "content": {
+              "en": "BP 84/46 mm Hg after 1 L isotonic fluid, HR 132/min, RR 30/min, T 103.1 °F (39.5 °C). Urine output: 15 mL in the last hour. Skin is cool. Repeat lactate is 4.6 mmol/L.",
+              "zh": "等渗液1 L后BP 84/46 mm Hg，HR 132次/分，RR 30次/分，T 103.1 °F (39.5 °C)。过去1小时尿量15 mL。皮肤发凉。复查乳酸4.6 mmol/L。"
+            }
+          }
+        ]
+      },
+      {
+        "id": "sepsis_stage3",
+        "title": {
+          "en": "After sepsis interventions",
+          "zh": "脓毒症干预后"
+        },
+        "trigger": {
+          "en": "Broad-spectrum antibiotics and additional prescribed fluids are initiated; urology is consulted for source control.",
+          "zh": "已开始广谱抗生素和进一步医嘱补液；泌尿外科会诊以控制感染源。"
+        },
+        "exhibits": [
+          {
+            "id": "sepsis_response",
+            "title": {
+              "en": "Two-hour reassessment",
+              "zh": "2小时复评"
+            },
+            "content": {
+              "en": "BP 92/50 mm Hg, MAP 64 mm Hg, HR 118/min, urine output 25 mL/hr. Lactate pending. The client is less confused but remains febrile.",
+              "zh": "BP 92/50 mm Hg，MAP 64 mm Hg，HR 118次/分，尿量25 mL/hr。乳酸待回报。患者意识混乱减轻但仍发热。"
+            }
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "gpt_case_gap_2026_06_11_sepsis_matrix_01",
+        "itemType": "matrix",
+        "category": "Physiological Adaptation",
+        "topic": "Sepsis & Septic Shock",
+        "difficulty": "hard",
+        "ngnSkill": "recognize_cues",
+        "stem": {
+          "en": "Classify each cue.",
+          "zh": "对每项线索分类。"
+        },
+        "matrix": {
+          "rows": [
+            {
+              "id": "r1",
+              "en": "New confusion",
+              "zh": "新发意识混乱"
+            },
+            {
+              "id": "r2",
+              "en": "Lactate 3.8 mmol/L",
+              "zh": "乳酸3.8 mmol/L"
+            },
+            {
+              "id": "r3",
+              "en": "Obstructing ureteral stone with hydronephrosis",
+              "zh": "输尿管梗阻性结石伴肾积水"
+            },
+            {
+              "id": "r4",
+              "en": "SpO2 96% on room air",
+              "zh": "室内空气SpO2 96%"
+            },
+            {
+              "id": "r5",
+              "en": "Creatinine doubled from baseline",
+              "zh": "肌酐较基线翻倍"
+            }
+          ],
+          "columns": [
+            {
+              "id": "c1",
+              "en": "Sepsis/organ dysfunction cue",
+              "zh": "脓毒症/器官功能障碍线索"
+            },
+            {
+              "id": "c2",
+              "en": "Not a current sepsis cue",
+              "zh": "非当前脓毒症线索"
+            }
+          ],
+          "selectionMode": "single_per_row"
+        },
+        "correct": [
+          {
+            "rowId": "r1",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r2",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r3",
+            "columnIds": [
+              "c1"
+            ]
+          },
+          {
+            "rowId": "r4",
+            "columnIds": [
+              "c2"
+            ]
+          },
+          {
+            "rowId": "r5",
+            "columnIds": [
+              "c1"
+            ]
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Altered mentation, elevated lactate, AKI, and an obstructed infected urinary source indicate sepsis with organ dysfunction risk. Normal oxygen saturation does not support pneumonia or respiratory failure here.",
+            "zh": "意识改变、乳酸升高、AKI以及梗阻性感染泌尿源提示脓毒症并有器官功能障碍风险。氧饱和度正常在此不支持肺炎或呼吸衰竭。"
+          },
+          "byChoice": [
+            {
+              "refId": "r1",
+              "en": "Acute mental-status change is an organ dysfunction cue in infection.",
+              "zh": "感染中急性意识改变是器官功能障碍线索。"
+            },
+            {
+              "refId": "r2",
+              "en": "Elevated lactate suggests impaired tissue perfusion or cellular stress.",
+              "zh": "乳酸升高提示组织灌注不足或细胞应激。"
+            },
+            {
+              "refId": "r3",
+              "en": "Obstruction can prevent infection clearance and requires source-control thinking.",
+              "zh": "梗阻可阻碍感染清除，需要考虑感染源控制。"
+            },
+            {
+              "refId": "r4",
+              "en": "This oxygen saturation is not the unstable finding in this non-pneumonia source case.",
+              "zh": "该氧饱和度不是本非肺炎感染源病例中的不稳定发现。"
+            },
+            {
+              "refId": "r5",
+              "en": "A creatinine rise suggests kidney dysfunction during infection.",
+              "zh": "肌酐升高提示感染期间肾功能障碍。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Sepsis recognition is source plus organ dysfunction, not fever alone.",
+          "zh": "识别脓毒症要看感染源加器官功能障碍，而不是只看发热。"
+        },
+        "glossary": [
+          {
+            "termEn": "Sepsis",
+            "termZh": "脓毒症",
+            "defZh": "感染引起的全身反应导致器官功能障碍风险。"
+          },
+          {
+            "termEn": "Lactate",
+            "termZh": "乳酸",
+            "defZh": "组织灌注不足或细胞缺氧时可升高的指标。"
+          },
+          {
+            "termEn": "Source control",
+            "termZh": "感染源控制",
+            "defZh": "去除或处理感染来源，如引流脓肿或解除梗阻。"
+          }
+        ],
+        "answerableAfterStageId": {
+          "kind": "baseline"
+        }
+      },
+      {
+        "id": "gpt_case_gap_2026_06_11_sepsis_cloze_02",
+        "itemType": "dropdown_cloze",
+        "category": "Reduction of Risk Potential",
+        "topic": "Laboratory & Diagnostic Tests",
+        "difficulty": "hard",
+        "ngnSkill": "analyze_cues",
+        "stageId": "sepsis_stage2",
+        "stem": {
+          "en": "Complete the statement describing the deterioration.",
+          "zh": "完成描述恶化的陈述。"
+        },
+        "clozeStem": {
+          "en": "The client is developing {{1}}, as shown by {{2}}.",
+          "zh": "患者正在发展为{{1}}，表现为{{2}}。"
+        },
+        "dropdowns": [
+          {
+            "id": "1",
+            "options": [
+              {
+                "id": "o2",
+                "en": "uncomplicated cystitis",
+                "zh": "无并发症膀胱炎"
+              },
+              {
+                "id": "o3",
+                "en": "isolated fever without perfusion change",
+                "zh": "单纯发热且无灌注改变"
+              },
+              {
+                "id": "o1",
+                "en": "septic shock physiology",
+                "zh": "脓毒性休克生理状态"
+              }
+            ],
+            "correct": "o1"
+          },
+          {
+            "id": "2",
+            "options": [
+              {
+                "id": "o1",
+                "en": "hypotension after fluid, rising lactate, cool skin, and oliguria",
+                "zh": "补液后仍低血压、乳酸升高、皮肤发凉和少尿"
+              },
+              {
+                "id": "o2",
+                "en": "positive leukocyte esterase alone",
+                "zh": "单纯白细胞酯酶阳性"
+              },
+              {
+                "id": "o3",
+                "en": "room-air oxygen saturation of 96%",
+                "zh": "室内空气氧饱和度96%"
+              }
+            ],
+            "correct": "o1"
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Persistent hypotension with rising lactate and low urine output indicates worsening perfusion despite initial fluid, consistent with septic shock physiology.",
+            "zh": "初始补液后仍低血压，伴乳酸升高和尿量低，提示灌注恶化，符合脓毒性休克生理状态。"
+          },
+          "byChoice": [
+            {
+              "refId": "1",
+              "en": "The client has progressed beyond a localized urinary infection.",
+              "zh": "患者已超出局部泌尿感染范围。"
+            },
+            {
+              "refId": "2",
+              "en": "The chosen cluster reflects systemic hypoperfusion and organ risk.",
+              "zh": "所选线索组合反映全身低灌注和器官风险。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Do not be reassured by normal SpO2 when perfusion markers are worsening.",
+          "zh": "当灌注指标恶化时，不要因氧饱和度正常而放心。"
+        },
+        "glossary": [
+          {
+            "termEn": "Sepsis",
+            "termZh": "脓毒症",
+            "defZh": "感染引起的全身反应导致器官功能障碍风险。"
+          },
+          {
+            "termEn": "Lactate",
+            "termZh": "乳酸",
+            "defZh": "组织灌注不足或细胞缺氧时可升高的指标。"
+          },
+          {
+            "termEn": "Source control",
+            "termZh": "感染源控制",
+            "defZh": "去除或处理感染来源，如引流脓肿或解除梗阻。"
+          }
+        ],
+        "answerableAfterStageId": "sepsis_stage2"
+      },
+      {
+        "id": "gpt_case_gap_2026_06_11_sepsis_or_03",
+        "itemType": "ordered_response",
+        "category": "Management of Care",
+        "topic": "Prioritization & Delegation",
+        "difficulty": "hard",
+        "ngnSkill": "take_action",
+        "stageId": "sepsis_stage2",
+        "stem": {
+          "en": "Place the actions in the order the nurse should prioritize them.",
+          "zh": "按护士应优先处理的顺序排列措施。"
+        },
+        "options": [
+          {
+            "id": "A",
+            "en": "Activate the sepsis/rapid response pathway and communicate suspected urinary source with obstruction.",
+            "zh": "启动脓毒症/快速反应流程，并沟通疑似梗阻性泌尿感染源。"
+          },
+          {
+            "id": "C",
+            "en": "Administer prescribed broad-spectrum antibiotics promptly.",
+            "zh": "及时遵医嘱给予广谱抗生素。"
+          },
+          {
+            "id": "E",
+            "en": "Prepare for vasopressor support and urgent source-control procedures if hypotension persists.",
+            "zh": "若低血压持续，准备血管活性药支持和紧急感染源控制操作。"
+          },
+          {
+            "id": "B",
+            "en": "Ensure blood and urine cultures and lactate are obtained or verified without delaying antibiotics.",
+            "zh": "确保或核实已采集血/尿培养和乳酸，但不延误抗生素。"
+          },
+          {
+            "id": "D",
+            "en": "Administer prescribed isotonic fluid resuscitation and monitor lung sounds and perfusion.",
+            "zh": "遵医嘱给予等渗液体复苏，并监测肺音和灌注。"
+          }
+        ],
+        "correct": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "rationale": {
+          "correct": {
+            "en": "The nurse escalates immediately, verifies cultures/lactate as part of the sepsis bundle, gives antibiotics promptly, supports perfusion with ordered fluids, and anticipates vasopressors/source control when shock persists.",
+            "zh": "护士立即升级处理，核实培养/乳酸作为脓毒症组合措施的一部分，及时给抗生素，按医嘱补液支持灌注，并在休克持续时预见血管活性药和感染源控制。"
+          },
+          "byChoice": [
+            {
+              "refId": "B",
+              "en": "Cultures and lactate guide therapy but should not create a harmful antibiotic delay.",
+              "zh": "培养和乳酸指导治疗，但不应造成有害的抗生素延误。"
+            },
+            {
+              "refId": "C",
+              "en": "Prompt antibiotics are time-sensitive in sepsis.",
+              "zh": "脓毒症中及时抗生素具有时间敏感性。"
+            },
+            {
+              "refId": "E",
+              "en": "Persistent hypotension after fluids suggests need for vasopressors and source control such as relieving obstruction.",
+              "zh": "补液后持续低血压提示可能需要血管活性药及解除梗阻等感染源控制。"
+            },
+            {
+              "refId": "D",
+              "en": "Fluid resuscitation treats hypoperfusion while the nurse watches for overload.",
+              "zh": "液体复苏处理低灌注，同时护士观察容量过负荷。"
+            },
+            {
+              "refId": "A",
+              "en": "This deterioration needs a system response and clear handoff of the obstructed urinary source.",
+              "zh": "这种恶化需要系统响应，并明确交接梗阻性泌尿源。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "In sepsis, think: escalate, cultures/lactate, antibiotics, fluids, reassess for pressors and source control.",
+          "zh": "脓毒症可按：升级、培养/乳酸、抗生素、补液、复评是否需升压药和感染源控制。"
+        },
+        "glossary": [
+          {
+            "termEn": "Sepsis",
+            "termZh": "脓毒症",
+            "defZh": "感染引起的全身反应导致器官功能障碍风险。"
+          },
+          {
+            "termEn": "Lactate",
+            "termZh": "乳酸",
+            "defZh": "组织灌注不足或细胞缺氧时可升高的指标。"
+          },
+          {
+            "termEn": "Source control",
+            "termZh": "感染源控制",
+            "defZh": "去除或处理感染来源，如引流脓肿或解除梗阻。"
+          }
+        ],
+        "answerableAfterStageId": "sepsis_stage2"
+      },
+      {
+        "id": "gpt_case_gap_2026_06_11_sepsis_fib_04",
+        "itemType": "fill_in_blank",
+        "category": "Reduction of Risk Potential",
+        "topic": "Laboratory & Diagnostic Tests",
+        "difficulty": "hard",
+        "ngnSkill": "evaluate_outcomes",
+        "stageId": "sepsis_stage3",
+        "stem": {
+          "en": "The client weighs 70 kg. Calculate the minimum expected urine output in mL/hr using 0.5 mL/kg/hr.",
+          "zh": "患者体重70 kg。按0.5 mL/kg/hr计算最低预期尿量（mL/hr）。"
+        },
+        "blanks": [
+          {
+            "id": "b1",
+            "prompt": {
+              "en": "mL/hr",
+              "zh": "mL/hr"
+            },
+            "acceptable": [
+              "35",
+              "35 mL/hr"
+            ],
+            "numeric": {
+              "value": 35,
+              "tolerance": 0,
+              "unit": "mL/hr"
+            }
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "70 kg × 0.5 mL/kg/hr = 35 mL/hr. The current 25 mL/hr remains below the minimum target and suggests ongoing renal hypoperfusion risk.",
+            "zh": "70 kg × 0.5 mL/kg/hr = 35 mL/hr。当前25 mL/hr仍低于最低目标，提示肾低灌注风险持续。"
+          },
+          "byChoice": [
+            {
+              "refId": "b1",
+              "en": "Use the urine-output threshold to decide whether perfusion is improving enough.",
+              "zh": "利用尿量阈值判断灌注改善是否足够。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "A partial improvement still requires action when it remains below the expected threshold.",
+          "zh": "即使有所改善，只要仍低于预期阈值就需要继续处理。"
+        },
+        "glossary": [
+          {
+            "termEn": "Sepsis",
+            "termZh": "脓毒症",
+            "defZh": "感染引起的全身反应导致器官功能障碍风险。"
+          },
+          {
+            "termEn": "Lactate",
+            "termZh": "乳酸",
+            "defZh": "组织灌注不足或细胞缺氧时可升高的指标。"
+          },
+          {
+            "termEn": "Source control",
+            "termZh": "感染源控制",
+            "defZh": "去除或处理感染来源，如引流脓肿或解除梗阻。"
+          }
+        ],
+        "answerableAfterStageId": "sepsis_stage3"
+      }
+    ]
+  },
+  "rationale": {
+    "correct": {
+      "en": "This case study requires recognizing deterioration across serial assessment data and choosing nursing actions that reduce risk.",
+      "zh": "本病例要求根据连续评估资料识别病情恶化，并选择降低风险的护理措施。"
+    },
+    "byChoice": []
+  },
+  "testTakingStrategy": {
+    "en": "In an unfolding case, compare the newest data with baseline and act first on unstable airway, breathing, circulation, perfusion, and safety cues.",
+    "zh": "处理展开式病例时，先把最新资料与基线比较，并优先处理气道、呼吸、循环、灌注和安全方面的不稳定线索。"
+  },
+  "glossary": [
+    {
+      "termEn": "Sepsis",
+      "termZh": "脓毒症",
+      "defZh": "感染引起的全身反应导致器官功能障碍风险。"
+    },
+    {
+      "termEn": "Lactate",
+      "termZh": "乳酸",
+      "defZh": "组织灌注不足或细胞缺氧时可升高的指标。"
+    },
+    {
+      "termEn": "Source control",
+      "termZh": "感染源控制",
+      "defZh": "去除或处理感染来源，如引流脓肿或解除梗阻。"
+    }
+  ]
+}
