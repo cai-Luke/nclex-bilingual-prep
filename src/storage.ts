@@ -107,8 +107,11 @@ const getDb = (): Promise<IDBPDatabase<PrepDb>> => {
           if (!(Object.prototype.hasOwnProperty.call(currentStores, name) || retiredStores.includes(name)))
             throw new Error(`Unexpected historical object store: ${name}`);
         for (const name of Object.keys(currentStores) as (keyof typeof currentStores)[])
-          if (!db.objectStoreNames.contains(name))
+          if (!db.objectStoreNames.contains(name)) {
+            // A v6 upgrade is subtraction only, not repair of an incomplete schema.
+            if (oldVersion >= 6) throw new Error(`Missing current object store: ${name}`);
             db.createObjectStore(name, { keyPath: currentStores[name] });
+          }
 
         const progressStore = tx.objectStore("progress");
         const retainedKeys: (keyof QuestionProgress)[] = [

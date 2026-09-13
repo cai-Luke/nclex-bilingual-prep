@@ -15,7 +15,7 @@ const evidence = (suffix, value) => {
 };
 if (!scenario) {
   const cases = ['all', 'some', 'none', 'direct', 'fresh', 'rollback-update', 'rollback-delete',
-    'rollback-semantic', 'unknown-store', 'unknown-property', 'negative-control', 'normal-write'];
+    'rollback-semantic', 'missing-current-store', 'unknown-store', 'unknown-property', 'negative-control', 'normal-write'];
   const results = cases.map((name) => {
     const r = spawnSync(process.execPath, ['--import', 'tsx', import.meta.filename, name], { encoding: 'utf8' });
     process.stdout.write(r.stdout); process.stderr.write(r.stderr);
@@ -35,7 +35,7 @@ const oldVersion = ['direct', 'rollback-semantic'].includes(scenario) ? 5 : 6;
 if (scenario !== 'fresh') {
   const included = scenario === 'none' ? [] : scenario === 'some' ? retiredStores.slice(0, 2) : retiredStores;
   const db = await openDB(databaseName, oldVersion, { upgrade(db) {
-    for (const name of [...currentStores.filter((s) => oldVersion >= 6 || s !== 'completedSets'), ...included,
+    for (const name of [...currentStores.filter((s) => (oldVersion >= 6 || s !== 'completedSets') && (scenario !== 'missing-current-store' || s !== 'flags')), ...included,
       ...(scenario === 'unknown-store' ? ['uncharacterized'] : [])]) {
       db.createObjectStore(name, { keyPath: name === 'flashcardProgress' ? 'termId' :
         ['progress', 'flags', 'languageMisses'].includes(name) ? 'questionId' : 'id' });
@@ -50,8 +50,10 @@ if (scenario !== 'fresh') {
       ...(scenario === 'unknown-property' && id === 'c-clean' ? { unknownMetadata: { preserve: true } } : {}) });
   }
   await db.put('activeSession', active);
+  if (db.objectStoreNames.contains('flags')) {
   await db.put('flags', { questionId: q.id, flagged: true, note: 'Saved note', updatedAt: 'then' });
   await db.put('flags', { questionId: 'note-only', flagged: false, note: 'not Saved', updatedAt: 'then' });
+  }
   await db.put('uploadedQuestions', { id: 'uploaded', sourceKind: 'uploaded', sourceLabel: 'fixture', question: { ...q, id: 'uploaded' } });
   await db.put('answerEvents', { id: 'ordinary-event', questionId: q.id, wasCorrect: false, answeredAt: '2026-09-12T12:00:00Z' });
   if (oldVersion >= 6) {
@@ -104,12 +106,12 @@ const store = await import('../../src/storage.ts');
 let status;
 store.subscribePersistence((s) => { status = s; });
 await store.loadProgress();
-if (scenario.startsWith('rollback') || scenario.startsWith('unknown')) {
+if (scenario.startsWith('rollback') || scenario.startsWith('unknown') || scenario === 'missing-current-store') {
   assert.equal(status.durability, 'memory');
   const rolledBack = await nativeSnapshot();
   assert.deepEqual(rolledBack, before, 'Entire old-version database restored, including active, Last set and retired contents');
   evidence('rollback', { before, rolledBack, successfulUpdates, successfulDeletes, persistence: status });
-  if (scenario.startsWith('unknown')) {
+  if (scenario.startsWith('unknown') || scenario === 'missing-current-store') {
     console.log(`PASS ${scenario}: abort, no uncharacterized data removed`);
     process.exit(0);
   }
@@ -175,6 +177,7 @@ IDBCursor.prototype.update = function (...args) { writes++; return update.apply(
 IDBObjectStore.prototype.put = function (...args) { writes++; return put.apply(this, args); };
 for (let i = 0; i < 3; i++) {
   const reopened = await import(`../../src/storage.ts?reopen=${i}`);
+  assert.notEqual(reopened.loadProgress, store.loadProgress, 'A fresh storage module performs each reopen');
   await reopened.loadProgress(); assert.deepEqual(await nativeSnapshot(), stable);
 }
 assert.equal(upgrades, 0); assert.equal(writes, 0);
