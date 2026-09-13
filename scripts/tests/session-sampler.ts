@@ -291,3 +291,59 @@ assert(selectExplicitPopulation(population,'saved',100,{},flags).length===1,'Sav
 const state=buildSessionState({id:'test',mode:'study',questions:[largePool[0].question],poolIds:[largePool[0].question.id],languageMode:'on-tap',title:'test',startedAt:'2026-09-12',launchIntent:'ordinary',returnView:'home',requestedCount:10});
 assert(state.launchIntent==='ordinary'&&state.requestedCount===10&&Boolean(state.fingerprints[largePool[0].question.id]),'construction captures intent and compatibility');
 console.log('session sampler: weighting, floors, diversity, reservation, borrowing, explicit populations passed');
+
+// R1.1: reservation uses the deliverable target, while ordinary backfill is uncapped.
+const underCapacityPool = Array.from({ length: 12 }, (_, index) =>
+  makeRecord(`under-capacity-${index}`, categories[0], `under-capacity-topic-${index}`),
+);
+const underCapacityProgress = Object.fromEntries(
+  underCapacityPool.slice(0, 10).map((record, index) => [
+    record.question.id,
+    progressFor(record.question.id, {
+      needsReview: true,
+      correct: 0,
+      incorrect: 1,
+      lastSeenAt: new Date(Date.UTC(2020, 0, index + 1)).toISOString(),
+    }),
+  ]),
+);
+const underCapacityRequested = 50;
+const underCapacityTarget = 12;
+const underCapacityReviewPool = 10;
+const underCapacityReserved = reviewReservation(underCapacityTarget, underCapacityReviewPool);
+assert(underCapacityReserved === 2, "requested 50 / effective 12 / review pool 10 reserves exactly 2");
+assert(reviewReservation(4, 4) === 0, "an effective target below 5 reserves no review seats");
+
+for (const weighted of [true, false]) {
+  const label = weighted ? "weighted" : "unweighted";
+  // Duplicate rows and a weighted-only excluded case cannot inflate the effective pool.
+  const input = [
+    ...underCapacityPool,
+    ...underCapacityPool,
+    ...(weighted ? [wholeCase] : []),
+  ];
+  for (let seed = 1; seed <= 5; seed += 1) {
+    const draw = (count: number, revisitMissed = true) => weighted
+      ? buildWeightedSession(input, count, underCapacityProgress, mulberry32(seed), { revisitMissed })
+      : buildUnweightedSession(input, count, underCapacityProgress, mulberry32(seed), revisitMissed);
+    const delivered = draw(underCapacityRequested);
+    const deliveredReviewCount = delivered.filter(
+      (record) => underCapacityProgress[record.question.id]?.needsReview,
+    ).length;
+    assert(delivered.length === underCapacityTarget, `${label}: deliver all 12 eligible questions`);
+    assert(new Set(delivered.map((record) => record.question.id)).size === underCapacityTarget,
+      `${label}: deduplicate before calculating the effective target`);
+    assert(deliveredReviewCount === 10 && deliveredReviewCount - underCapacityReserved === 8,
+      `${label}: 2 reserved plus 8 ordinary backfill must deliver all 10 review questions; R is not a cap`);
+    // Comparing identical effective targets observes reservation accounting through the
+    // seeded selection/shuffle path; checking only final membership would miss the bug.
+    assert(
+      delivered.map((record) => record.question.id).join(",") ===
+        draw(underCapacityTarget).map((record) => record.question.id).join(","),
+      `${label}, seed ${seed}: request 50 must use the same reservation as effective target 12`,
+    );
+    assert(draw(50, false).length === 2,
+      `${label}: toggle-off exclusion reduces the effective target to the 2 unseen questions`);
+  }
+  console.log(`${label} under capacity: requested 50, effective 12, reserved 2, backfill 8, total review 10; 5 seeds passed`);
+}

@@ -1,0 +1,79 @@
+{
+  "startingHead": "440511469eec80da5ea64a5bca73a23c32b0c98d",
+  "timestamp": "2026-09-13T01:45:36.469629+00:00",
+  "results": [
+    {
+      "gate": "session-sampler",
+      "command": [
+        "npm",
+        "run",
+        "test:session-sampler"
+      ],
+      "exitCode": 0
+    },
+    {
+      "gate": "session-navigation",
+      "command": [
+        "npm",
+        "run",
+        "test:session-navigation"
+      ],
+      "exitCode": 0
+    },
+    {
+      "gate": "session-start-guard",
+      "command": [
+        "npm",
+        "run",
+        "test:session-start-guard"
+      ],
+      "exitCode": 0
+    },
+    {
+      "gate": "census-check",
+      "command": [
+        "npm",
+        "run",
+        "census:check"
+      ],
+      "exitCode": 0
+    },
+    {
+      "gate": "typecheck",
+      "command": [
+        "npx",
+        "tsc",
+        "-b",
+        "--pretty",
+        "false"
+      ],
+      "exitCode": 0
+    },
+    {
+      "gate": "build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0
+    },
+    {
+      "gate": "diff-check",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0
+    }
+  ],
+  "testedFiles": {
+    "src/sessionSampler.ts": "ce0cf02d62fcafbede26d8cadb6826720a854c89d2c0329c95a986788a2e47d7",
+    "scripts/tests/session-sampler.ts": "623b0bb2eed6e223d97d7a27bda6bcbc9daab44285358363597ed9ecac554efd"
+  },
+  "negativeControls": {
+    "weighted": "Original 4405114 sampler failed the added request-50/effective-12 seeded-equivalence assertion.",
+    "unweighted": "After changing only the weighted call, weighted passed and unchanged unweighted failed its corresponding assertion."
+  }
+}

@@ -1,0 +1,18 @@
+
+> nclex-bilingual-prep@0.1.0 test:session-sampler
+> tsx scripts/tests/session-sampler.ts
+
+session sampler: weighting, floors, diversity, reservation, borrowing, explicit populations passed
+weighted under capacity: requested 50, effective 12, reserved 2, backfill 8, total review 10; 5 seeds passed
+/Users/holemini/Desktop/Project Shrimp Review Vocab R1/scripts/tests/session-sampler.ts:12
+  if (!condition) throw new Error(message);
+                        ^
+
+Error: unweighted, seed 1: request 50 must use the same reservation as effective target 12
+    at assert (/Users/holemini/Desktop/Project Shrimp Review Vocab R1/scripts/tests/session-sampler.ts:12:25)
+    at <anonymous> (/Users/holemini/Desktop/Project Shrimp Review Vocab R1/scripts/tests/session-sampler.ts:340:5)
+    at ModuleJob.run (node:internal/modules/esm/module_job:437:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:639:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v25.9.0

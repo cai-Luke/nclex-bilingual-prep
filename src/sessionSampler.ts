@@ -159,7 +159,7 @@ export const buildWeightedSession = (
   );
   for (const candidate of review.slice(
     0,
-    reviewReservation(count, review.length, params.revisitMissed !== false),
+    reviewReservation(targetCount, review.length, params.revisitMissed !== false),
   )) {
     const category = candidate.question.category;
     const donor =
@@ -235,6 +235,7 @@ export const buildWeightedSession = (
 const uniqueRecords = (records: QuestionRecord[]) => [
   ...new Map(records.map((r) => [r.question.id, r])).values(),
 ];
+// Count is the effective eligible target; ordinary backfill may add more review questions.
 export const reviewReservation = (count: number, reviewPoolSize: number, enabled = true) =>
   !enabled || count < 5 || reviewPoolSize === 0
     ? 0
@@ -277,12 +278,13 @@ export const buildUnweightedSession = (
   revisitMissed = true,
 ) => {
   const pool = uniqueRecords(records).filter((r) => revisitMissed || !progress[r.question.id]?.needsReview);
+  const targetCount = Math.min(Math.max(0, Math.floor(count)), pool.length);
   const review = leastRecentlyAttempted(
     pool.filter((r) => progress[r.question.id]?.needsReview),
     progress,
   ).slice(
     0,
-    reviewReservation(count, pool.filter((r) => progress[r.question.id]?.needsReview).length, revisitMissed),
+    reviewReservation(targetCount, pool.filter((r) => progress[r.question.id]?.needsReview).length, revisitMissed),
   );
   const ids = new Set(review.map((r) => r.question.id));
   const rest = pool.filter((r) => !ids.has(r.question.id));
@@ -297,7 +299,7 @@ export const buildUnweightedSession = (
         rest.filter((r) => (progress[r.question.id]?.seen ?? 0) > 0),
         rng,
       ),
-    ].slice(0, count),
+    ].slice(0, targetCount),
     rng,
   );
 };
