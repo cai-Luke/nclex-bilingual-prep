@@ -173,10 +173,19 @@ remained byte-identical to the Phase A baseline.
 
 The census was regenerated after the expected stale check: session units moved 1,930 → 1,943 and
 scored leaves 2,516 → 2,529. The pre-promotion→post-census movement for both `census.json` and
-`BANK-CENSUS.md` is preserved in the Stage 3 status log. Producer-independent confirmation of that
-movement remains pending with the Stage 2 seat or owner. Stage 3 made no content revision and did not
+`BANK-CENSUS.md` is preserved in the Stage 3 status log. Stage 3 made no content revision and did not
 commit or push. The task-owned raw draft was deleted only after this history entry and the ledger
 entry were written.
+
+**Producer-independent census-movement confirmation (2026-09-13):** independently verified by direct
+inspection rather than left pending — all 13 `finalPublicationRoster` IDs are present in
+`banks/gpt-canonical.json` at publication commit `edc3aa1` (760 → 773, clean, no missing/duplicate
+IDs against parent commit `e23962e7`), and `BANK-CENSUS.md`'s diff across the same two commits shows
+every relevant figure moving by exactly +13 (session units, standalone top-level supply, total and
+standalone scored leaves) with no unexplained movement elsewhere. This is a mechanical
+arithmetic/identity confirmation only, not a re-review of the 13 items' clinical content, which was
+already recorded in the frozen Stage 1/2 process. See
+`audit/known-receipt-gaps-2026-09-13-independent-review/review.md`.
 
 ### June 13 Matrix Swap Regression Repair Accepted (Aug 25)
 
