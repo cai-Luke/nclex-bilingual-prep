@@ -1,0 +1,41 @@
+import assert from 'node:assert/strict';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {execFileSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
+import ts from 'typescript';
+const out='audit/learner-shell-r3-concept-a-r1';
+const baseline='511f66b7b7cb830649613793f0264725be25d450';
+const owner='/Users/holemini/Desktop/Project Shrimp';
+const git=(args,cwd=process.cwd())=>execFileSync('git',args,{cwd,encoding:'utf8'});
+const sha=s=>createHash('sha256').update(s).digest('hex');
+const launch=JSON.parse(readFileSync(`${out}/launch-snapshot.json`));
+const protectedPaths=['src/storage.ts','src/progressMigration.ts','src/sessionSampler.ts','src/grading.ts','src/schema.ts','src/types.ts','src/banks.ts','src/bankImport.ts','src/sessionStartGuard.ts','src/completedMemory.ts','src/sessionState.ts','src/sessionNavigation.ts','src/ExamCalculatorPanel.tsx','package.json','package-lock.json','census.json','BANK-CENSUS.md','BANK-REVIEW-LEDGER.md','PROJECT-HISTORY.md'];
+const files=git(['ls-tree','-r','--name-only',baseline]).trim().split('\n');
+const guarded=files.filter(f=>f.startsWith('banks/')||f.startsWith('src/visuals/')||f.startsWith('scratch/learner-shell-r3/'));
+const protectedHashes=Object.fromEntries([...new Set([...protectedPaths,...guarded])].map(f=>{
+ const old=execFileSync('git',['show',`${baseline}:${f}`],{maxBuffer:64*1024*1024}); const current=readFileSync(f);assert(old.equals(current),`${f} differs`);return[f,{baseline:sha(old),current:sha(current),equal:true}];
+}));
+const changed=git(['diff',baseline,'--name-only']).trim().split('\n').filter(Boolean);
+assert(changed.every(f=>['src/App.tsx','src/styles.css'].includes(f)||f.startsWith(out+'/')));
+assert.equal(git(['status','--porcelain=v1','-uall'],owner),launch.ownerStatus,'Owner status changed');
+assert.equal(git(['rev-parse','HEAD'],owner).trim(),launch.ownerHead,'Owner HEAD changed');
+for(const [f,hash] of Object.entries({...launch.ownerUntrackedHashes,...launch.referenceHashes}))assert.equal(sha(readFileSync(`${owner}/${f}`)),hash,`Owner file changed: ${f}`);
+const oldApp=git(['show',baseline+':src/App.tsx']);const newApp=readFileSync('src/App.tsx','utf8');
+const parse=s=>ts.createSourceFile('App.tsx',s,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
+const functions=s=>new Map(parse(s).statements.filter(ts.isFunctionDeclaration).map(n=>[n.name.text,n.getText()]));
+const oldFns=functions(oldApp),newFns=functions(newApp);
+const changedFunctions=[...oldFns].filter(([name,body])=>newFns.get(name)!==body).map(([name])=>name);
+assert.deepEqual(changedFunctions,['App','HomeView','MemoryList','LibraryView','SettingsView']);
+const sameFunctions=[...oldFns.keys()].filter(n=>!changedFunctions.includes(n));
+assert.equal(newFns.get('MemoryList').replace('>Back to Study</button>','>Home</button>'),oldFns.get('MemoryList'));
+// Every statement before App's returned shell is identical except the removed
+// decorative answered metric selector and four derived navigation selectors.
+const appStatements=s=>parse(s).statements.find(n=>ts.isFunctionDeclaration(n)&&n.name.text==='App').body.statements.filter(n=>!ts.isReturnStatement(n)).map(n=>n.getText());
+const oldStatements=appStatements(oldApp).filter(s=>!s.startsWith('const answeredRecords ='));
+const newStatements=appStatements(newApp).filter(s=>!['showLearnerNavigation','primaryView','studySelected','librarySelected'].some(n=>s.startsWith(`const ${n} =`)));
+assert.deepEqual(newStatements,oldStatements,'App state, effects or handlers changed');
+const cssOld=git(['show',baseline+':src/styles.css']),cssNew=readFileSync('src/styles.css','utf8');
+const semanticTokens=s=>[...s.matchAll(/--(?:state-[\w-]+|panel-warn-[\w-]+|evidence-[\w-]+):[^;]+;/g)].map(m=>m[0]);
+assert.deepEqual(semanticTokens(cssNew),semanticTokens(cssOld),'Correct/error/warning semantics changed');
+const result={baseline,verifiedHead:git(['rev-parse','HEAD']).trim(),changedTrackedFiles:changed,protectedHashes,protectedFileCount:Object.keys(protectedHashes).length,app:{changedFunctions,byteUnchangedFunctions:sameFunctions,stateEffectsAndHandlers:'All pre-return statements byte-identical, excluding four derived IA selectors and deletion of decorative answered metric',memoryList:'Only Home → Back to Study copy changed'},semanticColorTokens:'byte-identical',owner:{status:'unchanged',head:launch.ownerHead,hashedUntrackedFiles:Object.keys(launch.ownerUntrackedHashes).length,referenceHashes:launch.referenceHashes,workOrderSha256:launch.ownerUntrackedHashes['LEARNER-SHELL-R3-CONCEPT-A-IMPLEMENTATION-WORK-ORDER-2026-09-13.md']},productionFiles:{'src/App.tsx':sha(newApp),'src/styles.css':sha(cssNew)}};
+writeFileSync(`${out}/invariance-proof.json`,JSON.stringify(result,null,2)+'\n');console.log(`PASS: ${Object.keys(protectedHashes).length} protected files, ${sameFunctions.length} untouched App functions, all existing App state/effects/handlers, semantic colors, and owner snapshot.`);
