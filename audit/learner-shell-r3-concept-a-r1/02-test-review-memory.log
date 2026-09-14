@@ -1,0 +1,9 @@
+
+> nclex-bilingual-prep@0.1.0 test:review-memory
+> tsx scripts/tests/completed-memory.ts && tsx scripts/tests/review-storage.ts && tsx scripts/tests/review-migration-failure.ts
+
+completed memory: captured payload, all fingerprint branches, draft identity, migration ambiguity passed
+review storage: v5→v7, atomic duplicate events, partial/case transitions, Saved independence, archive abort/retry, denied storage passed
+review storage: unobserved durable active work is preserved
+review storage: repeated miss, skip/early end and unsaved full-marks transitions passed
+migration write failure: v5 transaction rolls back intact, then v7 retry succeeds without unhandled rejection

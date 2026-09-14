@@ -1,0 +1,77 @@
+{
+  "implementationCommit": "d581a66ff1a784d10e65b1b139d78c41851d45fa",
+  "inputs": {
+    "src/App.tsx": "2bc7f80ffd45ef20f9fc0ea52eaa5034011b8596de34d69c69e73dbad2590d6a",
+    "src/styles.css": "37f81e2826950bb1ab8c2a3351e8c4ddfcfb30642f92aec7f03b7695c0658708",
+    "package-lock.json": "36ec623fbbe5ba3c74a15a5b1d95ccb0c83911a979d2db8e9b803b2167e6f854"
+  },
+  "results": [
+    {
+      "command": "npx tsc -b --pretty false",
+      "exitCode": 0,
+      "seconds": 3.88,
+      "log": "01-tsc--b---pretty-false.log"
+    },
+    {
+      "command": "npm run test:review-memory",
+      "exitCode": 0,
+      "seconds": 0.64,
+      "log": "02-test-review-memory.log"
+    },
+    {
+      "command": "npm run test:session-start-guard",
+      "exitCode": 0,
+      "seconds": 0.24,
+      "log": "03-test-session-start-guard.log"
+    },
+    {
+      "command": "npm run test:session-navigation",
+      "exitCode": 0,
+      "seconds": 0.23,
+      "log": "04-test-session-navigation.log"
+    },
+    {
+      "command": "npm run test:session-sampler",
+      "exitCode": 0,
+      "seconds": 0.47,
+      "log": "05-test-session-sampler.log"
+    },
+    {
+      "command": "npm run test:exam-layout",
+      "exitCode": 0,
+      "seconds": 0.24,
+      "log": "06-test-exam-layout.log"
+    },
+    {
+      "command": "npm run test:calculator",
+      "exitCode": 0,
+      "seconds": 0.24,
+      "log": "07-test-calculator.log"
+    },
+    {
+      "command": "npm run test:app-update",
+      "exitCode": 0,
+      "seconds": 0.25,
+      "log": "08-test-app-update.log"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "log": "09-build.log",
+      "buildId": "d581a66ff1a784d10e65b1b139d78c41851d45fa-2026-09-14T02:20:04.254Z"
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0,
+      "seconds": 0.02,
+      "log": "10-git-diff---check.log"
+    }
+  ],
+  "finalImplementationCommit": "d581a66ff1a784d10e65b1b139d78c41851d45fa",
+  "finalBuild": {
+    "command": "npm run build",
+    "exitCode": 0,
+    "log": "09-build.log",
+    "buildManifest": "build-manifest.json"
+  }
+}
