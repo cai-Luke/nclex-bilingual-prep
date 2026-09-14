@@ -113,21 +113,31 @@ const svg = renderBurnMapSvg(adult);
 assert(renderBurnMapSvg(adult) === svg, "burn-map rendering must be deterministic");
 assert(svg.includes('data-kind="burn_map"'), "burn map must identify its kind");
 assert(svg.includes('data-region="trunk_anterior"') && svg.includes('fill="#dc2626" fill-opacity="0.55"'), "burned region must use solid translucent red");
-assert(svg.includes('data-region="head_anterior"') && svg.includes('fill="#f1f5f9"'), "unburned region must use neutral fill");
+assert(svg.includes('data-region="head_anterior"') && svg.includes('fill="#f7f7f5"'), "unburned region must use neutral fill");
 assert(svg.includes('clip-path="url(#burn-posterior-clip)"'), "posterior detail lines must be clipped to the body silhouette");
-assert(svg.includes('stroke="#64748b" stroke-width="1"'), "burn map outlines must stay lighter than selected burn fills");
-assert(svg.includes('viewBox="0 0 850 640"'), "burn map must reserve a label band below the full-size figures");
-assert(svg.includes('data-region="genitalia"') && svg.includes("M 235,320 Q 250,310 265,320"), "genitalia must render as a distinct selectable region");
-assert(svg.includes("L 125,330 Q 115,340 107,325"), "anterior arms must include readable hand termini");
-assert(svg.includes('data-region="arm_l_posterior" d="M 540,180'), "posterior left arm must render on the patient's left side");
-assert(svg.includes('data-region="leg_l_posterior" d="M 550,310'), "posterior left leg must render on the patient's left side");
-assert(svg.includes('M 235,145 Q 215,145 180,155'), "anterior trunk must keep a broad curved shoulder yoke");
-assert(svg.includes('M 585,145 Q 565,145 530,155'), "posterior trunk must keep a parallel curved shoulder yoke");
-assert(svg.includes('M 230,125 Q 250,140 270,125'), "anterior view must include a low chin/jaw orientation cue");
-assert(!svg.includes('M 230,106 Q 250,128 270,106'), "anterior view must not include the old higher face/chin/mouth cue");
-assert(svg.includes('M 216,157 Q 232,164 246,166 M 254,166 Q 268,164 284,157'), "anterior view must include a subtle broken clavicle cue");
-assert(svg.includes('M 600,170 L 600,310'), "posterior view must include a faint central spine orientation cue");
-assert(svg.includes('M 600,320 L 600,350'), "posterior view must include clipped orientation lines");
+assert(svg.includes('stroke="#64748b" stroke-width="1.6"'), "burn map outlines must stay legible against neutral anatomy");
+assert(svg.includes('viewBox="0 0 800 600"'), "approved figure must retain its landscape envelope");
+assert(svg.includes('clip-path="url(#burn-anterior-clip)"'), "anterior detail must stay inside the body silhouette");
+const root = svg.match(/^<svg\b[^>]*>/)?.[0] ?? "";
+assert(!/\b(?:width|height)=/.test(root), "the application must control SVG display size");
+assert(!/<(?:image|foreignObject|script)\b/.test(svg), "burn-map output must remain self-contained vector geometry");
+assert(Object.keys(REGION_GEOMETRY).length === 13, "all thirteen independently selectable regions must remain present");
+
+// Test patient laterality from each whole contour, independently of its first
+// coordinate or the current shoulder/hip landmark. All commands use x/y pairs.
+for (const view of ["anterior", "posterior"] as const) {
+  const center = view === "anterior" ? 210 : 590;
+  for (const limb of ["arm", "leg"] as const) {
+    for (const side of ["l", "r"] as const) {
+      const key = `${limb}_${side}_${view}` as const;
+      const coordinates = REGION_GEOMETRY[key].d.match(/-?\d+(?:\.\d+)?/g)?.map(Number) ?? [];
+      assert(coordinates.length >= 6 && coordinates.length % 2 === 0, `${key} must have complete coordinate pairs`);
+      const xs = coordinates.filter((_, index) => index % 2 === 0);
+      const onViewerLeft = view === "anterior" ? side === "r" : side === "l";
+      assert(onViewerLeft ? Math.max(...xs) <= center : Math.min(...xs) >= center, `${key} must stay on the patient's correct side`);
+    }
+  }
+}
 
 for (const key of BURN_REGION_KEYS) {
   const singleRegionSvg = renderBurnMapSvg({ kind: "burn_map", population: "adult", burns: [key] });
@@ -137,6 +147,13 @@ for (const key of BURN_REGION_KEYS) {
   );
   const selectedFills = singleRegionSvg.match(/fill="#dc2626" fill-opacity="0.55"/g) ?? [];
   assert(selectedFills.length === 1, `${key} single-region render must shade exactly one keyed fill`);
+}
+
+for (const side of ["l", "r"] as const) {
+  const burns = ["genitalia", `leg_${side}_anterior`] as BurnMapSpec["burns"];
+  const combined = renderBurnMapSvg({ ...adult, burns });
+  assert((combined.match(/fill="#dc2626" fill-opacity="0.55"/g) ?? []).length === 2, "perineum and adjacent leg must remain separate fill owners");
+  assert(combined === renderBurnMapSvg({ ...adult, burns: [...burns].reverse() }), "selection order must not alter region painting");
 }
 
 const visibleLabels = Array.from(svg.matchAll(/<text\b[^>]*>([^<]*)<\/text>/g), (match) => match[1]);

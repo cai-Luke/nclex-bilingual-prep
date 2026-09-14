@@ -52,6 +52,12 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Owner-Selected Burn Map Integrated (Sep 13)
+
+Luke approved production integration and live publication of the Astra burn-map refinement with fuller arms and Gemini-adapted hands. Both renderer files are copied byte-for-byte from the selected proposal. The figure retains thirteen independent fill regions and correct patient laterality, with unchanged region tables, arithmetic, self-check behavior, and bank content.
+
+Renderer tests, promoted visual parity, TypeScript, bank validation, census drift check, production build, and desktop/mobile/offline browser smoke passed. The scoped parity rebaseline changes ten burn-map SVG hashes; all keyed values and self-check results match the prior state, and the other 189 visual records are unchanged. Evidence and source hashes are recorded in [the integration receipt](audit/burn-map-integration-2026-09-13/receipt.md).
+
 ### Campaign 17 Phase A/B and Temperature Counterpart R1 Integrated (Sep 13)
 
 Closes the Campaign 17 Phase A (66 residual dispositions) and Phase B (75 legacy-primary survey) population left open by the Phase C entry below, plus the separately produced Temperature Counterpart R1 packet. Full four-layer provenance (disposition review → overnight producer implementation → independent implementation review → replacement review and integration) and the complete verification/hash-chain record are in `BANK-REVIEW-LEDGER.md`'s dated entry; this note gives only the outcome.

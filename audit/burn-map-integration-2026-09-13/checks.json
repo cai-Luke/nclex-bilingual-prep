@@ -1,0 +1,92 @@
+[
+  {
+    "name": "typecheck",
+    "command": [
+      "npx",
+      "tsc",
+      "-b",
+      "--pretty",
+      "false"
+    ],
+    "exitCode": 0
+  },
+  {
+    "name": "validate-bank",
+    "command": [
+      "npm",
+      "run",
+      "validate-bank",
+      "--",
+      "banks/burn-canonical.json",
+      "banks/capnography-canonical.json",
+      "banks/claude-canonical.json",
+      "banks/device-canonical.json",
+      "banks/gemini-canonical.json",
+      "banks/gpt-canonical.json",
+      "banks/hard-cases-canonical.json",
+      "banks/io-canonical.json",
+      "banks/lab-canonical.json",
+      "banks/mar-canonical.json",
+      "banks/medlabel-canonical.json",
+      "banks/visual-canonical.json",
+      "banks/vitals-canonical.json"
+    ],
+    "exitCode": 0
+  },
+  {
+    "name": "census-check",
+    "command": [
+      "npm",
+      "run",
+      "census:check"
+    ],
+    "exitCode": 0
+  },
+  {
+    "name": "build",
+    "command": [
+      "npm",
+      "run",
+      "build"
+    ],
+    "exitCode": 0
+  },
+  {
+    "name": "burn-map",
+    "command": [
+      "npx",
+      "tsx",
+      "scripts/tests/burn-map.ts"
+    ],
+    "exitCode": 0
+  },
+  {
+    "name": "test-visuals",
+    "command": [
+      "npm",
+      "run",
+      "test-visuals"
+    ],
+    "exitCode": 0
+  },
+  {
+    "name": "source-checks",
+    "command": [
+      "node",
+      "--import",
+      "tsx",
+      "audit/burn-map-integration-2026-09-13/source-checks.mjs"
+    ],
+    "exitCode": 0
+  },
+  {
+    "name": "browser-smoke",
+    "command": [
+      "node",
+      "--import",
+      "tsx",
+      "audit/burn-map-integration-2026-09-13/browser-smoke.mjs"
+    ],
+    "exitCode": 0
+  }
+]

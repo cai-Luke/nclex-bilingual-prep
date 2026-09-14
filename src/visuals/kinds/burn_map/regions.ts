@@ -52,77 +52,161 @@ export const TBSA_PCT: Record<BurnPopulation, Record<BurnRegionKey, number>> = {
 
 export const BURN_REGION_KEYS = Object.keys(TBSA_PCT.adult) as BurnRegionKey[];
 
+// Original chart geometry in a shared body-local coordinate system.
+// Reflection below is anatomical: anterior patient-left is viewer-right;
+// posterior patient-left is viewer-left. Every fill owner is disjoint.
 type View = "anterior" | "posterior";
-
 type Geometry = { view: View; d: string };
+type Segment = readonly ["M" | "L" | "Q" | "C" | "Z", ...number[]];
+type Contour = readonly Segment[];
+const CENTERS: Record<View, number> = { anterior: 210, posterior: 590 };
+
+// Coordinates are absolute within each local contour; the same point/curve
+// is used on both sides of each selectable seam (including the groin).
+const head: Contour = [
+  ["M", -11, 143], ["L", -11, 130],
+  ["C", -19, 124, -25, 109, -25, 92],
+  ["C", -25, 75, -16, 65, 0, 65],
+  ["C", 16, 65, 25, 75, 25, 92],
+  ["C", 25, 109, 19, 124, 11, 130],
+  ["L", 11, 143], ["Q", 0, 147, -11, 143], ["Z"],
+];
+const trunkStart: Contour = [
+  ["M", -11, 143], ["C", -22, 146, -45, 146, -60, 152],
+  ["C", -52, 160, -48, 175, -49, 189],
+  ["C", -48, 211, -39, 235, -40, 254],
+  ["C", -40, 269, -43, 279, -45, 288],
+];
+const trunkEnd: Contour = [
+  ["C", 43, 279, 40, 269, 40, 254],
+  ["C", 39, 235, 48, 211, 49, 189],
+  ["C", 48, 175, 52, 160, 60, 152],
+  ["C", 45, 146, 22, 146, 11, 143],
+  ["Q", 0, 147, -11, 143], ["Z"],
+];
+const frontTrunk: Contour = [
+  ...trunkStart,
+  ["C", -35, 294, -23, 301, -12, 309],
+  ["Q", 0, 313, 12, 309],
+  ["C", 23, 301, 35, 294, 45, 288],
+  ...trunkEnd,
+];
+const backTrunk: Contour = [
+  ...trunkStart,
+  ["C", -43, 308, -21, 326, 0, 316],
+  ["C", 21, 326, 43, 308, 45, 288],
+  ...trunkEnd,
+];
+
+// Grouped hand adapted from Gemini's frozen R1 contour with owner permission.
+// The affine placement fits Astra's wrist and follows its abducted forearm.
+// One continuous arm fill owns the hand; no wrist seam or finger-detail ink.
+const groupedHand: Contour = [
+  ["C", -102, 324, -107, 330, -111, 339],
+  ["C", -112, 343, -109, 345, -106, 345],
+  ["C", -104, 345, -102, 344, -102, 348],
+  ["C", -102, 356, -102, 364, -101, 370],
+  ["C", -100, 374, -97, 375, -96, 373],
+  ["C", -93, 371, -90, 368, -89, 364],
+  ["C", -87, 352, -86, 336, -85, 320],
+];
+const fittedHand: Contour = groupedHand.map(([op, ...values]) => [
+  op, ...values.map((v, i) => i % 2 === 0
+    ? Math.round((-116 + 0.9 * (v + 97) - 0.15 * (values[i + 1] - 320)) * 100) / 100
+    : Math.round((318 + 0.72 * (v - 320)) * 100) / 100),
+]);
+const arm: Contour = [
+  ["M", -60, 152],
+  // Fuller upper arm and forearm, with a gradual taper to the same wrist.
+  ["C", -73, 155, -82, 168, -85, 183],
+  ["C", -88, 197, -91, 211, -95, 225],
+  ["C", -97, 233, -99, 241, -102, 249],
+  ["C", -108, 266, -112, 284, -114, 297],
+  ["Q", -115, 308, -116, 318],
+  ...fittedHand,
+  ["C", -102, 310, -96, 303, -92, 298],
+  ["C", -85, 284, -80, 265, -78, 249],
+  ["Q", -74, 237, -74, 225],
+  ["C", -69, 210, -57, 198, -49, 189],
+  ["C", -48, 175, -52, 160, -60, 152], ["Z"],
+];
+const perineum: Contour = [
+  ["M", -12, 309], ["Q", 0, 313, 12, 309],
+  ["C", 10, 320, 5, 327, 0, 331],
+  ["C", -5, 327, -10, 320, -12, 309], ["Z"],
+];
+// Viewer-left leg. The anterior boundary meets the perineal point. The
+// posterior upper curve is exactly the reversed gluteal boundary above.
+const legUpper: Contour = [
+  ["C", -48, 307, -47, 341, -43, 383],
+  ["C", -40, 410, -35, 427, -35, 441],
+  ["C", -38, 457, -36, 475, -31, 496],
+  ["L", -30, 522],
+];
+const frontFoot: Contour = [
+  ["C", -30, 533, -33, 541, -39, 549],
+  ["Q", -44, 555, -41, 559], ["Q", -31, 564, -17, 560],
+  ["C", -12, 558, -17, 546, -17, 537],
+];
+const backFoot: Contour = [
+  ["C", -30, 534, -33, 541, -36, 548],
+  ["C", -39, 554, -35, 559, -30, 560],
+  ["Q", -23, 563, -18, 559],
+  ["C", -14, 555, -17, 546, -17, 537],
+];
+const legInside: Contour = [
+  ["L", -16, 516],
+  ["C", -18, 496, -13, 478, -12, 462],
+  ["C", -11, 451, -14, 445, -14, 434],
+  ["C", -14, 406, -6, 363, 0, 331],
+];
+const frontLeg: Contour = [
+  ["M", -45, 288], ...legUpper, ...frontFoot, ...legInside,
+  ["C", -5, 327, -10, 320, -12, 309],
+  ["C", -23, 301, -35, 294, -45, 288], ["Z"],
+];
+const backLeg: Contour = [
+  ["M", -45, 288], ...legUpper, ...backFoot, ...legInside,
+  ["L", 0, 316], ["C", -21, 326, -43, 308, -45, 288], ["Z"],
+];
+
+const place = (shape: Contour, view: View, reflect = false): string =>
+  shape.map(([op, ...values]) => op + (values.length ? " " + values.map(
+    (value, i) => i % 2 === 0 ? CENTERS[view] + (reflect ? -value : value) : value,
+  ).join(" ") : "")).join(" ");
+const region = (shape: Contour, view: View, reflect = false): Geometry =>
+  ({ view, d: place(shape, view, reflect) });
 
 export const REGION_GEOMETRY: Record<BurnRegionKey, Geometry> = {
-  head_anterior: {
-    view: "anterior",
-    d: "M 240,145 Q 237,135 231,125 Q 222,105 219,85 C 217,35 283,35 281,85 Q 278,105 269,125 Q 263,135 260,145 Z",
-  },
-  head_posterior: {
-    view: "posterior",
-    d: "M 590,145 Q 587,135 581,125 Q 572,105 569,85 C 567,35 633,35 631,85 Q 628,105 619,125 Q 613,135 610,145 Z",
-  },
-  trunk_anterior: {
-    view: "anterior",
-    d: "M 235,145 Q 215,145 180,155 L 190,180 L 200,310 L 235,320 Q 250,310 265,320 L 300,310 L 310,180 L 320,155 Q 285,145 265,145 Z",
-  },
-  trunk_posterior: {
-    view: "posterior",
-    d: "M 585,145 Q 565,145 530,155 L 540,180 L 550,310 Q 550,360 600,350 Q 650,360 650,310 L 660,180 L 670,155 Q 635,145 615,145 Z",
-  },
-  arm_l_anterior: {
-    view: "anterior",
-    d: "M 310,180 L 360,260 L 370,300 L 375,330 Q 385,340 393,325 L 390,310 L 397,312 Q 400,305 395,298 L 385,290 Q 370,220 320,155 L 310,180 Z",
-  },
-  arm_l_posterior: {
-    view: "posterior",
-    d: "M 540,180 L 490,260 L 480,300 L 475,330 Q 465,340 457,325 L 460,310 L 453,312 Q 450,305 455,298 L 465,290 Q 480,220 530,155 L 540,180 Z",
-  },
-  arm_r_anterior: {
-    view: "anterior",
-    d: "M 190,180 L 140,260 L 130,300 L 125,330 Q 115,340 107,325 L 110,310 L 103,312 Q 100,305 105,298 L 115,290 Q 130,220 180,155 L 190,180 Z",
-  },
-  arm_r_posterior: {
-    view: "posterior",
-    d: "M 660,180 L 710,260 L 720,300 L 725,330 Q 735,340 743,325 L 740,310 L 747,312 Q 750,305 745,298 L 735,290 Q 720,220 670,155 L 660,180 Z",
-  },
-  leg_l_anterior: {
-    view: "anterior",
-    d: "M 265,320 L 300,310 L 295,440 L 285,550 L 295,580 Q 280,585 265,580 L 265,550 L 260,440 L 250,360 Q 260,350 265,320 Z",
-  },
-  leg_l_posterior: {
-    view: "posterior",
-    d: "M 550,310 Q 550,360 600,350 L 590,440 L 585,550 L 595,580 Q 580,585 565,580 L 565,550 L 555,440 Z",
-  },
-  leg_r_anterior: {
-    view: "anterior",
-    d: "M 200,310 L 235,320 Q 240,350 250,360 L 240,440 L 235,550 L 235,580 Q 220,585 205,580 L 215,550 L 205,440 Z",
-  },
-  leg_r_posterior: {
-    view: "posterior",
-    d: "M 600,350 Q 650,360 650,310 L 645,440 L 635,550 L 635,580 Q 620,585 605,580 L 615,550 L 610,440 Z",
-  },
-  genitalia: {
-    view: "anterior",
-    d: "M 235,320 Q 250,310 265,320 Q 260,350 250,360 Q 240,350 235,320 Z",
-  },
+  head_anterior: region(head, "anterior"),
+  head_posterior: region(head, "posterior"),
+  trunk_anterior: region(frontTrunk, "anterior"),
+  trunk_posterior: region(backTrunk, "posterior"),
+  arm_l_anterior: region(arm, "anterior", true),
+  arm_l_posterior: region(arm, "posterior"),
+  arm_r_anterior: region(arm, "anterior"),
+  arm_r_posterior: region(arm, "posterior", true),
+  leg_l_anterior: region(frontLeg, "anterior", true),
+  leg_l_posterior: region(backLeg, "posterior"),
+  leg_r_anterior: region(frontLeg, "anterior"),
+  leg_r_posterior: region(backLeg, "posterior", true),
+  genitalia: region(perineum, "anterior"),
 };
 
+const ink = (shape: Contour, view: View): string => `<path d="${place(shape, view)}"/>`;
 export const BODY_INK: Record<View, string> = {
-  anterior:
-    '<path d="M 230,125 Q 250,140 270,125" fill="none" stroke="#64748b" opacity="0.4"/>' +
-    '<path d="M 216,157 Q 232,164 246,166 M 254,166 Q 268,164 284,157" opacity="0.34"/>',
-  posterior:
-    '<path d="M 600,170 L 600,310" opacity="0.25"/>' +
-    '<path d="M 550,310 Q 600,330 650,310" opacity="0.45"/>' +
-    '<path d="M 600,320 L 600,350" opacity="0.5"/>',
+  anterior: ink([
+    ["M", -8, 158], ["Q", -21, 153, -33, 158],
+    ["M", 8, 158], ["Q", 21, 153, 33, 158],
+    ["M", -9, 129], ["Q", 0, 133, 9, 129],
+  ], "anterior"),
+  posterior: ink([
+    ["M", 0, 154], ["C", -2, 181, 2, 211, 0, 235],
+    ["M", -23, 173], ["Q", -15, 190, -23, 204],
+    ["M", 23, 173], ["Q", 15, 190, 23, 204],
+    ["M", 0, 297], ["L", 0, 316],
+  ], "posterior"),
 };
 
-export const renderRegionShape = (
-  key: BurnRegionKey,
-  attributes: string,
-): string =>
+export const renderRegionShape = (key: BurnRegionKey, attributes: string): string =>
   `<path data-region="${key}" d="${REGION_GEOMETRY[key].d}" ${attributes}/>`;

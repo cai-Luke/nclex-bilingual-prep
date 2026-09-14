@@ -1,5 +1,5 @@
 import { escapeXml } from "../../primitives/escapeXml";
-import { fmt, fmtNum, roundTo } from "../../primitives/graphPaper";
+import { fmtNum, roundTo } from "../../primitives/graphPaper";
 import { type VisualError, type VisualKindModule, registerVisual } from "../../registry";
 import {
   BODY_INK,
@@ -223,7 +223,7 @@ export const selfCheckBurnMap = (
 };
 
 const regionAttributes = (burned: boolean): string =>
-  burned ? 'fill="#dc2626" fill-opacity="0.55"' : 'fill="#f1f5f9"';
+  burned ? 'fill="#dc2626" fill-opacity="0.55"' : 'fill="#f7f7f5"';
 
 export const renderBurnMapSvg = (spec: BurnMapSpec): string => {
   const population = spec.population ?? "adult";
@@ -248,21 +248,21 @@ export const renderBurnMapSvg = (spec: BurnMapSpec): string => {
   const ariaLabel = escapeXml(spec.caption?.en ?? "Burn diagram");
   const populationLabel = population === "pediatric" ? "Pediatric" : "Adult";
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${fmt(850)} ${fmt(640)}" role="img" aria-label="${ariaLabel}" data-kind="burn_map" data-population="${population}">
-<rect x="0" y="0" width="${fmt(850)}" height="${fmt(640)}" fill="#ffffff"/>
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="${ariaLabel}" data-kind="burn_map" data-population="${population}">
 <defs>${clipPaths}</defs>
-<rect x="${fmt(8)}" y="${fmt(8)}" width="${fmt(834)}" height="${fmt(624)}" fill="none" stroke="#cbd5e1" stroke-width="1.5"/>
-<line x1="${fmt(425)}" y1="${fmt(8)}" x2="${fmt(425)}" y2="${fmt(632)}" stroke="#e2e8f0"/>
-<text x="${fmt(20)}" y="${fmt(30)}" font-family="Georgia, serif" font-size="${fmt(16)}" font-weight="600" fill="#1e293b">Burn Surface Assessment</text>
-<text x="${fmt(822)}" y="${fmt(30)}" text-anchor="end" font-family="system-ui, sans-serif" font-size="${fmt(14)}" fill="#475569">${escapeXml(populationLabel)}</text>
+<g font-family="system-ui, sans-serif" fill="#39434a" text-anchor="middle">
+<text x="210" y="38" font-size="21" font-weight="600">Anterior</text>
+<text x="590" y="38" font-size="21" font-weight="600">Posterior</text>
+<text x="400" y="584" font-size="17" fill="#687179">${escapeXml(populationLabel)}</text>
+</g>
 <g>${fills}</g>
-<g stroke="#64748b" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none">
+<g stroke="#64748b" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" fill="none">
 ${outlines}
+<g stroke-width="1.3" opacity="0.55">
 <g clip-path="url(#burn-anterior-clip)">${BODY_INK.anterior}</g>
 <g clip-path="url(#burn-posterior-clip)">${BODY_INK.posterior}</g>
 </g>
-<text x="${fmt(250)}" y="${fmt(622)}" text-anchor="middle" font-family="system-ui, sans-serif" font-size="${fmt(16)}" font-weight="700" fill="#334155">Anterior</text>
-<text x="${fmt(600)}" y="${fmt(622)}" text-anchor="middle" font-family="system-ui, sans-serif" font-size="${fmt(16)}" font-weight="700" fill="#334155">Posterior</text>
+</g>
 </svg>`;
 };
 
