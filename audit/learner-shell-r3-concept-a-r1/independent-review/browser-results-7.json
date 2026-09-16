@@ -1,0 +1,90 @@
+{
+  "results": [
+    {
+      "scenario": "chrome-200-percent-zoom",
+      "viewport": "window 1440x900 @ --force-device-scale-factor=2",
+      "cssViewport": [
+        1440,
+        813
+      ],
+      "dpr": 2,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "http:",
+      "method": "Chrome browser-level scaling via --force-device-scale-factor=2 (reflows as the zoom setting does); not CSS zoom, not a Playwright deviceScaleFactor override",
+      "nav": [
+        "Study",
+        "Library",
+        "Progress"
+      ],
+      "studyRootOverflow": false,
+      "dialogMetrics": {
+        "titleFullyVisible": true,
+        "safeFullyVisible": true,
+        "safeReachableWithoutScroll": true,
+        "titleTop": 285,
+        "safeBottom": 528,
+        "innerHeight": 813,
+        "dialogScrollable": false
+      },
+      "console": [],
+      "screenshots": [
+        "screenshots/zoom200-study-root.png",
+        "screenshots/zoom200-replacement-dialog.png"
+      ],
+      "pass": true
+    },
+    {
+      "scenario": "file-protocol-implementation",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "file:",
+      "url": "file:///Users/holemini/Desktop/Project Shrimp Learner Shell R3 Review/dist/index.html",
+      "appMounted": true,
+      "nav": [
+        "Study",
+        "Library",
+        "Progress"
+      ],
+      "navigationChecks": {
+        "Library": true,
+        "Progress": true,
+        "Settings": true,
+        "startedStudy": true,
+        "resumeAfterReload": true
+      },
+      "consoleMessages": [],
+      "consoleCount": 0,
+      "modulePathErrors": [],
+      "screenshot": "screenshots/file-protocol-implementation.png",
+      "pass": true
+    },
+    {
+      "scenario": "file-protocol-baseline",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "file:",
+      "url": "file:///Users/holemini/Desktop/Project Shrimp R3 Baseline Throwaway/dist/index.html",
+      "appMounted": true,
+      "nav": [
+        "Home",
+        "Customize",
+        "Progress",
+        "Library",
+        "Import",
+        "Settings"
+      ],
+      "navigationChecks": {},
+      "consoleMessages": [],
+      "consoleCount": 0,
+      "modulePathErrors": [],
+      "screenshot": "screenshots/file-protocol-baseline.png",
+      "pass": true
+    }
+  ],
+  "console": []
+}

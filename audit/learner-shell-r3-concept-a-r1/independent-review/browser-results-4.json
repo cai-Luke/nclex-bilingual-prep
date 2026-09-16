@@ -1,0 +1,240 @@
+{
+  "results": [
+    {
+      "scenario": "replacement-dialog-escape-desktop",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "http:",
+      "dialogOpened": false,
+      "focusedOnOpen": {
+        "text": "Study NCLEX-RN\nStudy\nLibrary\nProgress\nSettings\n\nSTUDY · NCLEX-RN PRACTICE\n\nContinue your practice\n\nPractice · 50 questions\n0 answered · Question 1 of 50\n\nContinue set / 继续练习\nStart another set\nCustomize\nStudy all questions\nAround your Study\nNeeds review\n/ 需复习\n0\n0 questions\nSaved\n/ 已收藏\n1\nYour bookmarks\nLast set\n\nYour most recent completed Study set will appear here.\n\nDetailed set results are available for sets completed after this update. Your previous progress and Saved questions are kept.\n\nDismiss",
+        "cls": ""
+      },
+      "closedByEscape": true,
+      "sessionsBefore": {
+        "activeSession": [
+          "session-1789515781054-msxbew"
+        ]
+      },
+      "sessionsAfterEscape": {
+        "activeSession": [
+          "session-1789515781054-msxbew"
+        ]
+      },
+      "escapePreservedSession": true,
+      "focusAfterEscape": {
+        "text": "Study NCLEX-RN\nStudy\nLibrary\nProgress\nSe",
+        "cls": "",
+        "tag": "BODY"
+      },
+      "screenshot": "screenshots/replacement-dialog-escape-desktop.png",
+      "pass": false
+    },
+    {
+      "scenario": "replacement-dialog-escape-mobile",
+      "viewport": "390x844",
+      "dpr": 3,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "http:",
+      "dialogOpened": false,
+      "focusedOnOpen": {
+        "text": "Study\nStudy\nLibrary\nProgress\nSettings\n\nSTUDY · NCLEX-RN PRACTICE\n\nContinue your practice\n\nPractice · 50 questions\n0 answered · Question 1 of 50\n\nContinue set / 继续练习\nStart another set\nCustomize\nStudy all questions\nAround your Study\nNeeds review\n/ 需复习\n0\n0 questions\nSaved\n/ 已收藏\n1\nYour bookmarks\nLast set\n\nYour most recent completed Study set will appear here.\n\nDetailed set results are available for sets completed after this update. Your previous progress and Saved questions are kept.\n\nDismiss",
+        "cls": ""
+      },
+      "closedByEscape": true,
+      "sessionsBefore": {
+        "activeSession": [
+          "session-1789515791381-m38230"
+        ]
+      },
+      "sessionsAfterEscape": {
+        "activeSession": [
+          "session-1789515791381-m38230"
+        ]
+      },
+      "escapePreservedSession": true,
+      "focusAfterEscape": {
+        "text": "Study\nStudy\nLibrary\nProgress\nSettings\n\nS",
+        "cls": "",
+        "tag": "BODY"
+      },
+      "screenshot": "screenshots/replacement-dialog-escape-mobile.png",
+      "pass": false
+    },
+    {
+      "scenario": "replacement-dialog-keep",
+      "pass": false,
+      "error": "Error: locator.click: Element is not visible",
+      "note": "scenario threw"
+    },
+    {
+      "scenario": "hydration-startup-guard",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "http: (throttled 150ms/request)",
+      "atFirstPaint": {
+        "startDisabled": false,
+        "headerInert": false
+      },
+      "sessionsAfter6Clicks": {
+        "activeSession": [
+          "session-1789515809713-rb09ky"
+        ]
+      },
+      "sessionRowCount": 1,
+      "screenshot": "screenshots/hydration-startup-guard.png",
+      "pass": true
+    },
+    {
+      "scenario": "question-behavior",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "http:",
+      "rationaleShown": true,
+      "zhRevealed": true,
+      "glossaryNodes": 1,
+      "gptControls": 2,
+      "savedToggled": false,
+      "advancedToNext": true,
+      "screenshot": "screenshots/question-rationale.png",
+      "pass": true
+    },
+    {
+      "scenario": "visual-item-dark",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "dark",
+      "textSize": "Default",
+      "transport": "http:",
+      "targetFound": true,
+      "detail": "svgNodes=4",
+      "lightLockProbe": [
+        {
+          "host": "[object SVGAnimatedString]",
+          "colorScheme": "light",
+          "bg": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "host": "[object SVGAnimatedString]",
+          "colorScheme": "light",
+          "bg": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "casePartNodes": 0,
+      "screenshot": "screenshots/visual-item-dark.png",
+      "pass": true
+    },
+    {
+      "scenario": "case-study",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "http:",
+      "targetFound": false,
+      "detail": null,
+      "lightLockProbe": [],
+      "casePartNodes": 0,
+      "screenshot": "screenshots/case-study.png",
+      "pass": false
+    },
+    {
+      "scenario": "settings-persistence",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "light",
+      "textSize": "varied",
+      "transport": "http:",
+      "settingsAfterChange": "{\"languageMode\":\"on-tap\",\"revisitMissed\":true,\"voiceEnabled\":false,\"themeMode\":\"light\",\"textSizeMode\":\"large\"}",
+      "afterReload": "{\"languageMode\":\"on-tap\",\"revisitMissed\":true,\"voiceEnabled\":false,\"themeMode\":\"light\",\"textSizeMode\":\"large\"}",
+      "persisted": true,
+      "rootAfterReload": {
+        "dataTheme": "light",
+        "cls": "",
+        "fontScale": "1.16"
+      },
+      "developerEntryWithoutDev": 0,
+      "previewLabEntryWithoutDev": 0,
+      "screenshot": "screenshots/settings-view.png",
+      "pass": true
+    },
+    {
+      "scenario": "dev-gated-and-L3-exits",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "http:",
+      "learnerNavInDeveloper": 0,
+      "brandVisibleInDeveloper": true,
+      "settingsUtilityInDeveloper": true,
+      "exitedDeveloperToStudy": true,
+      "developerEntryInSettings": 1,
+      "learnerNavInPreviewLab": 0,
+      "brandVisibleInPreviewLab": true,
+      "previewLabExitOk": true,
+      "screenshot": "screenshots/developer-console-dev-enabled.png",
+      "pass": true
+    },
+    {
+      "scenario": "L2-customize-filter-reset",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "http:",
+      "chosen": "unseen",
+      "valueInBuilder": "unseen",
+      "valueAfterReentry": "all",
+      "filtersResetOnReentry": true,
+      "screenshot": "screenshots/L2-customize-filter-reset.png",
+      "pass": null,
+      "note": "chose=unseen inBuilder=unseen reentry=all"
+    },
+    {
+      "scenario": "library-import-progress",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "http:",
+      "rowsBeforeFilter": 1967,
+      "rowsAfterHardFilter": 653,
+      "filterChanged": true,
+      "inspectOpened": true,
+      "importReachedFromLibrary": true,
+      "backToLibraryPresent": true,
+      "returnedToLibrary": true,
+      "progressHasNumbers": true,
+      "screenshots": [
+        "screenshots/library-inspect.png",
+        "screenshots/import-view.png",
+        "screenshots/progress-view.png"
+      ],
+      "pass": true
+    },
+    {
+      "scenario": "large-text-study-and-dialog",
+      "viewport": "390x844",
+      "dpr": 3,
+      "theme": "light",
+      "textSize": "Large",
+      "transport": "http:",
+      "studyRootOverflow": false,
+      "dialogMetrics": null,
+      "screenshots": [
+        "screenshots/large-text-study-root.png",
+        "screenshots/large-text-replacement-dialog.png"
+      ],
+      "pass": false
+    }
+  ],
+  "console": []
+}

@@ -1,0 +1,27 @@
+{
+  "results": [
+    {
+      "scenario": "mobile-active-study",
+      "viewport": "390x844",
+      "dpr": 3,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "http:",
+      "learnerBottomNavPresent": false,
+      "stickySubmit": true,
+      "skipPresent": true,
+      "calculatorOpened": true,
+      "calculatorCollidesWithSubmit": true,
+      "calculatorClosed": true,
+      "overflow": true,
+      "screenshots": [
+        "screenshots/mobile-active-study-nav-absent.png",
+        "screenshots/mobile-calculator-open.png"
+      ],
+      "pass": false
+    }
+  ],
+  "console": [],
+  "error": "Error: locator.click: Element is not visible\nCall log:\n  - waiting for locator('dialog.session-replacement-dialog button:has-text(\"Keep current set\")')\n    - locator resolved to <button type=\"button\" class=\"primary-action\">Keep current set / 保留当前练习</button>\n  - attempting click action\n    - scrolling into view if needed\n",
+  "stack": "locator.click: Element is not visible\nCall log:\n  - waiting for locator('dialog.session-replacement-dialog button:has-text(\"Keep current set\")')\n    - locator resolved to <button type=\"button\" class=\"primary-action\">Keep current set / 保留当前练习</button>\n  - attempting click action\n    - scrolling into view if needed\n\n    at run (/Users/holemini/Desktop/Project Shrimp Learner Shell R3 Review/audit/learner-shell-r3-concept-a-r1/independent-review/review-runner-3.mjs:105:97)"
+}

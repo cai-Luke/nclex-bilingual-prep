@@ -1,0 +1,139 @@
+{
+  "results": [
+    {
+      "scenario": "L1-cold-load-desktop",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "http:",
+      "detailsOpenBeforeReload": null,
+      "afterColdReload": {
+        "detailsOpen": true,
+        "detailsClass": "study-new-set ",
+        "hasResume": true,
+        "resumeText": "Continue set / 继续练习",
+        "startBtnClass": "test-start"
+      },
+      "afterRemount": {
+        "detailsOpen": false,
+        "detailsClass": "study-new-set "
+      },
+      "divergence": true,
+      "screenshots": [
+        "screenshots/L1-cold-load-desktop-after-cold-reload.png",
+        "screenshots/L1-cold-load-desktop-after-remount.png"
+      ],
+      "pass": null,
+      "note": "cold=true remount=false resume=true"
+    },
+    {
+      "scenario": "L1-cold-load-mobile",
+      "viewport": "390x844",
+      "dpr": 3,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "http:",
+      "detailsOpenBeforeReload": null,
+      "afterColdReload": {
+        "detailsOpen": true,
+        "detailsClass": "study-new-set ",
+        "hasResume": true,
+        "resumeText": "Continue set / 继续练习",
+        "startBtnClass": "test-start"
+      },
+      "afterRemount": {
+        "detailsOpen": false,
+        "detailsClass": "study-new-set "
+      },
+      "divergence": true,
+      "screenshots": [
+        "screenshots/L1-cold-load-mobile-after-cold-reload.png",
+        "screenshots/L1-cold-load-mobile-after-remount.png"
+      ],
+      "pass": null,
+      "note": "cold=true remount=false resume=true"
+    },
+    {
+      "scenario": "L1-cold-load-desktop-dark",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "dark",
+      "textSize": "Default",
+      "transport": "http:",
+      "detailsOpenBeforeReload": null,
+      "afterColdReload": {
+        "detailsOpen": true,
+        "detailsClass": "study-new-set ",
+        "hasResume": true,
+        "resumeText": "Continue set / 继续练习",
+        "startBtnClass": "test-start"
+      },
+      "afterRemount": {
+        "detailsOpen": false,
+        "detailsClass": "study-new-set "
+      },
+      "divergence": true,
+      "screenshots": [
+        "screenshots/L1-cold-load-desktop-dark-after-cold-reload.png",
+        "screenshots/L1-cold-load-desktop-dark-after-remount.png"
+      ],
+      "pass": null,
+      "note": "cold=true remount=false resume=true"
+    },
+    {
+      "scenario": "L1-large-text-320",
+      "viewport": "320x720",
+      "dpr": 3,
+      "theme": "light",
+      "textSize": "Large",
+      "transport": "http:",
+      "detailsOpen": true,
+      "resumeCopy": "Practice · 50 questions\n0 answered · Question 1 of 50",
+      "copyScrollW": 246,
+      "copyClientW": 246,
+      "L5_resumeCopyOverflows": false,
+      "pageOverflow": false,
+      "screenshot": "screenshots/L1-large-text-320.png",
+      "pass": true
+    },
+    {
+      "scenario": "memory-counts-vs-storage",
+      "viewport": "390x844",
+      "dpr": 3,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "http:",
+      "uiMemory": [
+        {
+          "label": "Needs review\n/ 需复习",
+          "count": "0",
+          "detail": "0 questions"
+        },
+        {
+          "label": "Saved\n/ 已收藏",
+          "count": "0",
+          "detail": "Your bookmarks"
+        }
+      ],
+      "dbStores": [
+        "activeSession",
+        "answerEvents",
+        "completedSets",
+        "flags",
+        "progress",
+        "uploadedQuestions"
+      ],
+      "dbNeedsReview": 0,
+      "dbSavedRows": 0,
+      "lastSetEntryPresent": false,
+      "summaryReached": false,
+      "screenshots": [
+        "screenshots/summary-after-set.png",
+        "screenshots/study-memory-dock.png"
+      ],
+      "pass": true
+    }
+  ],
+  "console": []
+}

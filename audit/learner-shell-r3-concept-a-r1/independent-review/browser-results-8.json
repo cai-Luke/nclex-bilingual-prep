@@ -1,0 +1,60 @@
+{
+  "results": [
+    {
+      "scenario": "chrome-200-percent-zoom",
+      "viewport": "CSS 720x450 @ DPR 2",
+      "cssViewport": [
+        720,
+        450
+      ],
+      "dpr": 2,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "http:",
+      "method": "Reproduces Chrome 200% zoom layout conditions in a 1440x900 window: CSS viewport halved to 720x450 and DPR doubled to 2. Chrome’s zoom menu is not reachable from automation; this is the reflow-equivalent, not a DPR-only substitute.",
+      "nav": [
+        "Study",
+        "Library",
+        "Progress"
+      ],
+      "studyRootOverflow": false,
+      "dialogMetrics": null,
+      "console": [],
+      "screenshots": [
+        "screenshots/zoom200-study-root.png",
+        "screenshots/zoom200-replacement-dialog.png"
+      ],
+      "pass": false
+    },
+    {
+      "scenario": "file-manifest-diagnostic-implementation",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "file:",
+      "appMounted": true,
+      "totalDiagnostics": 0,
+      "manifestRelatedCount": 0,
+      "manifestRelated": [],
+      "allEntries": [],
+      "pass": null,
+      "note": "0 total browser/page diagnostics; 0 manifest/CORS-related"
+    },
+    {
+      "scenario": "file-manifest-diagnostic-baseline",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "file:",
+      "appMounted": true,
+      "totalDiagnostics": 0,
+      "manifestRelatedCount": 0,
+      "manifestRelated": [],
+      "allEntries": [],
+      "pass": null,
+      "note": "0 total browser/page diagnostics; 0 manifest/CORS-related"
+    }
+  ]
+}

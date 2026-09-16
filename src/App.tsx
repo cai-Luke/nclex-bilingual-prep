@@ -25,7 +25,6 @@ import {
   Download,
   FileJson,
   Flag,
-  Home,
   Import,
   Library,
   Image,
@@ -137,7 +136,7 @@ type View =
   | "lastSet"
   | "inspect";
 
-const returnLabel = (view: SessionReturnView) => ({home:"Home",library:"Library",needsReview:"Needs review",saved:"Saved",lastSet:"Last set",builder:"Customize"}[view]);
+const returnLabel = (view: SessionReturnView) => ({home:"Study",library:"Library",needsReview:"Needs review",saved:"Saved",lastSet:"Last set",builder:"Customize"}[view]);
 
 const RevealAllContext = createContext(0);
 const HistoricalAttemptContext = createContext<SubmittedAttempt | null>(null);
@@ -400,10 +399,6 @@ export default function App() {
   );
   const missedRecords = useMemo(
     () => allRecords.filter((record) => progress[record.question.id]?.needsReview),
-    [progress, allRecords],
-  );
-  const answeredRecords = useMemo(
-    () => allRecords.filter((record) => (progress[record.question.id]?.seen ?? 0) > 0),
     [progress, allRecords],
   );
   const flaggedRecords = useMemo(
@@ -748,46 +743,36 @@ export default function App() {
   const activeSession = session && !session.completed ? session : null;
   const sessionReturnLabel = returnLabel(sessionReturnView);
   const isWidePage = view === "session" || view === "previewLab";
+  const showLearnerNavigation = view !== "session" && view !== "previewLab" && view !== "review";
+  const primaryView = view === "inspect" ? inspectionReturn : view === "summary" ? sessionReturnView : view;
+  const studySelected = ["home", "builder", "needsReview", "saved", "lastSet"].includes(primaryView);
+  const librarySelected = primaryView === "library" || primaryView === "import";
 
   return (
-    <div className={`app-shell ${view === "session" ? "session-active" : ""} ${isWidePage ? "wide-main" : ""}`}>
+    <div className={`app-shell ${showLearnerNavigation ? "learner-navigation" : ""} ${view === "session" ? "session-active" : ""} ${isWidePage ? "wide-main" : ""}`}>
       <header className="app-header" inert={sessionStartStatus === "starting" || working}>
-        <button className="brand" type="button" onClick={() => setView("home")}>
+        <button className="brand" type="button" aria-label="Project Shrimp · Study" onClick={() => setView("home")}>
           <img className="brand-mark" src={APP_ICON_SRC} alt="" aria-hidden="true" />
-          <span>NCLEX Bilingual Prep</span>
+          <span>Study <small>NCLEX-RN</small></span>
         </button>
-        <nav className="app-primary-nav" aria-label="Main navigation">
-          <button className={view === "home" ? "active" : ""} type="button" onClick={() => setView("home")}>
-            <Home aria-hidden="true" />
-            <span>Home</span>
+        {showLearnerNavigation && <nav className="app-primary-nav" aria-label="Main navigation">
+          <button className={studySelected ? "active" : ""} aria-current={studySelected ? "page" : undefined} type="button" onClick={() => setView("home")}>
+            <BookOpen aria-hidden="true" />
+            <span>Study</span>
           </button>
-          <button className={view === "builder" ? "active" : ""} type="button" onClick={() => openBuilder(builderFilters)}>
-            <SlidersHorizontal aria-hidden="true" />
-            <span>Customize</span>
-          </button>
-          <button className={view === "dashboard" ? "active" : ""} type="button" onClick={() => setView("dashboard")}>
-            <BarChart3 aria-hidden="true" />
-            <span>Progress</span>
-          </button>
-          <button className={view === "library" ? "active" : ""} type="button" onClick={() => setView("library")}>
+          <button className={librarySelected ? "active" : ""} aria-current={librarySelected ? "page" : undefined} type="button" onClick={() => setView("library")}>
             <Library aria-hidden="true" />
             <span>Library</span>
           </button>
-          <button className={view === "import" ? "active" : ""} type="button" onClick={() => setView("import")}>
-            <Import aria-hidden="true" />
-            <span>Import</span>
+          <button className={view === "dashboard" ? "active" : ""} aria-current={view === "dashboard" ? "page" : undefined} type="button" onClick={() => setView("dashboard")}>
+            <BarChart3 aria-hidden="true" />
+            <span>Progress</span>
           </button>
-          <button className={view === "settings" || view === "previewLab" ? "active" : ""} type="button" onClick={() => setView("settings")}>
-            <SettingsIcon aria-hidden="true" />
-            <span>Settings</span>
-          </button>
-          {devStartup.enabled && (
-            <button className={view === "review" ? "active" : ""} type="button" onClick={() => setView("review")}>
-              <Wrench aria-hidden="true" />
-              <span>Developer</span>
-            </button>
-          )}
-        </nav>
+        </nav>}
+        <button className="header-utility" aria-current={view === "settings" ? "page" : undefined} type="button" onClick={() => setView("settings")}>
+          <SettingsIcon aria-hidden="true" />
+          <span>Settings</span>
+        </button>
       </header>
 
       {(sessionStartStatus === "waiting-hydration" || sessionStartStatus === "starting") && (
@@ -826,7 +811,6 @@ export default function App() {
           <HomeView
             total={allRecords.length}
             missed={missedRecords.length}
-            answered={answeredRecords.length}
             flagged={flaggedRecords.length}
             activeSession={activeSession}
             onResume={() => setView(pendingCompletion ? "summary" : "session")}
@@ -843,14 +827,13 @@ export default function App() {
             revisitMissed={settings.revisitMissed}
             onRevisitChange={revisitMissed => updateSettings({...settings,revisitMissed})}
             onCustom={() => openBuilder()}
-            onDashboard={() => setView("dashboard")}
-            onImport={() => setView("import")}
-            onLibrary={() => setView("library")}
             sessionStartDisabled={!uploadedLoaded}
           />
         )}
 
         {view === "builder" && (
+          <>
+          <button className="back-action" onClick={() => setView("home")}><ChevronLeft aria-hidden="true" />Back to Study</button>
           <SessionBuilderView
             records={builderRecords}
             filters={builderFilters}
@@ -868,6 +851,7 @@ export default function App() {
             }}
             sessionStartDisabled={!uploadedLoaded}
           />
+          </>
         )}
 
         {view === "dashboard" && (
@@ -886,6 +870,7 @@ export default function App() {
 
         {view === "library" && (
           <LibraryView
+            onImport={() => setView("import")}
             records={filteredRecords}
             allRecords={allRecords}
             progress={progress}
@@ -902,6 +887,8 @@ export default function App() {
         )}
 
         {view === "import" && (
+          <>
+          <button className="back-action" onClick={() => setView("library")}><ChevronLeft aria-hidden="true" />Back to Library</button>
           <ImportView
             existingIds={existingIds}
             allRecords={allRecords}
@@ -911,6 +898,7 @@ export default function App() {
               setUploadedRecords(next);
             }}
           />
+          </>
         )}
 
         {view === "settings" && (
@@ -919,6 +907,7 @@ export default function App() {
             updateSettings={updateSettings}
             devEnabled={devStartup.enabled}
             onOpenPreviewLab={() => setView("previewLab")}
+            onOpenDeveloper={() => setView("review")}
             currentBuild={currentBuild}
           />
         )}
@@ -956,7 +945,7 @@ export default function App() {
         {view === "session" && session?.recovery?.length ? <section className="stack" role="alert">
           <h2>This set needs recovery</h2><p>Your saved work is kept. These entries cannot safely use the current bank:</p>
           <ul>{session.recovery.map(message=><li key={message}>{message}</li>)}</ul>
-          <button onClick={()=>setView("home")}>Home</button><button onClick={()=>void finishSession()}>End this set</button>
+          <button onClick={()=>setView("home")}>Back to Study</button><button onClick={()=>void finishSession()}>End this set</button>
         </section> : view === "session" && session && (
           <SessionView
             session={session}
@@ -981,7 +970,7 @@ export default function App() {
           key={(view === "lastSet" ? lastSet : completion)!.sessionId + view}
           record={(view === "lastSet" ? lastSet : completion)!} recordsById={recordsById} flags={flags} progress={progress}
           onToggleFlag={toggleFlag} voiceEnabled={settings.voiceEnabled} defaultLanguageMode={settings.languageMode}
-          onHome={()=>setView(view === "lastSet" ? "home" : sessionReturnView)} homeLabel={view === "lastSet" ? "Home" : `Back to ${sessionReturnLabel}`}
+          onHome={()=>setView(view === "lastSet" ? "home" : sessionReturnView)} homeLabel={view === "lastSet" ? "Back to Study" : `Back to ${sessionReturnLabel}`}
           onPractice={ids=>requestSessionStart(ids.flatMap(id=>recordsById.has(id)?[recordsById.get(id)!]:[]),"study","Try again",{count:ids.length,order:"sequential",launchIntent:"remediation",returnView:view === "lastSet" || lastSet?.sessionId === completion?.sessionId ? "lastSet" : sessionReturnView})}
           memoryOnly={pendingCompletion?.record.sessionId === (view === "lastSet" ? lastSet : completion)?.sessionId}
           onRetrySave={()=>void retryCompletion()}
@@ -1041,31 +1030,12 @@ function AppUpdateBanner() {
 }
 
 function HomeView({
-  total,
-  missed,
-  answered,
-  flagged,
-  reviewCases,
-  activeSession,
-  onResume,
-  completionPending,
-  onStudy,
-  onTest,
-  onMistakes,
-  onSaved,
-  onCustom,
-  onDashboard,
-  onImport,
-  onLibrary,
-  sessionStartDisabled,
-  lastSet,
-  onLastSet,
-  revisitMissed,
-  onRevisitChange,
+  total, missed, flagged, reviewCases, activeSession, onResume, completionPending,
+  onStudy, onTest, onMistakes, onSaved, onCustom, sessionStartDisabled,
+  lastSet, onLastSet, revisitMissed, onRevisitChange,
 }: {
   total: number;
   missed: number;
-  answered: number;
   flagged: number;
   reviewCases: number;
   activeSession: SessionState | null;
@@ -1076,9 +1046,6 @@ function HomeView({
   onMistakes: () => void;
   onSaved: () => void;
   onCustom: () => void;
-  onDashboard: () => void;
-  onImport: () => void;
-  onLibrary: () => void;
   sessionStartDisabled: boolean;
   lastSet: CompletedSet | null;
   onLastSet: () => void;
@@ -1086,6 +1053,9 @@ function HomeView({
   onRevisitChange: (enabled: boolean) => void;
 }) {
   const [count, setCount] = useState(DEFAULT_SESSION_COUNT);
+  // Keep this native disclosure stable during hydration so the start guard can
+  // return focus to its still-visible trigger after cancelling a replacement.
+  const initiallyOpenNewSet = useRef(!activeSession);
   const [showHistoryNotice, setShowHistoryNotice] = useState(() => {
     try {
       return localStorage.getItem("completed-memory-notice") !== "dismissed";
@@ -1094,115 +1064,81 @@ function HomeView({
     }
   });
   return (
-    <section className="home-grid">
-      <div className="hero-panel">
-        <div className="hero-brand-row">
-          <img className="hero-brand-mark" src={APP_ICON_SRC} alt="" />
-          <p className="eyebrow">Offline bilingual NCLEX-RN practice</p>
-        </div>
-        <h1>Train in English. Check reasoning in Chinese.</h1>
-        <div className="metric-row">
-          <Metric label="Questions" value={total} />
-          <Metric label="Answered" value={answered} />
-        </div>
-        {activeSession && (
+    <section className="study-workspace" aria-label="Study workspace">
+      <div className="study-action-bay">
+        <p className="eyebrow">Study · NCLEX-RN practice</p>
+        <h1>{activeSession ? "Continue your practice" : "Your next practice set"}</h1>
+        {activeSession ? <>
+          <p className="muted-copy session-progress-copy">
+            {activeSession.title}<br />
+            {Object.keys(activeSession.results).length} answered · Question {activeSession.index + 1} of {activeSession.adaptive?.targetCount ?? activeSession.questions.length}
+          </p>
           <button className="primary-action resume-action" onClick={onResume}>
             <Play aria-hidden="true" />
             {completionPending ? "Finish saving set" : "Continue set / 继续练习"}
           </button>
-        )}
-        <div className="test-launcher">
-          <div className="test-launcher-head">
-            <strong>Your next practice set</strong>
-            <div className="segmented count-toggle" role="group" aria-label="Number of questions">
-              {[10, 25, 50].map((n) => (
-                <button
-                  key={n}
-                  aria-pressed={count === n}
-                  className={count === n ? "active" : ""}
-                  onClick={() => setCount(n)}
-                >
-                  {n}
-                </button>
-              ))}
+        </> : <p className="muted-copy">Practice in English, with Chinese support when you need it.</p>}
+        <details className={`study-new-set ${activeSession ? "" : "study-new-set-ready"}`} open={initiallyOpenNewSet.current}>
+          <summary>Start another set</summary>
+          <div className="study-set-controls">
+            <div className="study-count-heading">
+              <span>Questions in this set</span>
+              <div className="segmented count-toggle" role="group" aria-label="Number of questions">
+                {[10, 25, 50].map((n) => (
+                  <button key={n} aria-pressed={count === n} className={count === n ? "active" : ""} onClick={() => setCount(n)}>{n}</button>
+                ))}
+              </div>
             </div>
-          </div>
-          <label className="toggle-row">
-            <input
-              type="checkbox"
-              checked={revisitMissed}
-              onChange={(e) => onRevisitChange(e.target.checked)}
-            />
-            <span>Revisit missed questions / 加入需复习的题目</span>
-          </label>
-          <p className="muted-copy">Include questions you have not yet answered fully correctly.</p>
-          <button
-            className="primary-action test-start"
-            disabled={sessionStartDisabled || !total}
-            onClick={() => onTest(count)}
-          >
-            <Play aria-hidden="true" />
-            Start practice · {count} questions
-          </button>
-        </div>
-        <div className="action-row secondary-actions">
-          <button onClick={onStudy} disabled={sessionStartDisabled || !total}>
-            Study all questions
-          </button>
-          <button onClick={onCustom}>Customize</button>
-        </div>
-        <div className="study-memory-links">
-          <button onClick={onMistakes}>
-            Needs review / 需复习 · {missed - reviewCases} questions
-            {reviewCases > 0 ? ` and ${reviewCases} case studies` : ""}
-          </button>
-          <button onClick={onSaved}>Saved / 已收藏 · {flagged}</button>
-        </div>
-        {lastSet && (
-          <button className="last-set-entry" onClick={onLastSet}>
-            <span>Last set / 上次练习</span>
-            <strong>{new Date(lastSet.completedAt).toLocaleString()}</strong>
-            <span>
-              {lastSet.deliveredCount} questions · {lastSet.title}
-            </span>
-            <ChevronRight aria-hidden="true" />
-          </button>
-        )}
-        {showHistoryNotice && (
-          <div className="history-notice">
-            <p>
-              Detailed set results are available for sets completed after this update. Your previous progress
-              and Saved questions are kept.
-            </p>
-            <button
-              onClick={() => {
-                setShowHistoryNotice(false);
-                try {
-                  localStorage.setItem("completed-memory-notice", "dismissed");
-                } catch {
-                  /* Visit-only notice dismissal. */
-                }
-              }}
-            >
-              Dismiss
+            <div className="study-revisit">
+              <label className="toggle-row">
+                <input type="checkbox" checked={revisitMissed} onChange={(e) => onRevisitChange(e.target.checked)} />
+                <span>Revisit missed questions <span lang="zh-Hans" className="shell-scaffold">/ 加入需复习的题目</span></span>
+              </label>
+              <p className="muted-copy">Include questions you have not yet answered fully correctly.</p>
+            </div>
+            <button className={activeSession ? "test-start" : "primary-action test-start"} disabled={sessionStartDisabled || !total} onClick={() => onTest(count)}>
+              <Play aria-hidden="true" />Start practice · {count} questions
             </button>
           </div>
+        </details>
+        <div className="action-row secondary-actions">
+          <button className="quiet-action" onClick={onCustom}><SlidersHorizontal aria-hidden="true" />Customize</button>
+          <button className="quiet-action" onClick={onStudy} disabled={sessionStartDisabled || !total}>Study all questions</button>
+        </div>
+      </div>
+      <section className="study-memory-dock" aria-labelledby="study-memory-heading">
+        <h2 id="study-memory-heading">Around your Study</h2>
+        <div className="study-memory-links">
+          <button onClick={onMistakes}>
+            <span className="memory-label">Needs review <span lang="zh-Hans" className="shell-scaffold">/ 需复习</span></span>
+            <strong className="memory-count">{missed}</strong>
+            <span className="memory-detail">{missed - reviewCases} questions{reviewCases > 0 ? ` and ${reviewCases} case studies` : ""}</span>
+          </button>
+          <button onClick={onSaved}>
+            <span className="memory-label">Saved <span lang="zh-Hans" className="shell-scaffold">/ 已收藏</span></span>
+            <strong className="memory-count">{flagged}</strong>
+            <span className="memory-detail">Your bookmarks</span>
+          </button>
+        </div>
+        {lastSet ? (
+          <button className="last-set-entry" onClick={onLastSet}>
+            <span className="memory-label">Last set <span lang="zh-Hans" className="shell-scaffold">/ 上次练习</span></span>
+            <strong>{new Date(lastSet.completedAt).toLocaleString()}</strong>
+            <span className="memory-detail">{lastSet.deliveredCount} questions · {lastSet.title}</span>
+            <span className="memory-detail">Inspect answers & rationales</span>
+            <ChevronRight aria-hidden="true" />
+          </button>
+        ) : <div className="last-set-empty"><span className="memory-label">Last set</span><p className="muted-copy">Your most recent completed Study set will appear here.</p></div>}
+        {showHistoryNotice && (
+          <div className="history-notice">
+            <p>Detailed set results are available for sets completed after this update. Your previous progress and Saved questions are kept.</p>
+            <button onClick={() => {
+              setShowHistoryNotice(false);
+              try { localStorage.setItem("completed-memory-notice", "dismissed"); } catch { /* Visit-only notice dismissal. */ }
+            }}>Dismiss</button>
+          </div>
         )}
-      </div>
-      <div className="utility-grid">
-        <button className="utility-card" onClick={onDashboard}>
-          <BarChart3 aria-hidden="true" />
-          Progress
-        </button>
-        <button className="utility-card" onClick={onLibrary}>
-          <Library aria-hidden="true" />
-          Browse library
-        </button>
-        <button className="utility-card" onClick={onImport}>
-          <FileJson aria-hidden="true" />
-          Import a bank
-        </button>
-      </div>
+      </section>
     </section>
   );
 }
@@ -1246,7 +1182,7 @@ function MemoryList({
             {records.length - cases} questions and {cases} case studies
           </p>
         </div>
-        <button onClick={onHome}>Home</button>
+        <button onClick={onHome}>Back to Study</button>
       </div>
       <p>
         {kind === "saved"
@@ -1420,6 +1356,7 @@ function SessionBuilderView({
 }
 
 function LibraryView({
+  onImport,
   records,
   allRecords,
   progress,
@@ -1433,6 +1370,7 @@ function LibraryView({
   onInspect,
   sessionStartDisabled,
 }: {
+  onImport: () => void;
   records: QuestionRecord[];
   allRecords: QuestionRecord[];
   progress: Record<string, QuestionProgress>;
@@ -1467,6 +1405,8 @@ function LibraryView({
           </button>
         </div>
       </div>
+
+      <div className="library-utilities"><button className="quiet-action" onClick={onImport}><Import aria-hidden="true" />Import a bank</button><span className="muted-copy">Advanced · Add your own questions</span></div>
 
       <div className="filters">
         <SelectFilter
@@ -1805,12 +1745,14 @@ function SettingsView({
   updateSettings,
   devEnabled,
   onOpenPreviewLab,
+  onOpenDeveloper,
   currentBuild,
 }: {
   settings: Settings;
   updateSettings: (settings: Settings) => void;
   devEnabled: boolean;
   onOpenPreviewLab: () => void;
+  onOpenDeveloper: () => void;
   currentBuild: AppBuildInfo | null;
 }) {
   return (
@@ -1880,6 +1822,7 @@ function SettingsView({
           </button>
         </section>
       )}
+      {devEnabled && <button className="quiet-action" onClick={onOpenDeveloper}><Wrench aria-hidden="true" />Developer</button>}
       <p className="app-build-diagnostic">
         <span>App build / 应用版本:</span> {formatAppBuildDiagnostic(currentBuild)}
       </p>

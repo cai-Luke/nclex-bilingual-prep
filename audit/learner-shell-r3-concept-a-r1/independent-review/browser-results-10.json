@@ -1,0 +1,96 @@
+{
+  "results": [
+    {
+      "scenario": "dark-root-desktop",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "dark (data-theme)",
+      "textSize": "Default",
+      "transport": "http:",
+      "themeTokens": {
+        "dataTheme": "dark",
+        "bodyBg": "rgb(12, 17, 29)",
+        "appBg": "#0c111d",
+        "surface": "#161f30",
+        "accent": "#3b82f6",
+        "colorScheme": "dark"
+      },
+      "nav": [
+        "Study",
+        "Library",
+        "Progress"
+      ],
+      "overflow": false,
+      "screenshot": "screenshots/dark-root-desktop.png",
+      "pass": true
+    },
+    {
+      "scenario": "dark-root-mobile",
+      "viewport": "390x844",
+      "dpr": 3,
+      "theme": "dark (data-theme)",
+      "textSize": "Default",
+      "transport": "http:",
+      "themeTokens": {
+        "dataTheme": "dark",
+        "bodyBg": "rgb(12, 17, 29)",
+        "appBg": "#0c111d",
+        "surface": "#161f30",
+        "accent": "#3b82f6",
+        "colorScheme": "dark"
+      },
+      "nav": [
+        "Study",
+        "Library",
+        "Progress"
+      ],
+      "overflow": false,
+      "screenshot": "screenshots/dark-root-mobile.png",
+      "pass": true
+    },
+    {
+      "scenario": "L1-cold-load-dark",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "dark (data-theme)",
+      "textSize": "Default",
+      "transport": "http:",
+      "afterColdReload": {
+        "open": true,
+        "hasResume": true,
+        "dataTheme": "dark"
+      },
+      "afterRemount": {
+        "open": false
+      },
+      "divergence": true,
+      "screenshots": [
+        "screenshots/L1-cold-load-dark-after-cold-reload.png",
+        "screenshots/L1-cold-load-dark-after-remount.png"
+      ],
+      "pass": null,
+      "note": "cold=true remount=false resume=true"
+    },
+    {
+      "scenario": "visual-light-lock-dark",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "dark (data-theme)",
+      "textSize": "Default",
+      "transport": "http:",
+      "lightLock": {
+        "dataTheme": "dark",
+        "hostFound": true,
+        "hostClass": "rhythm-strip-svg vis-burn_map",
+        "hostColorScheme": "light",
+        "hostBackground": "rgb(255, 248, 250)",
+        "hostBorder": "rgb(215, 180, 187)",
+        "svgPresent": true,
+        "cardBackground": "rgb(22, 31, 48)"
+      },
+      "screenshot": "screenshots/visual-light-lock-dark.png",
+      "pass": true
+    }
+  ],
+  "console": []
+}
