@@ -58,6 +58,12 @@ Concept A is mechanically integrated onto the current `main` line from the indep
 
 Two inherited, pre-existing defects remain deferred outside this commission and await separate narrow commissions: mobile `dropdown_cloze` horizontal overflow, and calculator-sheet overlap with the Submit control.
 
+### Mobile Dropdown-Cloze Overflow R1 Integrated and Published (Sep 16)
+
+The original 320 px dropdown-cloze root overflow was independently reproduced and repaired. Accepted production is `3cb99e6478bd8a6ff9a90f571afb98860973db4c`; accepted evidence tip is `c521637191ce7a635cc7c2c22c2e8c4c0f077deb`. The native select remains the answer input, with a neutral wrapping selected-option readout derived from the existing choice text.
+
+The final causal containment gate distinguishes the inherited full-bleed shell extent from cloze-added overflow. Producer and independent checker evidence reproduce the admitted baseline red and candidate green, including `file://` compatibility. No bank, schema, grading, or storage semantics changed. The calculator overlap remains a separate pending commission and is not closed by this milestone.
+
 ### Owner-Selected Burn Map Integrated (Sep 13)
 
 Luke approved production integration and live publication of the Astra burn-map refinement with fuller arms and Gemini-adapted hands. Both renderer files are copied byte-for-byte from the selected proposal. The figure retains thirteen independent fill regions and correct patient laterality, with unchanged region tables, arithmetic, self-check behavior, and bank content.
