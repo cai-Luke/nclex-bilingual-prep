@@ -1,0 +1,24 @@
+
+> nclex-bilingual-prep@0.1.0 build
+> tsc -b && vite build && tsx scripts/make-file-build.ts && npm run validate:build-info
+
+vite v6.4.3 building for production...
+transforming...
+✓ 1657 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/build-info.json                 0.13 kB │ gzip:     0.12 kB
+dist/index.html                      1.29 kB │ gzip:     0.63 kB
+dist/assets/index-Ly3XMam2.css      63.11 kB │ gzip:    11.47 kB
+dist/assets/index-D5UEbTY0.js   11,372.82 kB │ gzip: 3,608.19 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 1.50s
+
+> nclex-bilingual-prep@0.1.0 validate:build-info
+> tsx scripts/validate-build-info.ts
+
+build identity validated in /Users/holemini/Desktop/Project-Shrimp-calculator-r1/scripts/../dist
