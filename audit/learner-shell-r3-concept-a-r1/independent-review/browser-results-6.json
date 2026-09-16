@@ -1,0 +1,178 @@
+{
+  "results": [
+    {
+      "scenario": "replacement-dialog-desktop",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "http:",
+      "sessionProtectedBeforeAttempt": true,
+      "sessionsBefore": {
+        "activeSession": [
+          {
+            "id": "session-1789516927866-ckc75y",
+            "results": 0,
+            "answers": 0,
+            "skipped": 1
+          }
+        ]
+      },
+      "dialogOpened": true,
+      "focusedOnOpen": {
+        "text": "Keep current set / 保留当前练习",
+        "cls": "primary-action"
+      },
+      "safeActionIsFirstAndPrimary": true,
+      "dialogButtonOrder": [
+        {
+          "text": "Keep current set / 保留当前练习",
+          "cls": "primary-action"
+        },
+        {
+          "text": "Start new set / 开始新练习",
+          "cls": ""
+        }
+      ],
+      "modality": {
+        "isModalTop": true,
+        "matchesModal": true
+      },
+      "closedByEscape": true,
+      "sessionsAfterEscape": {
+        "activeSession": [
+          {
+            "id": "session-1789516927866-ckc75y",
+            "results": 0,
+            "answers": 0,
+            "skipped": 1
+          }
+        ]
+      },
+      "escapePreservedSession": true,
+      "focusAfterEscape": {
+        "text": "Start practice · 50 questions",
+        "cls": "test-start",
+        "tag": "BUTTON"
+      },
+      "focusReturnedToTrigger": true,
+      "keepVisible": true,
+      "sessionsAfterKeep": {
+        "activeSession": [
+          {
+            "id": "session-1789516927866-ckc75y",
+            "results": 0,
+            "answers": 0,
+            "skipped": 1
+          }
+        ]
+      },
+      "keepPreservedSession": true,
+      "focusAfterKeep": {
+        "cls": "test-start",
+        "tag": "BUTTON"
+      },
+      "screenshot": "screenshots/replacement-dialog-desktop.png",
+      "pass": true
+    },
+    {
+      "scenario": "replacement-dialog-mobile",
+      "viewport": "390x844",
+      "dpr": 3,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "http:",
+      "sessionProtectedBeforeAttempt": true,
+      "sessionsBefore": {
+        "activeSession": [
+          {
+            "id": "session-1789516941410-0or1zw",
+            "results": 0,
+            "answers": 0,
+            "skipped": 1
+          }
+        ]
+      },
+      "dialogOpened": true,
+      "focusedOnOpen": {
+        "text": "Keep current set / 保留当前练习",
+        "cls": "primary-action"
+      },
+      "safeActionIsFirstAndPrimary": true,
+      "dialogButtonOrder": [
+        {
+          "text": "Keep current set / 保留当前练习",
+          "cls": "primary-action"
+        },
+        {
+          "text": "Start new set / 开始新练习",
+          "cls": ""
+        }
+      ],
+      "modality": {
+        "isModalTop": true,
+        "matchesModal": true
+      },
+      "closedByEscape": true,
+      "sessionsAfterEscape": {
+        "activeSession": [
+          {
+            "id": "session-1789516941410-0or1zw",
+            "results": 0,
+            "answers": 0,
+            "skipped": 1
+          }
+        ]
+      },
+      "escapePreservedSession": true,
+      "focusAfterEscape": {
+        "text": "Start practice · 50 questions",
+        "cls": "test-start",
+        "tag": "BUTTON"
+      },
+      "focusReturnedToTrigger": true,
+      "keepVisible": true,
+      "sessionsAfterKeep": {
+        "activeSession": [
+          {
+            "id": "session-1789516941410-0or1zw",
+            "results": 0,
+            "answers": 0,
+            "skipped": 1
+          }
+        ]
+      },
+      "keepPreservedSession": true,
+      "focusAfterKeep": {
+        "cls": "test-start",
+        "tag": "BUTTON"
+      },
+      "screenshot": "screenshots/replacement-dialog-mobile.png",
+      "pass": true
+    },
+    {
+      "scenario": "large-text-replacement-dialog",
+      "viewport": "390x844",
+      "dpr": 3,
+      "theme": "light",
+      "textSize": "Large",
+      "transport": "http:",
+      "studyRootOverflow": false,
+      "dialogMetrics": {
+        "titleFullyVisible": true,
+        "safeFullyVisible": true,
+        "titleTop": 217,
+        "safeTop": 534,
+        "safeBottom": 575,
+        "innerHeight": 844,
+        "fontScale": "1.16"
+      },
+      "screenshots": [
+        "screenshots/large-text-study-root.png",
+        "screenshots/large-text-replacement-dialog.png"
+      ],
+      "pass": true
+    }
+  ],
+  "console": []
+}

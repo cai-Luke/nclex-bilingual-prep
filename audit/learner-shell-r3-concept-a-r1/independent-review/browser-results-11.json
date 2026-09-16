@@ -1,0 +1,59 @@
+{
+  "results": [
+    {
+      "scenario": "full-marks-clears-needs-review",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "http:",
+      "optionCount": 0,
+      "correctOptionIndex": -1,
+      "gradedMarkers": 0,
+      "needsReviewAfterWrongAttempt": [],
+      "needsReviewAfterFullMarks": null,
+      "clearedByFullMarks": false,
+      "screenshot": "screenshots/full-marks-clears-needs-review.png",
+      "pass": false
+    },
+    {
+      "scenario": "saved-remove-focus-recovery",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "http:",
+      "savedRowsInDbAfterSaving": 3,
+      "uiSavedCountOnStudy": "3",
+      "uiMatchesDb": true,
+      "listBefore": 3,
+      "hasRemoveControl": true,
+      "listAfter": 2,
+      "savedRowsInDbAfterRemove": 2,
+      "focusAfterRemove": {
+        "tag": "BUTTON",
+        "cls": "question-inspect",
+        "txt": "Single best answer\nA facility "
+      },
+      "focusNotLostToBody": true,
+      "screenshot": "screenshots/saved-remove-focus-recovery.png",
+      "pass": true
+    },
+    {
+      "scenario": "remediation-preserves-last-set",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "http:",
+      "lastSetAfterOrdinary": [],
+      "lastSetUiText": null,
+      "remediationRan": true,
+      "lastSetAfterRemediation": [],
+      "lastSetUnchanged": true,
+      "screenshot": "screenshots/remediation-preserves-last-set.png",
+      "pass": false
+    }
+  ],
+  "console": []
+}

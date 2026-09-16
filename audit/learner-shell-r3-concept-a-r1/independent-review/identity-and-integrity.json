@@ -1,0 +1,103 @@
+{
+  "review": {
+    "seat": "Claude Code (local shell)",
+    "model": "Claude Opus 5",
+    "date": "2026-09-15",
+    "mandate": "independent checker pass only; no production code modified",
+    "delegation": "none"
+  },
+  "commits": {
+    "baseline": "511f66b7b7cb830649613793f0264725be25d450",
+    "implementation": "d581a66ff1a784d10e65b1b139d78c41851d45fa",
+    "producerEvidenceCommit": "154d8520fcb0f183472994424acd42cdb64b817f",
+    "producerBranch": "codex/learner-shell-r3-concept-a-r1",
+    "reviewBranch": "claude/learner-shell-r3-concept-a-r1-review",
+    "topologyVerified": "154d852 -> d581a66 -> 511f66b"
+  },
+  "workOrder": {
+    "path": "/Users/holemini/Desktop/Project Shrimp/LEARNER-SHELL-R3-CONCEPT-A-IMPLEMENTATION-WORK-ORDER-2026-09-13.md",
+    "expectedSha256": "521c5af27b13a774c75146c2431f210d47bea35161d44dba96d2f986b8c8e884",
+    "measuredSha256": "521c5af27b13a774c75146c2431f210d47bea35161d44dba96d2f986b8c8e884",
+    "match": true,
+    "remeasuredAtCloseoutMatch": true
+  },
+  "ownerCheckout": {
+    "path": "/Users/holemini/Desktop/Project Shrimp",
+    "headAtStart": "f30224ec156984cebf64c1ef28802d2f02c6dcd1",
+    "headAtClose": "f30224ec156984cebf64c1ef28802d2f02c6dcd1",
+    "headUnchanged": true,
+    "statusByteIdentical": false,
+    "statusDeltaAnalysis": {
+      "entriesRemoved": 0,
+      "trackedFilesModified": 0,
+      "entriesAdded": 319,
+      "allAdditionsUntracked": true,
+      "allAdditionsUnderPath": "audit/gemini-p27-content-judgment-requalification-2026-09-13-r2/",
+      "attribution": "unrelated concurrent P27 requalification lane, explicitly out of scope per commission section 2",
+      "modifiedByThisSeat": false
+    }
+  },
+  "producerImmutability": {
+    "branchShaAtStart": "154d8520fcb0f183472994424acd42cdb64b817f",
+    "branchShaAtClose": "154d8520fcb0f183472994424acd42cdb64b817f",
+    "unchanged": true,
+    "worktreeCleanAtStart": true,
+    "worktreeCleanAtClose": true,
+    "everCheckedOutOrCommittedToByReviewSeat": false
+  },
+  "changedFileInventory": {
+    "baselineToImplementation": {
+      "production": ["src/App.tsx", "src/styles.css"],
+      "taskOwnedAudit": [
+        "audit/learner-shell-r3-concept-a-r1/baseline-file-smoke.mjs",
+        "audit/learner-shell-r3-concept-a-r1/browser-smoke.mjs",
+        "audit/learner-shell-r3-concept-a-r1/verify-invariance.mjs"
+      ]
+    },
+    "implementationToEvidenceCommit": {
+      "pathCount": 36,
+      "allUnderTaskAuditDirectory": true,
+      "evidenceOnly": true
+    }
+  },
+  "functionComparison": {
+    "method": "TypeScript compiler API AST node-range extraction and exact-source hashing",
+    "topLevelFunctions": { "baseline": 48, "implementation": 48, "identical": 43, "changed": 5 },
+    "changedFunctions": ["App", "HomeView", "LibraryView", "SettingsView", "MemoryList"],
+    "memoryListDiff": "single line: <button onClick={onHome}>Home</button> -> Back to Study",
+    "insideApp": { "identical": 71, "removed": ["answeredRecords"], "added": ["showLearnerNavigation", "primaryView", "studySelected", "librarySelected"], "modified": 0 },
+    "allSessionAndMemoryHandlersByteIdentical": true
+  },
+  "deterministicFloor": {
+    "runFrom": "154d8520fcb0f183472994424acd42cdb64b817f",
+    "results": {
+      "npx tsc -b --pretty false": 0,
+      "npm run test:review-memory": 0,
+      "npm run test:session-start-guard": 0,
+      "npm run test:session-navigation": 0,
+      "npm run test:session-sampler": 0,
+      "npm run test:exam-layout": 0,
+      "npm run test:calculator": 0,
+      "npm run test:app-update": 0,
+      "npm run build": 0,
+      "git diff 511f66b d581a66 --check": 0
+    },
+    "trackedDriftAfterBuild": false
+  },
+  "browser": {
+    "browser": "system Google Chrome 152 via Playwright 1.63 channel=chrome",
+    "webSecurity": "normal",
+    "profiles": "disposable per scenario",
+    "runnersAuthoredForThisReview": true,
+    "producerRunnerReused": false,
+    "screenshots": 79,
+    "totalConsoleAndBrowserDiagnostics": 0
+  },
+  "findings": {
+    "blocking": 0,
+    "evidenceDivergence": ["E1 receipt 200% zoom method description internally inconsistent", "E2 inherited file:// manifest diagnostic not reproducible in this environment"],
+    "nonblocking": ["N1/L1 cold-load expanded launcher", "N2/L2 Customize filter reset", "N3/L3 dev surfaces lose learner nav", "N4/L4 desktop header persists during Study", "N7 inherited dropdown_cloze mobile overflow", "N8 inherited calculator/submit overlap"],
+    "leadDispositions": { "L1": "confirmed-nonblocking", "L2": "confirmed-nonblocking", "L3": "confirmed-nonblocking", "L4": "confirmed-nonblocking", "L5": "refuted", "L6": "superseded" }
+  },
+  "verdict": "PROJECT_SHRIMP_LEARNER_SHELL_R3_CONCEPT_A_INDEPENDENT_ACCEPT"
+}

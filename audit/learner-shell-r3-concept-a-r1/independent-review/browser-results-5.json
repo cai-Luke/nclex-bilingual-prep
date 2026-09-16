@@ -1,0 +1,60 @@
+{
+  "results": [
+    {
+      "scenario": "replacement-dialog-desktop",
+      "pass": false,
+      "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.",
+      "note": "scenario threw"
+    },
+    {
+      "scenario": "replacement-dialog-mobile",
+      "pass": false,
+      "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.",
+      "note": "scenario threw"
+    },
+    {
+      "scenario": "large-text-study-and-dialog",
+      "viewport": "390x844",
+      "dpr": 3,
+      "theme": "light",
+      "textSize": "Large",
+      "transport": "http:",
+      "studyRootOverflow": false,
+      "dialogMetrics": null,
+      "dialogOverflow": false,
+      "screenshots": [
+        "screenshots/large-text-study-root.png",
+        "screenshots/large-text-replacement-dialog.png"
+      ],
+      "pass": false
+    },
+    {
+      "scenario": "case-study",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "http:",
+      "distinctPills": [
+        "multiple choice",
+        "select all",
+        "fill in blank",
+        "matrix",
+        "ordered response",
+        "dropdown cloze",
+        "case study",
+        "bowtie",
+        "highlight"
+      ],
+      "casePillRows": 12,
+      "targetFound": true,
+      "detail": {
+        "partNavNodes": 10,
+        "exhibitNodes": 10
+      },
+      "screenshot": "screenshots/case-study.png",
+      "pass": true
+    }
+  ],
+  "console": []
+}

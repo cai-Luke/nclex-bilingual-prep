@@ -1,0 +1,89 @@
+{
+  "results": [
+    {
+      "scenario": "L4-desktop-exit-via-brand",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "http:",
+      "headerDuringActiveStudy": {
+        "display": "flex",
+        "brandVisible": true,
+        "utilityVisible": true,
+        "learnerNavPresent": false
+      },
+      "sessionBeforeLeaving": [
+        {
+          "idx": 1,
+          "res": 1,
+          "sk": 0
+        }
+      ],
+      "leftActiveStudy": true,
+      "sessionAfterLeaving": [
+        {
+          "idx": 1,
+          "res": 1,
+          "sk": 0
+        }
+      ],
+      "sessionPreservedOnLeave": true,
+      "resumeControlPresent": true,
+      "resumedIntoSession": true,
+      "sessionAfterResume": [
+        {
+          "idx": 1,
+          "res": 1,
+          "sk": 0
+        }
+      ],
+      "sessionUnchangedByResume": true,
+      "screenshot": "screenshots/L4-desktop-exit-via-brand.png",
+      "pass": true
+    },
+    {
+      "scenario": "L4-desktop-exit-via-settings-utility",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "theme": "light",
+      "textSize": "Default",
+      "transport": "http:",
+      "headerDuringActiveStudy": {
+        "display": "flex",
+        "brandVisible": true,
+        "utilityVisible": true,
+        "learnerNavPresent": false
+      },
+      "sessionBeforeLeaving": [
+        {
+          "idx": 1,
+          "res": 0,
+          "sk": 1
+        }
+      ],
+      "leftActiveStudy": true,
+      "sessionAfterLeaving": [
+        {
+          "idx": 1,
+          "res": 0,
+          "sk": 1
+        }
+      ],
+      "sessionPreservedOnLeave": true,
+      "resumeControlPresent": true,
+      "resumedIntoSession": true,
+      "sessionAfterResume": [
+        {
+          "idx": 1,
+          "res": 0,
+          "sk": 1
+        }
+      ],
+      "sessionUnchangedByResume": true,
+      "screenshot": "screenshots/L4-desktop-exit-via-settings-utility.png",
+      "pass": true
+    }
+  ],
+  "console": []
+}
