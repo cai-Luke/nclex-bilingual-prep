@@ -3800,29 +3800,36 @@ function ClozeLine({
         if (!dropdown) return <span key={`${part}-${index}`}>{part}</span>;
         const value = selections[dropdown.id] ?? "";
         const statusClass = submitted ? (value === dropdown.correct ? "correct" : "incorrect") : "";
+        const selectedOption = dropdown.options.find((option) => option.id === value);
         if (!interactive) {
-          const selectedOption = dropdown.options.find((option) => option.id === value);
           return (
             <span className={`cloze-token ${statusClass}`} key={`${dropdown.id}-${index}`}>
               {selectedOption ? (locale === "en" ? selectedOption.en : selectedOption.zh) : "____"}
             </span>
           );
         }
+        const readoutId = `${question.id}-cloze-${index}-readout`;
         return (
-          <select
-            className={`cloze-select ${statusClass}`}
-            key={`${dropdown.id}-${index}`}
-            value={value}
-            disabled={submitted}
-            onChange={(event) => onSelect?.(dropdown.id, event.target.value)}
-          >
-            <option value="">Choose</option>
-            {dropdown.options.map((option) => (
-              <option key={option.id} value={option.id}>
-                {locale === "en" ? option.en : option.zh}
-              </option>
-            ))}
-          </select>
+          <span className="cloze-choice" key={`${dropdown.id}-${index}`}>
+            <select
+              className={`cloze-select ${statusClass}`}
+              aria-label={`Blank ${question.dropdowns.indexOf(dropdown) + 1}`}
+              aria-describedby={readoutId}
+              value={value}
+              disabled={submitted}
+              onChange={(event) => onSelect?.(dropdown.id, event.target.value)}
+            >
+              <option value="">Choose</option>
+              {dropdown.options.map((option) => (
+                <option key={option.id} value={option.id}>
+                  {locale === "en" ? option.en : option.zh}
+                </option>
+              ))}
+            </select>
+            <span className="cloze-readout" id={readoutId}>
+              {selectedOption ? (locale === "en" ? selectedOption.en : selectedOption.zh) : ""}
+            </span>
+          </span>
         );
       })}
     </p>
