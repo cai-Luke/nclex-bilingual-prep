@@ -171,7 +171,7 @@ const report = {
 };
 mkdirSync(dirname(output), { recursive: true });
 writeFileSync(output, `${JSON.stringify(report, null, 2)}\n`);
-writeFileSync(resolve(evidenceRoot, 'production.diff'), git('diff', '--no-ext-diff', '--no-color', base, '--', 'src/App.tsx', 'src/styles.css'));
+writeFileSync(resolve(evidenceRoot, 'production.diff'), git('diff', '--no-ext-diff', '--no-color', '--unified=0', base, '--', 'src/App.tsx', 'src/styles.css'));
 console.log(JSON.stringify({ status: report.status, output: relative(repo, output), protectedFileCount: baseProtected.length,
   appChangedFunctions: report.app.changedFunctionNames, cssChangedSelectors: report.css.changedSelectors, errors }, null, 2));
 if (errors.length) process.exitCode = 1;
