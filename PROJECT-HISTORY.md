@@ -52,6 +52,12 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Learner Shell R3 Concept A Integrated (Sep 16)
+
+Concept A is mechanically integrated onto the current `main` line from the independently accepted producer pass. The Claude review seat accepted the change in commit `6ae35a65a584c5ed8be3df5e3fc0cad5603b8693`; its findings and acceptance record are preserved in [the independent review artifact](audit/learner-shell-r3-concept-a-r1/independent-review/independent-review.md).
+
+Two inherited, pre-existing defects remain deferred outside this commission and await separate narrow commissions: mobile `dropdown_cloze` horizontal overflow, and calculator-sheet overlap with the Submit control.
+
 ### Owner-Selected Burn Map Integrated (Sep 13)
 
 Luke approved production integration and live publication of the Astra burn-map refinement with fuller arms and Gemini-adapted hands. Both renderer files are copied byte-for-byte from the selected proposal. The figure retains thirteen independent fill regions and correct patient laterality, with unchanged region tables, arithmetic, self-check behavior, and bank content.

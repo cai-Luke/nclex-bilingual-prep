@@ -1,0 +1,219 @@
+{
+  "status": "PASS",
+  "chromeUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+  "transport": "System Google Chrome via Playwright, headless, normal web security, disposable persistent profile per transport",
+  "inputIdentity": {
+    "appBlob": "8eac13d0b4f7f2631501e20c1ac5d285b7359010",
+    "appSha256": "2bc7f80ffd45ef20f9fc0ea52eaa5034011b8596de34d69c69e73dbad2590d6a",
+    "stylesBlob": "e95d261bc5713fac990ebc2bda4ef9320a521db7",
+    "stylesSha256": "37f81e2826950bb1ab8c2a3351e8c4ddfcfb30642f92aec7f03b7695c0658708"
+  },
+  "questions": {
+    "ordinary": "claude_a_mc_acute_mi_01",
+    "second": "claude_a_mc_dabigatran_teaching_03",
+    "dropdownCloze": "gpt_format15_vasa_previa_management_dropdown"
+  },
+  "checks": [
+    {
+      "name": "Desktop Study root",
+      "status": "PASS",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "devicePixelRatio": 1,
+      "theme": "light",
+      "textSize": "default",
+      "protocol": "http:",
+      "navigation": [
+        "Study",
+        "Library",
+        "Progress"
+      ]
+    },
+    {
+      "name": "Mobile Study root with exactly three learner destinations",
+      "status": "PASS",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "devicePixelRatio": 1,
+      "theme": "light",
+      "textSize": "default",
+      "protocol": "http:",
+      "navigation": [
+        "Study",
+        "Library",
+        "Progress"
+      ]
+    },
+    {
+      "name": "Mobile active Study hides learner bottom navigation",
+      "status": "PASS",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "devicePixelRatio": 1,
+      "theme": "light",
+      "textSize": "default",
+      "protocol": "http:"
+    },
+    {
+      "name": "Mobile calculator launch, arithmetic, and close",
+      "status": "PASS",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "devicePixelRatio": 1,
+      "theme": "light",
+      "textSize": "default",
+      "protocol": "http:",
+      "display": "5",
+      "deferredOverlapObserved": true
+    },
+    {
+      "name": "Normal submit to response status, rationale, and next flow",
+      "status": "PASS",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "devicePixelRatio": 1,
+      "theme": "light",
+      "textSize": "default",
+      "protocol": "http:",
+      "responseStatus": "Selected · Correct answer"
+    },
+    {
+      "name": "Protected-session replacement dialog: safe focus, Escape, Keep, preservation, and focus return",
+      "status": "PASS",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "devicePixelRatio": 1,
+      "theme": "light",
+      "textSize": "default",
+      "protocol": "http:",
+      "sessionId": "integration-smoke-protected"
+    },
+    {
+      "name": "Saved memory surface uses persisted session flag",
+      "status": "PASS",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "devicePixelRatio": 1,
+      "theme": "light",
+      "textSize": "default",
+      "protocol": "http:",
+      "rows": 1
+    },
+    {
+      "name": "Production Large text on mobile Study root",
+      "status": "PASS",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "devicePixelRatio": 1,
+      "theme": "light",
+      "textSize": "large",
+      "protocol": "http:",
+      "horizontalOverflow": false
+    },
+    {
+      "name": "Deferred mobile dropdown_cloze defect remains inherited, not integration-created",
+      "status": "PASS",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "devicePixelRatio": 1,
+      "theme": "light",
+      "textSize": "default",
+      "protocol": "http:",
+      "measurement": {
+        "itemType": "dropdown cloze",
+        "innerWidth": 320,
+        "scrollWidth": 1302,
+        "overflowing": true
+      }
+    },
+    {
+      "name": "Final file:// production build load and navigation",
+      "status": "PASS",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "devicePixelRatio": 1,
+      "theme": "light",
+      "textSize": "default",
+      "protocol": "file:",
+      "artifact": "/Users/holemini/Desktop/Project Shrimp Learner Shell R3 Integration/dist/index.html",
+      "artifactSha256": "b709547252c03c1c3e763dd8816c1093b616cc5ffccf0565a0eeb9d48c7a7e31",
+      "navigation": [
+        "Library",
+        "Progress",
+        "Study"
+      ]
+    }
+  ],
+  "deferredDefects": {
+    "calculatorSheetSubmitOverlap": {
+      "observed": true,
+      "measurement": {
+        "panel": {
+          "top": 462.625,
+          "bottom": 844,
+          "left": 8,
+          "right": 382
+        },
+        "submit": {
+          "top": 730.8125,
+          "bottom": 774.40625,
+          "left": 20.78125,
+          "right": 369.21875
+        },
+        "verticalOverlap": 43.59375,
+        "horizontalOverlap": 348.4375
+      },
+      "integrationConclusion": "Inherited behavior remains observable; exact accepted-candidate blob identity proves integration neither created nor worsened it."
+    },
+    "mobileDropdownClozeOverflow": {
+      "observed": true,
+      "measurement": {
+        "itemType": "dropdown cloze",
+        "innerWidth": 320,
+        "scrollWidth": 1302,
+        "overflowing": true
+      },
+      "integrationConclusion": "Inherited behavior remains observable; exact accepted-candidate blob identity proves integration neither created nor worsened it."
+    }
+  },
+  "consoleEvents": [
+    {
+      "type": "error",
+      "url": "file:///Users/holemini/Desktop/Project%20Shrimp%20Learner%20Shell%20R3%20Integration/dist/index.html",
+      "message": "Access to manifest at 'file:///Users/holemini/Desktop/Project%20Shrimp%20Learner%20Shell%20R3%20Integration/dist/manifest.webmanifest' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, isolated-app."
+    },
+    {
+      "type": "error",
+      "url": "file:///Users/holemini/Desktop/Project%20Shrimp%20Learner%20Shell%20R3%20Integration/dist/index.html",
+      "message": "Failed to load resource: net::ERR_FAILED"
+    }
+  ],
+  "screenshots": [
+    "screenshots/desktop-study-root.png.png",
+    "screenshots/mobile-study-root.png.png",
+    "screenshots/mobile-submit-rationale.png.png",
+    "screenshots/mobile-replacement-dialog.png.png",
+    "screenshots/mobile-large-text.png.png",
+    "screenshots/file-build-study-root.png.png"
+  ]
+}
