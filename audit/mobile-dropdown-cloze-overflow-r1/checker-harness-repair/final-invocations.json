@@ -1,0 +1,119 @@
+{
+  "sameRunnerBytes": true,
+  "runnerSha256": "3e661e3cc32f1e40a8a8937205c475e504051cb0cee892e23cbd24c61f320667",
+  "cwd": "/Users/holemini/Desktop/Project Shrimp Mobile Cloze R1",
+  "runs": [
+    {
+      "run": "baseline-http",
+      "command": "PLAYWRIGHT_MODULE=/tmp/shrimp-omnibus-tools/node_modules/playwright/index.mjs node --import tsx scripts/tests/mobile-dropdown-cloze-layout.mjs --url http://127.0.0.1:4182/ --output audit/mobile-dropdown-cloze-overflow-r1/checker-harness-repair/baseline-http",
+      "exitCode": 1,
+      "status": "FAIL",
+      "runnerSha256": "3e661e3cc32f1e40a8a8937205c475e504051cb0cee892e23cbd24c61f320667",
+      "browser": "152.0.7977.83",
+      "firstRoot": {
+        "scrollWidth": 1302,
+        "clientWidth": 320
+      },
+      "checks": 1,
+      "containmentStates": 1,
+      "matchedWitnesses": 0,
+      "matchedComparisons": 0,
+      "deltas": [],
+      "consoleDiagnostics": 0,
+      "resultSha256": "66d48c1c10ba7ed701b78e0198a6b2e3be2c3655142b7f63cfd024b7f01726cb",
+      "offendingSelectRect": {
+        "left": 41.78125,
+        "right": 1281.375,
+        "top": 430,
+        "bottom": 468.78125,
+        "width": 1239.59375,
+        "height": 38.78125
+      },
+      "failure": "Strict root and cloze containment; no readout or matched-reference call reached"
+    },
+    {
+      "run": "candidate-http-1",
+      "command": "PLAYWRIGHT_MODULE=/tmp/shrimp-omnibus-tools/node_modules/playwright/index.mjs node --import tsx scripts/tests/mobile-dropdown-cloze-layout.mjs --url http://127.0.0.1:4181/ --output audit/mobile-dropdown-cloze-overflow-r1/checker-harness-repair/candidate-http-1",
+      "exitCode": 0,
+      "status": "PASS",
+      "runnerSha256": "3e661e3cc32f1e40a8a8937205c475e504051cb0cee892e23cbd24c61f320667",
+      "browser": "152.0.7977.83",
+      "firstRoot": {
+        "scrollWidth": 320,
+        "clientWidth": 320
+      },
+      "checks": 160,
+      "containmentStates": 86,
+      "matchedWitnesses": 18,
+      "matchedComparisons": 720,
+      "deltas": [
+        0
+      ],
+      "consoleDiagnostics": 0,
+      "resultSha256": "4943580a6fb9c363f499e7cbec091a118d134d8d64d4d7422d44acaaf2b99d6f"
+    },
+    {
+      "run": "candidate-http-2",
+      "command": "PLAYWRIGHT_MODULE=/tmp/shrimp-omnibus-tools/node_modules/playwright/index.mjs node --import tsx scripts/tests/mobile-dropdown-cloze-layout.mjs --url http://127.0.0.1:4181/ --output audit/mobile-dropdown-cloze-overflow-r1/checker-harness-repair/candidate-http-2",
+      "exitCode": 0,
+      "status": "PASS",
+      "runnerSha256": "3e661e3cc32f1e40a8a8937205c475e504051cb0cee892e23cbd24c61f320667",
+      "browser": "152.0.7977.83",
+      "firstRoot": {
+        "scrollWidth": 320,
+        "clientWidth": 320
+      },
+      "checks": 160,
+      "containmentStates": 86,
+      "matchedWitnesses": 18,
+      "matchedComparisons": 720,
+      "deltas": [
+        0
+      ],
+      "consoleDiagnostics": 0,
+      "resultSha256": "9b2ade82a90c999f0809e6946953f274cd33f4ae235695cfbcb478152caeede7"
+    },
+    {
+      "run": "candidate-file-1",
+      "command": "PLAYWRIGHT_MODULE=/tmp/shrimp-omnibus-tools/node_modules/playwright/index.mjs node --import tsx scripts/tests/mobile-dropdown-cloze-layout.mjs --url file:///Users/holemini/Desktop/Project%20Shrimp%20Mobile%20Cloze%20R1/dist/index.html --output audit/mobile-dropdown-cloze-overflow-r1/checker-harness-repair/candidate-file-1",
+      "exitCode": 0,
+      "status": "PASS",
+      "runnerSha256": "3e661e3cc32f1e40a8a8937205c475e504051cb0cee892e23cbd24c61f320667",
+      "browser": "152.0.7977.83",
+      "firstRoot": {
+        "scrollWidth": 320,
+        "clientWidth": 320
+      },
+      "checks": 5,
+      "containmentStates": 3,
+      "matchedWitnesses": 2,
+      "matchedComparisons": 32,
+      "deltas": [
+        0
+      ],
+      "consoleDiagnostics": 12,
+      "resultSha256": "17a081846516d24d0c2f1cdf4f20f540472f9f4fd3344fd699efa9fcf5d06a8f"
+    },
+    {
+      "run": "candidate-file-2",
+      "command": "PLAYWRIGHT_MODULE=/tmp/shrimp-omnibus-tools/node_modules/playwright/index.mjs node --import tsx scripts/tests/mobile-dropdown-cloze-layout.mjs --url file:///Users/holemini/Desktop/Project%20Shrimp%20Mobile%20Cloze%20R1/dist/index.html --output audit/mobile-dropdown-cloze-overflow-r1/checker-harness-repair/candidate-file-2",
+      "exitCode": 0,
+      "status": "PASS",
+      "runnerSha256": "3e661e3cc32f1e40a8a8937205c475e504051cb0cee892e23cbd24c61f320667",
+      "browser": "152.0.7977.83",
+      "firstRoot": {
+        "scrollWidth": 320,
+        "clientWidth": 320
+      },
+      "checks": 5,
+      "containmentStates": 3,
+      "matchedWitnesses": 2,
+      "matchedComparisons": 32,
+      "deltas": [
+        0
+      ],
+      "consoleDiagnostics": 12,
+      "resultSha256": "f53b8f44a5a6092acd29f49dbea67767982ea9386d8e72b49234fe8682329b7f"
+    }
+  ]
+}

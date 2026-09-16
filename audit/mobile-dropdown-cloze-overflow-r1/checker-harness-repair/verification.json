@@ -1,0 +1,134 @@
+{
+  "productionCommit": "3cb99e6478bd8a6ff9a90f571afb98860973db4c",
+  "productionUnchanged": true,
+  "reuseReason": "Production, dependencies, banks and deterministic test inputs are unchanged; scope-proof.json checks all tracked objects outside the runner/new evidence and checks preserved build hashes. Reuse the original deterministic floor; do not treat the old browser green as satisfying the corrected harness requirements. Fresh browser evidence is captured here.",
+  "previousCommandResults": [
+    {
+      "command": [
+        "npx",
+        "tsc",
+        "-b",
+        "--pretty",
+        "false"
+      ],
+      "exitCode": 0,
+      "seconds": 4.42,
+      "log": "tsc.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:grading"
+      ],
+      "exitCode": 0,
+      "seconds": 0.35,
+      "log": "grading.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:case-completeness"
+      ],
+      "exitCode": 0,
+      "seconds": 0.34,
+      "log": "case-completeness.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:exam-layout"
+      ],
+      "exitCode": 0,
+      "seconds": 0.28,
+      "log": "exam-layout.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:session-navigation"
+      ],
+      "exitCode": 0,
+      "seconds": 0.27,
+      "log": "session-navigation.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "seconds": 6.31,
+      "log": "build.log"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0,
+      "seconds": 0.02,
+      "log": "diff-check.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "log": "tested-commit-build.log",
+      "productionCommit": "3cb99e6478bd8a6ff9a90f571afb98860973db4c"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "642b0f9c8707024037709b26b764c7b21e66ddce",
+        "--check"
+      ],
+      "exitCode": 0,
+      "output": "",
+      "scope": "Final production and evidence diff after evidence whitespace normalization"
+    }
+  ],
+  "previousLogsDirectory": "..",
+  "newChecks": [
+    {
+      "command": "npx tsc -b --pretty false",
+      "exitCode": 0,
+      "log": "tsc.log"
+    },
+    {
+      "command": "node --check scripts/tests/mobile-dropdown-cloze-layout.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "python3 audit/mobile-dropdown-cloze-overflow-r1/checker-harness-repair/verify-run-records.py",
+      "exitCode": 0
+    },
+    {
+      "command": "node audit/mobile-dropdown-cloze-overflow-r1/checker-harness-repair/verify-repair-scope.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    },
+    {
+      "command": "git diff --cached --check",
+      "exitCode": 0,
+      "note": "Removed a trailing blank line from the new baseline-http.log after the first staged check flagged it; diagnostic text unchanged."
+    }
+  ],
+  "browserInvocations": "final-invocations.json",
+  "visualReview": [
+    "candidate-http-2/screenshots/witness-320-correct-chinese-viewport.png",
+    "candidate-http-2/screenshots/multi-dark-large-revealed-viewport.png"
+  ]
+}

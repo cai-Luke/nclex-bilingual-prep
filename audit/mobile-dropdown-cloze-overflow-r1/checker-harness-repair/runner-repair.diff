@@ -1,0 +1,156 @@
+diff --git a/scripts/tests/mobile-dropdown-cloze-layout.mjs b/scripts/tests/mobile-dropdown-cloze-layout.mjs
+index d1e5804..24f05a7 100644
+--- a/scripts/tests/mobile-dropdown-cloze-layout.mjs
++++ b/scripts/tests/mobile-dropdown-cloze-layout.mjs
+@@ -120,2 +119,0 @@ async function identity() {
+-let referenceContext;
+-let referenceProfile;
+@@ -159 +157,6 @@ async function matchedNonCloze(condition) {
+-  const key = JSON.stringify([condition.viewport, condition.dpr, condition.theme, condition.text, condition.language, condition.submitted, condition.transport]);
++  const requested = {
++    viewport: condition.viewport, dpr: condition.dpr, theme: condition.theme, text: condition.text,
++    language: condition.language, submitted: condition.submitted, transport: condition.transport,
++    root: condition.root,
++  };
++  const key = JSON.stringify([requested.viewport, requested.dpr, requested.theme, requested.text, requested.language, requested.submitted, requested.transport]);
+@@ -161,2 +164,7 @@ async function matchedNonCloze(condition) {
+-  if (!referenceContext) {
+-    referenceProfile = mkdtempSync(join(tmpdir(), 'shrimp-cloze-reference-'));
++
++  // One fresh profile per uncached condition. Never seed into a live app that
++  // could persist a session from a previous reference condition.
++  const referenceProfile = mkdtempSync(join(tmpdir(), 'shrimp-cloze-reference-'));
++  let referenceContext;
++  let result;
++  try {
+@@ -164 +172 @@ async function matchedNonCloze(condition) {
+-      channel: 'chrome', headless: true, viewport: condition.viewport, deviceScaleFactor: 1,
++      channel: 'chrome', headless: true, viewport: requested.viewport, deviceScaleFactor: requested.dpr,
+@@ -167,4 +175,16 @@ async function matchedNonCloze(condition) {
+-    const referencePage = referenceContext.pages()[0];
+-    referencePage.on('pageerror', (e) => report.console.push({ surface: 'non-cloze-witness', type: 'pageerror', message: e.message }));
+-    referencePage.on('console', (m) => {
+-      if (['error', 'warning'].includes(m.type())) report.console.push({ surface: 'non-cloze-witness', type: m.type(), message: m.text(), location: m.location() });
++    const observe = (target) => {
++      target.setDefaultTimeout(15000);
++      target.on('pageerror', (e) => report.console.push({ surface: 'non-cloze-witness', type: 'pageerror', message: e.message }));
++      target.on('console', (m) => {
++        if (['error', 'warning'].includes(m.type())) report.console.push({ surface: 'non-cloze-witness', type: m.type(), message: m.text(), location: m.location() });
++      });
++    };
++    // Let the real application create/migrate its database, then destroy that
++    // page and its JS realm before writing the requested fixture state.
++    const bootstrap = referenceContext.pages()[0];
++    observe(bootstrap);
++    await bootstrap.goto(url);
++    await bootstrap.locator('.study-workspace').waitFor();
++    await bootstrap.waitForFunction(() => {
++      const start = document.querySelector('.test-start');
++      return start && !start.disabled;
+@@ -171,0 +192,69 @@ async function matchedNonCloze(condition) {
++    await bootstrap.close();
++    assert.equal(referenceContext.pages().length, 0, 'No live app page may remain while seeding a reference');
++
++    const target = await referenceContext.newPage();
++    observe(target);
++    // Exact target origin/URL, but no application scripts or persistence effects.
++    // Works for HTTP and file transport without relaxing browser security.
++    await target.route(url, (route) => route.fulfill({
++      contentType: 'text/html', body: '<!doctype html><title>Cloze reference seed</title><p>Fixture seeding only</p>',
++    }));
++    await target.goto(url);
++    assert.equal(await target.title(), 'Cloze reference seed');
++    assert.equal(await target.locator('script, .app-shell').count(), 0);
++    const language = { EN: 'off', 'Tap ZH': 'on-tap', 'EN/ZH': 'always' }[requested.language];
++    assert(language, 'Reference requires an actual Chinese display setting');
++    await target.evaluate(async ({ snapshot, settings }) => {
++      localStorage.setItem('completed-memory-notice', 'dismissed');
++      localStorage.setItem('nclex-settings', JSON.stringify(settings));
++      const db = await new Promise((yes, no) => { const r = indexedDB.open('nclex-bilingual-prep'); r.onsuccess = () => yes(r.result); r.onerror = () => no(r.error); });
++      const tx = db.transaction(['activeSession', 'progress', 'answerEvents', 'completedSets'], 'readwrite');
++      for (const name of ['activeSession', 'progress', 'answerEvents', 'completedSets']) tx.objectStore(name).clear();
++      tx.objectStore('activeSession').put(snapshot);
++      await new Promise((yes, no) => { tx.oncomplete = yes; tx.onerror = () => no(tx.error); });
++      db.close();
++    }, { snapshot: session(mcq, language), settings: { themeMode: requested.theme, textSizeMode: requested.text, languageMode: language, voiceEnabled: false, revisitMissed: true } });
++    await target.unroute(url);
++    await target.reload();
++    await target.getByRole('button', { name: 'Continue set / 继续练习', exact: true }).click();
++    const card = target.locator('.question-card');
++    assert((await card.innerText()).includes(mcq.q.stem.en), 'Non-cloze reference identity must match canonical stem');
++    assert.equal(await card.locator('.cloze-panel').count(), 0);
++    const identity = await target.evaluate(async () => {
++      const db = await new Promise((yes, no) => { const r = indexedDB.open('nclex-bilingual-prep'); r.onsuccess = () => yes(r.result); r.onerror = () => no(r.error); });
++      const rows = await new Promise((yes, no) => { const r = db.transaction('activeSession').objectStore('activeSession').getAll(); r.onsuccess = () => yes(r.result); r.onerror = () => no(r.error); });
++      db.close(); return rows[0].questionIds;
++    });
++    assert.deepEqual(identity, [mcq.q.id]);
++    if (requested.submitted) {
++      await target.locator('.option-row').first().click();
++      await target.locator('.submit-button').click();
++      await target.locator('.answer-banner').waitFor();
++    }
++    const measurement = await measure(target, true);
++    result = {
++      id: `non-cloze-${report.nonClozeWitnesses.length + 1}`, fixture: mcq.q.id, bank: mcq.bank, fingerprint: questionFingerprint(mcq.q),
++      requested, observed: {
++        viewport: measurement.viewport, dpr: measurement.dpr, theme: measurement.theme, text: measurement.text,
++        language: measurement.language, submitted: measurement.submitted, transport: measurement.transport, root: measurement.root,
++      },
++      isolation: { freshProfile: referenceProfile, bootstrapClosedBeforeSeed: true, inertSeedDocument: true, contextClosed: false },
++      admitted: false, comparisons: [], ...measurement,
++    };
++    // Keep requested/observed evidence even if identity rejects the witness.
++    report.nonClozeWitnesses.push(result);
++    assert.deepEqual(result.viewport, condition.viewport);
++    assert.equal(result.dpr, condition.dpr);
++    assert.equal(result.theme, condition.theme);
++    assert.equal(result.text, condition.text);
++    assert.equal(result.language, condition.language);
++    assert.equal(result.submitted, condition.submitted, 'Reference submission state must match the requested condition');
++    assert.equal(result.transport, condition.transport);
++    assert(result.root.scrollWidth <= result.root.clientWidth + 1, 'Matched non-cloze root must fit');
++    result.admitted = true;
++    referenceCache.set(key, result);
++    return result;
++  } finally {
++    if (referenceContext) await referenceContext.close();
++    rmSync(referenceProfile, { recursive: true, force: true });
++    if (result) result.isolation.contextClosed = true;
+@@ -173,28 +261,0 @@ async function matchedNonCloze(condition) {
+-  const target = referenceContext.pages()[0];
+-  target.setDefaultTimeout(15000);
+-  await target.setViewportSize(condition.viewport);
+-  await target.goto(url); await target.locator('.study-workspace').waitFor();
+-  const language = { EN: 'off', 'Tap ZH': 'on-tap', 'EN/ZH': 'always' }[condition.language];
+-  assert(language, 'Reference requires an actual Chinese display setting');
+-  await target.evaluate(async ({ snapshot, settings }) => {
+-    localStorage.setItem('completed-memory-notice', 'dismissed'); localStorage.setItem('nclex-settings', JSON.stringify(settings));
+-    const db = await new Promise((yes, no) => { const r = indexedDB.open('nclex-bilingual-prep'); r.onsuccess = () => yes(r.result); r.onerror = () => no(r.error); });
+-    const tx = db.transaction(['activeSession', 'progress', 'answerEvents', 'completedSets'], 'readwrite');
+-    for (const name of ['activeSession', 'progress', 'answerEvents', 'completedSets']) tx.objectStore(name).clear();
+-    tx.objectStore('activeSession').put(snapshot);
+-    await new Promise((yes, no) => { tx.oncomplete = yes; tx.onerror = () => no(tx.error); }); db.close();
+-  }, { snapshot: session(mcq, language), settings: { themeMode: condition.theme, textSizeMode: condition.text, languageMode: language, voiceEnabled: false, revisitMissed: true } });
+-  await target.reload(); await target.getByRole('button', { name: 'Continue set / 继续练习', exact: true }).click();
+-  const card = target.locator('.question-card');
+-  assert((await card.innerText()).includes(mcq.q.stem.en), 'Non-cloze reference identity must match canonical stem');
+-  assert.equal(await card.locator('.cloze-panel').count(), 0);
+-  const identity = await target.evaluate(async () => {
+-    const db = await new Promise((yes, no) => { const r = indexedDB.open('nclex-bilingual-prep'); r.onsuccess = () => yes(r.result); r.onerror = () => no(r.error); });
+-    const rows = await new Promise((yes, no) => { const r = db.transaction('activeSession').objectStore('activeSession').getAll(); r.onsuccess = () => yes(r.result); r.onerror = () => no(r.error); }); db.close(); return rows[0].questionIds;
+-  });
+-  assert.deepEqual(identity, [mcq.q.id]);
+-  if (condition.submitted) { await target.locator('.option-row').first().click(); await target.locator('.submit-button').click(); await target.locator('.answer-banner').waitFor(); }
+-  const result = { id: `non-cloze-${report.nonClozeWitnesses.length + 1}`, fixture: mcq.q.id, bank: mcq.bank, fingerprint: questionFingerprint(mcq.q), ...(await measure(target, true)) };
+-  assert.deepEqual(result.viewport, condition.viewport); assert.equal(result.theme, condition.theme); assert.equal(result.text, condition.text); assert.equal(result.language, condition.language);
+-  assert(result.root.scrollWidth <= result.root.clientWidth + 1, 'Matched non-cloze root must fit');
+-  referenceCache.set(key, result); report.nonClozeWitnesses.push(result); return result;
+@@ -223,0 +285,5 @@ async function containment(name) {
++      control.comparisons.push({
++        state: name, subject: s.element, ancestor: a.element,
++        requested: { viewport: measurement.viewport, dpr: measurement.dpr, theme: measurement.theme, text: measurement.text, language: measurement.language, submitted: measurement.submitted, transport: measurement.transport, root: measurement.root, ancestorExcess: excess },
++        observed: { ...control.observed, ancestorExcess: controlExcess }, delta,
++      });
+@@ -518 +583,0 @@ try {
+-  if (referenceContext) { await referenceContext.close(); rmSync(referenceProfile, { recursive: true, force: true }); }
