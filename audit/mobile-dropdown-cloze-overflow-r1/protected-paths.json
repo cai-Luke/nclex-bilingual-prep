@@ -1,0 +1,1315 @@
+{
+  "purpose": "Producing-team scope evidence, not independent acceptance",
+  "admittedBase": "642b0f9c8707024037709b26b764c7b21e66ddce",
+  "headAtRun": "3cb99e6478bd8a6ff9a90f571afb98860973db4c",
+  "branch": "codex/mobile-dropdown-cloze-overflow-r1",
+  "worktree": "/Users/holemini/Desktop/Project Shrimp Mobile Cloze R1",
+  "generatedAt": "2026-09-16T14:46:25.819Z",
+  "status": "PASS",
+  "errors": [],
+  "tools": {
+    "typescript": "5.9.3",
+    "postcss": "8.5.15"
+  },
+  "invocation": "node audit/mobile-dropdown-cloze-overflow-r1/verify-scope.mjs",
+  "allTrackedOutsideAllowlist": {
+    "baseFileCount": 4283,
+    "headFileCount": 4283,
+    "baseObjectInventorySha256": "dd4436fdc99506d90f7ba6dd3bc00698fe6ace92b81852b6d442f9c6bdeddfed",
+    "headObjectInventorySha256": "dd4436fdc99506d90f7ba6dd3bc00698fe6ace92b81852b6d442f9c6bdeddfed",
+    "objectInventoryEqual": true,
+    "forbiddenTrackedChanges": [],
+    "forbiddenUntracked": [],
+    "equal": true
+  },
+  "trackedChanges": [
+    "scripts/tests/mobile-dropdown-cloze-layout.mjs",
+    "src/App.tsx",
+    "src/styles.css"
+  ],
+  "app": {
+    "admittedBlob": "8eac13d0b4f7f2631501e20c1ac5d285b7359010",
+    "workingTreeBlob": "5fc8a8679c1a894c8400c5e4719e1be3d476503a",
+    "allowedFunctionNames": [
+      "DropdownClozeControl",
+      "ClozeLine"
+    ],
+    "outsideFunctionsByteEqual": true,
+    "outsideBaseSha256": "498a71e30605e6faa39c2ea60f4215242f629cfea6db871c05fd69b61b2f0ad8",
+    "outsideWorkingTreeSha256": "498a71e30605e6faa39c2ea60f4215242f629cfea6db871c05fd69b61b2f0ad8",
+    "changedFunctionNames": [
+      "ClozeLine"
+    ],
+    "functions": [
+      {
+        "name": "optionMarker",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "optionMarker",
+          "line": 150,
+          "endLine": 152,
+          "sha256": "c74d59a38f7fd871873bc38b6b9b31aa59ee5538adb1880b32c154ebb5f11a9c"
+        },
+        "workingTree": {
+          "name": "optionMarker",
+          "line": 150,
+          "endLine": 152,
+          "sha256": "c74d59a38f7fd871873bc38b6b9b31aa59ee5538adb1880b32c154ebb5f11a9c"
+        }
+      },
+      {
+        "name": "buildChoiceMarkerMap",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "buildChoiceMarkerMap",
+          "line": 154,
+          "endLine": 203,
+          "sha256": "0eba3602a0d6df28ffc93a9ba90f7520b4777d4b53a383cb800d5b23a0578a7f"
+        },
+        "workingTree": {
+          "name": "buildChoiceMarkerMap",
+          "line": 154,
+          "endLine": 203,
+          "sha256": "0eba3602a0d6df28ffc93a9ba90f7520b4777d4b53a383cb800d5b23a0578a7f"
+        }
+      },
+      {
+        "name": "App",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "App",
+          "line": 300,
+          "endLine": 1007,
+          "sha256": "29839f53c56e00f1c290cca2de139e1acff5efcd0ee5f1bbff927781f5fea657"
+        },
+        "workingTree": {
+          "name": "App",
+          "line": 300,
+          "endLine": 1007,
+          "sha256": "29839f53c56e00f1c290cca2de139e1acff5efcd0ee5f1bbff927781f5fea657"
+        }
+      },
+      {
+        "name": "AppUpdateBanner",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "AppUpdateBanner",
+          "line": 1009,
+          "endLine": 1030,
+          "sha256": "bbe64ce79fd3ac47aaadac185d738027aae14633ef03ca7d729f6acdd9c47201"
+        },
+        "workingTree": {
+          "name": "AppUpdateBanner",
+          "line": 1009,
+          "endLine": 1030,
+          "sha256": "bbe64ce79fd3ac47aaadac185d738027aae14633ef03ca7d729f6acdd9c47201"
+        }
+      },
+      {
+        "name": "HomeView",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "HomeView",
+          "line": 1032,
+          "endLine": 1144,
+          "sha256": "328e0fbf1fb9a7e90a1ccf611db62148ae85c11a563f1eeec2660eb7d22ca645"
+        },
+        "workingTree": {
+          "name": "HomeView",
+          "line": 1032,
+          "endLine": 1144,
+          "sha256": "328e0fbf1fb9a7e90a1ccf611db62148ae85c11a563f1eeec2660eb7d22ca645"
+        }
+      },
+      {
+        "name": "MemoryList",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "MemoryList",
+          "line": 1146,
+          "endLine": 1218,
+          "sha256": "0ea528dd9d0cdf7066b9237c9ee3a767c6e30f4717b591ed4180d539f0ec0aa4"
+        },
+        "workingTree": {
+          "name": "MemoryList",
+          "line": 1146,
+          "endLine": 1218,
+          "sha256": "0ea528dd9d0cdf7066b9237c9ee3a767c6e30f4717b591ed4180d539f0ec0aa4"
+        }
+      },
+      {
+        "name": "Metric",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "Metric",
+          "line": 1220,
+          "endLine": 1227,
+          "sha256": "ca06b73b78f832622cdc38460d57913ec12ce2724cfa5627a5e258f935df7894"
+        },
+        "workingTree": {
+          "name": "Metric",
+          "line": 1220,
+          "endLine": 1227,
+          "sha256": "ca06b73b78f832622cdc38460d57913ec12ce2724cfa5627a5e258f935df7894"
+        }
+      },
+      {
+        "name": "SessionBuilderView",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "SessionBuilderView",
+          "line": 1229,
+          "endLine": 1356,
+          "sha256": "f4603854bdcc437b87a4e97af1256266d91723c289c85eedbc2a09c97732c88a"
+        },
+        "workingTree": {
+          "name": "SessionBuilderView",
+          "line": 1229,
+          "endLine": 1356,
+          "sha256": "f4603854bdcc437b87a4e97af1256266d91723c289c85eedbc2a09c97732c88a"
+        }
+      },
+      {
+        "name": "LibraryView",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "LibraryView",
+          "line": 1358,
+          "endLine": 1493,
+          "sha256": "820bf887066ca68ddd2a45aa2ce439c6790576f45668fc3e4770c5ca79406fb5"
+        },
+        "workingTree": {
+          "name": "LibraryView",
+          "line": 1358,
+          "endLine": 1493,
+          "sha256": "820bf887066ca68ddd2a45aa2ce439c6790576f45668fc3e4770c5ca79406fb5"
+        }
+      },
+      {
+        "name": "DashboardView",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "DashboardView",
+          "line": 1495,
+          "endLine": 1592,
+          "sha256": "baaff52040ac22e2ca13a94b65fb8d73b62d0bd0cbd0f400b89b65dae48558a7"
+        },
+        "workingTree": {
+          "name": "DashboardView",
+          "line": 1495,
+          "endLine": 1592,
+          "sha256": "baaff52040ac22e2ca13a94b65fb8d73b62d0bd0cbd0f400b89b65dae48558a7"
+        }
+      },
+      {
+        "name": "StatsTable",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "StatsTable",
+          "line": 1594,
+          "endLine": 1609,
+          "sha256": "5c8afa44480757e26e26645e343fb710efb83809dcbc565c743f0a80197ddad2"
+        },
+        "workingTree": {
+          "name": "StatsTable",
+          "line": 1594,
+          "endLine": 1609,
+          "sha256": "5c8afa44480757e26e26645e343fb710efb83809dcbc565c743f0a80197ddad2"
+        }
+      },
+      {
+        "name": "SelectFilter",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "SelectFilter",
+          "line": 1611,
+          "endLine": 1634,
+          "sha256": "91e47b0271388b72e0560ca6b110d4cdc004f0c907d296e07c2b8454d7c6f3cc"
+        },
+        "workingTree": {
+          "name": "SelectFilter",
+          "line": 1611,
+          "endLine": 1634,
+          "sha256": "91e47b0271388b72e0560ca6b110d4cdc004f0c907d296e07c2b8454d7c6f3cc"
+        }
+      },
+      {
+        "name": "ImportView",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "ImportView",
+          "line": 1636,
+          "endLine": 1735,
+          "sha256": "9c0368d74dc44990616b6ba32c9769b8724aaa94f780fcccdbf768a6507b7e82"
+        },
+        "workingTree": {
+          "name": "ImportView",
+          "line": 1636,
+          "endLine": 1735,
+          "sha256": "9c0368d74dc44990616b6ba32c9769b8724aaa94f780fcccdbf768a6507b7e82"
+        }
+      },
+      {
+        "name": "SettingsView",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "SettingsView",
+          "line": 1743,
+          "endLine": 1831,
+          "sha256": "f0dbb97ce02933194da64b0e8d3038c2c3878ec0c1ae0062df570bb6be0e1660"
+        },
+        "workingTree": {
+          "name": "SettingsView",
+          "line": 1743,
+          "endLine": 1831,
+          "sha256": "f0dbb97ce02933194da64b0e8d3038c2c3878ec0c1ae0062df570bb6be0e1660"
+        }
+      },
+      {
+        "name": "previewQuestionLabel",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "previewQuestionLabel",
+          "line": 1895,
+          "endLine": 1898,
+          "sha256": "8103f5cb67876dc41721db6b77290362bb0c42574779e7352ec347ef898e9c3a"
+        },
+        "workingTree": {
+          "name": "previewQuestionLabel",
+          "line": 1895,
+          "endLine": 1898,
+          "sha256": "8103f5cb67876dc41721db6b77290362bb0c42574779e7352ec347ef898e9c3a"
+        }
+      },
+      {
+        "name": "previewQuestionTitle",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "previewQuestionTitle",
+          "line": 1900,
+          "endLine": 1904,
+          "sha256": "92c2936581fc744d3a445e29ac3ecdf5eb95c904f333c53897f163fdcfc4296f"
+        },
+        "workingTree": {
+          "name": "previewQuestionTitle",
+          "line": 1900,
+          "endLine": 1904,
+          "sha256": "92c2936581fc744d3a445e29ac3ecdf5eb95c904f333c53897f163fdcfc4296f"
+        }
+      },
+      {
+        "name": "PreviewLab",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "PreviewLab",
+          "line": 1906,
+          "endLine": 2234,
+          "sha256": "65407dd8e470f3778e49346c4004ad2ff929ffabcb462aca504902bcb0ef3943"
+        },
+        "workingTree": {
+          "name": "PreviewLab",
+          "line": 1906,
+          "endLine": 2234,
+          "sha256": "65407dd8e470f3778e49346c4004ad2ff929ffabcb462aca504902bcb0ef3943"
+        }
+      },
+      {
+        "name": "newestQuestionLabel",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "newestQuestionLabel",
+          "line": 2236,
+          "endLine": 2238,
+          "sha256": "e50de0ff6f81aa715e73fbd2f49071a4a307c38737e2472e72255e2a6db53661"
+        },
+        "workingTree": {
+          "name": "newestQuestionLabel",
+          "line": 2236,
+          "endLine": 2238,
+          "sha256": "e50de0ff6f81aa715e73fbd2f49071a4a307c38737e2472e72255e2a6db53661"
+        }
+      },
+      {
+        "name": "DeveloperReviewConsole",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "DeveloperReviewConsole",
+          "line": 2302,
+          "endLine": 2624,
+          "sha256": "db34b2ae5d082bf76afa7fd50ccb2e7c09f1b1c4983fad37673ae981013f4fa6"
+        },
+        "workingTree": {
+          "name": "DeveloperReviewConsole",
+          "line": 2302,
+          "endLine": 2624,
+          "sha256": "db34b2ae5d082bf76afa7fd50ccb2e7c09f1b1c4983fad37673ae981013f4fa6"
+        }
+      },
+      {
+        "name": "ManifestEvidencePanel",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "ManifestEvidencePanel",
+          "line": 2626,
+          "endLine": 2675,
+          "sha256": "cf49f4b1e9e50fdd1d1b104eb8360a6f7964382ea7a92eb287fa33a7cbd629e8"
+        },
+        "workingTree": {
+          "name": "ManifestEvidencePanel",
+          "line": 2626,
+          "endLine": 2675,
+          "sha256": "cf49f4b1e9e50fdd1d1b104eb8360a6f7964382ea7a92eb287fa33a7cbd629e8"
+        }
+      },
+      {
+        "name": "SessionView",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "SessionView",
+          "line": 2677,
+          "endLine": 2840,
+          "sha256": "6a3a683f7030e38ca713e380aaa6671ca6924cb8134236e9bba9c7359c1bf2b5"
+        },
+        "workingTree": {
+          "name": "SessionView",
+          "line": 2677,
+          "endLine": 2840,
+          "sha256": "6a3a683f7030e38ca713e380aaa6671ca6924cb8134236e9bba9c7359c1bf2b5"
+        }
+      },
+      {
+        "name": "LanguageTabs",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "LanguageTabs",
+          "line": 2842,
+          "endLine": 2852,
+          "sha256": "6059f535e601266af591c9b6defe7b3a8cf88e74bc45c824a69380e9e2aa3670"
+        },
+        "workingTree": {
+          "name": "LanguageTabs",
+          "line": 2842,
+          "endLine": 2852,
+          "sha256": "6059f535e601266af591c9b6defe7b3a8cf88e74bc45c824a69380e9e2aa3670"
+        }
+      },
+      {
+        "name": "QuestionCard",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "QuestionCard",
+          "line": 2854,
+          "endLine": 3091,
+          "sha256": "de4d2fefd82ba2ed1a8df52f6019e81049f68387d9292fd1af8da2a14db6b0aa"
+        },
+        "workingTree": {
+          "name": "QuestionCard",
+          "line": 2854,
+          "endLine": 3091,
+          "sha256": "de4d2fefd82ba2ed1a8df52f6019e81049f68387d9292fd1af8da2a14db6b0aa"
+        }
+      },
+      {
+        "name": "QuestionAnswerControl",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "QuestionAnswerControl",
+          "line": 3093,
+          "endLine": 3222,
+          "sha256": "3089186a0d2d13b5934fc25131c3e94256a4f11e7a7fab1b652dd592e3ad74b2"
+        },
+        "workingTree": {
+          "name": "QuestionAnswerControl",
+          "line": 3093,
+          "endLine": 3222,
+          "sha256": "3089186a0d2d13b5934fc25131c3e94256a4f11e7a7fab1b652dd592e3ad74b2"
+        }
+      },
+      {
+        "name": "BowtieControl",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "BowtieControl",
+          "line": 3224,
+          "endLine": 3365,
+          "sha256": "9a09b6c80316101a8509752b723bddcca212557389bc016f9c8c53704d110c72"
+        },
+        "workingTree": {
+          "name": "BowtieControl",
+          "line": 3224,
+          "endLine": 3365,
+          "sha256": "9a09b6c80316101a8509752b723bddcca212557389bc016f9c8c53704d110c72"
+        }
+      },
+      {
+        "name": "HighlightControl",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "HighlightControl",
+          "line": 3367,
+          "endLine": 3465,
+          "sha256": "46dffc964007fbc24e3f7fe995ed3b9d0b9590f2b83eaa3ee78ebb30a9fd9ab4"
+        },
+        "workingTree": {
+          "name": "HighlightControl",
+          "line": 3367,
+          "endLine": 3465,
+          "sha256": "46dffc964007fbc24e3f7fe995ed3b9d0b9590f2b83eaa3ee78ebb30a9fd9ab4"
+        }
+      },
+      {
+        "name": "OptionAnswerControl",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "OptionAnswerControl",
+          "line": 3467,
+          "endLine": 3599,
+          "sha256": "5c7a1cb5b8be111c442037951522a2a5b87e7349167f459eab41723cb180d0ef"
+        },
+        "workingTree": {
+          "name": "OptionAnswerControl",
+          "line": 3467,
+          "endLine": 3599,
+          "sha256": "5c7a1cb5b8be111c442037951522a2a5b87e7349167f459eab41723cb180d0ef"
+        }
+      },
+      {
+        "name": "FillInBlankControl",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "FillInBlankControl",
+          "line": 3601,
+          "endLine": 3639,
+          "sha256": "e74f387d303bf0f3677fbd31d03a6a9c7197eeff960032799de47a9779548f8a"
+        },
+        "workingTree": {
+          "name": "FillInBlankControl",
+          "line": 3601,
+          "endLine": 3639,
+          "sha256": "e74f387d303bf0f3677fbd31d03a6a9c7197eeff960032799de47a9779548f8a"
+        }
+      },
+      {
+        "name": "MatrixControl",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "MatrixControl",
+          "line": 3641,
+          "endLine": 3714,
+          "sha256": "77fcb1a0c3321ab7f2ddc8040bdee4b1e91b9d52ff50c94cc537fffdda30bdfd"
+        },
+        "workingTree": {
+          "name": "MatrixControl",
+          "line": 3641,
+          "endLine": 3714,
+          "sha256": "77fcb1a0c3321ab7f2ddc8040bdee4b1e91b9d52ff50c94cc537fffdda30bdfd"
+        }
+      },
+      {
+        "name": "DropdownClozeControl",
+        "allowedToChange": true,
+        "equal": true,
+        "base": {
+          "name": "DropdownClozeControl",
+          "line": 3716,
+          "endLine": 3773,
+          "sha256": "6f528ade9770d286854ab8d979f93bde08c4da0b4d6b50ed1bd1d09a10039d14"
+        },
+        "workingTree": {
+          "name": "DropdownClozeControl",
+          "line": 3716,
+          "endLine": 3773,
+          "sha256": "6f528ade9770d286854ab8d979f93bde08c4da0b4d6b50ed1bd1d09a10039d14"
+        }
+      },
+      {
+        "name": "ClozeLine",
+        "allowedToChange": true,
+        "equal": false,
+        "base": {
+          "name": "ClozeLine",
+          "line": 3775,
+          "endLine": 3830,
+          "sha256": "6ee0684a4a7fc5fa05c27ef38b9562c0518aab7a9da93232588dbc85cf86a0da"
+        },
+        "workingTree": {
+          "name": "ClozeLine",
+          "line": 3775,
+          "endLine": 3837,
+          "sha256": "660e117325c6bb12336f8b1dbba7a765e9d89c9875e62adc4bfc5718f335bf46"
+        }
+      },
+      {
+        "name": "CaseStudyControl",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "CaseStudyControl",
+          "line": 3832,
+          "endLine": 3997,
+          "sha256": "3b3cac9bb50ddc857e5c8d8c9bfe72698213b14ecf9adb052272de02a1f85bc5"
+        },
+        "workingTree": {
+          "name": "CaseStudyControl",
+          "line": 3839,
+          "endLine": 4004,
+          "sha256": "3b3cac9bb50ddc857e5c8d8c9bfe72698213b14ecf9adb052272de02a1f85bc5"
+        }
+      },
+      {
+        "name": "CaseStudyStackedLayout",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "CaseStudyStackedLayout",
+          "line": 3999,
+          "endLine": 4050,
+          "sha256": "fd6d65b5fc791b67c18eceac6ea5a186be953599ea83d2ddfb5cfec7881b0a2b"
+        },
+        "workingTree": {
+          "name": "CaseStudyStackedLayout",
+          "line": 4006,
+          "endLine": 4057,
+          "sha256": "fd6d65b5fc791b67c18eceac6ea5a186be953599ea83d2ddfb5cfec7881b0a2b"
+        }
+      },
+      {
+        "name": "CaseChartPane",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "CaseChartPane",
+          "line": 4052,
+          "endLine": 4145,
+          "sha256": "5507e95f7491328f768c10d7ad5486106de49fd04e393916aaa9c615ee1401da"
+        },
+        "workingTree": {
+          "name": "CaseChartPane",
+          "line": 4059,
+          "endLine": 4152,
+          "sha256": "5507e95f7491328f768c10d7ad5486106de49fd04e393916aaa9c615ee1401da"
+        }
+      },
+      {
+        "name": "CasePartNavigator",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "CasePartNavigator",
+          "line": 4147,
+          "endLine": 4210,
+          "sha256": "c4853c21e47b455447c27ed9f7b4497710e922f1c8769ea7b10b245ca1940f5c"
+        },
+        "workingTree": {
+          "name": "CasePartNavigator",
+          "line": 4154,
+          "endLine": 4217,
+          "sha256": "c4853c21e47b455447c27ed9f7b4497710e922f1c8769ea7b10b245ca1940f5c"
+        }
+      },
+      {
+        "name": "CaseActivePart",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "CaseActivePart",
+          "line": 4212,
+          "endLine": 4301,
+          "sha256": "6b69acfd15c38d9880a3fad9be3d3de19a258e49e8bf2812aca1419282ab807f"
+        },
+        "workingTree": {
+          "name": "CaseActivePart",
+          "line": 4219,
+          "endLine": 4308,
+          "sha256": "6b69acfd15c38d9880a3fad9be3d3de19a258e49e8bf2812aca1419282ab807f"
+        }
+      },
+      {
+        "name": "CaseExhibit",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "CaseExhibit",
+          "line": 4303,
+          "endLine": 4337,
+          "sha256": "75005b9028b29f4bc89ad239f0d6e2ec0445a5832f008a3fbd0ccf915e2f2d92"
+        },
+        "workingTree": {
+          "name": "CaseExhibit",
+          "line": 4310,
+          "endLine": 4344,
+          "sha256": "75005b9028b29f4bc89ad239f0d6e2ec0445a5832f008a3fbd0ccf915e2f2d92"
+        }
+      },
+      {
+        "name": "BilingualText",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "BilingualText",
+          "line": 4339,
+          "endLine": 4383,
+          "sha256": "1d1fbf1f4a78ea7c8e8e0ed18e962c2f87c78a75c079e4cb3bccae1a0a8313ad"
+        },
+        "workingTree": {
+          "name": "BilingualText",
+          "line": 4346,
+          "endLine": 4390,
+          "sha256": "1d1fbf1f4a78ea7c8e8e0ed18e962c2f87c78a75c079e4cb3bccae1a0a8313ad"
+        }
+      },
+      {
+        "name": "GlossaryText",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "GlossaryText",
+          "line": 4385,
+          "endLine": 4417,
+          "sha256": "b82b0a22e0d3bc725a069e6f45947f58193415e7b7d64d50fff27317afdf67bc"
+        },
+        "workingTree": {
+          "name": "GlossaryText",
+          "line": 4392,
+          "endLine": 4424,
+          "sha256": "b82b0a22e0d3bc725a069e6f45947f58193415e7b7d64d50fff27317afdf67bc"
+        }
+      },
+      {
+        "name": "SpeakButton",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "SpeakButton",
+          "line": 4419,
+          "endLine": 4426,
+          "sha256": "90460d7c76bb742737027310f2122d7bb3d4d4552ac167b4fa4c18145dcc9233"
+        },
+        "workingTree": {
+          "name": "SpeakButton",
+          "line": 4426,
+          "endLine": 4433,
+          "sha256": "90460d7c76bb742737027310f2122d7bb3d4d4552ac167b4fa4c18145dcc9233"
+        }
+      },
+      {
+        "name": "collectReadableEnglish",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "collectReadableEnglish",
+          "line": 4473,
+          "endLine": 4493,
+          "sha256": "788530e0d1faa22b022f4404202f469124c71dac6e490cae6950f27cbd9a9beb"
+        },
+        "workingTree": {
+          "name": "collectReadableEnglish",
+          "line": 4480,
+          "endLine": 4500,
+          "sha256": "788530e0d1faa22b022f4404202f469124c71dac6e490cae6950f27cbd9a9beb"
+        }
+      },
+      {
+        "name": "ReadAllButton",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "ReadAllButton",
+          "line": 4495,
+          "endLine": 4510,
+          "sha256": "ecb574651f0d8149902ef3a95da667607e61ae19c57624aafc6659432d4e5e38"
+        },
+        "workingTree": {
+          "name": "ReadAllButton",
+          "line": 4502,
+          "endLine": 4517,
+          "sha256": "ecb574651f0d8149902ef3a95da667607e61ae19c57624aafc6659432d4e5e38"
+        }
+      },
+      {
+        "name": "TranslateAllButton",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "TranslateAllButton",
+          "line": 4512,
+          "endLine": 4522,
+          "sha256": "c33b725a55c1e7f0aeb7bda834bd2f52037bc2827cc839c8a7b028dfb545f41e"
+        },
+        "workingTree": {
+          "name": "TranslateAllButton",
+          "line": 4519,
+          "endLine": 4529,
+          "sha256": "c33b725a55c1e7f0aeb7bda834bd2f52037bc2827cc839c8a7b028dfb545f41e"
+        }
+      },
+      {
+        "name": "GptRescueButton",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "GptRescueButton",
+          "line": 4524,
+          "endLine": 4555,
+          "sha256": "9e35890a05be6bbf6ad27d7b19b1cf8af2bc3d06e50ab1587bc825ba69df376b"
+        },
+        "workingTree": {
+          "name": "GptRescueButton",
+          "line": 4531,
+          "endLine": 4562,
+          "sha256": "9e35890a05be6bbf6ad27d7b19b1cf8af2bc3d06e50ab1587bc825ba69df376b"
+        }
+      },
+      {
+        "name": "RationalePanel",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "RationalePanel",
+          "line": 4557,
+          "endLine": 4627,
+          "sha256": "9b1b05497b41df88582f4bd71049a9bb6b53749332cd0e1bc7871cbc0b88cc81"
+        },
+        "workingTree": {
+          "name": "RationalePanel",
+          "line": 4564,
+          "endLine": 4634,
+          "sha256": "9b1b05497b41df88582f4bd71049a9bb6b53749332cd0e1bc7871cbc0b88cc81"
+        }
+      },
+      {
+        "name": "SummaryView",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "SummaryView",
+          "line": 4629,
+          "endLine": 4859,
+          "sha256": "9a5dc8425716969890d9154c001c67ddcae9778525e6c8a0555a41597821a72e"
+        },
+        "workingTree": {
+          "name": "SummaryView",
+          "line": 4636,
+          "endLine": 4866,
+          "sha256": "9a5dc8425716969890d9154c001c67ddcae9778525e6c8a0555a41597821a72e"
+        }
+      },
+      {
+        "name": "DraftAnswer",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "DraftAnswer",
+          "line": 4861,
+          "endLine": 4928,
+          "sha256": "b3484304dfa264b49aa399bca61182033deb7ee2c0c75a9ee6186f01983599bf"
+        },
+        "workingTree": {
+          "name": "DraftAnswer",
+          "line": 4868,
+          "endLine": 4935,
+          "sha256": "b3484304dfa264b49aa399bca61182033deb7ee2c0c75a9ee6186f01983599bf"
+        }
+      },
+      {
+        "name": "SummaryStemText",
+        "allowedToChange": false,
+        "equal": true,
+        "base": {
+          "name": "SummaryStemText",
+          "line": 4930,
+          "endLine": 4937,
+          "sha256": "69a4ffe2a58e12cee327b0f9df78c43d243e5012aca662078d12921bbf695031"
+        },
+        "workingTree": {
+          "name": "SummaryStemText",
+          "line": 4937,
+          "endLine": 4944,
+          "sha256": "69a4ffe2a58e12cee327b0f9df78c43d243e5012aca662078d12921bbf695031"
+        }
+      }
+    ]
+  },
+  "css": {
+    "admittedBlob": "e95d261bc5713fac990ebc2bda4ef9320a521db7",
+    "workingTreeBlob": "0b2287911712321c73bf10bb210b280b482272f7",
+    "outsideClozeRulesByteEqual": true,
+    "outsideBaseSha256": "4432c5fb3ec5718f5e726c6418157c4d144c0726c89e8dd91f0d42ba7a56c88c",
+    "outsideWorkingTreeSha256": "4432c5fb3ec5718f5e726c6418157c4d144c0726c89e8dd91f0d42ba7a56c88c",
+    "sharedAncestorRulesChanged": false,
+    "changedSelectors": [
+      ".cloze-panel",
+      ".cloze-line",
+      ".cloze-select",
+      ".cloze-token",
+      ".cloze-choice",
+      ".cloze-readout",
+      ".cloze-readout:empty"
+    ],
+    "rules": [
+      {
+        "selector": ".cloze-panel",
+        "changed": true,
+        "base": [
+          {
+            "selector": ".cloze-panel",
+            "css": ".cloze-panel {\n  border: 1px solid var(--border);\n  border-radius: 8px;\n  padding: 1rem;\n  background: var(--surface);\n}",
+            "sha256": "5bb13ad9701c0f030b6388318311679dfff675abc391e13443b10ad31cedfac4"
+          }
+        ],
+        "workingTree": [
+          {
+            "selector": ".cloze-panel",
+            "css": ".cloze-panel {\n  min-width: 0;\n  border: 1px solid var(--border);\n  border-radius: 8px;\n  padding: 1rem;\n  background: var(--surface);\n}",
+            "sha256": "5641cc06d0f0e7b278ad4ba14026fabffbe5bd8879e220420f1f2486eeaee94d"
+          }
+        ]
+      },
+      {
+        "selector": ".cloze-line",
+        "changed": true,
+        "base": [
+          {
+            "selector": ".cloze-line",
+            "css": ".cloze-line {\n  margin: 0;\n  font-size: calc(1.05rem * var(--font-scale));\n  line-height: 2.4;\n}",
+            "sha256": "3dbaa41abe5528997558e676e0c019786c4c46034d608952e81d20681b52c24f"
+          }
+        ],
+        "workingTree": [
+          {
+            "selector": ".cloze-line",
+            "css": ".cloze-line {\n  margin: 0;\n  overflow-wrap: anywhere;\n  font-size: calc(1.05rem * var(--font-scale));\n  line-height: 2.4;\n}",
+            "sha256": "f856fdbb74a34e95bf12f7da4fc4503cca58e479bb780a70dc8e17cf53b728f1"
+          }
+        ]
+      },
+      {
+        "selector": ".cloze-select",
+        "changed": true,
+        "base": [
+          {
+            "selector": ".cloze-select",
+            "css": ".cloze-select {\n  display: inline-block;\n  width: auto;\n  min-width: 10rem;\n  margin: 0 0.25rem;\n  padding-block: 0.4rem;\n  vertical-align: baseline;\n}",
+            "sha256": "76af74aca209d5b405f87cd37cf577f5988dcac9749a58b16d94902fc4ef330f"
+          }
+        ],
+        "workingTree": [
+          {
+            "selector": ".cloze-select",
+            "css": ".cloze-select {\n  width: 100%;\n  min-width: 0;\n  max-width: 100%;\n  padding-block: 0.4rem;\n}",
+            "sha256": "5b1575b71b69e433749ade0e402d7763a85d18e9af1d18ca174372d6ae83aeb4"
+          }
+        ]
+      },
+      {
+        "selector": ".cloze-token",
+        "changed": true,
+        "base": [
+          {
+            "selector": ".cloze-token",
+            "css": ".cloze-token {\n  display: inline-flex;\n  align-items: center;\n  min-height: 2rem;\n  border: 1px solid var(--border-strong);\n  border-radius: 8px;\n  margin: 0 0.25rem;\n  padding: 0.2rem 0.55rem;\n  color: var(--text);\n  background: var(--surface-muted);\n  font-weight: 800;\n  vertical-align: baseline;\n}",
+            "sha256": "23e4388485c61446e3e41d3a6c8499b6f35fbe90ef77b6f45352c8add1705eaa"
+          }
+        ],
+        "workingTree": [
+          {
+            "selector": ".cloze-token",
+            "css": ".cloze-token {\n  display: inline-block;\n  max-width: calc(100% - 0.5rem);\n  min-height: 2rem;\n  border: 1px solid var(--border-strong);\n  border-radius: 8px;\n  margin: 0 0.25rem;\n  padding: 0.2rem 0.55rem;\n  color: var(--text);\n  background: var(--surface-muted);\n  font-weight: 800;\n  vertical-align: baseline;\n}",
+            "sha256": "c18318937a04cf87d7d978e1fcb715d851a2bb94066a467856b5fae171aad23d"
+          }
+        ]
+      },
+      {
+        "selector": ".cloze-choice",
+        "changed": true,
+        "base": [],
+        "workingTree": [
+          {
+            "selector": ".cloze-choice",
+            "css": ".cloze-choice {\n  display: inline-grid;\n  grid-template-columns: minmax(0, 1fr);\n  min-width: min(10rem, calc(100% - 0.5rem));\n  max-width: calc(100% - 0.5rem);\n  margin: 0 0.25rem;\n  vertical-align: baseline;\n}",
+            "sha256": "a60840b8642f146ace2f4872b5765e3258c0603370e9f3637a8a2ac442a72698"
+          }
+        ]
+      },
+      {
+        "selector": ".cloze-readout",
+        "changed": true,
+        "base": [],
+        "workingTree": [
+          {
+            "selector": ".cloze-readout",
+            "css": ".cloze-readout {\n  min-width: 0;\n  white-space: normal;\n  line-height: 1.5;\n  font-weight: 400;\n}",
+            "sha256": "fceb55979e35aebc94699adc9864f08089ea7f60270b1340b7309f6c2b5cdb1e"
+          }
+        ]
+      },
+      {
+        "selector": ".cloze-readout:empty",
+        "changed": true,
+        "base": [],
+        "workingTree": [
+          {
+            "selector": ".cloze-readout:empty",
+            "css": ".cloze-readout:empty {\n  display: none;\n}",
+            "sha256": "b53ab8705a2392a1e90d494a2ca8cff38c4d5e191517bdfd291f4fd0d09fa33d"
+          }
+        ]
+      }
+    ]
+  },
+  "protectedCategories": {
+    "banks": [
+      {
+        "path": "banks",
+        "type": "tree",
+        "admittedBaseObject": "6b360f953d7c1db4121f0cac5f2d24f056c44933",
+        "candidateHeadObject": "6b360f953d7c1db4121f0cac5f2d24f056c44933",
+        "candidateWorkingTreeObject": "6b360f953d7c1db4121f0cac5f2d24f056c44933",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      }
+    ],
+    "clinicalVisuals": [
+      {
+        "path": "src/visuals",
+        "type": "tree",
+        "admittedBaseObject": "21bbf306093d01031fcf89064cec01ccc47657cd",
+        "candidateHeadObject": "21bbf306093d01031fcf89064cec01ccc47657cd",
+        "candidateWorkingTreeObject": "21bbf306093d01031fcf89064cec01ccc47657cd",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      }
+    ],
+    "schemaTypesGrading": [
+      {
+        "path": "src/schema.ts",
+        "type": "blob",
+        "admittedBaseObject": "8295463e6c531043c2c7a4637b1d879db9e0d3fa",
+        "candidateHeadObject": "8295463e6c531043c2c7a4637b1d879db9e0d3fa",
+        "candidateWorkingTreeObject": "8295463e6c531043c2c7a4637b1d879db9e0d3fa",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      },
+      {
+        "path": "src/types.ts",
+        "type": "blob",
+        "admittedBaseObject": "d415d089272cd1f927b8e7914ad05830871ed9e4",
+        "candidateHeadObject": "d415d089272cd1f927b8e7914ad05830871ed9e4",
+        "candidateWorkingTreeObject": "d415d089272cd1f927b8e7914ad05830871ed9e4",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      },
+      {
+        "path": "src/grading.ts",
+        "type": "blob",
+        "admittedBaseObject": "9b8b4ffcc2ac85030d1daeab329a19f9bbbe5bb2",
+        "candidateHeadObject": "9b8b4ffcc2ac85030d1daeab329a19f9bbbe5bb2",
+        "candidateWorkingTreeObject": "9b8b4ffcc2ac85030d1daeab329a19f9bbbe5bb2",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      }
+    ],
+    "storageMigration": [
+      {
+        "path": "src/storage.ts",
+        "type": "blob",
+        "admittedBaseObject": "e00acd25cc24450f7b1992df45cbfca44a76e5ee",
+        "candidateHeadObject": "e00acd25cc24450f7b1992df45cbfca44a76e5ee",
+        "candidateWorkingTreeObject": "e00acd25cc24450f7b1992df45cbfca44a76e5ee",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      },
+      {
+        "path": "src/progressMigration.ts",
+        "type": "blob",
+        "admittedBaseObject": "cdb0b3988adea324b05c04f735050e87547a389b",
+        "candidateHeadObject": "cdb0b3988adea324b05c04f735050e87547a389b",
+        "candidateWorkingTreeObject": "cdb0b3988adea324b05c04f735050e87547a389b",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      },
+      {
+        "path": "src/categoryMigration.ts",
+        "type": "blob",
+        "admittedBaseObject": "33d8bf0f05fad8a53e5548ffec3bbb0df3d3ffd1",
+        "candidateHeadObject": "33d8bf0f05fad8a53e5548ffec3bbb0df3d3ffd1",
+        "candidateWorkingTreeObject": "33d8bf0f05fad8a53e5548ffec3bbb0df3d3ffd1",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      }
+    ],
+    "samplerSessionStateNavigationStartGuard": [
+      {
+        "path": "src/sessionSampler.ts",
+        "type": "blob",
+        "admittedBaseObject": "deeea8a07c4b5c1969bf9b28c0e02a7b5d444bd3",
+        "candidateHeadObject": "deeea8a07c4b5c1969bf9b28c0e02a7b5d444bd3",
+        "candidateWorkingTreeObject": "deeea8a07c4b5c1969bf9b28c0e02a7b5d444bd3",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      },
+      {
+        "path": "src/sessionState.ts",
+        "type": "blob",
+        "admittedBaseObject": "d6aa8f5d6b5d47930df2f94479e4b3b30cf30c2a",
+        "candidateHeadObject": "d6aa8f5d6b5d47930df2f94479e4b3b30cf30c2a",
+        "candidateWorkingTreeObject": "d6aa8f5d6b5d47930df2f94479e4b3b30cf30c2a",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      },
+      {
+        "path": "src/sessionNavigation.ts",
+        "type": "blob",
+        "admittedBaseObject": "854012b51c6975ebe0cbdc59ddff2c5e9f16b1c5",
+        "candidateHeadObject": "854012b51c6975ebe0cbdc59ddff2c5e9f16b1c5",
+        "candidateWorkingTreeObject": "854012b51c6975ebe0cbdc59ddff2c5e9f16b1c5",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      },
+      {
+        "path": "src/sessionStartGuard.ts",
+        "type": "blob",
+        "admittedBaseObject": "1832b2fb70bb99e243a79d89a19ba8e5ba45d01b",
+        "candidateHeadObject": "1832b2fb70bb99e243a79d89a19ba8e5ba45d01b",
+        "candidateWorkingTreeObject": "1832b2fb70bb99e243a79d89a19ba8e5ba45d01b",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      }
+    ],
+    "completedMemory": [
+      {
+        "path": "src/completedMemory.ts",
+        "type": "blob",
+        "admittedBaseObject": "5b09d3c372b56d06787d8fbc2fc636dec22cc6ed",
+        "candidateHeadObject": "5b09d3c372b56d06787d8fbc2fc636dec22cc6ed",
+        "candidateWorkingTreeObject": "5b09d3c372b56d06787d8fbc2fc636dec22cc6ed",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      }
+    ],
+    "bankLoadingImport": [
+      {
+        "path": "src/banks.ts",
+        "type": "blob",
+        "admittedBaseObject": "8f864863b053aaf628d0d205bbfc6ac1e4c747a8",
+        "candidateHeadObject": "8f864863b053aaf628d0d205bbfc6ac1e4c747a8",
+        "candidateWorkingTreeObject": "8f864863b053aaf628d0d205bbfc6ac1e4c747a8",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      },
+      {
+        "path": "src/bankImport.ts",
+        "type": "blob",
+        "admittedBaseObject": "b7ff03ba27f70f50339dfe1fbd869552a9177eb5",
+        "candidateHeadObject": "b7ff03ba27f70f50339dfe1fbd869552a9177eb5",
+        "candidateWorkingTreeObject": "b7ff03ba27f70f50339dfe1fbd869552a9177eb5",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      }
+    ],
+    "calculatorSourcePanel": [
+      {
+        "path": "src/examCalculator.ts",
+        "type": "blob",
+        "admittedBaseObject": "72f7ea4b315434f60a61a2d855ed433cbc75ef03",
+        "candidateHeadObject": "72f7ea4b315434f60a61a2d855ed433cbc75ef03",
+        "candidateWorkingTreeObject": "72f7ea4b315434f60a61a2d855ed433cbc75ef03",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      },
+      {
+        "path": "src/ExamCalculatorPanel.tsx",
+        "type": "blob",
+        "admittedBaseObject": "75959f7a486e3eb8e3261d9a95911287c1558bf6",
+        "candidateHeadObject": "75959f7a486e3eb8e3261d9a95911287c1558bf6",
+        "candidateWorkingTreeObject": "75959f7a486e3eb8e3261d9a95911287c1558bf6",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      }
+    ],
+    "packageFiles": [
+      {
+        "path": "package.json",
+        "type": "blob",
+        "admittedBaseObject": "bfe7124f6d2c5c2ac5a60cb03e300e76a84bcf3b",
+        "candidateHeadObject": "bfe7124f6d2c5c2ac5a60cb03e300e76a84bcf3b",
+        "candidateWorkingTreeObject": "bfe7124f6d2c5c2ac5a60cb03e300e76a84bcf3b",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      },
+      {
+        "path": "package-lock.json",
+        "type": "blob",
+        "admittedBaseObject": "619990b540ab51fe2340645847afe04208589c2c",
+        "candidateHeadObject": "619990b540ab51fe2340645847afe04208589c2c",
+        "candidateWorkingTreeObject": "619990b540ab51fe2340645847afe04208589c2c",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      }
+    ],
+    "censusArtifacts": [
+      {
+        "path": "census.json",
+        "type": "blob",
+        "admittedBaseObject": "dc2360cbe84fb22993077a405bd6381a25eb48dc",
+        "candidateHeadObject": "dc2360cbe84fb22993077a405bd6381a25eb48dc",
+        "candidateWorkingTreeObject": "dc2360cbe84fb22993077a405bd6381a25eb48dc",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      },
+      {
+        "path": "BANK-CENSUS.md",
+        "type": "blob",
+        "admittedBaseObject": "931195d4a73929d57bb0b3f1d514e003cd0559ee",
+        "candidateHeadObject": "931195d4a73929d57bb0b3f1d514e003cd0559ee",
+        "candidateWorkingTreeObject": "931195d4a73929d57bb0b3f1d514e003cd0559ee",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      }
+    ],
+    "existingAcceptedEvidence": [
+      {
+        "path": "audit/learner-shell-r3-concept-a-r1",
+        "type": "tree",
+        "admittedBaseObject": "db92ec78a29c966d17bc56772ea9906c79f098d7",
+        "candidateHeadObject": "db92ec78a29c966d17bc56772ea9906c79f098d7",
+        "candidateWorkingTreeObject": "db92ec78a29c966d17bc56772ea9906c79f098d7",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      },
+      {
+        "path": "audit/learner-shell-r3-concept-a-r1/independent-review",
+        "type": "tree",
+        "admittedBaseObject": "bbed6d362e74a2ae80084bb50ef481bff678896e",
+        "candidateHeadObject": "bbed6d362e74a2ae80084bb50ef481bff678896e",
+        "candidateWorkingTreeObject": "bbed6d362e74a2ae80084bb50ef481bff678896e",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      },
+      {
+        "path": "audit/learner-shell-r3-concept-a-r1/integration",
+        "type": "tree",
+        "admittedBaseObject": "b340d3b07e64ce0775d538e9994d5385cd8a6a70",
+        "candidateHeadObject": "b340d3b07e64ce0775d538e9994d5385cd8a6a70",
+        "candidateWorkingTreeObject": "b340d3b07e64ce0775d538e9994d5385cd8a6a70",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      }
+    ],
+    "history": [
+      {
+        "path": "PROJECT-HISTORY.md",
+        "type": "blob",
+        "admittedBaseObject": "c2d7c964d8b0413c21eb316587ecf0375302980d",
+        "candidateHeadObject": "c2d7c964d8b0413c21eb316587ecf0375302980d",
+        "candidateWorkingTreeObject": "c2d7c964d8b0413c21eb316587ecf0375302980d",
+        "workingTreeEqualsHead": true,
+        "equal": true,
+        "changesFromHead": [],
+        "untrackedWithin": [],
+        "proof": "Git object/tree identity at HEAD plus an empty tracked working-tree diff and no untracked descendants; no historical evidence file contents are read by this script."
+      }
+    ]
+  }
+}

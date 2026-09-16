@@ -1,0 +1,117 @@
+diff --git a/src/App.tsx b/src/App.tsx
+index 8eac13d..5fc8a86 100644
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -3800,29 +3800,36 @@ function ClozeLine({
+         if (!dropdown) return <span key={`${part}-${index}`}>{part}</span>;
+         const value = selections[dropdown.id] ?? "";
+         const statusClass = submitted ? (value === dropdown.correct ? "correct" : "incorrect") : "";
++        const selectedOption = dropdown.options.find((option) => option.id === value);
+         if (!interactive) {
+-          const selectedOption = dropdown.options.find((option) => option.id === value);
+           return (
+             <span className={`cloze-token ${statusClass}`} key={`${dropdown.id}-${index}`}>
+               {selectedOption ? (locale === "en" ? selectedOption.en : selectedOption.zh) : "____"}
+             </span>
+           );
+         }
++        const readoutId = `${question.id}-cloze-${index}-readout`;
+         return (
+-          <select
+-            className={`cloze-select ${statusClass}`}
+-            key={`${dropdown.id}-${index}`}
+-            value={value}
+-            disabled={submitted}
+-            onChange={(event) => onSelect?.(dropdown.id, event.target.value)}
+-          >
+-            <option value="">Choose</option>
+-            {dropdown.options.map((option) => (
+-              <option key={option.id} value={option.id}>
+-                {locale === "en" ? option.en : option.zh}
+-              </option>
+-            ))}
+-          </select>
++          <span className="cloze-choice" key={`${dropdown.id}-${index}`}>
++            <select
++              className={`cloze-select ${statusClass}`}
++              aria-label={`Blank ${question.dropdowns.indexOf(dropdown) + 1}`}
++              aria-describedby={readoutId}
++              value={value}
++              disabled={submitted}
++              onChange={(event) => onSelect?.(dropdown.id, event.target.value)}
++            >
++              <option value="">Choose</option>
++              {dropdown.options.map((option) => (
++                <option key={option.id} value={option.id}>
++                  {locale === "en" ? option.en : option.zh}
++                </option>
++              ))}
++            </select>
++            <span className="cloze-readout" id={readoutId}>
++              {selectedOption ? (locale === "en" ? selectedOption.en : selectedOption.zh) : ""}
++            </span>
++          </span>
+         );
+       })}
+     </p>
+diff --git a/src/styles.css b/src/styles.css
+index e95d261..0b22879 100644
+--- a/src/styles.css
++++ b/src/styles.css
+@@ -2339,6 +2339,7 @@ h4 {
+ }
+ 
+ .cloze-panel {
++  min-width: 0;
+   border: 1px solid var(--border);
+   border-radius: 8px;
+   padding: 1rem;
+@@ -2729,22 +2730,41 @@ h4 {
+ 
+ .cloze-line {
+   margin: 0;
++  overflow-wrap: anywhere;
+   font-size: calc(1.05rem * var(--font-scale));
+   line-height: 2.4;
+ }
+ 
+-.cloze-select {
+-  display: inline-block;
+-  width: auto;
+-  min-width: 10rem;
++.cloze-choice {
++  display: inline-grid;
++  grid-template-columns: minmax(0, 1fr);
++  min-width: min(10rem, calc(100% - 0.5rem));
++  max-width: calc(100% - 0.5rem);
+   margin: 0 0.25rem;
+-  padding-block: 0.4rem;
+   vertical-align: baseline;
+ }
+ 
++.cloze-select {
++  width: 100%;
++  min-width: 0;
++  max-width: 100%;
++  padding-block: 0.4rem;
++}
++
++.cloze-readout {
++  min-width: 0;
++  white-space: normal;
++  line-height: 1.5;
++  font-weight: 400;
++}
++
++.cloze-readout:empty {
++  display: none;
++}
++
+ .cloze-token {
+-  display: inline-flex;
+-  align-items: center;
++  display: inline-block;
++  max-width: calc(100% - 0.5rem);
+   min-height: 2rem;
+   border: 1px solid var(--border-strong);
+   border-radius: 8px;

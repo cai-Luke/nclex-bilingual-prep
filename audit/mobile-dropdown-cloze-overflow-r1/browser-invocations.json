@@ -1,0 +1,44 @@
+[
+  {
+    "label": "baseline-final",
+    "command": [
+      "node",
+      "--import",
+      "tsx",
+      "scripts/tests/mobile-dropdown-cloze-layout.mjs",
+      "--url",
+      "http://127.0.0.1:4182",
+      "--output",
+      "audit/mobile-dropdown-cloze-overflow-r1/baseline-final"
+    ],
+    "exitCode": 1,
+    "status": "FAIL",
+    "runnerSha256": "91e784bdcf23f1f5ad2d4a61e09657268e4cb1800077903aafae5fcffd4a79f9",
+    "root": {
+      "scrollWidth": 1302,
+      "clientWidth": 320
+    },
+    "firstFailure": "root overflow"
+  },
+  {
+    "label": "candidate-final",
+    "command": [
+      "node",
+      "--import",
+      "tsx",
+      "scripts/tests/mobile-dropdown-cloze-layout.mjs",
+      "--url",
+      "http://127.0.0.1:4181",
+      "--output",
+      "audit/mobile-dropdown-cloze-overflow-r1/candidate-final"
+    ],
+    "exitCode": 1,
+    "status": "FAIL",
+    "runnerSha256": "91e784bdcf23f1f5ad2d4a61e09657268e4cb1800077903aafae5fcffd4a79f9",
+    "root": {
+      "scrollWidth": 320,
+      "clientWidth": 320
+    },
+    "firstFailure": "div.cloze-panel: ancestor overflow section.session-shell"
+  }
+]
