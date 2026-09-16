@@ -3,7 +3,7 @@
 //   scripts/tests/mobile-dropdown-cloze-layout.mjs --url URL --output TASK_OUTPUT
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { resolve, join } from 'node:path';
 import { questionFingerprint } from '../../src/completedMemory.ts';
@@ -17,6 +17,7 @@ if (!args.includes('--url') || !args.includes('--output') || !process.env.PLAYWR
 const url = new URL(arg('--url')).href;
 assert(['http:', 'https:', 'file:'].includes(new URL(url).protocol));
 const out = resolve(arg('--output'));
+assert(!existsSync(join(out, 'results.json')), 'Use a fresh task-owned output directory; existing evidence is never overwritten');
 mkdirSync(join(out, 'screenshots'), { recursive: true });
 const sha = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const entries = readdirSync('banks').filter((f) => f.endsWith('.json')).sort().flatMap((file) => {
@@ -52,7 +53,7 @@ const context = await chromium.launchPersistentContext(profile, {
 });
 const page = context.pages()[0];
 page.setDefaultTimeout(15000);
-const report = { url, browser: context.browser()?.version(), userAgent: null, oracle: 'containment-v1', checks: [], console: [], status: 'RUNNING' };
+const report = { url, browser: context.browser()?.version(), userAgent: null, oracle: 'causal-containment-owner-disposition-v2', runnerSha256: sha(readFileSync(new URL(import.meta.url))), nonClozeWitnesses: [], checks: [], console: [], status: 'RUNNING' };
 page.on('pageerror', (e) => report.console.push({ type: 'pageerror', message: e.message }));
 page.on('console', (m) => {
   if (['error', 'warning'].includes(m.type())) report.console.push({ type: m.type(), message: m.text(), location: m.location() });
@@ -115,36 +116,129 @@ async function identity() {
     assert.deepEqual(values, tokens.map((id) => [{ id: '', en: 'Choose' }, ...q.dropdowns.find((d) => d.id === id).options.map(({ id, en }) => ({ id, en }))]));
   }
 }
-async function containment(name) {
-  await identity();
-  const measurement = await page.evaluate(() => {
+// Owner disposition: match measured ancestor excess; never exempt an element by name.
+let referenceContext;
+let referenceProfile;
+const referenceCache = new Map();
+async function measure(target, reference = false) {
+  return target.evaluate((reference) => {
     const rect = (el) => { const r = el.getBoundingClientRect(); return { left: r.left, right: r.right, top: r.top, bottom: r.bottom, width: r.width, height: r.height }; };
-    const label = (el) => `${el.tagName.toLowerCase()}.${String(el.className).replaceAll(' ', '.')}`;
+    const label = (el) => `${el.tagName.toLowerCase()}.${String(el.className).trim().split(/\s+/).filter(Boolean).join('.')}`;
     const visible = (el) => el.getClientRects().length > 0;
-    const subjects = [...document.querySelectorAll('.cloze-panel, .cloze-line, .cloze-select, .cloze-token, .cloze-readout, .cloze-choice, .submit-button, .option-list, .matrix-panel')].filter(visible).map((el) => {
+    const box = (el) => {
+      const r = rect(el); const css = getComputedStyle(el);
+      return { element: label(el), rect: r, clientBox: { left: r.left + el.clientLeft, right: r.left + el.clientLeft + el.clientWidth },
+        scrollWidth: el.scrollWidth, clientWidth: el.clientWidth, overflowX: css.overflowX, overflowY: css.overflowY,
+        transform: css.transform, fontSize: css.fontSize, marginLeft: css.marginLeft, marginRight: css.marginRight };
+    };
+    const nativeProbe = document.createElement('select');
+    document.body.append(nativeProbe);
+    const nativeSelectOverflowX = getComputedStyle(nativeProbe).overflowX;
+    nativeProbe.remove();
+    const selectors = reference ? '.question-card' : '.cloze-panel, .cloze-line, .cloze-choice, .cloze-select, .cloze-token, .cloze-readout, .submit-button, .options-list, .matrix-wrap';
+    const subjects = [...document.querySelectorAll(selectors)].filter(visible).map((el) => {
       const ancestors = []; for (let a = el.parentElement; a; a = a.parentElement) {
-        const cs = getComputedStyle(a);
-        ancestors.push({ element: label(a), rect: rect(a), scrollWidth: a.scrollWidth, clientWidth: a.clientWidth, overflowX: cs.overflowX, overflowY: cs.overflowY });
+        const entry = box(a);
+        // Direct non-cloze layout descendants can explain sibling full-bleed extents.
+        entry.nonClozeDescendants = [...a.children].filter((child) => visible(child) && !child.matches('.cloze-panel') && !child.querySelector('.cloze-panel')).map(box)
+          .filter((child) => child.rect.left < entry.clientBox.left - 1 || child.rect.right > entry.clientBox.right + 1);
+        ancestors.push(entry);
       }
       const parent = el.parentElement; const cs = getComputedStyle(parent); const p = parent.getBoundingClientRect();
-      const content = { left: p.left + parseFloat(cs.borderLeftWidth) + parseFloat(cs.paddingLeft), right: p.right - parseFloat(cs.borderRightWidth) - parseFloat(cs.paddingRight) };
-      return { element: label(el), rect: rect(el), scrollWidth: el.scrollWidth, clientWidth: el.clientWidth, content, ancestors };
+      return { ...box(el), cloze: el.className.includes('cloze-'),
+        content: { left: p.left + parseFloat(cs.borderLeftWidth) + parseFloat(cs.paddingLeft), right: p.right - parseFloat(cs.borderRightWidth) - parseFloat(cs.paddingRight) }, ancestors };
     });
-    return { viewport: { width: innerWidth, height: innerHeight }, dpr: devicePixelRatio, theme: document.documentElement.dataset.theme, text: document.documentElement.dataset.textSize, transport: location.protocol, root: { scrollWidth: document.documentElement.scrollWidth, clientWidth: document.documentElement.clientWidth }, subjects };
+    return { nativeSelectOverflowX, viewport: { width: innerWidth, height: innerHeight }, scroll: { x: scrollX, y: scrollY }, dpr: devicePixelRatio,
+      theme: document.documentElement.dataset.theme, text: document.documentElement.dataset.textSize,
+      language: document.querySelector('[aria-label="Chinese display"] button[aria-pressed="true"]')?.textContent,
+      submitted: Boolean(document.querySelector('.answer-banner')), transport: location.protocol,
+      root: { scrollWidth: document.documentElement.scrollWidth, clientWidth: document.documentElement.clientWidth }, subjects };
+  }, reference);
+}
+async function matchedNonCloze(condition) {
+  const key = JSON.stringify([condition.viewport, condition.dpr, condition.theme, condition.text, condition.language, condition.submitted, condition.transport]);
+  if (referenceCache.has(key)) return referenceCache.get(key);
+  if (!referenceContext) {
+    referenceProfile = mkdtempSync(join(tmpdir(), 'shrimp-cloze-reference-'));
+    referenceContext = await chromium.launchPersistentContext(referenceProfile, {
+      channel: 'chrome', headless: true, viewport: condition.viewport, deviceScaleFactor: 1,
+      ignoreDefaultArgs: ['--disable-web-security'],
+    });
+    const referencePage = referenceContext.pages()[0];
+    referencePage.on('pageerror', (e) => report.console.push({ surface: 'non-cloze-witness', type: 'pageerror', message: e.message }));
+    referencePage.on('console', (m) => {
+      if (['error', 'warning'].includes(m.type())) report.console.push({ surface: 'non-cloze-witness', type: m.type(), message: m.text(), location: m.location() });
+    });
+  }
+  const target = referenceContext.pages()[0];
+  target.setDefaultTimeout(15000);
+  await target.setViewportSize(condition.viewport);
+  await target.goto(url); await target.locator('.study-workspace').waitFor();
+  const language = { EN: 'off', 'Tap ZH': 'on-tap', 'EN/ZH': 'always' }[condition.language];
+  assert(language, 'Reference requires an actual Chinese display setting');
+  await target.evaluate(async ({ snapshot, settings }) => {
+    localStorage.setItem('completed-memory-notice', 'dismissed'); localStorage.setItem('nclex-settings', JSON.stringify(settings));
+    const db = await new Promise((yes, no) => { const r = indexedDB.open('nclex-bilingual-prep'); r.onsuccess = () => yes(r.result); r.onerror = () => no(r.error); });
+    const tx = db.transaction(['activeSession', 'progress', 'answerEvents', 'completedSets'], 'readwrite');
+    for (const name of ['activeSession', 'progress', 'answerEvents', 'completedSets']) tx.objectStore(name).clear();
+    tx.objectStore('activeSession').put(snapshot);
+    await new Promise((yes, no) => { tx.oncomplete = yes; tx.onerror = () => no(tx.error); }); db.close();
+  }, { snapshot: session(mcq, language), settings: { themeMode: condition.theme, textSizeMode: condition.text, languageMode: language, voiceEnabled: false, revisitMissed: true } });
+  await target.reload(); await target.getByRole('button', { name: 'Continue set / 继续练习', exact: true }).click();
+  const card = target.locator('.question-card');
+  assert((await card.innerText()).includes(mcq.q.stem.en), 'Non-cloze reference identity must match canonical stem');
+  assert.equal(await card.locator('.cloze-panel').count(), 0);
+  const identity = await target.evaluate(async () => {
+    const db = await new Promise((yes, no) => { const r = indexedDB.open('nclex-bilingual-prep'); r.onsuccess = () => yes(r.result); r.onerror = () => no(r.error); });
+    const rows = await new Promise((yes, no) => { const r = db.transaction('activeSession').objectStore('activeSession').getAll(); r.onsuccess = () => yes(r.result); r.onerror = () => no(r.error); }); db.close(); return rows[0].questionIds;
   });
-  const failures = [];
-  if (measurement.root.scrollWidth > measurement.root.clientWidth + 1) failures.push('root overflow');
+  assert.deepEqual(identity, [mcq.q.id]);
+  if (condition.submitted) { await target.locator('.option-row').first().click(); await target.locator('.submit-button').click(); await target.locator('.answer-banner').waitFor(); }
+  const result = { id: `non-cloze-${report.nonClozeWitnesses.length + 1}`, fixture: mcq.q.id, bank: mcq.bank, fingerprint: questionFingerprint(mcq.q), ...(await measure(target, true)) };
+  assert.deepEqual(result.viewport, condition.viewport); assert.equal(result.theme, condition.theme); assert.equal(result.text, condition.text); assert.equal(result.language, condition.language);
+  assert(result.root.scrollWidth <= result.root.clientWidth + 1, 'Matched non-cloze root must fit');
+  referenceCache.set(key, result); report.nonClozeWitnesses.push(result); return result;
+}
+async function containment(name) {
+  await identity();
+  const measurement = await measure(page);
+  const failures = []; const exceptions = [];
+  const rootFits = measurement.root.scrollWidth <= measurement.root.clientWidth + 1;
+  if (!rootFits) failures.push('root overflow');
   for (const s of measurement.subjects) {
     if (s.rect.left < -1 || s.rect.right > measurement.viewport.width + 1) failures.push(`${s.element}: viewport escape`);
     if (s.rect.left < s.content.left - 1 || s.rect.right > s.content.right + 1) failures.push(`${s.element}: content escape`);
-    for (const a of s.ancestors) if (a.scrollWidth > a.clientWidth + 1) failures.push(`${s.element}: ancestor overflow ${a.element}`);
-    for (const a of s.ancestors) if (['hidden', 'clip'].includes(a.overflowX) && /(?:cloze|question-card|app-shell)|^(html|body)\./.test(a.element)) failures.push(`${s.element}: prohibited concealment ${a.element}`);
+    if (s.cloze && s.scrollWidth > s.clientWidth + 1) failures.push(`${s.element}: subject overflow`);
+    if (s.cloze && ((['hidden', 'clip', 'auto', 'scroll'].includes(s.overflowX) && !(s.element.startsWith('select.') && s.overflowX === measurement.nativeSelectOverflowX)) || s.transform !== 'none')) failures.push(`${s.element}: prohibited concealment/scroller/transform`);
+    for (const a of s.ancestors) {
+      if (s.cloze && (s.rect.left < a.clientBox.left - 1 || s.rect.right > a.clientBox.right + 1)) failures.push(`${s.element}: outside ancestor client box ${a.element}`);
+      if (['hidden', 'clip'].includes(a.overflowX) && /(?:cloze|question-card|app-shell)|^(html|body)\./.test(a.element)) failures.push(`${s.element}: prohibited concealment ${a.element}`);
+      if (s.cloze && a.transform !== 'none') failures.push(`${s.element}: transformed ancestor ${a.element}`);
+      if (a.scrollWidth <= a.clientWidth + 1) continue;
+      // Exceptions require every strict subject/root assertion already to pass.
+      if (!rootFits || failures.length) { failures.push(`${s.element}: unmatched ancestor excess ${a.element}`); continue; }
+      const control = await matchedNonCloze(measurement);
+      const match = control.subjects[0].ancestors.find((other) => other.element === a.element);
+      const excess = a.scrollWidth - a.clientWidth; const controlExcess = match ? match.scrollWidth - match.clientWidth : null;
+      const delta = match ? excess - controlExcess : null;
+      const geometry = a.nonClozeDescendants.filter((child) => {
+        const peer = match?.nonClozeDescendants.find((other) => other.element === child.element);
+        return peer && ['left', 'right', 'width'].every((k) => Math.abs(peer.rect[k] - child.rect[k]) <= 1)
+          && peer.marginLeft === child.marginLeft && peer.marginRight === child.marginRight
+          && child.rect.left >= -1 && child.rect.right <= measurement.viewport.width + 1
+          && Math.abs((child.rect.right - a.clientBox.right) - excess) <= 1;
+      });
+      const allowed = match && controlExcess > 1 && delta <= 1 && geometry.length > 0;
+      if (!allowed) failures.push(`${s.element}: unmatched/enlarged/unattributed ancestor excess ${a.element}`);
+      else exceptions.push({ subject: s.element, ancestor: a.element, excess, controlExcess, delta, matchedWitness: control.id,
+        attribution: geometry, reason: 'Matched non-cloze full-bleed descendants; all strict bounds pass; source equality is verified in continuation scope evidence.' });
+    }
   }
-  const entry = { name, fixture: activeFixture.q.id, ...measurement, failures };
+  const entry = { name, fixture: activeFixture.q.id, ...measurement, exceptions, failures };
   report.checks.push(entry);
   if (failures.length) await page.screenshot({ path: join(out, 'screenshots', `${name}-FAIL.png`), fullPage: true });
-  // This decisive assertion always precedes readout-specific assertions.
   assert.equal(failures.length, 0, `CONTAINMENT ${name}: ${failures.join('; ')}; root ${measurement.root.scrollWidth}/${measurement.root.clientWidth}`);
+  console.log(`PASS ${name}`);
   return entry;
 }
 const panel = () => page.locator('.cloze-panel:visible');
@@ -209,6 +303,8 @@ async function checkState(name, options = {}) {
 async function screenshot(name) {
   await panel().scrollIntoViewIfNeeded();
   await page.screenshot({ path: join(out, 'screenshots', `${name}.png`), fullPage: true });
+  await selects().first().scrollIntoViewIfNeeded();
+  await page.screenshot({ path: join(out, 'screenshots', `${name}-viewport.png`) });
 }
 async function submit(kind, name, chinese = false) {
   const before = await selects().evaluateAll((els) => els.map((el) => el.value));
@@ -254,9 +350,10 @@ async function focusProof() {
   assert(proof.ring.left >= -1 && proof.ring.right <= proof.viewport + 1);
   for (const a of proof.clippingAncestors) assert(proof.ring.left >= a.left - 1 && proof.ring.right <= a.right + 1, 'Focus ring clipped horizontally');
   report.checks.push({ name: 'keyboard-focus-ring', ...proof });
-  await page.keyboard.press('ArrowDown');
-  await page.keyboard.press('Enter');
-  assert.notEqual(await first.inputValue(), '');
+  // Native select type-ahead works in system Chrome's headless macOS run.
+  await page.keyboard.type(dropdownOrder()[0].options[0].en.slice(0, 4));
+  await page.keyboard.press('Tab');
+  assert.equal(await first.inputValue(), dropdownOrder()[0].options[0].id);
   await checkState('keyboard-selected');
   // Touch-style activation of the actual native select; picker appearance is not a physical-device claim.
   await first.tap();
@@ -380,13 +477,17 @@ async function largerAndCollateral() {
 }
 async function consoleProof() {
   const manifestUrl = new URL('manifest.webmanifest', url).href;
+  let corsCount = 0; let pairedCount = 0;
   for (const e of report.console) {
     // Only the inherited file manifest CORS diagnostic and its URL-attributed pair.
-    const inheritedCors = new URL(url).protocol === 'file:' && e.type === 'error' && e.message.startsWith(`Access to internal resource at '${manifestUrl}'`) && e.message.includes("from origin 'null' has been blocked by CORS policy");
+    const inheritedCors = new URL(url).protocol === 'file:' && e.type === 'error' && e.message.startsWith(`Access to manifest at '${manifestUrl}'`) && e.message.includes("from origin 'null' has been blocked by CORS policy");
     const inheritedPair = new URL(url).protocol === 'file:' && e.type === 'error' && e.message === 'Failed to load resource: net::ERR_FAILED' && e.location?.url === manifestUrl;
+    if (inheritedCors) corsCount++;
+    if (inheritedPair) pairedCount++;
     e.allowedInheritedManifest = inheritedCors || inheritedPair;
     assert(e.allowedInheritedManifest, `Unexpected browser diagnostic: ${JSON.stringify(e)}`);
   }
+  assert.equal(corsCount, pairedCount, 'Manifest CORS diagnostics must have URL-attributed ERR_FAILED pairs');
 }
 
 try {
@@ -409,9 +510,11 @@ try {
   await consoleProof();
   report.status = 'PASS';
 } catch (error) {
+  await page.screenshot({ path: join(out, 'screenshots', 'failure.png'), fullPage: true });
   report.status = 'FAIL'; report.error = error.stack; process.exitCode = 1;
   console.error(error.message);
 } finally {
   writeFileSync(join(out, 'results.json'), JSON.stringify(report, null, 2) + '\n');
+  if (referenceContext) { await referenceContext.close(); rmSync(referenceProfile, { recursive: true, force: true }); }
   await context.close(); rmSync(profile, { recursive: true, force: true });
 }
