@@ -1,0 +1,89 @@
+diff --git a/src/App.tsx b/src/App.tsx
+index 8eac13d..5fc8a86 100644
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -3802,0 +3803 @@ function ClozeLine({
++        const selectedOption = dropdown.options.find((option) => option.id === value);
+@@ -3804 +3804,0 @@ function ClozeLine({
+-          const selectedOption = dropdown.options.find((option) => option.id === value);
+@@ -3810,0 +3811 @@ function ClozeLine({
++        const readoutId = `${question.id}-cloze-${index}-readout`;
+@@ -3812,14 +3813,20 @@ function ClozeLine({
+-          <select
+-            className={`cloze-select ${statusClass}`}
+-            key={`${dropdown.id}-${index}`}
+-            value={value}
+-            disabled={submitted}
+-            onChange={(event) => onSelect?.(dropdown.id, event.target.value)}
+-          >
+-            <option value="">Choose</option>
+-            {dropdown.options.map((option) => (
+-              <option key={option.id} value={option.id}>
+-                {locale === "en" ? option.en : option.zh}
+-              </option>
+-            ))}
+-          </select>
++          <span className="cloze-choice" key={`${dropdown.id}-${index}`}>
++            <select
++              className={`cloze-select ${statusClass}`}
++              aria-label={`Blank ${question.dropdowns.indexOf(dropdown) + 1}`}
++              aria-describedby={readoutId}
++              value={value}
++              disabled={submitted}
++              onChange={(event) => onSelect?.(dropdown.id, event.target.value)}
++            >
++              <option value="">Choose</option>
++              {dropdown.options.map((option) => (
++                <option key={option.id} value={option.id}>
++                  {locale === "en" ? option.en : option.zh}
++                </option>
++              ))}
++            </select>
++            <span className="cloze-readout" id={readoutId}>
++              {selectedOption ? (locale === "en" ? selectedOption.en : selectedOption.zh) : ""}
++            </span>
++          </span>
+diff --git a/src/styles.css b/src/styles.css
+index e95d261..0b22879 100644
+--- a/src/styles.css
++++ b/src/styles.css
+@@ -2341,0 +2342 @@ h4 {
++  min-width: 0;
+@@ -2731,0 +2733 @@ h4 {
++  overflow-wrap: anywhere;
+@@ -2736,4 +2738,5 @@ h4 {
+-.cloze-select {
+-  display: inline-block;
+-  width: auto;
+-  min-width: 10rem;
++.cloze-choice {
++  display: inline-grid;
++  grid-template-columns: minmax(0, 1fr);
++  min-width: min(10rem, calc(100% - 0.5rem));
++  max-width: calc(100% - 0.5rem);
+@@ -2741 +2743,0 @@ h4 {
+-  padding-block: 0.4rem;
+@@ -2744,0 +2747,18 @@ h4 {
++.cloze-select {
++  width: 100%;
++  min-width: 0;
++  max-width: 100%;
++  padding-block: 0.4rem;
++}
++
++.cloze-readout {
++  min-width: 0;
++  white-space: normal;
++  line-height: 1.5;
++  font-weight: 400;
++}
++
++.cloze-readout:empty {
++  display: none;
++}
++
+@@ -2746,2 +2766,2 @@ h4 {
+-  display: inline-flex;
+-  align-items: center;
++  display: inline-block;
++  max-width: calc(100% - 0.5rem);

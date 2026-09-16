@@ -1,0 +1,125 @@
+{
+  "productionCommit": "3cb99e6478bd8a6ff9a90f571afb98860973db4c",
+  "productionUnchanged": true,
+  "reuseReason": "No production, dependency, bank, or deterministic-test input changes; preserved baseline/candidate dist bytes rehashed unchanged; continuation scope proof confirms production object and working-tree equality. No redundant floor rerun per owner instruction.",
+  "previousCommandResults": [
+    {
+      "command": [
+        "npx",
+        "tsc",
+        "-b",
+        "--pretty",
+        "false"
+      ],
+      "exitCode": 0,
+      "seconds": 4.42,
+      "log": "tsc.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:grading"
+      ],
+      "exitCode": 0,
+      "seconds": 0.35,
+      "log": "grading.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:case-completeness"
+      ],
+      "exitCode": 0,
+      "seconds": 0.34,
+      "log": "case-completeness.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:exam-layout"
+      ],
+      "exitCode": 0,
+      "seconds": 0.28,
+      "log": "exam-layout.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:session-navigation"
+      ],
+      "exitCode": 0,
+      "seconds": 0.27,
+      "log": "session-navigation.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "seconds": 6.31,
+      "log": "build.log"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0,
+      "seconds": 0.02,
+      "log": "diff-check.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "log": "tested-commit-build.log",
+      "productionCommit": "3cb99e6478bd8a6ff9a90f571afb98860973db4c"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "642b0f9c8707024037709b26b764c7b21e66ddce",
+        "--check"
+      ],
+      "exitCode": 0,
+      "output": "",
+      "scope": "Final production and evidence diff after evidence whitespace normalization"
+    }
+  ],
+  "continuationChecks": [
+    {
+      "command": [
+        "node",
+        "--check",
+        "scripts/tests/mobile-dropdown-cloze-layout.mjs"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "audit/mobile-dropdown-cloze-overflow-r1/post-disposition/verify-continuation-scope.mjs"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0
+    }
+  ]
+}
