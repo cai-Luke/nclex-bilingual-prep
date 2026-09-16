@@ -3658,3 +3658,93 @@ h4 {
 @media print {
   .app-primary-nav, .header-utility { display: none; }
 }
+
+/* Mobile Study calculator clearance is local to the mounted, open panel. */
+@media (max-width: 780px) {
+  .exam-calculator {
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .exam-calculator-body {
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+  }
+
+  .session-shell {
+    --calculator-safe-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* A closed launcher participates in flow, so it cannot cover an answer. */
+  .session-shell > .exam-calculator-root:not(.is-open) {
+    grid-row: 2;
+    justify-self: end;
+  }
+
+  .session-shell > .exam-calculator-root:not(.is-open) .exam-calculator-launcher {
+    position: static;
+  }
+
+  .session-shell:has(> .exam-calculator-root.is-open) {
+    --calculator-row-gap: 0.5rem;
+    --calculator-action-reserve: calc(var(--calculator-actions-height, 0px) + var(--calculator-row-gap));
+    padding-top: var(--calculator-topbar-height, 0px);
+    padding-bottom: calc(var(--calculator-sheet-height, 0px) + var(--calculator-action-reserve) + 1rem);
+  }
+
+  /* Keep Study controls reachable even past the end of a long case's grid. */
+  .session-shell:has(> .exam-calculator-root.is-open) > .session-topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+  }
+
+  .session-shell:has(> .exam-calculator-root.is-open) > .session-actions {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding-bottom: calc(0.65rem + var(--calculator-safe-bottom));
+  }
+
+  /* Reserve the last column for Submit without overlaying the action bar. */
+  .session-shell:has(> .exam-calculator-root.is-open):has(.submit-button) > .session-actions {
+    right: 34%;
+    min-height: calc(var(--calculator-submit-height, 0px) + 1.3rem + var(--calculator-safe-bottom));
+  }
+
+  .session-shell:has(> .exam-calculator-root.is-open) .submit-button {
+    position: fixed;
+    left: auto;
+    right: 0.65rem;
+    bottom: calc(0.65rem + var(--calculator-safe-bottom));
+    width: calc(34% - 1.3rem);
+    margin: 0;
+  }
+
+  .session-shell > .exam-calculator-root.is-open .exam-calculator {
+    bottom: var(--calculator-action-reserve) !important;
+    max-height: calc(100dvh - var(--calculator-topbar-height, 0px) - var(--calculator-action-reserve));
+    padding-bottom: 0;
+    border-radius: 14px;
+  }
+
+  /* Keep the existing 44px keys and display height; reclaim outer spacing. */
+  .session-shell > .exam-calculator-root.is-open .exam-calculator-display {
+    margin-top: 0;
+  }
+
+  .session-shell > .exam-calculator-root.is-open .exam-calculator-keypad {
+    padding-block: 0;
+  }
+}
+
+@media (max-width: 780px) and (max-height: 650px) {
+  /* Case navigation remains reachable even when answers use minimize/reopen. */
+  .session-shell > .exam-calculator-root.is-open .exam-calculator {
+    max-height: calc(100dvh - var(--calculator-topbar-height, 0px) - var(--calculator-action-reserve) - 4rem);
+  }
+}

@@ -17,6 +17,8 @@ import {
   type CalculatorOperator,
 } from "./examCalculator";
 
+import { useCalculatorLayout } from "./useCalculatorLayout";
+
 type Position = { x: number; y: number };
 type DragState = {
   pointerId: number;
@@ -77,10 +79,12 @@ export function ExamCalculator() {
   const [calculator, dispatch] = useReducer(reduceCalculator, undefined, initialCalculatorState);
   const [open, setOpen] = useState(false);
   const [position, setPosition] = useState<Position | null>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const launcherRef = useRef<HTMLButtonElement>(null);
   const dragRef = useRef<DragState | null>(null);
   const isMobile = useMobileViewport();
+  useCalculatorLayout(rootRef, open, isMobile);
 
   const clampPosition = useCallback((candidate: Position): Position => {
     const rect = panelRef.current?.getBoundingClientRect();
@@ -223,7 +227,7 @@ export function ExamCalculator() {
       : undefined;
 
   return (
-    <div className={`exam-calculator-root ${open ? "is-open" : ""}`}>
+    <div ref={rootRef} className={`exam-calculator-root ${open ? "is-open" : ""}`}>
       {!open && (
         <button
           className="exam-calculator-launcher"
@@ -272,22 +276,24 @@ export function ExamCalculator() {
             </button>
           </div>
 
-          <output className="exam-calculator-display" aria-live="polite">
-            {calculator.display}
-          </output>
+          <div className="exam-calculator-body">
+            <output className="exam-calculator-display" aria-live="polite">
+              {calculator.display}
+            </output>
 
-          <div className="exam-calculator-keypad" aria-label="Calculator keypad">
-            {keys.map((key, index) => (
-              <button
-                className={key.className}
-                type="button"
-                aria-label={key.ariaLabel}
-                key={`${key.label}-${index}`}
-                onClick={() => dispatch(key.action)}
-              >
-                {key.label === "backspace" ? <Delete aria-hidden="true" /> : key.label}
-              </button>
-            ))}
+            <div className="exam-calculator-keypad" aria-label="Calculator keypad">
+              {keys.map((key, index) => (
+                <button
+                  className={key.className}
+                  type="button"
+                  aria-label={key.ariaLabel}
+                  key={`${key.label}-${index}`}
+                  onClick={() => dispatch(key.action)}
+                >
+                  {key.label === "backspace" ? <Delete aria-hidden="true" /> : key.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           <span className="sr-only">
