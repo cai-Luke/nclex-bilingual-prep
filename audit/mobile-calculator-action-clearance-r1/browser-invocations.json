@@ -1,0 +1,52 @@
+[
+  {
+    "run": "baseline-final",
+    "command": "PLAYWRIGHT_MODULE=/tmp/shrimp-omnibus-tools/node_modules/playwright/index.mjs node --import tsx scripts/tests/mobile-calculator-clearance.mjs --url http://127.0.0.1:4186/ --output audit/mobile-calculator-action-clearance-r1/baseline-final --witness-only",
+    "exit": 1,
+    "status": "OVERLAP",
+    "browser": "152.0.7977.83",
+    "runnerSha256": "5b253be8bceab1f554d5156e1fa3a05cc7f6aa5399f078051949a6fbad26736e",
+    "checks": 4,
+    "diagnostics": 0
+  },
+  {
+    "run": "candidate-http",
+    "command": "PLAYWRIGHT_MODULE=/tmp/shrimp-omnibus-tools/node_modules/playwright/index.mjs node --import tsx scripts/tests/mobile-calculator-clearance.mjs --url http://127.0.0.1:4185/ --output audit/mobile-calculator-action-clearance-r1/candidate-http",
+    "exit": 0,
+    "status": "PASS",
+    "browser": "152.0.7977.83",
+    "runnerSha256": "5b253be8bceab1f554d5156e1fa3a05cc7f6aa5399f078051949a6fbad26736e",
+    "checks": 2264,
+    "diagnostics": 0
+  },
+  {
+    "run": "candidate-file",
+    "command": "PLAYWRIGHT_MODULE=/tmp/shrimp-omnibus-tools/node_modules/playwright/index.mjs node --import tsx scripts/tests/mobile-calculator-clearance.mjs --url file:///Users/holemini/Desktop/Project-Shrimp-calculator-r1/dist/index.html --output audit/mobile-calculator-action-clearance-r1/candidate-file",
+    "exit": 0,
+    "status": "PASS",
+    "browser": "152.0.7977.83",
+    "runnerSha256": "5b253be8bceab1f554d5156e1fa3a05cc7f6aa5399f078051949a6fbad26736e",
+    "checks": 93,
+    "diagnostics": 6
+  },
+  {
+    "run": "cloze-http",
+    "command": "PLAYWRIGHT_MODULE=/tmp/shrimp-omnibus-tools/node_modules/playwright/index.mjs node --import tsx scripts/tests/mobile-dropdown-cloze-layout.mjs --url http://127.0.0.1:4185/ --output audit/mobile-calculator-action-clearance-r1/cloze-http",
+    "exit": 0,
+    "status": "PASS",
+    "browser": "152.0.7977.83",
+    "runnerSha256": "3e661e3cc32f1e40a8a8937205c475e504051cb0cee892e23cbd24c61f320667",
+    "checks": 160,
+    "diagnostics": 0
+  },
+  {
+    "run": "cloze-file",
+    "command": "PLAYWRIGHT_MODULE=/tmp/shrimp-omnibus-tools/node_modules/playwright/index.mjs node --import tsx scripts/tests/mobile-dropdown-cloze-layout.mjs --url file:///Users/holemini/Desktop/Project-Shrimp-calculator-r1/dist/index.html --output audit/mobile-calculator-action-clearance-r1/cloze-file",
+    "exit": 0,
+    "status": "PASS",
+    "browser": "152.0.7977.83",
+    "runnerSha256": "3e661e3cc32f1e40a8a8937205c475e504051cb0cee892e23cbd24c61f320667",
+    "checks": 5,
+    "diagnostics": 12
+  }
+]

@@ -1,0 +1,98 @@
+{
+  "commit": "3fac6f1a26a217d9108f7ec1ba3b29562570451a",
+  "commands": [
+    {
+      "command": [
+        "npx",
+        "tsc",
+        "-b",
+        "--pretty",
+        "false"
+      ],
+      "exit": 0,
+      "log": "audit/mobile-calculator-action-clearance-r1/logs/01-npx-1.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:calculator"
+      ],
+      "exit": 0,
+      "log": "audit/mobile-calculator-action-clearance-r1/logs/02-run-2.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:exam-layout"
+      ],
+      "exit": 0,
+      "log": "audit/mobile-calculator-action-clearance-r1/logs/03-run-3.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:case-completeness"
+      ],
+      "exit": 0,
+      "log": "audit/mobile-calculator-action-clearance-r1/logs/04-run-4.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:session-navigation"
+      ],
+      "exit": 0,
+      "log": "audit/mobile-calculator-action-clearance-r1/logs/05-run-5.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:session-start-guard"
+      ],
+      "exit": 0,
+      "log": "audit/mobile-calculator-action-clearance-r1/logs/06-run-6.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exit": 0,
+      "log": "audit/mobile-calculator-action-clearance-r1/logs/07-run-7.log"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit": 0,
+      "log": "audit/mobile-calculator-action-clearance-r1/logs/08-git-8.log"
+    }
+  ],
+  "pass": true,
+  "buildInfo": {
+    "buildId": "3fac6f1a26a217d9108f7ec1ba3b29562570451a-2026-09-16T22:02:58.060Z",
+    "builtAt": "2026-09-16T22:02:58.060Z"
+  },
+  "buildHashes": {
+    "dist/apple-touch-icon.png": "326d19d4f1334acbbac560de45790b5da1ec180e22979879e46307d97d697d7f",
+    "dist/assets/index-CT4xrvDT.css": "143819764e2ec43c95480fb65b94546501d59e0cff64c7340b063522bb95d21a",
+    "dist/assets/index-LhEE7xf1.js": "490a34101533a7934704e8c4e848e2e1e22a42555f8e76b3d66396c77209fc31",
+    "dist/build-info.json": "7fb5560a4636c260cb0c7736ae33e7bfa703514f20961586adfbc2741d1d28e1",
+    "dist/favicon-16x16.png": "670f332648f4971d3cfac8df137a8b45a7445f7abe12d3bf605182018b201d9f",
+    "dist/favicon-32x32.png": "aa1436e2fc3f8866b2a9a7ddd2b70da067c3227291c1c7679598a691b93c6225",
+    "dist/favicon.ico": "bd78850e8309dee26c233c2552d008ee6941cc782e8420715fad03fdfa5cc897",
+    "dist/icon-192.png": "cbea0d9043d6548cfcb4a6ea5da9c4f23cd901e63772d1209cefa0c6e291f47b",
+    "dist/icon-512.png": "548e44cba5b9d6b260a01d086feeab92a7bc04621586dcea373cd734ff2308f2",
+    "dist/index.html": "72b0cbd25fae100aff0589f862ea164cec61f08b2105819922c1be4ed954bbe2",
+    "dist/manifest.webmanifest": "4cdc79b50fbe313e7e6bcbc9c9f094744606db44c0be480069ee7a851d569fd7",
+    "dist/nclex-app-icon-fullbleed-1024.png": "6c0eecb3a8fa3b2971b7a14299da1ec95cb9958d5c4a131db7722601ab0acc91"
+  }
+}
