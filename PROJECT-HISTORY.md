@@ -64,6 +64,10 @@ The original 320 px dropdown-cloze root overflow was independently reproduced an
 
 The final causal containment gate distinguishes the inherited full-bleed shell extent from cloze-added overflow. Producer and independent checker evidence reproduce the admitted baseline red and candidate green, including `file://` compatibility. No bank, schema, grading, or storage semantics changed. The calculator overlap remains a separate pending commission and is not closed by this milestone.
 
+### Mobile Calculator / Study Action-Clearance R1 Integrated and Published (Sep 17)
+
+The mobile calculator / Study action-clearance R1 was independently accepted and integrated from execution base `adcbff3`, with production `3fac6f1`, producer evidence tip `1a2afd7`, and independent acceptance `7cdff19`. The baseline reproduced as typed `OVERLAP`, including the 348.4375 × 43.59375 Submit intersection; the repaired candidate clears the decisive ready-Submit witness and preserves normal Study interaction. The accepted HTTP matrix passed 2,264 records, the `file://` matrix passed 93 records, and the accepted cloze regression passed 160 records. Normal portrait, Large-text fallback, reduced-height internal scrolling, desktop/crossover, Preview, focus/lifetime, and case submission were accepted. Actual Chrome safe-area inset was 0px; the simulated 24px path passed, while physical nonzero-inset behavior remains unverified. Calculator R1 is integrated/published and is no longer active implementation scope.
+
 ### Owner-Selected Burn Map Integrated (Sep 13)
 
 Luke approved production integration and live publication of the Astra burn-map refinement with fuller arms and Gemini-adapted hands. Both renderer files are copied byte-for-byte from the selected proposal. The figure retains thirteen independent fill regions and correct patient laterality, with unchanged region tables, arithmetic, self-check behavior, and bank content.
