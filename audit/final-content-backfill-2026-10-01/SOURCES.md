@@ -1,5 +1,7 @@
 # Source leads and unresolved authoring work
 
+**R2 scope:** FB-07 and FB-08 are closed from this campaign; their notes remain historical discovery. FB-09 and FB-10 each have a 15-minute source-search limit under the Sol work order.
+
 Sources inspected or located on October 1, 2026. These notes support commissioning; no final answer key has been produced or accepted. Match the eventual scenario to the source's population, product and procedure. Retrieval date alone is not evidence that a source's clinical content has been updated.
 
 ## Blueprint
@@ -46,13 +48,13 @@ Choose an observable administration error. If a distractor or rationale depends 
 
 **Comparable safety rates.** [AHRQ guidance on developing quality measures](https://www.ahrq.gov/patient-safety/quality-resources/tools/chtoolbx/develop/index.html) explains numerator and denominator specifications.
 
-Use consistent exposure definitions and give the necessary rate information. The decision is comparison of observed outcomes, not proof that an intervention caused a change. Resolve topic mapping before prospective promotion.
+**Closed in R2.** No source development, authoring or vocabulary change is commissioned for this row. The earlier rate-comparison lead remains in the discovery record.
 
 ## FB-08
 
 **Evidence applicability.** [AHRQ's evidence-based-practice resource index](https://www.ahrq.gov/topics/evidence-based-practice.html) was located as a lead. It was not used to accept a final appraisal rule or clinical key.
 
-The eventual question needs concrete evidence excerpts or source descriptions whose population/question fit can be assessed without unstated research-methods assumptions. Source/key development and topic mapping remain open.
+**Closed in R2.** No source development, authoring or vocabulary change is commissioned for this row. Its weaker novelty evidence remains recorded in the original discovery.
 
 ## FB-09
 
