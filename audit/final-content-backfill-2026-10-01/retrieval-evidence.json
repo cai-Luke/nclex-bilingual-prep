@@ -1,0 +1,1135 @@
+{
+  "baselineCommit": "b41a91f3419726ad3bda72464cf20dbcc0496eca",
+  "scope": "All 13 canonical banks in the pinned pushed snapshot; current unpublished Mac state unavailable.",
+  "method": {
+    "enumerator": "lib/question-population.ts from the baseline commit",
+    "leafPopulation": 2553,
+    "parentPopulation": 145,
+    "indexText": "Recursively concatenate string values of object properties named en. Search stems, options, rationales and other English fields; do not search IDs or metadata as clinical evidence.",
+    "caseContext": "Case aggregates include shared exhibits/stages and embedded English text. Their hit counts overlap leaf hits and must not be added.",
+    "retrieval": "Python re.search(pattern, row[\"text_en\"], re.IGNORECASE). Exact expressions and every matching ID are retained below; intersection expressions retain their original flags.",
+    "judgment": "Read full nearby question content and relevant parent context before retaining a candidate; retrieval counts alone do not establish semantic absence.",
+    "limitations": [
+      "Bounded semantic discovery, not exhaustive coverage certification.",
+      "Canonical membership is not a new correctness or review-eligibility verdict.",
+      "No bilingual clinical-parity review was performed for this discovery task.",
+      "All analytical seats are within the GPT/Astra producing team, not the required independent checker."
+    ]
+  },
+  "queriesByLane": {
+    "management_safety": {
+      "qi_core": {
+        "regex": "\\bquality improvement\\b|\\bquality assurance\\b|\\bPDSA\\b|\\brun chart\\b|\\bcontrol chart\\b",
+        "flags": "re.I; no DOTALL",
+        "leaf_hit_count": 5,
+        "case_hit_count": 2,
+        "leaf_ids": [
+          "claude_jun05_moc_quality_improvement_03",
+          "opus2_case_code_status_q5",
+          "trad_batchB_12",
+          "gap_50_mc_13",
+          "gpt_gap_jun12_or_near_miss_medication_error_01"
+        ],
+        "case_ids": [
+          "opus2_case_code_status_01",
+          "gpt_case_premium_next_case_occupational_exposure_vaccine_04"
+        ]
+      },
+      "unit_rates": {
+        "regex": "\\bpatient[ -]days\\b|\\bcatheter[ -]days\\b|\\bdevice[ -]days\\b|\\bfall rates?\\b|\\brate of falls\\b|\\b(?:infection|injury) rates?\\b",
+        "flags": "re.I; no DOTALL",
+        "leaf_hit_count": 3,
+        "case_hit_count": 1,
+        "leaf_ids": [
+          "claude_jun05_moc_quality_improvement_03",
+          "gpt_gap_jun11_fib_cauti_prevention_01",
+          "gpt_case_infection_control_clustered_care_01_q6"
+        ],
+        "case_ids": [
+          "gpt_case_infection_control_clustered_care_01"
+        ]
+      },
+      "qi_functional": {
+        "regex": "\\b(?:unit|quarter|monthly|month).{0,80}\\b(?:infection|fall|rate|quality|audit)|\\b(?:infection|fall|rate|quality|audit).{0,80}\\b(?:unit|quarter|monthly|month)",
+        "flags": "re.I; no DOTALL",
+        "leaf_hit_count": 29,
+        "case_hit_count": 8,
+        "leaf_ids": [
+          "claude_jun05_moc_quality_improvement_03",
+          "gemini_jun05_a_sata_airborne_precautions_03",
+          "gemini_jun05_a_fib_heparin_calc_53",
+          "gemini_p6_heparin_01",
+          "gemini_jun05_b_fib_dosage_05",
+          "gen_sic_batch2_6",
+          "gen_rrp_batch1_04",
+          "gap_50_ppt_12",
+          "gemini_hpm_ngn_2026_06_22_q2",
+          "gemini_hpm_ngn_2026_06_22_q10",
+          "gpt_canonical_fib_heparin_rate_033",
+          "gpt_visual_smoke_2026_06_12_fib_medlabel_heparin_rate_07",
+          "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q5",
+          "gpt_case_taco_vs_trali_01_q4",
+          "gpt_case_nurse_provider_conflict_01_q1",
+          "gpt_pharm_easy_medium_2026_06_21_a_fib_heparin_rate_01",
+          "gpt_case_infection_control_clustered_care_01_bowtie",
+          "gpt_fresh_2026_06_22_sic_05",
+          "gpt_fresh_2026_06_22_vis_02",
+          "gpt_deepen_2026_06_23_bcc_07",
+          "gpt_deepen_2026_06_23_cue_03",
+          "gpt_2026_07_03_1344_t1_04",
+          "gpt_2026_07_03_2114_t1_04_heparin_rate_highlight",
+          "gpt_2026_07_03_2114_t1_06_dka_fluid_fib",
+          "gpt_2026_07_03_2114_t3_insulin_correction_fib_04",
+          "gpt_2026_08_30_1642_t1_03_oxytocin_tachysystole_sequence",
+          "gpt_u3_labtrend_2026_06_09_b_mc_ptt_heparin_infusion_02",
+          "medlbl_heparin_infusion_rate_001",
+          "ekg_b3_mc_09"
+        ],
+        "case_ids": [
+          "gpt_case_gap_2026_06_11_case_rehab_mobility_falls_03",
+          "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01",
+          "gpt_case_acute_hemolytic_transfusion_reaction_01",
+          "gpt_case_taco_vs_trali_01",
+          "gpt_case_hipaa_disclosure_breach_01",
+          "gpt_case_nurse_provider_conflict_01",
+          "gpt_case_infection_control_clustered_care_01",
+          "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01"
+        ]
+      },
+      "ebp_terms": {
+        "regex": "\\bevidence[ -]based\\b|\\bresearch\\b|\\bbest practice\\b|\\bclinical guideline\\b|\\bliterature\\b|\\bPICO\\b|\\brandomized\\b|\\bsystematic review\\b",
+        "flags": "re.I; no DOTALL",
+        "leaf_hit_count": 27,
+        "case_hit_count": 4,
+        "leaf_ids": [
+          "claude_a_mc_cauti_prevention_27",
+          "claude_a_cloze_ptsd_40",
+          "claude_a_mc_reye_syndrome_43",
+          "claude_jun05_moc_quality_improvement_03",
+          "opus_bcc_rehab_2026_06_10_02",
+          "opus_bcc_rehab_2026_06_10_03",
+          "opus_case_warfarin_bridge_q1",
+          "opus_case_warfarin_bridge_q5",
+          "gemini_jun05_a_sata_central_line_11",
+          "gemini_b5_03",
+          "gemini_d10_07",
+          "gemini_d3_07",
+          "gemini_d7_04",
+          "trad_batchC_07",
+          "trad_batchC_15",
+          "trad_batchD_10",
+          "gen_bcc_batch1_5",
+          "gen_rrp_batch2_02",
+          "easy_adult_health_03",
+          "gemini_gapfill_case_2026_06_10_case_smoking_04_q3",
+          "gpt_gap_jun11_matrix_prediabetes_lifestyle_01",
+          "gpt_gap_jun11_matrix_osteoporosis_prevention_02",
+          "gpt_gap_jun11_matrix_adult_physical_activity_03",
+          "gpt_balance5_2026_07_16_hl_client_advocacy_01",
+          "gpt_balance6b_2026_07_16_mx_conflict_resolution_03",
+          "sa_vap_prevention_01",
+          "claude_cs_jun06_adult_immunization_hpm_01_part_4"
+        ],
+        "case_ids": [
+          "opus_case_warfarin_bridge_01",
+          "gemini_gapfill_case_2026_06_10_case_smoking_04",
+          "claude_cs_jun06_adult_immunization_hpm_01",
+          "cs_sepsis_shock_01"
+        ]
+      },
+      "ebp_appraisal": {
+        "regex": "\\bliterature\\b|\\bcritical appraisal\\b|\\bsystematic review\\b|\\bresearch (?:evidence|findings|results)\\b|\\bstudy (?:findings|results)\\b|\\bPICO\\b|\\brandomized\\b|\\bapprais\\w*\\b",
+        "flags": "re.I; no DOTALL",
+        "leaf_hit_count": 0,
+        "case_hit_count": 0,
+        "leaf_ids": [],
+        "case_ids": []
+      },
+      "ebp_functional": {
+        "regex": "\\b(?:study|studies|literature|review).{0,80}\\b(?:evidence|practice|guideline|implement|chang|critical|relevan)|\\b(?:evidence|practice|guideline).{0,80}\\b(?:study|studies|literature|critical appraisal)|\\bPICO\\b|\\bapprais\\w*|\\bpilot\\b|\\bPDSA\\b",
+        "flags": "re.I; no DOTALL",
+        "leaf_hit_count": 8,
+        "case_hit_count": 8,
+        "leaf_ids": [
+          "opus22_case_postpartum_intrusive_thoughts_01_q4",
+          "gemini_sic_ngn_2026_06_21_q15",
+          "gpt_case_premium_next_case_health_literacy_diabetes_01_sata_referrals",
+          "gpt_case_caregiver_role_strain_dementia_01_bowtie",
+          "gpt_balance6b_2026_07_16_mx_conflict_resolution_03",
+          "gpt_format7b_home_pn_transition",
+          "gpt_format10c_occupational_sharps_hiv_pep_sequence",
+          "gpt_format9b_ect_cognitive_change_review"
+        ],
+        "case_ids": [
+          "opus2_case_code_status_01",
+          "opus22_case_postpartum_intrusive_thoughts_01",
+          "opus_case_lithium_toxicity_01",
+          "gpt_case_premium_next_case_health_literacy_diabetes_01",
+          "gpt_case_pressure_injury_prevention_mobility_01",
+          "gpt_casepilot_2026_07_19_d_case",
+          "cs_stemi_vfib_04",
+          "cs_sepsis_shock_01"
+        ]
+      },
+      "infant_specific": {
+        "regex": "\\b(?:infant|newborn|baby|neonat\\w*).{0,90}\\b(?:abduction|security|identification|wristbands?|bands?|authorized|unidentified|matching)|\\b(?:abduction|security|wristbands?|matching bands|authorized personnel).{0,90}\\b(?:infant|newborn|baby|neonat\\w*)",
+        "flags": "re.I; no DOTALL",
+        "leaf_hit_count": 0,
+        "case_hit_count": 0,
+        "leaf_ids": [],
+        "case_ids": []
+      },
+      "identification": {
+        "regex": "\\bbracelet\\b|\\bwristband\\b|\\bidentification band\\b|\\bID band\\b|\\btwo (?:client |patient )?identifiers\\b|\\bbarcode\\b|\\bbar.code\\b",
+        "flags": "re.I; no DOTALL",
+        "leaf_hit_count": 19,
+        "case_hit_count": 2,
+        "leaf_ids": [
+          "claude_a_or_iv_push_safety_14",
+          "opus2_case_code_status_q5",
+          "gemini_b1_02",
+          "trad_batchD_18",
+          "easy_med_safety_01",
+          "gap_50_sic_09",
+          "gap_50_ppt_02",
+          "gemini_backfill_mx_medsafe_06",
+          "gpt_case_hipaa_disclosure_breach_01_q1",
+          "gpt_deepen_2026_06_22_moc_01",
+          "gpt_deepen_2026_06_22_b_moc1_04",
+          "gpt_deepen_2026_06_22_b_moc1_07",
+          "gpt_deepen_2026_06_22_b_moc2_01",
+          "gpt_deepen_2026_06_22_b_moc2_02",
+          "gpt_balance5_2026_07_16_hl_discharge_handoff_08",
+          "gpt_format9a_pretransfusion_discrepancies",
+          "gpt_format15_pn_bag_filter_inspection_highlight",
+          "gpt_balance3_2026_07_16_hl_disaster_emergency_preparedness_13_r2",
+          "gpt_2026_08_30_1642_t1_04_abg_specimen_integrity"
+        ],
+        "case_ids": [
+          "opus2_case_code_status_01",
+          "gpt_case_hipaa_disclosure_breach_01"
+        ]
+      },
+      "staff_security": {
+        "regex": "\\bbadge\\b|\\bidentification.{0,40}(?:staff|personnel)|\\b(?:staff|personnel).{0,40}identification|\\bnursery\\b|\\bmaternity\\b",
+        "flags": "re.I; no DOTALL",
+        "leaf_hit_count": 3,
+        "case_hit_count": 0,
+        "leaf_ids": [
+          "gemini_hl_moc_prioritization_01",
+          "gemini_sic_ngn_2026_06_21_q20",
+          "ekg_b3_mc_03"
+        ],
+        "case_ids": []
+      },
+      "hazdrug": {
+        "regex": "\\b(?:hazardous drug\\w*|cytotoxic\\w*|antineoplastic\\w*|chemotherapy.tested|chemo(?:therapy)? gloves|closed.system transfer|CSTD|USP\\s*(?:<800>|800))\\b",
+        "flags": "re.I; no DOTALL",
+        "leaf_hit_count": 0,
+        "case_hit_count": 0,
+        "leaf_ids": [],
+        "case_ids": []
+      },
+      "chemo_safety": {
+        "regex": "\\bchemotherap\\w*.{0,100}\\b(?:spill|excreta|urine|gloves?|gowns?|PPE|waste|disposal|precautions)|\\b(?:spill|excreta|urine|gloves?|gowns?|PPE|waste|disposal|precautions).{0,100}\\bchemotherap\\w*",
+        "flags": "re.I; no DOTALL",
+        "leaf_hit_count": 1,
+        "case_hit_count": 0,
+        "leaf_ids": [
+          "gpt_u6_matrix_cloze_2026_06_09_cloze_febrile_neutropenia_10"
+        ],
+        "case_ids": []
+      },
+      "general_waste": {
+        "regex": "\\b(?:body.fluid|urine|linen|excreta|waste).{0,80}\\b(?:handl|dispos|PPE|glove|gown)|\\b(?:handl|dispos|PPE|glove|gown).{0,80}\\b(?:body.fluid|urine|linen|excreta|waste)",
+        "flags": "re.I; no DOTALL",
+        "leaf_hit_count": 19,
+        "case_hit_count": 1,
+        "leaf_ids": [
+          "gemini_jun05_a_sata_airborne_precautions_03",
+          "gemini_p1_09",
+          "gemini_b4_05",
+          "gemini_b4_08",
+          "gemini_c6_03",
+          "trad_batchB_17",
+          "trad_batchD_14",
+          "gen_sic_batch1_08",
+          "gap_50_ppt_06",
+          "gemini_hl_sic_precautions_06",
+          "gpt_case_infection_control_clustered_care_01_q3",
+          "gpt_case_infection_control_clustered_care_01_q4",
+          "gpt_case_infection_control_clustered_care_01_bowtie",
+          "gpt_fresh_2026_06_22_sic_02",
+          "gpt_deepen_2026_06_22_sic_02",
+          "gpt_deepen_2026_06_22_sic_05",
+          "gpt_balance2_2026_07_15_hl_ppe_sterile_technique_14",
+          "gpt_balance2_2026_07_15_dc_standard_precautions_hygiene_15",
+          "gpt_mocsic_2026_07_15_dc_ppe_sterile_technique_11"
+        ],
+        "case_ids": [
+          "gpt_case_infection_control_clustered_care_01"
+        ]
+      }
+    },
+    "foundations": {
+      "vision_specific": {
+        "regex": "visually impair|vision (?:loss|impair)|\\blow vision\\b|\\bblind\\b|Braille|clock.face|clock method|sighted.guide",
+        "flags": "Python re.IGNORECASE",
+        "leaf_hit_count": 4,
+        "case_container_hit_count": 0,
+        "leaf_hit_ids": [
+          "gemini_jun05_a_cloze_glaucoma_48",
+          "gemini_c6_01",
+          "gpt_fmtgap_2026_07_14_or_toddler_choking_16",
+          "gpt_balance3_2026_07_16_hl_client_advocacy_02"
+        ],
+        "case_hit_ids": []
+      },
+      "vision_function": {
+        "regex": "\\bvision\\b|visual impair|\\bsight\\b|\\bblind\\b|Braille|clock.face|clock method|large.print|orient[^.\\n]{0,50}room|room[^.\\n]{0,50}orient",
+        "flags": "Python re.IGNORECASE",
+        "leaf_hit_count": 33,
+        "case_container_hit_count": 10,
+        "leaf_hit_ids": [
+          "opus1_case_tha_discharge_lep_01_q5",
+          "opus25_case_tb_airborne_treatment_monitoring_01_q3",
+          "gemini_jun05_a_cloze_depression_23",
+          "gemini_jun05_a_mc_digoxin_toxicity_26",
+          "gemini_jun05_a_sata_preeclampsia_31",
+          "gemini_jun05_a_cloze_glaucoma_48",
+          "gemini_jun05_b_cloze_sterile_15",
+          "gemini_b8_05",
+          "gemini_c6_01",
+          "gemini_c7_07",
+          "gemini_d2_doac_02",
+          "gemini_d2_digoxin_03",
+          "gemini_hl_sic_safety_07",
+          "gemini_hl_pharm_cardio_09",
+          "gemini_ppt_ngn_2026_06_22_q5",
+          "gemini_ppt_ngn_2026_06_22_q9",
+          "gemini_sic_ngn_2026_06_21_q16",
+          "gpt_canonical_sata_preeclampsia_031",
+          "gpt_canonical_mc_sterile_field_048",
+          "gpt_canonical_sata_pregnancy_warning_signs_053",
+          "gpt_u6_matrix_cloze_2026_06_09_matrix_heparin_safety_11",
+          "gpt_gap_2026_06_10_or_health_literacy_discharge_02",
+          "gpt_case_gap_2026_06_11_self_management_part_4_sata_teachback",
+          "gpt_case_premium_next_case_preventive_screening_vaccine_05_or_teaching",
+          "gpt_case_nine_month_well_child_safety_01_q5",
+          "gpt_case_nine_month_well_child_safety_01_bowtie",
+          "gpt_case_overdue_preventive_screening_01_q1",
+          "gpt_deepen_2026_06_23_cue_07",
+          "gpt_fmtgap_2026_07_14_or_toddler_choking_16",
+          "gpt_balance3_2026_07_16_hl_client_advocacy_02",
+          "gpt_format11a_acute_primary_angle_closure",
+          "gpt_format11b_retinal_detachment_emergency_cues",
+          "gpt_2026_09_12_0609_t2_06"
+        ],
+        "case_hit_ids": [
+          "opus1_case_tha_discharge_lep_01",
+          "opus25_case_tb_airborne_treatment_monitoring_01",
+          "gpt_case_gap_2026_06_11_case_chronic_self_management_07",
+          "gpt_case_premium_next_case_preventive_screening_vaccine_05",
+          "gpt_case_warfarin_mvr_2026_06_11_01",
+          "gpt_2026_06_13_case_delirium_uti_01",
+          "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01",
+          "gpt_case_nine_month_well_child_safety_01",
+          "gpt_case_overdue_preventive_screening_01",
+          "case_preeclampsia_magnesium_01"
+        ]
+      },
+      "environment_function": {
+        "regex": "call (?:bell|light)|needed items|within reach|furniture|orient[^.\\n]{0,50}(?:room|environment)|clock.face|clock method|sighted.guide",
+        "flags": "Python re.IGNORECASE",
+        "leaf_hit_count": 25,
+        "case_container_hit_count": 12,
+        "leaf_hit_ids": [
+          "gemini_p9_or_03",
+          "gemini_jun05_b_cloze_hipaa_18",
+          "trad_batchB_21",
+          "gen_sic_batch1_02",
+          "gemini_gap_hl_legal_ethics_05",
+          "gemini_sic_ngn_2026_06_21_q5",
+          "sata_fall_risk_interventions_005",
+          "gpt_canonical_cloze_ama_discharge_112",
+          "gpt_gap_2026_06_10_or_mobility_progression_03",
+          "gpt_case_gap_2026_06_11_rehab_fall_part_4_sata_teaching",
+          "gpt_case_premium_next_case_rehab_pressure_bowel_02_or_transfer",
+          "gpt_gap_jun11_or_oral_care_xerostomia_03",
+          "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5",
+          "gpt_case_nine_month_well_child_safety_01_q3",
+          "gpt_case_nine_month_well_child_safety_01_bowtie",
+          "gpt_case_pressure_injury_prevention_mobility_01_q4",
+          "gpt_fresh_2026_06_22_sic_03",
+          "gpt_fresh_2026_06_22_sic_05",
+          "gpt_deepen_2026_06_22_sic_03",
+          "gpt_deepen_2026_06_22_b_moc2_05",
+          "gpt_deepen_2026_06_23_bcc_07",
+          "gpt_deepen_2026_06_23_cue_05",
+          "gpt_2026_07_03_2114_t3_post_thyroidectomy_hypocalcemia_highlight_03",
+          "gpt_2026_09_12_0609_t2_06",
+          "opus12_case_inpatient_suicide_risk_01_q3"
+        ],
+        "case_hit_ids": [
+          "opus1_case_tha_discharge_lep_01",
+          "gpt_case_gap_2026_06_11_case_rehab_mobility_falls_03",
+          "gpt_case_premium_next_case_rehab_pressure_bowel_02",
+          "gpt_case_gap_2026_06_11_case_anticoag_bleeding_06",
+          "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+          "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+          "gpt_2026_06_13_case_delirium_uti_01",
+          "gpt_case_acute_hemolytic_transfusion_reaction_01",
+          "gpt_case_taco_vs_trali_01",
+          "gpt_case_nine_month_well_child_safety_01",
+          "gpt_case_pressure_injury_prevention_mobility_01",
+          "opus12_case_inpatient_suicide_risk_01"
+        ]
+      },
+      "dress_specific": {
+        "regex": "\\b(?:dress|dressed|shirt|shirts|sleeve|sleeves|undress\\w*)\\b|dressing[^.\\n]{0,80}(?:weak|affect|paraly)|(?:weak|affect|paraly)[^.\\n]{0,80}dressing",
+        "flags": "Python re.IGNORECASE",
+        "leaf_hit_count": 10,
+        "case_container_hit_count": 4,
+        "leaf_hit_ids": [
+          "opus_psi_caregiver_2026_06_10_01a",
+          "gemini_b3_01",
+          "trad_batchC_21",
+          "gap_50_sic_01",
+          "gap_50_sic_06",
+          "gemini_sic_ngn_2026_06_21_q16",
+          "gpt_gap_2026_06_10_fib_occupational_therapy_10",
+          "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q4",
+          "gpt_deepen_2026_06_22_sic_07",
+          "ekg_b5_sata_06"
+        ],
+        "case_hit_ids": [
+          "opus_psi_caregiver_2026_06_10_01",
+          "opus27_case_ipv_prenatal_care_01",
+          "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+          "gpt_case_svc_syndrome_01"
+        ]
+      },
+      "selfcare": {
+        "regex": "self.care|self.feeding|bathing|bathes|activities.of.daily.living|\\bADLs?\\b",
+        "flags": "Python re.IGNORECASE",
+        "leaf_hit_count": 27,
+        "case_container_hit_count": 10,
+        "leaf_hit_ids": [
+          "opus_psi_caregiver_2026_06_10_01a",
+          "opus_psi_caregiver_2026_06_10_01f",
+          "opus1_case_tha_discharge_lep_01_q2",
+          "opus22_case_postpartum_intrusive_thoughts_01_q3",
+          "claude_moc_deleg_uap_hl_01",
+          "claude_moc_discharge_coord_bt_05",
+          "claude_moc_referrals_sata_10",
+          "easy_prioritization_02",
+          "gap_50_mc_08",
+          "gemini_gapfill_case_2026_06_10_case_caregiver_08_q4",
+          "gemini_gapfill_case_2026_06_10_case_grief_09_q4",
+          "gemini_hl_moc_delegation_02",
+          "gemini_hl_moc_discharge_05",
+          "gemini_backfill_hl_wellness_08",
+          "gpt_canonical_mc_staff_assignment_057",
+          "gpt_case_premium_2026_06_10_case02_mc_caregiver_priority_01",
+          "gpt_case_premium_2026_06_10_case02_matrix_cues_02",
+          "gpt_gap_2026_06_10_or_caregiver_burden_01",
+          "gpt_gap_2026_06_10_fib_occupational_therapy_10",
+          "gpt_case_premium_next_case_rehab_pressure_bowel_02_matrix_delegation",
+          "gpt_gap_jun11_cloze_interpreter_teaching_02",
+          "gpt_gap_jun11_or_dysphagia_mealtime_02",
+          "gpt_gap_jun11_cloze_low_literacy_wound_teaching_03",
+          "gpt_opus21_case_colostomy_lep_discharge_01_q2",
+          "gpt_opus21_case_colostomy_lep_discharge_01_q3",
+          "gpt_case_mass_casualty_start_triage_01_q4",
+          "claude_cs_jun06_ipv_screening_psi_01_part_1"
+        ],
+        "case_hit_ids": [
+          "opus_psi_caregiver_2026_06_10_01",
+          "opus1_case_tha_discharge_lep_01",
+          "opus22_case_postpartum_intrusive_thoughts_01",
+          "gemini_gapfill_case_2026_06_10_case_caregiver_08",
+          "gemini_gapfill_case_2026_06_10_case_grief_09",
+          "gpt_case_premium_2026_06_10_case02_caregiver_burden",
+          "gpt_case_premium_next_case_rehab_pressure_bowel_02",
+          "gpt_opus21_case_colostomy_lep_discharge_01",
+          "gpt_case_mass_casualty_start_triage_01",
+          "claude_cs_jun06_ipv_screening_psi_01"
+        ]
+      },
+      "ear_specific": {
+        "regex": "\\bear(?:s)?\\b|cerumen|\\btympan\\w*|otoscop|earwax|ear.wax|aural|pinna",
+        "flags": "Python re.IGNORECASE",
+        "leaf_hit_count": 18,
+        "case_container_hit_count": 5,
+        "leaf_hit_ids": [
+          "opus_vanco_case_01_q4_ototoxicity_screening",
+          "gemini_b10_04",
+          "gemini_d1_02_cloze_hypocalcemia",
+          "trad_batchC_05",
+          "gen_sic_batch2_3",
+          "gemini_u5_fib_or_2026_06_09_or_abdo_11",
+          "opus_agvd_case_agvhd_01_q1",
+          "opus_agvd_case_agvhd_01_q6",
+          "gemini_hl_sic_safety_07",
+          "gemini_sic_ngn_2026_06_21_q1",
+          "gpt_canonical_cloze_aminoglycoside_063",
+          "gpt_canonical_or_ppe_doffing_104",
+          "gpt_u6_matrix_cloze_2026_06_09_matrix_vancomycin_monitoring_01",
+          "gpt_u6_matrix_cloze_2026_06_09_cloze_hhs_18",
+          "gpt_pharm_easy_medium_2026_06_21_b_highlight_gentamicin_toxicity_08",
+          "gpt_fresh_2026_06_22_sic_04",
+          "gpt_deepen_2026_06_22_sic_05",
+          "gpt_format13_last_bowtie"
+        ],
+        "case_hit_ids": [
+          "opus_vanco_case_01",
+          "opus_agvd_case_agvhd_01",
+          "gpt_case_mass_casualty_start_triage_01",
+          "gpt_case_nine_month_well_child_safety_01",
+          "opus_case_se_01"
+        ]
+      },
+      "irrigation": {
+        "regex": "irrigat",
+        "flags": "Python re.IGNORECASE",
+        "leaf_hit_count": 15,
+        "case_container_hit_count": 1,
+        "leaf_hit_ids": [
+          "claude_a_mc_cauti_prevention_27",
+          "gemini_jun05_b_or_eyewash_23",
+          "gemini_b4_03",
+          "gemini_b4_09",
+          "gemini_c6_01",
+          "gemini_c6_02",
+          "gemini_c9_05",
+          "gap_50_sic_12",
+          "gpt_canonical_matrix_chemical_splash_109",
+          "gpt_case_mass_casualty_start_triage_01_q5",
+          "gpt_deepen_2026_06_22_sic_13",
+          "gpt_fmtgap_2026_07_14_or_dry_chemical_burn_15",
+          "gpt_mocsic_2026_07_15_dc_ppe_sterile_technique_11",
+          "gpt_format10c_pediatric_rabies_pep_sequence",
+          "gpt_format9c_istap_skin_tear_pathway"
+        ],
+        "case_hit_ids": [
+          "gpt_case_mass_casualty_start_triage_01"
+        ]
+      },
+      "ear_irrigation_intersection": {
+        "regex": "(?:\\bear(?:s)?\\b|cerumen|otoscop|earwax|ear.wax|aural|pinna)[\\s\\S]*irrigat|irrigat[\\s\\S]*(?:\\bear(?:s)?\\b|cerumen|otoscop|earwax|ear.wax|aural|pinna)",
+        "flags": "Python re.IGNORECASE",
+        "leaf_hit_count": 0,
+        "case_container_hit_count": 1,
+        "leaf_hit_ids": [],
+        "case_hit_ids": [
+          "gpt_case_mass_casualty_start_triage_01"
+        ]
+      },
+      "hearing_accommodation": {
+        "regex": "hearing[ -](?:aid|loss|impair)|hard.of.hearing|presbycus|\\bdeaf|\\blips?\\b|caption|sign.language",
+        "flags": "Python re.IGNORECASE",
+        "leaf_hit_count": 34,
+        "case_container_hit_count": 12,
+        "leaf_hit_ids": [
+          "claude_a_mc_breastfeeding_latch_47",
+          "opus_vanco_case_01_q4_ototoxicity_screening",
+          "gemini_jun05_a_cloze_breastfeeding_08",
+          "gemini_p4_01",
+          "gemini_p7_01",
+          "gemini_p9_mc_04",
+          "gemini_b2_05",
+          "gemini_b2_07",
+          "gemini_b9_08",
+          "gemini_c9_07",
+          "trad_ppt_22",
+          "trad_batchD_15",
+          "trad_batchD_18",
+          "easy_med_safety_01",
+          "gemini_hl_sic_safety_07",
+          "gemini_gap_case_pediatric_croup_02_q4",
+          "gemini_sic_ngn_2026_06_21_q2",
+          "sata_copd_exacerbation_interventions_023",
+          "gpt_gap_jun11_or_oral_care_xerostomia_03",
+          "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2",
+          "gpt_gap_2026_06_12_nonmcq_balanced_case_delirium_family_04_q1",
+          "gpt_gap_2026_06_12_nonmcq_balanced_case_delirium_family_04_q3",
+          "gpt_gap_2026_06_12_nonmcq_balanced_case_delirium_family_04_q4",
+          "gpt_pharm_easy_medium_2026_06_21_a_mc_allergy_hold_12",
+          "gpt_fresh_2026_06_22_sic_01",
+          "gpt_deepen_2026_06_22_b_moc2_05",
+          "gpt_balance5_2026_07_16_bt_cardiovascular_endocrine_medications_12",
+          "gpt_format11c_home_peak_flow_technique",
+          "gpt_format13_kawasaki_highlight",
+          "gpt_format15_transfusion_anaphylaxis_bowtie",
+          "gpt_format15_acquired_methemoglobinemia_bowtie",
+          "gpt_format15_methemoglobinemia_cues_highlight",
+          "cs_schiz_01_q5",
+          "gpt_case_major_burn_inhalation_fluid_creep_01_q2"
+        ],
+        "case_hit_ids": [
+          "opus_vanco_case_01",
+          "gemini_gap_case_pediatric_croup_02",
+          "gpt_case_opus5_cdi_immunocompromised_01",
+          "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+          "gpt_gap_2026_06_12_nonmcq_balanced_case_delirium_family_04",
+          "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03",
+          "gpt_2026_06_13_case_delirium_uti_01",
+          "cs_schiz_01",
+          "opus_tpn_case_mucositis_01",
+          "opus_case_se_01",
+          "gpt_case_major_burn_inhalation_fluid_creep_01",
+          "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01"
+        ]
+      },
+      "aphasia": {
+        "regex": "aphasia|communication board|picture board|augmentative|nonverbal communication",
+        "flags": "Python re.IGNORECASE",
+        "leaf_hit_count": 7,
+        "case_container_hit_count": 2,
+        "leaf_hit_ids": [
+          "gpt_case_gap_2026_06_11_post_stroke_rehab_part_1_matrix_cues",
+          "gpt_case_gap_2026_06_11_post_stroke_rehab_part_3_sata_teaching",
+          "gpt_case_gap_2026_06_11_post_stroke_rehab_part_4_cloze_priority",
+          "gpt_format11a_acute_aortic_syndrome_cues",
+          "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_q1",
+          "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_q3",
+          "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_q4"
+        ],
+        "case_hit_ids": [
+          "gpt_case_gap_2026_06_11_case_post_stroke_outpatient_rehab_09",
+          "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01"
+        ]
+      },
+      "grief": {
+        "regex": "bereave|grief|grieving|mourning|spiritual|religious",
+        "flags": "Python re.IGNORECASE",
+        "leaf_hit_count": 26,
+        "case_container_hit_count": 6,
+        "leaf_hit_ids": [
+          "claude_a_or_palliative_care_34",
+          "claude_a_sata_cultural_eol_38",
+          "opus_psi_caregiver_2026_06_10_01b",
+          "gemini_b10_08",
+          "gemini_c2_02",
+          "gemini_c4_03",
+          "trad_batchC_12",
+          "trad_batchC_18",
+          "gen_psi_batch1_8",
+          "gen_psi_batch2_07",
+          "gen_psi_batch2_09",
+          "gap_50_mc_10",
+          "gemini_gapfill_case_2026_06_10_case_grief_09_q1",
+          "gemini_gapfill_case_2026_06_10_case_grief_09_q2",
+          "gemini_gapfill_case_2026_06_10_case_grief_09_q4",
+          "gemini_backfill_bt_legal_11",
+          "gpt_canonical_sata_grief_communication_079",
+          "gpt_case_gap_2026_06_11_grief_depression_part_1_mc_priority",
+          "gpt_case_gap_2026_06_11_grief_depression_part_2_matrix_cues",
+          "gpt_case_gap_2026_06_11_grief_depression_part_3_cloze_plan",
+          "gpt_case_gap_2026_06_11_grief_depression_part_4_sata_safety",
+          "gpt_gap_jun11_cloze_anticipatory_grief_01",
+          "gpt_gap_jun11_cloze_spiritual_distress_03",
+          "gpt_case_caregiver_role_strain_dementia_01_q1",
+          "gpt_deepen_2026_06_23_bcc_10",
+          "opus12_case_inpatient_suicide_risk_01_q1"
+        ],
+        "case_hit_ids": [
+          "opus_psi_caregiver_2026_06_10_01",
+          "gemini_gapfill_case_2026_06_10_case_grief_09",
+          "gemini_gapfill_case_2026_06_10_case_adapt_10",
+          "gpt_case_gap_2026_06_11_case_grief_depression_safety_10",
+          "gpt_case_caregiver_role_strain_dementia_01",
+          "opus12_case_inpatient_suicide_risk_01"
+        ]
+      },
+      "development": {
+        "regex": "developmental|regress|lost.*(?:skill|milestone)|(?:skill|milestone).*loss|toilet.train|language delay|speech delay",
+        "flags": "Python re.IGNORECASE",
+        "leaf_hit_count": 21,
+        "case_container_hit_count": 3,
+        "leaf_hit_ids": [
+          "gemini_p10_10",
+          "gemini_p9_sata_05",
+          "gemini_p9_mc_07",
+          "gemini_p9_mc_09",
+          "gemini_b3_01",
+          "gemini_b3_02",
+          "gemini_b3_09",
+          "trad_batchC_03",
+          "trad_batchC_17",
+          "gen_hpm_batch1_1",
+          "gen_hpm_batch2_6",
+          "gemini_gap_case_lead_poisoning_01_q1",
+          "gemini_gap_case_lead_poisoning_01_q2",
+          "gemini_hpm_ngn_2026_06_22_q2",
+          "gpt_canonical_cloze_vaping_counseling_099",
+          "gpt_case_opus23_nat_toddler_01_q2",
+          "gpt_case_nine_month_well_child_safety_01_q1",
+          "gpt_case_nine_month_well_child_safety_01_q2",
+          "gpt_case_nine_month_well_child_safety_01_bowtie",
+          "gpt_deepen_2026_06_23_cue_08",
+          "gpt_format13_last_bowtie"
+        ],
+        "case_hit_ids": [
+          "gemini_gap_case_lead_poisoning_01",
+          "gpt_case_opus23_nat_toddler_01",
+          "gpt_case_nine_month_well_child_safety_01"
+        ]
+      }
+    },
+    "clinical": {
+      "patch_broad": {
+        "regex": "\\bpatch(?:es)?\\b|transdermal|fentanyl|heating pad|electric blanket|external heat",
+        "flags": "re.I",
+        "field": "text_en",
+        "leafHitCount": 12,
+        "parentHitCount": 2,
+        "leafIds": [
+          "gemini_jun05_a_mc_pad_care_54",
+          "gemini_c6_01",
+          "gemini_d8_07",
+          "trad_batchD_18",
+          "gap_50_bcc_08",
+          "gemini_gapfill_case_2026_06_10_case_smoking_04_q3",
+          "gpt_canonical_cloze_postpartum_hemorrhage_044",
+          "gpt_case_opioid_recovery_relapse_risk_01_q1",
+          "gpt_deepen_2026_06_22_bow_02",
+          "gpt_format11a_necrotizing_soft_tissue_infection",
+          "gpt_format11a_acute_primary_angle_closure",
+          "gpt_format15_meningococcemia_cues_highlight"
+        ],
+        "parentIds": [
+          "gemini_gapfill_case_2026_06_10_case_smoking_04",
+          "gpt_case_opioid_recovery_relapse_risk_01"
+        ]
+      },
+      "patch_specific": {
+        "regex": "transdermal|(?:old|new|fentanyl|medicat\\w*) patch|patch.{0,25}(?:heat|remov|cut|skin|dispos)",
+        "flags": "re.I",
+        "field": "text_en",
+        "leafHitCount": 2,
+        "parentHitCount": 0,
+        "leafIds": [
+          "gemini_d8_07",
+          "trad_batchD_18"
+        ],
+        "parentIds": []
+      },
+      "eye_broad": {
+        "regex": "ophthalm|eye.?drops?|eyedrops?|instill|conjunctiv|lacrimal|tear duct|punctal|glaucoma|cataract|timolol|latanoprost",
+        "flags": "re.I",
+        "field": "text_en",
+        "leafHitCount": 10,
+        "parentHitCount": 1,
+        "leafIds": [
+          "gemini_jun05_a_cloze_glaucoma_48",
+          "gemini_b4_03",
+          "gpt_balance2_2026_07_15_hl_ppe_sterile_technique_14",
+          "gpt_format10a_measles_triage_airborne_pathway",
+          "gpt_format9c_enteral_tube_occlusion",
+          "gpt_format11a_acute_primary_angle_closure",
+          "gpt_format11b_retinal_detachment_emergency_cues",
+          "gpt_format13_kawasaki_highlight",
+          "sa_thyroid_storm_01",
+          "gpt_r1_regen_case_celiac_01_q1"
+        ],
+        "parentIds": [
+          "gpt_r1_regen_case_celiac_01"
+        ]
+      },
+      "eye_admin": {
+        "regex": "\\beye[ -]?drops?\\b|\\beyedrops?\\b|\\bdropper\\b|\\bcanthus\\b|lacrimal|tear duct|punctal|conjunctival sac|lower eyelid",
+        "flags": "re.I",
+        "field": "text_en",
+        "leafHitCount": 1,
+        "parentHitCount": 0,
+        "leafIds": [
+          "gemini_jun05_b_or_eyewash_23"
+        ],
+        "parentIds": []
+      },
+      "evd_specific": {
+        "regex": "external ventricular|ventriculostom|\\bEVD\\b|CSF drain|cerebrospinal fluid drain|drain.{0,15}height|tragus|foramen of Monro",
+        "flags": "re.I",
+        "field": "text_en",
+        "leafHitCount": 1,
+        "parentHitCount": 0,
+        "leafIds": [
+          "gemini_c6_03"
+        ],
+        "parentIds": []
+      },
+      "icp_csf": {
+        "regex": "\\bICP\\b|intracranial|cerebrospinal|\\bCSF\\b|ventriculostom|external ventricular",
+        "flags": "re.I",
+        "field": "text_en",
+        "leafHitCount": 35,
+        "parentHitCount": 9,
+        "leafIds": [
+          "opus_case_warfarin_bridge_q4",
+          "gemini_b1_06",
+          "gemini_b10_10",
+          "gemini_c10_09",
+          "gemini_c7_05",
+          "gemini_d2_doac_02",
+          "trad_pa_03",
+          "trad_pa_13",
+          "gap_50_bcc_10",
+          "gemini_ppt_ngn_2026_06_22_q9",
+          "gpt_canonical_cloze_increased_icp_075",
+          "gpt_u6_matrix_cloze_2026_06_09_matrix_heparin_safety_11",
+          "gpt_case_warfarin_mvr_2026_06_11_01_q4",
+          "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3",
+          "gpt_case_opus23_nat_toddler_01_q2",
+          "gpt_fresh_2026_06_22_pharm_04",
+          "q3_1",
+          "q3_4",
+          "q3_5",
+          "q6_1",
+          "q6_2",
+          "q6_3",
+          "q6_4",
+          "q6_5",
+          "gpt_case_gbs_respiratory_compromise_01_q2",
+          "gpt_case_gbs_respiratory_compromise_01_q3",
+          "gpt_case_gbs_respiratory_compromise_01_q6",
+          "gpt_case_gbs_respiratory_compromise_01_bowtie",
+          "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_q4",
+          "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_q5",
+          "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_q6",
+          "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01_bowtie",
+          "ekg_b5_sata_08",
+          "vit_01",
+          "vit_05"
+        ],
+        "parentIds": [
+          "opus_case_warfarin_bridge_01",
+          "gpt_case_warfarin_mvr_2026_06_11_01",
+          "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+          "gpt_2026_06_13_case_delirium_uti_01",
+          "gpt_case_opus23_nat_toddler_01",
+          "cs_ngn_003_child_abuse",
+          "cs_ngn_006_tbi",
+          "gpt_case_gbs_respiratory_compromise_01",
+          "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01"
+        ]
+      },
+      "pressure_device": {
+        "regex": "arterial lines?|arterial catheter|pressure transducer|zero(?:ed|ing)|\\bre[- ]?level(?:ed|led|ing|ling)?\\b|phlebostatic|tragus|foramen of Monro|intrauterine pressure|\\bIUPC\\b",
+        "flags": "re.I",
+        "field": "text_en",
+        "leafHitCount": 3,
+        "parentHitCount": 2,
+        "leafIds": [
+          "gpt_case_unsafe_assignment_01_q1",
+          "gpt_case_unsafe_assignment_01_q5",
+          "gpt_format9b_montevideo_units"
+        ],
+        "parentIds": [
+          "gpt_case_unsafe_assignment_01",
+          "opus_case_se_01"
+        ]
+      },
+      "iupc": {
+        "regex": "intrauterine pressure|\\bIUPC\\b|Montevideo|uterine resting|resting tone",
+        "flags": "re.I",
+        "field": "text_en",
+        "leafHitCount": 3,
+        "parentHitCount": 1,
+        "leafIds": [
+          "gpt_deepen_2026_06_23_bow_04",
+          "gpt_format9b_montevideo_units",
+          "gpt_casepilot_2026_07_19_c_part_2_escalation_cues"
+        ],
+        "parentIds": [
+          "gpt_casepilot_2026_07_19_c_case"
+        ]
+      },
+      "antiepileptic": {
+        "regex": "antiepileptic|antiseizure|phenytoin|carbamazepine|valpro|levetiracetam",
+        "flags": "re.I",
+        "field": "text_en",
+        "leafHitCount": 9,
+        "parentHitCount": 2,
+        "leafIds": [
+          "gemini_jun05_a_mc_ect_prep_42",
+          "trad_ppt_10",
+          "gpt_balance3_2026_07_16_bt_discharge_planning_handoff_01",
+          "gpt_balance5_2026_07_16_hl_psychotropic_medications_10",
+          "q5_4",
+          "opus_case_se_01_q1",
+          "opus_case_se_01_q2",
+          "opus_case_se_01_q3",
+          "opus_case_se_01_q4"
+        ],
+        "parentIds": [
+          "cs_ngn_005_bipolar",
+          "opus_case_se_01"
+        ]
+      },
+      "inhaler": {
+        "regex": "inhaler|spacer|metered.dose|dry.powder|nebuliz",
+        "flags": "re.I",
+        "field": "text_en",
+        "leafHitCount": 21,
+        "parentHitCount": 5,
+        "leafIds": [
+          "cap_10",
+          "gemini_jun05_a_matrix_asthma_exacerbation_07",
+          "gemini_jun05_a_cloze_croup_55",
+          "gemini_b3_03",
+          "gemini_b3_04",
+          "gemini_b3_08",
+          "gemini_b4_06",
+          "gemini_d10_01",
+          "easy_perioperative_04",
+          "gemini_backfill_bt_wellness_09",
+          "gemini_gap_case_palliative_care_03_q1",
+          "gemini_gap_case_pediatric_croup_02_q2",
+          "gemini_gap_case_pediatric_croup_02_q3",
+          "gemini_ppt_ngn_2026_06_22_q7",
+          "gpt_gap_2026_06_12_nonmcq_balanced_cloze_food_med_access_08",
+          "gpt_fmtgap_2026_07_14_or_dry_chemical_burn_15",
+          "cs_copd_01_q4",
+          "cs_asthma_01_q3",
+          "cs_asthma_01_q4",
+          "cs_asthma_01_q5",
+          "ekg_b1_mc_10"
+        ],
+        "parentIds": [
+          "gemini_gap_case_palliative_care_03",
+          "gemini_gap_case_pediatric_croup_02",
+          "gpt_case_mass_casualty_start_triage_01",
+          "cs_copd_01",
+          "cs_asthma_01"
+        ]
+      },
+      "pd": {
+        "regex": "peritoneal dial|dialysate|Tenckhoff|cloudy effluent|peritoneal effluent|continuous ambulatory|\\bCAPD\\b",
+        "flags": "re.I",
+        "field": "text_en",
+        "leafHitCount": 2,
+        "parentHitCount": 0,
+        "leafIds": [
+          "gpt_format13_pd_peritonitis_bowtie",
+          "gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14_r2"
+        ],
+        "parentIds": []
+      },
+      "levodopa": {
+        "regex": "levodopa|carbidopa|pramipexole|entacapone",
+        "flags": "re.I",
+        "field": "text_en",
+        "leafHitCount": 0,
+        "parentHitCount": 0,
+        "leafIds": [],
+        "parentIds": []
+      }
+    }
+  },
+  "rejectedIdeasByLane": {
+    "management_safety": [
+      {
+        "idea": "General cost-effective access and resource coordination",
+        "reason": "Existing keyed questions address uninsured access to biologic therapy without loss of effectiveness and interdisciplinary follow-up to reduce readmissions. Do not backfill merely because resource-management terms are sparsely tagged.",
+        "existing": [
+          {
+            "id": "gemini_d5_07",
+            "bank": "banks/gemini-canonical.json",
+            "path": "questions.430",
+            "parentId": null,
+            "existing_keyed_decision": "Seek patient-assistance resources for necessary treatment.",
+            "why_not_equivalent": "Coverage sufficient for this general idea."
+          },
+          {
+            "id": "gemini_d5_03",
+            "bank": "banks/gemini-canonical.json",
+            "path": "questions.426",
+            "parentId": null,
+            "existing_keyed_decision": "Coordinate interdisciplinary care and post-discharge supports.",
+            "why_not_equivalent": "Coverage sufficient for general care/resource coordination."
+          }
+        ]
+      },
+      {
+        "idea": "Generic delegate-and-supervise cycle",
+        "reason": "Existing ordering explicitly includes follow-up, evaluation and feedback, and a separate highlight item asks which observed UAP practices require correction.",
+        "existing": [
+          {
+            "id": "claude_moc_deleg_process_order_13",
+            "bank": "banks/claude-canonical.json",
+            "path": "questions.80",
+            "parentId": null,
+            "existing_keyed_decision": "Use full delegation process including outcome follow-up.",
+            "why_not_equivalent": "Generic supervision is already taught."
+          },
+          {
+            "id": "claude_moc_supervision_hl_b04",
+            "bank": "banks/claude-canonical.json",
+            "path": "questions.85",
+            "parentId": null,
+            "existing_keyed_decision": "Intervene in unsafe or out-of-scope UAP practice.",
+            "why_not_equivalent": "Generic supervision is already assessed."
+          }
+        ]
+      },
+      {
+        "idea": "Equitable access / bias as an entirely missing activity",
+        "reason": "Accessible transfer advocacy, service-dog access, socioeconomic justice, interpreter use and financial barriers are already represented. No blanket access gap is supportable. A narrower stereotyping vignette might be possible but was not strong enough for this finite slate.",
+        "ids": [
+          "gpt_mocsic_2026_07_15_sa_client_advocacy_02",
+          "gpt_balance5_2026_07_16_mx_client_advocacy_02_r2",
+          "gap_50_mc_10",
+          "gemini_d5_07"
+        ]
+      },
+      {
+        "idea": "Workplace violence / unsafe or impaired colleague",
+        "reason": "Existing matrix addresses violence risk factors; MC addresses leaving a violent home; SATA covers protecting clients, reporting and objective documentation for a suspected impaired colleague.",
+        "ids": [
+          "gemini_c6_07",
+          "gemini_c6_08",
+          "claude_moc_impaired_colleague_sata_b11"
+        ]
+      },
+      {
+        "idea": "Defective equipment and routine recall/quarantine response",
+        "reason": "A malfunctioning pump question already keys removal from use, tagging, patient assessment and biomedical clearance; another simple quarantine vignette risks reskinning the same skill.",
+        "ids": [
+          "gemini_sic_ngn_2026_06_21_q10"
+        ]
+      },
+      {
+        "idea": "Cybersecurity/downtime",
+        "reason": "Existing ransomware item covers paper record control, two identifiers, critical-result readback, contemporaneous MAR documentation and reconciliation on recovery.",
+        "ids": [
+          "gpt_balance3_2026_07_16_hl_disaster_emergency_preparedness_13_r2"
+        ]
+      },
+      {
+        "idea": "Research withdrawal / voluntary participation",
+        "reason": "Existing source-linked item directly keys stopping research-only activity without loss of ordinary care.",
+        "ids": [
+          "gpt_balance5_2026_07_16_hl_client_advocacy_01"
+        ]
+      },
+      {
+        "idea": "Near-miss incident reporting / nonpunitive review",
+        "reason": "A near-miss ordered response already covers care, notification, documentation, safety report and debrief. A suspect exact-timing item is a remediation concern, not justification for another generic reporting item.",
+        "ids": [
+          "gpt_gap_jun12_or_near_miss_medication_error_01",
+          "gap_50_mc_13"
+        ]
+      }
+    ],
+    "foundations": [
+      {
+        "topic": "Hearing communication accommodation",
+        "classification": "covered",
+        "evidence": "gpt_deepen_2026_06_22_b_moc2_05, banks/gpt-canonical.json questions.449 explicitly rejects dismissing requested captions/written instructions because an English-speaking client nodded. Delirium case questions.244 supplies hearing aids; opus_vanco_case_01_q4 supplies individualized hearing baseline. Do not claim hearing support wholly absent."
+      },
+      {
+        "topic": "Aphasia/alternative communication",
+        "classification": "covered",
+        "evidence": "gpt_case_gap_2026_06_11_post_stroke_rehab_part_3_sata_teaching, questions.157.caseStudy.questions.2, keys picture board, yes/no questions, one-step instructions and response time, against speaking for the client. Full parent SLP plan read."
+      },
+      {
+        "topic": "Dysphagia/feeding adaptations",
+        "classification": "covered",
+        "evidence": "gen_bcc_batch1_8, questions.577, and gpt_gap_jun11_or_dysphagia_mealtime_02, questions.209, cover individual swallowing plans, positioning, stronger-side food placement, pocketing and adaptive utensils."
+      },
+      {
+        "topic": "Generic grief/body-image/spiritual support",
+        "classification": "covered",
+        "evidence": "Body-image leaves gpt_gap_jun11_mc_colostomy_body_image_01 (questions.196) and gpt_gap_jun11_mc_amputation_body_image_02 (questions.206) and spiritual-distress cloze gpt_gap_jun11_cloze_spiritual_distress_03 (questions.215) were read in full. Grief query retrieves26 leaves/6 case containers. No case for more generic validation/open-ended-response items."
+      },
+      {
+        "topic": "Developmental-delay recognition",
+        "classification": "covered",
+        "evidence": "gen_hpm_batch1_1 (questions.614) and gemini_hpm_ngn_2026_06_22_q2 (questions.825) read in full: language/social red flags and need for further evaluation already tested. Developmental regression exact search found no rows, but omitted from final shortlist because a distinct high-value new decision beyond existing evaluate-red-flags coverage is not yet demonstrated."
+      },
+      {
+        "topic": "Personal care generally, oral/perineal care, bathing, postmortem",
+        "classification": "covered_or_not_proven_gap",
+        "evidence": "Bed-bath sequencing, perineal moisture care, oral care and postmortem leaves exist; no generic umbrella absence claim. Specific dressing action retained separately."
+      },
+      {
+        "topic": "Campaign17 apparent gaps",
+        "classification": "covered",
+        "evidence": "Current project history and ledger show18 promoted PhaseC leaves including LAM, US-MEC contraceptive eligibility, sleep apnea, ECT recovery/counseling and pediatric battery safety. None is proposed as a new gap here."
+      }
+    ],
+    "clinical": [
+      {
+        "probe": "Routine inhaler self-administration/maintenance",
+        "reason": "Already tested across other categories. Full keys/rationales inspected for spacer purpose, step sequence, maintenance and corticosteroid mouth-care teaching.",
+        "ids": [
+          "gemini_b3_03",
+          "gemini_b3_04",
+          "gemini_b3_08",
+          "gemini_ppt_ngn_2026_06_22_q7"
+        ],
+        "query": "inhaler"
+      },
+      {
+        "probe": "Antiseizure discontinuation/adherence/transfer continuity",
+        "reason": "Phenytoin self-management item includes no abrupt discontinuation, oral care and contraception teaching; a separate levetiracetam handoff item tests resolving conflicting dose and absent last-dose time. These defeat a generic new adherence item.",
+        "ids": [
+          "trad_ppt_10",
+          "gpt_balance3_2026_07_16_bt_discharge_planning_handoff_01"
+        ],
+        "query": "antiepileptic"
+      },
+      {
+        "probe": "Eye disease or ocular-emergency domain missing",
+        "reason": "Chronic cataract/glaucoma discrimination, acute angle-closure response and retinal-detachment warning cues are keyed. The proposed eye-drop technique gap is narrower.",
+        "ids": [
+          "gemini_jun05_a_cloze_glaucoma_48",
+          "gpt_format11a_acute_primary_angle_closure",
+          "gpt_format11b_retinal_detachment_emergency_cues"
+        ]
+      },
+      {
+        "probe": "PD infection or contamination response missing",
+        "reason": "Full current keys cover cloudy-effluent/pain specimen-before-treatment and exposed open PD-system secure/escalate decisions. No new infection or exchange-contamination case warranted by the low word count.",
+        "ids": [
+          "gpt_format13_pd_peritonitis_bowtie",
+          "gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14_r2"
+        ],
+        "query": "pd"
+      },
+      {
+        "probe": "Generic ICP recognition and positioning missing",
+        "reason": "Full TBI parent and vital-trend item already cover this. Proposed EVD target is maintenance only.",
+        "ids": [
+          "q6_4",
+          "vit_05"
+        ],
+        "query": "icp_csf"
+      },
+      {
+        "probe": "IUPC or uterine activity entirely absent",
+        "reason": "Full MVU item tests arithmetic and another late-deceleration bowtie keys maternal pressure, uterine frequency/resting tone monitoring. This does not establish internal-device maintenance coverage, but defeats generic IUPC/uterine-activity backfill.",
+        "ids": [
+          "gpt_format9b_montevideo_units",
+          "gpt_deepen_2026_06_23_bow_04"
+        ],
+        "query": "iupc"
+      },
+      {
+        "probe": "Levodopa/antiparkinsonian drug-name absence",
+        "reason": "0 selected drug-term hits is not sufficient admission evidence; generic med timing/continuity and Parkinson caregiver/haloperidol-sensitivity decisions already exist. No named drug quota or pharmacology expansion proposed.",
+        "query": "levodopa"
+      }
+    ]
+  },
+  "incidentalRemediation": [
+    {
+      "id": "gap_50_mc_13",
+      "bank": "banks/gemini-canonical.json",
+      "path": "questions.709",
+      "observation": "The question uses an unspecified institutional policy and keys 24 hours; its test-taking strategy calls that interval universal.",
+      "status": "Potential source/context defect; reconcile into existing remediation. No clinical/legal determination, correction, replacement item or backfill credit in this packet."
+    }
+  ]
+}

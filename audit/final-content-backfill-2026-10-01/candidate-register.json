@@ -1,0 +1,653 @@
+{
+  "campaign": "final-content-backfill-2026-10-01",
+  "status": "DISCOVERY_KICKOFF",
+  "maximumStandaloneAdditions": 10,
+  "firstPassIds": [
+    "FB-01",
+    "FB-02",
+    "FB-03",
+    "FB-04",
+    "FB-05",
+    "FB-06"
+  ],
+  "candidates": [
+    {
+      "id": "FB-01",
+      "discoveryId": "MS-03",
+      "title": "Authorized newborn transfer",
+      "priority": "first_pass",
+      "status": "PROVISIONAL_DISCOVERY",
+      "admitted": false,
+      "maximumStandaloneAdditions": 1,
+      "decision": "Decide whether a requested routine newborn transfer can proceed before the requesting person's authorization has been verified through the stated unit process.",
+      "category": "Safety and Infection Prevention and Control",
+      "blueprint": {
+        "url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+        "printedPage": 8
+      },
+      "topicRouting": {
+        "status": "PROVISIONAL_SEMANTIC_FIT_TO_CHECK",
+        "candidateLabels": [
+          "Patient & Environment Safety"
+        ]
+      },
+      "format": "Choose after the decision is fixed; use the smallest supported format that expresses it faithfully.",
+      "evidenceLane": "management_safety",
+      "queryIds": [
+        "infant_specific",
+        "identification",
+        "staff_security"
+      ],
+      "nearestExisting": [
+        {
+          "id": "easy_med_safety_01",
+          "bank": "banks/gemini-canonical.json",
+          "path": "questions.657",
+          "parentId": null,
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gemini-canonical.json",
+          "existingDecision": "Verify the right medication client using the identification band against the MAR.",
+          "whyThisDoesNotCloseCandidate": "Confirms patient identity for treatment, not authority/custody for transferring a newborn to another person."
+        },
+        {
+          "id": "gemini_c6_07",
+          "bank": "banks/gemini-canonical.json",
+          "path": "questions.341",
+          "parentId": null,
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gemini-canonical.json",
+          "existingDecision": "Recognize access control, visibility and panic-button factors affecting staff workplace safety.",
+          "whyThisDoesNotCloseCandidate": "Covers unit environmental security in general, not the nurse’s infant-handoff decision."
+        },
+        {
+          "id": "gpt_format9a_pretransfusion_discrepancies",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.687",
+          "parentId": null,
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gpt-canonical.json",
+          "existingDecision": "Stop transfusion for identity/unit/order/expiry mismatches.",
+          "whyThisDoesNotCloseCandidate": "This is treatment-component identification, not authorized newborn transfer."
+        }
+      ],
+      "designBoundary": "Test authority to receive the newborn. Do not substitute a generic two-identifiers or matching-band question; avoid emergency-code trivia.",
+      "sourceAssessment": "Authorization principle supported by NCMEC material currently linked from its site. Define the relevant facility process within the clinical scenario before selecting the key.",
+      "sourceNotes": "SOURCES.md#fb-01",
+      "remainingBeforeAuthoring": [
+        "Reconcile with current local banks, pending raw work and active remediation.",
+        "Verify the clinical source and exact decision; resolve category/topic truthfully."
+      ],
+      "authoredItemIds": [],
+      "acceptedItemIds": [],
+      "finalDisposition": null
+    },
+    {
+      "id": "FB-02",
+      "discoveryId": "MS-04",
+      "title": "Hazardous-drug body-fluid handling",
+      "priority": "first_pass",
+      "status": "PROVISIONAL_DISCOVERY",
+      "admitted": false,
+      "maximumStandaloneAdditions": 1,
+      "decision": "Choose protective handling before emptying urine under an explicitly applicable hazardous-antineoplastic-drug protocol.",
+      "category": "Safety and Infection Prevention and Control",
+      "blueprint": {
+        "url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+        "printedPage": 8
+      },
+      "topicRouting": {
+        "status": "PROVISIONAL_SEMANTIC_FIT_TO_CHECK",
+        "candidateLabels": [
+          "PPE & Sterile Technique",
+          "Patient & Environment Safety"
+        ]
+      },
+      "format": "Choose after the decision is fixed; use the smallest supported format that expresses it faithfully.",
+      "evidenceLane": "management_safety",
+      "queryIds": [
+        "hazdrug",
+        "chemo_safety",
+        "general_waste"
+      ],
+      "nearestExisting": [
+        {
+          "id": "gpt_balance2_2026_07_15_dc_standard_precautions_hygiene_15",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.579",
+          "parentId": null,
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gpt-canonical.json",
+          "existingDecision": "Fold blood-soiled linen inward without shaking and bag at point of use.",
+          "whyThisDoesNotCloseCandidate": "Addresses infectious contamination and safe laundry handling, not hazardous-drug exposure or protocol-specific chemical protection."
+        },
+        {
+          "id": "gemini_c6_09",
+          "bank": "banks/gemini-canonical.json",
+          "path": "questions.343",
+          "parentId": null,
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gemini-canonical.json",
+          "existingDecision": "Classify response actions after accidental hazardous-chemical exposure.",
+          "whyThisDoesNotCloseCandidate": "An exposure-response/decontamination task, not preventing drug exposure during routine body-fluid care."
+        },
+        {
+          "id": "gpt_u6_matrix_cloze_2026_06_09_cloze_febrile_neutropenia_10",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.131",
+          "parentId": null,
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gpt-canonical.json",
+          "existingDecision": "Recognize febrile neutropenia/sepsis risk and plan prompt infection treatment and precautions.",
+          "whyThisDoesNotCloseCandidate": "The chemotherapy mention concerns protection of the patient from organisms, not staff protection from antineoplastic contamination."
+        }
+      ],
+      "designBoundary": "Test prevention of occupational chemical exposure. Do not repeat neutropenia protection or general infectious-fluid handling; do not assume a universal excretion interval.",
+      "sourceAssessment": "Current NIOSH resource hub and 2023 exposure-management publication support the exposure pathway. Exact task controls and applicable product/protocol facts still need source-to-key verification.",
+      "sourceNotes": "SOURCES.md#fb-02",
+      "remainingBeforeAuthoring": [
+        "Reconcile with current local banks, pending raw work and active remediation.",
+        "Verify the clinical source and exact decision; resolve category/topic truthfully."
+      ],
+      "authoredItemIds": [],
+      "acceptedItemIds": [],
+      "finalDisposition": null
+    },
+    {
+      "id": "FB-03",
+      "discoveryId": "FOUND-01",
+      "title": "Low-vision physical orientation",
+      "priority": "first_pass",
+      "status": "PROVISIONAL_DISCOVERY",
+      "admitted": false,
+      "maximumStandaloneAdditions": 1,
+      "decision": "Choose individualized bedside orientation that lets an alert client with severe visual impairment locate and use needed objects independently after a change in room or meal setup.",
+      "category": "Basic Care and Comfort",
+      "blueprint": {
+        "url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+        "printedPage": 11
+      },
+      "topicRouting": {
+        "status": "PROVISIONAL_SEMANTIC_FIT_TO_CHECK",
+        "candidateLabels": [
+          "Mobility & Immobility"
+        ]
+      },
+      "format": "Choose after the decision is fixed; use the smallest supported format that expresses it faithfully.",
+      "evidenceLane": "foundations",
+      "queryIds": [
+        "vision_specific",
+        "vision_function",
+        "environment_function"
+      ],
+      "nearestExisting": [
+        {
+          "id": "gpt_balance3_2026_07_16_hl_client_advocacy_02",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.582",
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gpt-canonical.json",
+          "whyThisDoesNotCloseCandidate": "Directly covers accessible preparation instructions (audio/large print, ask preference, teach-back); it does not test locating objects or preserving independent everyday physical function in the room."
+        },
+        {
+          "id": "trad_batchB_21",
+          "bank": "banks/gemini-canonical.json",
+          "path": "questions.516",
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gemini-canonical.json",
+          "whyThisDoesNotCloseCandidate": "Covers generic fall precautions including lighting and reachable call bell. It does not test how a client unable to see locates a changed object arrangement or how the nurse checks that adaptation works."
+        },
+        {
+          "id": "gpt_gap_2026_06_10_or_health_literacy_discharge_02",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.148",
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gpt-canonical.json",
+          "whyThisDoesNotCloseCandidate": "Assesses hearing/vision needs and provides accessible teaching, but task is blood-pressure discharge education rather than bedside orientation."
+        }
+      ],
+      "designBoundary": "Require physical orientation and confirmation that the adaptation works. Accessible handouts, generic lighting and a reachable call bell are already adjacent coverage. Do not impose a universal clock-face method.",
+      "sourceAssessment": "NEI low-vision guidance supports independence and adaptation in general. A directly applicable source for the selected bedside technique remains needed.",
+      "sourceNotes": "SOURCES.md#fb-03",
+      "remainingBeforeAuthoring": [
+        "Reconcile with current local banks, pending raw work and active remediation.",
+        "Verify the clinical source and exact decision; resolve category/topic truthfully."
+      ],
+      "authoredItemIds": [],
+      "acceptedItemIds": [],
+      "finalDisposition": null
+    },
+    {
+      "id": "FB-04",
+      "discoveryId": "FOUND-02",
+      "title": "Dressing with unilateral weakness",
+      "priority": "first_pass",
+      "status": "PROVISIONAL_DISCOVERY",
+      "admitted": false,
+      "maximumStandaloneAdditions": 1,
+      "decision": "Select dressing assistance, including which arm enters a sleeve first, for a stable client with unilateral arm weakness who can participate.",
+      "category": "Basic Care and Comfort",
+      "blueprint": {
+        "url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+        "printedPage": 11
+      },
+      "topicRouting": {
+        "status": "PROVISIONAL_SEMANTIC_FIT_TO_CHECK",
+        "candidateLabels": [
+          "Mobility & Immobility"
+        ]
+      },
+      "format": "Choose after the decision is fixed; use the smallest supported format that expresses it faithfully.",
+      "evidenceLane": "foundations",
+      "queryIds": [
+        "dress_specific",
+        "selfcare"
+      ],
+      "nearestExisting": [
+        {
+          "id": "gpt_gap_2026_06_10_fib_occupational_therapy_10",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.156",
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gpt-canonical.json",
+          "whyThisDoesNotCloseCandidate": "Tests naming occupational therapy for bathing/dressing/adaptive-equipment referral. Does not test the bedside dressing action or sequence."
+        },
+        {
+          "id": "gen_bcc_batch1_3",
+          "bank": "banks/gemini-canonical.json",
+          "path": "questions.572",
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gemini-canonical.json",
+          "whyThisDoesNotCloseCandidate": "Tests clean-to-dirty body washing for a complete bed bath, not clothing or hemiparesis self-care."
+        },
+        {
+          "id": "gpt_gap_jun11_or_dysphagia_mealtime_02",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.209",
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gpt-canonical.json",
+          "whyThisDoesNotCloseCandidate": "Tests meal assistance sequence with prescribed swallowing precautions and already includes adaptive utensils; it is sufficient feeding coverage, not dressing coverage."
+        }
+      ],
+      "designBoundary": "Test the actual assistance, not which discipline to consult. Use MC or cloze if one arm-order decision is all that is supported; do not pad it into an arbitrary multi-step sequence.",
+      "sourceAssessment": "An NHS occupational-therapy leaflet supplies a technique lead, but its scope is injury/surgery and its stated review date was October 2025. Match the eventual scenario to an appropriate current clinical source.",
+      "sourceNotes": "SOURCES.md#fb-04",
+      "remainingBeforeAuthoring": [
+        "Reconcile with current local banks, pending raw work and active remediation.",
+        "Verify the clinical source and exact decision; resolve category/topic truthfully."
+      ],
+      "authoredItemIds": [],
+      "acceptedItemIds": [],
+      "finalDisposition": null
+    },
+    {
+      "id": "FB-05",
+      "discoveryId": "PHARM-PATCH-SELFADMIN",
+      "title": "Prescribed patch self-administration",
+      "priority": "first_pass",
+      "status": "PROVISIONAL_DISCOVERY",
+      "admitted": false,
+      "maximumStandaloneAdditions": 1,
+      "decision": "Identify unsafe home handling of one named, already-prescribed transdermal medication during application or replacement.",
+      "category": "Pharmacological and Parenteral Therapies",
+      "blueprint": {
+        "url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+        "printedPage": 12
+      },
+      "topicRouting": {
+        "status": "PROVISIONAL_SEMANTIC_FIT_TO_CHECK",
+        "candidateLabels": [
+          "Medication Safety & Admin"
+        ]
+      },
+      "format": "Choose after the decision is fixed; use the smallest supported format that expresses it faithfully.",
+      "evidenceLane": "clinical",
+      "queryIds": [
+        "patch_broad",
+        "patch_specific"
+      ],
+      "nearestExisting": [
+        {
+          "id": "gemini_d8_07",
+          "bank": "banks/gemini-canonical.json",
+          "path": "questions.460",
+          "parentId": null,
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gemini-canonical.json",
+          "whyThisDoesNotCloseCandidate": "Key asks intervention for wedding-ring handling during MRI. Patch removal is a safe MRI preparation distractor; rationale concerns metallic backing, not ordinary home delivery/absorption."
+        },
+        {
+          "id": "trad_batchD_18",
+          "bank": "banks/gemini-canonical.json",
+          "path": "questions.562",
+          "parentId": null,
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gemini-canonical.json",
+          "whyThisDoesNotCloseCandidate": "Key includes transdermal-patch removal with other MRI items; again procedural screening, not self-administering or replacing a prescribed patch."
+        },
+        {
+          "id": "gemini_gapfill_case_2026_06_10_case_smoking_04_q3",
+          "bank": "banks/gemini-canonical.json",
+          "path": "questions.761.caseStudy.questions.2",
+          "parentId": "gemini_gapfill_case_2026_06_10_case_smoking_04",
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gemini-canonical.json",
+          "whyThisDoesNotCloseCandidate": "Key selects NRT gum/lozenges, varenicline and bupropion. Parent describes past nicotine-patch attempts; neither key nor rationale tests patch application, replacement or external-heat risk."
+        }
+      ],
+      "designBoundary": "Choose one product and coherent administration decision. Source heat/replacement instructions for that product; do not generalize across all patches or turn this into another opioid-toxicity recognition item.",
+      "sourceAssessment": "A manufacturer fentanyl medication guide on DailyMed supplies concrete heat/replacement instructions. The selected product, scenario and final key still require exact source review.",
+      "sourceNotes": "SOURCES.md#fb-05",
+      "remainingBeforeAuthoring": [
+        "Reconcile with current local banks, pending raw work and active remediation.",
+        "Verify the clinical source and exact decision; resolve category/topic truthfully."
+      ],
+      "authoredItemIds": [],
+      "acceptedItemIds": [],
+      "finalDisposition": null
+    },
+    {
+      "id": "FB-06",
+      "discoveryId": "PHARM-EYEDROP-SELFADMIN",
+      "title": "Eye-drop return demonstration",
+      "priority": "first_pass",
+      "status": "PROVISIONAL_DISCOVERY",
+      "admitted": false,
+      "maximumStandaloneAdditions": 1,
+      "decision": "Identify an observed error in self-administration of prescribed eye drops that compromises delivery or contaminates the medication.",
+      "category": "Pharmacological and Parenteral Therapies",
+      "blueprint": {
+        "url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+        "printedPage": 12
+      },
+      "topicRouting": {
+        "status": "PROVISIONAL_SEMANTIC_FIT_TO_CHECK",
+        "candidateLabels": [
+          "Medication Safety & Admin"
+        ]
+      },
+      "format": "Choose after the decision is fixed; use the smallest supported format that expresses it faithfully.",
+      "evidenceLane": "clinical",
+      "queryIds": [
+        "eye_broad",
+        "eye_admin"
+      ],
+      "nearestExisting": [
+        {
+          "id": "gemini_jun05_b_or_eyewash_23",
+          "bank": "banks/gemini-canonical.json",
+          "path": "questions.172",
+          "parentId": null,
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gemini-canonical.json",
+          "whyThisDoesNotCloseCandidate": "Key orders emergency chemical-eye irrigation including direction from inner to outer canthus. This is decontamination, not correct medication instillation."
+        },
+        {
+          "id": "gemini_jun05_a_cloze_glaucoma_48",
+          "bank": "banks/gemini-canonical.json",
+          "path": "questions.46",
+          "parentId": null,
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gemini-canonical.json",
+          "whyThisDoesNotCloseCandidate": "Key contrasts gradual cloudy vision with peripheral-vision loss; no medication delivery or self-administration is tested."
+        },
+        {
+          "id": "gpt_format11a_acute_primary_angle_closure",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.702",
+          "parentId": null,
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gpt-canonical.json",
+          "whyThisDoesNotCloseCandidate": "Key includes giving an already ordered emergency pressure-lowering regimen and urgent ophthalmology action. It does not test how to instill medication or recognize poor technique."
+        }
+      ],
+      "designBoundary": "Keep the nursing decision observable in the return demonstration. Existing chemical-eye irrigation and ocular-disease recognition questions do not establish this technique, but should not be repeated.",
+      "sourceAssessment": "MedlinePlus and NEI administration instructions provide direct technique sources. Select a supported error and check any product-specific timing or contact-lens instruction separately.",
+      "sourceNotes": "SOURCES.md#fb-06",
+      "remainingBeforeAuthoring": [
+        "Reconcile with current local banks, pending raw work and active remediation.",
+        "Verify the clinical source and exact decision; resolve category/topic truthfully."
+      ],
+      "authoredItemIds": [],
+      "acceptedItemIds": [],
+      "finalDisposition": null
+    },
+    {
+      "id": "FB-07",
+      "discoveryId": "MS-01",
+      "title": "Compare unit safety rates",
+      "priority": "conditional",
+      "status": "PROVISIONAL_DISCOVERY",
+      "admitted": false,
+      "maximumStandaloneAdditions": 1,
+      "decision": "Compare observed harm rates using a consistent exposure denominator when patient or device days differ between measurement periods.",
+      "category": "Management of Care",
+      "blueprint": {
+        "url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+        "printedPage": 7
+      },
+      "topicRouting": {
+        "status": "TOPIC_MAPPING_UNRESOLVED",
+        "candidateLabels": []
+      },
+      "format": "Choose after the decision is fixed; use the smallest supported format that expresses it faithfully.",
+      "evidenceLane": "management_safety",
+      "queryIds": [
+        "qi_core",
+        "unit_rates",
+        "qi_functional"
+      ],
+      "nearestExisting": [
+        {
+          "id": "claude_jun05_moc_quality_improvement_03",
+          "bank": "banks/claude-canonical.json",
+          "path": "questions.47",
+          "parentId": null,
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/claude-canonical.json",
+          "existingDecision": "Collect current CAUTI insertion/maintenance data and compare with evidence-based standards before selecting an intervention.",
+          "whyThisDoesNotCloseCandidate": "This assesses the first QI step, with no before/after event counts or exposure denominator."
+        },
+        {
+          "id": "gpt_case_infection_control_clustered_care_01_q6",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.346.caseStudy.questions.5",
+          "parentId": "gpt_case_infection_control_clustered_care_01",
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gpt-canonical.json",
+          "existingDecision": "Evaluate observed PPE/teaching/containment processes; reject no-new-infections-by-end-of-shift as proof of success.",
+          "whyThisDoesNotCloseCandidate": "It distinguishes immediate process findings from premature infection outcomes, but provides no unit-rate comparison. Full parent baseline/stages confirm this."
+        },
+        {
+          "id": "gpt_gap_jun11_fib_cauti_prevention_01",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.191",
+          "parentId": null,
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gpt-canonical.json",
+          "existingDecision": "Recall at-least-daily catheter-necessity review to reduce unnecessary catheter days.",
+          "whyThisDoesNotCloseCandidate": "The catheter-days match is exposure reduction, not interpreting harm rates."
+        }
+      ],
+      "designBoundary": "Supply the rate definition and sufficient data. Test nursing evaluation rather than formula recall; do not claim that a before/after association proves the intervention caused the difference.",
+      "sourceAssessment": "AHRQ measure-specification guidance supports consistent numerator/denominator definitions. TOPIC_MAPPING_UNRESOLVED: current Management topics have no natural QI label.",
+      "sourceNotes": "SOURCES.md#fb-07",
+      "remainingBeforeAuthoring": [
+        "Reconcile with current local banks, pending raw work and active remediation.",
+        "Verify the clinical source and exact decision; resolve category/topic truthfully."
+      ],
+      "authoredItemIds": [],
+      "acceptedItemIds": [],
+      "finalDisposition": null
+    },
+    {
+      "id": "FB-08",
+      "discoveryId": "MS-02",
+      "title": "Evidence applicability to bedside practice",
+      "priority": "conditional",
+      "status": "PROVISIONAL_DISCOVERY",
+      "admitted": false,
+      "maximumStandaloneAdditions": 1,
+      "decision": "Select evidence whose clinical question and population fit a proposed bedside practice change.",
+      "category": "Management of Care",
+      "blueprint": {
+        "url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+        "printedPage": 7
+      },
+      "topicRouting": {
+        "status": "TOPIC_MAPPING_UNRESOLVED",
+        "candidateLabels": []
+      },
+      "format": "Choose after the decision is fixed; use the smallest supported format that expresses it faithfully.",
+      "evidenceLane": "management_safety",
+      "queryIds": [
+        "ebp_terms",
+        "ebp_appraisal",
+        "ebp_functional"
+      ],
+      "nearestExisting": [
+        {
+          "id": "claude_jun05_moc_quality_improvement_03",
+          "bank": "banks/claude-canonical.json",
+          "path": "questions.47",
+          "parentId": null,
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/claude-canonical.json",
+          "existingDecision": "Compare practice data against evidence-based standards to identify the QI problem.",
+          "whyThisDoesNotCloseCandidate": "The appropriate evidence source is assumed; learner does not choose or appraise the evidence/applicability."
+        },
+        {
+          "id": "gpt_balance6b_2026_07_16_mx_conflict_resolution_03",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.625",
+          "parentId": null,
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gpt-canonical.json",
+          "existingDecision": "Classify discussion of observable scheduling data and a four-week pilot as constructive task conflict.",
+          "whyThisDoesNotCloseCandidate": "The keyed decision is communication behavior, not the credibility or applicability of external clinical evidence."
+        },
+        {
+          "id": "gpt_balance5_2026_07_16_hl_client_advocacy_01",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.600",
+          "parentId": null,
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gpt-canonical.json",
+          "existingDecision": "Honor voluntary withdrawal from a clinical study and preserve ordinary care.",
+          "whyThisDoesNotCloseCandidate": "Research-participant rights do not test selection or application of research evidence for clinical care."
+        }
+      ],
+      "designBoundary": "Avoid newest-source-wins rules, abstract research-methods trivia and a forced delegation scenario. This is the least certain novelty candidate.",
+      "sourceAssessment": "AHRQ evidence resources are a source lead, not a completed appraisal key. TOPIC_MAPPING_UNRESOLVED: current Management topics have no natural evidence-appraisal label.",
+      "sourceNotes": "SOURCES.md#fb-08",
+      "remainingBeforeAuthoring": [
+        "Reconcile with current local banks, pending raw work and active remediation.",
+        "Verify the clinical source and exact decision; resolve category/topic truthfully."
+      ],
+      "authoredItemIds": [],
+      "acceptedItemIds": [],
+      "finalDisposition": null
+    },
+    {
+      "id": "FB-09",
+      "discoveryId": "FOUND-03",
+      "title": "Ear-irrigation eligibility",
+      "priority": "conditional",
+      "status": "PROVISIONAL_DISCOVERY",
+      "admitted": false,
+      "maximumStandaloneAdditions": 1,
+      "decision": "Determine whether planned cerumen irrigation can proceed when tympanic-membrane perforation is known or its relevant history has not been resolved.",
+      "category": "Basic Care and Comfort",
+      "blueprint": {
+        "url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+        "printedPage": 11
+      },
+      "topicRouting": {
+        "status": "PROVISIONAL_SEMANTIC_FIT_TO_CHECK",
+        "candidateLabels": [
+          "Elimination & Comfort"
+        ]
+      },
+      "format": "Choose after the decision is fixed; use the smallest supported format that expresses it faithfully.",
+      "evidenceLane": "foundations",
+      "queryIds": [
+        "ear_specific",
+        "irrigation",
+        "ear_irrigation_intersection"
+      ],
+      "nearestExisting": [
+        {
+          "id": "gemini_jun05_b_or_eyewash_23",
+          "bank": "banks/gemini-canonical.json",
+          "path": "questions.172",
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gemini-canonical.json",
+          "whyThisDoesNotCloseCandidate": "Tests emergency eye decontamination sequence after chemical exposure. It cannot supply ear-irrigation eligibility/tympanic-membrane safety."
+        },
+        {
+          "id": "gpt_canonical_matrix_chemical_splash_109",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.108",
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gpt-canonical.json",
+          "whyThisDoesNotCloseCandidate": "Tests beginning eye irrigation without delay, removing easy-to-remove contacts and reporting exposure; different procedure and decision."
+        },
+        {
+          "id": "opus_vanco_case_01_q4_ototoxicity_screening",
+          "bank": "banks/claude-canonical.json",
+          "path": "questions.58.caseStudy.questions.3",
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/claude-canonical.json",
+          "whyThisDoesNotCloseCandidate": "Tests patient-specific baseline hearing screen and tinnitus/vertigo monitoring for vancomycin; no external-ear procedure or irrigation eligibility."
+        }
+      ],
+      "designBoundary": "Limit the question to procedure eligibility and the necessary clarification. Existing chemical-eye irrigation and ototoxicity monitoring do not close this decision.",
+      "sourceAssessment": "Applicable clinical criteria must be verified before authoring. NICE CKS was located but could not be read in this session; it is not source clearance.",
+      "sourceNotes": "SOURCES.md#fb-09",
+      "remainingBeforeAuthoring": [
+        "Reconcile with current local banks, pending raw work and active remediation.",
+        "Verify the clinical source and exact decision; resolve category/topic truthfully."
+      ],
+      "authoredItemIds": [],
+      "acceptedItemIds": [],
+      "finalDisposition": null
+    },
+    {
+      "id": "FB-10",
+      "discoveryId": "PHYS-EVD-SETUP",
+      "title": "EVD setup after repositioning",
+      "priority": "conditional",
+      "status": "PROVISIONAL_DISCOVERY",
+      "admitted": false,
+      "maximumStandaloneAdditions": 1,
+      "decision": "Recognize an unsafe ventricular-drain reference level after repositioning and restore the prescribed setup under the stated device protocol before relying on drainage or displayed pressure.",
+      "category": "Physiological Adaptation",
+      "blueprint": {
+        "url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+        "printedPage": 14
+      },
+      "topicRouting": {
+        "status": "PROVISIONAL_SEMANTIC_FIT_TO_CHECK",
+        "candidateLabels": [
+          "Endocrine & Neurological Disorders"
+        ]
+      },
+      "format": "Choose after the decision is fixed; use the smallest supported format that expresses it faithfully.",
+      "evidenceLane": "clinical",
+      "queryIds": [
+        "evd_specific",
+        "icp_csf",
+        "pressure_device",
+        "iupc"
+      ],
+      "nearestExisting": [
+        {
+          "id": "q6_4",
+          "bank": "banks/hard-cases-canonical.json",
+          "path": "questions.23.caseStudy.questions.3",
+          "parentId": "cs_ngn_006_tbi",
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/hard-cases-canonical.json",
+          "whyThisDoesNotCloseCandidate": "In its complete TBI parent, the key tests head elevation, neutral alignment, avoiding hip flexion and unnecessary suction; no EVD or drainage system is supplied."
+        },
+        {
+          "id": "vit_05",
+          "bank": "banks/vitals-canonical.json",
+          "path": "questions.4",
+          "parentId": null,
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/vitals-canonical.json",
+          "whyThisDoesNotCloseCandidate": "Key recognizes impending herniation from noninvasive vital trends. It does not assess ICP device setup or validity."
+        },
+        {
+          "id": "gpt_balance5_2026_07_16_hl_intrapartum_fetal_monitoring_18",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.610",
+          "parentId": null,
+          "sourceUrl": "https://github.com/cai-Luke/nclex-bilingual-prep/blob/b41a91f3419726ad3bda72464cf20dbcc0496eca/banks/gpt-canonical.json",
+          "whyThisDoesNotCloseCandidate": "Key already tests external-transducer signal verification against maternal pulse. This covers general measurement skepticism but not a gravity-dependent internal CSF device after repositioning."
+        }
+      ],
+      "designBoundary": "Keep to maintenance/setup. Do not add insertion technique, independent drainage prescriptions, numeric ICP/CPP targets, or generic raised-ICP recognition already covered.",
+      "sourceAssessment": "The inspected RCH source is pediatric institutional guidance marked under review. Obtain an appropriate current device IFU and clinical source before an adult/device-specific key.",
+      "sourceNotes": "SOURCES.md#fb-10",
+      "remainingBeforeAuthoring": [
+        "Reconcile with current local banks, pending raw work and active remediation.",
+        "Verify the clinical source and exact decision; resolve category/topic truthfully."
+      ],
+      "authoredItemIds": [],
+      "acceptedItemIds": [],
+      "finalDisposition": null
+    }
+  ]
+}

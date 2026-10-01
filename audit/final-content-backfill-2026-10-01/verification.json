@@ -1,0 +1,868 @@
+{
+  "kind": "producing_team_deterministic_evidence_verification_not_independent_clinical_acceptance",
+  "created_utc": "2026-10-01T17:31:03.579819+00:00",
+  "baselineCommit": "b41a91f3419726ad3bda72464cf20dbcc0496eca",
+  "scope": "Re-run each recorded regex against provided leaf and case indices; compare record counts and complete matching ID sets. Resolve every candidate nearest bank/path and any explicitly reported parentId against actual snapshot JSON. No content review or new searches.",
+  "input_sha256": {
+    "leaf-index.jsonl": "28c93c6ff61d9de67eb897bdf9e13b82ce085df42f7077d5fb3fd1ef25989f28",
+    "case-index.jsonl": "597ea43c32201dac5270cbfb5254befd4ad2aa64eeac821e43f81fb8c144c481",
+    "foundations-findings.json": "85f483f8a86dc94c87ecb4bbc01c6688571b6bd09c72ecc525f3a3ec984cec6a",
+    "clinical-findings.json": "6e2b41b9de2b69539361190d40342b2754740d788994a06d7b92d9c419fda1ba",
+    "management-safety-findings.json": "44673667883983f66630d47f9802e799401fbd1462e8c9147b665dbdf95733e1"
+  },
+  "population": {
+    "leaves": 2553,
+    "parents": 145
+  },
+  "reports": [
+    {
+      "file": "foundations-findings.json",
+      "queries": [
+        {
+          "query": "vision_specific",
+          "actual_leaf_count": 4,
+          "reported_leaf_count": 4,
+          "actual_parent_count": 0,
+          "reported_parent_count": 0,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "vision_function",
+          "actual_leaf_count": 33,
+          "reported_leaf_count": 33,
+          "actual_parent_count": 10,
+          "reported_parent_count": 10,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "environment_function",
+          "actual_leaf_count": 25,
+          "reported_leaf_count": 25,
+          "actual_parent_count": 12,
+          "reported_parent_count": 12,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "dress_specific",
+          "actual_leaf_count": 10,
+          "reported_leaf_count": 10,
+          "actual_parent_count": 4,
+          "reported_parent_count": 4,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "selfcare",
+          "actual_leaf_count": 27,
+          "reported_leaf_count": 27,
+          "actual_parent_count": 10,
+          "reported_parent_count": 10,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "ear_specific",
+          "actual_leaf_count": 18,
+          "reported_leaf_count": 18,
+          "actual_parent_count": 5,
+          "reported_parent_count": 5,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "irrigation",
+          "actual_leaf_count": 15,
+          "reported_leaf_count": 15,
+          "actual_parent_count": 1,
+          "reported_parent_count": 1,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "ear_irrigation_intersection",
+          "actual_leaf_count": 0,
+          "reported_leaf_count": 0,
+          "actual_parent_count": 1,
+          "reported_parent_count": 1,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "hearing_accommodation",
+          "actual_leaf_count": 34,
+          "reported_leaf_count": 34,
+          "actual_parent_count": 12,
+          "reported_parent_count": 12,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "aphasia",
+          "actual_leaf_count": 7,
+          "reported_leaf_count": 7,
+          "actual_parent_count": 2,
+          "reported_parent_count": 2,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "grief",
+          "actual_leaf_count": 26,
+          "reported_leaf_count": 26,
+          "actual_parent_count": 6,
+          "reported_parent_count": 6,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "development",
+          "actual_leaf_count": 21,
+          "reported_leaf_count": 21,
+          "actual_parent_count": 3,
+          "reported_parent_count": 3,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        }
+      ],
+      "nearest_references": [
+        {
+          "candidate": "FOUND-01",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.582",
+          "reported_id": "gpt_balance3_2026_07_16_hl_client_advocacy_02",
+          "actual_id": "gpt_balance3_2026_07_16_hl_client_advocacy_02",
+          "actual_parentId": null,
+          "id_matches": true,
+          "parentId_check": "not reported; actual resolved",
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "FOUND-01",
+          "bank": "banks/gemini-canonical.json",
+          "path": "questions.516",
+          "reported_id": "trad_batchB_21",
+          "actual_id": "trad_batchB_21",
+          "actual_parentId": null,
+          "id_matches": true,
+          "parentId_check": "not reported; actual resolved",
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "FOUND-01",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.148",
+          "reported_id": "gpt_gap_2026_06_10_or_health_literacy_discharge_02",
+          "actual_id": "gpt_gap_2026_06_10_or_health_literacy_discharge_02",
+          "actual_parentId": null,
+          "id_matches": true,
+          "parentId_check": "not reported; actual resolved",
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "FOUND-02",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.156",
+          "reported_id": "gpt_gap_2026_06_10_fib_occupational_therapy_10",
+          "actual_id": "gpt_gap_2026_06_10_fib_occupational_therapy_10",
+          "actual_parentId": null,
+          "id_matches": true,
+          "parentId_check": "not reported; actual resolved",
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "FOUND-02",
+          "bank": "banks/gemini-canonical.json",
+          "path": "questions.572",
+          "reported_id": "gen_bcc_batch1_3",
+          "actual_id": "gen_bcc_batch1_3",
+          "actual_parentId": null,
+          "id_matches": true,
+          "parentId_check": "not reported; actual resolved",
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "FOUND-02",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.209",
+          "reported_id": "gpt_gap_jun11_or_dysphagia_mealtime_02",
+          "actual_id": "gpt_gap_jun11_or_dysphagia_mealtime_02",
+          "actual_parentId": null,
+          "id_matches": true,
+          "parentId_check": "not reported; actual resolved",
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "FOUND-03",
+          "bank": "banks/gemini-canonical.json",
+          "path": "questions.172",
+          "reported_id": "gemini_jun05_b_or_eyewash_23",
+          "actual_id": "gemini_jun05_b_or_eyewash_23",
+          "actual_parentId": null,
+          "id_matches": true,
+          "parentId_check": "not reported; actual resolved",
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "FOUND-03",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.108",
+          "reported_id": "gpt_canonical_matrix_chemical_splash_109",
+          "actual_id": "gpt_canonical_matrix_chemical_splash_109",
+          "actual_parentId": null,
+          "id_matches": true,
+          "parentId_check": "not reported; actual resolved",
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "FOUND-03",
+          "bank": "banks/claude-canonical.json",
+          "path": "questions.58.caseStudy.questions.3",
+          "reported_id": "opus_vanco_case_01_q4_ototoxicity_screening",
+          "actual_id": "opus_vanco_case_01_q4_ototoxicity_screening",
+          "actual_parentId": "opus_vanco_case_01",
+          "id_matches": true,
+          "parentId_check": "not reported; actual resolved",
+          "index_reference_matches": true,
+          "status": "PASS"
+        }
+      ],
+      "counts": {
+        "regexes": 12,
+        "count_checks": 24,
+        "id_set_checks": 24,
+        "candidate_count": 3,
+        "nearest_reference_count": 9,
+        "parentId_checks": 0,
+        "parentId_unspecified": 9
+      },
+      "mismatches": [],
+      "status": "PASS"
+    },
+    {
+      "file": "clinical-findings.json",
+      "queries": [
+        {
+          "query": "patch_broad",
+          "actual_leaf_count": 12,
+          "reported_leaf_count": 12,
+          "actual_parent_count": 2,
+          "reported_parent_count": 2,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "patch_specific",
+          "actual_leaf_count": 2,
+          "reported_leaf_count": 2,
+          "actual_parent_count": 0,
+          "reported_parent_count": 0,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "eye_broad",
+          "actual_leaf_count": 10,
+          "reported_leaf_count": 10,
+          "actual_parent_count": 1,
+          "reported_parent_count": 1,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "eye_admin",
+          "actual_leaf_count": 1,
+          "reported_leaf_count": 1,
+          "actual_parent_count": 0,
+          "reported_parent_count": 0,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "evd_specific",
+          "actual_leaf_count": 1,
+          "reported_leaf_count": 1,
+          "actual_parent_count": 0,
+          "reported_parent_count": 0,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "icp_csf",
+          "actual_leaf_count": 35,
+          "reported_leaf_count": 35,
+          "actual_parent_count": 9,
+          "reported_parent_count": 9,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "pressure_device",
+          "actual_leaf_count": 3,
+          "reported_leaf_count": 3,
+          "actual_parent_count": 2,
+          "reported_parent_count": 2,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "iupc",
+          "actual_leaf_count": 3,
+          "reported_leaf_count": 3,
+          "actual_parent_count": 1,
+          "reported_parent_count": 1,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "antiepileptic",
+          "actual_leaf_count": 9,
+          "reported_leaf_count": 9,
+          "actual_parent_count": 2,
+          "reported_parent_count": 2,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "inhaler",
+          "actual_leaf_count": 21,
+          "reported_leaf_count": 21,
+          "actual_parent_count": 5,
+          "reported_parent_count": 5,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "pd",
+          "actual_leaf_count": 2,
+          "reported_leaf_count": 2,
+          "actual_parent_count": 0,
+          "reported_parent_count": 0,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "levodopa",
+          "actual_leaf_count": 0,
+          "reported_leaf_count": 0,
+          "actual_parent_count": 0,
+          "reported_parent_count": 0,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        }
+      ],
+      "nearest_references": [
+        {
+          "candidate": "PHARM-PATCH-SELFADMIN",
+          "bank": "banks/gemini-canonical.json",
+          "path": "questions.460",
+          "reported_id": "gemini_d8_07",
+          "actual_id": "gemini_d8_07",
+          "actual_parentId": null,
+          "id_matches": true,
+          "reported_parentId": null,
+          "parentId_matches": true,
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "PHARM-PATCH-SELFADMIN",
+          "bank": "banks/gemini-canonical.json",
+          "path": "questions.562",
+          "reported_id": "trad_batchD_18",
+          "actual_id": "trad_batchD_18",
+          "actual_parentId": null,
+          "id_matches": true,
+          "reported_parentId": null,
+          "parentId_matches": true,
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "PHARM-PATCH-SELFADMIN",
+          "bank": "banks/gemini-canonical.json",
+          "path": "questions.761.caseStudy.questions.2",
+          "reported_id": "gemini_gapfill_case_2026_06_10_case_smoking_04_q3",
+          "actual_id": "gemini_gapfill_case_2026_06_10_case_smoking_04_q3",
+          "actual_parentId": "gemini_gapfill_case_2026_06_10_case_smoking_04",
+          "id_matches": true,
+          "reported_parentId": "gemini_gapfill_case_2026_06_10_case_smoking_04",
+          "parentId_matches": true,
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "PHARM-EYEDROP-SELFADMIN",
+          "bank": "banks/gemini-canonical.json",
+          "path": "questions.172",
+          "reported_id": "gemini_jun05_b_or_eyewash_23",
+          "actual_id": "gemini_jun05_b_or_eyewash_23",
+          "actual_parentId": null,
+          "id_matches": true,
+          "reported_parentId": null,
+          "parentId_matches": true,
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "PHARM-EYEDROP-SELFADMIN",
+          "bank": "banks/gemini-canonical.json",
+          "path": "questions.46",
+          "reported_id": "gemini_jun05_a_cloze_glaucoma_48",
+          "actual_id": "gemini_jun05_a_cloze_glaucoma_48",
+          "actual_parentId": null,
+          "id_matches": true,
+          "reported_parentId": null,
+          "parentId_matches": true,
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "PHARM-EYEDROP-SELFADMIN",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.702",
+          "reported_id": "gpt_format11a_acute_primary_angle_closure",
+          "actual_id": "gpt_format11a_acute_primary_angle_closure",
+          "actual_parentId": null,
+          "id_matches": true,
+          "reported_parentId": null,
+          "parentId_matches": true,
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "PHYS-EVD-SETUP",
+          "bank": "banks/hard-cases-canonical.json",
+          "path": "questions.23.caseStudy.questions.3",
+          "reported_id": "q6_4",
+          "actual_id": "q6_4",
+          "actual_parentId": "cs_ngn_006_tbi",
+          "id_matches": true,
+          "reported_parentId": "cs_ngn_006_tbi",
+          "parentId_matches": true,
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "PHYS-EVD-SETUP",
+          "bank": "banks/vitals-canonical.json",
+          "path": "questions.4",
+          "reported_id": "vit_05",
+          "actual_id": "vit_05",
+          "actual_parentId": null,
+          "id_matches": true,
+          "reported_parentId": null,
+          "parentId_matches": true,
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "PHYS-EVD-SETUP",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.610",
+          "reported_id": "gpt_balance5_2026_07_16_hl_intrapartum_fetal_monitoring_18",
+          "actual_id": "gpt_balance5_2026_07_16_hl_intrapartum_fetal_monitoring_18",
+          "actual_parentId": null,
+          "id_matches": true,
+          "reported_parentId": null,
+          "parentId_matches": true,
+          "index_reference_matches": true,
+          "status": "PASS"
+        }
+      ],
+      "counts": {
+        "regexes": 12,
+        "count_checks": 24,
+        "id_set_checks": 24,
+        "candidate_count": 3,
+        "nearest_reference_count": 9,
+        "parentId_checks": 9,
+        "parentId_unspecified": 0
+      },
+      "mismatches": [],
+      "status": "PASS"
+    },
+    {
+      "file": "management-safety-findings.json",
+      "queries": [
+        {
+          "query": "qi_core",
+          "actual_leaf_count": 5,
+          "reported_leaf_count": 5,
+          "actual_parent_count": 2,
+          "reported_parent_count": 2,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "unit_rates",
+          "actual_leaf_count": 3,
+          "reported_leaf_count": 3,
+          "actual_parent_count": 1,
+          "reported_parent_count": 1,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "qi_functional",
+          "actual_leaf_count": 29,
+          "reported_leaf_count": 29,
+          "actual_parent_count": 8,
+          "reported_parent_count": 8,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "ebp_terms",
+          "actual_leaf_count": 27,
+          "reported_leaf_count": 27,
+          "actual_parent_count": 4,
+          "reported_parent_count": 4,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "ebp_appraisal",
+          "actual_leaf_count": 0,
+          "reported_leaf_count": 0,
+          "actual_parent_count": 0,
+          "reported_parent_count": 0,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "ebp_functional",
+          "actual_leaf_count": 8,
+          "reported_leaf_count": 8,
+          "actual_parent_count": 8,
+          "reported_parent_count": 8,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "infant_specific",
+          "actual_leaf_count": 0,
+          "reported_leaf_count": 0,
+          "actual_parent_count": 0,
+          "reported_parent_count": 0,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "identification",
+          "actual_leaf_count": 19,
+          "reported_leaf_count": 19,
+          "actual_parent_count": 2,
+          "reported_parent_count": 2,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "staff_security",
+          "actual_leaf_count": 3,
+          "reported_leaf_count": 3,
+          "actual_parent_count": 0,
+          "reported_parent_count": 0,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "hazdrug",
+          "actual_leaf_count": 0,
+          "reported_leaf_count": 0,
+          "actual_parent_count": 0,
+          "reported_parent_count": 0,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "chemo_safety",
+          "actual_leaf_count": 1,
+          "reported_leaf_count": 1,
+          "actual_parent_count": 0,
+          "reported_parent_count": 0,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        },
+        {
+          "query": "general_waste",
+          "actual_leaf_count": 19,
+          "reported_leaf_count": 19,
+          "actual_parent_count": 1,
+          "reported_parent_count": 1,
+          "leaf_id_set_matches": true,
+          "parent_id_set_matches": true,
+          "status": "PASS"
+        }
+      ],
+      "nearest_references": [
+        {
+          "candidate": "MS-01",
+          "bank": "banks/claude-canonical.json",
+          "path": "questions.47",
+          "reported_id": "claude_jun05_moc_quality_improvement_03",
+          "actual_id": "claude_jun05_moc_quality_improvement_03",
+          "actual_parentId": null,
+          "id_matches": true,
+          "reported_parentId": null,
+          "parentId_matches": true,
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "MS-01",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.346.caseStudy.questions.5",
+          "reported_id": "gpt_case_infection_control_clustered_care_01_q6",
+          "actual_id": "gpt_case_infection_control_clustered_care_01_q6",
+          "actual_parentId": "gpt_case_infection_control_clustered_care_01",
+          "id_matches": true,
+          "reported_parentId": "gpt_case_infection_control_clustered_care_01",
+          "parentId_matches": true,
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "MS-01",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.191",
+          "reported_id": "gpt_gap_jun11_fib_cauti_prevention_01",
+          "actual_id": "gpt_gap_jun11_fib_cauti_prevention_01",
+          "actual_parentId": null,
+          "id_matches": true,
+          "reported_parentId": null,
+          "parentId_matches": true,
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "MS-02",
+          "bank": "banks/claude-canonical.json",
+          "path": "questions.47",
+          "reported_id": "claude_jun05_moc_quality_improvement_03",
+          "actual_id": "claude_jun05_moc_quality_improvement_03",
+          "actual_parentId": null,
+          "id_matches": true,
+          "reported_parentId": null,
+          "parentId_matches": true,
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "MS-02",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.625",
+          "reported_id": "gpt_balance6b_2026_07_16_mx_conflict_resolution_03",
+          "actual_id": "gpt_balance6b_2026_07_16_mx_conflict_resolution_03",
+          "actual_parentId": null,
+          "id_matches": true,
+          "reported_parentId": null,
+          "parentId_matches": true,
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "MS-02",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.600",
+          "reported_id": "gpt_balance5_2026_07_16_hl_client_advocacy_01",
+          "actual_id": "gpt_balance5_2026_07_16_hl_client_advocacy_01",
+          "actual_parentId": null,
+          "id_matches": true,
+          "reported_parentId": null,
+          "parentId_matches": true,
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "MS-03",
+          "bank": "banks/gemini-canonical.json",
+          "path": "questions.657",
+          "reported_id": "easy_med_safety_01",
+          "actual_id": "easy_med_safety_01",
+          "actual_parentId": null,
+          "id_matches": true,
+          "reported_parentId": null,
+          "parentId_matches": true,
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "MS-03",
+          "bank": "banks/gemini-canonical.json",
+          "path": "questions.341",
+          "reported_id": "gemini_c6_07",
+          "actual_id": "gemini_c6_07",
+          "actual_parentId": null,
+          "id_matches": true,
+          "reported_parentId": null,
+          "parentId_matches": true,
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "MS-03",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.687",
+          "reported_id": "gpt_format9a_pretransfusion_discrepancies",
+          "actual_id": "gpt_format9a_pretransfusion_discrepancies",
+          "actual_parentId": null,
+          "id_matches": true,
+          "reported_parentId": null,
+          "parentId_matches": true,
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "MS-04",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.579",
+          "reported_id": "gpt_balance2_2026_07_15_dc_standard_precautions_hygiene_15",
+          "actual_id": "gpt_balance2_2026_07_15_dc_standard_precautions_hygiene_15",
+          "actual_parentId": null,
+          "id_matches": true,
+          "reported_parentId": null,
+          "parentId_matches": true,
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "MS-04",
+          "bank": "banks/gemini-canonical.json",
+          "path": "questions.343",
+          "reported_id": "gemini_c6_09",
+          "actual_id": "gemini_c6_09",
+          "actual_parentId": null,
+          "id_matches": true,
+          "reported_parentId": null,
+          "parentId_matches": true,
+          "index_reference_matches": true,
+          "status": "PASS"
+        },
+        {
+          "candidate": "MS-04",
+          "bank": "banks/gpt-canonical.json",
+          "path": "questions.131",
+          "reported_id": "gpt_u6_matrix_cloze_2026_06_09_cloze_febrile_neutropenia_10",
+          "actual_id": "gpt_u6_matrix_cloze_2026_06_09_cloze_febrile_neutropenia_10",
+          "actual_parentId": null,
+          "id_matches": true,
+          "reported_parentId": null,
+          "parentId_matches": true,
+          "index_reference_matches": true,
+          "status": "PASS"
+        }
+      ],
+      "counts": {
+        "regexes": 12,
+        "count_checks": 24,
+        "id_set_checks": 24,
+        "candidate_count": 4,
+        "nearest_reference_count": 12,
+        "parentId_checks": 12,
+        "parentId_unspecified": 0
+      },
+      "mismatches": [],
+      "status": "PASS"
+    }
+  ],
+  "mismatches": [],
+  "referenced_bank_sha256": {
+    "banks/gpt-canonical.json": "d908e244175285458dc2d1c77d0b5ac505fcda0c75f70be7b757d891bfc7b2a0",
+    "banks/gemini-canonical.json": "e1c602e862b044577cc35278b510d95b0e4c5e18123dd322102f02759c96573a",
+    "banks/claude-canonical.json": "949f8245698958b5bcab2ea3d095f22de316503aff5263f74e2151dba72ee553",
+    "banks/hard-cases-canonical.json": "c660e41367de8b7de73ccc4ab565b3f3ea94ce01f63fb0e66edc8814074750ba",
+    "banks/vitals-canonical.json": "5154e25492bced8e4a49d763f04e25e154389c31e085bf37669651e13d411b9d"
+  },
+  "input_stability": {
+    "unchanged": true,
+    "changed_reports_or_indices": [],
+    "changed_banks": []
+  },
+  "totals": {
+    "regexes": 36,
+    "count_checks": 72,
+    "id_set_checks": 72,
+    "candidate_count": 10,
+    "nearest_reference_count": 30,
+    "parentId_checks": 21,
+    "parentId_unspecified": 9,
+    "referenced_bank_count": 5,
+    "mismatch_count": 0
+  },
+  "status": "PASS",
+  "packetIntegration": {
+    "checks": {
+      "all_36_query_records_preserved_exactly": true,
+      "ten_provisional_rows_six_first_pass_zero_admitted": true,
+      "all_30_normalized_nearest_references_resolve": true,
+      "all_13_bank_bytes_still_match_manifest": true,
+      "candidate_query_and_source_note_links_resolve": true,
+      "no_ephemeral_web_reference_ids_in_deliverables": true
+    },
+    "status": "PASS",
+    "notes": "The source reports were normalized into the candidate register and retrieval evidence; all query records were preserved exactly. Original report/index hashes are provenance for the discovery calculation, not additional committed corpus copies."
+  },
+  "packetInputSha256": {
+    "README.md": "fa28286c5bf8b321f41498aa761d0e25069f8294ab088aa2b9820f942d13d211",
+    "SOURCES.md": "f45ed75327dd87bc768941c6abc72bf83fc14c2ec72359223a957d35e7af790d",
+    "baseline.json": "e8889acc91ca45acb1cbcd4d16df1cd4e8db186e019d42fa8a53657663faf7f3",
+    "candidate-register.json": "b02a3db0430003ea68b6667966d31e940757dbf56db87c378a5b9f1a01b72214",
+    "retrieval-evidence.json": "4a2c99da19e07991e1866b0fecff85ac9dc9ce24bfdc4d5dffea9bff24d95488"
+  },
+  "producingTeamChallenge": {
+    "seat": "GPT/Astra campaign_rules",
+    "files": [
+      "README.md",
+      "SOURCES.md",
+      "candidate-register.json"
+    ],
+    "result": "No material contradiction, missing prerequisite or required wording correction found.",
+    "scope": "Governance, scope and readiness wording only; not independent clinical acceptance and not a second mechanical verification of verification.json."
+  }
+}
