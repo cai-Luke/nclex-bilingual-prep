@@ -12,7 +12,7 @@ Codex is the implementation agent for code changes. Other LLMs may generate or r
 
 The app is a static offline Vite + React + TypeScript NCLEX-RN practice tool. It builds with bundled question banks, supports importing/exporting JSON banks, and does not require a runtime API or server after build.
 
-Core learning features are implemented: all schema item types render and grade, case studies are supported, sessions are resumable, custom sessions can be built from filters, the dashboard summarizes performance, flags feed review pools, glossary flashcards have their own SRS progress, and adaptive exam-condition practice is available without any pass/fail readiness claim.
+Study is the main practice workspace, with Needs review for remediation, Saved for bookmarks, and Last set for inspecting the most recent completed set's answers and rationales. Sessions are resumable, custom sessions can be built from filters, Progress summarizes performance, and adaptive exam-condition practice is available without any pass/fail readiness claim. See the accepted [Review/Vocabulary retirement and cleanup](#reviewvocabulary-omnibus-db-v7-physical-cleanup-and-campaign-17-phase-c-integrated-sep-12) and [Learner Shell integration](#learner-shell-r3-concept-a-integrated-sep-16) milestones.
 
 Current canonical banks and their roles. Per-file counts and schema versions are generated, not hand-maintained here — see [BANK-CENSUS.md](BANK-CENSUS.md)'s Per-File Summary table for current numbers:
 
