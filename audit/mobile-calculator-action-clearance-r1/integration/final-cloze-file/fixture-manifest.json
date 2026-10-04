@@ -1,0 +1,65 @@
+{
+  "rules": {
+    "witness": "Pinned ID",
+    "multi": "Top-level multi-blank cloze excluding witness; descending longest EN option JS string length, then ascending stable ID",
+    "case": "Canonical case cloze leaves; descending longest EN option JS string length, then ascending leaf ID",
+    "collateral": "First by ascending stable ID, requested item type, no question-level visual"
+  },
+  "fixtures": {
+    "witness": {
+      "bank": "banks/gpt-canonical.json",
+      "bankSha256": "d908e244175285458dc2d1c77d0b5ac505fcda0c75f70be7b757d891bfc7b2a0",
+      "parentId": null,
+      "leafId": "gpt_format15_vasa_previa_management_dropdown",
+      "contentSha256": "d4a6edb0a81c938c1d0c7a401893b9f373503816b130a070631c18b2e49d6380",
+      "parentContentSha256": null,
+      "fingerprint": "fnv1a64-v1:dcf2fe041265aedb",
+      "parentFingerprint": null,
+      "longestEnglishOption": 146
+    },
+    "multi": {
+      "bank": "banks/gpt-canonical.json",
+      "bankSha256": "d908e244175285458dc2d1c77d0b5ac505fcda0c75f70be7b757d891bfc7b2a0",
+      "parentId": null,
+      "leafId": "gpt_balance6a_2026_07_16_dc_confidentiality_hipaa_05",
+      "contentSha256": "0441011df49c43d5bd581fbba5ed1ac0c17664c7f9b11155221832905a47ef4f",
+      "parentContentSha256": null,
+      "fingerprint": "fnv1a64-v1:56709deaa97e50b2",
+      "parentFingerprint": null,
+      "longestEnglishOption": 142
+    },
+    "case": {
+      "bank": "banks/claude-canonical.json",
+      "bankSha256": "949f8245698958b5bcab2ea3d095f22de316503aff5263f74e2151dba72ee553",
+      "parentId": "opus_psi_caregiver_2026_06_10_01",
+      "leafId": "opus_psi_caregiver_2026_06_10_01d",
+      "contentSha256": "4b5627612d2b7382db48d13f36436bc4a68dc89c9129ffa7b30c569e96c23041",
+      "parentContentSha256": "e1bbfc0093fda44c8c92c08c5583ad00fe12f44c2888cb01fa116d1e20e43ec6",
+      "fingerprint": "fnv1a64-v1:fa2970153d879a4f",
+      "parentFingerprint": "fnv1a64-v1:5d525a409ced19e8",
+      "longestEnglishOption": 172
+    },
+    "mcq": {
+      "bank": "banks/claude-canonical.json",
+      "bankSha256": "949f8245698958b5bcab2ea3d095f22de316503aff5263f74e2151dba72ee553",
+      "parentId": null,
+      "leafId": "claude_a_mc_ace_inhibitor_11",
+      "contentSha256": "0790a9e52310733b05434ac4ec27c23d75f25005300ac2684c2212d2088394bb",
+      "parentContentSha256": null,
+      "fingerprint": "fnv1a64-v1:2411b32c4d3ef6b2",
+      "parentFingerprint": null,
+      "longestEnglishOption": null
+    },
+    "matrix": {
+      "bank": "banks/claude-canonical.json",
+      "bankSha256": "949f8245698958b5bcab2ea3d095f22de316503aff5263f74e2151dba72ee553",
+      "parentId": null,
+      "leafId": "claude_a_matrix_anticoagulant_monitoring_16",
+      "contentSha256": "11d0844c06ff783258f01e0535a3c9d1ee0f950bce41bf7dfb6ab7efaf9a0b77",
+      "parentContentSha256": null,
+      "fingerprint": "fnv1a64-v1:faa317e7d0878696",
+      "parentFingerprint": null,
+      "longestEnglishOption": null
+    }
+  }
+}
