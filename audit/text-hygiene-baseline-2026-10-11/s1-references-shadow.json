@@ -1,0 +1,375 @@
+{
+  "measurement": "S1 references blind spot",
+  "fold": "U+FF01-U+FF5E -> U+0021-U+007E; U+3000 -> U+0020",
+  "scope": "rationale.correct and rationale.byChoice en/zh strings, including case sub-questions",
+  "check": "checkQuestionReferences from scripts/audit/audit-references.ts, original versus folded copy",
+  "perFile": [
+    {
+      "file": "banks/burn-canonical.json",
+      "questionsChecked": 8,
+      "itemsDiffering": 0
+    },
+    {
+      "file": "banks/capnography-canonical.json",
+      "questionsChecked": 7,
+      "itemsDiffering": 0
+    },
+    {
+      "file": "banks/claude-canonical.json",
+      "questionsChecked": 96,
+      "itemsDiffering": 1
+    },
+    {
+      "file": "banks/device-canonical.json",
+      "questionsChecked": 8,
+      "itemsDiffering": 0
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "questionsChecked": 874,
+      "itemsDiffering": 29
+    },
+    {
+      "file": "banks/gpt-canonical.json",
+      "questionsChecked": 797,
+      "itemsDiffering": 0
+    },
+    {
+      "file": "banks/hard-cases-canonical.json",
+      "questionsChecked": 66,
+      "itemsDiffering": 0
+    },
+    {
+      "file": "banks/io-canonical.json",
+      "questionsChecked": 8,
+      "itemsDiffering": 0
+    },
+    {
+      "file": "banks/lab-canonical.json",
+      "questionsChecked": 20,
+      "itemsDiffering": 0
+    },
+    {
+      "file": "banks/mar-canonical.json",
+      "questionsChecked": 8,
+      "itemsDiffering": 0
+    },
+    {
+      "file": "banks/medlabel-canonical.json",
+      "questionsChecked": 8,
+      "itemsDiffering": 0
+    },
+    {
+      "file": "banks/visual-canonical.json",
+      "questionsChecked": 57,
+      "itemsDiffering": 0
+    },
+    {
+      "file": "banks/vitals-canonical.json",
+      "questionsChecked": 10,
+      "itemsDiffering": 0
+    }
+  ],
+  "deltas": [
+    {
+      "file": "banks/claude-canonical.json",
+      "topLevelId": "claude_a_or_iv_push_safety_14",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_or_transfusion_reaction_05",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_or_chest_tube_disconnection_13",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_or_client_elopement_14",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_sata_bowel_elimination_20",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_mc_delegation_21",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_sata_diabetes_sick_day_24",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_or_dka_management_25",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_or_enteral_feeding_30",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_sata_preeclampsia_31",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_mc_pph_priority_32",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_or_epiglottitis_33",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_sata_seizure_precautions_34",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_mc_lithium_toxicity_36",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_mc_cushings_addisons_39",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_or_thyroid_storm_40",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_sata_pacemaker_41",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_mc_ect_prep_42",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_sata_ocd_interventions_43",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_sata_gerd_lifestyle_44",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_mc_ibd_diet_46",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_sata_joint_protection_49",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_or_trach_suction_51",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_mc_schizo_boundary_52",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_mc_pad_care_54",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_jun05_a_or_ppe_donning_56",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_b1_02",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_b1_04",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gemini_b1_06",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    },
+    {
+      "file": "banks/gemini-canonical.json",
+      "topLevelId": "gen_psi_batch2_04",
+      "addedStaleKeys": [],
+      "addedHazards": [
+        "rationale.correct.zh"
+      ],
+      "removedStaleKeys": [],
+      "removedHazards": []
+    }
+  ]
+}
