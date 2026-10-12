@@ -52,6 +52,20 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Advisory Text-Hygiene Audit and Baseline Integrated (Oct 11)
+
+Merged PR #98 at `64f073d9f5368f15683c15d857bfc407c71797a2`. `npm run audit` and the raw candidate gate now run `audit:text-hygiene`, a deterministic codepoint-level check of parsed bank string values for mixed ASCII / full-width punctuation, invisible characters, non-standard spaces, and non-ASCII identifiers. The rule catalog and location classes are defined in [`scripts/audit/audit-text-hygiene.ts`](scripts/audit/audit-text-hygiene.ts) and are not restated here.
+
+Rule findings are advisory: they report as `WARN` and never block. The check blocks only on `FAIL`, which is reserved for an explicitly selected file that cannot be read or parsed. No bank file, existing Tier 0 / Tier 1 check, or verdict logic changed, and no rule has been promoted to blocking.
+
+The one-time baseline over the 13 top-level canonical banks is committed at [`audit/text-hygiene-baseline-2026-10-11/`](audit/text-hygiene-baseline-2026-10-11/summary.md); per-bank counts live in its `summary.md` and are not duplicated here. It includes a shadow measurement of how many items the Tier 1 references check would newly fail if it folded full-width forms before matching. `npm run survey:text-hygiene` regenerates the artifacts.
+
+Verification: the `main`-targeted Promotion Gate passed on the merged head, and the local full-path runs are recorded in the PR. Still open as separate owner decisions and not part of this change: which rules become blocking, whether the references check folds full-width forms, whether a punctuation repair lane opens, and the `extractJsonCandidate` behavior that removes runs of three or more backticks inside string values.
+
+### Sept 12-17 Publication Evidence Reconciled to Main (Oct 11)
+
+The prepared reconciliation range ending at `65756abb8267a1aa064359e6b7186b3b103abe60` is now on `main`: the previously local Sept 12-17 work orders, handoffs, deferred-audit archaeology records, and calculator fixture manifests are preserved, and the feature summary under *Current status* was corrected. A producer-independent scope/Git review of the range passed before publication. Five hash-discrepant root documents remain held and unpublished pending owner disposition.
+
 ### Learner Shell R3 Concept A Integrated (Sep 16)
 
 Concept A is mechanically integrated onto the current `main` line from the independently accepted producer pass. The Claude review seat accepted the change in commit `6ae35a65a584c5ed8be3df5e3fc0cad5603b8693`; its findings and acceptance record are preserved in [the independent review artifact](audit/learner-shell-r3-concept-a-r1/independent-review/independent-review.md).
