@@ -52,6 +52,14 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### IV Push Sequence r2 Accepted and Integrated (Nov 16; Pushed to Branch Nov 17, Not Merged)
+
+The same-ID correction for `claude_a_or_iv_push_safety_14` is independently accepted and applied in the local checkout on `codex/publication-reconciliation-2026-10-02`, based on `65756abb8267a1aa064359e6b7186b3b103abe60`. Committed and pushed to that branch on Nov 17; it is **not merged to `main` or deployed**. Claude Code / Claude Opus 5.5 produced the repair; Codex / GPT-6 Astra independently reviewed the clinical content and bilingual parity, then mechanically integrated it after the authoring GPT seat's spec-conformance acceptance. The rejected r1 and its evidence remain preserved.
+
+The revised context makes the initial vial check outstanding, so the existing ordered-response key is unique in the specified workflow; the bilingual flush explanation now describes a drug-relative risk. Item identity, answer key, display order, scoring and learner history remain unchanged. The exact 20-leaf scope, clinical sources, r1-to-r2 closure and SHA-256 chain are recorded in the [dated bank ledger entry](BANK-REVIEW-LEDGER.md#2026-11-16--iv-push-sequence-r2-reviewed-local-canonical-correction) and [independent r2 verdict](audit/iv-push-sequence-2026-11-16/r2/ASTRA-R2-CONTENT-VERDICT.md).
+
+All-bank validation, aggregate audit, six relevant regression suites, TypeScript, the production/file-protocol build and `census:check` passed; census artifacts are unchanged. The pre-existing distribution advisory, separate audit:references false-negative and parked audio queue refresh remain deferred. No merge, branch consolidation or deployment has been performed.
+
 ### Learner Shell R3 Concept A Integrated (Sep 16)
 
 Concept A is mechanically integrated onto the current `main` line from the independently accepted producer pass. The Claude review seat accepted the change in commit `6ae35a65a584c5ed8be3df5e3fc0cad5603b8693`; its findings and acceptance record are preserved in [the independent review artifact](audit/learner-shell-r3-concept-a-r1/independent-review/independent-review.md).

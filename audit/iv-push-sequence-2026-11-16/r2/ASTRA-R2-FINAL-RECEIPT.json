@@ -1,0 +1,324 @@
+{
+  "terminal_status": "IV_PUSH_CORRECTION_INTEGRATED_LOCAL",
+  "completed_at_utc": "2026-11-17T12:25:30.129343+00:00",
+  "completed_at_user_timezone": "2026-11-17T07:25:30.129343-05:00",
+  "branch": "codex/publication-reconciliation-2026-10-02",
+  "head": "65756abb8267a1aa064359e6b7186b3b103abe60",
+  "seats": {
+    "producer": "Claude Code / Claude Opus 5.5",
+    "architect": "Authoring GPT; spec conformance",
+    "independent_checker": "GPT-6 Astra, high effort; clinical correctness, bilingual parity, answer uniqueness",
+    "canonical_integration_and_acceptance_gates": "GPT-6 Astra",
+    "final_preservation_and_receipt_closure": "Parent Codex, after user authorization following Astra usage limit"
+  },
+  "candidate_identity": {
+    "path": "scratch/iv-push-sequence-2026-11-16/r2/claude-canonical.candidate-r2.json",
+    "sha256": "60b2812e1136c2dc3a068e56ba4ae0b59adcbe3589a77355f586a8b141d87e69"
+  },
+  "baseline_sha256": "949f8245698958b5bcab2ea3d095f22de316503aff5263f74e2151dba72ee553",
+  "r1_status": "Rejection retained; all r1 artifacts unchanged",
+  "findings_closed": [
+    "Explicit outstanding initial-check premise resolves r1 alternative ordering",
+    "Both bilingual flush explanations condition hazard on exceeding drug-specific rate"
+  ],
+  "project_source_changed_paths": [
+    "banks/claude-canonical.json",
+    "scripts/patches/2026-11-16-iv-push-sequence-correction-r2.ts",
+    "BANK-REVIEW-LEDGER.md",
+    "PROJECT-HISTORY.md"
+  ],
+  "project_source_sha256": {
+    "banks/claude-canonical.json": "60b2812e1136c2dc3a068e56ba4ae0b59adcbe3589a77355f586a8b141d87e69",
+    "scripts/patches/2026-11-16-iv-push-sequence-correction-r2.ts": "9ee25b0de6c672be08b362a86b2049bea375237fe2debaad09d410b3397a16d9",
+    "BANK-REVIEW-LEDGER.md": "f8d6b25be6d44f3e56d9241d87f9fdfc0a3059063851e7aa7d2c0b8071934fff",
+    "PROJECT-HISTORY.md": "4ff8455eb6264dce94ce3fcd4e914cb0c97fe16801aa5b4948719a1ac9ad08db"
+  },
+  "created_review_artifact_paths": [
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-BASELINE-AUDIT.txt",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-CANONICAL-APPLICATION.txt",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-CENSUS-CHECK.txt",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-CONTENT-VERDICT.md",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-FINAL-GATES.json",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-FINAL-GATES.txt",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-INTEGRATION-RECEIPT.md",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-NORMALIZATION.txt",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-PRE-INTEGRATION-SNAPSHOT.json",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-SCOPE-INTEGRATED.json",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-SCOPE-PRE.json",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-TYPESCRIPT-BUILD.json",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-TYPESCRIPT-BUILD.txt",
+    "scratch/iv-push-sequence-2026-11-16/r2/CODEX-R2-CLOSURE-VERIFICATION.json",
+    "scratch/iv-push-sequence-2026-11-16/r2/astra-r2-scope.py",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-FINAL-RECEIPT.json"
+  ],
+  "artifact_sha256": {
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-BASELINE-AUDIT.txt": "4eeb19f3849318bbe3ff441935b7ef9fd28ab54e91a6d5995fd6c88cfe7c041a",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-CANONICAL-APPLICATION.txt": "34c87974c2146159dc1ad6ba13af3689d66d77d6109f36c4703f132eda036290",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-CENSUS-CHECK.txt": "1b16f2f77b83f3f8fc7637c907fce4506758949126eac65269d57843cb381d3b",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-CONTENT-VERDICT.md": "84c0c0a5efd7c40e03c4b49131f54632d156933ca1a2ad45e3921d3ff883ccb9",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-FINAL-GATES.json": "ababcdf9031056d68970b14fb29f8da49273b9c1efe2bcd181bfaa1c5782f96d",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-FINAL-GATES.txt": "51b1433c3eac45179e837b313f5dab6bdd3b8951918462b38a50b68399b793db",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-INTEGRATION-RECEIPT.md": "3b7812a4c732ba5ded91a3e3e068e6366ef6d45a3bb1a3fd0d688612c16b5564",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-NORMALIZATION.txt": "cbbc43fe9c563cb52ea01ad8113cb5f11a9d118d35f45f5fdb98ff1de9781424",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-PRE-INTEGRATION-SNAPSHOT.json": "1a20220ad483efd24e08e1fca8e3ef2dd860fadee50e2fdd1e0d32176d32ee05",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-SCOPE-INTEGRATED.json": "756bccd757aec0c7ff8ab23b1e35643d80abf42bf89c51b7a654d3f4f3db50c4",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-SCOPE-PRE.json": "0a8b7e743c8c10a8d8c24b7fdb6d4f5fe76fa0a7324ba308c04db538f494966d",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-TYPESCRIPT-BUILD.json": "25ae50b7adc966ab66dbeae5a77acc2dab8426df38049c3106023b1b356efd8f",
+    "scratch/iv-push-sequence-2026-11-16/r2/ASTRA-R2-TYPESCRIPT-BUILD.txt": "a84dca4d477a15e0a8655096fc66d38301f5c5473a2babbee55174abe015ac5d",
+    "scratch/iv-push-sequence-2026-11-16/r2/CODEX-R2-CLOSURE-VERIFICATION.json": "b732c23e86dceff4f8b472b90956bace6f6b29c24fef4bc3f45ea1a9f7466933",
+    "scratch/iv-push-sequence-2026-11-16/r2/astra-r2-scope.py": "0d49ccd05150c6ab64030637eec48c4f244ede9823dfbc8c3195bd95e103d706"
+  },
+  "scope": {
+    "phase": "integrated",
+    "scope_result": "PASS",
+    "scope_basis": "checker-owned recursive full-document diff; independent of patch and producer proofs",
+    "baseline_sha256": "949f8245698958b5bcab2ea3d095f22de316503aff5263f74e2151dba72ee553",
+    "r1_sha256": "99000aa3459be4c710985386ca160f64720a3ad1da6619600af5956066ff6a56",
+    "r2_sha256": "60b2812e1136c2dc3a068e56ba4ae0b59adcbe3589a77355f586a8b141d87e69",
+    "live_sha256": "60b2812e1136c2dc3a068e56ba4ae0b59adcbe3589a77355f586a8b141d87e69",
+    "changed_baseline_paths": [
+      "/questions/11/stem/en",
+      "/questions/11/stem/zh",
+      "/questions/11/options/1/en",
+      "/questions/11/options/1/zh",
+      "/questions/11/options/3/en",
+      "/questions/11/options/3/zh",
+      "/questions/11/options/4/en",
+      "/questions/11/options/4/zh",
+      "/questions/11/rationale/correct/en",
+      "/questions/11/rationale/correct/zh",
+      "/questions/11/rationale/byChoice/1/en",
+      "/questions/11/rationale/byChoice/1/zh",
+      "/questions/11/rationale/byChoice/2/en",
+      "/questions/11/rationale/byChoice/2/zh",
+      "/questions/11/rationale/byChoice/3/en",
+      "/questions/11/rationale/byChoice/3/zh",
+      "/questions/11/rationale/byChoice/4/en",
+      "/questions/11/rationale/byChoice/4/zh",
+      "/questions/11/testTakingStrategy/en",
+      "/questions/11/testTakingStrategy/zh"
+    ],
+    "changed_r1_paths": [
+      "/questions/11/stem/en",
+      "/questions/11/stem/zh",
+      "/questions/11/rationale/correct/en",
+      "/questions/11/rationale/correct/zh",
+      "/questions/11/rationale/byChoice/2/en",
+      "/questions/11/rationale/byChoice/2/zh",
+      "/questions/11/rationale/byChoice/3/en",
+      "/questions/11/rationale/byChoice/3/zh"
+    ],
+    "changed_baseline_lines": [
+      1066,
+      1067,
+      1077,
+      1078,
+      1087,
+      1088,
+      1092,
+      1093,
+      1105,
+      1106,
+      1116,
+      1117,
+      1121,
+      1122,
+      1126,
+      1127,
+      1131,
+      1132,
+      1137,
+      1138
+    ],
+    "changed_r1_lines": [
+      1066,
+      1067,
+      1105,
+      1106,
+      1121,
+      1122,
+      1126,
+      1127
+    ],
+    "all_bytes_outside_named_lines_identical": true,
+    "all_95_other_records_and_meta_unchanged": true,
+    "key_display_order_glossary_taxonomy_preserved": true,
+    "negative_controls": [
+      "key alteration detected",
+      "unrelated item alteration detected",
+      "field deletion detected"
+    ],
+    "permutations_examined": 120,
+    "survivors_for_reviewed_premises": [
+      [
+        "C",
+        "A",
+        "B",
+        "E",
+        "D"
+      ]
+    ],
+    "semantic_authority": "ASTRA-R2-CONTENT-VERDICT.md; enumeration is not clinical proof"
+  },
+  "gates": {
+    "saved_command_results": [
+      {
+        "command": [
+          "npm",
+          "run",
+          "validate-bank",
+          "--",
+          "banks/burn-canonical.json",
+          "banks/capnography-canonical.json",
+          "banks/claude-canonical.json",
+          "banks/device-canonical.json",
+          "banks/gemini-canonical.json",
+          "banks/gpt-canonical.json",
+          "banks/hard-cases-canonical.json",
+          "banks/io-canonical.json",
+          "banks/lab-canonical.json",
+          "banks/mar-canonical.json",
+          "banks/medlabel-canonical.json",
+          "banks/visual-canonical.json",
+          "banks/vitals-canonical.json"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 1.35
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "audit"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 6.97
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "test:schema-bank"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 0.35
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "test:grading"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 0.27
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "test:shuffle"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 0.29
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "test:audit-references"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 0.3
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "test:session-sampler"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 0.51
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "test:topic-population"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 0.3
+      },
+      {
+        "command": [
+          "npx",
+          "tsc",
+          "-b",
+          "--pretty",
+          "false"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 4.2
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "build"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 6.1
+      }
+    ],
+    "census_check": "PASS; zero drift; retained output exit=0",
+    "candidate_normalization": "PASS; zero structural changes",
+    "canonical_application": "PASS; 20 leaf operations and no strict-parity warnings",
+    "closure": {
+      "completed_at_utc": "2026-11-17T12:25:30.129343+00:00",
+      "completed_at_user_timezone": "2026-11-17T07:25:30.129343-05:00",
+      "performed_by": "Parent Codex seat; mechanical verification and receipt closure only",
+      "preservation_checks": {
+        "all_prior_artifacts": 40,
+        "unrelated_root_documents": 6,
+        "other_canonical_banks": 12
+      },
+      "governance_schema_census_unchanged": true,
+      "canonical_matches_reviewed_r2": true,
+      "installed_patch_import_only_adjustment": true,
+      "integrated_scope_rerun": "PASS; output equals Astra saved scope report",
+      "git_diff_check": "PASS",
+      "staging_empty": true,
+      "unchanged_branch_and_head": true,
+      "saved_gates_reused": "All saved exits are zero; canonical predates gate records and exactly matches accepted candidate; 12 other banks and tracked code/test/config inputs unchanged. No changed test inputs require reruns."
+    }
+  },
+  "advisories": [
+    "Expected no-raw audit:integrity INSUFFICIENT",
+    "Unchanged visual-canonical/select_all distribution advisory: ekg_b1_sata_03, ekg_b1_sata_07, ekg_b2_sata_06",
+    "Known Vite large-chunk build advisory"
+  ],
+  "deferred_findings": [
+    "audit:references ASCII-parenthesis/A-D false-negative; r1 exact witness retained",
+    "P20 parked audio queue refresh; no audio integration"
+  ],
+  "build_output_sha256": {
+    "dist/apple-touch-icon.png": "326d19d4f1334acbbac560de45790b5da1ec180e22979879e46307d97d697d7f",
+    "dist/assets/index-Bnl9OY3-.js": "f4b4459bfe83f36c23e7acad57ffc74823871d129fafffdbbce85c6de48d2341",
+    "dist/assets/index-CT4xrvDT.css": "143819764e2ec43c95480fb65b94546501d59e0cff64c7340b063522bb95d21a",
+    "dist/build-info.json": "1182e60d67bddba9f2426fabefeb1b2cf0d6c04c7b3078a50ccb324717b1a482",
+    "dist/favicon-16x16.png": "670f332648f4971d3cfac8df137a8b45a7445f7abe12d3bf605182018b201d9f",
+    "dist/favicon-32x32.png": "aa1436e2fc3f8866b2a9a7ddd2b70da067c3227291c1c7679598a691b93c6225",
+    "dist/favicon.ico": "bd78850e8309dee26c233c2552d008ee6941cc782e8420715fad03fdfa5cc897",
+    "dist/icon-192.png": "cbea0d9043d6548cfcb4a6ea5da9c4f23cd901e63772d1209cefa0c6e291f47b",
+    "dist/icon-512.png": "548e44cba5b9d6b260a01d086feeab92a7bc04621586dcea373cd734ff2308f2",
+    "dist/index.html": "35c11998722d7c92f6edbc83b165e0c267e96effa3773f082980bbfb4d9892f6",
+    "dist/manifest.webmanifest": "4cdc79b50fbe313e7e6bcbc9c9f094744606db44c0be480069ee7a851d569fd7",
+    "dist/nclex-app-icon-fullbleed-1024.png": "6c0eecb3a8fa3b2971b7a14299da1ec95cb9958d5c4a131db7722601ab0acc91"
+  },
+  "preservation": {
+    "all_prior_artifacts": 40,
+    "unrelated_root_documents": 6,
+    "other_canonical_banks": 12
+  },
+  "git_status_short": " M BANK-REVIEW-LEDGER.md\n M PROJECT-HISTORY.md\n M banks/claude-canonical.json\n?? LEARNER-SHELL-R3-CONCEPT-A-IMPLEMENTATION-WORK-ORDER-2026-09-13.md\n?? MOBILE-CALCULATOR-ACTION-CLEARANCE-CODEX-WORK-ORDER-2026-09-16-R3.md\n?? MOBILE-CALCULATOR-CLAUDE-AI-R3-FINAL-CLOSURE-HANDOFF-2026-09-16.md\n?? MOBILE-CALCULATOR-R3-CODEX-LAUNCH-AUTHORIZATION-2026-09-16.md\n?? MOBILE-DROPDOWN-CLOZE-R1-OWNER-DISPOSITION-2026-09-16.md\n?? PUBLICATION-RECONCILIATION-RECEIPT-2026-10-02.md\n?? scripts/patches/2026-11-16-iv-push-sequence-correction-r2.ts\n",
+  "publication_state": "Uncommitted local integration only; no staging, commit, merge, branch consolidation, push or deployment. Scratch evidence is ignored/local."
+}
