@@ -1860,3 +1860,67 @@ Matrix-first-coherence 42-candidate findings, N-01 resolving-anchor calibration,
 construct/answerability instrument spec, and the July 21 P31 reconciliation are separate overnight
 lanes reviewed under the same 2026-09-13 commission but recorded in their own artifacts; none
 authorized a canonical mutation and none is folded into this entry.
+
+## INT-01 — RG-01 accepted same-ID repairs, early canonical integration (2026-11-19)
+
+Executes the frozen INT-01 work order (`scratch/RG01-EARLY-INTEGRATION-CLAUDE-CODE-WORK-ORDER-2026-11-18.md`,
+sha256 `07b89866…adeafb`) under Corrections C1 (`scratch/CONVENTION-SIEVE-REPAIR-CAMPAIGN-CORRECTIONS-C1-2026-11-18.md`,
+sha256 `5d251f76…aa17`) §C1-2 isolated-worktree route, on owner dispatch of
+`scratch/rg01-early-integration-2026-11-18/LAUNCH-CLAUDE-CODE-INT01-C1.md`. Owner approvals R-3 (P2
+conformance) and R-6 (early integration order), 2026-11-18. Integrator: Claude Code / Claude Opus 5.5,
+default effort, session `58afc99c-a815-41af-991c-b2df2db2cfdd` — mechanical integration only; this
+seat discharges no content review. (Earlier the same day this session also supplied the native-byte
+mechanical evidence recorded in the conformance record; it made no conformance or content judgment.)
+
+**Integrated items** (all in `banks/gemini-canonical.json`, same ID, same position, option identities
+and display order, `byChoice` refIds, taxonomy and glossary unchanged; applied in order Q-0013, Q-0018,
+Q-0007; no item skipped):
+
+| Pilot | ID | Changed surface | Key |
+|---|---|---|---|
+| Q-0013 (Q-RG-0008) | `gemini_b4_06` (`ordered_response`, `questions[220]`) | 15 `setValue` ops / 16 leaves: bilingual `stem`, `correct`, `rationale.correct`, `rationale.byChoice[D,B,A,C]`, `testTakingStrategy` | **Changed on the same ID:** `D,B,A,C` → `D,A,B,C` (disrobe before skin decontamination; dry-to-wet for a named water-compatible agent) |
+| Q-0018 (Q-RG-0007) | `gemini_sic_ngn_2026_06_21_q1` (`questions[854]`) | 6 ops / 6 leaves, explanation only: bilingual `rationale.correct`, `rationale.byChoice[A]`, `testTakingStrategy` | Unchanged `A,B,C,D,E` |
+| Q-0007 (Q-RG-0009) | `gen_sic_batch2_3` (`questions[594]`) | 8 ops / 8 leaves: bilingual `stem`, `rationale.correct`, `rationale.byChoice[A]`, `testTakingStrategy` | Unchanged `A,B,C,D` |
+
+**Provenance and review.**
+- Producer: the RG-01 repair producer, Claude Code / Claude Opus 5.5.
+- Content checker: Codex-hosted `gpt-6.2-astra`, high effort, session `01a1ed0b-0858-7c43-ba06-35c197948fe5`,
+  identity accepted under owner ruling R-2. Its Stage A was identity-exposed (non-blind R2 evidence);
+  Stage B/C dispositions retained under R-1. Stage C ACCEPT for all three items in
+  `RG-01-STAGE-C-DISPOSITION.md` (sha256 `1378f82f…dc5e`), including qualification 13 on Q-0013.
+- P2 spec conformance: GPT architectural control seat (owner-relayed), `RG-01-P2-CONFORMANCE.json`
+  sha256 `5e5d01f9385e7e8509d502eab43cabed79bd8624ce7f1175498a058d5e0e1754` (`.md`
+  `d0353ca7ca3f43b550b74cb941cf22ac96399b5370e709935440e326d6d18f4e`): Q-0007 CONFORMANT, Q-0013
+  CONFORMANT_WITH_NOTES (producer description "skin beneath clothing" is more specific than the
+  stem; not a scope departure), Q-0018 CONFORMANT.
+- Owner rulings: `OWNER-RG01-CUSTODY-AND-MODEL-RULINGS-2026-11-18.md` sha256
+  `4b21e1466900bb13b05d8fe14be4cb5203d7096f3a6ac11d8a9e5ece4c6693e1`; route
+  `OWNER-ASTRA-REPAIR-GATE-ROUTE.md` sha256 `9c9c99f8fe0596751b47dd633fe50722b604c1cea71c7b9d6b1288bf2bd9c015`.
+
+**Patch files** (P15 declarative exact-before `setValue`, run `--allow-canonical --strict-parity`;
+each differs from its frozen candidate `patch.ts` only in the import specifier, proved by textual diff):
+`scripts/patches/2026-11-18-rg01-q-0013-gemini_b4_06.ts`,
+`scripts/patches/2026-11-18-rg01-q-0018-gemini_sic_ngn_2026_06_21_q1.ts`,
+`scripts/patches/2026-11-18-rg01-q-0007-gen_sic_batch2_3.ts`. Every run exited 0 with all ops FIX, no
+parity warnings and post-write validation PASS. After each step the target record hashed to its bound
+candidate item hash (`31c65fc9…d227`, `cdf74630…6acd`, `42f05a3c…4baa`), and every other record, its
+order, the envelope and `meta` (`count` 874) deep-equalled the pre-step state.
+
+**Bank SHA-256 chain** (`gemini-canonical.json`): `e1c602e8…573a` (opening; equals the closing hash of
+the Campaign 17 entry above) → `dc53149b…4e49` (Q-0013) → `71a931ec…220d` (Q-0018) →
+`47fd14d534febd160622313056d674d09d7164a444341faf9312fb1279a610b8` (Q-0007, final). No other bank changed.
+
+**Verification**, on the integrated worktree tree (exit codes): `validate-bank -- banks/*.json` 0 (all
+13 canonical banks); `audit` 0 (GATE PASSED; the only warning is the pre-existing `visual-canonical`
+`select_all` distributional advisory, unrelated; `audit:integrity` INSUFFICIENT because no raw drafts
+are staged); `tsc -b --pretty false` 0; `build` 0; `test:schema-bank` 0; `test:grading` 0;
+`test:audit-references` 0; `test:audit-stage-refs` 0; `test:raw-bank-normalization` 0; `test:promote` 0;
+`test:raw-gate` 0; `census:check` 0 (no census movement expected or observed; not regenerated). No
+check failed, so the pre-existing-failure rule was not invoked.
+
+**Learner history (Q-0013).** Past attempts are not regraded; statistics stay pooled under the same ID;
+Needs-review state from earlier attempts persists until one full-marks attempt.
+
+No raw or staging bank file was consumed or deleted (candidates remain under gitignored `scratch/`).
+`PROJECT-HISTORY.md` publication is deferred to the post-review merge seat. Local commit only — not
+pushed, merged or deployed.
