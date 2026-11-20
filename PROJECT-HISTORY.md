@@ -52,6 +52,16 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### INT-01–INT-03 Convention-Sieve Repairs: Publication Candidate (Nov 20)
+
+This entry was written in the commit prepared and verified as a fast-forward of `main` from `48d8d70ea73a6a16a2c69f2aeac98703a1588f8e`, and it describes that publication candidate. Deployment is verified only after `main` moves; its result is recorded in the local publication receipts, not here.
+
+The candidate carries ten reviewed bank units from the convention-sieve repair campaign, integrated as three local commits and kept unchanged: INT-01 `1b07ea192426e7cbb9db1303ad73a2e7adb8604b` (three RG-01 same-ID repairs), INT-02 `9e2d3f0024316d2e1afa23f3649a4aeabb9151b8` (four RG-02 same-ID repairs) and INT-03 `e27ffc5674318ea3ebd389e71a4be2ca64e6f50d` (one RG-02 same-ID repair and two retire-and-replace units). The same line carries the IV push sequence r2 correction, `5069dc294649c6ee15fed1bc15585cd4097d493d`, whose entry below describes its state before this candidate. Merge commit `7616c80009dc80ea9ed84bd55aaf6182764eae28` joins the line to the October text-hygiene work and changes no bank, census or ledger content.
+
+Eight items are corrected in place under their existing IDs, and four of them have a changed answer key. Two `gemini-canonical.json` ordered-response items are retired and replaced by new `select_all` items in `claude-canonical.json` with the same category, topic and difficulty. Per-item IDs, keys, producers, the independent checker, gate records, checks and learner-history effects are in the ledger entries for [INT-01](BANK-REVIEW-LEDGER.md#int-01--rg-01-accepted-same-id-repairs-early-canonical-integration-2026-11-19), [INT-02](BANK-REVIEW-LEDGER.md#int-02--rg-02-eligible-units-canonical-integration-partial-2026-11-19) and [INT-03](BANK-REVIEW-LEDGER.md#int-03--rg-02-residual-units-canonical-integration-2026-11-19). TB-Q0020 carries a recorded procedural nonconformance, disclosed verbatim in the INT-03 entry. Current counts are in [BANK-CENSUS.md](BANK-CENSUS.md).
+
+Before the candidate was offered for publication, its merged tree passed, locally, the Promotion Gate and Pages build command sets and the bank-content checks, and `census:check` passed without regeneration. Items still held in the same campaign are not integrated, and its content gate remains closed.
+
 ### IV Push Sequence r2 Accepted and Integrated (Nov 16; Pushed to Branch Nov 17, Not Merged)
 
 The same-ID correction for `claude_a_or_iv_push_safety_14` is independently accepted and applied in the local checkout on `codex/publication-reconciliation-2026-10-02`, based on `65756abb8267a1aa064359e6b7186b3b103abe60`. Committed and pushed to that branch on Nov 17; it is **not merged to `main` or deployed**. Claude Code / Claude Opus 5.5 produced the repair; Codex / GPT-6 Astra independently reviewed the clinical content and bilingual parity, then mechanically integrated it after the authoring GPT seat's spec-conformance acceptance. The rejected r1 and its evidence remain preserved.

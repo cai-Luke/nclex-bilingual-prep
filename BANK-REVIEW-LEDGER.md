@@ -2179,3 +2179,11 @@ No check failed, so the pre-existing-failure rule was not invoked.
 
 `PROJECT-HISTORY.md` publication is deferred to the merge seat. This is a local commit only, not pushed, merged or
 deployed.
+
+## INT-01–INT-03 — publication candidate for `main` (2026-11-20)
+
+The INT-01 (`1b07ea192426e7cbb9db1303ad73a2e7adb8604b`), INT-02 (`9e2d3f0024316d2e1afa23f3649a4aeabb9151b8`) and INT-03 (`e27ffc5674318ea3ebd389e71a4be2ca64e6f50d`) local commits, with the IV push sequence r2 commit (`5069dc294649c6ee15fed1bc15585cd4097d493d`) beneath them, form the publication candidate unchanged: no commit in that line was rebased, squashed or amended. Merge commit `7616c80009dc80ea9ed84bd55aaf6182764eae28` has first parent INT-03 and second parent `main` at `48d8d70ea73a6a16a2c69f2aeac98703a1588f8e`, the October text-hygiene commits. Its only conflict, in `PROJECT-HISTORY.md`, was resolved by keeping both sides' entries. The commit that adds this entry is the candidate head; it reaches `main` only by fast-forward.
+
+No bank file, census artifact or earlier ledger text changed in the merge or in this entry's commit. Bank SHA-256 in the candidate equals INT-03's: `gemini-canonical.json` `a0a78e391a3d4f867d935ecc2ac60d0a5fcc879f1a3ebfc4538576c45dfc1c39` and `claude-canonical.json` `2a356826c08ac3aef0f3ec134d8e521f430a777fec05666a4a20492fb88e8194`. Counts are in [BANK-CENSUS.md](BANK-CENSUS.md). The statements "local commit only, not pushed, merged or deployed" in the INT-01, INT-02 and INT-03 entries, and "not merged to `main` or deployed" in the 2026-11-16 IV push entry, describe the state when each was written.
+
+Architect acceptances are under `scratch/rg01-early-integration-2026-11-18/` (INT-01), `scratch/int03-rg02-residual-2026-11-19/` (INT-02) and `scratch/publication-int01-int03-2026-11-20/` (INT-03). The publication work order `scratch/PUBLICATION-INT01-INT03-CLAUDE-CODE-WORK-ORDER-2026-11-20.md` and its receipts, including deployment and learner-smoke results, are local-only. The RG-02 content gate remains closed, and every held item stays outside the banks.
