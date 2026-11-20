@@ -667,4 +667,72 @@ await withRoot(async (root) => {
   }
 });
 
+// audit:text-hygiene is advisory in the raw gate: a WARN never moves the exit
+// code or failedIds, while a load/infrastructure FAIL blocks.
+await withRoot(async (root) => {
+  const zh = (en: string, text: string) => ({ en, zh: text });
+  const hygieneFill = (id: string, stemZh: string) => fill(id, {
+    stem: zh("Fixture stem.", stemZh),
+    blanks: [{ id: "b1", prompt: zh("Enter one.", "输入数值。"), acceptable: ["1"] }],
+    rationale: { correct: zh("Fixture rationale.", "测试解析。") },
+    testTakingStrategy: zh("Use the clinical facts.", "依据临床事实。"),
+  });
+  const hygieneOf = (result: Awaited<ReturnType<typeof runRawGate>>) =>
+    result.candidateSetResults.find((entry) => entry.name === "audit:text-hygiene");
+
+  const clean = join(root, "banks/banks-raw/gemini-hygiene-clean.json");
+  const dirty = join(root, "banks/banks-raw/gemini-hygiene-dirty.json");
+  await writeFile(clean, JSON.stringify(bank([hygieneFill("hygiene_clean", "测试题干。")])), "utf8");
+  await writeFile(dirty, JSON.stringify(bank([hygieneFill("hygiene_dirty", "首先,评估。")])), "utf8");
+
+  const cleanResult = await runRawGate({ files: ["banks/banks-raw/gemini-hygiene-clean.json"], comparisonFiles: [] });
+  assert.equal(cleanResult.exitCode, 0, renderRawGate(cleanResult));
+  assert.equal(hygieneOf(cleanResult)?.status, "PASS");
+
+  const dirtyResult = await runRawGate({ files: ["banks/banks-raw/gemini-hygiene-dirty.json"], comparisonFiles: [] });
+  assert.equal(dirtyResult.exitCode, cleanResult.exitCode, renderRawGate(dirtyResult));
+  assert.match(dirtyResult.verdict, /^RAW GATE PASSED/);
+  assert.equal(hygieneOf(dirtyResult)?.status, "WARN");
+  assert.deepEqual(hygieneOf(dirtyResult)?.failures, ["hygiene_dirty"]);
+  assert.match(hygieneOf(dirtyResult)?.detail ?? "", /banks\/banks-raw\/gemini-hygiene-dirty\.json \(1 item\(s\)\): hygiene_dirty/);
+  assert(!renderRawGate(dirtyResult).includes("shrimp-raw-gate-"));
+  for (const candidate of dirtyResult.candidates) {
+    assert(!candidate.results.some((entry) => entry.name === "audit:text-hygiene"), "hygiene is never a per-file result");
+  }
+
+  // failedIds: on a gate that already fails, a hygiene WARN's related IDs add nothing to the verdict.
+  const first = join(root, "banks/banks-raw/gemini-hygiene-one.json");
+  const second = join(root, "banks/banks-raw/gpt-hygiene-two.json");
+  await writeFile(first, JSON.stringify(bank([hygieneFill("hygiene_collision", "测试题干。")])), "utf8");
+  await writeFile(second, JSON.stringify(bank([hygieneFill("hygiene_collision", "测试题干。")])), "utf8");
+  const seen: string[][] = [];
+  const inject = (status: "PASS" | "WARN" | "FAIL", failures: string[]) =>
+    async ({ files }: { files: string[] }) => {
+      seen.push(files);
+      return { name: "audit:text-hygiene", status, failures, detail: `injected ${status}` };
+    };
+  const failingWithPass = await runRawGate({ files: [first, second], comparisonFiles: [], runTextHygiene: inject("PASS", []) });
+  const failingWithWarn = await runRawGate({
+    files: [first, second],
+    comparisonFiles: [],
+    runTextHygiene: inject("WARN", ["hygiene_only_a", "hygiene_only_b"]),
+  });
+  assert.deepEqual(seen.map((files) => files.length), [2, 2], "hygiene runs once over all candidate projections");
+  assert.equal(failingWithPass.exitCode, 1);
+  assert.match(failingWithPass.verdict, /^RAW GATE FAILED — \d+ item\(s\) across \d+ check\(s\)\.$/);
+  assert.equal(failingWithWarn.exitCode, failingWithPass.exitCode);
+  assert.equal(failingWithWarn.verdict, failingWithPass.verdict, "WARN related IDs must not enter failedIds");
+
+  // A hygiene FAIL on an otherwise passing candidate blocks and is not reported as a pass.
+  const blocked = await runRawGate({
+    files: [clean],
+    comparisonFiles: [],
+    runTextHygiene: inject("FAIL", ["banks/banks-raw/gemini-hygiene-clean.json"]),
+  });
+  assert.equal(blocked.exitCode, 1);
+  assert.equal(blocked.verdict, "RAW GATE FAILED — 1 item(s) across 1 check(s).");
+  assert.match(renderRawGate(blocked), /\[FAIL\] audit:text-hygiene/);
+  assert.doesNotMatch(renderRawGate(blocked), /RAW GATE PASSED/);
+});
+
 console.log("raw-gate tests passed");

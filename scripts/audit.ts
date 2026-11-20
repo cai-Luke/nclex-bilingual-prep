@@ -7,6 +7,8 @@
  *      collected into a single report. Exits non-zero if any Tier-1 check
  *      failed.
  *   3. Tier 2: advisory audits — report warnings without blocking the gate.
+ *      audit:text-hygiene findings are advisory (WARN); only its load or
+ *      infrastructure FAIL blocks.
  *
  * Wiring all checks as a single process (not separate CI steps) ensures every
  * failure is visible in one run — no first-failure masking.
@@ -22,6 +24,7 @@ import { runAuditStageRefs } from "./audit/audit-stage-refs";
 import { runAuditTopicLicense } from "./audit/audit-topic-license";
 import { runAuditProducerVocabulary } from "./audit/audit-producer-vocabulary";
 import { runAuditAuthorialConstraintLeakage } from "./audit/audit-authorial-constraint-leakage";
+import { runAuditTextHygiene } from "./audit/audit-text-hygiene";
 import { gateVerdict, isMechanicalBiasEnforced } from "./audit/audit-verdict";
 import type { AuditResult } from "./audit/types";
 
@@ -59,7 +62,7 @@ async function main(): Promise<number> {
   // ---------------------------------------------------------------------------
   console.log("\n── Tier 1: standing audits ──");
 
-  const [references, positions, integrity, ids, producerVocabulary, authorialConstraintLeakage, stageRefs, topicLicense, nonMcqBias] = await Promise.all([
+  const [references, positions, integrity, ids, producerVocabulary, authorialConstraintLeakage, stageRefs, topicLicense, nonMcqBias, textHygiene] = await Promise.all([
     runAuditReferences(),
     runAuditPositions(),
     runAuditIntegrity(),
@@ -69,6 +72,7 @@ async function main(): Promise<number> {
     runAuditStageRefs(),
     runAuditTopicLicense(),
     runAuditNonMcqBias(),
+    runAuditTextHygiene(),
   ]);
 
   const tier1Results: AuditResult[] = [references, positions, integrity, ids, producerVocabulary, authorialConstraintLeakage];
@@ -81,15 +85,20 @@ async function main(): Promise<number> {
   printResult(stageRefs);
   printResult(topicLicense);
   for (const r of nonMcqBias) printResult(r);
+  printResult(textHygiene);
 
   // ---------------------------------------------------------------------------
   // Final verdict
   // ---------------------------------------------------------------------------
   const mechanicalBias = nonMcqBias.find((result) => result.name === "audit:non-mcq-bias:mechanical");
-  const blockingResults = isMechanicalBiasEnforced() && mechanicalBias
-    ? [...tier1Results, mechanicalBias]
-    : tier1Results;
-  const allResults = [...tier1Results, stageRefs, topicLicense, ...nonMcqBias];
+  // A hygiene WARN stays out of blockingResults so its related IDs never reach
+  // failedIds; a hygiene FAIL is a load/infrastructure failure and blocks.
+  const blockingResults = [
+    ...tier1Results,
+    ...(isMechanicalBiasEnforced() && mechanicalBias ? [mechanicalBias] : []),
+    ...(textHygiene.status === "FAIL" ? [textHygiene] : []),
+  ];
+  const allResults = [...tier1Results, stageRefs, topicLicense, ...nonMcqBias, textHygiene];
   const verdict = gateVerdict(allResults, blockingResults);
 
   console.log("\n══════════════════════");

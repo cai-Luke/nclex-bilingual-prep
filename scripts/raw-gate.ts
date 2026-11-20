@@ -25,6 +25,7 @@ import {
   type StageReferenceFinding,
 } from "./audit/audit-stage-refs";
 import { runAuditNonMcqBiasOnBanks } from "./audit/audit-non-mcq-bias";
+import { runAuditTextHygiene } from "./audit/audit-text-hygiene";
 import { gateVerdict, isMechanicalBiasEnforced } from "./audit/audit-verdict";
 
 export type RawGateCandidateResult = {
@@ -44,6 +45,8 @@ export type RawGateResult = {
 export type RunRawGateOptions = {
   files: string[];
   comparisonFiles?: string[];
+  /** Test seam for the advisory text-hygiene check; defaults to the real runner. */
+  runTextHygiene?: (options: { files: string[] }) => Promise<AuditResult>;
 };
 
 const strictValidation = (value: unknown) =>
@@ -264,7 +267,12 @@ export async function runRawGate(options: RunRawGateOptions): Promise<RawGateRes
       questions: entry.bank.questions,
     })));
     const mechanical = bias.find((result) => result.name === "audit:non-mcq-bias:mechanical");
-    const candidateSetResults = [ids, positions, ...bias];
+    // Candidate-set only: every per-file result is blocking, and hygiene findings are advisory.
+    const textHygiene = relabelResult(
+      await (options.runTextHygiene ?? runAuditTextHygiene)({ files: candidatePaths }),
+      labels,
+    );
+    const candidateSetResults = [ids, positions, ...bias, textHygiene];
     const localResults = candidates.flatMap((candidate) => candidate.results);
     const verdict = gateVerdict(
       [...localResults, ...candidateSetResults],
@@ -273,6 +281,7 @@ export async function runRawGate(options: RunRawGateOptions): Promise<RawGateRes
         ids,
         positions,
         ...(isMechanicalBiasEnforced() && mechanical ? [mechanical] : []),
+        ...(textHygiene.status === "FAIL" ? [textHygiene] : []),
       ],
     );
     return {
