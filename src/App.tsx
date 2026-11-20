@@ -3732,6 +3732,7 @@ function DropdownClozeControl({
   const dropdowns = answer.dropdowns ?? {};
   const hasZh = (question.clozeStem.zh ?? "").trim().length > 0;
   const showZh = hasZh && (languageMode === "always" || (languageMode === "on-tap" && revealed));
+  const choiceListIdPrefix = `${question.id}-cloze-options`;
   useEffect(() => {
     if (revealAllSignal === lastRevealAllSignalRef.current) return;
     lastRevealAllSignalRef.current = revealAllSignal;
@@ -3752,6 +3753,7 @@ function DropdownClozeControl({
         submitted={submitted}
         locale="en"
         interactive
+        choiceListIdPrefix={showZh ? choiceListIdPrefix : undefined}
         onSelect={(dropdownId, optionId) => onAnswer({ ...answer, dropdowns: { ...dropdowns, [dropdownId]: optionId } })}
       />
       {languageMode === "on-tap" && !revealed && hasZh && (
@@ -3760,13 +3762,23 @@ function DropdownClozeControl({
         </button>
       )}
       {showZh && (
-        <ClozeLine
-          text={question.clozeStem.zh}
-          question={question}
-          selections={dropdowns}
-          submitted={submitted}
-          locale="zh"
-        />
+        <>
+          <ClozeLine
+            text={question.clozeStem.zh}
+            question={question}
+            selections={dropdowns}
+            submitted={submitted}
+            locale="zh"
+          />
+          {question.dropdowns.map((dropdown, index) => (
+            <ClozeChoiceList
+              key={dropdown.id}
+              id={`${choiceListIdPrefix}-${index + 1}`}
+              blankNumber={index + 1}
+              options={dropdown.options}
+            />
+          ))}
+        </>
       )}
     </div>
   );
@@ -3779,6 +3791,7 @@ function ClozeLine({
   submitted,
   locale,
   interactive = false,
+  choiceListIdPrefix,
   onSelect,
 }: {
   text: string;
@@ -3787,6 +3800,7 @@ function ClozeLine({
   submitted: boolean;
   locale: "en" | "zh";
   interactive?: boolean;
+  choiceListIdPrefix?: string;
   onSelect?: (dropdownId: string, optionId: string) => void;
 }) {
   const dropdownById = new Map(question.dropdowns.map((dropdown) => [dropdown.id, dropdown]));
@@ -3808,13 +3822,17 @@ function ClozeLine({
             </span>
           );
         }
+        const blankNumber = question.dropdowns.indexOf(dropdown) + 1;
         const readoutId = `${question.id}-cloze-${index}-readout`;
+        const describedBy = choiceListIdPrefix
+          ? `${readoutId} ${choiceListIdPrefix}-${blankNumber}`
+          : readoutId;
         return (
           <span className="cloze-choice" key={`${dropdown.id}-${index}`}>
             <select
               className={`cloze-select ${statusClass}`}
-              aria-label={`Blank ${question.dropdowns.indexOf(dropdown) + 1}`}
-              aria-describedby={readoutId}
+              aria-label={`Blank ${blankNumber}`}
+              aria-describedby={describedBy}
               value={value}
               disabled={submitted}
               onChange={(event) => onSelect?.(dropdown.id, event.target.value)}
@@ -3833,6 +3851,27 @@ function ClozeLine({
         );
       })}
     </p>
+  );
+}
+
+function ClozeChoiceList({ id, blankNumber, options }: {
+  id: string;
+  blankNumber: number;
+  options: Extract<Question, { itemType: "dropdown_cloze" }>["dropdowns"][number]["options"];
+}) {
+  const labelId = `${id}-label`;
+  return (
+    <div className="cloze-choice-list" id={id}>
+      <p className="cloze-choice-list-label" id={labelId} lang="zh-Hans">空格 {blankNumber} 选项</p>
+      <ul aria-labelledby={labelId}>
+        {options.map((option) => (
+          <li key={option.id}>
+            {option.en}
+            {option.zh?.trim() && <> — <span lang="zh-Hans">{option.zh}</span></>}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 

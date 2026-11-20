@@ -2762,6 +2762,30 @@ h4 {
   display: none;
 }
 
+.cloze-choice-list {
+  min-width: 0;
+  border-inline-start: 2px solid var(--border);
+  padding-inline-start: 0.75rem;
+  color: var(--text-muted);
+  font-size: calc(0.9rem * var(--font-scale));
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.cloze-choice-list-label {
+  margin: 0 0 0.2rem;
+  font-weight: 700;
+}
+
+.cloze-choice-list ul {
+  margin: 0;
+  padding-inline-start: 1.15em;
+}
+
+.cloze-choice-list li + li {
+  margin-block-start: 0.2rem;
+}
+
 .cloze-token {
   display: inline-block;
   max-width: calc(100% - 0.5rem);

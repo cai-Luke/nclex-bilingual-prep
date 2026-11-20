@@ -1,21 +1,27 @@
 // Production-build browser regression. No project browser dependency.
 // PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs node --import tsx \
 //   scripts/tests/mobile-dropdown-cloze-layout.mjs --url URL --output TASK_OUTPUT
+// C-1: run --choices-baseline on H, then --choices --baseline-results BASELINE/results.json
+// with a matching transport. --screens sets the candidate screenshot directory.
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { resolve, join } from 'node:path';
 import { questionFingerprint } from '../../src/completedMemory.ts';
-import { getCorrectAnswer } from '../../src/grading.ts';
+import { getCorrectAnswer, scoreQuestion } from '../../src/grading.ts';
 
 const args = process.argv.slice(2);
 const arg = (name) => args[args.indexOf(name) + 1];
+const choices = args.includes('--choices');
+const choicesBaseline = args.includes('--choices-baseline');
 if (!args.includes('--url') || !args.includes('--output') || !process.env.PLAYWRIGHT_MODULE) {
   throw new Error('Required: PLAYWRIGHT_MODULE=/absolute/playwright/index.mjs node --import tsx scripts/tests/mobile-dropdown-cloze-layout.mjs --url HTTP_OR_FILE_URL --output TASK_OWNED_DIRECTORY');
 }
 const url = new URL(arg('--url')).href;
 assert(['http:', 'https:', 'file:'].includes(new URL(url).protocol));
+assert(!(choices && choicesBaseline), 'Select one C-1 run mode');
+assert(!choices || args.includes('--baseline-results'), 'The C-1 candidate requires a same-protocol baseline');
 const out = resolve(arg('--output'));
 assert(!existsSync(join(out, 'results.json')), 'Use a fresh task-owned output directory; existing evidence is never overwritten');
 mkdirSync(join(out, 'screenshots'), { recursive: true });
@@ -47,9 +53,13 @@ writeFileSync(join(out, 'fixture-manifest.json'), JSON.stringify({
 }, null, 2) + '\n');
 const { chromium } = await import(process.env.PLAYWRIGHT_MODULE).catch((error) => { throw new Error(`Cannot load PLAYWRIGHT_MODULE: ${error.message}`); });
 const profile = mkdtempSync(join(tmpdir(), 'shrimp-cloze-'));
+// Headless Mac Chrome sends unmodified arrow keys to a native menu automation
+// cannot drive. Blink spatial navigation lets the real select handle them.
+const spatialKeyboard = (choices || choicesBaseline) && process.platform === 'darwin';
 const context = await chromium.launchPersistentContext(profile, {
   channel: 'chrome', headless: true, viewport: { width: 320, height: 740 }, deviceScaleFactor: 1,
   hasTouch: true, ignoreDefaultArgs: ['--disable-web-security'],
+  ...(spatialKeyboard ? { args: ['--blink-settings=spatialNavigationEnabled=true'] } : {}),
 });
 const page = context.pages()[0];
 page.setDefaultTimeout(15000);
@@ -318,7 +328,7 @@ async function readouts({ chinese = false, submitted = false } = {}) {
     const option = order[i].options.find((o) => o.id === values[i]);
     const input = selects().nth(i);
     assert.equal(await input.isDisabled(), submitted);
-    const id = await input.getAttribute('aria-describedby');
+    const [id] = (await input.getAttribute('aria-describedby') ?? '').split(/\s+/);
     assert(id, 'select must describe its full-text readout');
     const readout = panel().locator('.cloze-readout').nth(i);
     assert.equal(await readout.getAttribute('id'), id);
@@ -556,22 +566,305 @@ async function consoleProof() {
   assert.equal(corsCount, pairedCount, 'Manifest CORS diagnostics must have URL-attributed ERR_FAILED pairs');
 }
 
+const choiceViewports = [
+  { width: 320, height: 740, text: 'large' },
+  { width: 375, height: 812, text: 'default' },
+  { width: 768, height: 900, text: 'default' },
+  { width: 1440, height: 900, text: 'default' },
+];
+const display = (name) => page.getByRole('group', { name: 'Chinese display' }).getByRole('button', { name, exact: true });
+const listSelector = '.cloze-choice-list';
+const normalizeText = (value) => value.replace(/\s+/g, ' ').trim();
+
+async function choiceState(ax, name, fixture, surface, visible, submitted = false) {
+  const label = name + ' ' + fixture.q.id;
+  const lists = surface.locator(listSelector);
+  const zh = surface.locator('.cloze-line.chinese-line');
+  const inputs = surface.locator('.cloze-select');
+  const question = fixture.q;
+  const dropdowns = question.dropdowns;
+  await zh.waitFor({ state: visible ? 'visible' : 'hidden' });
+  assert.equal(await lists.count(), visible ? dropdowns.length : 0, label + ' list count');
+  assert.equal(await zh.count(), visible ? 1 : 0, label + ' Chinese visibility');
+  const englishOrder = [...question.clozeStem.en.matchAll(/\{\{([^{}]+)\}\}/g)].map((match) => match[1].trim());
+  assert.equal(await inputs.count(), englishOrder.length, label + ' select count');
+  if (visible) {
+    assert.equal(await surface.locator('.cloze-line.chinese-line + ' + listSelector).count(), 1);
+    assert.equal(await surface.locator(listSelector + ' :is(a, button, input, select, textarea, [tabindex], [contenteditable], .correct, .incorrect, [aria-current], [aria-selected])').count(), 0);
+  }
+
+  const { root } = await ax.send('DOM.getDocument');
+  for (const [index, id] of englishOrder.entries()) {
+    const blank = dropdowns.findIndex((d) => d.id === id);
+    const dropdown = dropdowns[blank];
+    const input = inputs.nth(index);
+    const list = lists.nth(blank);
+    const blankLabel = '空格 ' + (blank + 1) + ' 选项';
+    assert.equal(await input.getAttribute('aria-label'), 'Blank ' + (blank + 1));
+    assert.equal(await input.isDisabled(), submitted);
+    const nativeOptions = await input.locator('option').evaluateAll((options) => options.map((o) => [o.value, o.textContent]));
+    const expectedOptions = [['', 'Choose'], ...dropdown.options.map(({ id, en }) => [id, en])];
+    assert(JSON.stringify(nativeOptions) === JSON.stringify(expectedOptions), label + ' native option identity/order');
+
+    const readout = surface.locator('.cloze-readout').nth(index);
+    const readoutId = await readout.getAttribute('id');
+    const describedBy = (await input.getAttribute('aria-describedby')).split(/\s+/);
+    if (!visible) {
+      assert.deepEqual(describedBy, [readoutId], label + ' hidden language references');
+      continue;
+    }
+    const listId = await list.getAttribute('id');
+    assert(listId);
+    assert.deepEqual(describedBy, [readoutId, listId], label + ' visible language references');
+    assert.equal(await page.locator('[id="' + listId + '"]').count(), 1);
+    assert.equal(await list.getByRole('list', { name: blankLabel, exact: true }).count(), 1);
+    const expectedRows = dropdown.options.map(({ en, zh }) => zh?.trim() ? en + ' — ' + zh : en);
+    const actualRows = await list.getByRole('listitem').allTextContents();
+    assert(JSON.stringify(actualRows) === JSON.stringify(expectedRows), label + ' bilingual option text/order');
+    assert.equal(await list.locator('li [lang="zh-Hans"]').count(), dropdown.options.filter((o) => o.zh?.trim()).length);
+
+    const selector = await input.evaluate((el) => {
+      const readout = el.nextElementSibling;
+      return 'select:has(+ #' + CSS.escape(readout.id) + ')';
+    });
+    const { nodeId } = await ax.send('DOM.querySelector', { nodeId: root.nodeId, selector });
+    assert(nodeId);
+    const { nodes } = await ax.send('Accessibility.getPartialAXTree', { nodeId, fetchRelatives: false });
+    assert.equal(nodes[0].role?.value, 'combobox');
+    const description = normalizeText(nodes[0].description?.value ?? '');
+    assert(description.includes(blankLabel), label + ' accessible list label');
+    for (const row of expectedRows) assert(description.includes(normalizeText(row)), label + ' accessible list text');
+    const value = await input.inputValue();
+    const selected = dropdown.options.find((o) => o.id === value);
+    if (selected) assert(description.startsWith(normalizeText(selected.en)), label + ' accessible readout');
+  }
+
+  const layout = await surface.evaluate((el) => {
+    const root = document.documentElement;
+    const submit = [...document.querySelectorAll('.submit-button')].find((node) => node.getClientRects().length);
+    const footer = submit?.closest('.case-work-footer') ?? submit;
+    const footerPosition = footer ? getComputedStyle(footer).position : null;
+    // Fixed and sticky actions can cover scrolling content mid-scroll. At the
+    // end of the card the full cloze and the action must clear one another.
+    if (footerPosition === 'fixed' || footerPosition === 'sticky') {
+      const workPane = el.closest('.exam-split-work-pane');
+      if (workPane) workPane.scrollTo({ top: workPane.scrollHeight, behavior: 'instant' });
+      window.scrollTo({ top: root.scrollHeight, behavior: 'instant' });
+    }
+    const submitRect = submit?.getBoundingClientRect();
+    const touchesSubmit = (a) => submitRect && a.left < submitRect.right && a.right > submitRect.left &&
+      a.top < submitRect.bottom && a.bottom > submitRect.top;
+    const panelRect = el.getBoundingClientRect();
+    const lists = [...el.querySelectorAll('.cloze-choice-list')];
+    const items = lists.flatMap((list) => [...list.querySelectorAll('li')]);
+    const boxes = items.map((item) => {
+      const range = document.createRange();
+      range.selectNodeContents(item);
+      return [...range.getClientRects()];
+    }).flat();
+    return {
+      width: root.clientWidth, scrollWidth: root.scrollWidth, footerPosition, scrollY: window.scrollY,
+      glyphsFit: boxes.every((r) => r.left >= panelRect.left - 1 && r.right <= panelRect.right + 1),
+      listsFit: lists.every((list) => list.scrollWidth <= list.clientWidth),
+      overlapsSubmit: [...el.querySelectorAll('select, .cloze-readout'), ...lists]
+        .some((node) => Boolean(node.getClientRects().length && touchesSubmit(node.getBoundingClientRect()))),
+      fontSize: lists.length ? parseFloat(getComputedStyle(lists[0]).fontSize) : null,
+      sentenceFontSize: parseFloat(getComputedStyle(el.querySelector('.cloze-line')).fontSize),
+    };
+  });
+  assert.equal(layout.scrollWidth, layout.width, label + ' root overflow');
+  assert(layout.glyphsFit && layout.listsFit, label + ' list overflow');
+  assert(!layout.overlapsSubmit, label + ' Submit overlap');
+  if (visible) assert(layout.fontSize < layout.sentenceFontSize, label + ' visual hierarchy');
+  const record = { name, fixture: question.id, parent: fixture.parent?.id, ...layout, visible, submitted };
+  report.choices.states.push(record);
+  if (args.includes('--screens')) {
+    const dir = resolve(arg('--screens'));
+    mkdirSync(dir, { recursive: true });
+    record.screenshot = join(dir, name + '.png');
+    await page.screenshot({ path: record.screenshot, fullPage: true, animations: 'disabled' });
+  }
+  return record;
+}
+
+async function choiceKeyboardAttempt(viewport, pattern, language) {
+  await seed(witness, { ...viewport, language });
+  const expected = {};
+  const inputs = selects();
+  assert.equal(await panel().locator(listSelector).count(), choices && language === 'always' ? witness.q.dropdowns.length : 0);
+  await inputs.first().focus();
+  await page.keyboard.press('Shift+Tab');
+  assert(!(await inputs.first().evaluate((el) => document.activeElement === el)));
+  for (const [index, dropdown] of dropdownOrder().entries()) {
+    await page.keyboard.press('Tab');
+    const input = inputs.nth(index);
+    assert(await input.evaluate((el) => document.activeElement === el), 'Tab order in cloze');
+    const correct = pattern === 'correct' || (pattern === 'partial' && index === 0);
+    const target = dropdown.options.findIndex((o) => (o.id === dropdown.correct) === correct);
+    assert(target >= 0);
+    if (spatialKeyboard) await page.keyboard.press('Space');
+    for (let option = 0; option <= target; option++) await page.keyboard.press('ArrowDown');
+    const chosen = dropdown.options[target].id;
+    assert.equal(await input.inputValue(), chosen, 'ArrowDown selects the expected option ID');
+    expected[dropdown.id] = chosen;
+  }
+  await page.keyboard.press('Tab');
+  assert.equal(await page.evaluate(() => Boolean(document.activeElement?.closest('.cloze-panel'))), language === 'on-tap');
+  await page.locator('.submit-button:visible').click();
+  await page.locator('.answer-banner').waitFor();
+  const attempt = (await rawStore('activeSession'))[0].attempts[witness.q.id];
+  assert.deepEqual(attempt.answer.dropdowns, expected);
+  assert.equal(attempt.result, pattern === 'correct');
+  assert.deepEqual(attempt.score, scoreQuestion(witness.q, { dropdowns: expected }));
+  for (const input of await inputs.all()) assert(await input.isDisabled());
+  return { width: viewport.width, fixture: witness.q.id, pattern, answer: attempt.answer.dropdowns, score: attempt.score, correct: attempt.result };
+}
+
+async function choiceHome(viewport, { flagId, preview = false } = {}) {
+  await page.setViewportSize({ width: viewport.width, height: viewport.height });
+  await page.evaluate(async ({ text, flagId, preview }) => {
+    localStorage.setItem('completed-memory-notice', 'dismissed');
+    localStorage.setItem('nclex-settings', JSON.stringify({ languageMode: 'always', themeMode: 'light', textSizeMode: text, voiceEnabled: false }));
+    if (preview) localStorage.setItem('shrimpDevTools', 'true');
+    const db = await new Promise((yes, no) => { const r = indexedDB.open('nclex-bilingual-prep'); r.onsuccess = () => yes(r.result); r.onerror = () => no(r.error); });
+    const names = ['activeSession', 'answerEvents', 'progress', 'completedSets', 'flags'];
+    const tx = db.transaction(names, 'readwrite');
+    for (const name of names) tx.objectStore(name).clear();
+    if (flagId) tx.objectStore('flags').put({ questionId: flagId, flagged: true, updatedAt: '2026-11-20T12:00:00Z' });
+    await new Promise((yes, no) => { tx.oncomplete = yes; tx.onerror = () => no(tx.error); }); db.close();
+  }, { text: viewport.text, flagId, preview });
+  await page.reload();
+  await page.locator('.study-workspace').waitFor();
+}
+
+async function choiceExam(state, viewport, mode) {
+  await choiceHome(viewport, { flagId: witness.q.id });
+  await button('Customize').click();
+  await page.getByLabel('Status pool').selectOption('saved');
+  await button(mode === 'test' ? 'Test' : 'Adaptive').click();
+  await button(mode === 'test' ? 'Start session' : 'Start adaptive exam').click();
+  await panel().waitFor();
+  const saved = (await rawStore('activeSession'))[0];
+  assert.equal(saved.mode, mode);
+  assert.deepEqual(saved.questionIds, [witness.q.id]);
+  assert.equal(saved.languageMode, 'off');
+  assert.equal(await display('EN').getAttribute('aria-pressed'), 'true');
+  await state(mode + '-initial-off', witness, panel(), false);
+  await display('EN/ZH').click();
+  await state(mode + '-selected-always', witness, panel(), true);
+  await display('Tap ZH').click();
+  await state(mode + '-ontap-hidden', witness, panel(), false);
+  await panel().getByRole('button', { name: '需要中文', exact: true }).click();
+  await state(mode + '-ontap-revealed', witness, panel(), true);
+}
+
+async function choiceCases(state, viewport) {
+  await seed(caseFixture, { ...viewport, language: 'always' });
+  const split = page.locator('.split-case-card .exam-split-layout');
+  assert(await split.locator(':scope > .exam-split-chart-pane').isVisible());
+  assert(await split.locator(':scope > .exam-split-work-pane .case-part-nav').isVisible());
+  await state('case-live', caseFixture, panel(), true);
+  await choiceHome(viewport, { preview: true });
+  await button('Settings').click();
+  await button('Open Preview Lab').click();
+  await page.getByLabel('Preview bucket').selectOption('case_study');
+  await page.locator('.preview-controls label').filter({ has: page.getByText('Question', { exact: true }) })
+    .locator('select').selectOption(caseFixture.parent.id);
+  await page.locator('.preview-case-controls select').selectOption(caseFixture.q.id);
+  await button('Mobile stacked').click();
+  assert.equal(await page.locator('.mobile-preview-canvas .exam-split-work-pane').count(), 0);
+  const index = caseFixture.parent.caseStudy.questions.findIndex((q) => q.id === caseFixture.q.id);
+  const stacked = page.locator('.mobile-preview-canvas .case-question-list .case-active-part').nth(index).locator('.cloze-panel');
+  await state('preview-case-stacked', caseFixture, stacked, true);
+}
+
+async function choiceSuite() {
+  const standalone = entries.filter(({ q }) => q.itemType === 'dropdown_cloze');
+  const leaves = [...standalone, ...cases];
+  const dropdowns = leaves.flatMap(({ q }) => q.dropdowns);
+  const options = dropdowns.flatMap((d) => d.options);
+  report.choices = {
+    mode: choicesBaseline ? 'baseline' : 'candidate', keyboard: spatialKeyboard ? 'Blink spatial navigation' : 'native arrow keys',
+    fixtureSha256: sha(JSON.stringify(witness.q)),
+    bank: { leaves: leaves.length, embedded: cases.length, blanks: dropdowns.length, options: options.length,
+      missingZh: options.filter((o) => !o.zh?.trim()).length },
+    grades: [], states: [],
+  };
+  const baseline = choices && JSON.parse(readFileSync(arg('--baseline-results'), 'utf8'));
+  if (baseline) {
+    assert.equal(baseline.status, 'PASS');
+    assert.equal(baseline.choices.mode, 'baseline');
+    assert.equal(new URL(baseline.url).protocol, new URL(url).protocol);
+    assert.equal(baseline.browser, report.browser);
+    assert.equal(baseline.runnerSha256, report.runnerSha256);
+    assert.equal(baseline.choices.fixtureSha256, report.choices.fixtureSha256);
+  }
+  const ax = await context.newCDPSession(page);
+  try {
+    for (const viewport of choiceViewports) {
+      const state = (name, ...params) => choiceState(ax, viewport.width + '-' + name, ...params);
+      for (const pattern of ['correct', 'incorrect', 'partial']) {
+        report.choices.grades.push(await choiceKeyboardAttempt(viewport, pattern, choices ? 'always' : 'off'));
+      }
+      if (choicesBaseline) continue;
+
+      await seed(witness, { ...viewport, language: 'off' });
+      await state('study-off', witness, panel(), false);
+      await display('EN/ZH').click();
+      await state('study-always', witness, panel(), true);
+      await display('Tap ZH').click();
+      await state('study-ontap-hidden', witness, panel(), false);
+      await panel().getByRole('button', { name: '需要中文', exact: true }).click();
+      await state('study-ontap-revealed', witness, panel(), true);
+      await display('EN').click();
+      await state('study-off-after-reveal', witness, panel(), false);
+
+      await choiceKeyboardAttempt(viewport, 'partial', 'on-tap');
+      await state('study-submitted-ontap-hidden', witness, panel(), false, true);
+      await page.getByRole('button', { name: /显示完整中文/ }).click();
+      await state('study-reveal-all', witness, panel(), true, true);
+      await button('Finish').click();
+      await button('Back to Study').click();
+      await page.locator('.last-set-entry').click();
+      await page.locator('.summary-review-toggle').click();
+      await display('EN/ZH').click();
+      await state('last-set-always', witness, panel(), true, true);
+
+      await choiceCases(state, viewport);
+      for (const mode of ['test', 'adaptive']) await choiceExam(state, viewport, mode);
+    }
+    if (choices) {
+      assert.deepEqual(report.choices.grades, baseline.choices.grades, 'Stored answer and grading parity against H');
+      const [large, normal] = [320, 375].map((width) => report.choices.states.find((s) => s.name === width + '-study-always'));
+      assert(large.fontSize > normal.fontSize, 'Large text must increase choice list text');
+    }
+  } finally {
+    await ax.detach();
+  }
+  console.log(JSON.stringify({ mode: report.choices.mode, states: report.choices.states.length, grades: report.choices.grades.length, bank: report.choices.bank }));
+}
+
 try {
   await page.goto(url);
   await page.locator('.study-workspace').waitFor();
   report.userAgent = await page.evaluate(() => navigator.userAgent);
-  await seed(witness);
-  await containment('witness-320-default-empty');
-  if (new URL(url).protocol === 'file:') {
-    await fill('correct');
-    await checkState('file-selected');
-    await submit('correct', 'file-submitted-correct');
-    await screenshot('file-320-submitted');
+  report.buildId = await page.locator('meta[name="app-build-id"]').getAttribute('content');
+  if (choices || choicesBaseline) {
+    await choiceSuite();
   } else {
-    await core();
-    await languageAndResume();
-    await sharedContexts();
-    await largerAndCollateral();
+    await seed(witness);
+    await containment('witness-320-default-empty');
+    if (new URL(url).protocol === 'file:') {
+      await fill('correct');
+      await checkState('file-selected');
+      await submit('correct', 'file-submitted-correct');
+      await screenshot('file-320-submitted');
+    } else {
+      await core();
+      await languageAndResume();
+      await sharedContexts();
+      await largerAndCollateral();
+    }
   }
   await consoleProof();
   report.status = 'PASS';
