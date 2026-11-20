@@ -75,7 +75,7 @@ Required header, before section 0:
 Close the work order with a one-line trailer so the launch is unambiguous:
 
 ```
-SEND TO: Codex — GPT-5.6 Sol — high
+SEND TO: Codex — GPT-6.2 Sol — high
 ```
 
 Applies to work orders authored from 2026-08-27 forward; earlier ones are not retrofitted. The launch block stays inline in conversation — do not write a separate `scratch/*-LAUNCH-PROMPT.txt`, since the work order on disk is the artifact.
@@ -86,21 +86,23 @@ Applies to work orders authored from 2026-08-27 forward; earlier ones are not re
 
 The one carve-out is content, not code. Learner-facing clinical material keeps its existing provenance routing under P5 and the standing invariant on promoted `opus*`-prefixed case IDs, under which Claude-authored items route to a non-Claude reviewer. That governs the content surface only and says nothing about who may implement a spec.
 
-### Current routing — reviewed 2026-09-05
+### Current routing — reviewed 2026-11-20
 
 Operational state, not a project invariant. Update it when the roster changes or when observed model behavior changes. This table is expected to go stale and is maintained rather than abstracted.
 
+Codex lanes name a model family; each row lists that family's current generation (exact CLI IDs: `gpt-6-luna`, `gpt-6.2-sol`, `gpt-6.2-astra`), checked against the live Codex `model/list` on 2026-11-20. Availability and the newest-generation default follow the user-scope Codex roster in `~/.claude/CLAUDE.md`. Older generations that are still selectable are not routes here unless Luke names them for that work order. Historical work orders keep the model names they were issued with.
+
 | Seat / model | Route here when |
 |---|---|
-| Codex / GPT-5.6 Luna | Tightly bounded mechanical implementation: enumerated edits with quoted anchors, mechanical refactors, scaffolding against a fixed matrix. |
-| Codex / GPT-5.6 Sol | Residual judgment: an anchor that may have drifted, a decision the spec deliberately leaves open, multi-file coherence, or a step whose correct action depends on what the implementer finds in source. |
-| Codex / GPT-6 Astra | **Provisional high-judgment/orchestration lane.** Use for explicit trials where difficult multi-file reasoning, long-horizon recovery, or bounded delegation may help. Do not displace the established Luna/Sol/Claude Code routes by default until reviewed Project Shrimp implementation evidence supports permanent rerouting. Delegation remains governed by `AGENTS.md`; selecting Astra or a high-effort mode does not create checker independence or expand task authority. |
+| Codex / GPT-6 Luna | Tightly bounded mechanical implementation: enumerated edits with quoted anchors, mechanical refactors, scaffolding against a fixed matrix. |
+| Codex / GPT-6.2 Sol | Residual judgment: an anchor that may have drifted, a decision the spec deliberately leaves open, multi-file coherence, or a step whose correct action depends on what the implementer finds in source. |
+| Codex / GPT-6.2 Astra | **Provisional high-judgment/orchestration lane.** Use for explicit trials where difficult multi-file reasoning, long-horizon recovery, or bounded delegation may help. Do not displace the established Luna/Sol/Claude Code routes by default until reviewed Project Shrimp implementation evidence supports permanent rerouting. Delegation remains governed by `AGENTS.md`; selecting Astra or a high-effort mode does not create checker independence or expand task authority. |
 | Claude Code / Claude Sonnet 5 | Default Claude Code lane. Looser spec, implementer expected to fill gaps sensibly; work where reading the surrounding code matters more than recognizing the problem shape. |
 | Claude Code / Claude Opus 5 | Judgment-heavy or coherence-critical work where a passing build does not guarantee correct logic — schema, grading, promotion routing, anything touching a data contract. |
 
 Deliberately unrouted, so a future reader knows the gaps are choices:
 
-- **GPT-5.6 Terra** — bounded work goes to Luna and judgment work to Sol; nothing currently sits between them. A routing call, not an assessment of the model.
+- **GPT-6.1 Terra** — bounded work goes to Luna and judgment work to Sol; nothing currently sits between them. A routing call, not an assessment of the model.
 - **Claude Haiku 4.5** — not routed to at any tier. Version bumps do not reopen this lane.
 - **Claude Fable 5** — closed by access rather than by judgment. Safeguards routing intercepts biology-adjacent requests, which covers effectively this whole project's content surface, so the lane has never been usable here in practice. Revisit if that changes.
 
@@ -108,7 +110,7 @@ If a work order **intended to be mechanical** cannot be assigned to Luna without
 
 ### Reasoning effort
 
-A separate dial from model choice; set both deliberately. Name effort using the selected model's current runtime vocabulary rather than assuming one fixed label set. Current local Codex metadata (reviewed 2026-09-05) exposes `ultra` as an effort choice associated with automatic delegation for both Sol and Astra, while public API documentation uses different effort names. That setting does not expand task authorization. Do not infer API equivalence or capability differences from UI/runtime labels alone.
+A separate dial from model choice; set both deliberately. Name effort using the selected model's current runtime vocabulary rather than assuming one fixed label set. Current local Codex metadata (reviewed 2026-11-20, codex-cli 0.169.1) exposes `ultra` as an effort choice associated with automatic delegation for Sol, Astra, and Terra; Luna tops out at `max` and offers no `ultra`, while public API documentation uses different effort names. That setting does not expand task authorization. Do not infer API equivalence or capability differences from UI/runtime labels alone.
 
 Set effort by the task's dominant failure mode. **high** is the default for anything carrying a source-verification gate or reconstructing behavior from source. Drop to **medium** when the work order is fully enumerated and the dominant risk is doing more than asked. Reserve the selected runtime's highest effort levels for exceptionally difficult reasoning that is nonetheless fully in scope; difficulty is the trigger, not ambiguity. Where a work order does not confer authority to decide, the correct behavior is stop-and-report at any effort level, and raising effort never substitutes for the missing authorization.
 
