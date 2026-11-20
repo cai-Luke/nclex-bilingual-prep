@@ -111,6 +111,7 @@ the entry title byte-for-byte.
 | P21 | P | ACTIVE | BINDING | Repo-reading generation prompts carry the semantic floor |
 | P21 | P | ACTIVE | BINDING | Application: construction language stays off the learner surface |
 | P21 | P | ACTIVE | BINDING | Application: construction language is functional, not positional |
+| P21 | P | ACTIVE | BINDING | Application: a supplied rule must be applied, not transcribed |
 | P23 | P | ACTIVE | BINDING | Exam-like presentation is a renderer concern |
 | P23 | P | ACTIVE | BINDING | Application: sparse shape-aware allocation |
 | P23 | P | ACTIVE | BINDING | Application: an embedded leaf is a planning unit, not a retirement unit |
@@ -156,7 +157,7 @@ the entry title byte-for-byte.
 | — | T | PARKED | ADVISORY | Exam-condition test and adaptive modes |
 | — | T | REVISIT | ADVISORY | Unresolved vital sanity bounds |
 
-**Declared total:** 68 entry blocks.
+**Declared total:** 69 entry blocks.
 
 ## 4. Governing principles
 
@@ -480,6 +481,15 @@ that a corpus is free of construct defense.
 - **Status:** ACTIVE
 - **Force:** BINDING
 - **Date:** 2026-07-22
+
+#### P21 — Application: a supplied rule must be applied, not transcribed
+
+A closed-world stem may and should state the governing order, protocol, prescription, or criteria, and stating a governing protocol is not by itself an answer cue. The item must still require applying that rule to the clinical facts given; an item whose stem lists its keyed response in keyed order, or narrates its keyed actions as already performed before asking for them, tests transcription and is repaired item by item rather than by removing protocols generally. A fill-in blank asking for the English term for a concept the item makes recoverable is a legitimate vocabulary-recall construct and need not accept a Chinese-language answer, while a blank whose required answer the stem and exhibits never make recoverable, or that rejects the stem's own phrasing for the same answer, fails the gradeable-closed-vocabulary floor.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-11-20
 
 ### P23 — Exam-like presentation is a renderer concern
 
