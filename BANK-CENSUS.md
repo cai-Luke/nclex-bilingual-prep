@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-09-13T12:12:10.982Z
-Input Git SHA: 9d6891b47f5a09d800db66d647fc7312b636fb1c
+Generated: 2026-11-20T03:38:13.744Z
+Input Git SHA: 9e2d3f0024316d2e1afa23f3649a4aeabb9151b8
 
 ## Session-Unit Inventory and Delivery Capacity
 
@@ -21,9 +21,9 @@ Population basis: top-level delivery units. Category, topic, item-type, and diff
 |------|--------|-----------|---------------|----------|
 | burn-canonical.json | 1.2 | 8 | 8 | — |
 | capnography-canonical.json | 1.2 | 7 | 7 | — |
-| claude-canonical.json | 2.1 | 96 | 96 | — |
+| claude-canonical.json | 2.1 | 98 | 98 | — |
 | device-canonical.json | 1.2 | 8 | 8 | — |
-| gemini-canonical.json | 2.1 | 874 | 874 | — |
+| gemini-canonical.json | 2.1 | 872 | 872 | — |
 | gpt-canonical.json | 2.1 | 797 | 797 | — |
 | hard-cases-canonical.json | 2.1 | 66 | 66 | — |
 | io-canonical.json | 1.2 | 8 | 8 | — |
@@ -59,12 +59,12 @@ Population basis: top-level delivery units. Category, topic, item-type, and diff
 
 - case_study: 145
 - bowtie: 164
-- ordered_response: 189
+- ordered_response: 187
 - highlight: 195
 - dropdown_cloze: 199
 - fill_in_blank: 199
 - matrix: 200
-- select_all: 221
+- select_all: 223
 - multiple_choice: 455
 
 `case_study` is a delivery container here, not a scored item type.
@@ -101,9 +101,9 @@ Operational shortfalls:
 - Schema v2.0: 57 session units (visual-canonical.json)
 - burn-canonical.json: 8
 - capnography-canonical.json: 7
-- claude-canonical.json: 96
+- claude-canonical.json: 98
 - device-canonical.json: 8
-- gemini-canonical.json: 874
+- gemini-canonical.json: 872
 - gpt-canonical.json: 797
 - hard-cases-canonical.json: 66
 - io-canonical.json: 8
@@ -298,10 +298,10 @@ Population basis: standalone top-level questions plus embedded case-study questi
 - bowtie: 164
 - highlight: 217
 - fill_in_blank: 225
-- ordered_response: 242
+- ordered_response: 240
 - dropdown_cloze: 290
 - matrix: 344
-- select_all: 380
+- select_all: 382
 - multiple_choice: 691
 
 ### Scored-Leaf Difficulty Distribution
@@ -334,7 +334,7 @@ Under-served scored item types:
 - bowtie: 164
 - highlight: 217
 - fill_in_blank: 225
-- ordered_response: 242
+- ordered_response: 240
 - dropdown_cloze: 290
 
 ### Prompt Parameters
@@ -345,7 +345,7 @@ PRIORITIZE_TOPICS:
 - bowtie (164 vs target 319.1)
 - highlight (217 vs target 319.1)
 - fill_in_blank (225 vs target 319.1)
-- ordered_response (242 vs target 319.1)
+- ordered_response (240 vs target 319.1)
 - dropdown_cloze (290 vs target 319.1)
 - IV Fluid Calculations
 - Electroconvulsive Therapy (ECT)
