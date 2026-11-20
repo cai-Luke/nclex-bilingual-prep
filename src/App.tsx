@@ -4804,7 +4804,7 @@ function SummaryView({
                   {flags[entry.questionId]?.flagged ? "Remove from Saved" : "Save question"}
                 </button>
               )}
-              {progress[entry.questionId]?.needsReview && (
+              {q && progress[entry.questionId]?.needsReview && (
                 <span className="missed-pill">Needs review now</span>
               )}
             </div>
