@@ -40001,7 +40001,7 @@
       "id": "gpt_gap_jun12_matrix_iv_phlebitis_01",
       "itemType": "matrix",
       "category": "Basic Care and Comfort",
-      "topic": "Sleep & Rest",
+      "topic": "Skin & Wound Care",
       "difficulty": "easy",
       "ngnSkill": "evaluate_outcomes",
       "stem": {
@@ -40039,13 +40039,13 @@
         "columns": [
           {
             "id": "c2",
-            "en": "Discontinue IV, restart at a new site, and notify provider if systemic signs occur",
-            "zh": "停止该静脉通路，另选新部位置管；若有全身症状则通知医务人员"
+            "en": "Remove the catheter and use a new site if IV access is still needed",
+            "zh": "拔除导管，如仍需静脉通路则另选部位置管"
           },
           {
             "id": "c1",
-            "en": "Continue IV and reassess per policy",
-            "zh": "继续使用该静脉通路，并按规定复评"
+            "en": "Continue using the IV and reassess the site",
+            "zh": "继续使用该静脉通路，并复评穿刺部位"
           }
         ],
         "selectionMode": "single_per_row"
@@ -40060,7 +40060,7 @@
         {
           "rowId": "r2",
           "columnIds": [
-            "c1"
+            "c2"
           ]
         },
         {
@@ -40084,19 +40084,19 @@
       ],
       "rationale": {
         "correct": {
-          "en": "No signs and very mild early irritation can be monitored per policy, but marked pain with erythema/swelling, a palpable cord, or purulent drainage indicates phlebitis that requires discontinuing the IV and restarting at a new site.",
-          "zh": "无异常或非常轻微的早期刺激可按规定观察；但明显疼痛伴发红/肿胀、可触及条索或脓性分泌物提示静脉炎，需要停止该通路并另选新部位置管。"
+          "en": "A healthy site can remain in use with regular reassessment. Two or more of the following findings warrant catheter removal even when mild: pain at the site, redness, and swelling. A palpable venous cord or purulent drainage also warrants removal.",
+          "zh": "穿刺部位无异常时，可继续使用导管并定期复评。穿刺部位疼痛、发红和肿胀中只要出现两项或以上，即使程度轻微也应拔管。可触及静脉条索或出现脓性分泌物时也应拔管。"
         },
         "byChoice": [
           {
             "refId": "r1",
-            "en": "A grade 0 site has no phlebitis cues, so continuing and reassessing per policy is appropriate.",
-            "zh": "0 级部位无静脉炎线索，因此可继续使用并按规定复评。"
+            "en": "A healthy site has a Visual Infusion Phlebitis (VIP) score of 0. Continue using the catheter and check the site regularly.",
+            "zh": "穿刺部位无异常，视觉输液静脉炎（VIP）评分为 0 分。可继续使用导管并定期检查穿刺部位。"
           },
           {
             "refId": "r2",
-            "en": "Mild pain with faint erythema and slight swelling is an early finding that can be closely monitored according to facility policy.",
-            "zh": "轻度疼痛、淡红斑和轻微肿胀属于早期表现，可按机构规定密切观察。"
+            "en": "Redness and swelling already meet the VIP score 2 threshold for early phlebitis. Tenderness is an additional finding. Remove the catheter even though the signs are mild.",
+            "zh": "发红和肿胀已达到早期静脉炎的 VIP 评分 2 分标准，触诊时还有压痛。即使表现轻微，也应拔管。"
           },
           {
             "refId": "r3",
@@ -40110,14 +40110,14 @@
           },
           {
             "refId": "r5",
-            "en": "Purulent drainage with a venous cord suggests severe phlebitis or infection risk, requiring removal and escalation if systemic signs are present.",
-            "zh": "条索伴脓性分泌物提示严重静脉炎或感染风险，应拔管；如有全身症状需上报。"
+            "en": "Purulent drainage at a site with a palpable venous cord raises concern for infection. Remove the catheter and promptly report the findings to the provider.",
+            "zh": "静脉出现可触及的条索，且穿刺点有脓性分泌物，提示可能存在感染。应拔除导管，并及时向医疗提供者报告这些表现。"
           }
         ]
       },
       "testTakingStrategy": {
-        "en": "Escalate IV-site findings when pain is marked, inflammation tracks along the vein, a cord is palpable, or drainage appears.",
-        "zh": "若输液部位疼痛明显、炎症沿静脉延伸、可触及条索或出现分泌物，应升级处理。"
+        "en": "Consider the combination of findings at each site. Several mild signs together can warrant the same action as more advanced inflammation.",
+        "zh": "综合评估每个穿刺部位的表现。多种轻微体征同时出现时，可能需要采取与较严重炎症相同的措施。"
       },
       "glossary": [
         {
@@ -61775,8 +61775,8 @@
       "difficulty": "hard",
       "ngnSkill": "take_action",
       "stem": {
-        "en": "After the transfusion is stopped, a 74-year-old client with CKD and compensated heart failure has improving dyspnea after oxygen, upright positioning, and ordered IV furosemide. During the second unit she developed SpO2 89% on room air, BP 168/96, JVD, new S3, worsening 2+ edema, oliguria, and bilateral crackles. Chest X-ray shows pulmonary vascular congestion, small pleural effusions, cardiomegaly, and a widened vascular pedicle. BNP rose from 280 to 890 pg/mL. Complete the bow-tie by selecting the most likely condition, two priority actions, and two parameters to monitor.",
-        "zh": "停止输血后，一名74岁慢性肾病并代偿期心衰患者在吸氧、坐位和按医嘱IV呋塞米后气短有所改善。第二单位输注期间，她出现室内空气SpO2 89%、BP 168/96、颈静脉怒张、新S3、2+水肿加重、少尿和双侧湿啰音。胸片显示肺血管淤血、少量胸腔积液、心影增大和血管蒂增宽。BNP从280升至890 pg/mL。请完成弓形题：选择最可能状况、两个优先措施和两个需要监测的参数。"
+        "en": "A 74-year-old client with chronic kidney disease and compensated heart failure develops dyspnea during the second unit of a blood transfusion. The nurse stops the transfusion. SpO₂ is 89% on room air and blood pressure is 168/96 mm Hg. Findings include jugular venous distention, a new S3, worsening 2+ edema, oliguria, and bilateral crackles. Chest X-ray shows pulmonary vascular congestion, small pleural effusions, cardiomegaly, and a widened vascular pedicle. BNP has risen from 280 to 890 pg/mL. Select the most likely condition, two priority actions to take now, and two parameters to monitor for improvement.",
+        "zh": "一名 74 岁患者有慢性肾病和代偿期心力衰竭，输注第 2 单位血液制品时出现呼吸困难。护士已停止输血。患者呼吸室内空气时 SpO₂ 为 89%，血压为 168/96 mm Hg。评估发现颈静脉怒张、新出现的第三心音、加重的 2+ 水肿、少尿和双肺湿啰音。胸片显示肺血管淤血、少量胸腔积液、心影增大和血管蒂增宽。BNP 由 280 升至 890 pg/mL。请选择最可能的病情、目前应优先采取的两项措施，以及用于判断病情是否改善的两个监测指标。"
       },
       "bowtie": {
         "condition": {
@@ -61803,8 +61803,8 @@
           "tokens": [
             {
               "id": "act_oxygen_position",
-              "en": "Maintain high Fowler's position with supplemental oxygen and close respiratory monitoring",
-              "zh": "维持高Fowler体位、补充氧并密切监测呼吸状态"
+              "en": "Place the client in high Fowler’s position, provide supplemental oxygen, and monitor respiratory status closely",
+              "zh": "协助患者取高坐卧位，给予氧疗，并密切监测呼吸状况"
             },
             {
               "id": "act_iv_bolus",
@@ -61858,14 +61858,14 @@
       },
       "rationale": {
         "correct": {
-          "en": "The condition is TACO because the respiratory compromise occurs with hypertension, elevated filling-pressure findings, peripheral edema, pulmonary vascular congestion, cardiomegaly, BNP rise, and response to diuresis. Priorities are oxygenation/positioning and ordered diuresis with urine-output monitoring. The most useful monitoring parameters are oxygenation with weaning ability and urine output, because they track pulmonary improvement and volume removal.",
-          "zh": "最可能状况是TACO，因为呼吸受损同时伴高血压、充盈压升高表现、外周水肿、肺血管淤血、心影增大、BNP升高以及利尿后改善。优先措施是改善氧合/体位和按医嘱利尿并监测尿量。最有用的监测参数是氧合及能否降阶氧疗、尿量，因为它们反映肺部改善和容量排出。"
+          "en": "The onset of dyspnea during transfusion, together with hypertension, jugular venous distention, worsening edema, pulmonary vascular congestion, and a rise in BNP, points to transfusion-associated circulatory overload (TACO). Upright positioning and supplemental oxygen support breathing. Ordered diuresis helps remove excess fluid. Follow oxygen saturation and the need for supplemental oxygen to assess breathing, and follow urine output to assess the diuretic response.",
+          "zh": "输血期间出现呼吸困难，同时伴有血压升高、颈静脉怒张、水肿加重、肺血管淤血及 BNP 升高，提示输血相关循环超负荷（TACO）。取坐位和吸氧有助于改善呼吸，按医嘱利尿有助于排出多余液体。监测血氧饱和度和补充氧气的需要以评估呼吸状况，并监测尿量以判断利尿效果。"
         },
         "byChoice": [
           {
             "refId": "cond_taco",
-            "en": "Correct. This token matches the full overload pattern: hypertension, JVD, S3, edema, vascular congestion, BNP rise, and diuretic response.",
-            "zh": "正确。此项符合完整超负荷模式：高血压、颈静脉怒张、S3、水肿、血管淤血、BNP升高和利尿反应。"
+            "en": "Hypertension, jugular venous distention, a new S3, worsening edema, and pulmonary vascular congestion point to excess circulatory volume. The rise in BNP supports that interpretation.",
+            "zh": "血压升高、颈静脉怒张、新出现的第三心音、水肿加重及肺血管淤血均提示循环容量过多。BNP 升高也支持这一判断。"
           },
           {
             "refId": "cond_trali",
@@ -96717,43 +96717,41 @@
       "difficulty": "medium",
       "ngnSkill": "generate_solutions",
       "stem": {
-        "en": "A client is being discharged with negative-pressure wound therapy. Facility policy: the discharge handoff must name the follow-up destination responsible for the first dressing change within 24 hours. The case manager arranged skilled nursing visits beginning tomorrow. The nurse should list the follow-up destination as the ______.",
-        "zh": "患者将带负压伤口治疗装置出院。机构政策：出院交接必须注明负责 24 小时内首次换药的随访去向。个案管理师已安排从明天开始的专业护理上门服务。护士应将随访去向填写为 ______。"
+        "en": "A client is going home with negative-pressure wound therapy. The discharge plan calls for the first dressing change within 24 hours. The case manager arranged skilled nursing visits beginning tomorrow. Which service should the nurse document for the dressing change? ______",
+        "zh": "患者将带负压伤口治疗装置回家。出院计划要求在 24 小时内首次换药。个案管理师已安排从明天开始的专业护理上门服务。护士应在交接记录中填写哪项服务负责此次换药？______"
       },
       "blanks": [
         {
           "id": "b1",
           "prompt": {
-            "en": "follow-up destination",
-            "zh": "随访去向"
+            "en": "Follow-up nursing service (in English)",
+            "zh": "随访护理服务（用英语填写）"
           },
           "acceptable": [
-            "home health agency",
-            "home health nursing agency",
-            "skilled home health agency",
-            "home health nurse",
+            "skilled nursing visits",
+            "skilled nursing visit",
+            "skilled nursing",
             "home health nursing",
-            "visiting nurse service",
-            "visiting nurse agency"
+            "visiting nurse service"
           ]
         }
       ],
       "rationale": {
         "correct": {
-          "en": "The arranged follow-up destination is the home health agency or home health nursing service. The handoff should identify the service responsible for the first dressing change, not simply state that the client has a device.",
-          "zh": "已安排的随访去向是居家护理机构或居家护理服务。交接应明确负责首次换药的服务方，而不只是说明患者带有装置。"
+          "en": "The case manager arranged skilled nursing visits at home. Documenting this service tells the receiving team how the first dressing change will be provided.",
+          "zh": "个案管理师已安排专业护理上门服务。在交接记录中注明这项服务，可让接手团队了解首次换药将如何落实。"
         },
         "byChoice": [
           {
             "refId": "b1",
-            "en": "Acceptable answers name the home-health follow-up destination or service, such as 'home health agency' or 'visiting nurse service.'",
-            "zh": "可接受答案应写出居家护理随访去向或服务，例如“home health agency”或“visiting nurse service”。"
+            "en": "Skilled nursing visits provide the wound care in this discharge plan. Home health nursing and visiting nurse service also describe the arranged service.",
+            "zh": "出院计划安排由护士上门提供伤口护理。“Home health nursing”（居家护理）和“visiting nurse service”（护士上门服务）也可用来描述这项安排。"
           }
         ]
       },
       "testTakingStrategy": {
-        "en": "Use the clues about what was actually arranged. A discharge handoff should identify who owns the first postdischarge task.",
-        "zh": "根据题干中已经安排的服务作答。出院交接应说明出院后第一项护理任务由谁负责。"
+        "en": "Connect the task due after discharge with the service already arranged to carry it out.",
+        "zh": "将出院后需要完成的任务与已安排承担该任务的服务对应起来。"
       },
       "glossary": [
         {

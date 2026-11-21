@@ -2187,3 +2187,92 @@ The INT-01 (`1b07ea192426e7cbb9db1303ad73a2e7adb8604b`), INT-02 (`9e2d3f0024316d
 No bank file, census artifact or earlier ledger text changed in the merge or in this entry's commit. Bank SHA-256 in the candidate equals INT-03's: `gemini-canonical.json` `a0a78e391a3d4f867d935ecc2ac60d0a5fcc879f1a3ebfc4538576c45dfc1c39` and `claude-canonical.json` `2a356826c08ac3aef0f3ec134d8e521f430a777fec05666a4a20492fb88e8194`. Counts are in [BANK-CENSUS.md](BANK-CENSUS.md). The statements "local commit only, not pushed, merged or deployed" in the INT-01, INT-02 and INT-03 entries, and "not merged to `main` or deployed" in the 2026-11-16 IV push entry, describe the state when each was written.
 
 Architect acceptances are under `scratch/rg01-early-integration-2026-11-18/` (INT-01), `scratch/int03-rg02-residual-2026-11-19/` (INT-02) and `scratch/publication-int01-int03-2026-11-20/` (INT-03). The publication work order `scratch/PUBLICATION-INT01-INT03-CLAUDE-CODE-WORK-ORDER-2026-11-20.md` and its receipts, including deployment and learner-smoke results, are local-only. The RG-02 content gate remains closed, and every held item stays outside the banks.
+
+## INT-R2-1 — A-1 priority single-item repairs, canonical integration (2026-11-20)
+
+Executes the frozen INT-R2-1 work order (`AgentCommons/shrimp-dogfooding-reconciliation-2026-11-20-r1/r2-orders/INT-R2-1-A1-CANONICAL-INTEGRATION.md`,
+sha256 `52c0bb019c3608cc46ba2c47e856469818bc53945e0ccb28a1fb13477c4e59f5`) on owner launch, under `REPAIR_DISPATCH_R2.md`
+(sha256 `2e5174503d45ba2580bcdb50c4cca5d914f45e4ce621f3946379269b1eef504d`) CT-1 to CT-12 and §5, and the A-1 order
+`r2-orders/A-1-PRIORITY-ITEM-REPAIR.md` (sha256 `5e611325e2368a66a864d97f7d0bf92faa73bec7154148eda0097da6fbc09294`).
+P2 spec conformance: architect seat (Claude Opus 5.5, claude.ai), `r2-orders/R2-ARCHITECT-A1-P2-CONFORMANCE-2026-11-20-2215.md`
+(sha256 `24c53b4682d209b2c2ae6532629c26edc53d6c7afe400d384eeb90081d6bf61f`), terminal `A1_UNITS_ELIGIBLE_7_HELD_0`.
+Integrator: Claude Code / Claude Opus 5.5 (`claude-opus-5-5`), high effort, session `cfd411c1-787a-4ba5-8687-569ec0999fb6`
+(fresh; outside the order's excluded set) — mechanical integration only. This seat discharges no content review.
+Worktree `Project Shrimp R2-INT-R2-1 worktree`, branch `claude/r2-int-r2-1`, base `origin/main` =
+`be60ceb74eb84b693300c5e8112020d6938a2a88` (equals the expected base; no drift). Evidence: `scratch/dogfood-r2-2026-11-20/INT-R2-1/`.
+
+**Checker records** (`scratch/dogfood-r2-2026-11-20/A-1/`): `route-astra/checker/CHECK.json` sha256
+`570fc00c98c6c6f0160f3b1f31024fd61802e0b19399908380d14b821d5037ff` (`A1_ASTRA_CHECK_COMPLETE_ACCEPT_4_HOLD_0`);
+`route-claude-check/CHECK.json` `d25882b555b8dce33082d63af6553dc8f351a3d0288888901033e80ea50d3c71` (A-U4 ACCEPT_WITH_NOTES);
+`route-claude-check/return-1/CHECK.json` `a2961dcd8820cf2d38585a19f57b82dc3993f78df05200937842364d566bc51e` (A-U7 ACCEPT_WITH_NOTES).
+Freezes `route-claude/PRODUCER-FREEZE.sha256` (`fcb8d781…6ba`) and `route-claude/return-1/RETURN-FREEZE.sha256` (`6ce0bb6a…f29a`)
+verified with `shasum -c` (all lines OK).
+
+**Integrated items** (same ID, same position; no ID added or retired; applied serially in this order; no unit skipped):
+
+| Unit | ID (bank) | Findings | Change class | Changed surface (`setValue` ops) | Key |
+|---|---|---|---|---|---|
+| A-U1 | `gpt_gap_jun12_matrix_iv_phlebitis_01` (`gpt-canonical`) | F-16, F-04f | Same-ID key change; topic | 16: `topic`; `correct[1].columnIds[0]`; `matrix.columns[c1,c2]` en/zh; `rationale.correct`, `byChoice[r1,r2,r5]`, `testTakingStrategy` en/zh | **Changed:** row r2 rekeyed `c1` → `c2`. Topic `Sleep & Rest` → `Skin & Wound Care` (category unchanged) |
+| A-U2 | `gpt_deepen_2026_06_22_b_moc2_07` (`gpt-canonical`) | F-24 | Accepted-answer set changed | 11: `stem`, `blanks[b1].prompt` en/zh; `blanks[b1].acceptable`; `rationale.correct`, `byChoice[b1]`, `testTakingStrategy` en/zh | Accepted set changed (OD-2 removals recorded in `A-1/route-astra/A-U2/GRADING.json`) |
+| A-U6 | `gpt_case_taco_vs_trali_01_bowtie` (`gpt-canonical`) | F-07c | Text-only | 8: `stem`; `bowtie.actions.tokens[act_oxygen_position]`; `rationale.correct`, `byChoice[cond_taco]` (en/zh) | Unchanged. Parent case `gpt_case_taco_vs_trali_01` untouched |
+| A-U3 | `trad_batchD_02` (`gemini-canonical`) | F-09, F-04b | Option content changed, key unchanged; topic | 5: `topic`; `options[C]`, `byChoice[C]` en/zh | Unchanged. Topic `Maternal-Newborn Care & Teaching` → `Laboratory & Diagnostic Tests` (category unchanged) |
+| A-U5 | `gap_50_mc_01` (`gemini-canonical`) | F-10 | Text-only (mechanical deletion) | 2: `clozeStem` en/zh | Unchanged |
+| A-U7 | `trad_batchD_14` (`gemini-canonical`) | F-05b | Same-ID key change | 15: `correct`; `options[E]` en/zh; `rationale.correct`, `byChoice[A,B,D,E]`, `testTakingStrategy` en/zh | **Changed:** `A,B,C` → `A,B,C,D` (face shield added to the key) |
+| A-U4 | `ekg_b3_mc_07` (`visual-canonical`) | F-17a, F-17b | Text-only | 4: `visual.caption` en/zh; `testTakingStrategy` en/zh | Unchanged; stimulus and selfCheck unchanged |
+
+**Provenance and review.**
+- A-U1, A-U2, A-U3, A-U6 (Astra route; substantive authorship GPT): producer Codex-hosted `gpt-6.2-astra`, high effort,
+  session `01a1fa86-2f0c-7751-97bb-3c3678be73f7`, patch commit `a46d1b95a7eae6b9676d60cf3cfeb740df4f810d`; checker Claude Opus 5.5,
+  session `b80926ca-c558-4a3c-98c9-67c43ee7b2e1` (A-U3 ACCEPT; A-U1, A-U2, A-U6 ACCEPT_WITH_NOTES).
+- A-U4, A-U7 (Claude route; authorship neither Claude nor GPT): producer Claude Opus 5.5, session
+  `24532916-4203-407a-acd1-64bb328b6f0b` (round 1) and `3aba6f2c-e713-4c59-a759-7bf11fa86262` (A-U7 return 1), patch commit
+  `6416fdee24ccfcc795e8a8ffd1a3f6fa3324c52b` (parent `8a637ac`, whose round-1 A-U7 patch is superseded and was not applied);
+  checker Codex-hosted `gpt-6.2-astra`, high effort, session `01a1faa3-ba8d-7c61-a3d6-25401e9a2dab` (both rounds; ACCEPT_WITH_NOTES).
+- A-U5: producer Claude Opus 5.5, session `24532916-4203-407a-acd1-64bb328b6f0b`, commit `6416fdee…`; mechanical deletion by
+  owner ruling ("A-U5 mechanical"), no content checker (CT-5(b) not engaged); architect mechanical conformance PASS.
+- Architect notes R-1 to R-9 and new findings NF-A2-1, NF-A3-1, NF-A4-1, NF-A4-2, NF-A5-1, NF-A5-2, NF-A6-1, NF-A7-1 stand as
+  recorded in the conformance record; none was commissioned or acted on here.
+
+**Patch files** (P15 declarative exact-before `setValue`; written into the worktree from the bound commits with `git show`, each
+sha256 equal to its binding, not edited; run `--allow-canonical --strict-parity`):
+`scripts/patches/2026-11-20-r2a-a-u1.ts` (`e6834205…3cef`), `…-a-u2.ts` (`6603bb5e…f660`), `…-a-u6.ts` (`bbf4ad5d…b5b3`),
+`…-a-u3.ts` (`6bb085b7…bf13`), `…-a-u5-gap_50_mc_01.ts` (`5e38e969…0153`), `…-a-u7-trad_batchD_14.ts` (`3c8035a0…66cb`),
+`…-a-u4-ekg_b3_mc_07.ts` (`e7cabd15…a1a3`). Every run exited 0, every planned op applied as FIX, no parity warnings, post-write
+validation PASS. Before each step the target record hashed to its bound baseline; after it, to its bound candidate
+(`sha256(JSON.stringify(q, null, 2))`), and every other record, record order, the envelope and `meta` deep-equalled the pre-step state.
+
+**Bank SHA-256 chains.**
+- `gpt-canonical.json`: `d908e244…b2a0` → `9c3fce20…62ad` (A-U1) → `d69d907c…ece6` (A-U2) →
+  `03d8ef12857c8d55d9bd7c48fbe9ae1aa5ab52985c2f2a80f48cd4d21f5987cd` (A-U6, final).
+- `gemini-canonical.json`: `a0a78e39…1c39` (equals INT-03's closing hash) → `fab22f81…67a9` (A-U3) → `824aba6b…24e5` (A-U5) →
+  `ce54d216cb0b695929b1ba2d9c944f27d709c350a1116f4ffcee5158c4ac1663` (A-U7, final).
+- `visual-canonical.json`: `e42e2a3f…f9e4` → `b2acc8ff2b59c3d45e6f3a41d98e38e7ebcd4b8b620010633dcb36bcae585c36` (A-U4, final).
+No other bank changed.
+
+**Verification** (exit codes; baseline at `be60ceb` before any patch → integrated): `validate-bank -- banks/*.json` 0 → 0;
+`audit` 0 → 0; `audit:references` 0 → 0; `audit:references:widened` 1 → 1 (pre-existing, identical failure class; occurrences
+455 in 93 items → 453 in 92 items; the two removed are A-U4's `testTakingStrategy` en/zh option references; none added; none in
+the seven items); `test-visuals` 0 → 0 and `tsx scripts/tests/rhythm-strip.ts` 0 → 0 on the integrated `visual-canonical.json`
+(architect R-9); `test:grading` 0 → 0; `test:audit-references` 0 → 0; `test:schema-bank` 0 → 0; `tsc -b --pretty false` 0 → 0;
+`build` 0 → 0. Gate logs are byte-identical between runs except the build bundle name and size.
+
+**Census.** `census:check` 1 (stale; movement expected) → `npm run census` 0 → `census:check` 0. Movement is exactly the two
+same-category topic moves: Basic Care and Comfort Sleep & Rest 23→22 / Skin & Wound Care 15→16 (session units), 30→29 / 21→22
+(scored leaves); Reduction of Risk Potential Laboratory & Diagnostic Tests 50→51 / Maternal-Newborn 12→11 (session units), 81→82 /
+15→14 (scored leaves); and their derived prompt lists (Sleep & Rest enters `prioritizeTopics` and Parenteral Nutrition leaves its
+tail; Laboratory & Diagnostic Tests 84 reorders in `avoidTopics`), plus `generatedAt` / `inputGitSha`. No category, item-type,
+difficulty, total or other count moved. Producer-independent confirmation of this movement rests with the architect's acceptance.
+
+**Provenance.** `npm run provenance:banks` 0; only `generatedAt` and `inputGitSha` changed (no ID added or retired), so the file
+was restored to its committed bytes and is not part of this commit.
+
+**Learner history.**
+- Same-ID key change — A-U1 (row r2 rekeyed) and A-U7 (face shield added to the key): past attempts are not regraded; statistics
+  stay pooled under the same ID; Needs-review state from earlier attempts persists until one full-marks attempt.
+- Accepted-answer set changed — A-U2 (OD-2 removals recorded in its `GRADING.json`).
+- Option content changed, key unchanged — A-U3.
+- Text-only change — A-U4, A-U5, A-U6.
+
+Exposure and benchmark: all seven pre-repair hashes are recorded privately under A-1 (architect R-8); the next benchmark excludes
+or refreshes all seven and treats `gpt_case_taco_vs_trali_01` as exposed. `PROJECT-HISTORY.md` publication is deferred to the
+PUB-R2-2 seat. Local commit only — not pushed, merged or deployed.

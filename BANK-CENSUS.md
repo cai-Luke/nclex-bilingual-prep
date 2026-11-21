@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-11-20T03:38:13.744Z
-Input Git SHA: 9e2d3f0024316d2e1afa23f3649a4aeabb9151b8
+Generated: 2026-11-21T03:17:35.154Z
+Input Git SHA: be60ceb74eb84b693300c5e8112020d6938a2a88
 
 ## Session-Unit Inventory and Delivery Capacity
 
@@ -50,9 +50,9 @@ Population basis: top-level delivery units. Category, topic, item-type, and diff
 - Safety and Infection Prevention and Control: Patient & Environment Safety (76), Transmission-Based Precautions (56), Standard Precautions & Hygiene (39), PPE & Sterile Technique (32), Disaster & Emergency Preparedness (24), Transfusion & Blood Products (7), Medication Safety & Admin (4), Skin & Wound Care (3)
 - Health Promotion and Maintenance: Adult Health & Wellness (49), Maternal-Newborn Care & Teaching (35), Pediatric & Adolescent Health (34), Chronic Disease Management & Lifestyle (28), Pediatric & Toddler Safety (20), Reproductive & Endocrine Health (20)
 - Psychosocial Integrity: Mental Health Disorders (66), Suicide & Crisis Intervention (34), Therapeutic Communication (31), Substance Use & Withdrawal (25), Electroconvulsive Therapy (ECT) (16), Caregiver Role Strain & Family Coping (12)
-- Basic Care and Comfort: Nutritional & Fluid Support (57), Elimination & Comfort (35), Mobility & Immobility (31), Palliative & Supportive Care (24), Sleep & Rest (23), Skin & Wound Care (15)
+- Basic Care and Comfort: Nutritional & Fluid Support (57), Elimination & Comfort (35), Mobility & Immobility (31), Palliative & Supportive Care (24), Sleep & Rest (22), Skin & Wound Care (16)
 - Pharmacological and Parenteral Therapies: Medication Safety & Admin (93), Dosage Calculations (59), Anticoagulant Therapy (47), Cardiovascular & Endocrine Medications (43), Parenteral Nutrition (24), Psychotropic Medications (24), Burn Management (16), IV Fluid Calculations (11), Transfusion & Blood Products (7), Laboratory & Diagnostic Tests (1)
-- Reduction of Risk Potential: Procedural Complications & Dialysis (64), Laboratory & Diagnostic Tests (50), Perioperative Care (43), Intrapartum Fetal Monitoring (18), ABG & Acid-Base Interpretation (17), Maternal-Newborn Care & Teaching (12), Burn Management (7), Oncology & Immunotherapy Complications (4), Skin & Wound Care (4)
+- Reduction of Risk Potential: Procedural Complications & Dialysis (64), Laboratory & Diagnostic Tests (51), Perioperative Care (43), Intrapartum Fetal Monitoring (18), ABG & Acid-Base Interpretation (17), Maternal-Newborn Care & Teaching (11), Burn Management (7), Oncology & Immunotherapy Complications (4), Skin & Wound Care (4)
 - Physiological Adaptation: Cardiovascular Disorders (95), Endocrine & Neurological Disorders (52), Renal & Gastrointestinal Disorders (50), Respiratory & Infectious Disorders (37), Electrolyte Imbalances (31), Sepsis & Septic Shock (21), Diabetic Ketoacidosis (DKA) (19), Oncology & Immunotherapy Complications (13), Burn Management (10), Maternal-Newborn Care & Teaching (8)
 
 ### Session-Unit Item-Type Inventory
@@ -288,9 +288,9 @@ Population basis: standalone top-level questions plus embedded case-study questi
 - Safety and Infection Prevention and Control: Patient & Environment Safety (83), Transmission-Based Precautions (66), Standard Precautions & Hygiene (41), Disaster & Emergency Preparedness (34), PPE & Sterile Technique (33), Transfusion & Blood Products (19), Skin & Wound Care (7), Medication Safety & Admin (6)
 - Health Promotion and Maintenance: Adult Health & Wellness (80), Chronic Disease Management & Lifestyle (51), Maternal-Newborn Care & Teaching (37), Pediatric & Adolescent Health (37), Pediatric & Toddler Safety (27), Reproductive & Endocrine Health (20)
 - Psychosocial Integrity: Mental Health Disorders (78), Suicide & Crisis Intervention (60), Therapeutic Communication (44), Caregiver Role Strain & Family Coping (33), Substance Use & Withdrawal (30), Electroconvulsive Therapy (ECT) (16)
-- Basic Care and Comfort: Nutritional & Fluid Support (66), Elimination & Comfort (44), Mobility & Immobility (44), Sleep & Rest (30), Palliative & Supportive Care (29), Skin & Wound Care (21)
+- Basic Care and Comfort: Nutritional & Fluid Support (66), Elimination & Comfort (44), Mobility & Immobility (44), Palliative & Supportive Care (29), Sleep & Rest (29), Skin & Wound Care (22)
 - Pharmacological and Parenteral Therapies: Medication Safety & Admin (119), Dosage Calculations (74), Anticoagulant Therapy (57), Cardiovascular & Endocrine Medications (55), Psychotropic Medications (36), Parenteral Nutrition (30), Burn Management (17), IV Fluid Calculations (12), Transfusion & Blood Products (8), Laboratory & Diagnostic Tests (2)
-- Reduction of Risk Potential: Laboratory & Diagnostic Tests (81), Procedural Complications & Dialysis (67), Perioperative Care (54), Intrapartum Fetal Monitoring (22), ABG & Acid-Base Interpretation (21), Maternal-Newborn Care & Teaching (15), Burn Management (8), Oncology & Immunotherapy Complications (7), Skin & Wound Care (4)
+- Reduction of Risk Potential: Laboratory & Diagnostic Tests (82), Procedural Complications & Dialysis (67), Perioperative Care (54), Intrapartum Fetal Monitoring (22), ABG & Acid-Base Interpretation (21), Maternal-Newborn Care & Teaching (14), Burn Management (8), Oncology & Immunotherapy Complications (7), Skin & Wound Care (4)
 - Physiological Adaptation: Cardiovascular Disorders (111), Endocrine & Neurological Disorders (67), Renal & Gastrointestinal Disorders (66), Electrolyte Imbalances (53), Respiratory & Infectious Disorders (44), Sepsis & Septic Shock (29), Oncology & Immunotherapy Complications (28), Diabetic Ketoacidosis (DKA) (22), Maternal-Newborn Care & Teaching (13), Burn Management (12)
 
 ### Scored-Leaf Item-Type Distribution
@@ -356,17 +356,17 @@ PRIORITIZE_TOPICS:
 - Pediatric & Toddler Safety
 - Palliative & Supportive Care
 - Sepsis & Septic Shock
+- Sleep & Rest
 - Transfusion & Blood Products
 - Conflict Resolution
-- Parenteral Nutrition
 
 AVOID_TOPICS:
 - Medication Safety & Admin (125)
 - Cardiovascular Disorders (111)
 - Prioritization & Delegation (106)
 - Legal & Ethical Principles (89)
+- Laboratory & Diagnostic Tests (84)
 - Patient & Environment Safety (83)
-- Laboratory & Diagnostic Tests (83)
 - Adult Health & Wellness (80)
 - Mental Health Disorders (78)
 
