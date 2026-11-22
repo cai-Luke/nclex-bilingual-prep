@@ -52,6 +52,14 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### R2 A-1 Priority Item Repairs: Publication Candidate (Nov 22)
+
+This entry was written in the commit prepared as a fast-forward of `main` from `be60ceb74eb84b693300c5e8112020d6938a2a88`, and it describes that publication candidate. Deployment is verified only after `main` moves; its result is recorded in the local publication receipt, not here.
+
+The candidate carries INT-R2-1 `b903c7875aa49c7918589cdea1d5b70bfe9238c8`: seven items from the November dogfooding review, corrected in place under their existing IDs with an independent checker for every content change. Two have a changed answer key (`gpt_gap_jun12_matrix_iv_phlebitis_01` and `trad_batchD_14`), and one has a changed accepted-answer set (`gpt_deepen_2026_06_22_b_moc2_07`). The other four correct an internally discordant lab option, a cueing rhythm-strip caption and strategy, a duplicated cloze phrase and a bowtie stem that narrated its keyed actions. No ID is added or retired. Per-item details, seats, checks and learner-history effects are in the [INT-R2-1 ledger entry](BANK-REVIEW-LEDGER.md#int-r2-1--a-1-priority-single-item-repairs-canonical-integration-2026-11-20). Current counts are in [BANK-CENSUS.md](BANK-CENSUS.md); only two topic tallies moved.
+
+Findings recorded during this review but not commissioned remain outside the candidate.
+
 ### INT-01–INT-03 Convention-Sieve Repairs: Publication Candidate (Nov 20)
 
 This entry was written in the commit prepared and verified as a fast-forward of `main` from `48d8d70ea73a6a16a2c69f2aeac98703a1588f8e`, and it describes that publication candidate. Deployment is verified only after `main` moves; its result is recorded in the local publication receipts, not here.
