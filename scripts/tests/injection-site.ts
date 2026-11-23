@@ -8,6 +8,7 @@ import {
 } from "../../src/visuals/kinds/injection_site";
 import {
   INJECTION_ROUTES,
+  LAYER_BANDS,
   ROUTE_TABLE,
   type InjectionRoute,
 } from "../../src/visuals/kinds/injection_site/routes";
@@ -133,6 +134,34 @@ for (const route of INJECTION_ROUTES.filter((candidate) => candidate !== "intrav
     `${route} bystander vessel must remain clear of the needle`,
   );
 }
+
+const subcutaneousBand = LAYER_BANDS.find(({ key }) => key === "subcutaneous")!;
+const { cx, cy, rx, ry } = BYSTANDER_VESSEL;
+const vesselStrokeRadius = 1;
+const vesselTop = cy - ry - vesselStrokeRadius;
+const vesselBottom = cy + ry + vesselStrokeRadius;
+// Round the measured desktop and mobile label bounds outward.
+const labelZoneBottom = 200;
+const minimumBandAndLabelClearance = 4;
+const minimumNeedleClearance = 80;
+const clearOfEveryNeedle = INJECTION_ROUTES.every((route) => {
+  const { entryX, entryY, tipX, tipY } = getInjectionNeedleGeometry(route);
+  const dx = tipX - entryX;
+  const dy = tipY - entryY;
+  const projection = ((cx - entryX) * dx + (cy - entryY) * dy) / (dx * dx + dy * dy);
+  const alongSegment = Math.max(0, Math.min(1, projection));
+  const centerDistance = Math.hypot(cx - entryX - alongSegment * dx, cy - entryY - alongSegment * dy);
+  // The vessel's enclosing circle gives a conservative clearance, including both strokes.
+  const needleStrokeRadius = 2;
+  return centerDistance - Math.max(rx, ry) - vesselStrokeRadius - needleStrokeRadius >= minimumNeedleClearance;
+});
+assert(
+  vesselTop - subcutaneousBand.y0 >= minimumBandAndLabelClearance &&
+    subcutaneousBand.y1 - vesselBottom >= minimumBandAndLabelClearance &&
+    vesselTop - labelZoneBottom >= minimumBandAndLabelClearance &&
+    clearOfEveryNeedle,
+  "bystander vessel must stay inside the subcutaneous band and clear the label and every needle",
+);
 
 const ivWithTarget: InjectionSiteSpec = {
   kind: "injection_site",

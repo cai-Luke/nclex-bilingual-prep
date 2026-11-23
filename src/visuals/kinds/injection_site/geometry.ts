@@ -18,7 +18,7 @@ export const IV_VESSEL_DEPTH_Y = 162;
 
 export const BYSTANDER_VESSEL: Ellipse = {
   cx: 205,
-  cy: 190,
+  cy: 218,
   rx: 22,
   ry: 10,
 } as const;
