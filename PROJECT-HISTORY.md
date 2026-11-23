@@ -52,6 +52,12 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### R2 Injection-Site Label Fix: Publication Candidate (Nov 23)
+
+This entry was written in the commit prepared as a fast-forward of `main` from `29909f2047a0720a326f59cfc89a30ce79afa411`, and it describes that publication candidate. Deployment is verified only after `main` moves; its result is recorded in the local publication receipt, not here.
+
+The candidate carries F-2 `c014f7cf3ce88cdacae87f99b1c979804a5f4eff`, a renderer-only fix from the November dogfooding review. In injection-site diagrams that show a nearby blood vessel that the needle does not enter, the vessel covered part of the "Subcutaneous tissue" label. The vessel now sits lower in the same tissue layer, clear of the label and still well away from the needle. Two promoted diagrams change, under a scoped visual-parity rebaseline with its receipt in `audit/`. No question text, answer key, ID or count changed.
+
 ### R2 Reference and Chinese-Meaning Repairs: Publication Candidate (Nov 23)
 
 This entry was written in the commit prepared as a fast-forward of `main` from `8112373324280b8d6cd0fa296e3459bb2feb0420`, and it describes that publication candidate. Deployment is verified only after `main` moves; its result is recorded in the local publication receipt, not here.
