@@ -2276,3 +2276,150 @@ was restored to its committed bytes and is not part of this commit.
 Exposure and benchmark: all seven pre-repair hashes are recorded privately under A-1 (architect R-8); the next benchmark excludes
 or refreshes all seven and treats `gpt_case_taco_vs_trali_01` as exposed. `PROJECT-HISTORY.md` publication is deferred to the
 PUB-R2-2 seat. Local commit only — not pushed, merged or deployed.
+
+## INT-R2-2 — B-2 C1/A1 positional-reference repairs and D-2 T01/T08 zh-only repairs, canonical integration (2026-11-22)
+
+Executes the frozen INT-R2-2 work order (`AgentCommons/shrimp-dogfooding-reconciliation-2026-11-20-r1/r2-orders/INT-R2-2-B2-D2-CANONICAL-INTEGRATION.md`,
+sha256 `784619595f1b5c7653ad9f41d58f86a6adceb7016af176a0dce5a11cc9fbdc4c`) on owner launch, under `REPAIR_DISPATCH_R2.md`
+(sha256 `2e5174503d45ba2580bcdb50c4cca5d914f45e4ce621f3946379269b1eef504d`) CT-1 to CT-12 and §5, the B-2 order (`3c890d4a419bbcf5c4aa8c218f78d8dff5dd91428dd2446e40e06866527505f2`) and the
+D-2 order (`f3ff0690c95f682da09e13c4bb12ece804446de6c1ebc8be4e98fe120b31c22b`). P2 spec conformance: architect seat (Claude Opus 5.5, claude.ai),
+`r2-orders/R2-ARCHITECT-B2-D2-P2-CONFORMANCE-2026-11-22.md` (sha256 `29ee6e587b486b526e1bf1918c5229177749ffb9b26c74851e0bc67e27a71b19`), terminals
+`B2_TRANCHE_C1_ELIGIBLE_24_HELD_1`, `B2_TRANCHE_A1_ELIGIBLE_9_HELD_0`, `D2_TRANCHE_1_ELIGIBLE_20_HELD_0`, `D2_TRANCHE_8_ELIGIBLE_13_HELD_2`; its §6 is the scope.
+Integrator: Claude Code / Claude Opus 5.5 (`claude-opus-5-5`), high effort, session `ae74ea66-5b44-4eff-aaf9-be19c42134c2`
+(fresh; not the architect and not any producer or checker session of these four tranches) — mechanical integration only. This seat
+discharges no content review: content rests on the tranche checkers (CT-5(c): delta-scoped) and conformance on the architect.
+Worktree `Project Shrimp R2-INT-R2-2 worktree`, branch `claude/r2-int-r2-2`, base `origin/main` = `8112373324280b8d6cd0fa296e3459bb2feb0420` (PUB-R2-2; equals the
+expected base, no drift). Evidence: `scratch/dogfood-r2-2026-11-20/INT-R2-2/` (unit table `UNITS.json` sha256
+`e542e59efca1b3466da20e6d4177aea1dd7fa621846ea64fdb37a8238047395e`, derived from the frozen manifests before any write).
+
+**Bound records** (`scratch/dogfood-r2-2026-11-20/`; native `shasum -a 256`, every freeze verified with `shasum -c`, all lines OK):
+`B-2/TRANCHES-B2.json` `2f9d7de4…b8e3`, `D-2/TRANCHES-ELIGIBLE.json` `308f66cf…f73f`;
+producer freezes C1 `1a7e31c2…09be`, A1 `HANDOFF.sha256` `815a95b7…90b2`, T01 `d3dd9069…c0be`, T08 `c2068a38…8ef2`;
+checker records C1 `rulings.json` `d0ff1b76…ae12`, A1 `CHECK.json` `94da5448…855e`, T01 `DISPOSITIONS.json` `49461609…a6d6`,
+T08 `dispositions.json` `1f07d55a…6544`. Each patch commit has the single parent `be60ceb` and adds only its tranche's patch files (25, 9, 20, 8).
+
+**Integrated units** — 59 same-ID, same-position, text-only repairs; no ID added or retired; applied serially in §0 order (C1, A1, T01, T08;
+producer-manifest order within each); no unit skipped. A D-2 unit is one parent with all of its leaves.
+
+*B-2 C1 (P4 positional-reference rewrites, B-2R; Claude route).* Patch commit `22353cd0efecfe138d791e447ff6605bfca76c2a`; producer Claude Opus 5.5 `443a3252-a080-4f07-a7da-08e28503c5d9`; checker Codex `gpt-6.2-astra` high `01a20663-6697-7702-a1f6-7c4fadfabdad`; terminals `B2_C1_PRODUCER_HANDOFF` / `B2_C1_CHECK_COMPLETE_ACCEPT_24_HOLD_1`.
+
+| # | ID (bank) | Finding class | Producer / checker | Ops | Parity | Disposition |
+|---:|---|---|---|---:|---|---|
+| 1 | `ekg_b2_sata_06` (`visual-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT |
+| 2 | `gemini_backfill_bt_medsafe_05` (`gemini-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT_WITH_NOTES |
+| 3 | `gemini_d2_digoxin_03` (`gemini-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT_WITH_NOTES |
+| 4 | `gemini_d2_doac_03` (`gemini-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT_WITH_NOTES |
+| 5 | `gemini_d2_insulin_04` (`gemini-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT_WITH_NOTES |
+| 6 | `gemini_jun05_a_mc_lithium_toxicity_36` (`gemini-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 1 | single-locale, 1 expected warning | ACCEPT_WITH_NOTES |
+| 7 | `trad_ppt_04` (`gemini-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 1 | single-locale, 1 expected warning | ACCEPT_WITH_NOTES |
+| 8 | `gemini_backfill_dc_wellness_07` (`gemini-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT_WITH_NOTES |
+| 9 | `gemini_jun05_a_cloze_anaphylaxis_17` (`gemini-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT |
+| 10 | `gemini_jun05_a_cloze_breastfeeding_08` (`gemini-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT |
+| 11 | `gemini_jun05_a_cloze_croup_55` (`gemini-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT |
+| 12 | `gemini_jun05_a_cloze_depression_23` (`gemini-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT |
+| 13 | `gemini_jun05_a_cloze_glaucoma_48` (`gemini-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT |
+| 14 | `gemini_jun05_a_cloze_siadh_di_38` (`gemini-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT |
+| 15 | `ekg_b2_mc_07` (`visual-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT_WITH_NOTES |
+| 16 | `ekg_b3_mc_04` (`visual-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT |
+| 17 | `ekg_b4_sata_07` (`visual-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT |
+| 18 | `gemini_b1_02` (`gemini-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT |
+| 19 | `gemini_b1_04` (`gemini-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT |
+| 20 | `gemini_backfill_bt_legal_11` (`gemini-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT |
+| 21 | `gemini_backfill_bt_wellness_09` (`gemini-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT |
+| 22 | `gemini_backfill_mx_medsafe_06` (`gemini-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT |
+| 23 | `gemini_c10_02` (`gemini-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT_WITH_NOTES |
+| 24 | `gemini_c3_07` (`gemini-canonical`) | B-2R reference rewrite | Opus `443a3252…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT_WITH_NOTES |
+
+*B-2 A1 (P4 positional-reference rewrites, B-2R; Astra route).* Patch commit `1b0ba22dd60a816722d9e299469ee187826eeee5`; producer Codex `gpt-6.2-astra` high `01a1ff71-89d1-70b2-b061-4b2a0bee5d9c`; checker Claude Opus 5.5 `af709efc-a3b4-4296-a01f-c137d5f09d4b`; terminals `B2_A1_PRODUCER_HANDOFF` / `B2_A1_CHECK_COMPLETE_ACCEPT_9_HOLD_0`.
+
+| # | ID (bank) | Finding class | Producer / checker | Ops | Parity | Disposition |
+|---:|---|---|---|---:|---|---|
+| 1 | `gpt_u3_labtrend_2026_06_09_b_cloze_inr_amiodarone_09` (`lab-canonical`) | B-2R reference rewrite | Astra `01a1ff71…` / Opus `af709efc…` | 4 | strict, none | ACCEPT |
+| 2 | `gpt_format11c_water_deprivation_desmopressin_interpretation` (`gpt-canonical`) | B-2R reference rewrite | Astra `01a1ff71…` / Opus `af709efc…` | 6 | strict, none | ACCEPT |
+| 3 | `gpt_format9c_delayed_hemolytic_reaction` (`gpt-canonical`) | B-2R reference rewrite | Astra `01a1ff71…` / Opus `af709efc…` | 6 | strict, none | ACCEPT |
+| 4 | `gpt_format9c_noisy_respiratory_secretions` (`gpt-canonical`) | B-2R reference rewrite | Astra `01a1ff71…` / Opus `af709efc…` | 6 | strict, none | ACCEPT |
+| 5 | `gpt_u3_labtrend_2026_06_09_b_cloze_sodium_overcorrection_08` (`lab-canonical`) | B-2R reference rewrite | Astra `01a1ff71…` / Opus `af709efc…` | 4 | strict, none | ACCEPT_WITH_NOTES |
+| 6 | `gpt_u3_labtrend_2026_06_09_cloze_calcium_thyroidectomy_09` (`lab-canonical`) | B-2R reference rewrite | Astra `01a1ff71…` / Opus `af709efc…` | 4 | strict, none | ACCEPT |
+| 7 | `gpt_u3_labtrend_2026_06_09_cloze_magnesium_decline_08` (`lab-canonical`) | B-2R reference rewrite | Astra `01a1ff71…` / Opus `af709efc…` | 4 | strict, none | ACCEPT |
+| 8 | `gemini_hpm_ngn_2026_06_22_q3` (`gemini-canonical`) | B-2R reference rewrite | Astra `01a1ff71…` / Opus `af709efc…` | 2 | strict, none | ACCEPT |
+| 9 | `gpt_2026_07_03_2114_t1_03_urine_output_fib` (`gpt-canonical`) | B-2R reference rewrite | Astra `01a1ff71…` / Opus `af709efc…` | 2 | strict, none | ACCEPT |
+
+*D-2 T01 (zh-only meaning repairs; Astra route).* Patch commit `2dfa4a2eb809121a030b3faa844130691864ca12`; producer Codex `gpt-6.2-astra` high `01a1ff72-7f23-7152-be48-96e19127ea07`; checker Claude Opus 5.5 `069d695f-fc44-446f-8733-78f2c353fdc6`; terminals `D2_T01_PRODUCER_HANDOFF` / `D2_T01_CHECKER_COMPLETE_ACCEPT_20_HELD_0`.
+
+| # | ID (bank) | Finding class | Producer / checker | Ops | Parity | Disposition |
+|---:|---|---|---|---:|---|---|
+| 1 | `cap_gpt_2026_07_02_t01_001` (`gpt-canonical`) | D-2 zh delta | Astra `01a1ff72…` / Opus `069d695f…` | 9 | zh-only, 9 expected warnings | ACCEPT_WITH_NOTES |
+| 2 | `cap_gpt_2026_07_02_t01_002` (`gpt-canonical`) | D-2 zh delta | Astra `01a1ff72…` / Opus `069d695f…` | 9 | zh-only, 9 expected warnings | ACCEPT_WITH_NOTES |
+| 3 | `cap_gpt_2026_07_02_t01_003` (`gpt-canonical`) | D-2 zh delta | Astra `01a1ff72…` / Opus `069d695f…` | 9 | zh-only, 9 expected warnings | ACCEPT |
+| 4 | `cap_gpt_2026_07_02_t01_004` (`gpt-canonical`) | D-2 zh delta | Astra `01a1ff72…` / Opus `069d695f…` | 12 | zh-only, 12 expected warnings | ACCEPT_WITH_NOTES |
+| 5 | `cap_gpt_2026_07_02_t01_005` (`gpt-canonical`) | D-2 zh delta | Astra `01a1ff72…` / Opus `069d695f…` | 10 | zh-only, 10 expected warnings | ACCEPT_WITH_NOTES |
+| 6 | `cap_gpt_2026_07_02_t01_006` (`gpt-canonical`) | D-2 zh delta | Astra `01a1ff72…` / Opus `069d695f…` | 13 | zh-only, 13 expected warnings | ACCEPT |
+| 7 | `cap_gpt_2026_07_02_t02_001` (`gpt-canonical`) | D-2 zh delta | Astra `01a1ff72…` / Opus `069d695f…` | 11 | zh-only, 11 expected warnings | ACCEPT |
+| 8 | `cap_gpt_2026_07_02_t02_002` (`gpt-canonical`) | D-2 zh delta | Astra `01a1ff72…` / Opus `069d695f…` | 10 | zh-only, 10 expected warnings | ACCEPT_WITH_NOTES |
+| 9 | `cap_gpt_2026_07_02_t02_003` (`gpt-canonical`) | D-2 zh delta | Astra `01a1ff72…` / Opus `069d695f…` | 11 | zh-only, 11 expected warnings | ACCEPT |
+| 10 | `cap_gpt_2026_07_02_t02_004` (`gpt-canonical`) | D-2 zh delta | Astra `01a1ff72…` / Opus `069d695f…` | 9 | zh-only, 9 expected warnings | ACCEPT |
+| 11 | `cap_gpt_2026_07_02_t02_005` (`gpt-canonical`) | D-2 zh delta | Astra `01a1ff72…` / Opus `069d695f…` | 14 | zh-only, 14 expected warnings | ACCEPT |
+| 12 | `cap_gpt_2026_07_02_t02_006` (`gpt-canonical`) | D-2 zh delta | Astra `01a1ff72…` / Opus `069d695f…` | 11 | zh-only, 11 expected warnings | ACCEPT |
+| 13 | `cap_gpt_2026_07_02_t03_001` (`gpt-canonical`) | D-2 zh delta | Astra `01a1ff72…` / Opus `069d695f…` | 11 | zh-only, 11 expected warnings | ACCEPT |
+| 14 | `cap_gpt_2026_07_02_t03_002` (`gpt-canonical`) | D-2 zh delta | Astra `01a1ff72…` / Opus `069d695f…` | 12 | zh-only, 12 expected warnings | ACCEPT |
+| 15 | `cap_gpt_2026_07_02_t03_003` (`gpt-canonical`) | D-2 zh delta | Astra `01a1ff72…` / Opus `069d695f…` | 10 | zh-only, 10 expected warnings | ACCEPT |
+| 16 | `cap_gpt_2026_07_02_t03_004` (`gpt-canonical`) | D-2 zh delta | Astra `01a1ff72…` / Opus `069d695f…` | 10 | zh-only, 10 expected warnings | ACCEPT_WITH_NOTES |
+| 17 | `cap_gpt_2026_07_02_t03_005` (`gpt-canonical`) | D-2 zh delta | Astra `01a1ff72…` / Opus `069d695f…` | 13 | zh-only, 13 expected warnings | ACCEPT |
+| 18 | `cap_gpt_2026_07_02_t03_006` (`gpt-canonical`) | D-2 zh delta | Astra `01a1ff72…` / Opus `069d695f…` | 15 | zh-only, 15 expected warnings | ACCEPT |
+| 19 | `vit_gpt_2026_07_02_t01_001` (`gpt-canonical`) | D-2 zh delta | Astra `01a1ff72…` / Opus `069d695f…` | 10 | zh-only, 10 expected warnings | ACCEPT_WITH_NOTES |
+| 20 | `vit_gpt_2026_07_02_t01_002` (`gpt-canonical`) | D-2 zh delta | Astra `01a1ff72…` / Opus `069d695f…` | 9 | zh-only, 9 expected warnings | ACCEPT |
+
+*D-2 T08 (zh-only meaning repairs; Claude route).* Patch commit `d0b4bf57d1cd89e695b4ff57da92eb96d271e978`; producer Claude Opus 5.5 `529cc092-66d8-4bfe-9289-321edbebb12b`; checker Codex `gpt-6.2-astra` high `01a20663-8fe0-7bc2-8f75-526e36a57593`; terminals `D2_T08_PRODUCER_HANDOFF` / `D2_T08_CHECKER_COMPLETE_ACCEPT_13_HELD_2`.
+
+| # | ID (bank) | Finding class | Producer / checker | Ops | Parity | Disposition |
+|---:|---|---|---|---:|---|---|
+| 1 | `gemini_p7_10` (`gemini-canonical`) | D-2 zh delta | Opus `529cc092…` / Astra `01a20663-8fe0…` | 4 | zh-only, 4 expected warnings | ACCEPT_WITH_NOTES |
+| 2 | `cap_08` (`capnography-canonical`) | D-2 zh delta | Opus `529cc092…` / Astra `01a20663-8fe0…` | 1 | zh-only, 1 expected warning | ACCEPT_WITH_NOTES |
+| 3 | `cs_sepsis_shock_01` (`hard-cases-canonical`) | D-2 zh delta | Opus `529cc092…` / Astra `01a20663-8fe0…` | 1 | zh-only, 1 expected warning | ACCEPT_WITH_NOTES |
+| 4 | `dev_pca_max_dose_basal_01` (`device-canonical`) | D-2 zh delta | Opus `529cc092…` / Astra `01a20663-8fe0…` | 1 | zh-only, 1 expected warning | ACCEPT |
+| 5 | `ekg_b1_mc_05` (`visual-canonical`) | D-2 zh delta | Opus `529cc092…` / Astra `01a20663-8fe0…` | 1 | zh-only, 1 expected warning | ACCEPT |
+| 6 | `ekg_b1_sata_07` (`visual-canonical`) | D-2 zh delta | Opus `529cc092…` / Astra `01a20663-8fe0…` | 1 | zh-only, 1 expected warning | ACCEPT_WITH_NOTES |
+
+**Not integrated.** Held (patch files not materialized): `gemini_b1_06` (C1 HOLD), `claude_cs_jun06_adult_immunization_hpm_01` and
+`dev_pca_lockout_max_demands_01` (T08 HOLD); they return under the conformance record's §3 launch amendment and ride a later integration if
+accepted. NO_CHANGE_CONFIRMED (T08, no patch, nothing to integrate): `gemini_d5_09`, `gemini_d8_08`, `cap_01`, `cap_02`, `cap_03`, `cap_05`,
+`claude_cs_jun06_pressure_injury_bcc_01`. Architect new findings NF-D1-1 to NF-D1-4, NF-B1-1 to NF-B1-4 and NF-D8-1 to NF-D8-5 stand as recorded;
+none was commissioned or acted on here.
+
+**Patch application** (P15 declarative exact-before `setValue`; each file written from its bound commit with `git show`, sha256 equal to the
+producer record, not edited; `--allow-canonical`, plus `--strict-parity` for every bilingual B-2 unit). Every run exited 0 and every planned op
+applied as FIX (311 ops: C1 46, A1 38, T01 218, T08 9). Parity warnings equalled the expected set exactly: none for the 31 strict units; the one
+recorded single-locale warning each for `gemini_jun05_a_mc_lithium_toxicity_36` (zh edited, en untouched) and `trad_ppt_04` (en edited, zh
+untouched), as in C1 `patch-runs.log`; and one "zh edited, en untouched" warning per changed zh field for every D-2 unit (227), equal to each
+producer's per-unit `patch-run.log`. Before each unit the target record hashed to its frozen baseline (D-2: parent hash), and after it to its
+producer candidate under both conventions (`json2`, `stableJson0`), which also equals the checker-recorded candidate; every other record, record
+order, the envelope and `meta` deep-equalled the pre-unit state.
+
+**Bank SHA-256** (before → after; no other bank changed):
+- `capnography-canonical.json` (1 unit): `36d72a89405fe4400f27b3b8969cdbe1c51f3217151f8b2592b7f877d636f20c` → `e4f941635d24b3ce64160b9c366458ed9538f699560471016477c26b5f611e9d`.
+- `device-canonical.json` (1 unit): `83d5a6ac7219524f4c528265291cbee2ed5b2f17c13fbeb3649342bae2e4aac5` → `4d358c50a18bca822a2c1385a503c0b34016706d0dbb64f66b2ca9187045f9ec`.
+- `gemini-canonical.json` (22 units): `ce54d216cb0b695929b1ba2d9c944f27d709c350a1116f4ffcee5158c4ac1663` → `3c4b41f9d11a8f58ce588908307bca85e3bc10e5ca6a480d72086d17b365c8ce`.
+- `gpt-canonical.json` (24 units): `03d8ef12857c8d55d9bd7c48fbe9ae1aa5ab52985c2f2a80f48cd4d21f5987cd` → `1f09ecb546f8e07f1e3a0bc90eb375ac52c189994266a371d2ef3c0a1da5e029`.
+- `hard-cases-canonical.json` (1 unit): `c660e41367de8b7de73ccc4ab565b3f3ea94ce01f63fb0e66edc8814074750ba` → `7ec420d9a75a8e650bff064e89a39340a6aed5e917ae4cb3654a7b9511bc1ac6`.
+- `lab-canonical.json` (4 units): `1038cb68f6b91f6a2c981562d97ad9e16179db9b1332c75725fd538595c44b05` → `ddbe9d05b515bd28ef6b36cb30829a4640f74bc4c96d0cc721355cb337efb9e2`.
+- `visual-canonical.json` (6 units): `b2acc8ff2b59c3d45e6f3a41d98e38e7ebcd4b8b620010633dcb36bcae585c36` → `32a4704447fdca6bc27e561751b7faefb0f2c73d6ea08542fa6c567ed89891c4`.
+
+**Verification** (exit codes; baseline at `8112373` before any patch → integrated): `validate-bank -- banks/*.json` 0 → 0;
+`audit` 0 → 0 (advisory text-hygiene 949 → 944; TH11 zh-untranslated 9 → 4; no new class); `audit:references` 0 → 0 (legacy);
+`test-visuals` 0 → 0 (visual-, capnography- and device-canonical changed text only); `test:grading` 0 → 0; `test:audit-references` 0 → 0;
+`test:schema-bank` 0 → 0; `tsc -b --pretty false` 0 → 0; `build` 0 → 0; `audit:references:widened` 1 → 1 (pre-existing, identical
+failure class): 453 occurrences in 92 items → 256 in 59. Scripted against the frozen `TRANCHES-B2.json` records: all
+197 frozen occurrences of the 33 landed B-2 units are gone and the removal is exactly those 197; 0 new anywhere (D-2 units: 0 before, 0 after);
+every other occurrence (including the 250 frozen records of unlanded B-2 items) identical by bank, item, field, locale, offsets, token,
+rules and classification.
+
+**Census.** `census:check` 0 on the integrated tree without regeneration (text-only deltas; no census movement). Not committed.
+
+**Provenance.** `npm run provenance:banks` 0; only `generatedAt` and `inputGitSha` changed (no ID added or retired), so the file was restored
+to its committed bytes and is not part of this commit.
+
+**Learner history.** Every unit is a text-only change. No key changed, no ID moved, and no history is affected. (Mechanical proof: across the
+59 target items, 311 leaves changed, one per op, every one an `.en`/`.zh` string — `.zh` only for D-2 — with the leaf structure unchanged.)
+
+Exposure and benchmark: pre-repair hashes of all 59 units are recorded in `UNITS.json` (both conventions). `PROJECT-HISTORY.md` publication is
+deferred to the PUB-R2-3 seat. Local commit only — not pushed, merged or deployed.
