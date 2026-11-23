@@ -2423,3 +2423,75 @@ to its committed bytes and is not part of this commit.
 
 Exposure and benchmark: pre-repair hashes of all 59 units are recorded in `UNITS.json` (both conventions). `PROJECT-HISTORY.md` publication is
 deferred to the PUB-R2-3 seat. Local commit only — not pushed, merged or deployed.
+
+## INT-R2-3 — B-2 C1 and D-2 T08 return-1 repairs, canonical integration (2026-11-22)
+
+Executes the frozen INT-R2-3 work order (`AgentCommons/shrimp-dogfooding-reconciliation-2026-11-20-r1/r2-orders/INT-R2-3-RETURNS-CANONICAL-INTEGRATION.md`,
+sha256 `494478da723a088600334a2f23ab9139e7f80152dcb95a445a9193dae83e00b8`) on owner launch, under `REPAIR_DISPATCH_R2.md`
+(sha256 `2e5174503d45ba2580bcdb50c4cca5d914f45e4ce621f3946379269b1eef504d`) CT-1 to CT-12 and §5, and the INT-R2-2 order's procedure (`784619595f1b5c7653ad9f41d58f86a6adceb7016af176a0dce5a11cc9fbdc4c`).
+P2 conformance of the returns and acceptance of INT-R2-2: architect seat (Claude Opus 5.5, claude.ai),
+`r2-orders/R2-ARCHITECT-INT-R2-2-ACCEPTANCE-AND-RETURNS-2026-11-22.md` (sha256 `f8c8898ac2e6352dc633a51c46340207c27206294d0ded8b3d68f7a7e08641c6`), dispositions
+`INT_R2_2_ACCEPTED`, `B2_TRANCHE_C1_RETURN_1_ELIGIBLE_1_HELD_0` and `D2_TRANCHE_8_RETURN_1_ELIGIBLE_2_HELD_0`.
+Integrator: Claude Code / Claude Opus 5.5 (`claude-opus-5-5`), high effort, session `2caec125-f72c-4adf-a08b-9f4b5bae4d61`
+(fresh; not the architect, not any producer or checker of these returns or their round 1, and not the INT-R2-2 integrator) — mechanical
+integration only. This seat discharges no content review: content rests on the return checkers (CT-5(c): delta-scoped) and conformance on
+the architect.
+Worktree `Project Shrimp R2-INT-R2-3 worktree`, branch `claude/r2-int-r2-3`, base the INT-R2-2 commit `95e99dcfc5a4034541b2ef25f859537cbcc6f9d9` (Option B: INT-R2-2 is
+accepted but not yet published; `origin/main` = `8112373`, as expected). Evidence: `scratch/dogfood-r2-2026-11-20/INT-R2-3/` (unit table `UNITS.json`
+sha256 `2c266cbc5b160b0b9fd5b6c96a764aa500dc8c0c634809a65492d8b60cd72c7b`, derived from the frozen records before any write).
+
+**Bound records** (`scratch/dogfood-r2-2026-11-20/`; native `shasum -a 256`, every freeze verified with `shasum -c`, all lines OK):
+`B-2/TRANCHES-B2.json` `2f9d7de4…b8e3`, `D-2/TRANCHES-ELIGIBLE.json` `308f66cf…f73f`;
+return freezes C1 `5804bcb4…15e6`, T08 `067a9725…e1ff`;
+return-checker records C1 `disposition.json` `f1ec8c65…7eeb` (freeze `1aab8c01…950a`),
+T08 `dispositions.json` `ec160b96…49f4` (freeze `5648a38d…f228`).
+Return commits: `1c912da` (single parent `22353cd`) modifies only the `gemini_b1_06` patch; `3ebf7889` (single parent `d0b4bf5`) modifies only the
+two T08 patches. The superseded round-1 blobs of these three files (at `22353cd` and `d0b4bf5`) were never applied.
+
+**Integrated units** — 3 same-ID, same-position, text-only repairs; no ID added or retired; applied serially in §0 order; no unit skipped.
+A D-2 unit is one parent with all of its leaves.
+
+| # | ID (bank) | Tranche / round-1 hold | Finding class | Return producer / return checker | Ops | Parity | Disposition |
+|---:|---|---|---|---|---:|---|---|
+| 1 | `gemini_b1_06` (`gemini-canonical`) | B-2 C1 return 1 / C1 checker HOLD (B2_C1_CHECK_COMPLETE_ACCEPT_24_HOLD_1) | B-2R reference rewrite | Opus `84553744…` / Astra `01a20663-6697…` | 2 | strict, none | ACCEPT_WITH_NOTES |
+| 2 | `claude_cs_jun06_adult_immunization_hpm_01` (`hard-cases-canonical`) | D-2 T08 return 1 / T08 checker HOLD (D2_T08_CHECKER_COMPLETE_ACCEPT_13_HELD_2) | D-2 zh delta | Opus `f5e357c0…` / Astra `01a20663-8fe0…` | 3 | zh-only, 3 expected warnings | ACCEPT |
+| 3 | `dev_pca_lockout_max_demands_01` (`device-canonical`) | D-2 T08 return 1 / T08 checker HOLD (D2_T08_CHECKER_COMPLETE_ACCEPT_13_HELD_2) | D-2 zh delta | Opus `f5e357c0…` / Astra `01a20663-8fe0…` | 1 | zh-only, 1 expected warning | ACCEPT |
+
+Return producers: Claude Opus 5.5 fresh sessions (fallback authorized), C1 `84553744-b86a-4cf8-bf15-513b9fcd8a10`, T08 `f5e357c0-fe89-45c5-bbf8-894d395753df`.
+Return checkers: the round-1 Codex `gpt-6.2-astra` high checkers, resumed, C1 `01a20663-6697-7702-a1f6-7c4fadfabdad`, T08 `01a20663-8fe0-7bc2-8f75-526e36a57593`;
+terminals `B2_C1_RECHECKED` and `D2_T08_RECHECKED`. Option B zh of `gemini_b1_06` (NF-B1-2) and options D of the two T08 parents (NF-D8-3)
+were outside the return surfaces and are unchanged; those findings stand as recorded and were not acted on here.
+
+**Patch application** (P15 declarative exact-before `setValue`; each file written from its bound return commit with `git show`, sha256 equal
+to the producer record, not edited; `--allow-canonical`, plus `--strict-parity` for `gemini_b1_06`). Every run exited 0 and every planned op
+applied as FIX (6 ops: `gemini_b1_06` 2, `claude_cs_jun06_adult_immunization_hpm_01` 3, `dev_pca_lockout_max_demands_01` 1). Parity warnings equalled the expected set exactly:
+none for the strict unit, and one "zh edited, en untouched" warning per changed zh field for each D-2 unit (3 and 1), equal to each return
+producer's per-unit `patch-run.log` (unit 09's set includes the round-1 exhibit op carried byte-unchanged). Before each unit the target record
+hashed to its frozen baseline (D-2: parent hash), and after it to its return candidate under both conventions (`json2`, `stableJson0`),
+which also equals the return checker's recorded candidate; every other record, record order, the envelope and `meta` deep-equalled the
+pre-unit state.
+
+**Bank SHA-256** (before → after; no other bank changed; each "before" equals the INT-R2-2 "after" for that bank):
+- `device-canonical.json` (1 unit): `4d358c50a18bca822a2c1385a503c0b34016706d0dbb64f66b2ca9187045f9ec` → `b9a8ab194fe1f06ee32f88a4367ffe365a6ecdd33ef534756d164b5f5db08b8b`.
+- `gemini-canonical.json` (1 unit): `3c4b41f9d11a8f58ce588908307bca85e3bc10e5ca6a480d72086d17b365c8ce` → `24fb3ec25353efad35a09b406c6e4b33cc5dd782e77d096d6823f31eebff63b1`.
+- `hard-cases-canonical.json` (1 unit): `7ec420d9a75a8e650bff064e89a39340a6aed5e917ae4cb3654a7b9511bc1ac6` → `defe094335f891f6b89e0ae3d5829259ed7a5360ff79decfcd804434ddab9c17`.
+
+**Verification** (exit codes; baseline at `95e99dc` before any patch → integrated): `validate-bank -- banks/*.json` 0 → 0;
+`audit` 0 → 0 (advisory output byte-identical); `audit:references` 0 → 0 (legacy); `test-visuals` 0 → 0 (device-canonical changed
+text only); `test:grading` 0 → 0; `test:audit-references` 0 → 0; `test:schema-bank` 0 → 0; `tsc -b --pretty false` 0 → 0; `build` 0 → 0;
+`audit:references:widened` 1 → 1 (pre-existing, identical failure class): 256 occurrences in 59 items → 250 in
+58. Scripted against the frozen `TRANCHES-B2.json` records: exactly the 6 frozen occurrences of `gemini_b1_06` are gone and the
+removal is exactly those 6; 0 new anywhere (D-2 units: 0 before, 0 after); every other occurrence identical by bank,
+item, field, locale, offsets, token, rules and classification, including the 244 frozen records of still-unlanded B-2 items (the
+197 frozen records of the 33 INT-R2-2-landed items are absent at the base and after).
+
+**Census.** `census:check` 0 on the integrated tree without regeneration (text-only deltas; no census movement). Not committed.
+
+**Provenance.** `npm run provenance:banks` 0; only `generatedAt` and `inputGitSha` changed (no ID added or retired), so the file was restored
+to its committed bytes and is not part of this commit.
+
+**Learner history.** Text-only. No key changed, no ID moved, and no history is affected. (Mechanical proof: across the
+3 target items, 6 leaves changed, one per op, every one an `.en`/`.zh` string — `.zh` only for D-2 — with the leaf structure unchanged.)
+
+Exposure and benchmark: pre-repair hashes of all 3 units are recorded in `UNITS.json` (both conventions). `PROJECT-HISTORY.md` publication is
+deferred to the PUB-R2-3 seat, which publishes `95e99dc` and this commit together. Local commit only — not pushed, merged or deployed.
