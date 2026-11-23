@@ -52,6 +52,14 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### R2 Reference and Chinese-Meaning Repairs: Publication Candidate (Nov 23)
+
+This entry was written in the commit prepared as a fast-forward of `main` from `8112373324280b8d6cd0fa296e3459bb2feb0420`, and it describes that publication candidate. Deployment is verified only after `main` moves; its result is recorded in the local publication receipt, not here.
+
+The candidate carries INT-R2-2 `95e99dcfc5a4034541b2ef25f859537cbcc6f9d9` and INT-R2-3 `d040dfca553886d4c8f535e5995d77965f5791e5`: 62 units from the November dogfooding review, corrected in place under their existing IDs with an independent checker for every change. Thirty-four items no longer refer to answer options by letter, ordinal or internal ID in their explanations and strategies; several of those references had pointed at the wrong option on screen. Twenty-eight items or case studies gain Chinese wording where English had been left untranslated. No answer key changed, and no ID is added or retired. Per-item details, seats and checks are in the [INT-R2-2](BANK-REVIEW-LEDGER.md#int-r2-2--b-2-c1a1-positional-reference-repairs-and-d-2-t01t08-zh-only-repairs-canonical-integration-2026-11-22) and [INT-R2-3](BANK-REVIEW-LEDGER.md#int-r2-3--b-2-c1-and-d-2-t08-return-1-repairs-canonical-integration-2026-11-22) ledger entries. Counts in [BANK-CENSUS.md](BANK-CENSUS.md) are unchanged.
+
+Findings recorded during this review but not commissioned remain outside the candidate, as do the review's remaining reference and translation tranches.
+
 ### R2 A-1 Priority Item Repairs: Publication Candidate (Nov 22)
 
 This entry was written in the commit prepared as a fast-forward of `main` from `be60ceb74eb84b693300c5e8112020d6938a2a88`, and it describes that publication candidate. Deployment is verified only after `main` moves; its result is recorded in the local publication receipt, not here.
