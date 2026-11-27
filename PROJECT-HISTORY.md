@@ -52,6 +52,12 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### R2 Case Client Record on Phones: Publication Candidate (Nov 27)
+
+This entry was written in the commit prepared as a fast-forward of `main` from `e03a631dcea00e3da7bf2e7a72bdbe8823ed6a69`, and it describes that publication candidate. Deployment is verified only after `main` moves; its result is recorded in the local publication receipt, not here.
+
+The candidate carries F-3 `1bf7a07e935763ca3f786bad4c813961db70b32e`, a one-line stylesheet fix. On screens 820 px wide or narrower, a case study's Client record could run underneath the active question card, so long exhibits could not be read on a phone. The record now takes its full height above the question, as the stacked phone layout was designed to do. Desktop and tablet-landscape layouts are unchanged. No question content, answer key or ID changed. The change was produced by a Gemini seat as a one-off owner exception and verified independently by the architect; it does not change Gemini's standing routing.
+
 ### R2 Holiday Wave 1 Chinese-Meaning and Reference Repairs: Publication Candidate (Nov 27)
 
 This entry was written in the commit prepared as a fast-forward of `main` from `0488897437e807845fc0a297b6704fb88968b8ca`, and it describes that publication candidate. Deployment is verified only after `main` moves; its result is recorded in the local publication receipt, not here.
