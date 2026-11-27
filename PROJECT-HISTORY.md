@@ -52,6 +52,14 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### R2 Holiday Wave 1 Chinese-Meaning and Reference Repairs: Publication Candidate (Nov 27)
+
+This entry was written in the commit prepared as a fast-forward of `main` from `0488897437e807845fc0a297b6704fb88968b8ca`, and it describes that publication candidate. Deployment is verified only after `main` moves; its result is recorded in the local publication receipt, not here.
+
+The candidate carries INT-R2-4 `04aad0c5c4a7bb5a207303a91c6d54e7b2e402b3`: 68 units from the November dogfooding review, corrected in place under their existing IDs with an independent checker for every change. Forty-five items or case studies gain Chinese wording where English had been left untranslated. One sepsis case study's triage exhibit now says in Chinese that the patient is oriented to person only, where it had said the patient responds only to people. Twenty-two items no longer refer to answer options by letter, ordinal or internal ID in their explanations. No answer key changed, and no ID is added or retired. Per-item details, seats and checks are in the [INT-R2-4](BANK-REVIEW-LEDGER.md#int-r2-4--r2-holiday-wave-1-d-2-zh-only-repairs-t02t07-t14t16-t08f1-and-b-2-c2-positional-reference-repairs-canonical-integration-2026-11-27) ledger entry. Counts in [BANK-CENSUS.md](BANK-CENSUS.md) are unchanged.
+
+Ten units held at review in this wave are not in the candidate and are being reworked. Findings recorded during this review but not commissioned remain outside the candidate, as do the review's remaining reference and translation tranches.
+
 ### R2 Injection-Site Label Fix: Publication Candidate (Nov 23)
 
 This entry was written in the commit prepared as a fast-forward of `main` from `29909f2047a0720a326f59cfc89a30ce79afa411`, and it describes that publication candidate. Deployment is verified only after `main` moves; its result is recorded in the local publication receipt, not here.
